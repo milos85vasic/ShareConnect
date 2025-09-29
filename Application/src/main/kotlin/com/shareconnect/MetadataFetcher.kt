@@ -146,9 +146,9 @@ class MetadataFetcher {
             val filename = url.substringAfterLast("/").substringBeforeLast(".")
             UrlMetadata(
                 title = filename,
-                description = "Torrent file",
+                description = getString(R.string.torrent_file),
                 thumbnailUrl = null,
-                siteName = "BitTorrent"
+                siteName = getString(R.string.bittorrent)
             )
         }
     }
@@ -181,7 +181,7 @@ class MetadataFetcher {
             val contentType = inferContentTypeFromName(displayName)
 
             return UrlMetadata(
-                title = displayName ?: "Magnet Link",
+                title = displayName ?: getString(R.string.magnet_link),
                 description = description,
                 thumbnailUrl = null, // Could potentially be enhanced with tracker API calls
                 siteName = contentType

@@ -56,7 +56,7 @@ class WebUIActivity : AppCompatActivity() {
         urlToShare = intent.getStringExtra(EXTRA_URL_TO_SHARE)
 
         if (profile == null) {
-            Toast.makeText(this, "Invalid profile", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.invalid_profile), Toast.LENGTH_SHORT).show()
             finish()
             return
         }
@@ -147,12 +147,12 @@ class WebUIActivity : AppCompatActivity() {
                 progressBar?.visibility = View.GONE
 
                 val errorMessage = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    error?.description?.toString() ?: "Unknown error"
+                    error?.description?.toString() ?: getString(R.string.unknown_error)
                 } else {
-                    "Network error"
+                    getString(R.string.network_error)
                 }
 
-                Toast.makeText(this@WebUIActivity, "Error loading page: $errorMessage", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@WebUIActivity, getString(R.string.error_loading_page, errorMessage), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -386,9 +386,9 @@ class WebUIActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     if (success) {
                         val message = if (urlToShare!!.startsWith("magnet:")) {
-                            "Magnet link successfully added via qBittorrent API"
+                            getString(R.string.magnet_link_added_qbittorrent)
                         } else {
-                            "Torrent URL successfully added via qBittorrent API"
+                            getString(R.string.torrent_url_added_qbittorrent)
                         }
                         Toast.makeText(this@WebUIActivity, message, Toast.LENGTH_LONG).show()
                     } else {
@@ -465,7 +465,7 @@ class WebUIActivity : AppCompatActivity() {
             ServerProfile.TYPE_JDOWNLOADER -> passUrlToJDownloader()
             else -> {
                 // For unsupported service types, show URL in a dialog or toast
-                Toast.makeText(this, "URL to download: $urlToShare", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.url_to_download, urlToShare), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -476,7 +476,7 @@ class WebUIActivity : AppCompatActivity() {
             ServerProfile.TORRENT_CLIENT_TRANSMISSION -> passUrlToTransmission()
             ServerProfile.TORRENT_CLIENTUTORRENT -> passUrlToUTorrent()
             else -> {
-                Toast.makeText(this, "URL to download: $urlToShare", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.url_to_download, urlToShare), Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -729,18 +729,18 @@ class WebUIActivity : AppCompatActivity() {
 
         webView?.evaluateJavascript(addTorrentScript) { result ->
             Console.log("Transmission URL passing script executed: $result")
-            Toast.makeText(this, "URL passed to Transmission: $urlToShare", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.url_passed_transmission, urlToShare), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun passUrlToUTorrent() {
         // Similar implementation for uTorrent
-        Toast.makeText(this, "URL to add: $urlToShare", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.url_to_add, urlToShare), Toast.LENGTH_LONG).show()
     }
 
     private fun passUrlToJDownloader() {
         // JDownloader URL passing implementation
-        Toast.makeText(this, "URL to add: $urlToShare", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.url_to_add, urlToShare), Toast.LENGTH_LONG).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

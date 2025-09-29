@@ -160,9 +160,9 @@ class MainActivity : AppCompatActivity() {
     private fun updateDefaultServiceButton() {
         val defaultProfile = profileManager?.defaultProfile()
         if (defaultProfile != null) {
-            buttonOpenMeTube?.text = "Open ${defaultProfile.name}"
+            buttonOpenMeTube?.text = getString(R.string.open_profile, defaultProfile.name)
         } else {
-            buttonOpenMeTube?.text = "Open Default Service"
+            buttonOpenMeTube?.text = getString(R.string.open_default_service)
             buttonOpenMeTube?.isEnabled = false
         }
     }
@@ -211,16 +211,16 @@ class MainActivity : AppCompatActivity() {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 startActivity(browserIntent)
             } catch (e: Exception) {
-                Toast.makeText(this, "Could not open ${profile.name}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.could_not_open_profile, profile.name), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun showProfileContextMenu(profile: ServerProfile) {
         val popupMenu = PopupMenu(this, recyclerViewProfiles!!)
-        popupMenu.menu.add(0, 0, 0, "Edit")
-        popupMenu.menu.add(0, 1, 1, "Set as Default")
-        popupMenu.menu.add(0, 2, 2, "Delete")
+        popupMenu.menu.add(0, 0, 0, getString(R.string.edit))
+        popupMenu.menu.add(0, 1, 1, getString(R.string.set_as_default))
+        popupMenu.menu.add(0, 2, 2, getString(R.string.delete))
 
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
@@ -245,19 +245,19 @@ class MainActivity : AppCompatActivity() {
         profileManager?.setDefaultProfile(profile)
         profileManager?.updateProfile(profile)
         loadProfiles()
-        Toast.makeText(this, "${profile.name} set as default", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.profile_set_as_default, profile.name), Toast.LENGTH_SHORT).show()
     }
 
     private fun deleteProfile(profile: ServerProfile) {
         MaterialAlertDialogBuilder(this)
-            .setTitle("Delete Profile")
-            .setMessage("Are you sure you want to delete ${profile.name}?")
-            .setPositiveButton("Delete") { _, _ ->
+            .setTitle(getString(R.string.delete_profile))
+            .setMessage(getString(R.string.confirm_delete_profile_with_name, profile.name))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
                 profileManager?.deleteProfile(profile)
                 loadProfiles()
-                Toast.makeText(this, "Profile deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.profile_deleted), Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
@@ -267,10 +267,10 @@ class MainActivity : AppCompatActivity() {
             if (launchIntent != null) {
                 startActivity(launchIntent)
             } else {
-                Toast.makeText(this, "Could not open app", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.could_not_open_app), Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
-            Toast.makeText(this, "Could not open app", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.could_not_open_app), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -372,7 +372,7 @@ class MainActivity : AppCompatActivity() {
         val defaultProfile = profileManager!!.defaultProfile()
 
         if (defaultProfile == null) {
-            Toast.makeText(this, "Please set a default profile in Settings", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_set_default_profile), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -398,7 +398,7 @@ class MainActivity : AppCompatActivity() {
             if (currentText != null && isValidUrl(currentText)) {
                 processClipboardUrl(currentText)
             } else {
-                Toast.makeText(this, "No valid URLs found in clipboard history", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.no_valid_urls_in_clipboard), Toast.LENGTH_SHORT).show()
             }
             return
         }
@@ -431,7 +431,7 @@ class MainActivity : AppCompatActivity() {
         buttonClearHistory.setOnClickListener {
             clipboardHistoryManager.clearHistory()
             dialog.dismiss()
-            Toast.makeText(this, "Clipboard history cleared", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.clipboard_history_cleared), Toast.LENGTH_SHORT).show()
         }
 
         buttonCancel.setOnClickListener {
@@ -449,7 +449,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_TEXT, url)
             startActivity(intent)
         } else {
-            Toast.makeText(this, "Invalid URL: $url", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.invalid_url_with_text, url), Toast.LENGTH_SHORT).show()
         }
     }
 
