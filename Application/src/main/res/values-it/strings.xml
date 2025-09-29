@@ -66,9 +66,12 @@
     <string name="torrent_client_transmission">Transmission</string>
     <string name="torrent_client_utorrent">uTorrent</string>
     <string name="testing">Test in corso...</string>
-    <string name="test_connection">Testa connessione</string>
-</resources>    <string name="open_default_service">Open Default Service</string>
-</resources>
+     <string name="test_connection">Testa connessione</string>
+     <string name="open_default_service">Open Default Service</string>
+     <string name="could_not_open_profile">Could not open %s</string>
+     <string name="edit">Edit</string>
+     <string name="set_as_default">Set as Default</string>
+ </resources>
     <string name="open_default_service">Open Default Service</string>
     <string name="could_not_open_profile">Could not open %s</string>
     <string name="edit">Edit</string>
