@@ -176,7 +176,7 @@ class ShareActivity : AppCompatActivity() {
             val urlTypeDescription = urlType?.let { UrlCompatibilityUtils.getUrlTypeDescription(it) } ?: "this content type"
 
             Toast.makeText(this,
-                "No profiles support $urlTypeDescription. Please configure a compatible profile in Settings.",
+                getString(R.string.no_profiles_support_type, urlTypeDescription),
                 Toast.LENGTH_LONG).show()
 
             val intent = Intent(this, SettingsActivity::class.java)
@@ -298,7 +298,7 @@ class ShareActivity : AppCompatActivity() {
         // Show progress
         progressBar!!.visibility = View.VISIBLE
         buttonSendToService!!.isEnabled = false
-        buttonSendToService!!.text = "Sending to $serviceTypeName..."
+        buttonSendToService!!.text = getString(R.string.sending_to_service, serviceTypeName)
 
         // Call the service API
         serviceApiClient!!.sendUrlToService(
@@ -308,11 +308,11 @@ class ShareActivity : AppCompatActivity() {
                     runOnUiThread {
                         progressBar!!.visibility = View.GONE
                         buttonSendToService!!.isEnabled = true
-                        buttonSendToService!!.text = "Send to $serviceTypeName"
+                        buttonSendToService!!.text = getString(R.string.send_to_service, serviceTypeName)
 
                         Toast.makeText(
                             this@ShareActivity,
-                            "Link sent successfully to $serviceTypeName!",
+                            getString(R.string.link_sent_successfully_to_service, serviceTypeName),
                             Toast.LENGTH_SHORT
                         ).show()
 
@@ -331,7 +331,7 @@ class ShareActivity : AppCompatActivity() {
                     runOnUiThread {
                         progressBar!!.visibility = View.GONE
                         buttonSendToService!!.isEnabled = true
-                        buttonSendToService!!.text = "Send to $serviceTypeName"
+                        buttonSendToService!!.text = getString(R.string.send_to_service, serviceTypeName)
 
                         // Show error dialog instead of toast
                         DialogUtils.showErrorDialog(
@@ -360,10 +360,10 @@ class ShareActivity : AppCompatActivity() {
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_TEXT, mediaLink)
-        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Shared Media Link")
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.shared_media_link))
 
         // Show chooser with app icons
-        val chooserIntent = Intent.createChooser(shareIntent, "Share to Apps")
+        val chooserIntent = Intent.createChooser(shareIntent, getString(R.string.share_to_apps))
         startActivity(chooserIntent)
 
         // Save to history as shared to apps
@@ -550,12 +550,12 @@ class ShareActivity : AppCompatActivity() {
             // Save to history
             saveToHistory(mediaLink!!, appInfo.packageName, appInfo.appName, "System App", true)
 
-            Toast.makeText(this, "Opened with ${appInfo.appName}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.opened_with_app, appInfo.appName), Toast.LENGTH_SHORT).show()
 
             // Dismiss the activity after launching system app
             finish()
         } else {
-            Toast.makeText(this, "Failed to open ${appInfo.appName}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.failed_to_open_app, appInfo.appName), Toast.LENGTH_SHORT).show()
         }
     }
 
