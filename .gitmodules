@@ -1,3 +1,6 @@
 [submodule "Toolkit"]
 	path = Toolkit
 	url = git@github.com:vasic-digital/Android-Toolkit.git
+[submodule "Asinka"]
+	path = Asinka
+	url = git@github.com:vasic-digital/Asinka.git
