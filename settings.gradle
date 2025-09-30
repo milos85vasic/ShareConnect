@@ -43,4 +43,7 @@ include ':Toolkit:Test'
 include ':Toolkit:JCommons'
 include ':Toolkit:Analytics'
 
+// TODO: Connect [IN_PROGRESS]
+// include ':Asinka'
+
 include ':Application'
