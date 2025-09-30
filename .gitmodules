@@ -4,3 +4,6 @@
 [submodule "Asinka"]
 	path = Asinka
 	url = git@github.com:vasic-digital/Asinka.git
+[submodule "Public"]
+	path = Rag/Sources/Public
+	url = git@github.com:vasic-digital/Open-Rag-Material-Android.git
