@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Small phone optimizations -->
+    <dimen name="activity_horizontal_margin">12dp</dimen>
+    <dimen name="activity_vertical_margin">12dp</dimen>
+    <dimen name="card_margin">6dp</dimen>
+    <dimen name="card_padding">12dp</dimen>
+
+    <!-- Slightly smaller text for small screens -->
+    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+
+    <!-- Smaller icons for small screens -->
+    <dimen name="icon_size_large">72dp</dimen>
+    <dimen name="icon_size_medium">40dp</dimen>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet-optimized dimensions -->
+    <dimen name="activity_horizontal_margin">24dp</dimen>
+    <dimen name="activity_vertical_margin">24dp</dimen>
+    <dimen name="card_margin">12dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+
+    <!-- Larger text for tablets -->
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_normal">18sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+
+    <!-- Larger icons for tablets -->
+    <dimen name="icon_size_large">96dp</dimen>
+    <dimen name="icon_size_medium">56dp</dimen>
+</resources>
