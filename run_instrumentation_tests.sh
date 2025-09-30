@@ -136,15 +136,11 @@ sleep 2
 
 # Run instrumentation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Instrumentation Test Suite...${NC}"
-./gradlew :Application:connectedAndroidTest \
+if ./gradlew :Application:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.database,com.shareconnect.activities \
     --info \
     --stacktrace \
-    2>&1 | tee "${REPORT_DIR}/instrumentation_test_execution.log"
-
-# Check if tests passed
-GRADLE_EXIT_CODE=${PIPESTATUS[0]}
-if [ $GRADLE_EXIT_CODE -eq 0 ]; then
+    2>&1 | tee "${REPORT_DIR}/instrumentation_test_execution.log"; then
     echo -e "${GREEN}✓ Instrumentation tests completed successfully!${NC}"
     TEST_STATUS="PASSED"
 else

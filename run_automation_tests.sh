@@ -145,15 +145,11 @@ sleep 2
 
 # Run automation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Full Automation Test Suite...${NC}"
-./gradlew :Application:connectedAndroidTest \
+if ./gradlew :Application:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.automation \
     --info \
     --stacktrace \
-    2>&1 | tee "${REPORT_DIR}/automation_test_execution.log"
-
-# Check if tests passed
-GRADLE_EXIT_CODE=${PIPESTATUS[0]}
-if [ $GRADLE_EXIT_CODE -eq 0 ]; then
+    2>&1 | tee "${REPORT_DIR}/automation_test_execution.log"; then
     echo -e "${GREEN}✓ Automation tests completed successfully!${NC}"
     TEST_STATUS="PASSED"
 else

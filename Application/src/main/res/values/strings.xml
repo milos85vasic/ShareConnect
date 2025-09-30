@@ -101,4 +101,5 @@
     <string name="torrent_file">Torrent file</string>
     <string name="bittorrent">BitTorrent</string>
     <string name="open_profile">Open %s</string>
-    <string name="magnet_link">Magnet Link</string></resources>
+     <string name="magnet_link">Magnet Link</string>
+     <string name="add_from_clipboard">Add from clipboard</string></resources>

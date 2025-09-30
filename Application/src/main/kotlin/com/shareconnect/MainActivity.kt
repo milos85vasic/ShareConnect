@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var recyclerViewSystemApps: RecyclerView? = null
     private var emptyProfilesLayout: LinearLayout? = null
 
-    private var profileManager: ProfileManager? = null
+    internal var profileManager: ProfileManager? = null
     private var themeManager: ThemeManager? = null
     private var profileAdapter: ProfileIconAdapter? = null
     private var systemAppAdapter: SystemAppAdapter? = null
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
         updateDefaultServiceButton()
     }
 
-    private fun updateDefaultServiceButton() {
+    internal fun updateDefaultServiceButton() {
         val defaultProfile = profileManager?.defaultProfile()
         if (defaultProfile != null) {
             buttonOpenMeTube?.text = getString(R.string.open_profile, defaultProfile.name)

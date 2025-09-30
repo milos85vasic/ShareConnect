@@ -8,9 +8,17 @@ import com.shareconnect.database.ServerProfileRepository
 import java.util.UUID
 
 class ProfileManager(private val context: Context) {
-    private val repository: ServerProfileRepository
-    private val sharedPreferences: SharedPreferences
-    private val gson: Gson
+    private lateinit var repository: ServerProfileRepository
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var gson: Gson
+
+    // Secondary constructor for testing with mocked dependencies
+    constructor(context: Context, repository: ServerProfileRepository, sharedPreferences: SharedPreferences) : this(context) {
+        this.repository = repository
+        this.sharedPreferences = sharedPreferences
+        this.gson = Gson()
+        // Skip migration in tests - no init block runs
+    }
 
     init {
         repository = ServerProfileRepository(context)
