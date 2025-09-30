@@ -13,7 +13,6 @@
     <string name="set_default">Establecer como predeterminado</string>
     <string name="default_profile">Perfil predeterminado</string>
     <string name="no_profiles_yet">Aún no se han configurado perfiles</string>
-    <string name="sending_to_service">Enviando al servicio…</string>
     <string name="sent_successfully">¡Enlace enviado exitosamente!</string>
     <string name="error_sending_link_custom">Error al enviar el enlace al servicio</string>
     <string name="please_configure_profile_custom">Por favor, configure un perfil de servidor primero</string>

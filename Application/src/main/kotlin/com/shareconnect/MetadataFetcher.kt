@@ -1,5 +1,6 @@
 package com.shareconnect
 
+import android.content.Context
 import com.redelf.commons.logging.Console
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,7 +18,7 @@ data class UrlMetadata(
     val siteName: String?
 )
 
-class MetadataFetcher {
+class MetadataFetcher(private val context: Context) {
     private val client: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(10, TimeUnit.SECONDS)
@@ -146,9 +147,9 @@ class MetadataFetcher {
             val filename = url.substringAfterLast("/").substringBeforeLast(".")
             UrlMetadata(
                 title = filename,
-                description = getString(R.string.torrent_file),
+                description = context.getString(R.string.torrent_file),
                 thumbnailUrl = null,
-                siteName = getString(R.string.bittorrent)
+                siteName = context.getString(R.string.bittorrent)
             )
         }
     }
@@ -181,7 +182,7 @@ class MetadataFetcher {
             val contentType = inferContentTypeFromName(displayName)
 
             return UrlMetadata(
-                title = displayName ?: getString(R.string.magnet_link),
+                title = displayName ?: context.getString(R.string.magnet_link),
                 description = description,
                 thumbnailUrl = null, // Could potentially be enhanced with tracker API calls
                 siteName = contentType
