@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="12dp">
+    android:layout_margin="@dimen/card_margin"
+    app:cardElevation="@dimen/card_elevation"
+    app:cardCornerRadius="@dimen/card_corner_radius">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/card_padding">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold" />
 
             <ImageView
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="MeTube"
-                android:textSize="14sp"
+            android:textSize="@dimen/text_size_small"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -92,7 +92,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
                 android:text="@string/set_default"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_tiny"
                 app:icon="@drawable/ic_star_outline"
                 app:iconSize="16dp" />
 
@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:text="@string/delete"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_size_tiny"
                 android:textColor="@color/design_default_color_error" />
 
         </LinearLayout>

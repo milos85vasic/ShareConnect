@@ -1,6 +1,7 @@
 package com.shareconnect
 
 import android.content.Context
+import com.redelf.commons.extensions.recordException
 import com.redelf.commons.logging.Console
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -43,7 +44,7 @@ class MetadataFetcher(private val context: Context, private val httpClient: OkHt
                 else -> fetchGenericMetadata(url)
             }
         } catch (e: Exception) {
-            Console.error(e, "Error fetching metadata for URL: $url")
+            recordException(e)
             UrlMetadata(
                 title = extractTitleFromUrl(url),
                 description = null,
@@ -189,7 +190,7 @@ class MetadataFetcher(private val context: Context, private val httpClient: OkHt
                 siteName = contentType
             )
         } catch (e: Exception) {
-            Console.error(e, "Error parsing magnet link: $magnetUrl")
+            recordException(e)
             return UrlMetadata(
                 title = "Magnet Link",
                 description = "BitTorrent magnet link",

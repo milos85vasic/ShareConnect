@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.redelf.commons.extensions.recordException
 import com.redelf.commons.logging.Console
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -120,7 +121,7 @@ class WebUIActivity : AppCompatActivity() {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         startActivity(intent)
                     } catch (e: Exception) {
-                        Console.error(e, "Failed to open external URL: $url")
+                        recordException(e)
                     }
                     true
                 }
@@ -398,7 +399,7 @@ class WebUIActivity : AppCompatActivity() {
                     }
                 }
             } catch (e: Exception) {
-                Console.error(e, "Error using qBittorrent API")
+                recordException(e)
                 withContext(Dispatchers.Main) {
                     // Fall back to UI automation
                     passUrlToWebUI()
@@ -450,7 +451,7 @@ class WebUIActivity : AppCompatActivity() {
                 return false
             }
         } catch (e: Exception) {
-            Console.error(e, "Exception in qBittorrent API approach")
+            recordException(e)
             false
         }
     }

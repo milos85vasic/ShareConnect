@@ -1,5 +1,6 @@
 package com.shareconnect
 
+import com.redelf.commons.extensions.recordException
 import com.redelf.commons.logging.Console
 import okhttp3.Call
 import okhttp3.Callback
@@ -79,7 +80,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send URL to MeTube")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -99,7 +100,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing MeTube API request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -127,7 +128,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send URL to YT-DLP")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -147,7 +148,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing YT-DLP API request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -168,7 +169,7 @@ class ServiceApiClient {
                 sendRegularUrlToTorrentClient(profile, url, callback)
             }
         } catch (e: Exception) {
-            Console.error(e, "Error preparing torrent client request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -201,7 +202,7 @@ class ServiceApiClient {
                 else -> callback.onError("Unsupported torrent client: " + profile.torrentClientType)
             }
         } catch (e: Exception) {
-            Console.error(e, "Error sending URL to torrent client")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -234,7 +235,7 @@ class ServiceApiClient {
                 else -> callback.onError("Unsupported torrent client: " + profile.torrentClientType)
             }
         } catch (e: Exception) {
-            Console.error(e, "Error sending magnet to torrent client")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -280,7 +281,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to login to qBittorrent")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -308,7 +309,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error logging into qBittorrent")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -339,7 +340,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send to qBittorrent")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -359,7 +360,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing qBittorrent request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -407,7 +408,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send to Transmission")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -443,7 +444,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing Transmission request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -465,7 +466,7 @@ class ServiceApiClient {
 
             client.newCall(tokenRequest).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to get uTorrent token")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -485,7 +486,7 @@ class ServiceApiClient {
                             callback.onError("Token Error: " + response.code + " - $errorBody")
                         }
                     } catch (e: Exception) {
-                        Console.error(e, "Error processing uTorrent token response")
+                        recordException(e)
                         callback.onError(e.message)
                     } finally {
                         response.body?.close()
@@ -493,7 +494,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing uTorrent request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -515,7 +516,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send to uTorrent")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -535,7 +536,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error sending URL to uTorrent")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -569,7 +570,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing jDownloader request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -609,7 +610,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send to My.JDownloader")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -635,7 +636,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing My.JDownloader request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
@@ -661,7 +662,7 @@ class ServiceApiClient {
 
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Console.error(e, "Failed to send to legacy jDownloader")
+                    recordException(e)
                     callback.onError(e.message)
                 }
 
@@ -681,7 +682,7 @@ class ServiceApiClient {
                 }
             })
         } catch (e: Exception) {
-            Console.error(e, "Error preparing legacy jDownloader request")
+            recordException(e)
             callback.onError(e.message)
         }
     }
