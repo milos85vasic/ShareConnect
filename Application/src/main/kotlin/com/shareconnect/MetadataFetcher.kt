@@ -9,6 +9,7 @@ import okhttp3.Request
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import java.net.URL
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 data class UrlMetadata(
@@ -18,8 +19,8 @@ data class UrlMetadata(
     val siteName: String?
 )
 
-class MetadataFetcher(private val context: Context) {
-    private val client: OkHttpClient = OkHttpClient.Builder()
+class MetadataFetcher(private val context: Context, private val httpClient: OkHttpClient? = null) {
+    internal val client: OkHttpClient = httpClient ?: OkHttpClient.Builder()
         .connectTimeout(10, TimeUnit.SECONDS)
         .readTimeout(10, TimeUnit.SECONDS)
         .followRedirects(true)
@@ -147,9 +148,9 @@ class MetadataFetcher(private val context: Context) {
             val filename = url.substringAfterLast("/").substringBeforeLast(".")
             UrlMetadata(
                 title = filename,
-                description = context.getString(R.string.torrent_file),
+                description = "Torrent file",
                 thumbnailUrl = null,
-                siteName = context.getString(R.string.bittorrent)
+                siteName = "BitTorrent"
             )
         }
     }
@@ -182,7 +183,7 @@ class MetadataFetcher(private val context: Context) {
             val contentType = inferContentTypeFromName(displayName)
 
             return UrlMetadata(
-                title = displayName ?: context.getString(R.string.magnet_link),
+                title = displayName ?: "Magnet Link",
                 description = description,
                 thumbnailUrl = null, // Could potentially be enhanced with tracker API calls
                 siteName = contentType
@@ -261,7 +262,7 @@ class MetadataFetcher(private val context: Context) {
             unitIndex++
         }
 
-        return String.format("%.1f %s", size, units[unitIndex])
+        return String.format(Locale.US, "%.1f %s", size, units[unitIndex])
     }
 
     private fun inferContentTypeFromName(name: String?): String {

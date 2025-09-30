@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.database.ThemeRepositoryUnitTest" tests="7" skipped="0" failures="1" errors="0" timestamp="2025-09-30T16:05:23.368Z" hostname="Mistborn.local" time="0.044">
+  <properties/>
+  <testcase name="testUpdateTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.02"/>
+  <testcase name="testInsertTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.003"/>
+  <testcase name="testGetThemeByColorSchemeAndMode" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.001"/>
+  <testcase name="testInitializeDefaultThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.014">
+    <failure message="org.mockito.exceptions.verification.TooManyActualInvocations: &#10;themeDao.insert(&lt;custom argument matcher&gt;);&#10;Wanted 1 time:&#10;-&gt; at com.shareconnect.database.ThemeRepositoryUnitTest.testInitializeDefaultThemes(ThemeRepositoryUnitTest.kt:150)&#10;But was 12 times:&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:80)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:81)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:84)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:85)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:88)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:89)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:92)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:93)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:96)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:97)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:100)&#10;-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:101)&#10;&#10;" type="org.mockito.exceptions.verification.TooManyActualInvocations">org.mockito.exceptions.verification.TooManyActualInvocations: 
+themeDao.insert(&lt;custom argument matcher&gt;);
+Wanted 1 time:
+-&gt; at com.shareconnect.database.ThemeRepositoryUnitTest.testInitializeDefaultThemes(ThemeRepositoryUnitTest.kt:150)
+But was 12 times:
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:80)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:81)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:84)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:85)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:88)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:89)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:92)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:93)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:96)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:97)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:100)
+-&gt; at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:101)
+
+
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testInitializeDefaultThemes(ThemeRepositoryUnitTest.kt:150)
+	at java.base@17.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.15/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@17.0.15/java.lang.reflect.Method.invoke(Method.java:569)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at app//org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base@17.0.15/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
+</failure>
+  </testcase>
+  <testcase name="testGetAllThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.002"/>
+  <testcase name="testGetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.002"/>
+  <testcase name="testSetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

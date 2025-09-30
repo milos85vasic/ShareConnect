@@ -1,17 +1,34 @@
 package com.shareconnect
 
+import android.content.Context
 import kotlinx.coroutines.runBlocking
+import okhttp3.OkHttpClient
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.kotlin.*
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
+@RunWith(RobolectricTestRunner::class)
+@Config(manifest = Config.NONE)
 class MetadataFetcherTest {
 
     private lateinit var metadataFetcher: MetadataFetcher
+    private lateinit var mockContext: Context
+    private lateinit var mockClient: OkHttpClient
 
     @Before
     fun setUp() {
-        metadataFetcher = MetadataFetcher()
+        mockContext = mock<Context>()
+        // Mock the string resources
+        whenever(mockContext.getString(any())).thenReturn("Mocked String")
+
+        // Mock OkHttpClient to avoid initialization issues
+        mockClient = mock<OkHttpClient>()
+
+        metadataFetcher = MetadataFetcher(mockContext, mockClient)
     }
 
     @Test

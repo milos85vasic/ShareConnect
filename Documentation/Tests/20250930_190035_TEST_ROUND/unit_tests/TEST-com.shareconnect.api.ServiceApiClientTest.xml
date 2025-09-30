@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.api.ServiceApiClientTest" tests="34" skipped="0" failures="0" errors="0" timestamp="2025-09-30T16:01:02.119Z" hostname="Mistborn.local" time="4.019">
+  <properties/>
+  <testcase name="testProfileTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="2.038"/>
+  <testcase name="testTorrentClientTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testMeTubeProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.004"/>
+  <testcase name="testTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testUTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testSendUrlToServiceCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.021"/>
+  <testcase name="testJDownloaderProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileWithoutAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.007"/>
+  <testcase name="testTransmissionProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.004"/>
+  <testcase name="testYtdlProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.004"/>
+  <testcase name="testServiceApiCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileWithEmptyAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.004"/>
+  <testcase name="testServiceApiClientInitialization" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileWithAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.004"/>
+  <testcase name="testQBittorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testUnsupportedServiceType" classname="com.shareconnect.api.ServiceApiClientTest" time="0.009"/>
+  <testcase name="testServiceApiClientCreation" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.013"/>
+  <testcase name="testTorrentClientTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.007"/>
+  <testcase name="testMeTubeProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.008"/>
+  <testcase name="testTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.006"/>
+  <testcase name="testUTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testSendUrlToServiceCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testJDownloaderProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileWithoutAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.007"/>
+  <testcase name="testTransmissionProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.006"/>
+  <testcase name="testYtdlProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.006"/>
+  <testcase name="testServiceApiCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testProfileWithEmptyAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.006"/>
+  <testcase name="testServiceApiClientInitialization" classname="com.shareconnect.api.ServiceApiClientTest" time="0.007"/>
+  <testcase name="testProfileWithAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.005"/>
+  <testcase name="testQBittorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.006"/>
+  <testcase name="testUnsupportedServiceType" classname="com.shareconnect.api.ServiceApiClientTest" time="0.008"/>
+  <testcase name="testServiceApiClientCreation" classname="com.shareconnect.api.ServiceApiClientTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

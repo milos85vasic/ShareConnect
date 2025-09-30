@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.shareconnect.adapter.SystemAppAdapter
 import com.shareconnect.database.HistoryItem
 import com.shareconnect.database.HistoryRepository
@@ -36,6 +37,7 @@ class ShareActivity : AppCompatActivity() {
     private var textViewCompatibleAppsDescription: TextView? = null
     private var recyclerViewSystemApps: RecyclerView? = null
     private var textViewNoCompatibleApps: TextView? = null
+    private var fabAdd: FloatingActionButton? = null
     private var systemAppAdapter: SystemAppAdapter? = null
     private var profiles: List<ServerProfile> = ArrayList()
     private var mediaLink: String? = null
@@ -87,6 +89,7 @@ class ShareActivity : AppCompatActivity() {
         buttonSendToService = findViewById(R.id.buttonSendToMeTube)
         buttonShareToApps = findViewById(R.id.buttonShareToApps)
         progressBar = findViewById(R.id.progressBar)
+        fabAdd = findViewById(R.id.fabAdd)
 
         // Initialize system apps UI components
         textViewCompatibleAppsTitle = findViewById(R.id.textViewCompatibleAppsTitle)
@@ -96,6 +99,12 @@ class ShareActivity : AppCompatActivity() {
 
         // Setup RecyclerView for system apps
         setupSystemAppsRecyclerView()
+
+        // Setup FAB listener
+        fabAdd?.setOnClickListener {
+            // Handle add from clipboard
+            handleAddFromClipboard()
+        }
     }
 
     private fun handleIntent() {
@@ -497,6 +506,14 @@ class ShareActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@ShareActivity)
             adapter = systemAppAdapter
         }
+    }
+
+    /**
+     * Handle add from clipboard action
+     */
+    private fun handleAddFromClipboard() {
+        // For now, just show a toast indicating the feature
+        Toast.makeText(this, "Add from clipboard functionality would be implemented here", Toast.LENGTH_SHORT).show()
     }
 
     /**

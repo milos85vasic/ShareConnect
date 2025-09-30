@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.shareconnect.database.HistoryRepositoryUnitTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.shareconnect.database.HistoryRepositoryUnitTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shareconnect.database.html">com.shareconnect.database</a> &gt; HistoryRepositoryUnitTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">13</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">13</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.958s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testDeleteAllHistoryItems"></a>
+<h3 class="failures">testDeleteAllHistoryItems</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testDeleteHistoryItem"></a>
+<h3 class="failures">testDeleteHistoryItem</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testDeleteHistoryItemsByServiceProvider"></a>
+<h3 class="failures">testDeleteHistoryItemsByServiceProvider</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testDeleteHistoryItemsByServiceType"></a>
+<h3 class="failures">testDeleteHistoryItemsByServiceType</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testDeleteHistoryItemsByType"></a>
+<h3 class="failures">testDeleteHistoryItemsByType</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetAllHistoryItems"></a>
+<h3 class="failures">testGetAllHistoryItems</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetAllServiceProviders"></a>
+<h3 class="failures">testGetAllServiceProviders</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetAllServiceTypes"></a>
+<h3 class="failures">testGetAllServiceTypes</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetAllTypes"></a>
+<h3 class="failures">testGetAllTypes</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetHistoryItemsByServiceProvider"></a>
+<h3 class="failures">testGetHistoryItemsByServiceProvider</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetHistoryItemsByServiceType"></a>
+<h3 class="failures">testGetHistoryItemsByServiceType</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testGetHistoryItemsByType"></a>
+<h3 class="failures">testGetHistoryItemsByType</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testInsertHistoryItem"></a>
+<h3 class="failures">testInsertHistoryItem</h3>
+<span class="code">
+<pre>java.lang.NoSuchMethodError: 'boolean android.app.ActivityManager.isLowRamDevice()'
+	at androidx.room.RoomDatabase$JournalMode.resolve$room_runtime(RoomDatabase.android.kt:849)
+	at androidx.room.RoomDatabase$Builder.build(RoomDatabase.android.kt:1791)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:25)
+	at com.shareconnect.database.HistoryRepository.&lt;init&gt;(HistoryRepository.kt:11)
+	at com.shareconnect.database.HistoryRepositoryUnitTest.setUp(HistoryRepositoryUnitTest.kt:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">testDeleteAllHistoryItems</td>
+<td class="failures">0.916s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testDeleteHistoryItem</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testDeleteHistoryItemsByServiceProvider</td>
+<td class="failures">0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testDeleteHistoryItemsByServiceType</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testDeleteHistoryItemsByType</td>
+<td class="failures">0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetAllHistoryItems</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetAllServiceProviders</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetAllServiceTypes</td>
+<td class="failures">0.005s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetAllTypes</td>
+<td class="failures">0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetHistoryItemsByServiceProvider</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetHistoryItemsByServiceType</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testGetHistoryItemsByType</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testInsertHistoryItem</td>
+<td class="failures">0.004s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Sep 30, 2025, 7:01:06 PM</p>
+</div>
+</div>
+</body>
+</html>

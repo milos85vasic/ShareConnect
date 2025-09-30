@@ -3,19 +3,25 @@ package com.shareconnect.database
 import android.content.Context
 import com.redelf.commons.logging.Console
 
-class ThemeRepository(context: Context) {
-    private val database: HistoryDatabase
-    private val themeDao: ThemeDao
+class ThemeRepository(context: Context, testDao: ThemeDao? = null) {
+    private lateinit var database: HistoryDatabase
+    private lateinit var themeDao: ThemeDao
 
     init {
-        database = androidx.room.Room.databaseBuilder(
-            context.applicationContext,
-            HistoryDatabase::class.java, "history_database"
-        )
-            .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
-            .build()
-        themeDao = database.themeDao()
+        if (testDao != null) {
+            // Use test DAO
+            themeDao = testDao
+        } else {
+            // Initialize the database
+            database = androidx.room.Room.databaseBuilder(
+                context.applicationContext,
+                HistoryDatabase::class.java, "history_database"
+            )
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build()
+            themeDao = database.themeDao()
+        }
     }
 
     // Get all themes

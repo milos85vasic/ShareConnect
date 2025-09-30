@@ -3,20 +3,25 @@ package com.shareconnect.database
 import android.content.Context
 import androidx.room.Room
 
-class HistoryRepository(context: Context) {
-    private val database: HistoryDatabase
-    private val historyItemDao: HistoryItemDao
+class HistoryRepository(context: Context, testDao: HistoryItemDao? = null) {
+    private lateinit var database: HistoryDatabase
+    private lateinit var historyItemDao: HistoryItemDao
 
     init {
-        // Initialize the database with SQLCipher encryption
-        database = Room.databaseBuilder(
-            context.applicationContext,
-            HistoryDatabase::class.java, "history_database"
-        )
-            .allowMainThreadQueries() // For simplicity, allow main thread queries
-            .fallbackToDestructiveMigration()
-            .build()
-        historyItemDao = database.historyItemDao()
+        if (testDao != null) {
+            // Use test DAO
+            historyItemDao = testDao
+        } else {
+            // Initialize the database with SQLCipher encryption
+            database = Room.databaseBuilder(
+                context.applicationContext,
+                HistoryDatabase::class.java, "history_database"
+            )
+                .allowMainThreadQueries() // For simplicity, allow main thread queries
+                .fallbackToDestructiveMigration()
+                .build()
+            historyItemDao = database.historyItemDao()
+        }
     }
 
     // Insert a new history item
