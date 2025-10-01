@@ -43,6 +43,10 @@ include ':Toolkit:Test'
 include ':Toolkit:JCommons'
 include ':Toolkit:Analytics'
 
+include ':Connectors:qBitConnect:composeApp'
+include ':Connectors:qBitConnect:preferences'
+// include ':Connectors:qBitConnect:baselineProfile' // Temporarily disabled due to plugin compatibility issues
+
 // TODO: Connect [IN_PROGRESS]
 // include ':Asinka'
 

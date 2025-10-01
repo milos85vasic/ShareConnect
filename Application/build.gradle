@@ -1,12 +1,12 @@
 plugins {
 
-    id 'com.android.application'
-    id 'kotlin-android'
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
     id("com.google.devtools.ksp") version "2.2.20-2.0.2"
 
-    id 'com.google.gms.google-services'
-    id 'com.google.firebase.crashlytics'
-    id 'com.google.firebase.appdistribution'
+    alias(libs.plugins.firebase.googleServices)
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.firebase.appdistribution)
 }
 
 // Load signing configuration from env.properties file if they exist
