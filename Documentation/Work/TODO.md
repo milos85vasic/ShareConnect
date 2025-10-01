@@ -46,7 +46,6 @@
 - FIXME: Open shared magnet link on remote endpoint after signing in
   - Connect our torrent controller as an option
 - [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
-- Firebase configuration for the DEV variant
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
 - Code coverage reports
   - If low create generic task and send it to AI agent to extend the tests
@@ -69,6 +68,7 @@
 - FIXME: Not all strings are localized yet
 - Make sure that shared magnet link is added into the clipboard
 - Invite beta testers
+- Firebase configuration for the DEV variant
 - Internal test release [1.0.0 @ 003](./Changes/1.0.0/003.md)
 
 ### Archive
