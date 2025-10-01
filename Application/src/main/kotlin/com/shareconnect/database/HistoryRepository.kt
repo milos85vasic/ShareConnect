@@ -2,6 +2,7 @@ package com.shareconnect.database
 
 import android.content.Context
 import androidx.room.Room
+import com.shareconnect.R
 
 class HistoryRepository(context: Context, testDao: HistoryItemDao? = null) {
     private val appContext = context.applicationContext
