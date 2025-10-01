@@ -1,7 +1,7 @@
 # ShareConnect Signing Configuration
 
 ## Overview
-The app's build.gradle is configured to use environment variables or a `.env.properties` file for signing configuration. This keeps sensitive information out of version control.
+The app's build.gradle is configured to use environment variables or a `env.properties` file for signing configuration. This keeps sensitive information out of version control.
 
 ## Configuration Methods
 
@@ -23,8 +23,8 @@ export SHARECONNECT_CLOUD_KEYSTORE_PATH="Application/Signing/cloud.jks"
 ```
 
 ### Method 2: .env.properties File
-1. Copy `.env.properties.example` to `.env.properties` in the project root
-2. Fill in your actual values in the `.env.properties` file
+1. Copy `.env.properties.example` to `env.properties` in the project root
+2. Fill in your actual values in the `env.properties` file
 3. The file is already in .gitignore and will not be committed
 
 ## Current Keystore Status
@@ -46,7 +46,7 @@ keytool -genkey -v -keystore Application/Signing/dev_new.jks \
   -keypass your_key_password
 ```
 
-Then update your environment variables or `.env.properties` file with the new keystore path and credentials.
+Then update your environment variables or `env.properties` file with the new keystore path and credentials.
 
 ## Build Without Signing
 If you just want to build for testing and don't need signing:
