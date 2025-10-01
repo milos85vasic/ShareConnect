@@ -83,7 +83,7 @@ The project follows a modular architecture with two main components:
 ```
 - compileSdk: 36, targetSdk: 36, minSdk: 28
 - Supports signing configs for development and cloud deployment
-- Environment variable configuration (.env file support)
+- Environment variable configuration (env.properties file support)
 - Comprehensive testing dependencies (JUnit, Espresso, Mockito, Robolectric)
 - Firebase integration (Crashlytics, Analytics, App Distribution)
 - Room KSP code generation
@@ -213,7 +213,7 @@ Application/src/main/kotlin/com/shareconnect/
 
 ### Configuration Files
 - `/Application/src/main/AndroidManifest.xml`: App permissions, activities, intent filters
-- `/.env`: Environment variables for signing and configuration
+- `/env.properties`: Environment variables for signing and configuration
 - `/gradle.properties`: Gradle configuration
 - `/local.properties`: Local development settings
 
@@ -240,7 +240,7 @@ Application/src/main/kotlin/com/shareconnect/
 
 ### Environment Setup
 1. Clone repository with submodules: `git clone --recursive`
-2. Configure signing keys in `.env` file (see `SIGNING_SETUP.md`)
+2. Configure signing keys in `env.properties` file (see `SIGNING_SETUP.md`)
 3. Set up Android SDK with API level 36
 4. Configure development environment variables
 
@@ -280,7 +280,7 @@ Application/src/main/kotlin/com/shareconnect/
 ## Important Notes
 
 - **Toolkit Dependency**: The Toolkit is a git submodule; changes there affect multiple projects
-- **Environment Variables**: Many configurations depend on `.env` file setup
+- **Environment Variables**: Many configurations depend on `env.properties` file setup
 - **Signing**: Release builds require proper keystore configuration
 - **Testing**: Always run full test suite before significant changes
 - **Database**: All data is encrypted; backup/restore requires proper key management
