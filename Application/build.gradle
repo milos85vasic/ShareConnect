@@ -114,6 +114,7 @@ android {
 
             minifyEnabled false
             shrinkResources false
+            applicationIdSuffix ".debug"
             // Only use signing config if keystore exists
             def devKeystorePath = getEnvProperty("SHARECONNECT_DEV_KEYSTORE_PATH")
             def devKeystoreFile = file(devKeystorePath.isEmpty() ? "Signing/dev.jks" : devKeystorePath)

@@ -43,7 +43,6 @@
 
 ## In progress
 
-- Internal test release [1.0.0 @ 003](./Changes/1.0.0/003.md)
 - FIXME: Open shared magnet link on remote endpoint after signing in
   - Connect our torrent controller as an option
 - [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
@@ -70,6 +69,7 @@
 - FIXME: Not all strings are localized yet
 - Make sure that shared magnet link is added into the clipboard
 - Invite beta testers
+- Internal test release [1.0.0 @ 003](./Changes/1.0.0/003.md)
 
 ### Archive
 
