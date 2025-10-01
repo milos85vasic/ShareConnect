@@ -52,7 +52,7 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
 
         profileManager = ProfileManager(this)
-        serviceApiClient = ServiceApiClient()
+        serviceApiClient = ServiceApiClient(this)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)

@@ -67,7 +67,7 @@ class ShareActivity : AppCompatActivity() {
         handleIntent()
         loadProfiles()
         setupListeners()
-        serviceApiClient = ServiceApiClient()
+        serviceApiClient = ServiceApiClient(this)
         metadataFetcher = MetadataFetcher(this)
         fetchMetadataForUrl()
         loadSystemApps()

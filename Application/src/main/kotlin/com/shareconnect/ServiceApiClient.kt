@@ -20,7 +20,7 @@ import org.json.JSONObject
 import java.io.IOException
 import java.util.concurrent.ConcurrentHashMap
 
-class ServiceApiClient {
+class ServiceApiClient(private val context: android.content.Context) {
     private val client: OkHttpClient
     private val cookieStore = ConcurrentHashMap<String, List<Cookie>>()
 
@@ -91,8 +91,8 @@ class ServiceApiClient {
                             callback.onSuccess()
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("MeTube API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_metube_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -139,8 +139,8 @@ class ServiceApiClient {
                             callback.onSuccess()
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("YT-DLP API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_ytdlp_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -253,7 +253,7 @@ class ServiceApiClient {
                 }
 
                 override fun onError(error: String?) {
-                    callback.onError("qBittorrent authentication failed: $error")
+                    callback.onError(context.getString(R.string.error_qbittorrent_auth_failed, error ?: "Unknown error"))
                 }
             })
         } else {
@@ -300,8 +300,8 @@ class ServiceApiClient {
                             }
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("qBittorrent login error: $errorBody")
-                            callback.onError("Login failed: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_qbittorrent_login, errorBody))
+                            callback.onError(context.getString(R.string.error_login_failed, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -351,8 +351,8 @@ class ServiceApiClient {
                             callback.onSuccess()
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("qBittorrent API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_qbittorrent_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -431,12 +431,12 @@ class ServiceApiClient {
                             if (result == "success") {
                                 callback.onSuccess()
                             } else {
-                                callback.onError("Transmission error: $result")
+                                callback.onError(context.getString(R.string.error_transmission_generic, result))
                             }
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("Transmission API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_transmission_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -482,8 +482,8 @@ class ServiceApiClient {
                             sendUrlToUTorrentWithToken(profile, url, token, callback)
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("uTorrent token error: $errorBody")
-                            callback.onError("Token Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_utorrent_token, errorBody))
+                            callback.onError(context.getString(R.string.error_token_failed, response.code, errorBody))
                         }
                     } catch (e: Exception) {
                         recordException(e)
@@ -527,8 +527,8 @@ class ServiceApiClient {
                             callback.onSuccess()
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("uTorrent API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_utorrent_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -627,8 +627,8 @@ class ServiceApiClient {
                             }
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("My.JDownloader API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_my_jdownloader_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()
@@ -673,8 +673,8 @@ class ServiceApiClient {
                             callback.onSuccess()
                         } else {
                             val errorBody = if (response.body != null) response.body!!.string() else "Unknown error"
-                            Console.error("Legacy jDownloader API error: $errorBody")
-                            callback.onError("API Error: " + response.code + " - $errorBody")
+                            Console.error(context.getString(R.string.error_legacy_jdownloader_api, errorBody))
+                            callback.onError(context.getString(R.string.error_api_generic, response.code, errorBody))
                         }
                     } finally {
                         response.body?.close()

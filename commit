@@ -1,10 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-PROP_FILE="env.properties"
+if test -e env.properties; then
 
-if test -e "$PROP_FILE"; then
-
-  source "$PROP_FILE"
+  . env.properties
 fi
 
 if [ -z "$1" ]; then

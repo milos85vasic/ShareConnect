@@ -59,11 +59,11 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
 
     override fun onThemeSelected(theme: Theme) {
         // Set this theme as default
-        Console.debug("onThemeSelected() called with theme: " + theme.name + " (ID: " + theme.id + ", isDefault: " + theme.isDefault + ")")
+        Console.debug(getString(R.string.log_on_theme_selected, theme.name, theme.id, theme.isDefault))
         themeRepository!!.setDefaultTheme(theme.id)
 
         // Debug: Log the selected theme
-        Console.debug("Selected theme: " + theme.name + " (ID: " + theme.id + ")")
+        Console.debug(getString(R.string.log_selected_theme, theme.name, theme.id))
 
         // Set result to indicate theme was changed
         setResult(RESULT_OK)

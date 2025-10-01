@@ -69,7 +69,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         // If theme was changed, recreate this activity to apply the new theme
         if (requestCode == THEME_SELECTION_REQUEST && resultCode == RESULT_OK) {
-            Console.debug("Theme change detected, recreating activity")
+            Console.debug(getString(R.string.log_theme_change_detected))
             // Simply recreate the current activity instead of starting a new one
             recreate()
         }
