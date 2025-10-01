@@ -319,10 +319,17 @@ class ShareActivity : AppCompatActivity() {
                         buttonSendToService!!.isEnabled = true
                         buttonSendToService!!.text = getString(R.string.send_to_service, serviceTypeName)
 
+                        // Show success message
+                        val successMessage = if (mediaLink!!.startsWith("magnet:")) {
+                            getString(R.string.link_sent_successfully_to_service, serviceTypeName) + " " + getString(R.string.magnet_link_copied_to_clipboard)
+                        } else {
+                            getString(R.string.link_sent_successfully_to_service, serviceTypeName)
+                        }
+
                         Toast.makeText(
                             this@ShareActivity,
-                            getString(R.string.link_sent_successfully_to_service, serviceTypeName),
-                            Toast.LENGTH_SHORT
+                            successMessage,
+                            Toast.LENGTH_LONG
                         ).show()
 
                         // Save to history

@@ -212,6 +212,10 @@ class ServiceApiClient(private val context: android.content.Context) {
      */
     private fun sendMagnetToTorrentClient(profile: ServerProfile, magnetUrl: String, callback: ServiceApiCallback) {
         try {
+            // Copy magnet link to clipboard for remote access
+            val clipboardManager = com.shareconnect.utils.ClipboardHistoryManager.getInstance(context)
+            clipboardManager.copyToClipboard(magnetUrl, "Magnet Link")
+
             val baseUrl = profile.url + ":" + profile.port
             val apiUrl: String
 

@@ -83,7 +83,8 @@
     <string name="invalid_url_with_text">Invalid URL: %s</string>
     <string name="sending_to_service">Sending to %s...</string>
     <string name="send_to_service">Send to %s</string>
-    <string name="link_sent_successfully_to_service">Link sent successfully to %s!</string>
+       <string name="link_sent_successfully_to_service">Link sent successfully to %s!</string>
+       <string name="magnet_link_copied_to_clipboard">Magnet link copied to clipboard.</string>
     <string name="share_to_apps">Share to Apps</string>
     <string name="shared_media_link">Shared Media Link</string>
     <string name="no_profiles_support_type">No profiles support %s. Please configure a compatible profile in Settings.</string>
