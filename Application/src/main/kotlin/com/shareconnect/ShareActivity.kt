@@ -376,7 +376,7 @@ class ShareActivity : AppCompatActivity() {
         startActivity(chooserIntent)
 
         // Save to history as shared to apps
-        saveToHistory(mediaLink!!, "apps", "Other Apps", "Apps", true)
+        saveToHistory(mediaLink!!, "apps", getString(R.string.shared_via_apps), getString(R.string.system_app), true)
 
         // Dismiss the activity after sharing to apps
         finish()
@@ -464,28 +464,28 @@ class ShareActivity : AppCompatActivity() {
 
     private fun extractServiceProviderFromUrl(url: String): String {
         return when {
-            url.contains("youtube.com") || url.contains("youtu.be") -> "YouTube"
-            url.contains("vimeo.com") -> "Vimeo"
-            url.contains("twitch.tv") -> "Twitch"
-            url.contains("reddit.com") -> "Reddit"
-            url.contains("twitter.com") || url.contains("x.com") -> "Twitter"
-            url.contains("instagram.com") -> "Instagram"
-            url.contains("facebook.com") -> "Facebook"
-            url.contains("soundcloud.com") -> "SoundCloud"
-            url.contains("dailymotion.com") -> "Dailymotion"
-            url.contains("bandcamp.com") -> "Bandcamp"
-            url.startsWith("magnet:") -> "Magnet Link"
-            else -> "Unknown"
+            url.contains("youtube.com") || url.contains("youtu.be") -> getString(R.string.service_youtube)
+            url.contains("vimeo.com") -> getString(R.string.service_vimeo)
+            url.contains("twitch.tv") -> getString(R.string.service_twitch)
+            url.contains("reddit.com") -> getString(R.string.service_reddit)
+            url.contains("twitter.com") || url.contains("x.com") -> getString(R.string.service_twitter)
+            url.contains("instagram.com") -> getString(R.string.service_instagram)
+            url.contains("facebook.com") -> getString(R.string.service_facebook)
+            url.contains("soundcloud.com") -> getString(R.string.service_soundcloud)
+            url.contains("dailymotion.com") -> getString(R.string.service_dailymotion)
+            url.contains("bandcamp.com") -> getString(R.string.service_bandcamp)
+            url.startsWith("magnet:") -> getString(R.string.service_magnet_link)
+            else -> getString(R.string.service_unknown)
         }
     }
 
     private fun determineMediaType(url: String): String {
         // Simple media type determination
         return when {
-            url.contains("/playlist") || url.contains("&list=") -> "playlist"
-            url.contains("/channel/") || url.contains("/user/") -> "channel"
-            url.startsWith("magnet:") -> "torrent"
-            else -> "single_video"
+            url.contains("/playlist") || url.contains("&list=") -> getString(R.string.playlist)
+            url.contains("/channel/") || url.contains("/user/") -> getString(R.string.channel)
+            url.startsWith("magnet:") -> getString(R.string.torrent)
+            else -> getString(R.string.single_video)
         }
     }
 
@@ -513,7 +513,7 @@ class ShareActivity : AppCompatActivity() {
      */
     private fun handleAddFromClipboard() {
         // For now, just show a toast indicating the feature
-        Toast.makeText(this, "Add from clipboard functionality would be implemented here", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.add_from_clipboard_functionality), Toast.LENGTH_SHORT).show()
     }
 
     /**

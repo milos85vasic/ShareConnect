@@ -1,9 +1,10 @@
 #!/bin/sh
 
-if test -e env.properties; then
+PROP_FILE="env.properties"
 
-  # shellcheck disable=SC3046
-  source env.properties
+if test -e "$PROP_FILE"; then
+
+  source "$PROP_FILE"
 fi
 
 if [ -z "$1" ]; then
