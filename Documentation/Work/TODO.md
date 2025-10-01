@@ -43,6 +43,11 @@
 
 ## In progress
 
+- Connector applications integration
+  - Gradle integration
+  - New icons
+  - Themes sync and applying
+    - Theme synchronization settings switch
 - FIXME: Open shared magnet link on remote endpoint after signing in
   - Connect our torrent controller as an option
 - [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
