@@ -10,16 +10,14 @@ Export the following environment variables in your shell:
 
 ```bash
 # Development signing
-export SHARECONNECT_DEV_KEY_ALIAS="your_key_alias"
-export SHARECONNECT_DEV_KEY_PASSWORD="your_key_password"
-export SHARECONNECT_DEV_STORE_PASSWORD="your_store_password"
-export SHARECONNECT_DEV_KEYSTORE_PATH="Application/Signing/dev.jks"
-
-# Production/Cloud signing
-export SHARECONNECT_CLOUD_KEY_ALIAS="your_key_alias"
-export SHARECONNECT_CLOUD_KEY_PASSWORD="your_key_password"
-export SHARECONNECT_CLOUD_STORE_PASSWORD="your_store_password"
-export SHARECONNECT_CLOUD_KEYSTORE_PATH="Application/Signing/cloud.jks"
+export SHARECONNECT_DEV_KEY_ALIAS=your_key_alias
+export SHARECONNECT_DEV_KEY_PASSWORD=your_key_password
+export SHARECONNECT_DEV_STORE_PASSWORD=your_store_password
+export SHARECONNECT_DEV_KEYSTORE_PATH=Application/Signing/dev.jks
+export SHARECONNECT_CLOUD_KEY_ALIAS=your_key_alias
+export SHARECONNECT_CLOUD_KEY_PASSWORD=your_key_password
+export SHARECONNECT_CLOUD_STORE_PASSWORD=your_store_password
+export SHARECONNECT_CLOUD_KEYSTORE_PATH=Application/Signing/cloud.jks
 ```
 
 ### Method 2: .env.properties File
