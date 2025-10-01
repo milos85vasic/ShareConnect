@@ -123,6 +123,11 @@ class ClipboardHistoryManager private constructor(private val context: Context) 
         saveHistory()
     }
 
+    fun copyToClipboard(text: String, label: String = "ShareConnect") {
+        val clip = ClipData.newPlainText(label, text)
+        clipboardManager.setPrimaryClip(clip)
+    }
+
     private fun isValidUrl(url: String): Boolean {
         return try {
             val urlPattern = Regex(
