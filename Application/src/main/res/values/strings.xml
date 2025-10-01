@@ -127,11 +127,11 @@
       <string name="log_no_existing_themes">No existing themes found, creating default themes</string>
       <string name="log_default_themes_created">Default themes created</string>
       <string name="log_themes_already_exist">Themes already exist, not creating defaults</string>
-      <string name="log_existing_theme">Existing theme: %s (ID: %d, isDefault: %b)</string>
+       <string name="log_existing_theme">Existing theme: %1$s (ID: %2$d, isDefault: %3$b)</string>
       <string name="log_get_default_theme">getDefaultTheme() returned: %s</string>
       <string name="log_applying_default_material_theme">Applying default material theme</string>
-      <string name="log_applying_theme">Applying theme: %s, colorScheme: %s, isDarkMode: %b, currentTheme: %s</string>
-      <string name="log_activity_uses_toolbar">Activity %s usesToolbar: %b</string>
+       <string name="log_applying_theme">Applying theme: %1$s, colorScheme: %2$s, isDarkMode: %3$b, currentTheme: %4$s</string>
+       <string name="log_activity_uses_toolbar">Activity %1$s usesToolbar: %2$b</string>
       <string name="log_setting_night_mode_yes">Setting night mode to YES</string>
       <string name="log_setting_night_mode_no">Setting night mode to NO</string>
       <string name="log_notify_theme_changed_called">notifyThemeChanged() called</string>
@@ -140,13 +140,13 @@
       <string name="log_reset_theme_changed_flag_completed">resetThemeChangedFlag() completed, SharedPreferences updated</string>
       <string name="log_has_theme_changed">hasThemeChanged() returned: %b</string>
       <string name="log_theme_change_detected">Theme change detected, recreating activity</string>
-      <string name="log_on_theme_selected">onThemeSelected() called with theme: %s (ID: %d, isDefault: %b)</string>
-      <string name="log_selected_theme">Selected theme: %s (ID: %d)</string>
+       <string name="log_on_theme_selected">onThemeSelected() called with theme: %1$s (ID: %2$d, isDefault: %3$b)</string>
+       <string name="log_selected_theme">Selected theme: %1$s (ID: %2$d)</string>
 
       <!-- WebUI Activity strings -->
       <string name="log_qbittorrent_auth_script_executed">qBittorrent authentication script executed: %s</string>
       <string name="log_utorrent_auth_script_executed">uTorrent authentication script executed: %s</string>
-      <string name="log_auth_verification_result">Authentication verification result: %s (authenticated: %b)</string>
+       <string name="log_auth_verification_result">Authentication verification result: %1$s (authenticated: %2$b)</string>
       <string name="log_auth_verification_failed">Authentication verification failed, trying API approach or extending wait</string>
       <string name="log_api_approach_failed">API approach failed, falling back to UI automation</string>
       <string name="log_qbittorrent_api_add_response">qBittorrent API add response: %d</string>
@@ -161,7 +161,7 @@
           var passwordField = document.querySelector(\'input[name="password"], input[id="password"], input[type="password"], #password\');
           var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"], #login, .login-button, input[value*="Login"], button[onclick*="login"]\');
 
-          if (usernameField && passwordField && loginButton) {
+           if (usernameField &amp;&amp; passwordField &amp;&amp; loginButton) {
               usernameField.value = \'%s\';
               passwordField.value = \'%s\';
               loginButton.click();
@@ -171,7 +171,7 @@
           var passwordField = document.querySelector(\'input[name="password"], input[type="password"]\');
           var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"]\');
 
-          if (passwordField && loginButton) {
+           if (passwordField &amp;&amp; loginButton) {
               passwordField.value = \'%s\';
               loginButton.click();
           }
@@ -296,16 +296,34 @@
       <string name="channel">Channel</string>
       <string name="single_video">Single Video</string>
 
-      <!-- Service provider names -->
-      <string name="service_youtube">YouTube</string>
-      <string name="service_vimeo">Vimeo</string>
-      <string name="service_twitch">Twitch</string>
-      <string name="service_reddit">Reddit</string>
-      <string name="service_twitter">Twitter</string>
-      <string name="service_instagram">Instagram</string>
-      <string name="service_facebook">Facebook</string>
-      <string name="service_soundcloud">SoundCloud</string>
-      <string name="service_dailymotion">Dailymotion</string>
-      <string name="service_bandcamp">Bandcamp</string>
-      <string name="service_magnet_link">Magnet Link</string>
-      <string name="service_unknown">Unknown</string></resources>
+       <!-- Service provider names -->
+       <string name="service_youtube">YouTube</string>
+       <string name="service_vimeo">Vimeo</string>
+       <string name="service_twitch">Twitch</string>
+       <string name="service_reddit">Reddit</string>
+       <string name="service_twitter">Twitter</string>
+       <string name="service_instagram">Instagram</string>
+       <string name="service_facebook">Facebook</string>
+       <string name="service_soundcloud">SoundCloud</string>
+       <string name="service_dailymotion">Dailymotion</string>
+       <string name="service_bandcamp">Bandcamp</string>
+       <string name="service_magnet_link">Magnet Link</string>
+       <string name="service_unknown">Unknown</string>
+
+       <!-- API Error messages -->
+       <string name="error_metube_api">MeTube API error: %s</string>
+       <string name="error_ytdlp_api">YT-DLP API error: %s</string>
+       <string name="error_qbittorrent_login">qBittorrent login error: %s</string>
+       <string name="error_qbittorrent_api">qBittorrent API error: %s</string>
+       <string name="error_transmission_api">Transmission API error: %s</string>
+       <string name="error_utorrent_token">uTorrent token error: %s</string>
+       <string name="error_utorrent_api">uTorrent API error: %s</string>
+       <string name="error_my_jdownloader_api">My.JDownloader API error: %s</string>
+       <string name="error_legacy_jdownloader_api">Legacy jDownloader API error: %s</string>
+
+       <!-- User-facing API error messages -->
+       <string name="error_api_generic">API Error: %d - %s</string>
+       <string name="error_login_failed">Login failed: %d - %s</string>
+       <string name="error_token_failed">Token Error: %d - %s</string>
+       <string name="error_qbittorrent_auth_failed">qBittorrent authentication failed: %s</string>
+       <string name="error_transmission_generic">Transmission error: %s</string></resources>
