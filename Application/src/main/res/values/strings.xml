@@ -101,5 +101,211 @@
     <string name="torrent_file">Torrent file</string>
     <string name="bittorrent">BitTorrent</string>
     <string name="open_profile">Open %s</string>
-     <string name="magnet_link">Magnet Link</string>
-     <string name="add_from_clipboard">Add from clipboard</string></resources>
+      <string name="magnet_link">Magnet Link</string>
+      <string name="add_from_clipboard">Add from clipboard</string>
+
+      <!-- Theme names -->
+      <string name="theme_warm_orange_light">Warm Orange Light</string>
+      <string name="theme_warm_orange_dark">Warm Orange Dark</string>
+      <string name="theme_crimson_light">Crimson Light</string>
+      <string name="theme_crimson_dark">Crimson Dark</string>
+      <string name="theme_light_blue_light">Light Blue Light</string>
+      <string name="theme_light_blue_dark">Light Blue Dark</string>
+      <string name="theme_purple_light">Purple Light</string>
+      <string name="theme_purple_dark">Purple Dark</string>
+      <string name="theme_green_light">Green Light</string>
+      <string name="theme_green_dark">Green Dark</string>
+      <string name="theme_material_light">Material Light</string>
+      <string name="theme_material_dark">Material Dark</string>
+
+      <!-- Database and logging strings -->
+      <string name="db_history_database">history_database</string>
+      <string name="log_set_default_theme_called">setDefaultTheme() called with themeId: %s</string>
+      <string name="log_set_default_theme_completed">setDefaultTheme() completed</string>
+      <string name="log_failed_verify_default_theme">Failed to verify new default theme - getDefaultTheme() returned null</string>
+      <string name="log_initialize_default_themes_called">initializeDefaultThemes() called</string>
+      <string name="log_no_existing_themes">No existing themes found, creating default themes</string>
+      <string name="log_default_themes_created">Default themes created</string>
+      <string name="log_themes_already_exist">Themes already exist, not creating defaults</string>
+      <string name="log_existing_theme">Existing theme: %s (ID: %d, isDefault: %b)</string>
+      <string name="log_get_default_theme">getDefaultTheme() returned: %s</string>
+      <string name="log_applying_default_material_theme">Applying default material theme</string>
+      <string name="log_applying_theme">Applying theme: %s, colorScheme: %s, isDarkMode: %b, currentTheme: %s</string>
+      <string name="log_activity_uses_toolbar">Activity %s usesToolbar: %b</string>
+      <string name="log_setting_night_mode_yes">Setting night mode to YES</string>
+      <string name="log_setting_night_mode_no">Setting night mode to NO</string>
+      <string name="log_notify_theme_changed_called">notifyThemeChanged() called</string>
+      <string name="log_notify_theme_changed_completed">notifyThemeChanged() completed, SharedPreferences updated</string>
+      <string name="log_reset_theme_changed_flag_called">resetThemeChangedFlag() called</string>
+      <string name="log_reset_theme_changed_flag_completed">resetThemeChangedFlag() completed, SharedPreferences updated</string>
+      <string name="log_has_theme_changed">hasThemeChanged() returned: %b</string>
+      <string name="log_theme_change_detected">Theme change detected, recreating activity</string>
+      <string name="log_on_theme_selected">onThemeSelected() called with theme: %s (ID: %d, isDefault: %b)</string>
+      <string name="log_selected_theme">Selected theme: %s (ID: %d)</string>
+
+      <!-- WebUI Activity strings -->
+      <string name="log_qbittorrent_auth_script_executed">qBittorrent authentication script executed: %s</string>
+      <string name="log_utorrent_auth_script_executed">uTorrent authentication script executed: %s</string>
+      <string name="log_auth_verification_result">Authentication verification result: %s (authenticated: %b)</string>
+      <string name="log_auth_verification_failed">Authentication verification failed, trying API approach or extending wait</string>
+      <string name="log_api_approach_failed">API approach failed, falling back to UI automation</string>
+      <string name="log_qbittorrent_api_add_response">qBittorrent API add response: %d</string>
+      <string name="log_qbittorrent_api_login_failed">qBittorrent API login failed: %d</string>
+      <string name="log_qbittorrent_enhanced_url_script_executed">qBittorrent enhanced URL passing script executed: %s</string>
+      <string name="log_transmission_url_script_executed">Transmission URL passing script executed: %s</string>
+
+      <!-- JavaScript and HTML strings -->
+      <string name="js_user_agent">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</string>
+      <string name="js_qbittorrent_login_script">
+          var usernameField = document.querySelector(\'input[name="username"], input[id="username"], input[type="text"], #username\');
+          var passwordField = document.querySelector(\'input[name="password"], input[id="password"], input[type="password"], #password\');
+          var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"], #login, .login-button, input[value*="Login"], button[onclick*="login"]\');
+
+          if (usernameField && passwordField && loginButton) {
+              usernameField.value = \'%s\';
+              passwordField.value = \'%s\';
+              loginButton.click();
+          }
+      </string>
+      <string name="js_utorrent_login_script">
+          var passwordField = document.querySelector(\'input[name="password"], input[type="password"]\');
+          var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"]\');
+
+          if (passwordField && loginButton) {
+              passwordField.value = \'%s\';
+              loginButton.click();
+          }
+      </string>
+      <string name="js_auth_verification_script">
+          var isOnLoginPage = document.querySelector(\'input[name="username"], input[name="password"], .login-form\') !== null;
+          isOnLoginPage ? "false" : "true";
+      </string>
+      <string name="js_qbittorrent_add_torrent_script">
+          var url = \'%s\';
+
+          // Try multiple selectors for URL input field
+          var urlSelectors = [
+              \'input[name="urls"]\',
+              \'textarea[name="urls"]\',
+              \'input[placeholder*="URL"]\',
+              \'input[placeholder*="url"]\',
+              \'input[placeholder*="magnet"]\',
+              \'textarea[placeholder*="URL"]\',
+              \'textarea[placeholder*="url"]\',
+              \'textarea[placeholder*="magnet"]\',
+              \'input[id*="url"]\',
+              \'textarea[id*="url"]\',
+              \'input[type="url"]\',
+              \'.form-control[placeholder*="URL"]\'
+          ];
+
+          var urlField = null;
+          for (var i = 0; i &lt; urlSelectors.length; i++) {
+              urlField = document.querySelector(urlSelectors[i]);
+              if (urlField) break;
+          }
+
+          if (urlField) {
+              urlField.value = url;
+              urlField.dispatchEvent(new Event(\'input\', { bubbles: true }));
+              urlField.dispatchEvent(new Event(\'change\', { bubbles: true }));
+
+              // Try multiple selectors for submit buttons
+              var submitSelectors = [
+                  \'input[type="submit"]\',
+                  \'button[type="submit"]\',
+                  \'input[value*="Download"]\',
+                  \'button[onclick*="add"]\',
+                  \'button[onclick*="download"]\',
+                  \'input[value*="Add"]\',
+                  \'button:contains("Add")\',
+                  \'button:contains("OK")\',
+                  \'button:contains("Download")\'
+              ];
+
+              var submitButton = null;
+              for (var j = 0; j &lt; submitSelectors.length; j++) {
+                  submitButton = document.querySelector(submitSelectors[j]);
+                  if (submitButton) break;
+              }
+
+              if (submitButton) {
+                  submitButton.click();
+                  "success";
+              } else {
+                  // Try to find modern qBittorrent UI "Add Torrent" button
+                  var contextMenu = document.querySelector(\'.context-menu, .dropdown-menu\');
+                  if (!contextMenu) {
+                      // Try to trigger context menu or find toolbar buttons
+                      var toolbarButtons = [
+                          \'button[title*="Add"]\',
+                          \'a[title*="Add"]\',
+                          \'.toolbar button[title*="Add"]\',
+                          \'.toolbar a[title*="Add"]\',
+                          \'button[onclick*="add"]\',
+                          \'a[onclick*="add"]\',
+                          \'.material-icons:contains("add")\',
+                          \'button:contains("Add")\',
+                          \'a:contains("Add")\'
+                      ];
+
+                      for (var k = 0; k &lt; toolbarButtons.length; k++) {
+                          var addButton = document.querySelector(toolbarButtons[k]);
+                          if (addButton) {
+                              addButton.click();
+                              break;
+                          }
+                      }
+
+                      // Try menu items
+                      var menuItems = [
+                          \'.menu-item[onclick*="add"]\',
+                          \'.dropdown-item[onclick*="add"]\'
+                      ];
+
+                      for (var l = 0; l &lt; menuItems.length; l++) {
+                          var menuItem = document.querySelector(menuItems[l]);
+                          if (menuItem) {
+                              menuItem.click();
+                              break;
+                          }
+                      }
+                  } else {
+                      var addItem = contextMenu.querySelector(\'[onclick*="add"], :contains("Add")\');
+                      if (addItem) {
+                          addItem.click();
+                      }
+                  }
+                  "success";
+              }
+          } else {
+              "url_field_not_found";
+          }
+      </string>
+      <string name="html_qbittorrent_success_message">
+          &lt;div style="background: rgba(255,255,255,0.2); padding: 8px; margin: 8px 0; border-radius: 4px; font-size: 12px; word-break: break-all;"&gt;
+          URL successfully added to qBittorrent!
+          &lt;/div&gt;
+      </string>
+
+      <!-- ShareActivity strings -->
+      <string name="add_from_clipboard_functionality">Add from clipboard functionality would be implemented here</string>
+      <string name="shared_via_apps">Shared via Apps</string>
+      <string name="system_app">System App</string>
+      <string name="playlist">Playlist</string>
+      <string name="channel">Channel</string>
+      <string name="single_video">Single Video</string>
+
+      <!-- Service provider names -->
+      <string name="service_youtube">YouTube</string>
+      <string name="service_vimeo">Vimeo</string>
+      <string name="service_twitch">Twitch</string>
+      <string name="service_reddit">Reddit</string>
+      <string name="service_twitter">Twitter</string>
+      <string name="service_instagram">Instagram</string>
+      <string name="service_facebook">Facebook</string>
+      <string name="service_soundcloud">SoundCloud</string>
+      <string name="service_dailymotion">Dailymotion</string>
+      <string name="service_bandcamp">Bandcamp</string>
+      <string name="service_magnet_link">Magnet Link</string>
+      <string name="service_unknown">Unknown</string></resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 
 class HistoryRepository(context: Context, testDao: HistoryItemDao? = null) {
+    private val appContext = context.applicationContext
     private lateinit var database: HistoryDatabase
     private lateinit var historyItemDao: HistoryItemDao
 
@@ -14,8 +15,8 @@ class HistoryRepository(context: Context, testDao: HistoryItemDao? = null) {
         } else {
             // Initialize the database with SQLCipher encryption
             database = Room.databaseBuilder(
-                context.applicationContext,
-                HistoryDatabase::class.java, "history_database"
+                appContext,
+                HistoryDatabase::class.java, appContext.getString(R.string.db_history_database)
             )
                 .allowMainThreadQueries() // For simplicity, allow main thread queries
                 .fallbackToDestructiveMigration()

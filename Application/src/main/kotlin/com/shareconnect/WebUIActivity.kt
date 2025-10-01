@@ -97,7 +97,7 @@ class WebUIActivity : AppCompatActivity() {
                 useWideViewPort = true
 
                 // Set user agent to avoid mobile redirects
-                userAgentString = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                userAgentString = getString(R.string.js_user_agent)
             }
 
             webViewClient = createWebViewClient()
@@ -271,7 +271,7 @@ class WebUIActivity : AppCompatActivity() {
         """.trimIndent()
 
         webView?.evaluateJavascript(loginScript) { result ->
-            Console.log("qBittorrent authentication script executed: $result")
+            Console.log(getString(R.string.log_qbittorrent_auth_script_executed, result))
 
             // Wait for authentication to complete and verify login success
             webView?.postDelayed({
@@ -324,7 +324,7 @@ class WebUIActivity : AppCompatActivity() {
         """.trimIndent()
 
         webView?.evaluateJavascript(authScript) { result ->
-            Console.log("uTorrent authentication script executed: $result")
+            Console.log(getString(R.string.log_utorrent_auth_script_executed, result))
             isAuthenticated = true
 
             webView?.postDelayed({
@@ -355,14 +355,14 @@ class WebUIActivity : AppCompatActivity() {
 
         webView?.evaluateJavascript(verificationScript) { result ->
             val isAuthenticated = result.trim() == "true"
-            Console.log("Authentication verification result: $result (authenticated: $isAuthenticated)")
+            Console.log(getString(R.string.log_auth_verification_result, result, isAuthenticated))
 
             if (isAuthenticated) {
                 this.isAuthenticated = true
                 passUrlToWebUI()
             } else {
                 // Authentication may have failed, try API approach or wait longer
-                Console.log("Authentication verification failed, trying API approach or extending wait")
+                Console.log(getString(R.string.log_auth_verification_failed))
                 webView?.postDelayed({
                     // Try API approach first, then fallback to UI automation
                     tryQBittorrentApiApproach()
@@ -394,7 +394,7 @@ class WebUIActivity : AppCompatActivity() {
                         Toast.makeText(this@WebUIActivity, message, Toast.LENGTH_LONG).show()
                     } else {
                         // Fall back to UI automation
-                        Console.log("API approach failed, falling back to UI automation")
+                        Console.log(getString(R.string.log_api_approach_failed))
                         passUrlToWebUI()
                     }
                 }
@@ -443,11 +443,11 @@ class WebUIActivity : AppCompatActivity() {
                     .build()
 
                 val addResponse = client.newCall(addRequest).execute()
-                Console.log("qBittorrent API add response: ${addResponse.code}")
+                Console.log(getString(R.string.log_qbittorrent_api_add_response, addResponse.code))
 
                 return addResponse.isSuccessful
             } else {
-                Console.log("qBittorrent API login failed: ${loginResponse.code}")
+                Console.log(getString(R.string.log_qbittorrent_api_login_failed, loginResponse.code))
                 return false
             }
         } catch (e: Exception) {
@@ -692,7 +692,7 @@ class WebUIActivity : AppCompatActivity() {
         """.trimIndent()
 
         webView?.evaluateJavascript(addTorrentScript) { result ->
-            Console.log("qBittorrent enhanced URL passing script executed: $result")
+            Console.log(getString(R.string.log_qbittorrent_enhanced_url_script_executed, result))
 
             // Don't show success message immediately since we don't know if it succeeded
             // The script itself will show appropriate feedback
@@ -729,7 +729,7 @@ class WebUIActivity : AppCompatActivity() {
         """.trimIndent()
 
         webView?.evaluateJavascript(addTorrentScript) { result ->
-            Console.log("Transmission URL passing script executed: $result")
+            Console.log(getString(R.string.log_transmission_url_script_executed, result))
             Toast.makeText(this, getString(R.string.url_passed_transmission, urlToShare), Toast.LENGTH_SHORT).show()
         }
     }

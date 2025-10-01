@@ -20,12 +20,12 @@ class ThemeManager private constructor(context: Context) {
 
     fun applyTheme(activity: Activity) {
         val defaultTheme = themeRepository.defaultTheme
-        Console.debug("getDefaultTheme() returned: " + if (defaultTheme != null) defaultTheme.name + " (ID: " + defaultTheme.id + ", isDefault: " + defaultTheme.isDefault + ")" else "null")
+        Console.debug(context.getString(R.string.log_get_default_theme, if (defaultTheme != null) defaultTheme.name + " (ID: " + defaultTheme.id + ", isDefault: " + defaultTheme.isDefault + ")" else "null"))
         if (defaultTheme != null) {
             applyTheme(activity, defaultTheme)
         } else {
             // Apply default material theme
-            Console.debug("Applying default material theme")
+            Console.debug(context.getString(R.string.log_applying_default_material_theme))
             activity.setTheme(R.style.Theme_ShareConnect_Material_Light)
         }
     }
@@ -36,12 +36,12 @@ class ThemeManager private constructor(context: Context) {
 
         val currentTheme = (colorScheme ?: "").uppercase() + if (isDarkMode) "_DARK" else "_LIGHT"
 
-        Console.debug("Applying theme: " + theme.name + ", colorScheme: " + colorScheme + ", isDarkMode: " + isDarkMode + ", currentTheme: " + currentTheme)
+        Console.debug(context.getString(R.string.log_applying_theme, theme.name, colorScheme, isDarkMode, currentTheme))
 
         // Check if activity uses Toolbar (requires NoActionBar theme)
         val usesToolbar = activity is MainActivity || activity is ThemeSelectionActivity || activity is SettingsActivity || activity is SplashActivity || activity is ProfilesActivity || activity is ShareActivity || activity is EditProfileActivity || activity is HistoryActivity || activity is WebUIActivity
 
-        Console.debug("Activity " + activity.javaClass.simpleName + " usesToolbar: " + usesToolbar)
+        Console.debug(context.getString(R.string.log_activity_uses_toolbar, activity.javaClass.simpleName, usesToolbar))
 
         when (currentTheme) {
             "WARM_ORANGE_DARK" -> activity.setTheme(
@@ -126,10 +126,10 @@ class ThemeManager private constructor(context: Context) {
 
         // Apply day/night mode
         if (isDarkMode) {
-            Console.debug("Setting night mode to YES")
+            Console.debug(context.getString(R.string.log_setting_night_mode_yes))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
-            Console.debug("Setting night mode to NO")
+            Console.debug(context.getString(R.string.log_setting_night_mode_no))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
@@ -139,26 +139,26 @@ class ThemeManager private constructor(context: Context) {
 
     // Method to notify that theme has changed
     fun notifyThemeChanged() {
-        Console.debug("notifyThemeChanged() called")
+        Console.debug(context.getString(R.string.log_notify_theme_changed_called))
         val editor = sharedPreferences.edit()
         editor.putBoolean(KEY_THEME_CHANGED, true)
         editor.commit()
-        Console.debug("notifyThemeChanged() completed, SharedPreferences updated")
+        Console.debug(context.getString(R.string.log_notify_theme_changed_completed))
     }
 
     // Method to reset theme changed flag
     fun resetThemeChangedFlag() {
-        Console.debug("resetThemeChangedFlag() called")
+        Console.debug(context.getString(R.string.log_reset_theme_changed_flag_called))
         val editor = sharedPreferences.edit()
         editor.putBoolean(KEY_THEME_CHANGED, false)
         editor.commit()
-        Console.debug("resetThemeChangedFlag() completed, SharedPreferences updated")
+        Console.debug(context.getString(R.string.log_reset_theme_changed_flag_completed))
     }
 
     // Method to check if theme has changed
     fun hasThemeChanged(): Boolean {
         val changed = sharedPreferences.getBoolean(KEY_THEME_CHANGED, false)
-        Console.debug("hasThemeChanged() returned: $changed")
+        Console.debug(context.getString(R.string.log_has_theme_changed, changed))
         return changed
     }
 
