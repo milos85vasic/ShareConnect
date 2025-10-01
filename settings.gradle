@@ -45,6 +45,7 @@ include ':Toolkit:Analytics'
 
 include ':Connectors:qBitConnect:composeApp'
 include ':Connectors:qBitConnect:preferences'
+include ':Connectors:qBitConnect:shared'
 
 // TODO: Connect [IN_PROGRESS]
 // include ':Asinka'
