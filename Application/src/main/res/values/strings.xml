@@ -128,7 +128,7 @@
       <string name="log_default_themes_created">Default themes created</string>
       <string name="log_themes_already_exist">Themes already exist, not creating defaults</string>
        <string name="log_existing_theme">Existing theme: %1$s (ID: %2$d, isDefault: %3$b)</string>
-      <string name="log_get_default_theme">getDefaultTheme() returned: %s</string>
+       <string name="log_get_default_theme">getDefaultTheme() returned: %1$s</string>
       <string name="log_applying_default_material_theme">Applying default material theme</string>
        <string name="log_applying_theme">Applying theme: %1$s, colorScheme: %2$s, isDarkMode: %3$b, currentTheme: %4$s</string>
        <string name="log_activity_uses_toolbar">Activity %1$s usesToolbar: %2$b</string>
@@ -162,10 +162,10 @@
           var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"], #login, .login-button, input[value*="Login"], button[onclick*="login"]\');
 
            if (usernameField &amp;&amp; passwordField &amp;&amp; loginButton) {
-              usernameField.value = \'%s\';
-              passwordField.value = \'%s\';
+              usernameField.value = \'%1$s\';
+              passwordField.value = \'%2$s\';
               loginButton.click();
-          }
+           }
       </string>
       <string name="js_utorrent_login_script">
           var passwordField = document.querySelector(\'input[name="password"], input[type="password"]\');
@@ -321,9 +321,9 @@
        <string name="error_my_jdownloader_api">My.JDownloader API error: %s</string>
        <string name="error_legacy_jdownloader_api">Legacy jDownloader API error: %s</string>
 
-       <!-- User-facing API error messages -->
-       <string name="error_api_generic">API Error: %d - %s</string>
-       <string name="error_login_failed">Login failed: %d - %s</string>
-       <string name="error_token_failed">Token Error: %d - %s</string>
+        <!-- User-facing API error messages -->
+        <string name="error_api_generic">API Error: %1$d - %2$s</string>
+        <string name="error_login_failed">Login failed: %1$d - %2$s</string>
+        <string name="error_token_failed">Token Error: %1$d - %2$s</string>
        <string name="error_qbittorrent_auth_failed">qBittorrent authentication failed: %s</string>
        <string name="error_transmission_generic">Transmission error: %s</string></resources>

@@ -2,6 +2,7 @@ package com.shareconnect.database
 
 import android.content.Context
 import com.redelf.commons.logging.Console
+import com.shareconnect.R
 
 class ThemeRepository(context: Context, testDao: ThemeDao? = null) {
     private val appContext = context.applicationContext

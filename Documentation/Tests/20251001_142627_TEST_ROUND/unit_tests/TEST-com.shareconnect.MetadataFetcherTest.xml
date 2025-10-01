@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.MetadataFetcherTest" tests="19" skipped="0" failures="1" errors="0" timestamp="2025-10-01T11:26:47.521Z" hostname="thinker" time="3.798">
+  <properties/>
+  <testcase name="testMagnetMetadataExtraction_NoDisplayName" classname="com.shareconnect.MetadataFetcherTest" time="3.324"/>
+  <testcase name="testContentTypeInference_TVShowBySeason" classname="com.shareconnect.MetadataFetcherTest" time="0.029"/>
+  <testcase name="testMagnetMetadataExtraction_BookDocument" classname="com.shareconnect.MetadataFetcherTest" time="0.024"/>
+  <testcase name="testContentTypeInference_MusicByKeyword" classname="com.shareconnect.MetadataFetcherTest" time="0.024"/>
+  <testcase name="testMagnetMetadataExtraction_SoftwareGame" classname="com.shareconnect.MetadataFetcherTest" time="0.023"/>
+  <testcase name="testTorrentFileUrl_ExtractsFilename" classname="com.shareconnect.MetadataFetcherTest" time="0.023"/>
+  <testcase name="testMagnetMetadataExtraction_WithURLEncoding" classname="com.shareconnect.MetadataFetcherTest" time="0.021"/>
+  <testcase name="testContentTypeInference_MovieByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.021"/>
+  <testcase name="testMagnetMetadataExtraction_MusicAlbum" classname="com.shareconnect.MetadataFetcherTest" time="0.02"/>
+  <testcase name="testSizeFormatting_Bytes" classname="com.shareconnect.MetadataFetcherTest" time="0.02"/>
+  <testcase name="testMagnetMetadataExtraction_MinimalInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.02"/>
+  <testcase name="testMagnetMetadataExtraction_TVShowWithMultipleTrackers" classname="com.shareconnect.MetadataFetcherTest" time="0.019"/>
+  <testcase name="testSizeFormatting_Terabytes" classname="com.shareconnect.MetadataFetcherTest" time="0.022"/>
+  <testcase name="testContentTypeInference_SoftwareByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.023"/>
+  <testcase name="testMalformedMagnetUrl_ReturnsBasicMetadata" classname="com.shareconnect.MetadataFetcherTest" time="0.021"/>
+  <testcase name="testMagnetMetadataExtraction_MovieWithFullInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.03"/>
+  <testcase name="testSizeFormatting_Kilobytes" classname="com.shareconnect.MetadataFetcherTest" time="0.016"/>
+  <testcase name="testMagnetMetadataExtraction_OnlyInfoHash" classname="com.shareconnect.MetadataFetcherTest" time="0.015"/>
+  <testcase name="testRegularUrl_FallsBackToGenericHandling" classname="com.shareconnect.MetadataFetcherTest" time="0.101">
+    <failure message="java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process null. Make sure to call FirebaseApp.initializeApp(Context) first." type="java.lang.IllegalStateException">java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process null. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.FirebaseApp.getInstance(FirebaseApp.java:179)
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.MetadataFetcher$fetchMetadata$2.invokeSuspend(MetadataFetcher.kt:47)
+	at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:42)
+	at com.shareconnect.MetadataFetcherTest$testRegularUrl_FallsBackToGenericHandling$1.invokeSuspend(MetadataFetcherTest.kt:231)
+Caused by: java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process null. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.FirebaseApp.getInstance(FirebaseApp.java:179)
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.MetadataFetcher$fetchMetadata$2.invokeSuspend(MetadataFetcher.kt:47)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

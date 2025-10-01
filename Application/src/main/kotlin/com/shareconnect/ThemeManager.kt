@@ -8,7 +8,7 @@ import com.redelf.commons.logging.Console
 import com.shareconnect.database.Theme
 import com.shareconnect.database.ThemeRepository
 
-class ThemeManager private constructor(context: Context) {
+class ThemeManager private constructor(private val context: Context) {
     private val themeRepository: ThemeRepository
     private val sharedPreferences: SharedPreferences
 

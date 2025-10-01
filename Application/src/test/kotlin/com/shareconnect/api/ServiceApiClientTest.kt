@@ -9,6 +9,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.MockitoAnnotations
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
@@ -21,7 +22,7 @@ class ServiceApiClientTest {
     @Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
-        serviceApiClient = ServiceApiClient()
+        serviceApiClient = ServiceApiClient(RuntimeEnvironment.application)
 
         testProfile = ServerProfile().apply {
             id = "test-profile"

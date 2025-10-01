@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.database.ThemeRepositoryUnitTest" tests="7" skipped="0" failures="3" errors="0" timestamp="2025-10-01T11:26:54.805Z" hostname="thinker" time="0.106">
+  <properties/>
+  <testcase name="testUpdateTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.042"/>
+  <testcase name="testInsertTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.009"/>
+  <testcase name="testGetThemeByColorSchemeAndMode" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.009"/>
+  <testcase name="testInitializeDefaultThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.011">
+    <failure message="android.content.res.Resources$NotFoundException: Resource ID #0x7f1100ca" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: Resource ID #0x7f1100ca
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResName(ShadowLegacyAssetManager.java:1379)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolveResourceValue(ShadowLegacyAssetManager.java:1153)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolve(ShadowLegacyAssetManager.java:1113)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getAndResolve(ShadowLegacyAssetManager.java:1107)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResourceText(ShadowLegacyAssetManager.java:283)
+	at android.content.res.AssetManager.getResourceText(AssetManager.java)
+	at android.content.res.Resources.getText(Resources.java:225)
+	at android.content.res.Resources.getString(Resources.java:313)
+	at android.content.Context.getString(Context.java:292)
+	at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:78)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testInitializeDefaultThemes(ThemeRepositoryUnitTest.kt:144)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.16/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at app//org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base@17.0.16/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.16/java.lang.Thread.run(Thread.java:840)
+</failure>
+  </testcase>
+  <testcase name="testGetAllThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.011"/>
+  <testcase name="testGetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.012">
+    <failure message="android.content.res.Resources$NotFoundException: Resource ID #0x7f1100c8" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: Resource ID #0x7f1100c8
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResName(ShadowLegacyAssetManager.java:1379)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolveResourceValue(ShadowLegacyAssetManager.java:1153)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolve(ShadowLegacyAssetManager.java:1113)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getAndResolve(ShadowLegacyAssetManager.java:1107)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResourceText(ShadowLegacyAssetManager.java:283)
+	at android.content.res.AssetManager.getResourceText(AssetManager.java)
+	at android.content.res.Resources.getText(Resources.java:225)
+	at android.content.res.Resources.getString(Resources.java:313)
+	at android.content.res.Resources.getString(Resources.java:341)
+	at android.content.Context.getString(Context.java:305)
+	at com.shareconnect.database.ThemeRepository.getDefaultTheme(ThemeRepository.kt:38)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testGetDefaultTheme(ThemeRepositoryUnitTest.kt:73)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.16/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at app//org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base@17.0.16/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.16/java.lang.Thread.run(Thread.java:840)
+</failure>
+  </testcase>
+  <testcase name="testSetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.011">
+    <failure message="android.content.res.Resources$NotFoundException: Resource ID #0x7f1100d6" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: Resource ID #0x7f1100d6
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResName(ShadowLegacyAssetManager.java:1379)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolveResourceValue(ShadowLegacyAssetManager.java:1153)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.resolve(ShadowLegacyAssetManager.java:1113)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getAndResolve(ShadowLegacyAssetManager.java:1107)
+	at org.robolectric.shadows.ShadowLegacyAssetManager.getResourceText(ShadowLegacyAssetManager.java:283)
+	at android.content.res.AssetManager.getResourceText(AssetManager.java)
+	at android.content.res.Resources.getText(Resources.java:225)
+	at android.content.res.Resources.getString(Resources.java:313)
+	at android.content.res.Resources.getString(Resources.java:341)
+	at android.content.Context.getString(Context.java:305)
+	at com.shareconnect.database.ThemeRepository.setDefaultTheme(ThemeRepository.kt:60)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testSetDefaultTheme(ThemeRepositoryUnitTest.kt:134)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@17.0.16/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base@17.0.16/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:589)
+	at app//org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:290)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+	at java.base@17.0.16/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.16/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.16/java.lang.Thread.run(Thread.java:840)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
