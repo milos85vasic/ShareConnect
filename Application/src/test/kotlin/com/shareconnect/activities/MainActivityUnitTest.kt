@@ -36,12 +36,21 @@ class MainActivityUnitTest {
     fun setUp() {
         MockitoAnnotations.openMocks(this)
 
+        // Mock ProfileManager before activity creation
+        `when`(mockProfileManager.hasProfiles()).thenReturn(true)
+
         // Create activity using Robolectric
         val controller = Robolectric.buildActivity(MainActivity::class.java)
         activity = controller.create().start().resume().get()
 
-        // Mock the profile manager
+        // Override the profile manager created in onCreate
         activity.profileManager = mockProfileManager
+
+        // Manually call setupMainView since it wasn't called due to profile check
+        activity.javaClass.getDeclaredMethod("setupMainView").apply {
+            isAccessible = true
+            invoke(activity)
+        }
     }
 
     @Test
