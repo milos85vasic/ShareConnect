@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Foldable and extra large screen dimensions (840dp+) -->
+    <dimen name="activity_horizontal_margin">40dp</dimen>
+    <dimen name="activity_vertical_margin">40dp</dimen>
+    <dimen name="card_margin">20dp</dimen>
+    <dimen name="card_padding">40dp</dimen>
+
+    <!-- Large text for foldables and extra large screens -->
+    <dimen name="text_size_large">36sp</dimen>
+    <dimen name="text_size_medium">28sp</dimen>
+    <dimen name="text_size_normal">24sp</dimen>
+    <dimen name="text_size_small">20sp</dimen>
+
+    <!-- Large icons for foldables and extra large screens -->
+    <dimen name="icon_size_large">128dp</dimen>
+    <dimen name="icon_size_medium">72dp</dimen>
+</resources>

@@ -46,7 +46,6 @@
 - FIXME: Open shared magnet link on remote endpoint after signing in
   - Make sure that shared magnet link is added into the clipboard
   - Connect our torrent controller as an option
-- Optimization for small screens and tablets
 - FIXME: Not all strings are localized yet
 - https://deepwiki.com/ support
 - [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
@@ -68,6 +67,7 @@
 
 - Internal test release [1.0.0 @ 002](./Changes/1.0.0/002.md)
 - Add record exception on all critical error catch sports
+- Optimization for small screens and tablets
 
 ### Archive
 
