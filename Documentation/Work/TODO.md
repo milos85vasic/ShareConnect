@@ -44,17 +44,26 @@
 ## In progress
 
 - Connector applications integration
-  - qBitConnector 
+  - qBitConnector
+    - Asinka to connect both main app anf the connector app
+    - New icons
+    - Themes sync and applying
+      - Theme synchronization settings switch
   - TransmissionConnector
+    - Asinka to connect both main app anf the connector app
+    - New icons
+    - Themes sync and applying
+      - Theme synchronization settings switch
   - uTorrent Connector (TBD)
-  - Gradle integration
-  - New icons
-  - Themes sync and applying
-    - Theme synchronization settings switch
+    - Asinka to connect both main app anf the connector app
+    - New icons
+    - Themes sync and applying
+      - Theme synchronization settings switch
 - FIXME: Open shared magnet link on remote endpoint after signing in
   - Connect our torrent controller as an option
-- [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
+- [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
+- Internal test release [1.0.0 @ 005](./Changes/1.0.0/005.md)
 - Code coverage reports
   - If low create generic task and send it to AI agent to extend the tests
   - Code coverage badges
