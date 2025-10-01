@@ -45,7 +45,7 @@ include ':Toolkit:Analytics'
 
 include ':Connectors:qBitConnect:composeApp'
 include ':Connectors:qBitConnect:preferences'
-// include ':Connectors:qBitConnect:baselineProfile' // Temporarily disabled due to plugin compatibility issues
+include ':Connectors:qBitConnect:baselineProfile'
 
 // TODO: Connect [IN_PROGRESS]
 // include ':Asinka'
