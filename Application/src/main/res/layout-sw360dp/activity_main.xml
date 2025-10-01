@@ -32,11 +32,11 @@
             android:orientation="vertical"
             android:padding="@dimen/activity_horizontal_margin">
 
-            <!-- Compact layout for small screens -->
+            <!-- App info card with optimized spacing for normal phones -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_large"
                 app:cardElevation="@dimen/card_elevation"
                 app:cardCornerRadius="@dimen/card_corner_radius">
 
@@ -50,7 +50,7 @@
                         android:layout_width="@dimen/icon_size_large"
                         android:layout_height="@dimen/icon_size_large"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/spacing_small"
+                        android:layout_marginBottom="@dimen/spacing_medium"
                         android:src="@drawable/ic_foreground"
                         android:contentDescription="App Icon" />
 
@@ -66,10 +66,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Share media links to MeTube"
+                        android:text="Share media links from YouTube, Vimeo, Twitch, Reddit, Twitter, Instagram, Facebook, SoundCloud and more directly to your MeTube instance"
                         android:textAlignment="center"
-                        android:textSize="@dimen/text_size_small"
-                        android:layout_marginBottom="@dimen/spacing_medium" />
+                        android:textSize="@dimen/text_size_normal"
+                        android:layout_marginBottom="@dimen/spacing_large" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/buttonSettings"
@@ -83,58 +83,100 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Quick actions in a more compact format -->
+            <!-- Quick Actions section -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Quick Actions:"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/spacing_small" />
+                android:layout_marginBottom="@dimen/spacing_medium" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonOpenMeTube"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_tiny"
-                android:text="Open MeTube"
-                app:icon="@android:drawable/ic_menu_view" />
+                android:layout_marginBottom="@dimen/spacing_large"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/card_corner_radius">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonHistory"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="View History"
-                app:icon="@android:drawable/ic_menu_recent_history" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
 
-            <!-- Simplified instructions -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonOpenMeTube"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_small"
+                        android:text="Open MeTube Interface"
+                        app:icon="@android:drawable/ic_menu_view" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonHistory"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="View Share History"
+                        app:icon="@android:drawable/ic_menu_recent_history" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- How to use section -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="How to use:"
                 android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/spacing_small" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1. Share media content\n2. Select 'ShareConnect'\n3. Done!"
-                android:textSize="@dimen/text_size_small"
                 android:layout_marginBottom="@dimen/spacing_medium" />
 
-            <!-- Compact FAB optimized for small screens -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/card_corner_radius">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Open any supported media app or website"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2. Share any media content"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3. Select 'ShareConnect' from the sharing options" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- FAB optimized for normal phones -->
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:layout_marginBottom="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 android:text="Add from Clipboard"
-                android:textSize="@dimen/text_size_small"
                 app:icon="@android:drawable/ic_input_add" />
 
         </LinearLayout>

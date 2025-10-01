@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Large phone-optimized dimensions (400-599dp) -->
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+
+    <!-- Slightly larger text for large phones -->
+    <dimen name="text_size_large">26sp</dimen>
+    <dimen name="text_size_medium">19sp</dimen>
+    <dimen name="text_size_normal">17sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+
+    <!-- Larger icons for large phones -->
+    <dimen name="icon_size_large">88dp</dimen>
+    <dimen name="icon_size_medium">52dp</dimen>
+</resources>
