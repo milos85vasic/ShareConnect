@@ -47,6 +47,7 @@
   - qBitConnector
     - Asinka to connect both main app anf the connector app
     - New icons
+    - Rename composeApp to something meaningful
     - Themes sync and applying
       - Theme synchronization settings switch
   - TransmissionConnector
