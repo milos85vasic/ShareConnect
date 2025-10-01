@@ -11,6 +11,8 @@ An Android application that allows you to share media links from various streami
 
 ShareConnect combines the words "share" and "connect" to represent the core functionality of the app - connecting content discovery with local download services.
 
+ShareConnect Wiki: [https://deepwiki.com/vasic-digital/ShareConnect](https://deepwiki.com/vasic-digital/ShareConnect)
+
 ## Features
 
 - **Multi-Service Support**: Share to MeTube, YT-DLP, qBittorrent, Transmission, uTorrent, and jDownloader
