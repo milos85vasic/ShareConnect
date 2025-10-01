@@ -7,3 +7,9 @@
 [submodule "Public"]
 	path = Rag/Sources/Public
 	url = git@github.com:vasic-digital/Open-Rag-Material-Android.git
+[submodule "Connectors/qBitConnect"]
+	path = Connectors/qBitConnect
+	url = git@github.com:vasic-digital/qBitConnect.git
+[submodule "Connectors/TransmissionConnect"]
+	path = Connectors/TransmissionConnect
+	url = git@github.com:vasic-digital/TransmissionConnect.git
