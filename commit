@@ -2,7 +2,7 @@
 
 if test -e env.properties; then
 
-  . env.properties
+  source env.properties
 fi
 
 if [ -z "$1" ]; then
