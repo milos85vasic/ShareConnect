@@ -44,6 +44,9 @@
 ## In progress
 
 - Connector applications integration
+  - qBitConnector 
+  - TransmissionConnector
+  - uTorrent Connector (TBD)
   - Gradle integration
   - New icons
   - Themes sync and applying
