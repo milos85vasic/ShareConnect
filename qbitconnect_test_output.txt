@@ -1,0 +1,326 @@
+Starting a Gradle Daemon, 1 busy and 5 stopped Daemons could not be reused, use --status for details
+
+> Configure project :
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven2' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven3' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven4' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven5' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven6' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven7' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven8' was added by build file 'build.gradle'
+
+> Configure project :Toolkit
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven9' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven10' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven11' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven12' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven13' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven14' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven15' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven16' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven9' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven10' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven11' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven12' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven13' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven14' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven15' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven16' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven9' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven10' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven11' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven12' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven13' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven14' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven15' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven16' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven9' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven10' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven11' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven12' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven13' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven14' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven15' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven16' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenLocal2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven9' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven10' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven11' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven12' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven13' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven14' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven15' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'Google2' was added by build file 'Toolkit/build.gradle'
+Build was configured to prefer settings repositories over project repositories but repository 'maven16' was added by build file 'Toolkit/build.gradle'
+toolkit_obfuscator_jar = 'JCommons/jar/toolkit-jcommons-2.0.3.jar'
+Hello from Common JObfuscator class :: 48656c6c6f6275696c642e677261646c65
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+The Kotlin Gradle plugin was loaded multiple times in different subprojects, which is not supported and may break the build. 
+This might happen in subprojects that apply the Kotlin plugins with the Gradle 'plugins { ... }' DSL if they specify explicit versions, even if the versions are equal.
+Please add the Kotlin plugin to the common parent project or the root project, then remove the versions in the subprojects.
+If the parent project does not need the plugin, add 'apply false' to the plugin line.
+See: https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl
+The Kotlin plugin was loaded in the following projects: ':Application', ':Toolkit:Analytics', ':Connectors:qBitConnect:composeApp'
+
+> Task :Connectors:qBitConnect:composeApp:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Connectors:qBitConnect:composeApp:preBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:preDebugBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:preBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:preDebugBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:writeDebugAarMetadata UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:preBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:preDebugBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:writeDebugAarMetadata UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:checkDebugAarMetadata UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:processDebugNavigationResources UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:processDebugNavigationResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugNavigationResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:compileDebugNavigationResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:generateDebugResValues UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:generateDebugResValues UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:generateDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:packageDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:generateDebugResValues UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:generateDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:packageDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:mapDebugSourceSetPaths UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:generateDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:mergeDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:packageDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:parseDebugLocalResources UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:extractDeepLinksDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:extractDeepLinksDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:processDebugManifest UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:extractDeepLinksDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:processDebugManifest UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugMainManifest UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugManifest UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugManifestForPackage UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:compileDebugLibraryResources UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:parseDebugLocalResources UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:generateDebugRFile UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:compileDebugLibraryResources UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:parseDebugLocalResources UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:generateDebugRFile UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugResources UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Connectors:qBitConnect:preferences:compileDebugKotlin NO-SOURCE
+> Task :Connectors:qBitConnect:preferences:javaPreCompileDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:compileDebugJavaWithJavac NO-SOURCE
+> Task :Connectors:qBitConnect:preferences:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Connectors:qBitConnect:shared:compileDebugKotlin UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:javaPreCompileDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:compileDebugJavaWithJavac NO-SOURCE
+> Task :Connectors:qBitConnect:shared:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:compileDebugKotlin UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:javaPreCompileDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:compileDebugJavaWithJavac NO-SOURCE
+> Task :Connectors:qBitConnect:composeApp:bundleDebugClassesToRuntimeJar UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:compileDebugUnitTestKotlin UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:preDebugUnitTestBuild UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :Connectors:qBitConnect:composeApp:processDebugJavaRes UP-TO-DATE
+> Task :Connectors:qBitConnect:composeApp:processDebugUnitTestJavaRes UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:preferences:processDebugJavaRes NO-SOURCE
+> Task :Connectors:qBitConnect:shared:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Connectors:qBitConnect:shared:processDebugJavaRes UP-TO-DATE
+
+> Task :Connectors:qBitConnect:composeApp:testDebugUnitTest
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+
+SettingsManagerTest > setTheme updates theme correctly FAILED
+    kotlinx.coroutines.test.UncompletedCoroutinesError at TestBuilders.kt:353
+
+SettingsManagerTest > default theme is SYSTEM_DEFAULT FAILED
+    kotlinx.coroutines.test.UncompletedCoroutinesError at TestBuilders.kt:353
+
+SettingsManagerTest > default dynamic colors is true FAILED
+    kotlinx.coroutines.test.UncompletedCoroutinesError at TestBuilders.kt:353
+
+SettingsManagerTest > setEnableDynamicColors updates setting correctly FAILED
+    kotlinx.coroutines.test.UncompletedCoroutinesError at TestBuilders.kt:353
+
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+> Task :Connectors:qBitConnect:composeApp:testDebugUnitTest FAILED
+
+6 tests completed, 4 failed
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':Connectors:qBitConnect:composeApp:testDebugUnitTest'.
+> A build operation failed.
+      Could not write XML test results for com.shareconnect.qbitconnect.ui.viewmodels.SettingsViewModelTest to file /home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/composeApp/build/test-results/testDebugUnitTest/TEST-com.shareconnect.qbitconnect.ui.viewmodels.SettingsViewModelTest.xml.
+   > Could not write XML test results for com.shareconnect.qbitconnect.ui.viewmodels.SettingsViewModelTest to file /home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/composeApp/build/test-results/testDebugUnitTest/TEST-com.shareconnect.qbitconnect.ui.viewmodels.SettingsViewModelTest.xml.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 4m 19s
+52 actionable tasks: 1 executed, 51 up-to-date
