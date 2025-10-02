@@ -43,9 +43,12 @@ include ':Toolkit:Test'
 include ':Toolkit:JCommons'
 include ':Toolkit:Analytics'
 
-include ':Connectors:qBitConnect:shared'
-include ':Connectors:qBitConnect:preferences'
-include ':Connectors:qBitConnect:composeApp'
+include ':shared'
+project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/shared')
+include ':preferences'
+project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
+include ':composeApp'
+project(':composeApp').projectDir = new File(settingsDir, 'Connectors/qBitConnect/composeApp')
 
 // TODO: Connect [IN_PROGRESS]
 // include ':Asinka'
