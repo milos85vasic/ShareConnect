@@ -23,13 +23,13 @@ dependencyResolutionManagement {
     repositories {
 
         mavenLocal()
-        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
-        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/jetbrains' }
         maven { url 'https://mirrors.ustc.edu.cn/jetbrains/' }
         maven { url 'https://mirrors.tuna.tsinghua.edu.cn/jetbrains/' }
-        maven { url "https://jitpack.io" }
+        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
         mavenCentral()
         google()
         maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
@@ -49,6 +49,11 @@ include ':preferences'
 project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
 include ':composeApp'
 project(':composeApp').projectDir = new File(settingsDir, 'Connectors/qBitConnect/composeApp')
+
+include ':mockserver'
+project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
+include ':app'
+project(':app').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/app')
 
 // TODO: Connect [IN_PROGRESS]
 // include ':Asinka'
