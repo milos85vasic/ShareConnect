@@ -43,6 +43,7 @@
 
 ## In progress
 
+- Application names
 - Connector applications integration
   - qBitConnector
     - Asinka to connect both main app anf the connector app
