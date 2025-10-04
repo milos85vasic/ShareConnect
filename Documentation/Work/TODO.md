@@ -44,6 +44,9 @@
 ## In progress
 
 - Application names
+- Migrate from kts and version catalogs to Groovy configs
+- Increase all dependency versions
+- Asinka - Update Kotlin version
 - Connector applications integration
   - qBitConnector
     - Asinka to connect both main app anf the connector app

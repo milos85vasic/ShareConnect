@@ -19,7 +19,13 @@
       "Bash(ANDROID_SERIAL=emulator-5554 ./run_automation_tests.sh)",
       "Bash(ANDROID_SERIAL=emulator-5554 ./gradlew :Application:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.shareconnect.automation.SmartProfileSelectionAutomationTest)",
       "Bash(find:*)",
-      "Bash(ANDROID_SERIAL=emulator-5554 ./gradlew :Application:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.shareconnect.automation.ProfilesListScrollingAutomationTest -Pandroid.testInstrumentationRunnerArguments.method=testAllProfilesVisibleWithScrolling)"
+      "Bash(ANDROID_SERIAL=emulator-5554 ./gradlew :Application:connectedDebugAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.shareconnect.automation.ProfilesListScrollingAutomationTest -Pandroid.testInstrumentationRunnerArguments.method=testAllProfilesVisibleWithScrolling)",
+      "Bash(./assembleDebug)",
+      "Bash(git submodule:*)",
+      "Bash(git rm:*)",
+      "Bash(git stash:*)",
+      "Bash(git config:*)",
+      "Bash(git clone:*)"
     ],
     "deny": [],
     "ask": []

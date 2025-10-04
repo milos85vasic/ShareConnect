@@ -13,6 +13,16 @@
 - Lint code: `./gradlew lint`
 - Kotlin analysis: `./gradlew detekt`
 
+## Version Requirements
+- **Android Gradle Plugin (AGP)**: 8.9.1
+- **Kotlin**: 2.0.0
+- **KSP**: 2.0.0-1.0.21
+- **Gradle**: 8.14.3
+- **Java**: 17
+- **Compile SDK**: 36
+- **Target SDK**: 36
+- **Min SDK**: 26 (TransmissionConnect), 21 (qBitConnect), 28 (Application)
+
 ## Code Style Guidelines
 - **Naming**: PascalCase for classes/types, camelCase for variables/functions, UPPER_CASE for constants.
 - **Imports**: Group by standard library, third-party, then local; use wildcards sparingly.
