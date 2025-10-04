@@ -176,15 +176,15 @@ configurations.all {
 dependencies {
 
     implementation project("${toolkit_context}:Main")
-    implementation project("${toolkit_context}:Test")
+    implementation project(":Tests")
     implementation project("${toolkit_context}:Analytics")
     implementation project(":Asinka:asinka")
 
     testImplementation project("${toolkit_context}:Main")
-    testImplementation project("${toolkit_context}:Test")
+    testImplementation project(":Tests")
 
     androidTestImplementation project("${toolkit_context}:Main")
-    androidTestImplementation project("${toolkit_context}:Test")
+    androidTestImplementation project(":Tests")
 
     // Room KSP compiler for database code generation
     ksp "androidx.room:room-compiler:2.8.1"

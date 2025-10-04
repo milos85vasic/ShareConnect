@@ -54,7 +54,7 @@ dependencyResolutionManagement {
 rootProject.name = "ShareConnect"
 
 include ':Toolkit:Main'
-include ':Toolkit:Test'
+include ':Tests'
 include ':Toolkit:JCommons'
 include ':Toolkit:Analytics'
 include ':Toolkit:Access'
@@ -67,19 +67,6 @@ include ':Toolkit:RootShell'
 include ':Toolkit:RootTools'
 include ':Toolkit:Applications:DataManagerDemo'
 include ':Toolkit:Applications:Echo'
-include ':Toolkit:Toolkit'
-include ':Toolkit:Toolkit:Main'
-include ':Toolkit:Toolkit:Test'
-include ':Toolkit:Toolkit:JCommons'
-include ':Toolkit:Toolkit:Analytics'
-include ':Toolkit:Toolkit:Access'
-include ':Toolkit:Toolkit:CircleImageView'
-include ':Toolkit:Toolkit:ConnectionIndicator'
-include ':Toolkit:Toolkit:FastscrollerAlphabet'
-include ':Toolkit:Toolkit:Interprocess'
-include ':Toolkit:Toolkit:Media'
-include ':Toolkit:Toolkit:RootShell'
-include ':Toolkit:Toolkit:RootTools'
 
   include ':shared'
   project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/shared')
