@@ -42,7 +42,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nFix Android build issues for Asinka library\n\n- Switch from protobuf-lite to full protobuf libraries (grpc-kotlin requires Java classes)\n- Change gRPC transport from Netty to OkHttp for Android compatibility\n- Fix type mismatch in SyncableObject by adding explicit type casts for protobuf platform types\n- Fix SQLCipher dependency artifact name\n- Add Java builtin to protobuf generation configuration\n\nThese changes resolve compilation errors and ensure Android compatibility.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Read(//tmp/**)"
     ],
     "deny": [],
     "ask": []
