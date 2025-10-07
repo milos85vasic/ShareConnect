@@ -68,17 +68,20 @@ include ':Toolkit:RootTools'
 include ':Toolkit:Applications:DataManagerDemo'
 include ':Toolkit:Applications:Echo'
 
-  include ':shared'
-  project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/shared')
-  include ':preferences'
-  project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
-  include ':composeApp'
-  project(':composeApp').projectDir = new File(settingsDir, 'Connectors/qBitConnect/composeApp')
+include ':shared'
+project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/shared')
 
- include ':mockserver'
- project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
- include ':app'
- project(':app').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/app')
+include ':preferences'
+project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
+
+include ':composeApp'
+project(':composeApp').projectDir = new File(settingsDir, 'Connectors/qBitConnect/composeApp')
+
+include ':mockserver'
+project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
+
+include ':app'
+project(':app').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/app')
 
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
