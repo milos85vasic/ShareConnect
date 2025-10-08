@@ -3,15 +3,21 @@ package com.shareconnect
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.redelf.commons.logging.Console
 import com.shareconnect.database.Theme
+import com.shareconnect.themesync.ThemeSyncManager
+import com.shareconnect.themesync.models.ThemeData
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.first
 
 class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectListener {
     private var recyclerViewThemes: RecyclerView? = null
     private var themeAdapter: ThemeAdapter? = null
     private var themeRepository: com.shareconnect.database.ThemeRepository? = null
+    private lateinit var themeSyncManager: ThemeSyncManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Apply current theme before setting content and calling super.onCreate()
@@ -31,7 +37,28 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
         setupRecyclerView()
 
         themeRepository = themeManager.themeRepositoryVal
+        themeSyncManager = (application as SCApplication).themeSyncManager
+
         loadThemes()
+        observeThemeChanges()
+    }
+
+    private fun observeThemeChanges() {
+        lifecycleScope.launch {
+            themeSyncManager.getAllThemes().collect { syncedThemes ->
+                // Convert synced themes to legacy Theme objects for display
+                val themes = syncedThemes.map { syncedTheme ->
+                    Theme(
+                        id = syncedTheme.id.hashCode(),
+                        name = syncedTheme.name,
+                        colorScheme = syncedTheme.colorScheme,
+                        isDarkMode = syncedTheme.isDarkMode,
+                        isDefault = syncedTheme.isDefault
+                    )
+                }
+                themeAdapter?.updateThemes(themes)
+            }
+        }
     }
 
     private fun initViews() {
@@ -58,18 +85,40 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
     }
 
     override fun onThemeSelected(theme: Theme) {
-        // Set this theme as default
         Console.debug(getString(R.string.log_on_theme_selected, theme.name, theme.id, theme.isDefault))
-        themeRepository!!.setDefaultTheme(theme.id)
 
-        // Debug: Log the selected theme
-        Console.debug(getString(R.string.log_selected_theme, theme.name, theme.id))
+        // Set theme through ThemeSyncManager for cross-app sync
+        lifecycleScope.launch {
+            try {
+                // Find the synced theme by matching properties
+                val allSyncedThemes = themeSyncManager.getAllThemes().first()
+                val selectedSyncedTheme = allSyncedThemes.find {
+                    it.name == theme.name &&
+                    it.colorScheme == theme.colorScheme &&
+                    it.isDarkMode == theme.isDarkMode
+                }
 
-        // Set result to indicate theme was changed
-        setResult(RESULT_OK)
+                if (selectedSyncedTheme != null) {
+                    themeSyncManager.setDefaultTheme(selectedSyncedTheme.id)
+                    Console.debug(getString(R.string.log_selected_theme, theme.name, theme.id))
 
-        // Finish the activity immediately
-        finish()
+                    // Also update legacy theme repository
+                    themeRepository!!.setDefaultTheme(theme.id)
+                } else {
+                    // Fallback to legacy repository
+                    themeRepository!!.setDefaultTheme(theme.id)
+                }
+
+                // Set result to indicate theme was changed
+                setResult(RESULT_OK)
+
+                // Finish the activity
+                finish()
+            } catch (e: Exception) {
+                Console.error("Error selecting theme: ${e.message}")
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

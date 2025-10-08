@@ -5,16 +5,42 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.redelf.commons.application.BaseApplication
 import com.shareconnect.database.HistoryDatabase
+import com.shareconnect.themesync.ThemeSyncManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class SCApplication : BaseApplication() {
 
     lateinit var database: HistoryDatabase
         private set
 
+    lateinit var themeSyncManager: ThemeSyncManager
+        private set
+
+    private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+
     override fun onCreate() {
         super.onCreate()
         initializeDatabase()
         migrateProfilesToDatabase()
+        initializeThemeSync()
+    }
+
+    private fun initializeThemeSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        themeSyncManager = ThemeSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start theme sync in background
+        applicationScope.launch {
+            themeSyncManager.start()
+        }
     }
 
     private fun initializeDatabase() {
