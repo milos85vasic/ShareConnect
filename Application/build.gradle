@@ -185,6 +185,7 @@ dependencies {
     implementation project(":Asinka:asinka")
     implementation project(":ThemeSync")
     implementation project(":ProfileSync")
+    implementation project(":HistorySync")
 
     testImplementation project("${toolkit_context}:Main")
     testImplementation project(":Tests")
