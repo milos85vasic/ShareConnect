@@ -39,18 +39,23 @@
 
 ## FIXME
 
-- qBitConnect: Running application crashes with the following stack trace:
+- qBitConnect: Crash at start
   ```
-  E  FATAL EXCEPTION: main
-    Process: com.shareconnect.qbitconnect.debug, PID: 5021
-    java.lang.UnsupportedOperationException: Use Grpc.newServerBuilderForPort() instead
-        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:41)
-        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:25)
-        at io.grpc.ServerBuilder.forPort(ServerBuilder.java:44)
-        at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:54)
+   E  FATAL EXCEPTION: main
+    Process: com.shareconnect.qbitconnect.debug, PID: 17393
+    java.net.BindException: bind failed: EADDRINUSE (Address already in use)
+        at libcore.io.IoBridge.bind(IoBridge.java:149)
+        at java.net.PlainSocketImpl.socketBind(PlainSocketImpl.java:162)
+        at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:427)
+        at java.net.ServerSocket.bind(ServerSocket.java:399)
+        at java.net.ServerSocket.bind(ServerSocket.java:353)
+        at io.grpc.okhttp.OkHttpServer.start(OkHttpServer.java:79)
+        at io.grpc.internal.ServerImpl.start(ServerImpl.java:185)
+        at io.grpc.internal.ServerImpl.start(ServerImpl.java:94)
+        at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:59)
         at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:73)
-        at com.shareconnect.languagesync.LanguageSyncManager.start(LanguageSyncManager.kt:54)
-        at com.shareconnect.qbitconnect.App$initializeLanguageSync$1.invokeSuspend(App.kt:172)
+        at com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)
+        at com.shareconnect.qbitconnect.App$initializeProfileSync$1.invokeSuspend(App.kt:101)
         at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
         at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
         at android.os.Handler.handleCallback(Handler.java:959)
@@ -61,10 +66,14 @@
         at java.lang.reflect.Method.invoke(Native Method)
         at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
-        Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@d5d4953, Dispatchers.Main]
+        Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@c6301bb, Dispatchers.Main]
+    Caused by: android.system.ErrnoException: bind failed: EADDRINUSE (Address already in use)
+        at libcore.io.Linux.bind(Native Method)
+        at libcore.io.ForwardingOs.bind(ForwardingOs.java:138)
+        at libcore.io.ForwardingOs.bind(ForwardingOs.java:138)
+        at libcore.io.IoBridge.bind(IoBridge.java:145)
+        ... 21 more
   ```
-
-  Note: Make sure that other applications do not have the same issue!
 
 ## In progress
 
@@ -122,6 +131,32 @@
   - Code coverage badges
 - Application names
 - qBitConnect: Wrong launcher icon! Same happens with TransmissionConnect!
+- qBitConnect: Running application crashes with the following stack trace:
+  ```
+  E  FATAL EXCEPTION: main
+    Process: com.shareconnect.qbitconnect.debug, PID: 5021
+    java.lang.UnsupportedOperationException: Use Grpc.newServerBuilderForPort() instead
+        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:41)
+        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:25)
+        at io.grpc.ServerBuilder.forPort(ServerBuilder.java:44)
+        at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:54)
+        at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:73)
+        at com.shareconnect.languagesync.LanguageSyncManager.start(LanguageSyncManager.kt:54)
+        at com.shareconnect.qbitconnect.App$initializeLanguageSync$1.invokeSuspend(App.kt:172)
+        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+        at android.os.Handler.handleCallback(Handler.java:959)
+        at android.os.Handler.dispatchMessage(Handler.java:100)
+        at android.os.Looper.loopOnce(Looper.java:257)
+        at android.os.Looper.loop(Looper.java:342)
+        at android.app.ActivityThread.main(ActivityThread.java:9634)
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+        Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@d5d4953, Dispatchers.Main]
+  ```
+
+  Note: Make sure that other applications do not have the same issue!
 
 ### Archive
 
