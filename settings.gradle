@@ -62,8 +62,8 @@ project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/sh
 include ':preferences'
 project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
 
-include ':composeApp'
-project(':composeApp').projectDir = new File(settingsDir, 'Connectors/qBitConnect/composeApp')
+include ':qBitConnector'
+project(':qBitConnector').projectDir = new File(settingsDir, 'Connectors/qBitConnect/qBitConnector')
 
 include ':mockserver'
 project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
