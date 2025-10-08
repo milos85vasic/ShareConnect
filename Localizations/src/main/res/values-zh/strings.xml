@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">保存</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_delete">删除</string>
+    <string name="common_remove">移除</string>
+    <string name="common_add">添加</string>
+    <string name="common_edit">编辑</string>
+    <string name="common_open">打开</string>
+    <string name="common_close">关闭</string>
+    <string name="common_select">选择</string>
+    <string name="common_apply">应用</string>
+    <string name="common_retry">重试</string>
+    <string name="common_search">搜索</string>
+    <string name="common_rename">重命名</string>
+    <string name="common_share">分享</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">确定</string>
+    <string name="common_yes">是</string>
+    <string name="common_no">否</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">错误</string>
+    <string name="common_warning">警告</string>
+    <string name="common_success">成功</string>
+    <string name="common_loading">加载中...</string>
+    <string name="common_saving">保存中...</string>
+    <string name="common_deleting">删除中...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">设置</string>
+    <string name="common_username">用户名</string>
+    <string name="common_password">密码</string>
+    <string name="common_name">名称</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">端口</string>
+    <string name="common_host">主机</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">连接错误</string>
+    <string name="common_network_error">网络错误</string>
+    <string name="common_connection_successful">连接成功！</string>
+    <string name="common_unknown_error">未知错误</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">未知</string>
+    <string name="common_not_available">不可用</string>
+    <string name="common_copied">已复制</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">深色模式</string>
+    <string name="common_light_mode">浅色模式</string>
+    <string name="common_appearance">外观</string>
+    <string name="common_theme">主题</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">Torrent</string>
+    <string name="common_magnet_link">磁力链接</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">服务器</string>
+    <string name="common_servers">服务器</string>
+    <string name="common_add_server">添加服务器</string>
+    <string name="common_server_name">服务器名称</string>
+    <string name="common_server_url">服务器URL</string>
+    <string name="common_server_port">服务器端口</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">无效的URL</string>
+    <string name="common_invalid_port">无效的端口号</string>
+    <string name="common_required_field">此字段为必填项</string>
+    <string name="common_name_required">名称为必填项</string>
+    <string name="common_url_required">URL为必填项</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">您确定要删除此项吗？</string>
+    <string name="common_confirm_delete_message">此操作无法撤消。</string>
+    <string name="common_saved">已保存</string>
+    <string name="common_deleted">已删除</string>
+</resources>

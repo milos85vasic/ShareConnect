@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">Mentés</string>
+    <string name="common_cancel">Mégse</string>
+    <string name="common_delete">Törlés</string>
+    <string name="common_remove">Eltávolítás</string>
+    <string name="common_add">Hozzáadás</string>
+    <string name="common_edit">Szerkesztés</string>
+    <string name="common_open">Megnyitás</string>
+    <string name="common_close">Bezárás</string>
+    <string name="common_select">Kiválasztás</string>
+    <string name="common_apply">Alkalmazás</string>
+    <string name="common_retry">Újra</string>
+    <string name="common_search">Keresés</string>
+    <string name="common_rename">Átnevezés</string>
+    <string name="common_share">Megosztás</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">OK</string>
+    <string name="common_yes">Igen</string>
+    <string name="common_no">Nem</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">Hiba</string>
+    <string name="common_warning">Figyelmeztetés</string>
+    <string name="common_success">Sikeres</string>
+    <string name="common_loading">Betöltés...</string>
+    <string name="common_saving">Mentés...</string>
+    <string name="common_deleting">Törlés...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">Beállítások</string>
+    <string name="common_username">Felhasználónév</string>
+    <string name="common_password">Jelszó</string>
+    <string name="common_name">Név</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">Port</string>
+    <string name="common_host">Host</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">Kapcsolódási hiba</string>
+    <string name="common_network_error">Hálózati hiba</string>
+    <string name="common_connection_successful">Sikeres kapcsolat!</string>
+    <string name="common_unknown_error">Ismeretlen hiba</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">Ismeretlen</string>
+    <string name="common_not_available">Nem elérhető</string>
+    <string name="common_copied">Másolva</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">Sötét mód</string>
+    <string name="common_light_mode">Világos mód</string>
+    <string name="common_appearance">Megjelenés</string>
+    <string name="common_theme">Téma</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">Torrent</string>
+    <string name="common_magnet_link">Magnet link</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">Szerver</string>
+    <string name="common_servers">Szerverek</string>
+    <string name="common_add_server">Szerver hozzáadása</string>
+    <string name="common_server_name">Szerver neve</string>
+    <string name="common_server_url">Szerver URL</string>
+    <string name="common_server_port">Szerver port</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">Érvénytelen URL</string>
+    <string name="common_invalid_port">Érvénytelen portszám</string>
+    <string name="common_required_field">Ez a mező kötelező</string>
+    <string name="common_name_required">Név szükséges</string>
+    <string name="common_url_required">URL szükséges</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">Biztos, hogy törli ezt?</string>
+    <string name="common_confirm_delete_message">Ez a művelet nem vonható vissza.</string>
+    <string name="common_saved">Mentve</string>
+    <string name="common_deleted">Törölve</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">حفظ</string>
+    <string name="common_cancel">إلغاء</string>
+    <string name="common_delete">حذف</string>
+    <string name="common_remove">إزالة</string>
+    <string name="common_add">إضافة</string>
+    <string name="common_edit">تحرير</string>
+    <string name="common_open">فتح</string>
+    <string name="common_close">إغلاق</string>
+    <string name="common_select">تحديد</string>
+    <string name="common_apply">تطبيق</string>
+    <string name="common_retry">إعادة المحاولة</string>
+    <string name="common_search">بحث</string>
+    <string name="common_rename">إعادة تسمية</string>
+    <string name="common_share">مشاركة</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">موافق</string>
+    <string name="common_yes">نعم</string>
+    <string name="common_no">لا</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">خطأ</string>
+    <string name="common_warning">تحذير</string>
+    <string name="common_success">نجاح</string>
+    <string name="common_loading">جار التحميل...</string>
+    <string name="common_saving">جار الحفظ...</string>
+    <string name="common_deleting">جار الحذف...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">الإعدادات</string>
+    <string name="common_username">اسم المستخدم</string>
+    <string name="common_password">كلمة المرور</string>
+    <string name="common_name">الاسم</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">المنفذ</string>
+    <string name="common_host">المضيف</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">خطأ في الاتصال</string>
+    <string name="common_network_error">خطأ في الشبكة</string>
+    <string name="common_connection_successful">نجاح الاتصال!</string>
+    <string name="common_unknown_error">خطأ غير معروف</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">غير معروف</string>
+    <string name="common_not_available">غير متاح</string>
+    <string name="common_copied">تم النسخ</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">الوضع الداكن</string>
+    <string name="common_light_mode">الوضع الفاتح</string>
+    <string name="common_appearance">المظهر</string>
+    <string name="common_theme">السمة</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">تورنت</string>
+    <string name="common_magnet_link">رابط مغناطيسي</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">الخادم</string>
+    <string name="common_servers">الخوادم</string>
+    <string name="common_add_server">إضافة خادم</string>
+    <string name="common_server_name">اسم الخادم</string>
+    <string name="common_server_url">عنوان URL للخادم</string>
+    <string name="common_server_port">منفذ الخادم</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">عنوان URL غير صالح</string>
+    <string name="common_invalid_port">رقم منفذ غير صالح</string>
+    <string name="common_required_field">هذا الحقل مطلوب</string>
+    <string name="common_name_required">الاسم مطلوب</string>
+    <string name="common_url_required">عنوان URL مطلوب</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">هل أنت متأكد من حذف هذا؟</string>
+    <string name="common_confirm_delete_message">لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="common_saved">تم الحفظ</string>
+    <string name="common_deleted">تم الحذف</string>
+</resources>

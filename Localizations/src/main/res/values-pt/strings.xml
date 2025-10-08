@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">Salvar</string>
+    <string name="common_cancel">Cancelar</string>
+    <string name="common_delete">Excluir</string>
+    <string name="common_remove">Remover</string>
+    <string name="common_add">Adicionar</string>
+    <string name="common_edit">Editar</string>
+    <string name="common_open">Abrir</string>
+    <string name="common_close">Fechar</string>
+    <string name="common_select">Selecionar</string>
+    <string name="common_apply">Aplicar</string>
+    <string name="common_retry">Tentar novamente</string>
+    <string name="common_search">Pesquisar</string>
+    <string name="common_rename">Renomear</string>
+    <string name="common_share">Compartilhar</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">OK</string>
+    <string name="common_yes">Sim</string>
+    <string name="common_no">Não</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">Erro</string>
+    <string name="common_warning">Aviso</string>
+    <string name="common_success">Sucesso</string>
+    <string name="common_loading">Carregando...</string>
+    <string name="common_saving">Salvando...</string>
+    <string name="common_deleting">Excluindo...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">Configurações</string>
+    <string name="common_username">Nome de usuário</string>
+    <string name="common_password">Senha</string>
+    <string name="common_name">Nome</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">Porta</string>
+    <string name="common_host">Host</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">Erro de conexão</string>
+    <string name="common_network_error">Erro de rede</string>
+    <string name="common_connection_successful">Conexão bem-sucedida!</string>
+    <string name="common_unknown_error">Erro desconhecido</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">Desconhecido</string>
+    <string name="common_not_available">Não disponível</string>
+    <string name="common_copied">Copiado</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">Modo escuro</string>
+    <string name="common_light_mode">Modo claro</string>
+    <string name="common_appearance">Aparência</string>
+    <string name="common_theme">Tema</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">Torrent</string>
+    <string name="common_magnet_link">Link magnético</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">Servidor</string>
+    <string name="common_servers">Servidores</string>
+    <string name="common_add_server">Adicionar servidor</string>
+    <string name="common_server_name">Nome do servidor</string>
+    <string name="common_server_url">URL do servidor</string>
+    <string name="common_server_port">Porta do servidor</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">URL inválida</string>
+    <string name="common_invalid_port">Número de porta inválido</string>
+    <string name="common_required_field">Este campo é obrigatório</string>
+    <string name="common_name_required">Nome é obrigatório</string>
+    <string name="common_url_required">URL é obrigatória</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">Tem certeza de que deseja excluir isto?</string>
+    <string name="common_confirm_delete_message">Esta ação não pode ser desfeita.</string>
+    <string name="common_saved">Salvo</string>
+    <string name="common_deleted">Excluído</string>
+</resources>

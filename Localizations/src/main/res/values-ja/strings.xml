@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">保存</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="common_delete">削除</string>
+    <string name="common_remove">削除</string>
+    <string name="common_add">追加</string>
+    <string name="common_edit">編集</string>
+    <string name="common_open">開く</string>
+    <string name="common_close">閉じる</string>
+    <string name="common_select">選択</string>
+    <string name="common_apply">適用</string>
+    <string name="common_retry">再試行</string>
+    <string name="common_search">検索</string>
+    <string name="common_rename">名前変更</string>
+    <string name="common_share">共有</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">OK</string>
+    <string name="common_yes">はい</string>
+    <string name="common_no">いいえ</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">エラー</string>
+    <string name="common_warning">警告</string>
+    <string name="common_success">成功</string>
+    <string name="common_loading">読み込み中...</string>
+    <string name="common_saving">保存中...</string>
+    <string name="common_deleting">削除中...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">設定</string>
+    <string name="common_username">ユーザー名</string>
+    <string name="common_password">パスワード</string>
+    <string name="common_name">名前</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">ポート</string>
+    <string name="common_host">ホスト</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">接続エラー</string>
+    <string name="common_network_error">ネットワークエラー</string>
+    <string name="common_connection_successful">接続成功！</string>
+    <string name="common_unknown_error">不明なエラー</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">不明</string>
+    <string name="common_not_available">利用不可</string>
+    <string name="common_copied">コピー済み</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">ダークモード</string>
+    <string name="common_light_mode">ライトモード</string>
+    <string name="common_appearance">外観</string>
+    <string name="common_theme">テーマ</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">Torrent</string>
+    <string name="common_magnet_link">マグネットリンク</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">サーバー</string>
+    <string name="common_servers">サーバー</string>
+    <string name="common_add_server">サーバーを追加</string>
+    <string name="common_server_name">サーバー名</string>
+    <string name="common_server_url">サーバーURL</string>
+    <string name="common_server_port">サーバーポート</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">無効なURL</string>
+    <string name="common_invalid_port">無効なポート番号</string>
+    <string name="common_required_field">このフィールドは必須です</string>
+    <string name="common_name_required">名前が必要です</string>
+    <string name="common_url_required">URLが必要です</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">これを削除してもよろしいですか？</string>
+    <string name="common_confirm_delete_message">この操作は元に戻せません。</string>
+    <string name="common_saved">保存済み</string>
+    <string name="common_deleted">削除済み</string>
+</resources>
