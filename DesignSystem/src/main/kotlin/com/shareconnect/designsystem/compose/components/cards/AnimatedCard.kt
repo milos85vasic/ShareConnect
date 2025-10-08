@@ -1,0 +1,77 @@
+package com.shareconnect.designsystem.compose.components.cards
+
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.shareconnect.designsystem.compose.theme.DesignSystemShapes
+
+/**
+ * Animated card component with elevation and interaction animations.
+ * Supports click handling and customizable elevation.
+ */
+@Composable
+fun AnimatedCard(
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
+    elevation: Dp = 2.dp,
+    content: @Composable () -> Unit
+) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+
+    val scale by animateFloatAsState(
+        targetValue = if (isPressed) 0.98f else 1f,
+        animationSpec = tween(durationMillis = 150),
+        label = "card_scale"
+    )
+
+    Box(
+        modifier = modifier
+            .scale(scale)
+            .shadow(
+                elevation = elevation,
+                shape = DesignSystemShapes.medium,
+                clip = false
+            )
+            .clip(DesignSystemShapes.medium)
+            .background(
+                color = MaterialTheme.colorScheme.surface,
+                shape = DesignSystemShapes.medium
+            )
+            .then(
+                if (onClick != null) {
+                    Modifier.clickable(
+                        interactionSource = interactionSource,
+                        indication = null, // We'll handle our own animation
+                        enabled = true,
+                        role = Role.Button,
+                        onClick = onClick
+                    )
+                } else {
+                    Modifier
+                }
+            ),
+        contentAlignment = Alignment.TopStart
+    ) {
+        content()
+    }
+}

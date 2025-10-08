@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================================ -->
+    <!-- DESIGN TOKENS - Modern Spacing System -->
+    <!-- ============================================================================ -->
+
+    <!-- Spacing Scale (4pt grid system) -->
+    <dimen name="ds_spacing_0">0dp</dimen>
+    <dimen name="ds_spacing_1">4dp</dimen>
+    <dimen name="ds_spacing_2">8dp</dimen>
+    <dimen name="ds_spacing_3">12dp</dimen>
+    <dimen name="ds_spacing_4">16dp</dimen>
+    <dimen name="ds_spacing_5">20dp</dimen>
+    <dimen name="ds_spacing_6">24dp</dimen>
+    <dimen name="ds_spacing_7">28dp</dimen>
+    <dimen name="ds_spacing_8">32dp</dimen>
+    <dimen name="ds_spacing_9">36dp</dimen>
+    <dimen name="ds_spacing_10">40dp</dimen>
+    <dimen name="ds_spacing_11">44dp</dimen>
+    <dimen name="ds_spacing_12">48dp</dimen>
+
+    <!-- Legacy spacing (for backward compatibility) -->
+    <dimen name="spacing_tiny">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- TYPOGRAPHY SCALE -->
+    <!-- ============================================================================ -->
+
+    <!-- Display Text -->
+    <dimen name="ds_text_display_large">57sp</dimen>
+    <dimen name="ds_text_display_medium">45sp</dimen>
+    <dimen name="ds_text_display_small">36sp</dimen>
+
+    <!-- Headline Text -->
+    <dimen name="ds_text_headline_large">32sp</dimen>
+    <dimen name="ds_text_headline_medium">28sp</dimen>
+    <dimen name="ds_text_headline_small">24sp</dimen>
+
+    <!-- Title Text -->
+    <dimen name="ds_text_title_large">22sp</dimen>
+    <dimen name="ds_text_title_medium">16sp</dimen>
+    <dimen name="ds_text_title_small">14sp</dimen>
+
+    <!-- Body Text -->
+    <dimen name="ds_text_body_large">16sp</dimen>
+    <dimen name="ds_text_body_medium">14sp</dimen>
+    <dimen name="ds_text_body_small">12sp</dimen>
+
+    <!-- Label Text -->
+    <dimen name="ds_text_label_large">14sp</dimen>
+    <dimen name="ds_text_label_medium">12sp</dimen>
+    <dimen name="ds_text_label_small">11sp</dimen>
+
+    <!-- Legacy text sizes (for backward compatibility) -->
+    <dimen name="text_size_tiny">12sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- COMPONENT SIZES -->
+    <!-- ============================================================================ -->
+
+    <!-- Icon Sizes -->
+    <dimen name="ds_icon_size_xxsmall">12dp</dimen>
+    <dimen name="ds_icon_size_xsmall">16dp</dimen>
+    <dimen name="ds_icon_size_small">20dp</dimen>
+    <dimen name="ds_icon_size_medium">24dp</dimen>
+    <dimen name="ds_icon_size_large">32dp</dimen>
+    <dimen name="ds_icon_size_xlarge">40dp</dimen>
+    <dimen name="ds_icon_size_xxlarge">48dp</dimen>
+    <dimen name="ds_icon_size_huge">64dp</dimen>
+
+    <!-- Legacy icon sizes (for backward compatibility) -->
+    <dimen name="icon_size_small">16dp</dimen>
+    <dimen name="icon_size_normal">24dp</dimen>
+    <dimen name="icon_size_medium">48dp</dimen>
+    <dimen name="icon_size_large">80dp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- ELEVATION SCALE -->
+    <!-- ============================================================================ -->
+
+    <dimen name="ds_elevation_level0">0dp</dimen>
+    <dimen name="ds_elevation_level1">1dp</dimen>
+    <dimen name="ds_elevation_level2">3dp</dimen>
+    <dimen name="ds_elevation_level3">6dp</dimen>
+    <dimen name="ds_elevation_level4">8dp</dimen>
+    <dimen name="ds_elevation_level5">12dp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- BORDER RADIUS -->
+    <!-- ============================================================================ -->
+
+    <dimen name="ds_radius_none">0dp</dimen>
+    <dimen name="ds_radius_small">4dp</dimen>
+    <dimen name="ds_radius_medium">8dp</dimen>
+    <dimen name="ds_radius_large">12dp</dimen>
+    <dimen name="ds_radius_xlarge">16dp</dimen>
+    <dimen name="ds_radius_xxlarge">24dp</dimen>
+    <dimen name="ds_radius_full">1000dp</dimen>
+
+    <!-- Legacy radius (for backward compatibility) -->
+    <dimen name="card_corner_radius">12dp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- COMPONENT DIMENSIONS -->
+    <!-- ============================================================================ -->
+
+    <!-- Button Dimensions -->
+    <dimen name="ds_button_height_small">36dp</dimen>
+    <dimen name="ds_button_height_medium">44dp</dimen>
+    <dimen name="ds_button_height_large">52dp</dimen>
+
+    <dimen name="ds_button_padding_horizontal_small">12dp</dimen>
+    <dimen name="ds_button_padding_horizontal_medium">16dp</dimen>
+    <dimen name="ds_button_padding_horizontal_large">24dp</dimen>
+
+    <!-- Card Dimensions -->
+    <dimen name="ds_card_padding_small">12dp</dimen>
+    <dimen name="ds_card_padding_medium">16dp</dimen>
+    <dimen name="ds_card_padding_large">24dp</dimen>
+
+    <!-- Input Field Dimensions -->
+    <dimen name="ds_input_height">56dp</dimen>
+    <dimen name="ds_input_padding_horizontal">16dp</dimen>
+
+    <!-- FAB Dimensions -->
+    <dimen name="ds_fab_size_small">40dp</dimen>
+    <dimen name="ds_fab_size_medium">56dp</dimen>
+    <dimen name="ds_fab_size_large">72dp</dimen>
+    <dimen name="ds_fab_size_extended_height">48dp</dimen>
+    <dimen name="ds_fab_size_extended_padding">20dp</dimen>
+
+    <!-- Legacy dimensions (for backward compatibility) -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="button_min_height">48dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- ============================================================================ -->
+    <!-- MOTION & ANIMATION -->
+    <!-- ============================================================================ -->
+
+    <!-- Animation Durations -->
+    <integer name="ds_motion_duration_short">150</integer>
+    <integer name="ds_motion_duration_medium">250</integer>
+    <integer name="ds_motion_duration_long">400</integer>
+
+    <!-- Animation Easing -->
+    <string name="ds_motion_easing_standard">cubic-bezier(0.2, 0.0, 0.0, 1.0)</string>
+    <string name="ds_motion_easing_decelerate">cubic-bezier(0.0, 0.0, 0.2, 1.0)</string>
+    <string name="ds_motion_easing_accelerate">cubic-bezier(0.4, 0.0, 1.0, 1.0)</string>
+
+</resources>

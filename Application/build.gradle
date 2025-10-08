@@ -182,6 +182,7 @@ configurations.all {
 
 dependencies {
 
+    implementation project(":DesignSystem")
     implementation project("${toolkit_context}:Main")
     implementation project(":Tests")
     implementation project("${toolkit_context}:Analytics")

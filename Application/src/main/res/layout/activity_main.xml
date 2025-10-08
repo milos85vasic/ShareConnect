@@ -5,178 +5,276 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/dsColorSurface"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <!-- Modern App Bar with Design System -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/ds_elevation_level2"
+        app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/dsColorSurfaceContainerHigh"
             app:title="@string/app_name"
+            app:titleTextColor="?attr/dsColorOnSurface"
             app:menu="@menu/main_menu" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Main Content with Modern Spacing -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:paddingHorizontal="@dimen/ds_spacing_4"
+            android:paddingVertical="@dimen/ds_spacing_6"
+            android:animateLayoutChanges="true">
 
-            <com.google.android.material.card.MaterialCardView
+            <!-- Hero Card with Design System Components -->
+            <com.shareconnect.designsystem.components.cards.AnimatedCard
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardElevation="@dimen/card_elevation"
-                app:cardCornerRadius="@dimen/card_corner_radius">
+                android:layout_marginBottom="@dimen/ds_spacing_6"
+                app:dsCardStyle="elevated"
+                app:dsCardElevation="@dimen/ds_elevation_level3">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/card_padding">
+                    android:padding="@dimen/ds_spacing_6"
+                    android:gravity="center">
 
-                    <ImageView
-                        android:layout_width="@dimen/icon_size_large"
-                        android:layout_height="@dimen/icon_size_large"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/spacing_medium"
-                        android:src="@drawable/ic_foreground"
-                        android:contentDescription="App Icon" />
+                    <!-- Animated App Icon -->
+                    <com.shareconnect.designsystem.components.animations.LottieAnimationView
+                        android:layout_width="@dimen/ds_icon_size_huge"
+                        android:layout_height="@dimen/ds_icon_size_huge"
+                        android:layout_marginBottom="@dimen/ds_spacing_4"
+                        app:animationFile="app_icon_animation.json"
+                        app:autoPlay="true"
+                        app:loop="true" />
 
+                    <!-- Modern Typography -->
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
                         android:textAlignment="center"
-                        android:textSize="@dimen/text_size_large"
+                        android:textSize="@dimen/ds_text_headline_medium"
                         android:textStyle="bold"
-                        android:layout_marginBottom="@dimen/spacing_tiny" />
+                        android:textColor="?attr/dsColorOnSurface"
+                        android:layout_marginBottom="@dimen/ds_spacing_2" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Share media links from YouTube, Vimeo, Twitch, Reddit, Twitter, Instagram, Facebook, SoundCloud and more directly to your MeTube instance"
                         android:textAlignment="center"
-                        android:textSize="@dimen/text_size_normal"
-                        android:layout_marginBottom="@dimen/spacing_large" />
+                        android:textSize="@dimen/ds_text_body_medium"
+                        android:textColor="?attr/dsColorOnSurfaceVariant"
+                        android:layout_marginBottom="@dimen/ds_spacing_6"
+                        android:lineSpacingExtra="@dimen/ds_spacing_1" />
 
-                    <com.google.android.material.button.MaterialButton
+                    <!-- Animated Button -->
+                    <com.shareconnect.designsystem.components.buttons.AnimatedButton
                         android:id="@+id/buttonSettings"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/settings"
-                        app:icon="@android:drawable/ic_menu_manage" />
+                        app:dsButtonStyle="outlined"
+                        app:dsText="@string/settings"
+                        android:src="@android:drawable/ic_menu_manage" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </com.shareconnect.designsystem.components.cards.AnimatedCard>
 
+            <!-- Quick Actions Section -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quick Actions:"
-                android:textSize="@dimen/text_size_medium"
+                android:text="Quick Actions"
+                android:textSize="@dimen/ds_text_title_large"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/spacing_medium" />
+                android:textColor="?attr/dsColorOnSurface"
+                android:layout_marginBottom="@dimen/ds_spacing_4" />
 
-            <com.google.android.material.card.MaterialCardView
+            <com.shareconnect.designsystem.components.cards.AnimatedCard
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardElevation="2dp"
-                app:cardCornerRadius="@dimen/card_corner_radius">
+                android:layout_marginBottom="@dimen/ds_spacing_6"
+                app:dsCardStyle="outlined">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/card_padding">
+                    android:padding="@dimen/ds_spacing_4">
 
-                    <com.google.android.material.button.MaterialButton
+                    <com.shareconnect.designsystem.components.buttons.AnimatedButton
                         android:id="@+id/buttonOpenMeTube"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/spacing_small"
-                        android:text="Open MeTube Interface"
-                        app:icon="@android:drawable/ic_menu_view" />
+                        android:layout_marginBottom="@dimen/ds_spacing_3"
+                        app:dsButtonStyle="outlined"
+                        app:dsText="Open MeTube Interface"
+                        android:src="@android:drawable/ic_menu_view" />
 
-                    <com.google.android.material.button.MaterialButton
+                    <com.shareconnect.designsystem.components.buttons.AnimatedButton
                         android:id="@+id/buttonHistory"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="View Share History"
-                        app:icon="@android:drawable/ic_menu_recent_history" />
+                        app:dsButtonStyle="outlined"
+                        app:dsText="View Share History"
+                        android:src="@android:drawable/ic_menu_recent_history" />
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </com.shareconnect.designsystem.components.cards.AnimatedCard>
 
+            <!-- How to Use Section -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="How to use:"
-                android:textSize="@dimen/text_size_medium"
+                android:text="How to use"
+                android:textSize="@dimen/ds_text_title_large"
                 android:textStyle="bold"
-                android:layout_marginBottom="@dimen/spacing_medium" />
+                android:textColor="?attr/dsColorOnSurface"
+                android:layout_marginBottom="@dimen/ds_spacing_4" />
 
-            <com.google.android.material.card.MaterialCardView
+            <com.shareconnect.designsystem.components.cards.AnimatedCard
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardElevation="2dp"
-                app:cardCornerRadius="@dimen/card_corner_radius">
+                android:layout_marginBottom="@dimen/ds_spacing_8"
+                app:dsCardStyle="filled">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/card_padding">
+                    android:padding="@dimen/ds_spacing_4">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1. Open any supported media app or website"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/ds_spacing_3"
+                        android:gravity="center_vertical">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textSize="@dimen/ds_text_body_large"
+                            android:textStyle="bold"
+                            android:textColor="?attr/dsColorPrimary"
+                            android:layout_marginEnd="@dimen/ds_spacing_3"
+                            android:background="?attr/dsColorPrimaryContainer"
+                            android:padding="@dimen/ds_spacing_2"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Open any supported media app or website"
+                            android:textSize="@dimen/ds_text_body_medium"
+                            android:textColor="?attr/dsColorOnSurface" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="2. Share any media content"
-                        android:layout_marginBottom="8dp" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/ds_spacing_3"
+                        android:gravity="center_vertical">
 
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textSize="@dimen/ds_text_body_large"
+                            android:textStyle="bold"
+                            android:textColor="?attr/dsColorPrimary"
+                            android:layout_marginEnd="@dimen/ds_spacing_3"
+                            android:background="?attr/dsColorPrimaryContainer"
+                            android:padding="@dimen/ds_spacing_2"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Share any media content"
+                            android:textSize="@dimen/ds_text_body_medium"
+                            android:textColor="?attr/dsColorOnSurface" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3. Select 'ShareConnect' from the sharing options" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textSize="@dimen/ds_text_body_large"
+                            android:textStyle="bold"
+                            android:textColor="?attr/dsColorPrimary"
+                            android:layout_marginEnd="@dimen/ds_spacing_3"
+                            android:background="?attr/dsColorPrimaryContainer"
+                            android:padding="@dimen/ds_spacing_2"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Select 'ShareConnect' from the sharing options"
+                            android:textSize="@dimen/ds_text_body_medium"
+                            android:textColor="?attr/dsColorOnSurface" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/fabAdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_medium"
-                android:layout_marginBottom="@dimen/spacing_medium"
-                android:text="Add from Clipboard"
-                app:icon="@android:drawable/ic_input_add" />
+            </com.shareconnect.designsystem.components.cards.AnimatedCard>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <!-- Modern FAB with Design System -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/ds_spacing_4">
+
+        <com.shareconnect.designsystem.components.fabs.AnimatedFAB
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:dsFabSize="extended"
+            app:dsExtendedText="Add from Clipboard"
+            android:src="@android:drawable/ic_input_add" />
+
+    </FrameLayout>
 
 </LinearLayout>

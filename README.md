@@ -28,6 +28,7 @@ ShareConnect Wiki: [https://deepwiki.com/vasic-digital/ShareConnect](https://dee
 - **Visual Profile Management**: Modern grid layout with profile icons, default indicators, and lock badges for authenticated profiles
 - **Comprehensive History**: Detailed sharing history with media metadata, filtering by service, type, and profile
 - **Modern Material Design**: Beautiful UI following Material Design 3 guidelines with proper layout behaviors
+- **Unified Design System**: Consistent design tokens, reusable components, and smooth animations across all apps
 - **Connection Testing**: Built-in service connection testing with enhanced authentication support
 - **Quick Access**: Direct access to service interfaces from multiple locations
 - **Bulk Cleanup**: Flexible history cleanup options (individual items, by service, by type, or all)
