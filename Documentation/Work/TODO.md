@@ -39,7 +39,7 @@
 
 ## FIXME
 
-- Running qBitConnect application crashes with the following stack trace:
+- qBitConnect: Running application crashes with the following stack trace:
   ```
   E  FATAL EXCEPTION: main
     Process: com.shareconnect.qbitconnect.debug, PID: 5021
@@ -65,6 +65,8 @@
   ```
 
   Note: Make sure that other applications do not have the same issue!
+
+- qBitConnect: Wrong launcher icon! Same happens with TransmissionConnect!
 
 ## In progress
 
