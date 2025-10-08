@@ -43,8 +43,8 @@
 
 ## In progress
 
+- Testing and fixing issues
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
-- Application names
 - Migrate from kts and version catalogs to Groovy configs
 - Increase all dependency versions
 - Connector applications integration
@@ -94,6 +94,7 @@
 - Code coverage reports
   - If low create generic task and send it to AI agent to extend the tests
   - Code coverage badges
+- Application names
 
 ### Archive
 
