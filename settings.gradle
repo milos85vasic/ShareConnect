@@ -80,6 +80,7 @@ include ':HistorySync'
 include ':RSSSync'
 include ':BookmarkSync'
 include ':PreferencesSync'
+include ':LanguageSync'
 include ':Localizations'
 
 include ':Application'

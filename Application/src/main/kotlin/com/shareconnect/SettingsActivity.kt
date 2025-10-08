@@ -1,5 +1,6 @@
 package com.shareconnect
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,10 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.redelf.commons.logging.Console
+import com.shareconnect.languagesync.utils.LocaleHelper
 
 class SettingsActivity : AppCompatActivity() {
     private var themeManager: ThemeManager? = null
     private var isFirstRun = false
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Apply current theme before calling super.onCreate()
@@ -73,6 +79,17 @@ class SettingsActivity : AppCompatActivity() {
             // Simply recreate the current activity instead of starting a new one
             recreate()
         }
+        // If language was changed, recreate this activity to apply the new language
+        if (requestCode == LANGUAGE_SELECTION_REQUEST && resultCode == RESULT_OK) {
+            Console.debug("Language changed")
+            // Simply recreate the current activity instead of starting a new one
+            recreate()
+        }
+    }
+
+    fun startLanguageSelection() {
+        val intent = Intent(this, LanguageSelectionActivity::class.java)
+        startActivityForResult(intent, LANGUAGE_SELECTION_REQUEST)
     }
 
     fun startThemeSelection() {
@@ -93,6 +110,15 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
 
+            val languagePreference = findPreference<Preference>("language_selection")
+            if (languagePreference != null) {
+                languagePreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                    // Call the parent activity's method to start language selection
+                    (activity as? SettingsActivity)?.startLanguageSelection()
+                    true
+                }
+            }
+
             val themePreference = findPreference<Preference>("theme_selection")
             if (themePreference != null) {
                 themePreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
@@ -106,5 +132,6 @@ class SettingsActivity : AppCompatActivity() {
 
     companion object {
         private const val THEME_SELECTION_REQUEST = 1001
+        private const val LANGUAGE_SELECTION_REQUEST = 1002
     }
 }
