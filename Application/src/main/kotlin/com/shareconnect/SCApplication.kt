@@ -16,6 +16,7 @@ import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.languagesync.utils.LocaleHelper
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import com.shareconnect.utils.TorrentAppHelper
+import com.shareconnect.onboarding.viewmodel.OnboardingViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -69,6 +70,9 @@ class SCApplication : BaseApplication() {
         initializeBookmarkSync()
         initializePreferencesSync()
         observeLanguageChanges()
+
+        // Check if onboarding is needed
+        checkAndLaunchOnboardingIfNeeded()
     }
 
     private fun observeLanguageChanges() {
@@ -251,6 +255,25 @@ class SCApplication : BaseApplication() {
     override fun takeSalt(): String {
 
         return getString(R.string.app_name)
+    }
+
+    private fun checkAndLaunchOnboardingIfNeeded() {
+        // Check if onboarding has been completed
+        val prefs = getSharedPreferences("onboarding_prefs", MODE_PRIVATE)
+        val onboardingCompleted = prefs.getBoolean("onboarding_completed", false)
+
+        if (!onboardingCompleted) {
+            // For simplicity, always launch onboarding if not completed
+            // In a more complex implementation, we could check for existing data
+            launchOnboarding()
+        }
+    }
+
+    private fun launchOnboarding() {
+        // Launch onboarding activity
+        val intent = android.content.Intent(this, ShareConnectOnboardingActivity::class.java)
+        intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK or android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
     }
 
     companion object {

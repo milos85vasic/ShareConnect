@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_welcome_title">Welcome to ShareConnect</string>
+    <string name="onboarding_welcome_message">Let\'s get you set up with your perfect torrenting experience. We\'ll help you choose your theme, language, and create your first profile.</string>
+    <string name="onboarding_get_started">Get Started</string>
+
+    <string name="onboarding_theme_title">Choose Your Theme</string>
+    <string name="onboarding_theme_message">Select a theme that feels right for you. You can always change this later in settings.</string>
+    <string name="onboarding_theme_light">Light</string>
+    <string name="onboarding_theme_dark">Dark</string>
+    <string name="onboarding_theme_system">System</string>
+
+    <string name="onboarding_language_title">Select Language</string>
+    <string name="onboarding_language_message">Choose your preferred language for the app interface.</string>
+
+    <string name="onboarding_profile_title">Create Your Profile</string>
+    <string name="onboarding_profile_message">Set up your first torrent client profile to get started.</string>
+    <string name="onboarding_profile_name_hint">Profile Name</string>
+    <string name="onboarding_profile_url_hint">Server URL</string>
+    <string name="onboarding_profile_username_hint">Username (optional)</string>
+    <string name="onboarding_profile_password_hint">Password (optional)</string>
+    <string name="onboarding_profile_create">Create Profile</string>
+
+    <string name="onboarding_completion_title">You\'re All Set!</string>
+    <string name="onboarding_completion_message">Your ShareConnect experience is ready. Enjoy seamless torrent management across all your devices.</string>
+    <string name="onboarding_completion_start">Start Using ShareConnect</string>
+
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_skip">Skip</string>
+</resources>
