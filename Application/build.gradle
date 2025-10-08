@@ -186,6 +186,9 @@ dependencies {
     implementation project(":ThemeSync")
     implementation project(":ProfileSync")
     implementation project(":HistorySync")
+    implementation project(":RSSSync")
+    implementation project(":BookmarkSync")
+    implementation project(":PreferencesSync")
 
     testImplementation project("${toolkit_context}:Main")
     testImplementation project(":Tests")

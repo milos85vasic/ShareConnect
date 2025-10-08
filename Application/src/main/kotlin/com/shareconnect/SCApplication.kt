@@ -8,6 +8,9 @@ import com.shareconnect.database.HistoryDatabase
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
 import com.shareconnect.historysync.HistorySyncManager
+import com.shareconnect.rsssync.RSSSyncManager
+import com.shareconnect.bookmarksync.BookmarkSyncManager
+import com.shareconnect.preferencessync.PreferencesSyncManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -27,6 +30,15 @@ class SCApplication : BaseApplication() {
     lateinit var historySyncManager: HistorySyncManager
         private set
 
+    lateinit var rssSyncManager: RSSSyncManager
+        private set
+
+    lateinit var bookmarkSyncManager: BookmarkSyncManager
+        private set
+
+    lateinit var preferencesSyncManager: PreferencesSyncManager
+        private set
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun onCreate() {
@@ -36,6 +48,9 @@ class SCApplication : BaseApplication() {
         initializeThemeSync()
         initializeProfileSync()
         initializeHistorySync()
+        initializeRSSSync()
+        initializeBookmarkSync()
+        initializePreferencesSync()
     }
 
     private fun initializeThemeSync() {
@@ -81,6 +96,52 @@ class SCApplication : BaseApplication() {
         // Start history sync in background
         applicationScope.launch {
             historySyncManager.start()
+        }
+    }
+
+    private fun initializeRSSSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        rssSyncManager = RSSSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0",
+            clientTypeFilter = null  // ShareConnect syncs all RSS feeds
+        )
+
+        // Start RSS sync in background
+        applicationScope.launch {
+            rssSyncManager.start()
+        }
+    }
+
+    private fun initializeBookmarkSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        bookmarkSyncManager = BookmarkSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start bookmark sync in background
+        applicationScope.launch {
+            bookmarkSyncManager.start()
+        }
+    }
+
+    private fun initializePreferencesSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        preferencesSyncManager = PreferencesSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start preferences sync in background
+        applicationScope.launch {
+            preferencesSyncManager.start()
         }
     }
 
