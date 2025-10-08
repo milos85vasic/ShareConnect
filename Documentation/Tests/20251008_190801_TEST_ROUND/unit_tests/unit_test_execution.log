@@ -1,0 +1,793 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Toolkit:JCommons:compileJava
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes
+> Task :Toolkit:JCommons:jar
+> Task :Application:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Application:preBuild UP-TO-DATE
+> Task :Application:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :HistorySync:writeDebugAarMetadata
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :Localizations:writeDebugAarMetadata
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Onboarding:writeDebugAarMetadata
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Application:generateDebugResValues
+> Task :Application:checkDebugAarMetadata
+> Task :Application:injectCrashlyticsMappingFileIdDebug
+> Task :Application:injectCrashlyticsVersionControlInfoDebug
+> Task :Application:processDebugGoogleServices
+> Task :BookmarkSync:generateDebugResValues
+> Task :BookmarkSync:generateDebugResources
+> Task :BookmarkSync:packageDebugResources
+> Task :DesignSystem:generateDebugResValues
+> Task :DesignSystem:generateDebugResources
+> Task :DesignSystem:packageDebugResources
+> Task :HistorySync:generateDebugResValues
+> Task :HistorySync:generateDebugResources
+> Task :HistorySync:packageDebugResources
+> Task :LanguageSync:generateDebugResValues
+> Task :LanguageSync:generateDebugResources
+> Task :LanguageSync:packageDebugResources
+> Task :Localizations:generateDebugResValues
+> Task :Localizations:generateDebugResources
+> Task :Localizations:packageDebugResources
+> Task :Onboarding:generateDebugResValues
+> Task :Onboarding:generateDebugResources
+> Task :Onboarding:packageDebugResources
+> Task :PreferencesSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugResources
+> Task :PreferencesSync:packageDebugResources
+> Task :ProfileSync:generateDebugResValues
+> Task :ProfileSync:generateDebugResources
+> Task :ProfileSync:packageDebugResources
+> Task :RSSSync:generateDebugResValues
+> Task :RSSSync:generateDebugResources
+> Task :RSSSync:packageDebugResources
+> Task :Tests:generateDebugResValues
+> Task :Tests:generateDebugResources
+> Task :Tests:packageDebugResources
+> Task :ThemeSync:generateDebugResValues
+> Task :ThemeSync:generateDebugResources
+> Task :ThemeSync:packageDebugResources
+> Task :TorrentSharingSync:generateDebugResValues
+> Task :TorrentSharingSync:generateDebugResources
+> Task :TorrentSharingSync:packageDebugResources
+> Task :Asinka:asinka:generateDebugResValues
+> Task :Asinka:asinka:generateDebugResources
+> Task :Asinka:asinka:packageDebugResources
+> Task :Toolkit:Analytics:generateDebugResValues
+> Task :Toolkit:Analytics:generateDebugResources
+> Task :Toolkit:Analytics:packageDebugResources
+> Task :Toolkit:Main:generateDebugResValues
+> Task :Toolkit:Main:generateDebugResources
+> Task :Toolkit:Main:packageDebugResources
+> Task :Application:mapDebugSourceSetPaths
+> Task :Application:generateDebugResources
+> Task :Application:packageDebugResources
+> Task :Application:createDebugCompatibleScreenManifests
+> Task :Application:extractDeepLinksDebug
+> Task :BookmarkSync:extractDeepLinksDebug
+> Task :DesignSystem:extractDeepLinksDebug
+> Task :BookmarkSync:processDebugManifest
+> Task :HistorySync:extractDeepLinksDebug
+> Task :DesignSystem:processDebugManifest
+> Task :LanguageSync:extractDeepLinksDebug
+> Task :HistorySync:processDebugManifest
+> Task :Application:parseDebugLocalResources
+> Task :Localizations:extractDeepLinksDebug
+> Task :LanguageSync:processDebugManifest
+> Task :Onboarding:extractDeepLinksDebug
+> Task :Localizations:processDebugManifest
+> Task :PreferencesSync:extractDeepLinksDebug
+> Task :Onboarding:processDebugManifest
+> Task :ProfileSync:extractDeepLinksDebug
+> Task :PreferencesSync:processDebugManifest
+> Task :RSSSync:extractDeepLinksDebug
+> Task :ProfileSync:processDebugManifest
+> Task :Tests:extractDeepLinksDebug
+> Task :RSSSync:processDebugManifest
+> Task :ThemeSync:extractDeepLinksDebug
+
+> Task :Tests:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksDebug
+> Task :ThemeSync:processDebugManifest
+> Task :Asinka:asinka:extractDeepLinksDebug
+> Task :TorrentSharingSync:processDebugManifest
+> Task :Toolkit:Analytics:extractDeepLinksDebug
+
+> Task :Asinka:asinka:processDebugManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksDebug
+> Task :Toolkit:Analytics:processDebugManifest
+> Task :BookmarkSync:compileDebugLibraryResources
+> Task :BookmarkSync:parseDebugLocalResources
+> Task :DesignSystem:compileDebugLibraryResources
+> Task :BookmarkSync:generateDebugRFile
+> Task :HistorySync:compileDebugLibraryResources
+> Task :DesignSystem:parseDebugLocalResources
+
+> Task :Toolkit:Main:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :HistorySync:parseDebugLocalResources
+
+> Task :Application:processDebugMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :Application:processDebugManifest
+> Task :Application:processDebugManifestForPackage
+> Task :DesignSystem:generateDebugRFile
+> Task :HistorySync:generateDebugRFile
+> Task :LanguageSync:compileDebugLibraryResources
+> Task :LanguageSync:parseDebugLocalResources
+> Task :LanguageSync:generateDebugRFile
+> Task :Localizations:parseDebugLocalResources
+> Task :Onboarding:compileDebugLibraryResources
+> Task :Localizations:generateDebugRFile
+> Task :Onboarding:parseDebugLocalResources
+> Task :PreferencesSync:compileDebugLibraryResources
+> Task :Localizations:compileDebugLibraryResources
+> Task :Application:mergeDebugResources
+> Task :PreferencesSync:parseDebugLocalResources
+> Task :Onboarding:generateDebugRFile
+> Task :PreferencesSync:generateDebugRFile
+> Task :ProfileSync:compileDebugLibraryResources
+> Task :ProfileSync:parseDebugLocalResources
+> Task :RSSSync:compileDebugLibraryResources
+> Task :ProfileSync:generateDebugRFile
+> Task :RSSSync:parseDebugLocalResources
+> Task :Tests:compileDebugLibraryResources
+> Task :RSSSync:generateDebugRFile
+> Task :Tests:parseDebugLocalResources
+> Task :ThemeSync:compileDebugLibraryResources
+> Task :Tests:generateDebugRFile
+> Task :ThemeSync:parseDebugLocalResources
+> Task :TorrentSharingSync:compileDebugLibraryResources
+> Task :ThemeSync:generateDebugRFile
+> Task :TorrentSharingSync:parseDebugLocalResources
+> Task :Asinka:asinka:compileDebugLibraryResources
+> Task :TorrentSharingSync:generateDebugRFile
+> Task :Asinka:asinka:parseDebugLocalResources
+> Task :Toolkit:Analytics:compileDebugLibraryResources
+> Task :Asinka:asinka:generateDebugRFile
+> Task :Toolkit:Analytics:parseDebugLocalResources
+> Task :Toolkit:Analytics:generateDebugRFile
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:compileDebugLibraryResources
+> Task :Asinka:asinka:generateDebugBuildConfig
+> Task :Toolkit:Main:parseDebugLocalResources
+> Task :Asinka:asinka:extractDebugProto
+> Task :Toolkit:Main:generateDebugRFile
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:extractProto
+> Task :Asinka:asinka:generateDebugProto
+> Task :Asinka:asinka:javaPreCompileDebug
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:generateDebugBuildConfig
+> Task :BookmarkSync:javaPreCompileDebug
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:javaPreCompileDebug
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:javaPreCompileDebug
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:javaPreCompileDebug
+> Task :LanguageSync:javaPreCompileDebug
+> Task :Onboarding:generateDebugBuildConfig
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:generateDebugBuildConfig
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:javaPreCompileDebug
+> Task :ThemeSync:generateDebugBuildConfig
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:javaPreCompileDebug
+> Task :Onboarding:javaPreCompileDebug
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:javaPreCompileDebug
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:javaPreCompileDebug
+> Task :Toolkit:Main:generateReleaseResValues
+> Task :Toolkit:Main:generateReleaseResources
+> Task :Toolkit:Main:packageReleaseResources
+> Task :Toolkit:Main:parseReleaseLocalResources
+> Task :Toolkit:Main:javaPreCompileDebug
+> Task :Tests:javaPreCompileDebug
+> Task :Toolkit:Main:generateReleaseRFile
+> Task :Application:processDebugResources
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TorrentSharingSync:javaPreCompileDebug
+> Task :Toolkit:Analytics:javaPreCompileDebug
+> Task :Application:preDebugUnitTestBuild UP-TO-DATE
+> Task :Application:javaPreCompileDebug
+> Task :Application:javaPreCompileDebugUnitTest
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Application:buildKotlinToolingMetadata
+> Task :Application:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:writeReleaseAarMetadata
+> Task :HistorySync:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:writeReleaseAarMetadata
+> Task :LanguageSync:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:writeReleaseAarMetadata
+> Task :Localizations:preReleaseBuild UP-TO-DATE
+> Task :LanguageSync:writeReleaseAarMetadata
+> Task :Onboarding:preReleaseBuild UP-TO-DATE
+> Task :Localizations:writeReleaseAarMetadata
+> Task :PreferencesSync:preReleaseBuild UP-TO-DATE
+> Task :Onboarding:writeReleaseAarMetadata
+> Task :ProfileSync:preReleaseBuild UP-TO-DATE
+> Task :PreferencesSync:writeReleaseAarMetadata
+> Task :ProfileSync:writeReleaseAarMetadata
+> Task :RSSSync:preReleaseBuild UP-TO-DATE
+> Task :Tests:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:writeReleaseAarMetadata
+> Task :ThemeSync:preReleaseBuild UP-TO-DATE
+> Task :Tests:writeReleaseAarMetadata
+> Task :TorrentSharingSync:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:writeReleaseAarMetadata
+> Task :Asinka:asinka:preReleaseBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeReleaseAarMetadata
+> Task :Asinka:asinka:kspDebugKotlin
+> Task :Asinka:asinka:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeReleaseAarMetadata
+> Task :Toolkit:Main:writeReleaseAarMetadata
+> Task :Application:generateReleaseResValues
+> Task :Application:injectCrashlyticsMappingFileIdRelease
+> Task :Application:checkReleaseAarMetadata
+> Task :Application:extractReleaseVersionControlInfo
+> Task :Application:injectCrashlyticsVersionControlInfoRelease
+> Task :Application:processReleaseGoogleServices
+> Task :BookmarkSync:generateReleaseResValues
+> Task :BookmarkSync:generateReleaseResources
+> Task :BookmarkSync:packageReleaseResources
+> Task :DesignSystem:generateReleaseResValues
+> Task :DesignSystem:generateReleaseResources
+> Task :DesignSystem:packageReleaseResources
+> Task :HistorySync:generateReleaseResValues
+> Task :HistorySync:generateReleaseResources
+> Task :HistorySync:packageReleaseResources
+> Task :LanguageSync:generateReleaseResValues
+> Task :LanguageSync:generateReleaseResources
+> Task :LanguageSync:packageReleaseResources
+> Task :Localizations:generateReleaseResValues
+> Task :Localizations:generateReleaseResources
+> Task :Localizations:packageReleaseResources
+> Task :Onboarding:generateReleaseResValues
+> Task :Onboarding:generateReleaseResources
+> Task :Onboarding:packageReleaseResources
+> Task :PreferencesSync:generateReleaseResValues
+> Task :PreferencesSync:generateReleaseResources
+> Task :PreferencesSync:packageReleaseResources
+> Task :ProfileSync:generateReleaseResValues
+> Task :ProfileSync:generateReleaseResources
+> Task :ProfileSync:packageReleaseResources
+> Task :RSSSync:generateReleaseResValues
+> Task :RSSSync:generateReleaseResources
+> Task :RSSSync:packageReleaseResources
+> Task :Tests:generateReleaseResValues
+> Task :Tests:generateReleaseResources
+> Task :Tests:packageReleaseResources
+> Task :ThemeSync:generateReleaseResValues
+> Task :ThemeSync:generateReleaseResources
+> Task :ThemeSync:packageReleaseResources
+> Task :TorrentSharingSync:generateReleaseResValues
+> Task :TorrentSharingSync:generateReleaseResources
+> Task :TorrentSharingSync:packageReleaseResources
+> Task :Asinka:asinka:generateReleaseResValues
+> Task :Asinka:asinka:generateReleaseResources
+> Task :Asinka:asinka:packageReleaseResources
+> Task :Toolkit:Analytics:generateReleaseResValues
+> Task :Toolkit:Analytics:generateReleaseResources
+> Task :Toolkit:Analytics:packageReleaseResources
+> Task :Application:mapReleaseSourceSetPaths
+> Task :Application:generateReleaseResources
+> Task :Application:packageReleaseResources
+> Task :Application:createReleaseCompatibleScreenManifests
+> Task :Application:extractDeepLinksRelease
+> Task :BookmarkSync:extractDeepLinksRelease
+> Task :DesignSystem:extractDeepLinksRelease
+> Task :BookmarkSync:processReleaseManifest
+> Task :HistorySync:extractDeepLinksRelease
+> Task :Application:parseReleaseLocalResources
+> Task :DesignSystem:processReleaseManifest
+> Task :HistorySync:processReleaseManifest
+> Task :LanguageSync:extractDeepLinksRelease
+> Task :Localizations:extractDeepLinksRelease
+> Task :LanguageSync:processReleaseManifest
+> Task :Onboarding:extractDeepLinksRelease
+> Task :Localizations:processReleaseManifest
+> Task :PreferencesSync:extractDeepLinksRelease
+> Task :Onboarding:processReleaseManifest
+> Task :PreferencesSync:processReleaseManifest
+> Task :ProfileSync:extractDeepLinksRelease
+> Task :RSSSync:extractDeepLinksRelease
+> Task :ProfileSync:processReleaseManifest
+> Task :RSSSync:processReleaseManifest
+> Task :Application:mergeReleaseResources
+> Task :Tests:extractDeepLinksRelease
+> Task :ThemeSync:extractDeepLinksRelease
+
+> Task :Tests:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksRelease
+> Task :ThemeSync:processReleaseManifest
+> Task :TorrentSharingSync:processReleaseManifest
+> Task :Asinka:asinka:extractDeepLinksRelease
+> Task :Toolkit:Analytics:extractDeepLinksRelease
+
+> Task :Asinka:asinka:processReleaseManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Analytics:processReleaseManifest
+> Task :Toolkit:Main:extractDeepLinksRelease
+> Task :BookmarkSync:compileReleaseLibraryResources
+> Task :BookmarkSync:parseReleaseLocalResources
+
+> Task :Toolkit:Main:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :DesignSystem:compileReleaseLibraryResources
+> Task :DesignSystem:parseReleaseLocalResources
+
+> Task :DesignSystem:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :Application:processReleaseMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :Toolkit:Main:kspReleaseKotlin
+> Task :DesignSystem:compileDebugJavaWithJavac
+> Task :DesignSystem:bundleLibCompileToJarDebug
+> Task :DesignSystem:bundleLibRuntimeToJarDebug
+> Task :DesignSystem:processDebugJavaRes
+> Task :Application:processReleaseManifest
+> Task :BookmarkSync:generateReleaseRFile
+> Task :HistorySync:compileReleaseLibraryResources
+> Task :DesignSystem:generateReleaseRFile
+> Task :HistorySync:parseReleaseLocalResources
+> Task :LanguageSync:compileReleaseLibraryResources
+> Task :LanguageSync:parseReleaseLocalResources
+> Task :HistorySync:generateReleaseRFile
+> Task :Localizations:compileReleaseLibraryResources
+> Task :Localizations:parseReleaseLocalResources
+> Task :LanguageSync:generateReleaseRFile
+> Task :Onboarding:parseReleaseLocalResources
+> Task :Onboarding:compileReleaseLibraryResources
+> Task :Localizations:generateReleaseRFile
+> Task :PreferencesSync:compileReleaseLibraryResources
+> Task :Onboarding:generateReleaseRFile
+> Task :PreferencesSync:parseReleaseLocalResources
+> Task :ProfileSync:compileReleaseLibraryResources
+> Task :Application:processReleaseManifestForPackage
+> Task :PreferencesSync:generateReleaseRFile
+> Task :ProfileSync:parseReleaseLocalResources
+> Task :RSSSync:compileReleaseLibraryResources
+> Task :ProfileSync:generateReleaseRFile
+> Task :RSSSync:parseReleaseLocalResources
+> Task :Tests:compileReleaseLibraryResources
+> Task :Tests:parseReleaseLocalResources
+> Task :ThemeSync:compileReleaseLibraryResources
+> Task :RSSSync:generateReleaseRFile
+> Task :ThemeSync:parseReleaseLocalResources
+> Task :Tests:generateReleaseRFile
+> Task :ThemeSync:generateReleaseRFile
+> Task :TorrentSharingSync:compileReleaseLibraryResources
+> Task :Asinka:asinka:compileReleaseLibraryResources
+> Task :TorrentSharingSync:parseReleaseLocalResources
+> Task :Asinka:asinka:parseReleaseLocalResources
+> Task :Toolkit:Analytics:compileReleaseLibraryResources
+> Task :TorrentSharingSync:generateReleaseRFile
+> Task :Asinka:asinka:generateReleaseRFile
+> Task :Toolkit:Analytics:parseReleaseLocalResources
+> Task :Toolkit:Main:compileReleaseLibraryResources
+> Task :Asinka:asinka:generateReleaseBuildConfig
+> Task :Toolkit:Analytics:generateReleaseRFile
+
+> Task :Asinka:asinka:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :Asinka:asinka:extractIncludeReleaseProto
+> Task :Toolkit:Main:kspDebugKotlin
+> Task :Asinka:asinka:compileDebugJavaWithJavac
+> Task :Asinka:asinka:bundleLibCompileToJarDebug
+> Task :Asinka:asinka:processDebugJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug
+> Task :Asinka:asinka:extractReleaseProto
+> Task :Asinka:asinka:generateReleaseProto
+> Task :Asinka:asinka:javaPreCompileRelease
+> Task :DesignSystem:generateReleaseBuildConfig
+> Task :BookmarkSync:javaPreCompileRelease
+> Task :DesignSystem:javaPreCompileRelease
+> Task :HistorySync:javaPreCompileRelease
+> Task :LanguageSync:javaPreCompileRelease
+> Task :Localizations:javaPreCompileRelease
+> Task :Onboarding:generateReleaseBuildConfig
+> Task :Localizations:compileReleaseJavaWithJavac NO-SOURCE
+> Task :ProfileSync:generateReleaseBuildConfig
+> Task :Localizations:bundleLibCompileToJarRelease
+> Task :ThemeSync:generateReleaseBuildConfig
+> Task :ThemeSync:javaPreCompileRelease
+> Task :Onboarding:javaPreCompileRelease
+> Task :ProfileSync:javaPreCompileRelease
+> Task :PreferencesSync:javaPreCompileRelease
+> Task :RSSSync:javaPreCompileRelease
+> Task :Application:processReleaseResources
+> Task :Toolkit:Main:javaPreCompileRelease
+> Task :Tests:javaPreCompileRelease
+> Task :Toolkit:Analytics:javaPreCompileRelease
+> Task :TorrentSharingSync:javaPreCompileRelease
+> Task :Application:preReleaseUnitTestBuild UP-TO-DATE
+> Task :Application:javaPreCompileReleaseUnitTest
+> Task :Application:javaPreCompileRelease
+> Task :Localizations:processReleaseJavaRes NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:kspDebugKotlin
+> Task :Asinka:asinka:kspReleaseKotlin
+> Task :BookmarkSync:kspDebugKotlin
+
+> Task :LanguageSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :LanguageSync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:bundleLibCompileToJarDebug
+> Task :LanguageSync:processDebugJavaRes
+> Task :TorrentSharingSync:kspDebugKotlin
+> Task :ThemeSync:kspDebugKotlin
+> Task :PreferencesSync:kspDebugKotlin
+> Task :HistorySync:kspDebugKotlin
+> Task :ProfileSync:kspDebugKotlin
+> Task :RSSSync:kspDebugKotlin
+
+> Task :TorrentSharingSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:processDebugJavaRes
+> Task :BookmarkSync:compileDebugKotlin
+> Task :BookmarkSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibCompileToJarDebug
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug
+
+> Task :ThemeSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :BookmarkSync:processDebugJavaRes
+> Task :PreferencesSync:compileDebugKotlin
+
+> Task :DesignSystem:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :ThemeSync:compileDebugJavaWithJavac
+> Task :PreferencesSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :ThemeSync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:processDebugJavaRes
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug
+> Task :ThemeSync:processDebugJavaRes
+> Task :ThemeSync:bundleLibRuntimeToJarDebug
+> Task :DesignSystem:compileReleaseJavaWithJavac
+> Task :RSSSync:compileDebugKotlin
+> Task :RSSSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :DesignSystem:bundleLibCompileToJarRelease
+> Task :RSSSync:bundleLibCompileToJarDebug
+> Task :RSSSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:processDebugJavaRes
+> Task :DesignSystem:bundleLibRuntimeToJarRelease
+> Task :DesignSystem:processReleaseJavaRes
+
+> Task :ProfileSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ProfileSync:compileDebugJavaWithJavac
+> Task :HistorySync:compileDebugJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibCompileToJarDebug
+> Task :ProfileSync:bundleLibCompileToJarDebug
+> Task :HistorySync:processDebugJavaRes
+> Task :HistorySync:bundleLibRuntimeToJarDebug
+
+> Task :Asinka:asinka:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :ProfileSync:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:processDebugJavaRes
+> Task :Asinka:asinka:compileReleaseJavaWithJavac
+> Task :Asinka:asinka:processReleaseJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarRelease
+> Task :Asinka:asinka:bundleLibCompileToJarRelease
+> Task :Onboarding:compileDebugKotlin
+> Task :Onboarding:compileDebugJavaWithJavac
+> Task :Onboarding:bundleLibRuntimeToJarDebug
+> Task :Onboarding:processDebugJavaRes
+> Task :Onboarding:bundleLibCompileToJarDebug
+> Task :LanguageSync:kspReleaseKotlin
+> Task :BookmarkSync:kspReleaseKotlin
+> Task :ThemeSync:kspReleaseKotlin
+> Task :PreferencesSync:kspReleaseKotlin
+
+> Task :LanguageSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :LanguageSync:bundleLibCompileToJarRelease
+> Task :LanguageSync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:processReleaseJavaRes
+> Task :HistorySync:kspReleaseKotlin
+> Task :ProfileSync:kspReleaseKotlin
+> Task :TorrentSharingSync:kspReleaseKotlin
+> Task :RSSSync:kspReleaseKotlin
+
+> Task :ThemeSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ThemeSync:compileReleaseJavaWithJavac
+> Task :ThemeSync:bundleLibCompileToJarRelease
+> Task :ThemeSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:processReleaseJavaRes
+
+> Task :TorrentSharingSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :PreferencesSync:compileReleaseKotlin
+> Task :PreferencesSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:bundleLibRuntimeToJarRelease
+> Task :PreferencesSync:processReleaseJavaRes
+> Task :TorrentSharingSync:bundleLibRuntimeToJarRelease
+> Task :TorrentSharingSync:processReleaseJavaRes
+> Task :BookmarkSync:compileReleaseKotlin
+> Task :BookmarkSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibCompileToJarRelease
+> Task :BookmarkSync:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:processReleaseJavaRes
+> Task :RSSSync:compileReleaseKotlin
+> Task :RSSSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :RSSSync:bundleLibRuntimeToJarRelease
+> Task :RSSSync:bundleLibCompileToJarRelease
+> Task :RSSSync:processReleaseJavaRes
+
+> Task :ProfileSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ProfileSync:compileReleaseJavaWithJavac
+> Task :ProfileSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:processReleaseJavaRes
+> Task :ProfileSync:bundleLibCompileToJarRelease
+
+> Task :HistorySync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibRuntimeToJarRelease
+> Task :HistorySync:processReleaseJavaRes
+> Task :HistorySync:bundleLibCompileToJarRelease
+
+> Task :Toolkit:Main:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Onboarding:compileReleaseKotlin
+
+> Task :Toolkit:Main:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileDebugJavaWithJavac
+> Task :Toolkit:Main:processDebugJavaRes
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Main:bundleLibCompileToJarDebug
+> Task :Onboarding:compileReleaseJavaWithJavac
+> Task :Onboarding:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:compileDebugKotlin
+> Task :Tests:compileDebugKotlin
+> Task :Toolkit:Main:compileReleaseJavaWithJavac
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibRuntimeToJarDebug
+> Task :Tests:processDebugJavaRes
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug
+> Task :Tests:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Analytics:processDebugJavaRes
+> Task :Onboarding:processReleaseJavaRes
+> Task :Onboarding:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Main:processReleaseJavaRes
+> Task :Toolkit:Main:bundleLibCompileToJarRelease
+> Task :Toolkit:Main:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:compileReleaseKotlin
+> Task :Toolkit:Analytics:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:processReleaseJavaRes
+> Task :Toolkit:Analytics:bundleLibCompileToJarRelease
+> Task :Tests:compileReleaseKotlin
+> Task :Tests:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibRuntimeToJarRelease
+> Task :Tests:bundleLibCompileToJarRelease
+> Task :Tests:processReleaseJavaRes
+> Task :Application:kspDebugKotlin
+> Task :Application:kspReleaseKotlin
+
+> Task :Application:compileDebugKotlin FAILED
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:267:39 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:268:53 Unresolved reference 'isNotEmpty'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:271:37 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:272:49 Unresolved reference 'isNotEmpty'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:276:37 Suspend function 'suspend fun getLanguagePreference(): LanguageData?' should be called only from a coroutine or another suspend function.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:7:40 This type is final, so it cannot be extended.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:14:9 Cannot access 'var viewModel: OnboardingViewModel': it is private in 'com/shareconnect/onboarding/ui/OnboardingActivity'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:21:5 'launchMainApp' overrides nothing.
+
+> Task :Application:compileReleaseKotlin FAILED
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:267:39 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:268:53 Unresolved reference 'isNotEmpty'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:271:37 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:272:49 Unresolved reference 'isNotEmpty'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/SCApplication.kt:276:37 Suspend function 'suspend fun getLanguagePreference(): LanguageData?' should be called only from a coroutine or another suspend function.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:7:40 This type is final, so it cannot be extended.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:14:9 Cannot access 'var viewModel: OnboardingViewModel': it is private in 'com/shareconnect/onboarding/ui/OnboardingActivity'.
+e: file:///home/milosvasic/Projects/ShareConnect/Application/src/main/kotlin/com/shareconnect/ShareConnectOnboardingActivity.kt:21:5 'launchMainApp' overrides nothing.
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':Application:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':Application:compileReleaseKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 33s
+509 actionable tasks: 509 executed

@@ -85,4 +85,5 @@ include ':TorrentSharingSync'
 include ':Localizations'
 
 include ':DesignSystem'
+include ':Onboarding'
 include ':Application'

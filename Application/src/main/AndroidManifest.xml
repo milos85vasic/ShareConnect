@@ -198,7 +198,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".LanguageSelectionActivity"
+             android:name=".LanguageSelectionActivity"
+             android:exported="false" />
+
+        <activity
+            android:name=".ShareConnectOnboardingActivity"
             android:exported="false" />
 
         <!-- Disable WorkManager default initialization -->
