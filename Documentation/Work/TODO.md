@@ -39,7 +39,32 @@
 
 ## FIXME
 
-- None
+- Running qBitConnect application crashes with the following stack trace:
+  ```
+  E  FATAL EXCEPTION: main
+    Process: com.shareconnect.qbitconnect.debug, PID: 5021
+    java.lang.UnsupportedOperationException: Use Grpc.newServerBuilderForPort() instead
+        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:41)
+        at io.grpc.okhttp.OkHttpServerProvider.builderForPort(OkHttpServerProvider.java:25)
+        at io.grpc.ServerBuilder.forPort(ServerBuilder.java:44)
+        at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:54)
+        at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:73)
+        at com.shareconnect.languagesync.LanguageSyncManager.start(LanguageSyncManager.kt:54)
+        at com.shareconnect.qbitconnect.App$initializeLanguageSync$1.invokeSuspend(App.kt:172)
+        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+        at android.os.Handler.handleCallback(Handler.java:959)
+        at android.os.Handler.dispatchMessage(Handler.java:100)
+        at android.os.Looper.loopOnce(Looper.java:257)
+        at android.os.Looper.loop(Looper.java:342)
+        at android.app.ActivityThread.main(ActivityThread.java:9634)
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+        Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@d5d4953, Dispatchers.Main]
+  ```
+
+  Note: Make sure that other applications do not have the same issue!
 
 ## In progress
 
