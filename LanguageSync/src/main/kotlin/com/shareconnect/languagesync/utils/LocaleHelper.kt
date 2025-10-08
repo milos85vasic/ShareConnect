@@ -17,6 +17,7 @@ class LocaleHelper {
          * Attach base context with language applied
          * Call this in Activity.attachBaseContext()
          */
+        @JvmStatic
         fun onAttach(baseContext: Context): Context {
             val language = getPersistedLanguage(baseContext)
             return setLocale(baseContext, language)
@@ -25,6 +26,7 @@ class LocaleHelper {
         /**
          * Attach base context with specific language
          */
+        @JvmStatic
         fun onAttach(baseContext: Context, languageCode: String): Context {
             return setLocale(baseContext, languageCode)
         }
@@ -32,6 +34,7 @@ class LocaleHelper {
         /**
          * Get persisted language from SharedPreferences
          */
+        @JvmStatic
         fun getPersistedLanguage(context: Context): String {
             val preferences = context.getSharedPreferences("language_sync_prefs", Context.MODE_PRIVATE)
             return preferences.getString(SELECTED_LANGUAGE, LanguageData.CODE_SYSTEM_DEFAULT)
@@ -41,6 +44,7 @@ class LocaleHelper {
         /**
          * Persist language to SharedPreferences
          */
+        @JvmStatic
         fun persistLanguage(context: Context, languageCode: String) {
             val preferences = context.getSharedPreferences("language_sync_prefs", Context.MODE_PRIVATE)
             preferences.edit().putString(SELECTED_LANGUAGE, languageCode).apply()
@@ -49,6 +53,7 @@ class LocaleHelper {
         /**
          * Set locale for context
          */
+        @JvmStatic
         fun setLocale(context: Context, languageCode: String): Context {
             persistLanguage(context, languageCode)
             return LanguageUtils.applyLanguage(context, languageCode)
@@ -57,6 +62,7 @@ class LocaleHelper {
         /**
          * Update activity locale and recreate
          */
+        @JvmStatic
         fun updateLocale(activity: Activity, languageCode: String) {
             persistLanguage(activity, languageCode)
             activity.recreate()
