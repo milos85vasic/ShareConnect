@@ -1,5 +1,6 @@
 package com.shareconnect
 
+import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -11,6 +12,8 @@ import com.shareconnect.historysync.HistorySyncManager
 import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
+import com.shareconnect.languagesync.LanguageSyncManager
+import com.shareconnect.languagesync.utils.LocaleHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -39,18 +42,36 @@ class SCApplication : BaseApplication() {
     lateinit var preferencesSyncManager: PreferencesSyncManager
         private set
 
+    lateinit var languageSyncManager: LanguageSyncManager
+        private set
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(LocaleHelper.onAttach(base))
+    }
 
     override fun onCreate() {
         super.onCreate()
         initializeDatabase()
         migrateProfilesToDatabase()
+        initializeLanguageSync()
         initializeThemeSync()
         initializeProfileSync()
         initializeHistorySync()
         initializeRSSSync()
         initializeBookmarkSync()
         initializePreferencesSync()
+        observeLanguageChanges()
+    }
+
+    private fun observeLanguageChanges() {
+        applicationScope.launch {
+            languageSyncManager.languageChangeFlow.collect { languageData ->
+                // Persist language change so it applies on next app start
+                LocaleHelper.persistLanguage(this@SCApplication, languageData.languageCode)
+            }
+        }
     }
 
     private fun initializeThemeSync() {
@@ -142,6 +163,21 @@ class SCApplication : BaseApplication() {
         // Start preferences sync in background
         applicationScope.launch {
             preferencesSyncManager.start()
+        }
+    }
+
+    private fun initializeLanguageSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        languageSyncManager = LanguageSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start language sync in background
+        applicationScope.launch {
+            languageSyncManager.start()
         }
     }
 

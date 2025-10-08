@@ -197,6 +197,10 @@
             android:name=".ThemeSelectionActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".LanguageSelectionActivity"
+            android:exported="false" />
+
         <!-- Disable WorkManager default initialization -->
         <provider
             android:name="androidx.startup.InitializationProvider"

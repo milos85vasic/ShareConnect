@@ -12,6 +12,11 @@
     <PreferenceCategory app:title="@string/appearance">
 
         <Preference
+            app:key="language_selection"
+            app:title="@string/language"
+            app:summary="@string/language_summary" />
+
+        <Preference
             app:key="theme_selection"
             app:title="@string/theme"
             app:summary="@string/theme_summary" />

@@ -20,6 +20,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.redelf.commons.logging.Console
+import com.shareconnect.languagesync.utils.LocaleHelper
 
 class MainActivity : AppCompatActivity() {
     private var buttonSettings: MaterialButton? = null
@@ -40,6 +41,10 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val SETUP_WIZARD_REQUEST_CODE = 1001
         private const val EDIT_PROFILE_REQUEST_CODE = 1002
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleHelper.onAttach(newBase))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

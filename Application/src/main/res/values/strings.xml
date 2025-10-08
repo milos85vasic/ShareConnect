@@ -40,6 +40,10 @@
     <string name="appearance">Appearance</string>
     <string name="theme">Theme</string>
     <string name="theme_summary">Select application theme and color scheme</string>
+    <string name="language">Language</string>
+    <string name="language_selection">Language Selection</string>
+    <string name="language_summary">Select application language</string>
+    <string name="selected">Selected</string>
     <string name="all_history">All History</string>
     <string name="by_service_provider">By Service Provider</string>
     <string name="by_type">By Type</string>
