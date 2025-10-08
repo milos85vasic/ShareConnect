@@ -7,15 +7,38 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.redelf.commons.logging.Console
 import com.shareconnect.database.Theme
 import com.shareconnect.database.ThemeRepository
+import com.shareconnect.themesync.ThemeSyncManager
+import com.shareconnect.themesync.models.ThemeData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ThemeManager private constructor(private val context: Context) {
     private val themeRepository: ThemeRepository
     private val sharedPreferences: SharedPreferences
+    private val themeSyncManager: ThemeSyncManager
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     init {
         themeRepository = ThemeRepository(context)
         themeRepository.initializeDefaultThemes()
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
+        // Get ThemeSyncManager from Application
+        themeSyncManager = (context.applicationContext as SCApplication).themeSyncManager
+
+        // Observe theme changes from sync
+        scope.launch {
+            themeSyncManager.themeChangeFlow.collect { syncedTheme ->
+                // If this is the default theme, notify change
+                if (syncedTheme.isDefault) {
+                    notifyThemeChanged()
+                }
+            }
+        }
     }
 
     fun applyTheme(activity: Activity) {

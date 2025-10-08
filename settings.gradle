@@ -74,4 +74,6 @@ project(':app').projectDir = new File(settingsDir, 'Connectors/TransmissionConne
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 
+include ':ThemeSync'
+
 include ':Application'
