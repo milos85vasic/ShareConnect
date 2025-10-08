@@ -66,8 +66,6 @@
 
   Note: Make sure that other applications do not have the same issue!
 
-- qBitConnect: Wrong launcher icon! Same happens with TransmissionConnect!
-
 ## In progress
 
 - Testing and fixing issues
@@ -123,6 +121,7 @@
   - If low create generic task and send it to AI agent to extend the tests
   - Code coverage badges
 - Application names
+- qBitConnect: Wrong launcher icon! Same happens with TransmissionConnect!
 
 ### Archive
 
