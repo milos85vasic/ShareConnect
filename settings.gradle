@@ -86,4 +86,4 @@ include ':Localizations'
 
 include ':DesignSystem'
 include ':Onboarding'
-include ':Application'
+include ':ShareConnector'
