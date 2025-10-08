@@ -77,5 +77,8 @@ include ':Asinka:demo-app'
 include ':ThemeSync'
 include ':ProfileSync'
 include ':HistorySync'
+include ':RSSSync'
+include ':BookmarkSync'
+include ':PreferencesSync'
 
 include ':Application'
