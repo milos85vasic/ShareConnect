@@ -13,11 +13,13 @@ import android.widget.ArrayAdapter
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import com.google.android.material.textfield.TextInputEditText
+import com.shareconnect.utils.TorrentAppHelper
 
 class EditProfileActivity : AppCompatActivity() {
     private var editTextProfileName: TextInputEditText? = null
@@ -421,7 +423,13 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         Toast.makeText(this, R.string.profile_saved, Toast.LENGTH_SHORT).show()
-        finish()
+
+        // Check if we should show torrent app installation prompt for new torrent profiles
+        if (isNewProfile && serviceType == ServerProfile.TYPE_TORRENT) {
+            showTorrentAppInstallPromptIfNeeded(existingProfile!!)
+        } else {
+            finish()
+        }
     }
 
     private fun testConnection() {
@@ -527,6 +535,89 @@ class EditProfileActivity : AppCompatActivity() {
         } catch (e: Exception) {
             false
         }
+    }
+
+    /**
+     * Show torrent app installation prompt if needed for newly created torrent profiles
+     */
+    private fun showTorrentAppInstallPromptIfNeeded(profile: ServerProfile) {
+        if (!profile.isTorrent()) {
+            finish()
+            return
+        }
+
+        val suggestedApp = TorrentAppHelper.getSuggestedAppForProfile(profile)
+        if (suggestedApp != null && TorrentAppHelper.shouldSuggestAppInstallation(this, profile)) {
+            showTorrentAppInstallDialog(suggestedApp)
+        } else {
+            finish()
+        }
+    }
+
+    /**
+     * Show torrent app installation dialog
+     */
+    private fun showTorrentAppInstallDialog(appPackage: String) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_torrent_app_install, null)
+        val titleTextView = dialogView.findViewById<TextView>(R.id.textViewTitle)
+        val messageTextView = dialogView.findViewById<TextView>(R.id.textViewMessage)
+        val dontAskCheckBox = dialogView.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.checkBoxDontAskAgain)
+        val notNowButton = dialogView.findViewById<MaterialButton>(R.id.buttonNotNow)
+        val installButton = dialogView.findViewById<MaterialButton>(R.id.buttonInstall)
+
+        val appName = TorrentAppHelper.getAppName(appPackage)
+
+        // Set dialog content
+        titleTextView.text = getString(R.string.install_torrent_app)
+        messageTextView.text = when (appPackage) {
+            TorrentAppHelper.PACKAGE_QBITCONNECT -> getString(R.string.qbitconnect_install_message)
+            TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT -> getString(R.string.transmissionconnect_install_message)
+            else -> getString(R.string.torrent_app_install_message, appName)
+        }
+
+        val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+
+        // Not Now button
+        notNowButton.setOnClickListener {
+            if (dontAskCheckBox.isChecked) {
+                when (appPackage) {
+                    TorrentAppHelper.PACKAGE_QBITCONNECT ->
+                        TorrentAppHelper.setDontAskQBitConnect(this, true)
+                    TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT ->
+                        TorrentAppHelper.setDontAskTransmissionConnect(this, true)
+                }
+            }
+            dialog.dismiss()
+            finish()
+        }
+
+        // Install button
+        installButton.setOnClickListener {
+            if (dontAskCheckBox.isChecked) {
+                when (appPackage) {
+                    TorrentAppHelper.PACKAGE_QBITCONNECT ->
+                        TorrentAppHelper.setDontAskQBitConnect(this, true)
+                    TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT ->
+                        TorrentAppHelper.setDontAskTransmissionConnect(this, true)
+                }
+            }
+
+            // Open Play Store
+            val intent = TorrentAppHelper.createPlayStoreIntent(this, appPackage)
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(this, getString(R.string.could_not_open_app), Toast.LENGTH_SHORT).show()
+            }
+
+            dialog.dismiss()
+            finish()
+        }
+
+        dialog.show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

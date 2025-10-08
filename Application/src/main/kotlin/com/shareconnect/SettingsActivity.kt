@@ -7,8 +7,13 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreferenceCompat
 import com.redelf.commons.logging.Console
 import com.shareconnect.languagesync.utils.LocaleHelper
+import com.shareconnect.utils.TorrentAppHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SettingsActivity : AppCompatActivity() {
     private var themeManager: ThemeManager? = null
@@ -124,6 +129,36 @@ class SettingsActivity : AppCompatActivity() {
                 themePreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                     // Call the parent activity's method to start theme selection
                     (activity as? SettingsActivity)?.startThemeSelection()
+                    true
+                }
+            }
+
+            // Torrent sharing preferences
+            val directSharingPreference = findPreference<SwitchPreferenceCompat>("direct_torrent_sharing_enabled")
+            if (directSharingPreference != null) {
+                // Initialize with current value
+                CoroutineScope(Dispatchers.Main).launch {
+                    val isEnabled = TorrentAppHelper.isDirectSharingEnabled(requireContext())
+                    directSharingPreference.isChecked = isEnabled
+                }
+
+                directSharingPreference.setOnPreferenceChangeListener { _, newValue ->
+                    val enabled = newValue as Boolean
+                    TorrentAppHelper.setDirectSharingEnabled(requireContext(), enabled)
+                    true
+                }
+            }
+
+            val resetPromptsPreference = findPreference<Preference>("reset_torrent_prompts")
+            if (resetPromptsPreference != null) {
+                resetPromptsPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                    TorrentAppHelper.resetDontAskPreferences(requireContext())
+                    // Show confirmation
+                    android.widget.Toast.makeText(
+                        context,
+                        getString(R.string.torrent_prompts_reset),
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
                     true
                 }
             }

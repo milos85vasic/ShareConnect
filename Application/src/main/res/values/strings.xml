@@ -37,6 +37,7 @@
     <string name="select">Select</string>
     <string name="dark">Dark</string>
     <string name="light">Light</string>
+    <string name="torrent_sharing">Torrent Sharing</string>
     <string name="appearance">Appearance</string>
     <string name="theme">Theme</string>
     <string name="theme_summary">Select application theme and color scheme</string>

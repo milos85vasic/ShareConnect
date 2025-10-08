@@ -9,6 +9,21 @@
 
     </PreferenceCategory>
     
+    <PreferenceCategory app:title="@string/torrent_sharing">
+
+        <SwitchPreferenceCompat
+            app:key="direct_torrent_sharing_enabled"
+            app:title="@string/enable_direct_torrent_sharing"
+            app:summary="@string/enable_direct_torrent_sharing_summary"
+            app:defaultValue="true" />
+
+        <Preference
+            app:key="reset_torrent_prompts"
+            app:title="@string/reset_torrent_prompts"
+            app:summary="@string/reset_torrent_prompts_summary" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory app:title="@string/appearance">
 
         <Preference

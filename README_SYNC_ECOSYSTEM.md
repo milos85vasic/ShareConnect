@@ -45,6 +45,107 @@ A comprehensive real-time bidirectional synchronization ecosystem enabling seaml
 
 ---
 
+## 🧲 Torrent Sharing to Profile
+
+**Direct torrent integration between ShareConnect and dedicated torrent apps**
+
+### Overview
+
+ShareConnect now supports seamless sharing of torrent magnet links and files directly to qBitConnect and TransmissionConnect apps when they are installed on the device.
+
+### Features
+
+#### 🔗 Direct Sharing
+- **Automatic Detection:** ShareConnect automatically detects if qBitConnect or TransmissionConnect are installed
+- **Profile-Based Routing:** Torrent content is shared directly to the appropriate app based on the selected profile's torrent client type
+- **Magnet Link Support:** Direct sharing of magnet links without clipboard copying
+- **Torrent File Support:** Direct sharing of .torrent files with proper file permissions
+
+#### ⚙️ Profile Creation Integration
+- **Installation Prompts:** When creating qBittorrent or Transmission profiles, users are prompted to install the corresponding connect app if not already installed
+- **Smart Suggestions:** Prompts only appear for relevant torrent client types (qBittorrent → qBitConnect, Transmission → TransmissionConnect)
+- **Don't Ask Again:** Users can opt out of future installation prompts with a checkbox
+
+#### 🎛️ Settings Management
+- **Direct Sharing Toggle:** Enable/disable direct torrent sharing in app settings
+- **Reset Prompts:** Reset "don't ask again" preferences for installation prompts
+- **Cross-App Sync:** Sharing preferences are synchronized across all ShareConnect ecosystem apps
+
+### User Experience
+
+#### Profile Creation Flow
+```
+1. User creates qBittorrent profile in ShareConnect
+2. If qBitConnect not installed → Show installation prompt
+3. User can install from Play Store or skip
+4. Profile saved successfully
+5. Future torrent shares route directly to qBitConnect
+```
+
+#### Sharing Flow
+```
+1. User shares magnet link to ShareConnect
+2. ShareConnect detects torrent content
+3. If qBitConnect installed and profile is qBittorrent → Direct share
+4. Torrent opens directly in qBitConnect
+5. No clipboard copying or manual switching required
+```
+
+### Technical Implementation
+
+#### Core Components
+- **TorrentAppHelper:** Central utility for app detection, sharing intents, and preference management
+- **TorrentSharingSyncManager:** Synchronized preferences across apps using Asinka
+- **Enhanced ShareActivity:** Profile-aware torrent sharing with installation prompts
+- **Profile Creation Wizard:** Integrated app installation suggestions
+
+#### Settings Integration
+```xml
+<!-- In root_preferences.xml -->
+<PreferenceCategory app:title="@string/torrent_sharing">
+    <SwitchPreferenceCompat
+        app:key="direct_torrent_sharing_enabled"
+        app:title="@string/enable_direct_torrent_sharing" />
+    <Preference
+        app:key="reset_torrent_prompts"
+        app:title="@string/reset_torrent_prompts" />
+</PreferenceCategory>
+```
+
+#### API Usage
+```kotlin
+// Check if direct sharing is enabled
+val enabled = TorrentAppHelper.isDirectSharingEnabled(context)
+
+// Attempt direct share to appropriate app
+val result = TorrentAppHelper.attemptDirectShare(context, magnetLink, profile)
+
+// Show installation prompt if needed
+if (TorrentAppHelper.shouldSuggestAppInstallation(context, profile)) {
+    showTorrentAppInstallDialog(TorrentAppHelper.getSuggestedAppForProfile(profile))
+}
+```
+
+### Supported Store Detection
+
+The system automatically detects the app store from which ShareConnect was installed and suggests installation from the same store:
+
+- **Google Play Store:** Primary detection for most users
+- **Fallback:** Web Play Store links for devices without Play Store
+- **Package Names:**
+  - qBitConnect: `com.shareconnect.qbitconnect`
+  - TransmissionConnect: `com.shareconnect.transmissionconnect`
+
+### Benefits
+
+- **Seamless Integration:** No more copying magnet links to clipboard
+- **App Discovery:** Users are guided to install relevant torrent management apps
+- **Profile Awareness:** Sharing respects the selected profile's torrent client type
+- **Cross-App Sync:** Preferences sync across the entire ShareConnect ecosystem
+- **User Choice:** Optional feature with easy enable/disable controls
+
+---
+
 ## 🔄 Synchronization Architecture
 
 ```
