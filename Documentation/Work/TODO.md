@@ -43,35 +43,19 @@
 
 ## In progress
 
+- Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
 - Application names
 - Migrate from kts and version catalogs to Groovy configs
 - Increase all dependency versions
-- Asinka - Update Kotlin version
 - Connector applications integration
   - qBitConnector
-    - Asinka to connect both main app anf the connector app
-    - New icons
     - Rename composeApp to something meaningful
-    - Themes sync and applying
-      - Theme synchronization settings switch
-  - TransmissionConnector
-    - Asinka to connect both main app anf the connector app
-    - New icons
-    - Themes sync and applying
-      - Theme synchronization settings switch
   - uTorrent Connector (TBD)
     - Asinka to connect both main app anf the connector app
     - New icons
     - Themes sync and applying
       - Theme synchronization settings switch
-- FIXME: Open shared magnet link on remote endpoint after signing in
-  - Connect our torrent controller as an option
-- Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
-- [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
 - Internal test release [1.0.0 @ 005](./Changes/1.0.0/005.md)
-- Code coverage reports
-  - If low create generic task and send it to AI agent to extend the tests
-  - Code coverage badges
 - [Enable RAG for AIs and fine tuning](./Tasks/001%20RAG%20and%20MCP%20integration/TASK.md)
   - Move RAG materials into separate Git submodule
     - Submodule Upstreams
@@ -92,6 +76,24 @@
 - Invite beta testers
 - Firebase configuration for the DEV variant
 - Internal test release [1.0.0 @ 003](./Changes/1.0.0/003.md)
+- Asinka - Update Kotlin version
+- Connector applications integration
+  - qBitConnector
+    - Asinka to connect both main app anf the connector app
+    - New icons
+    - Themes sync and applying
+      - Theme synchronization settings switch
+  - TransmissionConnector
+    - Asinka to connect both main app anf the connector app
+    - New icons
+    - Themes sync and applying
+      - Theme synchronization settings switch
+- FIXME: Open shared magnet link on remote endpoint after signing in
+  - Connect our torrent controller as an option
+- [Onboarding flow](./Tasks/002%20Onboarding/TASK.md)
+- Code coverage reports
+  - If low create generic task and send it to AI agent to extend the tests
+  - Code coverage badges
 
 ### Archive
 
