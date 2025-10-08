@@ -2,10 +2,10 @@ pluginManagement {
 
     plugins {
         id 'com.android.application' version '8.9.1'
-        id 'org.jetbrains.kotlin.android' version '2.0.0'
-        id 'org.jetbrains.kotlin.jvm' version '2.0.0'
-        id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
-        id 'org.jetbrains.kotlin.plugin.compose' version '2.0.0'
+        id 'org.jetbrains.kotlin.android' version '2.1.0'
+        id 'org.jetbrains.kotlin.jvm' version '2.1.0'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '2.1.0'
+        id 'org.jetbrains.kotlin.plugin.compose' version '2.1.0'
         id 'com.google.devtools.ksp' version '2.1.0-1.0.29'
         id 'com.google.gms.google-services' version '4.4.3'
         id 'com.google.firebase.crashlytics' version '3.0.6'
@@ -15,15 +15,9 @@ pluginManagement {
     repositories {
 
         gradlePluginPortal()
-        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/jetbrains' }
-        maven { url 'https://mirrors.ustc.edu.cn/jetbrains/' }
-        maven { url 'https://mirrors.tuna.tsinghua.edu.cn/jetbrains/' }
-        maven { url "https://jitpack.io" }
         mavenCentral()
         google()
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
     }
 }
@@ -35,15 +29,9 @@ dependencyResolutionManagement {
     repositories {
 
         mavenLocal()
-        maven { url "https://jitpack.io" }
-        maven { url 'https://maven.aliyun.com/repository/central' }
-        maven { url 'https://maven.aliyun.com/repository/jetbrains' }
-        maven { url 'https://mirrors.ustc.edu.cn/jetbrains/' }
-        maven { url 'https://mirrors.tuna.tsinghua.edu.cn/jetbrains/' }
-        maven { url 'https://repo.huaweicloud.com/repository/maven/' }
-        maven { url 'https://dl.google.com/dl/android/maven2/' }
         mavenCentral()
         google()
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
         flatDir {
             dirs 'Toolkit/JCommons/jar'
