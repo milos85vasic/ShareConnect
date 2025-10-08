@@ -189,6 +189,7 @@ dependencies {
     implementation project(":RSSSync")
     implementation project(":BookmarkSync")
     implementation project(":PreferencesSync")
+    implementation project(":Localizations")
 
     testImplementation project("${toolkit_context}:Main")
     testImplementation project(":Tests")

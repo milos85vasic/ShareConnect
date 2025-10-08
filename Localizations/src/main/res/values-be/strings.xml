@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common action strings -->
+    <string name="common_save">Захаваць</string>
+    <string name="common_cancel">Адмяніць</string>
+    <string name="common_delete">Выдаліць</string>
+    <string name="common_remove">Выдаліць</string>
+    <string name="common_add">Дадаць</string>
+    <string name="common_edit">Рэдагаваць</string>
+    <string name="common_open">Адкрыць</string>
+    <string name="common_close">Закрыць</string>
+    <string name="common_select">Выбраць</string>
+    <string name="common_apply">Прымяніць</string>
+    <string name="common_retry">Паўтарыць</string>
+    <string name="common_search">Пошук</string>
+    <string name="common_rename">Перайменаваць</string>
+    <string name="common_share">Падзяліцца</string>
+
+    <!-- Common dialog responses -->
+    <string name="common_ok">Добра</string>
+    <string name="common_yes">Так</string>
+    <string name="common_no">Не</string>
+
+    <!-- Common status strings -->
+    <string name="common_error">Памылка</string>
+    <string name="common_warning">Папярэджанне</string>
+    <string name="common_success">Паспяхова</string>
+    <string name="common_loading">Загрузка...</string>
+    <string name="common_saving">Захаванне...</string>
+    <string name="common_deleting">Выдаленне...</string>
+
+    <!-- Common UI strings -->
+    <string name="common_settings">Налады</string>
+    <string name="common_username">Імя карыстальніка</string>
+    <string name="common_password">Пароль</string>
+    <string name="common_name">Імя</string>
+    <string name="common_url">URL</string>
+    <string name="common_port">Порт</string>
+    <string name="common_host">Хост</string>
+
+    <!-- Common network strings -->
+    <string name="common_connection_error">Памылка злучэння</string>
+    <string name="common_network_error">Памылка сеткі</string>
+    <string name="common_connection_successful">Злучэнне паспяховае!</string>
+    <string name="common_unknown_error">Невядомая памылка</string>
+
+    <!-- Common placeholder strings -->
+    <string name="common_unknown">Невядома</string>
+    <string name="common_not_available">Недаступна</string>
+    <string name="common_copied">Скапіявана</string>
+
+    <!-- Common app-wide strings -->
+    <string name="common_dark_mode">Цёмны рэжым</string>
+    <string name="common_light_mode">Светлы рэжым</string>
+    <string name="common_appearance">Знешні выгляд</string>
+    <string name="common_theme">Тэма</string>
+
+    <!-- Common torrent-related strings -->
+    <string name="common_torrent">Торэнт</string>
+    <string name="common_magnet_link">Магнітная спасылка</string>
+    <string name="common_qbittorrent">qBittorrent</string>
+    <string name="common_transmission">Transmission</string>
+
+    <!-- Common server-related strings -->
+    <string name="common_server">Сервер</string>
+    <string name="common_servers">Серверы</string>
+    <string name="common_add_server">Дадаць сервер</string>
+    <string name="common_server_name">Імя сервера</string>
+    <string name="common_server_url">URL сервера</string>
+    <string name="common_server_port">Порт сервера</string>
+
+    <!-- Common validation strings -->
+    <string name="common_invalid_url">Няправільны URL</string>
+    <string name="common_invalid_port">Няправільны нумар порта</string>
+    <string name="common_required_field">Гэта поле абавязковае</string>
+    <string name="common_name_required">Патрабуецца імя</string>
+    <string name="common_url_required">Патрабуецца URL</string>
+
+    <!-- Common confirmation strings -->
+    <string name="common_confirm_delete">Вы ўпэўнены, што хочаце выдаліць гэта?</string>
+    <string name="common_confirm_delete_message">Гэта дзеянне нельга адмяніць.</string>
+    <string name="common_saved">Захавана</string>
+    <string name="common_deleted">Выдалена</string>
+</resources>
