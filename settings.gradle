@@ -68,8 +68,8 @@ project(':qBitConnector').projectDir = new File(settingsDir, 'Connectors/qBitCon
 include ':mockserver'
 project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
 
-include ':app'
-project(':app').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/app')
+include ':TransmissionConnector'
+project(':TransmissionConnector').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/TransmissionConnector')
 
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
