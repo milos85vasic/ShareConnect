@@ -1,0 +1,72 @@
+package com.shareconnect.profilesync.models
+
+import digital.vasic.asinka.models.SyncableObject
+
+class SyncableProfile(
+    private var profileData: ProfileData
+) : SyncableObject {
+
+    override val objectId: String
+        get() = profileData.id
+
+    override val objectType: String
+        get() = ProfileData.OBJECT_TYPE
+
+    override val version: Int
+        get() = profileData.version
+
+    fun getProfileData(): ProfileData = profileData
+
+    override fun toFieldMap(): Map<String, Any?> {
+        return mapOf(
+            "id" to profileData.id,
+            "name" to profileData.name,
+            "host" to profileData.host,
+            "port" to profileData.port,
+            "isDefault" to profileData.isDefault,
+            "serviceType" to profileData.serviceType,
+            "torrentClientType" to profileData.torrentClientType,
+            "username" to profileData.username,
+            "password" to profileData.password,
+            "sourceApp" to profileData.sourceApp,
+            "version" to profileData.version,
+            "lastModified" to profileData.lastModified,
+            "rpcUrl" to profileData.rpcUrl,
+            "useHttps" to profileData.useHttps,
+            "trustSelfSignedCert" to profileData.trustSelfSignedCert
+        )
+    }
+
+    override fun fromFieldMap(fields: Map<String, Any?>) {
+        // Handle version field - could be Int or Long from field map
+        val versionValue = when (val v = fields["version"]) {
+            is Int -> v
+            is Long -> v.toInt()
+            else -> profileData.version
+        }
+
+        profileData = ProfileData(
+            id = fields["id"] as? String ?: profileData.id,
+            name = fields["name"] as? String ?: profileData.name,
+            host = fields["host"] as? String ?: profileData.host,
+            port = (fields["port"] as? Long)?.toInt() ?: (fields["port"] as? Int) ?: profileData.port,
+            isDefault = fields["isDefault"] as? Boolean ?: profileData.isDefault,
+            serviceType = fields["serviceType"] as? String ?: profileData.serviceType,
+            torrentClientType = fields["torrentClientType"] as? String,
+            username = fields["username"] as? String,
+            password = fields["password"] as? String,
+            sourceApp = fields["sourceApp"] as? String ?: profileData.sourceApp,
+            version = versionValue,
+            lastModified = fields["lastModified"] as? Long ?: profileData.lastModified,
+            rpcUrl = fields["rpcUrl"] as? String,
+            useHttps = fields["useHttps"] as? Boolean ?: profileData.useHttps,
+            trustSelfSignedCert = fields["trustSelfSignedCert"] as? Boolean ?: profileData.trustSelfSignedCert
+        )
+    }
+
+    companion object {
+        fun fromProfileData(profileData: ProfileData): SyncableProfile {
+            return SyncableProfile(profileData)
+        }
+    }
+}

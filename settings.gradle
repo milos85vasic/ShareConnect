@@ -75,5 +75,6 @@ include ':Asinka:asinka'
 include ':Asinka:demo-app'
 
 include ':ThemeSync'
+include ':ProfileSync'
 
 include ':Application'
