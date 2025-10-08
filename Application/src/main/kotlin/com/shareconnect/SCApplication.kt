@@ -6,6 +6,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.redelf.commons.application.BaseApplication
 import com.shareconnect.database.HistoryDatabase
 import com.shareconnect.themesync.ThemeSyncManager
+import com.shareconnect.profilesync.ProfileSyncManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -19,6 +20,9 @@ class SCApplication : BaseApplication() {
     lateinit var themeSyncManager: ThemeSyncManager
         private set
 
+    lateinit var profileSyncManager: ProfileSyncManager
+        private set
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun onCreate() {
@@ -26,6 +30,7 @@ class SCApplication : BaseApplication() {
         initializeDatabase()
         migrateProfilesToDatabase()
         initializeThemeSync()
+        initializeProfileSync()
     }
 
     private fun initializeThemeSync() {
@@ -40,6 +45,22 @@ class SCApplication : BaseApplication() {
         // Start theme sync in background
         applicationScope.launch {
             themeSyncManager.start()
+        }
+    }
+
+    private fun initializeProfileSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        profileSyncManager = ProfileSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0",
+            clientTypeFilter = null  // ShareConnect syncs all profiles
+        )
+
+        // Start profile sync in background
+        applicationScope.launch {
+            profileSyncManager.start()
         }
     }
 
