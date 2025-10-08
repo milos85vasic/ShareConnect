@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================================ -->
+    <!-- DESIGN SYSTEM THEMES - Material Design 3 -->
+    <!-- ============================================================================ -->
+
+    <!-- Base Theme Attributes -->
+    <attr name="dsColorPrimary" format="color" />
+    <attr name="dsColorOnPrimary" format="color" />
+    <attr name="dsColorPrimaryContainer" format="color" />
+    <attr name="dsColorOnPrimaryContainer" format="color" />
+
+    <attr name="dsColorSecondary" format="color" />
+    <attr name="dsColorOnSecondary" format="color" />
+    <attr name="dsColorSecondaryContainer" format="color" />
+    <attr name="dsColorOnSecondaryContainer" format="color" />
+
+    <attr name="dsColorTertiary" format="color" />
+    <attr name="dsColorOnTertiary" format="color" />
+    <attr name="dsColorTertiaryContainer" format="color" />
+    <attr name="dsColorOnTertiaryContainer" format="color" />
+
+    <attr name="dsColorError" format="color" />
+    <attr name="dsColorOnError" format="color" />
+    <attr name="dsColorErrorContainer" format="color" />
+    <attr name="dsColorOnErrorContainer" format="color" />
+
+    <attr name="dsColorSuccess" format="color" />
+    <attr name="dsColorOnSuccess" format="color" />
+    <attr name="dsColorSuccessContainer" format="color" />
+    <attr name="dsColorOnSuccessContainer" format="color" />
+
+    <attr name="dsColorWarning" format="color" />
+    <attr name="dsColorOnWarning" format="color" />
+    <attr name="dsColorWarningContainer" format="color" />
+    <attr name="dsColorOnWarningContainer" format="color" />
+
+    <attr name="dsColorInfo" format="color" />
+    <attr name="dsColorOnInfo" format="color" />
+    <attr name="dsColorInfoContainer" format="color" />
+    <attr name="dsColorOnInfoContainer" format="color" />
+
+    <attr name="dsColorSurface" format="color" />
+    <attr name="dsColorOnSurface" format="color" />
+    <attr name="dsColorSurfaceVariant" format="color" />
+    <attr name="dsColorOnSurfaceVariant" format="color" />
+
+    <attr name="dsColorSurfaceContainer" format="color" />
+    <attr name="dsColorSurfaceContainerHigh" format="color" />
+    <attr name="dsColorSurfaceContainerHighest" format="color" />
+    <attr name="dsColorSurfaceContainerLow" format="color" />
+
+    <!-- ============================================================================ -->
+    <!-- LIGHT THEME -->
+    <!-- ============================================================================ -->
+
+    <style name="Theme.DesignSystem.Light" parent="Theme.Material3.Light">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/ds_primary</item>
+        <item name="colorOnPrimary">@color/ds_on_primary</item>
+        <item name="colorPrimaryContainer">@color/ds_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/ds_on_primary_container</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/ds_secondary</item>
+        <item name="colorOnSecondary">@color/ds_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/ds_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/ds_on_secondary_container</item>
+
+        <!-- Tertiary Colors -->
+        <item name="colorTertiary">@color/ds_tertiary</item>
+        <item name="colorOnTertiary">@color/ds_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/ds_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/ds_on_tertiary_container</item>
+
+        <!-- Error Colors -->
+        <item name="colorError">@color/ds_error</item>
+        <item name="colorOnError">@color/ds_on_error</item>
+        <item name="colorErrorContainer">@color/ds_error_container</item>
+        <item name="colorOnErrorContainer">@color/ds_on_error_container</item>
+
+        <!-- Surface Colors -->
+        <item name="colorSurface">@color/ds_surface_light</item>
+        <item name="colorOnSurface">@color/ds_on_surface_light</item>
+        <item name="colorSurfaceVariant">@color/ds_surface_variant_light</item>
+        <item name="colorOnSurfaceVariant">@color/ds_on_surface_variant_light</item>
+
+        <item name="colorSurfaceContainer">@color/ds_surface_container_light</item>
+        <item name="colorSurfaceContainerHigh">@color/ds_surface_container_high_light</item>
+        <item name="colorSurfaceContainerHighest">@color/ds_surface_container_highest_light</item>
+        <item name="colorSurfaceContainerLow">@color/ds_surface_container_low_light</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/ds_surface_container_high_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Design System Attributes -->
+        <item name="dsColorPrimary">@color/ds_primary</item>
+        <item name="dsColorOnPrimary">@color/ds_on_primary</item>
+        <item name="dsColorPrimaryContainer">@color/ds_primary_container</item>
+        <item name="dsColorOnPrimaryContainer">@color/ds_on_primary_container</item>
+
+        <item name="dsColorSecondary">@color/ds_secondary</item>
+        <item name="dsColorOnSecondary">@color/ds_on_secondary</item>
+        <item name="dsColorSecondaryContainer">@color/ds_secondary_container</item>
+        <item name="dsColorOnSecondaryContainer">@color/ds_on_secondary_container</item>
+
+        <item name="dsColorTertiary">@color/ds_tertiary</item>
+        <item name="dsColorOnTertiary">@color/ds_on_tertiary</item>
+        <item name="dsColorTertiaryContainer">@color/ds_tertiary_container</item>
+        <item name="dsColorOnTertiaryContainer">@color/ds_on_tertiary_container</item>
+
+        <item name="dsColorError">@color/ds_error</item>
+        <item name="dsColorOnError">@color/ds_on_error</item>
+        <item name="dsColorErrorContainer">@color/ds_error_container</item>
+        <item name="dsColorOnErrorContainer">@color/ds_on_error_container</item>
+
+        <item name="dsColorSuccess">@color/ds_success</item>
+        <item name="dsColorOnSuccess">@color/ds_on_success</item>
+        <item name="dsColorSuccessContainer">@color/ds_success_container</item>
+        <item name="dsColorOnSuccessContainer">@color/ds_on_success_container</item>
+
+        <item name="dsColorWarning">@color/ds_warning</item>
+        <item name="dsColorOnWarning">@color/ds_on_warning</item>
+        <item name="dsColorWarningContainer">@color/ds_warning_container</item>
+        <item name="dsColorOnWarningContainer">@color/ds_on_warning_container</item>
+
+        <item name="dsColorInfo">@color/ds_info</item>
+        <item name="dsColorOnInfo">@color/ds_on_info</item>
+        <item name="dsColorInfoContainer">@color/ds_info_container</item>
+        <item name="dsColorOnInfoContainer">@color/ds_on_info_container</item>
+
+        <item name="dsColorSurface">@color/ds_surface_light</item>
+        <item name="dsColorOnSurface">@color/ds_on_surface_light</item>
+        <item name="dsColorSurfaceVariant">@color/ds_surface_variant_light</item>
+        <item name="dsColorOnSurfaceVariant">@color/ds_on_surface_variant_light</item>
+
+        <item name="dsColorSurfaceContainer">@color/ds_surface_container_light</item>
+        <item name="dsColorSurfaceContainerHigh">@color/ds_surface_container_high_light</item>
+        <item name="dsColorSurfaceContainerHighest">@color/ds_surface_container_highest_light</item>
+        <item name="dsColorSurfaceContainerLow">@color/ds_surface_container_low_light</item>
+    </style>
+
+    <!-- ============================================================================ -->
+    <!-- DARK THEME -->
+    <!-- ============================================================================ -->
+
+    <style name="Theme.DesignSystem.Dark" parent="Theme.Material3.Dark">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/ds_primary</item>
+        <item name="colorOnPrimary">@color/ds_on_primary</item>
+        <item name="colorPrimaryContainer">@color/ds_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/ds_on_primary_container</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/ds_secondary</item>
+        <item name="colorOnSecondary">@color/ds_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/ds_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/ds_on_secondary_container</item>
+
+        <!-- Tertiary Colors -->
+        <item name="colorTertiary">@color/ds_tertiary</item>
+        <item name="colorOnTertiary">@color/ds_on_tertiary</item>
+        <item name="colorTertiaryContainer">@color/ds_tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/ds_on_tertiary_container</item>
+
+        <!-- Error Colors -->
+        <item name="colorError">@color/ds_error</item>
+        <item name="colorOnError">@color/ds_on_error</item>
+        <item name="colorErrorContainer">@color/ds_error_container</item>
+        <item name="colorOnErrorContainer">@color/ds_on_error_container</item>
+
+        <!-- Surface Colors -->
+        <item name="colorSurface">@color/ds_surface_dark</item>
+        <item name="colorOnSurface">@color/ds_on_surface_dark</item>
+        <item name="colorSurfaceVariant">@color/ds_surface_variant_dark</item>
+        <item name="colorOnSurfaceVariant">@color/ds_on_surface_variant_dark</item>
+
+        <item name="colorSurfaceContainer">@color/ds_surface_container_dark</item>
+        <item name="colorSurfaceContainerHigh">@color/ds_surface_container_high_dark</item>
+        <item name="colorSurfaceContainerHighest">@color/ds_surface_container_highest_dark</item>
+        <item name="colorSurfaceContainerLow">@color/ds_surface_container_low_dark</item>
+
+        <!-- Status Bar -->
+        <item name="android:statusBarColor">@color/ds_surface_container_high_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Design System Attributes -->
+        <item name="dsColorPrimary">@color/ds_primary</item>
+        <item name="dsColorOnPrimary">@color/ds_on_primary</item>
+        <item name="dsColorPrimaryContainer">@color/ds_primary_container</item>
+        <item name="dsColorOnPrimaryContainer">@color/ds_on_primary_container</item>
+
+        <item name="dsColorSecondary">@color/ds_secondary</item>
+        <item name="dsColorOnSecondary">@color/ds_on_secondary</item>
+        <item name="dsColorSecondaryContainer">@color/ds_secondary_container</item>
+        <item name="dsColorOnSecondaryContainer">@color/ds_on_secondary_container</item>
+
+        <item name="dsColorTertiary">@color/ds_tertiary</item>
+        <item name="dsColorOnTertiary">@color/ds_on_tertiary</item>
+        <item name="dsColorTertiaryContainer">@color/ds_tertiary_container</item>
+        <item name="dsColorOnTertiaryContainer">@color/ds_on_tertiary_container</item>
+
+        <item name="dsColorError">@color/ds_error</item>
+        <item name="dsColorOnError">@color/ds_on_error</item>
+        <item name="dsColorErrorContainer">@color/ds_error_container</item>
+        <item name="dsColorOnErrorContainer">@color/ds_on_error_container</item>
+
+        <item name="dsColorSuccess">@color/ds_success</item>
+        <item name="dsColorOnSuccess">@color/ds_on_success</item>
+        <item name="dsColorSuccessContainer">@color/ds_success_container</item>
+        <item name="dsColorOnSuccessContainer">@color/ds_on_success_container</item>
+
+        <item name="dsColorWarning">@color/ds_warning</item>
+        <item name="dsColorOnWarning">@color/ds_on_warning</item>
+        <item name="dsColorWarningContainer">@color/ds_warning_container</item>
+        <item name="dsColorOnWarningContainer">@color/ds_on_warning_container</item>
+
+        <item name="dsColorInfo">@color/ds_info</item>
+        <item name="dsColorOnInfo">@color/ds_on_info</item>
+        <item name="dsColorInfoContainer">@color/ds_info_container</item>
+        <item name="dsColorOnInfoContainer">@color/ds_on_info_container</item>
+
+        <item name="dsColorSurface">@color/ds_surface_light</item>
+        <item name="dsColorOnSurface">@color/ds_on_surface_light</item>
+        <item name="dsColorSurfaceVariant">@color/ds_surface_variant_light</item>
+        <item name="dsColorOnSurfaceVariant">@color/ds_on_surface_variant_light</item>
+
+        <item name="dsColorSurfaceContainer">@color/ds_surface_container_light</item>
+        <item name="dsColorSurfaceContainerHigh">@color/ds_surface_container_high_light</item>
+        <item name="dsColorSurfaceContainerHighest">@color/ds_surface_container_highest_light</item>
+        <item name="dsColorSurfaceContainerLow">@color/ds_surface_container_low_light</item>
+    </style>
+
+    <!-- ============================================================================ -->
+    <!-- LEGACY THEMES (for backward compatibility) -->
+    <!-- ============================================================================ -->
+
+    <!-- Warm Orange Light -->
+    <style name="Theme.ShareConnect.WarmOrange.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/warm_orange_primary</item>
+        <item name="colorPrimaryVariant">@color/warm_orange_primary_variant</item>
+        <item name="colorOnPrimary">@color/warm_orange_on_primary</item>
+        <item name="colorSecondary">@color/warm_orange_secondary</item>
+        <item name="colorSecondaryVariant">@color/warm_orange_secondary_variant</item>
+        <item name="colorOnSecondary">@color/warm_orange_on_secondary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Warm Orange Dark -->
+    <style name="Theme.ShareConnect.WarmOrange.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/warm_orange_primary</item>
+        <item name="colorPrimaryVariant">@color/warm_orange_primary_variant</item>
+        <item name="colorOnPrimary">@color/warm_orange_on_primary</item>
+        <item name="colorSecondary">@color/warm_orange_secondary</item>
+        <item name="colorSecondaryVariant">@color/warm_orange_secondary_variant</item>
+        <item name="colorOnSecondary">@color/warm_orange_on_secondary</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Crimson Light -->
+    <style name="Theme.ShareConnect.Crimson.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/crimson_primary</item>
+        <item name="colorPrimaryVariant">@color/crimson_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/crimson_secondary</item>
+        <item name="colorSecondaryVariant">@color/crimson_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Crimson Dark -->
+    <style name="Theme.ShareConnect.Crimson.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/crimson_primary</item>
+        <item name="colorPrimaryVariant">@color/crimson_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/crimson_secondary</item>
+        <item name="colorSecondaryVariant">@color/crimson_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Light Blue Light -->
+    <style name="Theme.ShareConnect.LightBlue.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/light_blue_primary</item>
+        <item name="colorPrimaryVariant">@color/light_blue_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/light_blue_secondary</item>
+        <item name="colorSecondaryVariant">@color/light_blue_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Light Blue Dark -->
+    <style name="Theme.ShareConnect.LightBlue.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/light_blue_primary</item>
+        <item name="colorPrimaryVariant">@color/light_blue_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/light_blue_secondary</item>
+        <item name="colorSecondaryVariant">@color/light_blue_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Purple Light -->
+    <style name="Theme.ShareConnect.Purple.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/purple_theme_primary</item>
+        <item name="colorPrimaryVariant">@color/purple_theme_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/purple_theme_secondary</item>
+        <item name="colorSecondaryVariant">@color/purple_theme_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Purple Dark -->
+    <style name="Theme.ShareConnect.Purple.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/purple_theme_primary</item>
+        <item name="colorPrimaryVariant">@color/purple_theme_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/purple_theme_secondary</item>
+        <item name="colorSecondaryVariant">@color/purple_theme_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Green Light -->
+    <style name="Theme.ShareConnect.Green.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/green_secondary</item>
+        <item name="colorSecondaryVariant">@color/green_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Green Dark -->
+    <style name="Theme.ShareConnect.Green.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryVariant">@color/green_primary_variant</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/green_secondary</item>
+        <item name="colorSecondaryVariant">@color/green_secondary_variant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Material Light (default) -->
+    <style name="Theme.ShareConnect.Material.Light" parent="Theme.Material3.Light">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- Material Dark (default) -->
+    <style name="Theme.ShareConnect.Material.Dark" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <!-- No Action Bar variants for activities using Toolbar -->
+    <style name="Theme.ShareConnect.WarmOrange.Light.NoActionBar" parent="Theme.ShareConnect.WarmOrange.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.WarmOrange.Dark.NoActionBar" parent="Theme.ShareConnect.WarmOrange.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Crimson.Light.NoActionBar" parent="Theme.ShareConnect.Crimson.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Crimson.Dark.NoActionBar" parent="Theme.ShareConnect.Crimson.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.LightBlue.Light.NoActionBar" parent="Theme.ShareConnect.LightBlue.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.LightBlue.Dark.NoActionBar" parent="Theme.ShareConnect.LightBlue.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Purple.Light.NoActionBar" parent="Theme.ShareConnect.Purple.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Purple.Dark.NoActionBar" parent="Theme.ShareConnect.Purple.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Green.Light.NoActionBar" parent="Theme.ShareConnect.Green.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Green.Dark.NoActionBar" parent="Theme.ShareConnect.Green.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Material.Light.NoActionBar" parent="Theme.ShareConnect.Material.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ShareConnect.Material.Dark.NoActionBar" parent="Theme.ShareConnect.Material.Dark">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- ============================================================================ -->
+    <!-- ANIMATED DIALOG THEME -->
+    <!-- ============================================================================ -->
+
+    <style name="AnimatedDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimatedDialogAnimation</item>
+    </style>
+
+    <style name="AnimatedDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+
+</resources>

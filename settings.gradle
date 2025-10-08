@@ -84,4 +84,5 @@ include ':LanguageSync'
 include ':TorrentSharingSync'
 include ':Localizations'
 
+include ':DesignSystem'
 include ':Application'

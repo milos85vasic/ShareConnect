@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatedButton">
+        <attr name="dsButtonStyle" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="outlined" value="2" />
+            <enum name="text" value="3" />
+        </attr>
+        <attr name="dsButtonSize" format="enum">
+            <enum name="small" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="large" value="2" />
+        </attr>
+        <attr name="dsText" format="string" />
+        <attr name="dsIsLoading" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedCard">
+        <attr name="dsCardStyle" format="enum">
+            <enum name="elevated" value="0" />
+            <enum name="outlined" value="1" />
+            <enum name="filled" value="2" />
+        </attr>
+        <attr name="dsCardElevation" format="dimension" />
+        <attr name="dsCardCornerRadius" format="dimension" />
+        <attr name="dsCardBackgroundColor" format="color" />
+        <attr name="dsCardStrokeColor" format="color" />
+        <attr name="dsCardStrokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedDialog">
+        <attr name="dialogAnimationDuration" format="integer" />
+        <attr name="dialogBackgroundColor" format="color" />
+        <attr name="dialogCornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LottieAnimationView">
+        <attr name="animationFile" format="string" />
+        <attr name="autoPlay" format="boolean" />
+        <attr name="loop" format="boolean" />
+        <attr name="animationSpeed" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedInputField">
+        <attr name="hintText" format="string" />
+        <attr name="helperText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedFAB">
+        <attr name="dsFabSize" format="enum">
+            <enum name="small" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="large" value="2" />
+            <enum name="extended" value="3" />
+        </attr>
+        <attr name="dsFabState" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="expanded" value="1" />
+            <enum name="loading" value="2" />
+        </attr>
+        <attr name="dsExtendedText" format="string" />
+    </declare-styleable>
+</resources>
