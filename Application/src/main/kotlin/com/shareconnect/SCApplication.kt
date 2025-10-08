@@ -7,6 +7,7 @@ import com.redelf.commons.application.BaseApplication
 import com.shareconnect.database.HistoryDatabase
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
+import com.shareconnect.historysync.HistorySyncManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -23,6 +24,9 @@ class SCApplication : BaseApplication() {
     lateinit var profileSyncManager: ProfileSyncManager
         private set
 
+    lateinit var historySyncManager: HistorySyncManager
+        private set
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun onCreate() {
@@ -31,6 +35,7 @@ class SCApplication : BaseApplication() {
         migrateProfilesToDatabase()
         initializeThemeSync()
         initializeProfileSync()
+        initializeHistorySync()
     }
 
     private fun initializeThemeSync() {
@@ -61,6 +66,21 @@ class SCApplication : BaseApplication() {
         // Start profile sync in background
         applicationScope.launch {
             profileSyncManager.start()
+        }
+    }
+
+    private fun initializeHistorySync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        historySyncManager = HistorySyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start history sync in background
+        applicationScope.launch {
+            historySyncManager.start()
         }
     }
 
