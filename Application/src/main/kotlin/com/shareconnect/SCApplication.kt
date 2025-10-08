@@ -14,6 +14,8 @@ import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.languagesync.utils.LocaleHelper
+import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
+import com.shareconnect.utils.TorrentAppHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -45,6 +47,9 @@ class SCApplication : BaseApplication() {
     lateinit var languageSyncManager: LanguageSyncManager
         private set
 
+    lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
+        private set
+
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun attachBaseContext(base: Context) {
@@ -56,6 +61,7 @@ class SCApplication : BaseApplication() {
         initializeDatabase()
         migrateProfilesToDatabase()
         initializeLanguageSync()
+        initializeTorrentSharingSync()
         initializeThemeSync()
         initializeProfileSync()
         initializeHistorySync()
@@ -178,6 +184,29 @@ class SCApplication : BaseApplication() {
         // Start language sync in background
         applicationScope.launch {
             languageSyncManager.start()
+        }
+    }
+
+    private fun initializeTorrentSharingSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Initialize TorrentAppHelper with sync manager
+        TorrentAppHelper.initialize(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0"
+        )
+
+        // Start torrent sharing sync in background
+        applicationScope.launch {
+            torrentSharingSyncManager.start()
         }
     }
 

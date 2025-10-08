@@ -62,4 +62,7 @@
     <color name="green_secondary_variant">#689F38</color>
     <color name="green_on_secondary">#FFFFFF</color>
 
+    <!-- Dialog and UI colors -->
+    <color name="info_background">#E3F2FD</color>
+
 </resources>
