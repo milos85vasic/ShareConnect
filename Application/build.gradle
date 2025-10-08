@@ -193,6 +193,7 @@ dependencies {
     implementation project(":BookmarkSync")
     implementation project(":PreferencesSync")
     implementation project(":LanguageSync")
+    implementation project(":TorrentSharingSync")
     implementation project(":Localizations")
 
     testImplementation project("${toolkit_context}:Main")

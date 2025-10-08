@@ -88,6 +88,19 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Torrent App Direct Sharing Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonShareToTorrentApp"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                android:text="Share to Torrent App"
+                android:visibility="gone"
+                app:icon="@drawable/ic_torrent_app"
+                app:iconGravity="textStart" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSendToMeTube"
                 android:layout_width="match_parent"

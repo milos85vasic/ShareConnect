@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Background circle -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
+
+    <!-- Torrent icon (download arrow + lines representing peers) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,6 L12,13 L15,10 M12,13 L9,10 M12,13 L12,18"/>
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M7,16 L17,16 M7,18 L17,18"
+        android:strokeWidth="1"
+        android:strokeColor="#FFFFFF"/>
+
+</vector>

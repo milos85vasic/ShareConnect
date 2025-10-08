@@ -21,7 +21,10 @@ import com.shareconnect.adapter.SystemAppAdapter
 import com.shareconnect.database.HistoryItem
 import com.shareconnect.database.HistoryRepository
 import com.shareconnect.utils.SystemAppDetector
+import com.shareconnect.utils.TorrentAppHelper
 import com.shareconnect.utils.UrlCompatibilityUtils
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.checkbox.MaterialCheckBox
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +35,7 @@ class ShareActivity : AppCompatActivity() {
     private var autoCompleteProfiles: AutoCompleteTextView? = null
     private var buttonSendToService: MaterialButton? = null
     private var buttonShareToApps: MaterialButton? = null
+    private var buttonShareToTorrentApp: MaterialButton? = null
     private var progressBar: ProgressBar? = null
     private var textViewCompatibleAppsTitle: TextView? = null
     private var textViewCompatibleAppsDescription: TextView? = null
@@ -88,6 +92,7 @@ class ShareActivity : AppCompatActivity() {
         autoCompleteProfiles = findViewById(R.id.autoCompleteProfiles)
         buttonSendToService = findViewById(R.id.buttonSendToMeTube)
         buttonShareToApps = findViewById(R.id.buttonShareToApps)
+        buttonShareToTorrentApp = findViewById(R.id.buttonShareToTorrentApp)
         progressBar = findViewById(R.id.progressBar)
         fabAdd = findViewById(R.id.fabAdd)
 
@@ -96,6 +101,9 @@ class ShareActivity : AppCompatActivity() {
         textViewCompatibleAppsDescription = findViewById(R.id.textViewCompatibleAppsDescription)
         recyclerViewSystemApps = findViewById(R.id.recyclerViewSystemApps)
         textViewNoCompatibleApps = findViewById(R.id.textViewNoCompatibleApps)
+
+        // Hide torrent sharing button initially
+        buttonShareToTorrentApp?.visibility = View.GONE
 
         // Setup RecyclerView for system apps
         setupSystemAppsRecyclerView()
@@ -207,6 +215,14 @@ class ShareActivity : AppCompatActivity() {
 
         // Smart profile selection: prioritize compatible profiles
         selectBestCompatibleProfile()
+
+        // Check and setup torrent app sharing if applicable
+        checkAndSetupTorrentSharing()
+
+        // Setup profile selection listener to update torrent sharing button
+        autoCompleteProfiles?.setOnItemClickListener { _, _, _, _ ->
+            checkAndSetupTorrentSharing()
+        }
     }
 
     private fun setupListeners() {
@@ -216,6 +232,10 @@ class ShareActivity : AppCompatActivity() {
 
         buttonShareToApps!!.setOnClickListener {
             shareToApps()
+        }
+
+        buttonShareToTorrentApp?.setOnClickListener {
+            attemptTorrentAppSharing()
         }
     }
 
@@ -624,6 +644,185 @@ class ShareActivity : AppCompatActivity() {
         selectedProfileName?.let { name ->
             autoCompleteProfiles!!.setText(name, false)
         }
+    }
+
+    /**
+     * Check if torrent content and setup torrent app sharing button
+     */
+    private fun checkAndSetupTorrentSharing() {
+        if (!TorrentAppHelper.isTorrentContent(mediaLink) || !TorrentAppHelper.isDirectSharingEnabled(this)) {
+            buttonShareToTorrentApp?.visibility = View.GONE
+            return
+        }
+
+        // Get selected profile
+        val selectedProfile = getSelectedProfile() ?: return
+
+        // Check if this is a torrent profile
+        if (!selectedProfile.isTorrent()) {
+            buttonShareToTorrentApp?.visibility = View.GONE
+            return
+        }
+
+        // Get the appropriate torrent app for this profile
+        val targetPackage = TorrentAppHelper.getInstalledAppForProfile(this, selectedProfile)
+
+        if (targetPackage != null) {
+            // App is installed, show direct sharing button
+            val appName = TorrentAppHelper.getAppName(targetPackage)
+            buttonShareToTorrentApp?.apply {
+                text = getString(R.string.share_to_torrent_app, appName)
+                visibility = View.VISIBLE
+                icon = getDrawable(R.drawable.ic_torrent_app)
+            }
+        } else {
+            // App not installed, check if we should show prompt
+            val suggestedApp = TorrentAppHelper.getSuggestedAppForProfile(selectedProfile)
+            if (suggestedApp != null && TorrentAppHelper.shouldSuggestAppInstallation(this, selectedProfile)) {
+                // Show button that will trigger installation prompt
+                val appName = TorrentAppHelper.getAppName(suggestedApp)
+                buttonShareToTorrentApp?.apply {
+                    text = getString(R.string.torrent_app_not_installed, appName)
+                    visibility = View.VISIBLE
+                    icon = getDrawable(R.drawable.ic_torrent_app)
+                }
+            } else {
+                buttonShareToTorrentApp?.visibility = View.GONE
+            }
+        }
+    }
+
+    /**
+     * Attempt to share torrent content directly to torrent app
+     */
+    private fun attemptTorrentAppSharing() {
+        if (mediaLink.isNullOrEmpty()) {
+            Toast.makeText(this, R.string.no_youtube_link, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val selectedProfile = getSelectedProfile()
+        if (selectedProfile == null) {
+            Toast.makeText(this, R.string.please_configure_profile_custom, Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Check if torrent app is installed
+        val targetPackage = TorrentAppHelper.getInstalledAppForProfile(this, selectedProfile)
+
+        if (targetPackage != null) {
+            // App is installed, attempt direct sharing
+            val result = TorrentAppHelper.attemptDirectShare(this, mediaLink!!, selectedProfile)
+
+            if (result.success) {
+                Toast.makeText(this,
+                    getString(R.string.shared_to_torrent_app, result.appName ?: ""),
+                    Toast.LENGTH_SHORT).show()
+
+                // Save to history
+                saveToHistory(
+                    mediaLink!!,
+                    result.appPackage ?: "torrent_app",
+                    result.appName ?: "Torrent App",
+                    getString(R.string.service_type_torrent),
+                    true
+                )
+
+                finish()
+            } else {
+                Toast.makeText(this,
+                    getString(R.string.failed_to_share_torrent, result.message ?: ""),
+                    Toast.LENGTH_LONG).show()
+            }
+        } else {
+            // App not installed, show installation prompt
+            val suggestedApp = TorrentAppHelper.getSuggestedAppForProfile(selectedProfile)
+            if (suggestedApp != null) {
+                showTorrentAppInstallDialog(suggestedApp)
+            } else {
+                Toast.makeText(this, R.string.not_torrent_content, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    /**
+     * Show torrent app installation dialog with "don't ask again" checkbox
+     */
+    private fun showTorrentAppInstallDialog(appPackage: String) {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_torrent_app_install, null)
+        val titleTextView = dialogView.findViewById<TextView>(R.id.textViewTitle)
+        val messageTextView = dialogView.findViewById<TextView>(R.id.textViewMessage)
+        val dontAskCheckBox = dialogView.findViewById<MaterialCheckBox>(R.id.checkBoxDontAskAgain)
+        val notNowButton = dialogView.findViewById<MaterialButton>(R.id.buttonNotNow)
+        val installButton = dialogView.findViewById<MaterialButton>(R.id.buttonInstall)
+
+        val appName = TorrentAppHelper.getAppName(appPackage)
+
+        // Set dialog content
+        titleTextView.text = getString(R.string.install_torrent_app)
+        messageTextView.text = when (appPackage) {
+            TorrentAppHelper.PACKAGE_QBITCONNECT -> getString(R.string.qbitconnect_install_message)
+            TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT -> getString(R.string.transmissionconnect_install_message)
+            else -> getString(R.string.torrent_app_install_message, appName)
+        }
+
+        val dialog = MaterialAlertDialogBuilder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+
+        // Not Now button
+        notNowButton.setOnClickListener {
+            if (dontAskCheckBox.isChecked) {
+                when (appPackage) {
+                    TorrentAppHelper.PACKAGE_QBITCONNECT ->
+                        TorrentAppHelper.setDontAskQBitConnect(this, true)
+                    TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT ->
+                        TorrentAppHelper.setDontAskTransmissionConnect(this, true)
+                }
+            }
+            dialog.dismiss()
+        }
+
+        // Install button
+        installButton.setOnClickListener {
+            if (dontAskCheckBox.isChecked) {
+                when (appPackage) {
+                    TorrentAppHelper.PACKAGE_QBITCONNECT ->
+                        TorrentAppHelper.setDontAskQBitConnect(this, true)
+                    TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT ->
+                        TorrentAppHelper.setDontAskTransmissionConnect(this, true)
+                }
+            }
+
+            // Open Play Store
+            val intent = TorrentAppHelper.createPlayStoreIntent(this, appPackage)
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                Toast.makeText(this, getString(R.string.could_not_open_app), Toast.LENGTH_SHORT).show()
+            }
+
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    /**
+     * Get currently selected profile
+     */
+    private fun getSelectedProfile(): ServerProfile? {
+        val selectedProfileText = autoCompleteProfiles?.text?.toString() ?: return null
+
+        // Extract the profile name from the displayed text (name + service type)
+        var profileName = selectedProfileText
+        val parenIndex = selectedProfileText.indexOf(" (")
+        if (parenIndex > 0) {
+            profileName = selectedProfileText.substring(0, parenIndex)
+        }
+
+        return profiles.find { it.name == profileName }
     }
 
     override fun onSupportNavigateUp(): Boolean {

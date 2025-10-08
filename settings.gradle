@@ -81,6 +81,7 @@ include ':RSSSync'
 include ':BookmarkSync'
 include ':PreferencesSync'
 include ':LanguageSync'
+include ':TorrentSharingSync'
 include ':Localizations'
 
 include ':Application'

@@ -331,4 +331,31 @@
         <string name="error_login_failed">Login failed: %1$d - %2$s</string>
         <string name="error_token_failed">Token Error: %1$d - %2$s</string>
        <string name="error_qbittorrent_auth_failed">qBittorrent authentication failed: %s</string>
-       <string name="error_transmission_generic">Transmission error: %s</string></resources>
+       <string name="error_transmission_generic">Transmission error: %s</string>
+
+       <!-- Torrent App Integration strings -->
+       <string name="torrent_app_icon">Torrent App Icon</string>
+       <string name="install_torrent_app">Install Torrent App</string>
+       <string name="torrent_app_install_message">Install %s to manage torrents directly from your device. ShareConnect will automatically share torrent links and files to this app.</string>
+       <string name="qbitconnect_install_message">Install qBitConnect to manage qBittorrent torrents directly from your device. ShareConnect will automatically share torrent links and files to this app.</string>
+       <string name="transmissionconnect_install_message">Install TransmissionConnect to manage Transmission torrents directly from your device. ShareConnect will automatically share torrent links and files to this app.</string>
+       <string name="benefits">Benefits:</string>
+       <string name="torrent_app_benefits">• Seamless integration with ShareConnect\n• Direct torrent management on your device\n• Automatic link passing\n• Enhanced torrent control</string>
+       <string name="dont_ask_again">Don\'t ask again</string>
+       <string name="not_now">Not Now</string>
+       <string name="install_from_store">Install from Store</string>
+       <string name="share_to_torrent_app">Share to %s</string>
+       <string name="torrent_app_not_installed">%s is not installed</string>
+       <string name="direct_torrent_sharing">Direct Torrent Sharing</string>
+       <string name="enable_direct_torrent_sharing">Enable direct torrent sharing</string>
+       <string name="enable_direct_torrent_sharing_summary">Automatically share torrent links and files directly to qBitConnect or TransmissionConnect when installed</string>
+       <string name="reset_torrent_prompts">Reset installation prompts</string>
+       <string name="reset_torrent_prompts_summary">Reset \"Don\'t ask again\" preferences for torrent app installation prompts</string>
+       <string name="torrent_prompts_reset">Installation prompts reset successfully</string>
+       <string name="shared_to_torrent_app">Shared to %s</string>
+       <string name="failed_to_share_torrent">Failed to share torrent: %s</string>
+       <string name="torrent_sharing_disabled">Direct torrent sharing is disabled in settings</string>
+       <string name="not_torrent_content">Content is not a torrent magnet link or file</string>
+       <string name="qbitconnect">qBitConnect</string>
+       <string name="transmissionconnect">TransmissionConnect</string>
+</resources>

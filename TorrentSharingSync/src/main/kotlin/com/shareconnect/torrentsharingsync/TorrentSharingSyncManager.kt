@@ -1,0 +1,274 @@
+package com.shareconnect.torrentsharingsync
+
+import android.content.Context
+import android.util.Log
+import digital.vasic.asinka.AsinkaClient
+import digital.vasic.asinka.AsinkaConfig
+import digital.vasic.asinka.models.ObjectSchema
+import digital.vasic.asinka.models.FieldSchema
+import digital.vasic.asinka.models.FieldType
+import digital.vasic.asinka.sync.SyncChange
+import com.shareconnect.torrentsharingsync.database.TorrentSharingDatabase
+import com.shareconnect.torrentsharingsync.models.TorrentSharingData
+import com.shareconnect.torrentsharingsync.models.SyncableTorrentSharing
+import com.shareconnect.torrentsharingsync.repository.TorrentSharingRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
+
+/**
+ * Singleton manager for torrent sharing preferences synchronization across apps
+ */
+class TorrentSharingSyncManager private constructor(
+    private val context: Context,
+    private val appIdentifier: String,
+    private val asinkaClient: AsinkaClient,
+    private val repository: TorrentSharingRepository
+) {
+
+    private val tag = "TorrentSharingSyncManager"
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    private val _prefsChangeFlow = MutableSharedFlow<TorrentSharingData>()
+    val prefsChangeFlow: Flow<TorrentSharingData> = _prefsChangeFlow.asSharedFlow()
+
+    private var isStarted = false
+
+    /**
+     * Start the torrent sharing sync manager
+     */
+    suspend fun start() {
+        if (isStarted) {
+            Log.w(tag, "TorrentSharingSyncManager already started")
+            return
+        }
+        isStarted = true
+
+        Log.d(tag, "Starting TorrentSharingSyncManager")
+
+        // Start Asinka client
+        asinkaClient.start()
+
+        // Register existing preferences with Asinka
+        val existingPrefs = repository.getTorrentSharingPrefs()
+        if (existingPrefs != null) {
+            val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(existingPrefs)
+            asinkaClient.syncManager.registerObject(syncablePrefs)
+        } else {
+            // Create and register default
+            val default = TorrentSharingData.createDefault()
+            repository.setTorrentSharingPrefs(default)
+            val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(default)
+            asinkaClient.syncManager.registerObject(syncablePrefs)
+        }
+
+        // Observe Asinka sync changes
+        scope.launch {
+            asinkaClient.syncManager.observeAllChanges().collect { change ->
+                when (change) {
+                    is SyncChange.Updated -> {
+                        val syncablePrefs = change.obj as? SyncableTorrentSharing
+                        syncablePrefs?.let {
+                            val prefs = it.getTorrentSharingData()
+                            repository.setTorrentSharingPrefs(prefs)
+                            _prefsChangeFlow.emit(prefs)
+                            Log.d(tag, "Torrent sharing prefs updated from sync: directSharing=${prefs.directSharingEnabled}")
+                        }
+                    }
+                    is SyncChange.Deleted -> {
+                        // Preferences should not be deleted, but recreate default if it happens
+                        val default = TorrentSharingData.createDefault()
+                        repository.setTorrentSharingPrefs(default)
+                        val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(default)
+                        asinkaClient.syncManager.registerObject(syncablePrefs)
+                        _prefsChangeFlow.emit(default)
+                        Log.d(tag, "Torrent sharing prefs deleted, recreated default")
+                    }
+                }
+            }
+        }
+
+        // Observe local preference changes and emit
+        scope.launch {
+            repository.getTorrentSharingPrefsFlow().collect { prefs ->
+                prefs?.let {
+                    _prefsChangeFlow.emit(it)
+                }
+            }
+        }
+
+        Log.d(tag, "TorrentSharingSyncManager started successfully")
+    }
+
+    /**
+     * Stop the torrent sharing sync manager
+     */
+    suspend fun stop() {
+        isStarted = false
+        asinkaClient.stop()
+        Log.d(tag, "TorrentSharingSyncManager stopped")
+    }
+
+    /**
+     * Get the current torrent sharing preferences
+     */
+    suspend fun getTorrentSharingPrefs(): TorrentSharingData? {
+        return repository.getTorrentSharingPrefs()
+    }
+
+    /**
+     * Get or create default torrent sharing preferences
+     */
+    suspend fun getOrCreateDefault(): TorrentSharingData {
+        return repository.getOrCreateDefault()
+    }
+
+    /**
+     * Set direct sharing enabled/disabled
+     */
+    suspend fun setDirectSharingEnabled(enabled: Boolean) {
+        val current = getOrCreateDefault()
+        val updated = TorrentSharingData.createUpdated(
+            current = current,
+            directSharingEnabled = enabled
+        )
+
+        repository.setTorrentSharingPrefs(updated)
+
+        // Update in Asinka sync
+        val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(updated)
+        asinkaClient.syncManager.updateObject(
+            updated.id,
+            syncablePrefs.toFieldMap()
+        )
+
+        _prefsChangeFlow.emit(updated)
+        Log.d(tag, "Direct sharing enabled set: $enabled")
+    }
+
+    /**
+     * Set "don't ask again" for qBitConnect
+     */
+    suspend fun setDontAskQBitConnect(dontAsk: Boolean) {
+        val current = getOrCreateDefault()
+        val updated = TorrentSharingData.createUpdated(
+            current = current,
+            dontAskQBitConnect = dontAsk
+        )
+
+        repository.setTorrentSharingPrefs(updated)
+
+        // Update in Asinka sync
+        val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(updated)
+        asinkaClient.syncManager.updateObject(
+            updated.id,
+            syncablePrefs.toFieldMap()
+        )
+
+        _prefsChangeFlow.emit(updated)
+        Log.d(tag, "Don't ask again for qBitConnect set: $dontAsk")
+    }
+
+    /**
+     * Set "don't ask again" for TransmissionConnect
+     */
+    suspend fun setDontAskTransmissionConnect(dontAsk: Boolean) {
+        val current = getOrCreateDefault()
+        val updated = TorrentSharingData.createUpdated(
+            current = current,
+            dontAskTransmissionConnect = dontAsk
+        )
+
+        repository.setTorrentSharingPrefs(updated)
+
+        // Update in Asinka sync
+        val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(updated)
+        asinkaClient.syncManager.updateObject(
+            updated.id,
+            syncablePrefs.toFieldMap()
+        )
+
+        _prefsChangeFlow.emit(updated)
+        Log.d(tag, "Don't ask again for TransmissionConnect set: $dontAsk")
+    }
+
+    /**
+     * Reset all "don't ask again" preferences
+     */
+    suspend fun resetDontAskPreferences() {
+        val current = getOrCreateDefault()
+        val updated = TorrentSharingData.createUpdated(
+            current = current,
+            dontAskQBitConnect = false,
+            dontAskTransmissionConnect = false
+        )
+
+        repository.setTorrentSharingPrefs(updated)
+
+        // Update in Asinka sync
+        val syncablePrefs = SyncableTorrentSharing.fromTorrentSharingData(updated)
+        asinkaClient.syncManager.updateObject(
+            updated.id,
+            syncablePrefs.toFieldMap()
+        )
+
+        _prefsChangeFlow.emit(updated)
+        Log.d(tag, "All don't ask again preferences reset")
+    }
+
+    companion object {
+        @Volatile
+        private var INSTANCE: TorrentSharingSyncManager? = null
+
+        fun getInstance(
+            context: Context,
+            appId: String,
+            appName: String,
+            appVersion: String
+        ): TorrentSharingSyncManager {
+            return INSTANCE ?: synchronized(this) {
+                val torrentSharingSchema = ObjectSchema(
+                    objectType = TorrentSharingData.OBJECT_TYPE,
+                    version = "1",
+                    fields = listOf(
+                        FieldSchema("id", FieldType.STRING),
+                        FieldSchema("directSharingEnabled", FieldType.BOOLEAN),
+                        FieldSchema("dontAskQBitConnect", FieldType.BOOLEAN),
+                        FieldSchema("dontAskTransmissionConnect", FieldType.BOOLEAN),
+                        FieldSchema("version", FieldType.INT),
+                        FieldSchema("lastModified", FieldType.LONG)
+                    )
+                )
+
+                val asinkaConfig = AsinkaConfig(
+                    appId = appId,
+                    appName = appName,
+                    appVersion = appVersion,
+                    exposedSchemas = listOf(torrentSharingSchema),
+                    capabilities = mapOf("torrent_sharing_sync" to "1.0")
+                )
+
+                val asinkaClient = AsinkaClient.create(context, asinkaConfig)
+                val database = TorrentSharingDatabase.getInstance(context)
+                val repository = TorrentSharingRepository(database.torrentSharingDao())
+
+                val instance = TorrentSharingSyncManager(
+                    context = context.applicationContext,
+                    appIdentifier = appId,
+                    asinkaClient = asinkaClient,
+                    repository = repository
+                )
+                INSTANCE = instance
+                instance
+            }
+        }
+
+        fun resetInstance() {
+            INSTANCE = null
+        }
+    }
+}
