@@ -8,7 +8,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.widget.ImageButton
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import com.shareconnect.designsystem.R
@@ -22,7 +22,7 @@ class AnimatedFAB @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ImageButton(context, attrs, defStyleAttr), DesignSystemComponent {
+) : AppCompatImageButton(context, attrs, defStyleAttr), DesignSystemComponent {
 
     override val componentContext: Context = context
 
