@@ -10,7 +10,7 @@ import android.graphics.RectF
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.widget.EditText
+import androidx.appcompat.widget.AppCompatEditText
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import com.shareconnect.designsystem.R
@@ -24,7 +24,7 @@ class AnimatedInputField @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : EditText(context, attrs, defStyleAttr), DesignSystemComponent, TextWatcher {
+) : AppCompatEditText(context, attrs, defStyleAttr), DesignSystemComponent, TextWatcher {
 
     override val componentContext: Context = context
 
