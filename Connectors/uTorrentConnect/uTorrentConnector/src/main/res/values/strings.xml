@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">uTorrentConnect</string>
+    <string name="search_hing">Search torrent</string>
+
+    <!-- Actions -->
+    <string name="action_open_torrent">Open torrent</string>
+    <string name="action_start_all_torrents">Start all torrents</string>
+    <string name="action_pause_all_torrents">Pause all torrents</string>
+    <string name="action_remove_torrents">Remove selected torrents</string>
+    <string name="action_remove_torrent">Remove torrent</string>
+    <string name="action_select_all">Select all</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_start">Start</string>
+    <string name="action_start_now">Start now (no queue)</string>
+    <string name="action_verify">Verify local data</string>
+    <string name="action_request_more_peers">Ask for more peers</string>
+    <string name="action_set_location">Set location</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_share_magnet">Share Magnet Link</string>
+
+    <!-- Filters -->
+    <string name="filters">Filters</string>
+    <string name="filter_all">All</string>
+    <string name="filter_active">Active</string>
+    <string name="filter_downloading">Downloading</string>
+    <string name="filter_seeding">Seeding</string>
+    <string name="filter_paused">Paused</string>
+    <string name="filter_download_completed">Downloaded</string>
+    <string name="filter_finished">Finished</string>
+    <string name="filter_name">Name</string>
+    <string name="filter_empty_all">No torrents</string>
+    <string name="filter_empty_active">No active torrents</string>
+    <string name="filter_empty_downloading">No downloading torrents</string>
+    <string name="filter_empty_seeding">No seeding torrents</string>
+    <string name="filter_empty_paused">No paused torrents</string>
+    <string name="filter_empty_download_completed">No downloaded torrents</string>
+    <string name="filter_empty_finished">No finished torrents</string>
+    <string name="filter_empty_name">No matching torrents</string>
+
+    <!-- Sort by -->
+    <string name="drawer_sort_by">Sort by</string>
+    <string name="drawer_sort_by_name">Name</string>
+    <string name="drawer_sort_by_size">Size</string>
+    <string name="drawer_sort_by_time_remaining">Time remaining</string>
+    <string name="drawer_sort_by_date_added">Date added</string>
+    <string name="drawer_sort_by_last_activity">Last activity</string>
+    <string name="drawer_sort_by_progress">Progress</string>
+    <string name="drawer_sort_by_queue_position">Queue order</string>
+    <string name="drawer_sort_by_upload_ratio">Ratio</string>
+    <string name="drawer_sort_by_activity">Activity</string>
+    <string name="drawer_sort_by_state">State</string>
+
+    <!-- Preferences -->
+    <string name="action_settings">Settings</string>
+    <string name="notifications_pref_title">Notifications</string>
+    <string name="notification_settings">Notification settings</string>
+    <string name="advanced_pref_title">Advanced preferences</string>
+    <string name="show_add_torrent_fab_title">Show \"Add torrent\" floating button</string>
+
+    <!-- Servers -->
+    <string name="add_new_server_title">Add new server</string>
+    <string name="server_parameters">Server parameters</string>
+    <string name="server_name_hint">Server name</string>
+    <string name="server_host_hint">Host name or IP address</string>
+    <string name="server_port_hint">Port</string>
+    <string name="server_rpc_url_hint">RPC URL</string>
+    <string name="trust_self_signed_ssl_cert">Trust self signed SSL certificates</string>
+    <string name="authentication">Authentication</string>
+    <string name="rpc_url">RPC URL:</string>
+    <string name="default_url">Default</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="server_name_error_message">Name must be non-empty</string>
+    <string name="host_name_error_message">Enter IP address or hostname of the computer on which uTorrent is launched</string>
+    <string name="port_number_error_message">Please, enter port number. It must be the same as specified in \'Listening port\' field on \'Remote\' tab of uTorrent preferences dialog</string>
+    <string name="servers">Servers</string>
+    <string name="add_remove_servers">Add or remove servers</string>
+    <string name="remove_server">Remove server</string>
+    <string name="save_server">Save</string>
+    <string name="remove_server_confirmation">Remove server?</string>
+    <string name="saved">Saved</string>
+    <string name="save_changes_question">Save changes?</string>
+    <string name="save_changes_save">Save</string>
+    <string name="save_changes_discard">Discard</string>
+    <string name="enter_server_parameters">Enter server parameters to start.</string>
+    <string name="add_server">Add Server</string>
+    <string name="manage_servers">Manage Servers</string>
+    <string name="servers_empty_text">No servers</string>
+
+    <!-- Preferences -->
+    <string name="update_interval_title">Update interval</string>
+    <string name="update_interval_summary">Torrent list update interval</string>
+    <string name="torrent_finished_notification_title">Enable torrent finished notification</string>
+    <string name="torrent_finished_notification_summary">Checks torrents in background</string>
+    <string name="torrent_finished_notification_vibrate_title">Vibrate</string>
+    <string name="torrent_finished_notification_sound_title">Sound</string>
+    <string name="torrent_finished_notification_only_unmetered_wifi_title">Only on unmetered WiFi</string>
+    <string name="torrent_finished_notification_only_unmetered_wifi_summary">Turning this off will allow background update on cellular as well as other metered networks</string>
+    <string name="server_preferences">Server Preferences</string>
+    <string name="remote_preferences">Preferences</string>
+    <string name="global_bandwidth_limits">Global bandwidth limits</string>
+    <string name="kbps">KB/s</string>
+    <string name="turtle_speed_limits">Speed Limit mode</string>
+    <string name="turtle_speed_limits_description">When enabled Speed Limit overrides the global bandwidth limits</string>
+    <string name="preferences_update_failed">Failed to update server preferences</string>
+    <string name="preferences_notifications_title">Notifications</string>
+    <string name="preferences_notifications_summary">Torrent finished notifications</string>
+    <string name="preferences_advanced_title">Advanced</string>
+    <string name="preferences_advanced_summary">Advanced options</string>
+    <string name="disable_free_space_check_title">Disable free space check</string>
+    <string name="disable_free_space_check_summary">Allows to add torrent without verifying free space availability</string>
+    <string name="free_space_title">Free Space: %s</string>
+
+    <!-- Torrent List -->
+    <string name="unknown_error_message">Unknown error</string>
+    <string name="downloaded_text">%1$s of %2$s</string>
+    <string name="uploaded_text">%1$s (Ratio: %2$.2f)</string>
+    <string name="speed_limit">Speed limit</string>
+    <string name="download_speed">Download speed</string>
+    <string name="upload_speed">Upload speed</string>
+    <string name="remove_selected_torrents">Remove selected torrents…</string>
+    <string name="remove_from_list">Remove from list</string>
+    <string name="remove_data">Remove data</string>
+    <string name="remove_data_confirmation">Are you sure you want to delete all data?</string>
+    <string name="search">Search</string>
+    <string name="eta_unknown">Remaining time unknown</string>
+    <string name="eta_infinite">~ \u221e</string>
+    <string name="eta">~ %1$s</string>
+    <string name="checking_progress_text">Checking existing data (%1$.2f%%)</string>
+    <string name="rename_file">Rename file</string>
+    <string name="rename">Rename</string>
+
+    <!-- Open torrent -->
+    <string name="error_install_file_manager_msg">Please, install a file manager</string>
+    <string name="error_file_does_not_exists_msg">File \'%1$s\' does not exists</string>
+    <string name="error_wrong_file_extension_msg">Can\'t open \'.%1$s\' file. Please, choose \'.torrent\' file</string>
+    <string name="error_cannot_read_file_msg">Can\'t read file content</string>
+    <string name="error_failed_to_open_torrent">Failed to open torrent. Please try again</string>
+    <string name="error_failed_to_open_downloaded_torrent">Can\'t open file. Try to open file using \"Open torrent\" menu</string>
+    <string name="error_duplicate_torrent">Duplicate torrent already exists</string>
+    <string name="torrent_added_successfully">Torrent added successfully</string>
+    <string name="select_torrent_file">Select torrent file</string>
+    <string name="open_torrent">Open torrent…</string>
+    <string name="address_of_torrent_file">Internet address of torrent file</string>
+    <string name="open">Open</string>
+    <string name="download_to">Download to:</string>
+    <string name="start_when_added">Start when added</string>
+    <string name="add">Add</string>
+    <string name="free_space">%1$s Free</string>
+    <string name="free_space_unknown">Free space unknown</string>
+    <string name="no_directory">There is no such directory</string>
+    <string name="use_default_directory">Use default directory</string>
+    <string name="unknown_free_space_confirmation">There is no such directory. \nAre you sure you want to add torrent?</string>
+    <string name="storage_permission_allow">Allow</string>
+    <string name="storage_permission_deny">Deny</string>
+    <string name="app_settings">App Settings</string>
+    <string name="select_server_title">Server:</string>
+
+    <!-- Torrent details -->
+    <string name="torrent_details">Torrent details</string>
+    <string name="info">Info</string>
+    <string name="files">Files</string>
+    <string name="trackers">Trackers</string>
+    <string name="peers">Peers</string>
+    <string name="options">Options</string>
+    <string name="priority">Priority</string>
+    <string name="transfer_priority">Transfer Priority:</string>
+    <string name="transfer_bandwidth">Transfer Bandwidth</string>
+    <string name="limit_download">Limit Download:</string>
+    <string name="limit_upload">Limit Upload:</string>
+    <string name="stay_within_global_bandwidth">Stay within the global bandwidth limits</string>
+    <string name="ratio_limit">Ratio limit</string>
+    <string name="inactivity_limit">Inactivity limit</string>
+    <string name="mode">Mode:</string>
+    <string name="value">Value:</string>
+    <string name="value_in_minutes">Value (mins):</string>
+    <string name="priority_high">High</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_low">Low</string>
+    <string name="global_settings">Global Settings</string>
+    <string name="unlimited">Unlimited</string>
+    <string name="stop_at_ratio">Stop at Ratio</string>
+    <string name="stop_when_inactive">Stop When Inactive</string>
+    <string name="save_torrent_options">Save</string>
+    <string name="options_update_failed">Failed to update torrent options</string>
+    <string name="three_dots">…</string>
+    <string name="disabled">disabled</string>
+    <string name="total_size_text">%1$s (%2$d pieces of %3$s)</string>
+    <string name="have_size_text">%1$s of %2$s (%3$.1f%%)</string>
+    <string name="have_size_100p_text">%1$s (100%%)</string>
+    <string name="have_unverified_size_text">, %1$s Unverified</string>
+    <string name="available_text">%1$.1f%%</string>
+    <string name="privacy_public_torrent">Public Torrent</string>
+    <string name="privacy_private_torrent">Private Torrent, non-tracker peer discovery disabled</string>
+    <string name="downloaded_ever_text">%1$s (%2$s corrupt)</string>
+    <string name="uploaded_ever_text">%1$s (Ratio: %2$.2f)</string>
+    <string name="today_time">Today at %1$s</string>
+    <string name="yesterday_time">Yesterday at %1$s</string>
+    <string name="date_time">%1$s at %2$s</string>
+    <string name="torrent_information">Torrent Information</string>
+    <string name="total_size">Total Size:</string>
+    <string name="location">Location:</string>
+    <string name="privacy">Privacy:</string>
+    <string name="creator">Creator:</string>
+    <string name="created_on">Created On:</string>
+    <string name="comment">Comment:</string>
+    <string name="magnet">Magnet:</string>
+    <string name="transfer">Transfer</string>
+    <string name="have">Have:</string>
+    <string name="available">Available:</string>
+    <string name="downloaded">Downloaded:</string>
+    <string name="uploaded">Uploaded:</string>
+    <string name="average_speed">Average speed:</string>
+    <string name="dates">Dates</string>
+    <string name="added">Added:</string>
+    <string name="completed">Completed:</string>
+    <string name="last_activity">Last Activity:</string>
+    <string name="time_elapsed">Time Elapsed</string>
+    <string name="downloading">Downloading:</string>
+    <string name="seeding">Seeding:</string>
+    <string name="remove_failed">Failed to remove torrent. Try again.</string>
+    <string name="client_on_port">%1$s on port %2$d</string>
+    <string name="peers_empty_message">No connected peers</string>
+    <string name="peers_sort_by">Sort by</string>
+    <string name="peers_sort_by_address">Address</string>
+    <string name="peers_sort_by_client">Client</string>
+    <string name="peers_sort_by_progress">Progress</string>
+    <string name="peers_sort_by_download_rate">Downloading</string>
+    <string name="peers_sort_by_upload_rate">Uploading</string>
+
+    <string name="trackers_empty_message">No trackers</string>
+    <string name="trackers_add">Add Tracker</string>
+    <string name="trackers_tier_number">Tier %d</string>
+    <string name="trackers_last_announce">Last Announce: %s</string>
+    <string name="trackers_announce_error">Announce error: %s</string>
+    <string name="trackers_next_announce_in">Next Announce in %s</string>
+    <string name="trackers_last_scrape">Last Scrape: %s</string>
+    <string name="trackers_scrape_error">Scrape error: %s</string>
+    <string name="trackers_seeders">Seeders: %s</string>
+    <string name="trackers_leechers">Leechers: %s</string>
+    <string name="trackers_downloaded">Downloaded: %s</string>
+    <plurals name="trackers_last_announce_with_results">
+        <item quantity="one">%1$s (got %2$d peer)</item>
+        <item quantity="other">%1$s (got %2$d peers)</item>
+    </plurals>
+    <string name="trackers_announce_in_progress">Announce in progress</string>
+    <string name="trackers_announce_is_queued">Announce is queued</string>
+    <string name="trackers_tracked_will_be_used_as_backup">Tracker will be used as a backup</string>
+    <string name="trackers_announce_not_scheduled">Announce not scheduled</string>
+    <string name="trackers_unknown_announce_state">Unknown announce state: %d</string>
+    <string name="trackers_menu_content_description">Tracker Menu</string>
+    <string name="trackers_menu_copy_to_clipboard">Copy URL to clipboard</string>
+    <string name="trackers_menu_edit_url">Edit URL</string>
+    <string name="trackers_menu_remove">@string/remove</string>
+    <string name="trackers_remove_confirmation_title">Are you sure you want to remove this tracker?</string>
+    <string name="trackers_remove_confirmation_message">Once removed, uTorrent will no longer attempt to contact it.\nThis cannot be undone.</string>
+    <string name="trackers_add_tracker_title">Add Tracker</string>
+    <string name="trackers_edit_tracker_title">Edit Tracker</string>
+    <string name="trackers_url_hint">URL</string>
+    <string name="trackers_add_button">Add</string>
+    <string name="trackers_done_button">Done</string>
+    <string name="trackers_failed_to_add_tracker">Failed to add tracker</string>
+    <string name="trackers_failed_to_edit_tracker">Failed to edit tracker</string>
+
+    <string name="trackers_sort_by">Sort by</string>
+    <string name="trackers_sort_by_tiers">Tiers</string>
+    <string name="trackers_sort_by_seeders">Seeders</string>
+    <string name="trackers_sort_by_leechers">Leechers</string>
+    <string name="trackers_sort_by_downloaded">Downloaded</string>
+
+    <string name="retry">Retry</string>
+    <string name="server_settings">Server settings</string>
+    <string name="network_settings">Network settings</string>
+    <string name="network_error_message_no_network">Failed to connect to the server. Check network settings.</string>
+    <string name="network_error_message_connection_error">Failed to connect to the server. Check server settings.</string>
+    <string name="network_error_message_unauthorized">Unauthorized access. Check username and password in server settings.</string>
+    <string name="error_retrieve_torrent_details">Can\'t retrieve torrent details. Try again</string>
+
+    <string name="tooltip_turtle_mode">Speed limit mode</string>
+    <string name="tooltip_total_download_speed">Total download speed</string>
+    <string name="tooltip_total_upload_speed">Total upload speed</string>
+
+    <string name="welcome">Welcome!</string>
+    <string name="error_msg_open_torrent_no_server">You have to set up server before adding torrent</string>
+
+    <string name="apply">Apply</string>
+    <string name="choose_location">Choose location</string>
+    <string name="move_data">Move data</string>
+
+    <string name="remove">Remove</string>
+    <string name="delete">Delete</string>
+    <string name="not_available">N/A</string>
+    <string name="copied">Copied</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="night_mode">Night Mode</string>
+    <string name="night_mode_off">Off</string>
+    <string name="night_mode_on">On</string>
+    <string name="night_mode_use_device_settings">Use device settings</string>
+
+    <string name="add_torrent_by_file">File</string>
+    <string name="add_torrent_by_address">Address</string>
+
+    <plurals name="torrents">
+        <item quantity="zero">%d torrents</item>
+        <item quantity="one">%d torrent</item>
+        <item quantity="other">%d torrents</item>
+    </plurals>
+
+    <plurals name="torrents_finished">
+        <item quantity="one">Torrent is finished</item>
+        <item quantity="other">%d torrents are finished</item>
+    </plurals>
+
+    <string name="notification_channel_name">Torrent Downloading Finished</string>
+
+</resources>

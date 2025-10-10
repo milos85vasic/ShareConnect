@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:id="@+id/url_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/default_layout_margin"
+        android:paddingRight="@dimen/default_layout_margin"
+        android:paddingTop="@dimen/default_padding_small"
+        android:hint="@string/trackers_url_hint"
+        app:hintEnabled="true"
+        app:hintAnimationEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:imeOptions="actionDone"
+            android:scrollHorizontally="false"
+            android:scrollbars="vertical"
+            android:lines="4"
+            android:minLines="4" />
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>
