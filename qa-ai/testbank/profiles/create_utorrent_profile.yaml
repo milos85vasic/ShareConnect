@@ -1,0 +1,265 @@
+# Test Case: Create uTorrent Profile
+# This test verifies the creation of a uTorrent torrent client profile
+
+test_case:
+  id: "TC-PROFILE-UTORRENT-001"
+  name: "Create uTorrent Profile"
+  category: "profiles"
+  subcategory: "torrent"
+  client_type: "utorrent"
+  priority: "high"
+  tags:
+    - "profile"
+    - "utorrent"
+    - "torrent"
+    - "create"
+    - "smoke"
+
+  description: |
+    Verify that a user can successfully create a new uTorrent profile
+    with all required and optional fields, and that the profile is
+    properly saved and synchronized across devices.
+
+  preconditions:
+    - app_installed: true
+    - emulator_running: true
+    - network_available: true
+    - mock_utorrent_server_running: true
+    - no_existing_profiles: false
+    - logged_in: false
+
+  test_data:
+    profile:
+      name: "Home uTorrent Server"
+      service_type: "torrent"
+      torrent_client_type: "utorrent"
+      host: "192.168.1.100"
+      port: 8080
+      username: "admin"
+      password: "admin"
+      use_https: false
+      trust_self_signed_cert: false
+      rpc_url: "gui"
+
+    variations:
+      - name: "Basic HTTP uTorrent Profile"
+        host: "localhost"
+        port: 8080
+        use_https: false
+
+      - name: "HTTPS uTorrent Profile"
+        host: "utorrent.example.com"
+        port: 8443
+        use_https: true
+        trust_self_signed_cert: false
+
+      - name: "Self-Signed Certificate"
+        host: "192.168.1.50"
+        port: 8080
+        use_https: true
+        trust_self_signed_cert: true
+
+      - name: "Custom Port"
+        host: "localhost"
+        port: 9090
+        use_https: false
+
+      - name: "No Authentication"
+        host: "localhost"
+        port: 8080
+        username: ""
+        password: ""
+
+  steps:
+    - step: 1
+      action: "launch_app"
+      description: "Launch ShareConnect application"
+      expected: "App launches successfully and shows welcome/main screen"
+
+    - step: 2
+      action: "navigate_to_profiles"
+      description: "Navigate to profiles management screen"
+      ui_path: "Menu > Profiles"
+      expected: "Profiles screen is displayed"
+
+    - step: 3
+      action: "click_add_profile"
+      description: "Click on Add Profile button"
+      ui_element: "add_profile_button"
+      expected: "Profile creation screen is displayed"
+
+    - step: 4
+      action: "select_service_type"
+      description: "Select 'Torrent' as service type"
+      value: "torrent"
+      expected: "Torrent client options are displayed"
+
+    - step: 5
+      action: "select_torrent_client"
+      description: "Select 'uTorrent' as torrent client"
+      value: "utorrent"
+      expected: "uTorrent-specific fields are displayed"
+
+    - step: 6
+      action: "enter_profile_name"
+      description: "Enter profile name"
+      ui_element: "profile_name_input"
+      value: "{profile.name}"
+      expected: "Profile name is entered successfully"
+
+    - step: 7
+      action: "enter_host"
+      description: "Enter server host/IP"
+      ui_element: "host_input"
+      value: "{profile.host}"
+      expected: "Host is entered successfully"
+
+    - step: 8
+      action: "enter_port"
+      description: "Enter server port"
+      ui_element: "port_input"
+      value: "{profile.port}"
+      expected: "Port is entered successfully"
+
+    - step: 9
+      action: "enter_username"
+      description: "Enter authentication username"
+      ui_element: "username_input"
+      value: "{profile.username}"
+      expected: "Username is entered successfully"
+
+    - step: 10
+      action: "enter_password"
+      description: "Enter authentication password"
+      ui_element: "password_input"
+      value: "{profile.password}"
+      expected: "Password is entered successfully (masked)"
+
+    - step: 11
+      action: "toggle_https"
+      description: "Toggle HTTPS setting if needed"
+      value: "{profile.use_https}"
+      expected: "HTTPS setting is configured correctly"
+
+    - step: 12
+      action: "click_test_connection"
+      description: "Test connection to uTorrent server"
+      ui_element: "test_connection_button"
+      expected: "Connection test succeeds with success message"
+      ai_verify: |
+        Verify that:
+        - Connection test button is clickable
+        - Progress indicator appears during test
+        - Success message appears (or appropriate error if mock server not available)
+        - Connection status is clearly communicated
+
+    - step: 13
+      action: "click_save"
+      description: "Save the profile"
+      ui_element: "save_button"
+      expected: "Profile is saved and user returns to profiles list"
+
+    - step: 14
+      action: "verify_profile_in_list"
+      description: "Verify profile appears in profiles list"
+      expected: "New uTorrent profile is visible in the list"
+      ai_verify: |
+        Verify that:
+        - Profile name is displayed correctly
+        - Profile type (uTorrent) is indicated
+        - Profile icon/avatar is correct
+        - Profile can be selected
+
+  validation:
+    - type: "data_persistence"
+      description: "Verify profile is saved to database"
+      query: "SELECT * FROM profiles WHERE name = '{profile.name}'"
+      expected_count: 1
+
+    - type: "profile_sync"
+      description: "Verify profile is synced if Asinka is enabled"
+      check_sync_status: true
+
+    - type: "profile_attributes"
+      description: "Verify all profile attributes are correct"
+      checks:
+        - field: "name"
+          value: "{profile.name}"
+        - field: "service_type"
+          value: "torrent"
+        - field: "torrent_client_type"
+          value: "utorrent"
+        - field: "host"
+          value: "{profile.host}"
+        - field: "port"
+          value: "{profile.port}"
+
+  edge_cases:
+    - name: "Empty profile name"
+      invalid_field: "name"
+      value: ""
+      expected_error: "Profile name is required"
+
+    - name: "Invalid port number"
+      invalid_field: "port"
+      value: "99999"
+      expected_error: "Port must be between 1 and 65535"
+
+    - name: "Invalid host format"
+      invalid_field: "host"
+      value: "not a valid host!"
+      expected_error: "Invalid host format"
+
+    - name: "Duplicate profile name"
+      duplicate: true
+      expected_error: "Profile with this name already exists"
+
+    - name: "Special characters in name"
+      field: "name"
+      value: "My <Test> Profile & More"
+      should_succeed: true
+
+    - name: "Very long profile name"
+      field: "name"
+      value: "A" * 255
+      should_succeed: true
+
+    - name: "Unicode characters in name"
+      field: "name"
+      value: "uTorrent Дом 🏠"
+      should_succeed: true
+
+  cleanup:
+    - action: "delete_test_profile"
+      profile_name: "{profile.name}"
+    - action: "clear_app_data"
+      if_test_failed: true
+
+  ai_test_instructions: |
+    As an AI QA agent, please:
+
+    1. Launch the ShareConnect app and navigate to profile creation
+    2. Create a uTorrent profile with the provided test data
+    3. Verify each step completes successfully
+    4. Pay special attention to:
+       - UI responsiveness and feedback
+       - Error message clarity
+       - Connection test reliability
+       - Data persistence
+    5. Run all edge case scenarios
+    6. Take screenshots at key points
+    7. Report any unexpected behavior
+    8. Verify the profile works by attempting to use it (if mock server available)
+
+    Expected outcome: Profile created successfully and visible in profiles list.
+
+  performance_criteria:
+    max_profile_creation_time_ms: 5000
+    max_ui_response_time_ms: 100
+    max_connection_test_time_ms: 3000
+
+  accessibility:
+    verify_screen_reader: true
+    verify_contrast_ratios: true
+    verify_touch_targets: true
+    min_touch_target_size_dp: 48

@@ -47,6 +47,9 @@ test_data:
       - type: "transmission"
         url: "http://localhost"
         port: 9091
+      - type: "utorrent"
+        url: "http://localhost"
+        port: 8080
       - type: "jdownloader"
         url: "http://localhost"
         port: 3129
@@ -144,6 +147,11 @@ mock_services:
       port: 9091
       username: "transmission"
       password: "transmission"
+    utorrent:
+      enabled: true
+      port: 8080
+      username: "admin"
+      password: "admin"
     jdownloader:
       enabled: true
       port: 3129
