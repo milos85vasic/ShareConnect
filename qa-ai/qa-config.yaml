@@ -1,0 +1,159 @@
+# AI QA System Configuration
+
+# Emulator Configuration
+emulator:
+  api_level: 34
+  device: "pixel_6"
+  enable_network_simulation: true
+  enable_video_recording: true
+  enable_logcat_capture: true
+
+# AI Configuration
+ai:
+  provider: "anthropic"  # Options: anthropic, openai, local
+  model: "claude-3-5-sonnet-20241022"
+  api_key_env: "ANTHROPIC_API_KEY"
+  max_tokens: 4096
+  temperature: 0.7
+  fallback_to_local: true
+  local_model_path: ""
+
+# Test Execution Configuration
+test_execution:
+  parallel_tests: 4
+  retry_on_failure: 2
+  retry_delay_ms: 1000
+  screenshot_on_failure: true
+  screenshot_on_success: false
+  video_recording: true
+  max_test_duration_minutes: 30
+  enable_adaptive_testing: true
+
+# Test Data Configuration
+test_data:
+  profiles:
+    generate_all_combinations: true
+    include_edge_cases: true
+    mock_servers:
+      - type: "metube"
+        url: "http://localhost"
+        port: 8081
+      - type: "ytdl"
+        url: "http://localhost"
+        port: 8082
+      - type: "qbittorrent"
+        url: "http://localhost"
+        port: 8083
+      - type: "transmission"
+        url: "http://localhost"
+        port: 9091
+      - type: "jdownloader"
+        url: "http://localhost"
+        port: 3129
+
+# Sync Test Configuration
+sync_tests:
+  enable_multi_device: true
+  device_count: 3
+  network_conditions:
+    - "normal"
+    - "slow_3g"
+    - "fast_3g"
+    - "4g"
+    - "wifi"
+    - "offline"
+  conflict_scenarios:
+    - "simultaneous_update"
+    - "offline_update"
+    - "version_conflict"
+
+# Reporting Configuration
+reporting:
+  output_dir: "reports/"
+  formats:
+    - "html"
+    - "json"
+    - "junit_xml"
+  screenshot_format: "png"
+  video_format: "mp4"
+  generate_coverage_report: true
+  slack_webhook_env: "SLACK_WEBHOOK_URL"
+  email_notifications: false
+
+# Edge Case Configuration
+edge_cases:
+  enable_fuzzing: true
+  special_characters: true
+  boundary_testing: true
+  extreme_values: true
+  malformed_data: true
+  race_conditions: true
+  memory_pressure: true
+
+# Performance Testing
+performance:
+  enable_performance_tests: true
+  max_app_launch_time_ms: 3000
+  max_ui_response_time_ms: 100
+  max_memory_mb: 512
+  monitor_battery: true
+  monitor_network: true
+
+# Auto-Fix Configuration
+auto_fix:
+  enabled: true
+  require_approval: true
+  max_fix_attempts: 3
+  create_pull_request: false
+  run_tests_after_fix: true
+
+# Logging Configuration
+logging:
+  level: "DEBUG"  # DEBUG, INFO, WARN, ERROR
+  file_logging: true
+  console_logging: true
+  log_dir: "logs/"
+
+# Test Bank Configuration
+test_bank:
+  base_path: "testbank/"
+  formats:
+    - "yaml"
+    - "json"
+  auto_discover: true
+  validate_on_load: true
+
+# Mock Services
+mock_services:
+  enable: true
+  base_port: 8080
+  services:
+    metube:
+      enabled: true
+      port: 8081
+    ytdl:
+      enabled: true
+      port: 8082
+    qbittorrent:
+      enabled: true
+      port: 8083
+      username: "admin"
+      password: "adminpass"
+    transmission:
+      enabled: true
+      port: 9091
+      username: "transmission"
+      password: "transmission"
+    jdownloader:
+      enabled: true
+      port: 3129
+    asinka_sync:
+      enabled: true
+      port: 50051
+
+# Security Configuration
+security:
+  use_mock_credentials: true
+  encrypted_sensitive_data: true
+  isolated_test_environment: true
+  clear_data_after_test: true

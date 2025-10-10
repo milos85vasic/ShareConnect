@@ -1,0 +1,60 @@
+id: "TS_ASINKA_001"
+name: "Asinka Cross-App Synchronization Test Suite"
+description: "Comprehensive test suite for Asinka IPC cross-app synchronization across ShareConnect ecosystem"
+category: "ASINKA_INTEGRATION"
+priority: "HIGH"
+tags: ["asinka", "cross-app", "integration", "sync"]
+
+test_cases:
+  # Core sync functionality
+  - "TC_ASINKA_001"  # Cross-App Theme Sync
+  - "TC_ASINKA_002"  # Cross-App Language Sync
+  - "TC_ASINKA_003"  # Cross-App Profile Sync
+
+  # Edge cases
+  - "TC_ASINKA_EDGE_001"  # Sync Conflict Resolution
+
+apps_required:
+  - "net.milosvasic.shareconnect"
+  - "com.shareconnect.qbitconnect.debug"
+  - "com.shareconnect.transmissionconnect"
+
+installation_scenarios:
+  - scenario: "Two apps"
+    apps: ["net.milosvasic.shareconnect", "com.shareconnect.qbitconnect.debug"]
+    tests: ["TC_ASINKA_001", "TC_ASINKA_003", "TC_ASINKA_EDGE_001"]
+
+  - scenario: "Three apps"
+    apps: ["net.milosvasic.shareconnect", "com.shareconnect.qbitconnect.debug", "com.shareconnect.transmissionconnect"]
+    tests: ["TC_ASINKA_002"]
+
+preconditions:
+  - "All required apps are installed"
+  - "Apps have necessary permissions"
+  - "Asinka library is initialized in all apps"
+  - "Network service discovery is enabled"
+  - "Apps are on same device/network"
+
+estimated_duration_ms: 240000  # ~4 minutes
+parallel_execution: false  # Must run sequentially due to multi-app coordination
+
+sync_modules_tested:
+  - "ThemeSync"
+  - "LanguageSync"
+  - "ProfileSync"
+  - "HistorySync"
+  - "RSSSync"
+  - "BookmarkSync"
+  - "PreferencesSync"
+
+asinka_features_tested:
+  - "Auto-discovery via NSD"
+  - "Handshake protocol"
+  - "Bi-directional sync"
+  - "Real-time propagation"
+  - "Conflict resolution"
+  - "State convergence"
+  - "gRPC transport"
+  - "Encrypted communication"
+
+expected_pass_rate: 100

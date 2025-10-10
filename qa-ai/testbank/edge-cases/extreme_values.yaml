@@ -1,0 +1,84 @@
+id: "TC_EDGE_003"
+name: "Extreme Port Values"
+description: "Test port validation with boundary values"
+category: "EDGE_CASE"
+priority: "HIGH"
+tags:
+  - "edge-case"
+  - "validation"
+  - "boundary"
+
+preconditions:
+  - "App is running"
+  - "On add profile screen"
+
+steps:
+  - step_number: 1
+    action: "input"
+    description: "Enter profile name"
+    target: "editTextProfileName"
+    input:
+      text: "Port Test"
+    expected_outcome: "Name entered"
+
+  - step_number: 2
+    action: "input"
+    description: "Enter URL"
+    target: "editTextServerUrl"
+    input:
+      text: "http://localhost"
+    expected_outcome: "URL entered"
+
+  - step_number: 3
+    action: "input"
+    description: "Try port 0"
+    target: "editTextServerPort"
+    input:
+      text: "0"
+    expected_outcome: "Port 0 entered"
+
+  - step_number: 4
+    action: "tap"
+    description: "Attempt save"
+    target: "buttonSave"
+    expected_outcome: "Validation error for port 0"
+    screenshot: true
+
+  - step_number: 5
+    action: "input"
+    description: "Try port 65536 (exceeds max)"
+    target: "editTextServerPort"
+    input:
+      text: "65536"
+    expected_outcome: "Port 65536 entered"
+
+  - step_number: 6
+    action: "tap"
+    description: "Attempt save"
+    target: "buttonSave"
+    expected_outcome: "Validation error for invalid port"
+    screenshot: true
+
+  - step_number: 7
+    action: "input"
+    description: "Try max valid port 65535"
+    target: "editTextServerPort"
+    input:
+      text: "65535"
+    expected_outcome: "Port 65535 entered"
+
+  - step_number: 8
+    action: "tap"
+    description: "Save with valid max port"
+    target: "buttonSave"
+    expected_outcome: "Profile saved successfully"
+    screenshot: true
+
+expected_results:
+  - "Invalid ports are rejected"
+  - "Boundary values (1, 65535) are accepted"
+  - "Clear error messages shown"
+
+estimated_duration_ms: 35000
+retry_on_failure: false
+max_retries: 1

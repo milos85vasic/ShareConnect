@@ -1,0 +1,77 @@
+id: "TC_SYNC_001"
+name: "Basic Theme Synchronization"
+description: "Test theme synchronization between two devices"
+category: "SYNC_FUNCTIONALITY"
+priority: "CRITICAL"
+tags:
+  - "sync"
+  - "theme"
+  - "multi-device"
+
+preconditions:
+  - "Two devices have the app installed"
+  - "Both devices are logged in to the same account"
+  - "Sync is enabled on both devices"
+  - "Devices are connected to network"
+
+steps:
+  - step_number: 1
+    action: "navigate"
+    description: "Open settings on Device 1"
+    target: "settingsActivity"
+    expected_outcome: "Settings screen is displayed"
+
+  - step_number: 2
+    action: "tap"
+    description: "Open theme settings"
+    target: "themeSettings"
+    expected_outcome: "Theme selection screen opens"
+    screenshot: true
+
+  - step_number: 3
+    action: "select"
+    description: "Select a different theme"
+    target: "themeCard"
+    input:
+      theme: "CRIMSON_DARK"
+    expected_outcome: "Theme is applied on Device 1"
+    screenshot: true
+    wait_after_ms: 2000
+
+  - step_number: 4
+    action: "wait"
+    description: "Wait for sync to propagate"
+    wait_after_ms: 3000
+    expected_outcome: "Sync completes"
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify theme on Device 2"
+    target: "device2"
+    expected_outcome: "Device 2 shows CRIMSON_DARK theme"
+    screenshot: true
+
+  - step_number: 6
+    action: "verify"
+    description: "Check sync status"
+    target: "syncStatus"
+    expected_outcome: "Sync status shows 'Synced'"
+
+expected_results:
+  - "Theme change on Device 1 syncs to Device 2"
+  - "Both devices show the same theme"
+  - "Sync completes within 5 seconds"
+  - "No sync errors occur"
+
+postconditions:
+  - "Both devices have matching theme settings"
+  - "Sync is still active and working"
+
+data_requirements:
+  - "Two test devices or emulators"
+  - "Network connectivity"
+  - "Valid sync account"
+
+estimated_duration_ms: 45000
+retry_on_failure: true
+max_retries: 1

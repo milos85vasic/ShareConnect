@@ -1,0 +1,76 @@
+id: "TC_UI_001"
+name: "Onboarding Flow"
+description: "Test the complete onboarding flow for new users"
+category: "ONBOARDING"
+priority: "CRITICAL"
+tags:
+  - "ui"
+  - "onboarding"
+  - "first-run"
+  - "smoke"
+
+preconditions:
+  - "App is freshly installed (first run)"
+  - "No previous data exists"
+
+steps:
+  - step_number: 1
+    action: "verify"
+    description: "Verify onboarding screen appears"
+    target: "onboardingActivity"
+    expected_outcome: "Onboarding welcome screen is displayed"
+    screenshot: true
+
+  - step_number: 2
+    action: "tap"
+    description: "Tap Next button"
+    target: "buttonNext"
+    expected_outcome: "Second onboarding screen appears"
+    screenshot: true
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify features screen"
+    expected_outcome: "Features explanation is shown"
+    screenshot: true
+
+  - step_number: 4
+    action: "tap"
+    description: "Tap Next button"
+    target: "buttonNext"
+    expected_outcome: "Third onboarding screen appears"
+    screenshot: true
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify sync explanation screen"
+    expected_outcome: "Sync features are explained"
+    screenshot: true
+
+  - step_number: 6
+    action: "tap"
+    description: "Tap Get Started button"
+    target: "buttonGetStarted"
+    expected_outcome: "Onboarding completes, main screen or setup appears"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify transition to main app"
+    expected_outcome: "User is on main screen or profile setup"
+    screenshot: true
+
+expected_results:
+  - "All onboarding screens are displayed in order"
+  - "Navigation between screens works correctly"
+  - "User can complete onboarding successfully"
+  - "App transitions to main functionality after onboarding"
+
+postconditions:
+  - "Onboarding is marked as complete"
+  - "User will not see onboarding on next launch"
+
+estimated_duration_ms: 30000
+retry_on_failure: true
+max_retries: 2

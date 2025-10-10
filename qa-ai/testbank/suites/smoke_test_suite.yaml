@@ -1,0 +1,20 @@
+id: "TS_SMOKE_001"
+name: "Smoke Test Suite"
+description: "Critical smoke tests to verify basic functionality"
+
+test_cases:
+  - "TC_UI_001"        # Onboarding Flow
+  - "TC_PROF_001"      # Create MeTube Profile
+  - "TC_PROF_002"      # Create qBittorrent Profile
+  - "TC_PROF_003"      # Set Default Profile
+  - "TC_SYNC_001"      # Basic Theme Sync
+
+setup_steps:
+  - "Clear app data"
+  - "Ensure network connectivity"
+  - "Start emulator/device"
+
+teardown_steps:
+  - "Capture final screenshots"
+  - "Collect logs"
+  - "Generate report"

@@ -1,0 +1,109 @@
+id: "TC_ASINKA_EDGE_001"
+name: "Asinka Sync Conflict Resolution"
+description: "Test conflict resolution when multiple apps change same data simultaneously"
+category: "ASINKA_EDGE_CASE"
+priority: "MEDIUM"
+tags: ["asinka", "cross-app", "conflict", "edge-case", "race-condition"]
+
+apps_required:
+  - "net.milosvasic.shareconnect"
+  - "com.shareconnect.qbitconnect.debug"
+
+preconditions:
+  - "Both apps are installed"
+  - "Asinka sync is active"
+  - "Network connectivity is stable"
+
+steps:
+  - step_number: 1
+    action: "launch_app"
+    description: "Launch ShareConnect in foreground"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect opens"
+
+  - step_number: 2
+    action: "launch_app"
+    description: "Launch qBitConnect in background"
+    target: "com.shareconnect.qbitconnect.debug"
+    keep_in_background: true
+    expected_outcome: "qBitConnect running in background"
+
+  - step_number: 3
+    action: "switch_app"
+    description: "Return to ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect in foreground"
+
+  - step_number: 4
+    action: "navigate"
+    description: "Navigate to theme settings"
+    target: "Settings > Theme"
+    expected_outcome: "Theme settings open"
+
+  - step_number: 5
+    action: "parallel_action"
+    description: "Change theme in both apps simultaneously"
+    sub_steps:
+      - app: "net.milosvasic.shareconnect"
+        action: "select"
+        target: "theme_purple_dark"
+      - app: "com.shareconnect.qbitconnect.debug"
+        action: "select"
+        target: "theme_green_light"
+    expected_outcome: "Conflicting changes made simultaneously"
+    screenshot: true
+
+  - step_number: 6
+    action: "wait"
+    description: "Wait for Asinka conflict resolution"
+    duration_ms: 5000
+    expected_outcome: "Asinka resolves conflict using timestamp/version"
+
+  - step_number: 7
+    action: "verify_state"
+    description: "Verify both apps converged to same theme"
+    target: "current_theme"
+    expected_outcome: "Both apps have identical theme (last-write-wins or version-based)"
+    verification_type: "consistency_check"
+
+  - step_number: 8
+    action: "switch_app"
+    description: "Switch to qBitConnect"
+    target: "com.shareconnect.qbitconnect.debug"
+    screenshot: true
+
+  - step_number: 9
+    action: "verify_consistency"
+    description: "Verify theme matches ShareConnect"
+    target: "theme_state"
+    expected_outcome: "Both apps have converged to consistent state"
+
+expected_results:
+  - "Asinka detects conflicting changes"
+  - "Conflict is resolved automatically (last-write-wins or versioning)"
+  - "Both apps converge to consistent state"
+  - "No data loss or corruption"
+  - "Sync continues working after conflict"
+
+validation:
+  - check_shared_preferences:
+      apps:
+        - "net.milosvasic.shareconnect"
+        - "com.shareconnect.qbitconnect.debug"
+      file: "theme_sync_prefs.xml"
+      key: "current_theme"
+      assertion: "values_match"
+  - check_logs:
+      pattern: "conflict.*resolved"
+      expected: true
+
+edge_cases_tested:
+  - "Simultaneous writes to same object"
+  - "Race condition handling"
+  - "Conflict resolution strategy"
+  - "State convergence"
+  - "Network partition recovery"
+
+estimated_duration_ms: 45000
+retry_on_failure: false
+max_retries: 1

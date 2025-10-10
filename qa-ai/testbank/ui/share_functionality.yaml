@@ -1,0 +1,60 @@
+id: "TC_UI_002"
+name: "Share URL Functionality"
+description: "Test sharing a URL to the app"
+category: "UI_FLOW"
+priority: "CRITICAL"
+tags:
+  - "share"
+  - "intent"
+  - "url"
+
+preconditions:
+  - "App is installed"
+  - "At least one profile configured"
+
+steps:
+  - step_number: 1
+    action: "share_intent"
+    description: "Share URL from external app"
+    input:
+      url: "https://www.youtube.com/watch?v=test123"
+    expected_outcome: "ShareConnect opens with URL"
+    screenshot: true
+
+  - step_number: 2
+    action: "verify"
+    description: "Verify URL is detected"
+    expected_outcome: "URL is displayed in share activity"
+    screenshot: true
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify profile selection available"
+    expected_outcome: "Available profiles are shown"
+
+  - step_number: 4
+    action: "tap"
+    description: "Select a profile"
+    target: "profileOption"
+    expected_outcome: "Profile is selected"
+
+  - step_number: 5
+    action: "tap"
+    description: "Confirm share"
+    target: "buttonShare"
+    expected_outcome: "URL is sent to selected profile"
+    screenshot: true
+
+  - step_number: 6
+    action: "verify"
+    description: "Verify success message"
+    expected_outcome: "Success toast appears"
+
+expected_results:
+  - "URL is received correctly"
+  - "Profile selection works"
+  - "URL is successfully shared"
+
+estimated_duration_ms: 30000
+retry_on_failure: true
+max_retries: 2

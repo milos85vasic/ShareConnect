@@ -1,0 +1,59 @@
+id: "TC_EDGE_002"
+name: "Special Characters in Profile Name"
+description: "Test handling of special characters in profile names"
+category: "EDGE_CASE"
+priority: "MEDIUM"
+tags:
+  - "edge-case"
+  - "validation"
+  - "special-characters"
+
+preconditions:
+  - "App is running"
+  - "On add profile screen"
+
+steps:
+  - step_number: 1
+    action: "input"
+    description: "Enter name with special chars"
+    target: "editTextProfileName"
+    input:
+      text: "Test@Profile#123!&*"
+    expected_outcome: "Special characters are entered"
+
+  - step_number: 2
+    action: "input"
+    description: "Enter valid URL and port"
+    target: "editTextServerUrl"
+    input:
+      text: "http://localhost"
+    expected_outcome: "URL entered"
+
+  - step_number: 3
+    action: "input"
+    target: "editTextServerPort"
+    input:
+      text: "8081"
+    expected_outcome: "Port entered"
+
+  - step_number: 4
+    action: "tap"
+    description: "Save profile"
+    target: "buttonSave"
+    expected_outcome: "Profile is saved or validation error shown"
+    screenshot: true
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify handling"
+    expected_outcome: "Special chars are sanitized or accepted"
+    screenshot: true
+
+expected_results:
+  - "Special characters are handled safely"
+  - "No crash or undefined behavior"
+  - "Clear feedback to user"
+
+estimated_duration_ms: 20000
+retry_on_failure: false
+max_retries: 1

@@ -1,0 +1,51 @@
+id: "TC_PROF_005"
+name: "Delete Profile"
+description: "Test deleting a profile with confirmation"
+category: "PROFILE_MANAGEMENT"
+priority: "MEDIUM"
+tags:
+  - "profile"
+  - "delete"
+  - "confirmation"
+
+preconditions:
+  - "App is running"
+  - "At least two profiles exist"
+
+steps:
+  - step_number: 1
+    action: "long_press"
+    description: "Long press on profile to delete"
+    target: "profileCard"
+    expected_outcome: "Context menu appears"
+    screenshot: true
+
+  - step_number: 2
+    action: "tap"
+    description: "Select Delete option"
+    target: "menuItemDelete"
+    expected_outcome: "Confirmation dialog appears"
+    screenshot: true
+
+  - step_number: 3
+    action: "tap"
+    description: "Confirm deletion"
+    target: "buttonPositive"
+    expected_outcome: "Profile is deleted"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 4
+    action: "verify"
+    description: "Verify profile is removed"
+    expected_outcome: "Profile no longer appears in list"
+    screenshot: true
+
+expected_results:
+  - "Profile is deleted from the system"
+  - "Confirmation prevents accidental deletion"
+  - "UI updates to remove the profile"
+
+estimated_duration_ms: 20000
+retry_on_failure: true
+max_retries: 2

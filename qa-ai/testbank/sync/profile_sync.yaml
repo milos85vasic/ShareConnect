@@ -1,0 +1,68 @@
+id: "TC_SYNC_002"
+name: "Profile Synchronization Between Devices"
+description: "Test profile sync across multiple devices"
+category: "SYNC_FUNCTIONALITY"
+priority: "CRITICAL"
+tags:
+  - "sync"
+  - "profile"
+  - "multi-device"
+
+preconditions:
+  - "Two devices with app installed"
+  - "Both devices logged into same account"
+  - "Sync enabled on both devices"
+
+steps:
+  - step_number: 1
+    action: "create_profile"
+    description: "Create new profile on Device 1"
+    input:
+      name: "Synced Profile"
+      url: "http://sync.test"
+      port: "8888"
+    expected_outcome: "Profile created on Device 1"
+    screenshot: true
+
+  - step_number: 2
+    action: "wait"
+    description: "Wait for sync"
+    wait_after_ms: 5000
+    expected_outcome: "Sync propagates to Device 2"
+
+  - step_number: 3
+    action: "verify"
+    description: "Check profile on Device 2"
+    target: "device2"
+    expected_outcome: "Synced Profile appears on Device 2"
+    screenshot: true
+
+  - step_number: 4
+    action: "edit_profile"
+    description: "Edit profile on Device 2"
+    input:
+      port: "9999"
+    expected_outcome: "Profile updated on Device 2"
+
+  - step_number: 5
+    action: "wait"
+    description: "Wait for reverse sync"
+    wait_after_ms: 5000
+    expected_outcome: "Changes sync back to Device 1"
+
+  - step_number: 6
+    action: "verify"
+    description: "Verify changes on Device 1"
+    target: "device1"
+    expected_outcome: "Device 1 shows port 9999"
+    screenshot: true
+
+expected_results:
+  - "Profiles sync bidirectionally"
+  - "Changes propagate within 5 seconds"
+  - "No data loss during sync"
+  - "Conflict resolution works correctly"
+
+estimated_duration_ms: 60000
+retry_on_failure: true
+max_retries: 1

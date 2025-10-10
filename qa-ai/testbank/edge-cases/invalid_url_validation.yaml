@@ -1,0 +1,97 @@
+id: "TC_EDGE_001"
+name: "Invalid URL Validation"
+description: "Test that invalid URLs are properly rejected when creating a profile"
+category: "EDGE_CASE"
+priority: "HIGH"
+tags:
+  - "validation"
+  - "edge-case"
+  - "profile"
+  - "negative-test"
+
+preconditions:
+  - "App is installed and running"
+  - "User is on add profile screen"
+
+steps:
+  - step_number: 1
+    action: "input"
+    description: "Enter profile name"
+    target: "editTextProfileName"
+    input:
+      text: "Invalid URL Test"
+    expected_outcome: "Profile name is entered"
+
+  - step_number: 2
+    action: "input"
+    description: "Enter invalid URL (no protocol)"
+    target: "editTextServerUrl"
+    input:
+      text: "not-a-valid-url"
+    expected_outcome: "Invalid URL is entered"
+
+  - step_number: 3
+    action: "input"
+    description: "Enter port"
+    target: "editTextServerPort"
+    input:
+      text: "8081"
+    expected_outcome: "Port is entered"
+
+  - step_number: 4
+    action: "tap"
+    description: "Attempt to save"
+    target: "buttonSave"
+    expected_outcome: "Validation error is shown"
+    screenshot: true
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify error message"
+    target: "errorMessage"
+    expected_outcome: "Error message indicates invalid URL format"
+    screenshot: true
+
+  - step_number: 6
+    action: "input"
+    description: "Try another invalid URL (just dots)"
+    target: "editTextServerUrl"
+    input:
+      text: "..."
+    expected_outcome: "Invalid URL is entered"
+
+  - step_number: 7
+    action: "tap"
+    description: "Attempt to save again"
+    target: "buttonSave"
+    expected_outcome: "Validation error is shown again"
+    screenshot: true
+
+  - step_number: 8
+    action: "input"
+    description: "Enter valid URL"
+    target: "editTextServerUrl"
+    input:
+      text: "http://localhost"
+    expected_outcome: "Valid URL is entered"
+
+  - step_number: 9
+    action: "tap"
+    description: "Save with valid URL"
+    target: "buttonSave"
+    expected_outcome: "Profile is saved successfully"
+    screenshot: true
+
+expected_results:
+  - "Invalid URLs are rejected with clear error messages"
+  - "User cannot save profile with invalid URL"
+  - "Valid URL after correction allows save to proceed"
+  - "No crash or unexpected behavior occurs"
+
+postconditions:
+  - "Profile is only saved with valid URL"
+  - "User remains on edit screen if validation fails"
+
+estimated_duration_ms: 35000
+retry_on_failure: false
+max_retries: 1
