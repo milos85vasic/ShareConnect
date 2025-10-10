@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar"
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            custom:titleTextAppearance="@style/ActionBarTitleAppearance"
+            custom:subtitleTextAppearance="@style/ActionBarSubTitleAppearance"
+            android:theme="@style/ActionBarTheme"/>
+        <androidx.viewpager.widget.ViewPager android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.viewpager.widget.PagerTabStrip
+                android:id="@+id/pager_title_strip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="@color/primary"
+                android:textColor="@color/primary_text_default_material_dark"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:textSize="@dimen/abc_text_size_subtitle_material_toolbar"/>
+        </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
+</layout>

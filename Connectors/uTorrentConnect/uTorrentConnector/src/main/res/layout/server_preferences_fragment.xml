@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding_big">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_padding"
+            android:textSize="@dimen/abc_text_size_title_material"
+            android:textStyle="bold"
+            android:text="@string/global_bandwidth_limits"/>
+        <fragment android:name="com.shareconnect.utorrentconnect.torrentdetails.BandwidthLimitFragment"
+            android:id="@+id/global_bandwidth_limit_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/default_layout_margin"/>
+
+        <TextView android:id="@+id/turtle_limit_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_turtle_black"
+            android:drawablePadding="@dimen/default_padding"
+            android:textSize="@dimen/abc_text_size_title_material"
+            android:textStyle="bold"
+            android:text="@string/turtle_speed_limits"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_padding"
+            android:textSize="@dimen/pref_description_text_size"
+            android:text="@string/turtle_speed_limits_description"/>
+        <fragment
+            xmlns:custom="http://schemas.android.com/apk/res-auto"
+            android:name="com.shareconnect.utorrentconnect.torrentdetails.BandwidthLimitFragment"
+            android:id="@+id/alt_bandwidth_limit_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:disableable_limits="false"
+            tools:ignore="missingPrefix"/>
+    </LinearLayout>
+</ScrollView>

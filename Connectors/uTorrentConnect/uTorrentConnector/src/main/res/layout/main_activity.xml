@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ActionBarTheme"/>
+            <FrameLayout android:id="@+id/torrent_list_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/bottom_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ActionBarTheme">
+                <com.shareconnect.utorrentconnect.actionbar.TurtleModeButton
+                    xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/turtle_mode_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    custom:src_enabled="@drawable/ic_turtle_active"
+                    custom:src_disabled="@drawable/ic_turtle_default"
+                    custom:enabled="true"/>
+            </androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+
+        <com.shareconnect.designsystem.components.fabs.AnimatedFAB
+            android:id="@+id/add_torrent_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp" />
+    </FrameLayout>
+</layout>
