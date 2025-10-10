@@ -1,0 +1,87 @@
+id: "TC_PROF_001"
+name: "Create MeTube Profile"
+description: "Test creating a new MeTube server profile"
+category: "PROFILE_MANAGEMENT"
+priority: "HIGH"
+tags:
+  - "profile"
+  - "metube"
+  - "create"
+  - "smoke"
+
+preconditions:
+  - "App is installed and running"
+  - "User is on the main screen"
+  - "No existing MeTube profiles"
+
+steps:
+  - step_number: 1
+    action: "tap"
+    description: "Tap on the 'Add Profile' button"
+    target: "buttonAddFirstProfile"
+    expected_outcome: "Edit Profile screen opens"
+    screenshot: true
+
+  - step_number: 2
+    action: "input"
+    description: "Enter profile name"
+    target: "editTextProfileName"
+    input:
+      text: "My MeTube Server"
+    expected_outcome: "Profile name is entered"
+
+  - step_number: 3
+    action: "input"
+    description: "Enter server URL"
+    target: "editTextServerUrl"
+    input:
+      text: "http://192.168.1.100"
+    expected_outcome: "Server URL is entered"
+
+  - step_number: 4
+    action: "input"
+    description: "Enter server port"
+    target: "editTextServerPort"
+    input:
+      text: "8081"
+    expected_outcome: "Port number is entered"
+
+  - step_number: 5
+    action: "select"
+    description: "Select service type"
+    target: "spinnerServiceType"
+    input:
+      value: "MeTube"
+    expected_outcome: "MeTube is selected as service type"
+
+  - step_number: 6
+    action: "tap"
+    description: "Tap Save button"
+    target: "buttonSave"
+    expected_outcome: "Profile is saved"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify profile appears in list"
+    target: "recyclerViewProfiles"
+    expected_outcome: "Profile 'My MeTube Server' is visible in the list"
+    screenshot: true
+
+expected_results:
+  - "Profile is created successfully"
+  - "Profile appears in the profiles list"
+  - "Profile can be selected and opened"
+
+postconditions:
+  - "New MeTube profile exists in the system"
+  - "User is returned to main screen"
+
+data_requirements:
+  - "Valid server URL"
+  - "Valid port number"
+
+estimated_duration_ms: 30000
+retry_on_failure: true
+max_retries: 2

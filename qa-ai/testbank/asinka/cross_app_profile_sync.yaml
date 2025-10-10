@@ -1,0 +1,142 @@
+id: "TC_ASINKA_003"
+name: "Cross-App Profile Synchronization"
+description: "Test server profile synchronization across apps via Asinka"
+category: "ASINKA_INTEGRATION"
+priority: "HIGH"
+tags: ["asinka", "cross-app", "profile", "sync"]
+
+apps_required:
+  - "net.milosvasic.shareconnect"
+  - "com.shareconnect.qbitconnect.debug"
+
+preconditions:
+  - "Both apps are installed and running"
+  - "No profiles configured yet"
+  - "Asinka sync is active"
+
+steps:
+  - step_number: 1
+    action: "launch_app"
+    description: "Launch ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect opens"
+    screenshot: true
+
+  - step_number: 2
+    action: "navigate"
+    description: "Navigate to Server Profiles"
+    target: "Settings > Server Profiles"
+    expected_outcome: "Profile list shown (empty)"
+    screenshot: true
+
+  - step_number: 3
+    action: "tap"
+    description: "Tap Add Profile button"
+    target: "buttonAddProfile"
+    expected_outcome: "Edit Profile screen opens"
+    screenshot: true
+
+  - step_number: 4
+    action: "input"
+    description: "Enter profile name"
+    target: "editTextProfileName"
+    input:
+      text: "My MeTube Server"
+    expected_outcome: "Profile name entered"
+
+  - step_number: 5
+    action: "input"
+    description: "Enter server URL"
+    target: "editTextServerUrl"
+    input:
+      text: "http://192.168.1.100"
+    expected_outcome: "URL entered"
+
+  - step_number: 6
+    action: "input"
+    description: "Enter port"
+    target: "editTextPort"
+    input:
+      text: "8081"
+    expected_outcome: "Port entered"
+
+  - step_number: 7
+    action: "select"
+    description: "Select MeTube service type"
+    target: "spinnerServiceType"
+    value: "MeTube"
+    expected_outcome: "Service type set to MeTube"
+
+  - step_number: 8
+    action: "tap"
+    description: "Save profile"
+    target: "buttonSave"
+    expected_outcome: "Profile saved in ShareConnect"
+    screenshot: true
+
+  - step_number: 9
+    action: "wait"
+    description: "Wait for Asinka sync"
+    duration_ms: 2000
+    expected_outcome: "Profile syncs to qBitConnect"
+
+  - step_number: 10
+    action: "launch_app"
+    description: "Launch qBitConnect"
+    target: "com.shareconnect.qbitconnect.debug"
+    expected_outcome: "qBitConnect opens"
+
+  - step_number: 11
+    action: "navigate"
+    description: "Navigate to Server Profiles in qBitConnect"
+    target: "Settings > Server Profiles"
+    expected_outcome: "Profile list shown"
+    screenshot: true
+
+  - step_number: 12
+    action: "verify_state"
+    description: "Verify synced profile exists"
+    target: "profile_list"
+    expected_outcome: "My MeTube Server profile is visible"
+    verification_type: "list_contains"
+    expected_value: "My MeTube Server"
+
+  - step_number: 13
+    action: "tap"
+    description: "Open synced profile"
+    target: "profile_My_MeTube_Server"
+    expected_outcome: "Profile details shown"
+    screenshot: true
+
+  - step_number: 14
+    action: "verify_data"
+    description: "Verify profile data matches"
+    target: "profile_fields"
+    expected_values:
+      name: "My MeTube Server"
+      url: "http://192.168.1.100"
+      port: "8081"
+      service_type: "MeTube"
+    expected_outcome: "All fields match original"
+
+expected_results:
+  - "Profile created in ShareConnect appears in qBitConnect"
+  - "All profile fields are synchronized correctly"
+  - "Sync occurs within 2-3 seconds"
+  - "Profile can be used in both apps"
+
+validation:
+  - check_database:
+      app: "net.milosvasic.shareconnect"
+      table: "server_profiles"
+      where: "name = 'My MeTube Server'"
+      expected_count: 1
+  - check_database:
+      app: "com.shareconnect.qbitconnect.debug"
+      table: "server_profiles"
+      where: "name = 'My MeTube Server'"
+      expected_count: 1
+
+estimated_duration_ms: 50000
+retry_on_failure: true
+max_retries: 2

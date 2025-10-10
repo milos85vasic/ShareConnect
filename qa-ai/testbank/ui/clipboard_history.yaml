@@ -1,0 +1,49 @@
+id: "TC_UI_003"
+name: "Clipboard History Feature"
+description: "Test clipboard history functionality"
+category: "UI_FLOW"
+priority: "MEDIUM"
+tags:
+  - "clipboard"
+  - "history"
+  - "ui"
+
+preconditions:
+  - "App is running"
+  - "Clipboard has URL history"
+
+steps:
+  - step_number: 1
+    action: "tap"
+    description: "Tap FAB to add from clipboard"
+    target: "fabAdd"
+    expected_outcome: "Clipboard selection dialog appears"
+    screenshot: true
+
+  - step_number: 2
+    action: "verify"
+    description: "Verify clipboard history is shown"
+    target: "recyclerViewClipboardItems"
+    expected_outcome: "Recent URLs are displayed"
+    screenshot: true
+
+  - step_number: 3
+    action: "tap"
+    description: "Select a URL from history"
+    target: "clipboardItem"
+    expected_outcome: "URL is selected"
+
+  - step_number: 4
+    action: "verify"
+    description: "Verify URL is processed"
+    expected_outcome: "Share activity opens with selected URL"
+    screenshot: true
+
+expected_results:
+  - "Clipboard history is accessible"
+  - "URLs are displayed correctly"
+  - "Selection works properly"
+
+estimated_duration_ms: 25000
+retry_on_failure: true
+max_retries: 2

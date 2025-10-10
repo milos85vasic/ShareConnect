@@ -1,0 +1,111 @@
+id: "TC_PROF_002"
+name: "Create qBittorrent Profile with Authentication"
+description: "Test creating a new qBittorrent profile with username and password"
+category: "PROFILE_MANAGEMENT"
+priority: "HIGH"
+tags:
+  - "profile"
+  - "torrent"
+  - "qbittorrent"
+  - "authentication"
+  - "create"
+
+preconditions:
+  - "App is installed and running"
+  - "User is on the main screen or profiles screen"
+
+steps:
+  - step_number: 1
+    action: "tap"
+    description: "Navigate to add profile screen"
+    target: "fabAdd"
+    expected_outcome: "Edit Profile screen opens"
+    screenshot: true
+
+  - step_number: 2
+    action: "input"
+    description: "Enter profile name"
+    target: "editTextProfileName"
+    input:
+      text: "Home qBittorrent"
+    expected_outcome: "Profile name is entered"
+
+  - step_number: 3
+    action: "input"
+    description: "Enter server URL"
+    target: "editTextServerUrl"
+    input:
+      text: "http://localhost"
+    expected_outcome: "Server URL is entered"
+
+  - step_number: 4
+    action: "input"
+    description: "Enter server port"
+    target: "editTextServerPort"
+    input:
+      text: "8083"
+    expected_outcome: "Port number is entered"
+
+  - step_number: 5
+    action: "select"
+    description: "Select service type as Torrent"
+    target: "spinnerServiceType"
+    input:
+      value: "Torrent"
+    expected_outcome: "Torrent is selected, torrent client options appear"
+
+  - step_number: 6
+    action: "select"
+    description: "Select torrent client type"
+    target: "spinnerTorrentClient"
+    input:
+      value: "qBittorrent"
+    expected_outcome: "qBittorrent is selected"
+
+  - step_number: 7
+    action: "input"
+    description: "Enter username"
+    target: "editTextUsername"
+    input:
+      text: "admin"
+    expected_outcome: "Username is entered"
+
+  - step_number: 8
+    action: "input"
+    description: "Enter password"
+    target: "editTextPassword"
+    input:
+      text: "adminpass"
+    expected_outcome: "Password is entered and masked"
+
+  - step_number: 9
+    action: "tap"
+    description: "Save the profile"
+    target: "buttonSave"
+    expected_outcome: "Profile is saved successfully"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 10
+    action: "verify"
+    description: "Verify profile in list"
+    target: "recyclerViewProfiles"
+    expected_outcome: "Profile 'Home qBittorrent' is visible with torrent icon"
+    screenshot: true
+
+expected_results:
+  - "qBittorrent profile is created with authentication"
+  - "Profile shows correct service type indicator"
+  - "Password is stored securely"
+
+postconditions:
+  - "qBittorrent profile exists in the system"
+  - "User can select and open the profile"
+
+data_requirements:
+  - "Valid qBittorrent server URL and port"
+  - "Valid authentication credentials"
+
+estimated_duration_ms: 40000
+retry_on_failure: true
+max_retries: 2

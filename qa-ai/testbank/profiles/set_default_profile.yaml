@@ -1,0 +1,58 @@
+id: "TC_PROF_003"
+name: "Set Default Profile"
+description: "Test setting a profile as the default profile"
+category: "PROFILE_MANAGEMENT"
+priority: "MEDIUM"
+tags:
+  - "profile"
+  - "default"
+  - "settings"
+
+preconditions:
+  - "App is installed and running"
+  - "At least 2 profiles exist"
+  - "A profile is already set as default"
+
+steps:
+  - step_number: 1
+    action: "long_press"
+    description: "Long press on a non-default profile"
+    target: "profileCard"
+    input:
+      profile_name: "Secondary Profile"
+    expected_outcome: "Context menu appears"
+    screenshot: true
+
+  - step_number: 2
+    action: "tap"
+    description: "Select 'Set as Default' option"
+    target: "menuItemSetDefault"
+    expected_outcome: "Profile is set as default"
+    screenshot: true
+    wait_after_ms: 500
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify only one default profile exists"
+    expected_outcome: "Only the selected profile shows default indicator"
+    screenshot: true
+
+  - step_number: 4
+    action: "verify"
+    description: "Verify default service button text"
+    target: "buttonOpenMeTube"
+    expected_outcome: "Button text shows 'Open Secondary Profile'"
+
+expected_results:
+  - "Selected profile becomes the default"
+  - "Previous default profile loses default status"
+  - "Only one profile is marked as default"
+  - "UI updates to reflect new default"
+
+postconditions:
+  - "New default profile is set"
+  - "System uses new default for operations"
+
+estimated_duration_ms: 20000
+retry_on_failure: true
+max_retries: 2

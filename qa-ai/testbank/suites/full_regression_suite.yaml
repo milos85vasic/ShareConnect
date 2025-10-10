@@ -1,0 +1,36 @@
+id: "TS_REG_001"
+name: "Full Regression Test Suite"
+description: "Complete regression test suite covering all functionality"
+
+test_cases:
+  # Onboarding
+  - "TC_UI_001"
+
+  # Profile Management
+  - "TC_PROF_001"
+  - "TC_PROF_002"
+  - "TC_PROF_003"
+
+  # Sync
+  - "TC_SYNC_001"
+
+  # Asinka Cross-App Sync
+  - "TC_ASINKA_001"  # Theme sync
+  - "TC_ASINKA_002"  # Language sync
+  - "TC_ASINKA_003"  # Profile sync
+
+  # Edge Cases
+  - "TC_EDGE_001"
+  - "TC_ASINKA_EDGE_001"  # Sync conflicts
+
+setup_steps:
+  - "Clear all app data"
+  - "Reset emulator to clean state"
+  - "Ensure stable network"
+  - "Start required mock servers"
+
+teardown_steps:
+  - "Stop mock servers"
+  - "Collect all logs and screenshots"
+  - "Generate comprehensive report"
+  - "Archive test artifacts"

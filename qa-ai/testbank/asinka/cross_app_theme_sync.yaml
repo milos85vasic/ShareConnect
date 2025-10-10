@@ -1,0 +1,124 @@
+id: "TC_ASINKA_001"
+name: "Cross-App Theme Synchronization"
+description: "Test theme synchronization across ShareConnect and qBitConnect using Asinka IPC"
+category: "ASINKA_INTEGRATION"
+priority: "HIGH"
+tags: ["asinka", "cross-app", "theme", "sync", "smoke"]
+
+apps_required:
+  - "net.milosvasic.shareconnect"
+  - "com.shareconnect.qbitconnect.debug"
+
+preconditions:
+  - "Both ShareConnect and qBitConnect are installed"
+  - "Both apps have been launched at least once"
+  - "Asinka discovery service is running"
+  - "Apps are on the same network/device"
+
+steps:
+  - step_number: 1
+    action: "launch_app"
+    description: "Launch ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect opens successfully"
+    screenshot: true
+
+  - step_number: 2
+    action: "navigate"
+    description: "Navigate to theme settings in ShareConnect"
+    target: "Settings > Theme"
+    expected_outcome: "Theme settings screen is displayed"
+    screenshot: true
+
+  - step_number: 3
+    action: "select"
+    description: "Select 'Purple Dark' theme in ShareConnect"
+    target: "theme_purple_dark"
+    expected_outcome: "Theme changes to Purple Dark in ShareConnect"
+    screenshot: true
+
+  - step_number: 4
+    action: "wait"
+    description: "Wait for Asinka sync propagation"
+    duration_ms: 3000
+    expected_outcome: "Asinka propagates theme change"
+
+  - step_number: 5
+    action: "launch_app"
+    description: "Launch qBitConnect (keep ShareConnect running)"
+    target: "com.shareconnect.qbitconnect.debug"
+    expected_outcome: "qBitConnect opens successfully"
+    screenshot: true
+
+  - step_number: 6
+    action: "verify_ui"
+    description: "Verify qBitConnect theme matches ShareConnect"
+    target: "theme_purple_dark"
+    expected_outcome: "qBitConnect is using Purple Dark theme"
+    verification_type: "visual"
+    screenshot: true
+
+  - step_number: 7
+    action: "navigate"
+    description: "Navigate to theme settings in qBitConnect"
+    target: "Settings > Theme"
+    expected_outcome: "Theme settings screen is displayed"
+
+  - step_number: 8
+    action: "verify_state"
+    description: "Verify Purple Dark is selected in qBitConnect"
+    target: "theme_selection"
+    expected_value: "purple_dark"
+    expected_outcome: "Purple Dark theme is selected"
+    screenshot: true
+
+  - step_number: 9
+    action: "select"
+    description: "Change theme to 'Green Light' in qBitConnect"
+    target: "theme_green_light"
+    expected_outcome: "Theme changes to Green Light in qBitConnect"
+    screenshot: true
+
+  - step_number: 10
+    action: "wait"
+    description: "Wait for Asinka sync back to ShareConnect"
+    duration_ms: 3000
+    expected_outcome: "Asinka propagates theme change back"
+
+  - step_number: 11
+    action: "switch_app"
+    description: "Switch back to ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect is brought to foreground"
+    screenshot: true
+
+  - step_number: 12
+    action: "verify_ui"
+    description: "Verify ShareConnect theme synced to Green Light"
+    target: "theme_green_light"
+    expected_outcome: "ShareConnect is now using Green Light theme"
+    verification_type: "visual"
+    screenshot: true
+
+expected_results:
+  - "Theme changes in ShareConnect appear in qBitConnect within 3 seconds"
+  - "Theme changes in qBitConnect appear in ShareConnect within 3 seconds"
+  - "No user intervention required for sync"
+  - "Synchronization is bidirectional"
+  - "Both apps maintain consistent theme state"
+
+validation:
+  - check_shared_preferences:
+      app: "net.milosvasic.shareconnect"
+      file: "theme_sync_prefs.xml"
+      key: "current_theme"
+      expected: "green_light"
+  - check_shared_preferences:
+      app: "com.shareconnect.qbitconnect.debug"
+      file: "theme_sync_prefs.xml"
+      key: "current_theme"
+      expected: "green_light"
+
+estimated_duration_ms: 45000
+retry_on_failure: true
+max_retries: 2

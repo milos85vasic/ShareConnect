@@ -1,0 +1,57 @@
+id: "TC_SYNC_003"
+name: "Language Settings Synchronization"
+description: "Test language preference sync between devices"
+category: "SYNC_FUNCTIONALITY"
+priority: "HIGH"
+tags:
+  - "sync"
+  - "language"
+  - "localization"
+
+preconditions:
+  - "Two devices with app installed"
+  - "Sync enabled"
+
+steps:
+  - step_number: 1
+    action: "navigate"
+    description: "Open settings on Device 1"
+    target: "settingsActivity"
+    expected_outcome: "Settings screen opens"
+
+  - step_number: 2
+    action: "tap"
+    description: "Open language settings"
+    target: "languageSettings"
+    expected_outcome: "Language selection screen appears"
+    screenshot: true
+
+  - step_number: 3
+    action: "select"
+    description: "Select Spanish language"
+    input:
+      language: "Spanish"
+    expected_outcome: "Spanish is selected and applied"
+    screenshot: true
+
+  - step_number: 4
+    action: "wait"
+    description: "Wait for sync"
+    wait_after_ms: 3000
+    expected_outcome: "Language preference syncs"
+
+  - step_number: 5
+    action: "verify"
+    description: "Check language on Device 2"
+    target: "device2"
+    expected_outcome: "Device 2 UI is in Spanish"
+    screenshot: true
+
+expected_results:
+  - "Language preference syncs correctly"
+  - "UI updates on both devices"
+  - "Localization is consistent"
+
+estimated_duration_ms: 40000
+retry_on_failure: true
+max_retries: 2

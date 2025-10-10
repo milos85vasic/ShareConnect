@@ -1,0 +1,67 @@
+id: "TC_PROF_004"
+name: "Edit Existing Profile"
+description: "Test editing an existing profile's properties"
+category: "PROFILE_MANAGEMENT"
+priority: "HIGH"
+tags:
+  - "profile"
+  - "edit"
+  - "update"
+
+preconditions:
+  - "App is running"
+  - "At least one profile exists"
+
+steps:
+  - step_number: 1
+    action: "long_press"
+    description: "Long press on existing profile"
+    target: "profileCard"
+    expected_outcome: "Context menu appears"
+    screenshot: true
+
+  - step_number: 2
+    action: "tap"
+    description: "Select Edit option"
+    target: "menuItemEdit"
+    expected_outcome: "Edit Profile screen opens with existing data"
+    screenshot: true
+
+  - step_number: 3
+    action: "input"
+    description: "Change profile name"
+    target: "editTextProfileName"
+    input:
+      text: "Updated Profile Name"
+    expected_outcome: "New name is entered"
+
+  - step_number: 4
+    action: "input"
+    description: "Change port number"
+    target: "editTextServerPort"
+    input:
+      text: "9090"
+    expected_outcome: "New port is entered"
+
+  - step_number: 5
+    action: "tap"
+    description: "Save changes"
+    target: "buttonSave"
+    expected_outcome: "Changes are saved"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 6
+    action: "verify"
+    description: "Verify updated profile in list"
+    expected_outcome: "Profile shows new name and settings"
+    screenshot: true
+
+expected_results:
+  - "Profile is updated successfully"
+  - "Changes are persisted"
+  - "UI reflects the updates"
+
+estimated_duration_ms: 25000
+retry_on_failure: true
+max_retries: 2

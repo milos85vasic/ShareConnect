@@ -1,0 +1,132 @@
+id: "TC_ASINKA_002"
+name: "Cross-App Language Synchronization"
+description: "Test language preference synchronization across multiple apps using Asinka"
+category: "ASINKA_INTEGRATION"
+priority: "HIGH"
+tags: ["asinka", "cross-app", "language", "sync", "smoke"]
+
+apps_required:
+  - "net.milosvasic.shareconnect"
+  - "com.shareconnect.qbitconnect.debug"
+  - "com.shareconnect.transmissionconnect"
+
+preconditions:
+  - "All three apps are installed"
+  - "Apps have necessary permissions"
+  - "Asinka discovery service is active"
+
+steps:
+  - step_number: 1
+    action: "launch_app"
+    description: "Launch ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect opens"
+    screenshot: true
+
+  - step_number: 2
+    action: "navigate"
+    description: "Navigate to Language settings"
+    target: "Settings > Language"
+    expected_outcome: "Language settings displayed"
+    screenshot: true
+
+  - step_number: 3
+    action: "select"
+    description: "Select Spanish (Español)"
+    target: "language_es"
+    expected_outcome: "UI changes to Spanish"
+    screenshot: true
+
+  - step_number: 4
+    action: "wait"
+    description: "Wait for Asinka sync"
+    duration_ms: 2000
+    expected_outcome: "Language preference synced via Asinka"
+
+  - step_number: 5
+    action: "launch_app"
+    description: "Launch qBitConnect"
+    target: "com.shareconnect.qbitconnect.debug"
+    expected_outcome: "qBitConnect opens in Spanish"
+    screenshot: true
+
+  - step_number: 6
+    action: "verify_ui"
+    description: "Verify qBitConnect UI is in Spanish"
+    target: "language_indicator"
+    expected_outcome: "All UI text is in Spanish"
+    verification_type: "visual"
+
+  - step_number: 7
+    action: "launch_app"
+    description: "Launch TransmissionConnect"
+    target: "com.shareconnect.transmissionconnect"
+    expected_outcome: "TransmissionConnect opens in Spanish"
+    screenshot: true
+
+  - step_number: 8
+    action: "verify_ui"
+    description: "Verify TransmissionConnect UI is in Spanish"
+    target: "language_indicator"
+    expected_outcome: "All UI text is in Spanish"
+
+  - step_number: 9
+    action: "navigate"
+    description: "Navigate to Language settings in TransmissionConnect"
+    target: "Settings > Language"
+    expected_outcome: "Language settings displayed"
+
+  - step_number: 10
+    action: "select"
+    description: "Change to French (Français)"
+    target: "language_fr"
+    expected_outcome: "UI changes to French"
+    screenshot: true
+
+  - step_number: 11
+    action: "wait"
+    description: "Wait for sync to other apps"
+    duration_ms: 2000
+    expected_outcome: "French preference propagates"
+
+  - step_number: 12
+    action: "switch_app"
+    description: "Switch to ShareConnect"
+    target: "net.milosvasic.shareconnect"
+    expected_outcome: "ShareConnect UI is now in French"
+    screenshot: true
+
+  - step_number: 13
+    action: "switch_app"
+    description: "Switch to qBitConnect"
+    target: "com.shareconnect.qbitconnect.debug"
+    expected_outcome: "qBitConnect UI is now in French"
+    screenshot: true
+
+expected_results:
+  - "Language changes propagate to all apps within 2-3 seconds"
+  - "Works across all three apps simultaneously"
+  - "Changes from any app sync to all others"
+  - "UI text updates immediately upon receiving sync"
+  - "No conflicts or race conditions"
+
+validation:
+  - check_shared_preferences:
+      app: "net.milosvasic.shareconnect"
+      file: "language_sync_prefs.xml"
+      key: "Locale.Helper.Selected.Language"
+      expected: "fr"
+  - check_shared_preferences:
+      app: "com.shareconnect.qbitconnect.debug"
+      file: "language_sync_prefs.xml"
+      key: "Locale.Helper.Selected.Language"
+      expected: "fr"
+  - check_shared_preferences:
+      app: "com.shareconnect.transmissionconnect"
+      file: "language_sync_prefs.xml"
+      key: "Locale.Helper.Selected.Language"
+      expected: "fr"
+
+estimated_duration_ms: 60000
+retry_on_failure: true
+max_retries: 2
