@@ -71,6 +71,9 @@ project(':mockserver').projectDir = new File(settingsDir, 'Connectors/Transmissi
 include ':TransmissionConnector'
 project(':TransmissionConnector').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/TransmissionConnector')
 
+include ':uTorrentConnector'
+project(':uTorrentConnector').projectDir = new File(settingsDir, 'Connectors/uTorrentConnect/uTorrentConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 

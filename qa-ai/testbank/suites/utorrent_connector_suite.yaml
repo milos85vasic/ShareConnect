@@ -1,0 +1,190 @@
+# Test Suite: uTorrentConnect Connector
+# Comprehensive test suite for uTorrent connector functionality
+
+suite:
+  id: "TS-UTORRENT-001"
+  name: "uTorrentConnect Connector Test Suite"
+  version: "1.0.0"
+  description: |
+    Complete test suite for uTorrent connector functionality including:
+    - Profile creation and management
+    - Server connection and authentication
+    - Torrent operations (add, remove, start, stop, pause)
+    - uTorrent Web API integration
+    - Profile synchronization via Asinka
+    - Error handling and edge cases
+    - Performance and stability testing
+
+  metadata:
+    author: "AI QA System"
+    created_date: "2025-10-10"
+    last_modified: "2025-10-10"
+    target_app: "ShareConnect"
+    target_connector: "uTorrentConnect"
+    min_app_version: "1.0.0"
+    android_api_level: 26
+
+  test_environment:
+    emulator:
+      api_level: 34
+      device: "pixel_6"
+      enable_network: true
+      enable_video: true
+    mock_services:
+      utorrent:
+        enabled: true
+        port: 8080
+        username: "admin"
+        password: "admin"
+        api_version: "v1"
+    network_conditions:
+      - "normal"
+      - "slow_3g"
+      - "offline"
+
+  test_categories:
+    smoke_tests:
+      enabled: true
+      priority: "critical"
+      tests:
+        - "profiles/create_utorrent_profile.yaml"
+        - "profiles/delete_profile.yaml"
+        - "profiles/set_default_profile.yaml"
+
+    functional_tests:
+      enabled: true
+      priority: "high"
+      tests:
+        - "profiles/create_utorrent_profile.yaml"
+        - "profiles/edit_profile.yaml"
+        - "profiles/delete_profile.yaml"
+        - "sync/profile_sync_basic.yaml"
+
+    integration_tests:
+      enabled: true
+      priority: "high"
+      tests:
+        - "sync/multi_device_sync.yaml"
+        - "sync/conflict_resolution.yaml"
+        - "sync/offline_sync.yaml"
+
+    edge_case_tests:
+      enabled: true
+      priority: "medium"
+      tests:
+        - "edge-cases/special_characters.yaml"
+        - "edge-cases/boundary_values.yaml"
+        - "edge-cases/malformed_data.yaml"
+        - "edge-cases/network_failures.yaml"
+
+    performance_tests:
+      enabled: true
+      priority: "medium"
+      benchmarks:
+        profile_creation_ms: 5000
+        connection_test_ms: 3000
+        ui_response_ms: 100
+        memory_limit_mb: 512
+
+    ui_tests:
+      enabled: true
+      priority: "high"
+      tests:
+        - "ui/navigation.yaml"
+        - "ui/form_validation.yaml"
+        - "ui/error_messages.yaml"
+
+  test_data:
+    utorrent_profiles:
+      - name: "Basic HTTP Profile"
+        host: "localhost"
+        port: 8080
+        username: "admin"
+        password: "admin"
+        use_https: false
+
+      - name: "HTTPS Profile"
+        host: "utorrent.example.com"
+        port: 8443
+        username: "admin"
+        password: "admin"
+        use_https: true
+        trust_self_signed: false
+
+      - name: "Custom Port Profile"
+        host: "192.168.1.100"
+        port: 9090
+        username: "user"
+        password: "pass123"
+        use_https: false
+
+      - name: "Self-Signed Certificate"
+        host: "192.168.1.50"
+        port: 8443
+        username: "admin"
+        password: "admin"
+        use_https: true
+        trust_self_signed: true
+
+    edge_case_data:
+      special_characters:
+        - "Test <>&\" Profile"
+        - "Profile with 'quotes'"
+        - "Profile\nwith\nnewlines"
+        - "Profile\twith\ttabs"
+        - "Üñíçödé Prøfîlé 测试"
+        - "Emoji Profile 🔥💻"
+
+      boundary_values:
+        - name: "Min Port"
+          port: 1
+        - name: "Max Port"
+          port: 65535
+        - name: "Long Name"
+          name: "A" * 255
+        - name: "Max Host Length"
+          host: "subdomain" * 25 + ".example.com"
+
+  execution_config:
+    parallel_execution: true
+    max_parallel_tests: 4
+    retry_on_failure: true
+    max_retries: 2
+    retry_delay_ms: 1000
+    timeout_per_test_ms: 60000
+    screenshot_on_failure: true
+    screenshot_on_success: false
+    video_recording: true
+    clear_data_between_tests: true
+
+  reporting:
+    formats:
+      - "html"
+      - "json"
+      - "junit_xml"
+    output_dir: "reports/utorrent/"
+    generate_coverage: true
+    include_screenshots: true
+    include_videos: true
+    slack_notification: false
+
+  success_criteria:
+    min_pass_rate: 95.0
+    max_failure_rate: 5.0
+    max_critical_failures: 0
+    max_total_duration_minutes: 30
+    performance_benchmarks_must_pass: true
+
+  failure_handling:
+    auto_retry: true
+    collect_logs: true
+    collect_screenshots: true
+    collect_logcat: true
+    notify_on_critical: true
+    continue_on_failure: true
+
+  cleanup:
+    clear_app_data: true
+    stop_mock_services: true
+    delete_test_profiles: true
+    collect_artifacts: true

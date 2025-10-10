@@ -41,6 +41,7 @@ data class ProfileData(
         const val APP_SHARE_CONNECT = "com.shareconnect"
         const val APP_QBIT_CONNECT = "com.shareconnect.qbitconnect"
         const val APP_TRANSMISSION_CONNECT = "com.shareconnect.transmissionconnect"
+        const val APP_UTORRENT_CONNECT = "com.shareconnect.utorrentconnect"
     }
 
     fun isTorrentProfile(): Boolean = serviceType == TYPE_TORRENT
@@ -69,6 +70,11 @@ data class ProfileData(
      * Check if this profile is relevant for TransmissionConnect (only Transmission profiles)
      */
     fun isRelevantForTransmissionConnect(): Boolean = isTransmissionProfile()
+
+    /**
+     * Check if this profile is relevant for uTorrentConnect (only uTorrent profiles)
+     */
+    fun isRelevantForUTorrentConnect(): Boolean = isUTorrentProfile()
 
     /**
      * Get the full URL for this profile
