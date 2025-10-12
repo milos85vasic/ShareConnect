@@ -155,8 +155,8 @@
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
         Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@d5d4953, Dispatchers.Main]
   ```
-
   Note: Make sure that other applications do not have the same issue!
+- Gradle version upgraded
 
 ### Archive
 
