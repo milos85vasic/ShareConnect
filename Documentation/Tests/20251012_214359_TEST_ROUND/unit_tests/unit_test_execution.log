@@ -1,0 +1,218 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Toolkit:JCommons:compileJava
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes
+> Task :Toolkit:JCommons:jar
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues
+> Task :BookmarkSync:generateDebugResources
+> Task :BookmarkSync:packageDebugResources
+> Task :BookmarkSync:processDebugNavigationResources
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:parseDebugLocalResources
+> Task :Asinka:asinka:generateDebugBuildConfig
+> Task :Asinka:asinka:extractDebugProto
+> Task :BookmarkSync:generateDebugRFile
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:extractProto
+> Task :Asinka:asinka:generateDebugProto
+> Task :Asinka:asinka:generateDebugResValues
+> Task :Asinka:asinka:generateDebugResources
+> Task :Asinka:asinka:packageDebugResources
+> Task :Asinka:asinka:processDebugNavigationResources
+> Task :Asinka:asinka:parseDebugLocalResources
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig
+> Task :DesignSystem:generateDebugResValues
+> Task :DesignSystem:generateDebugResources
+> Task :Asinka:asinka:generateDebugRFile
+> Task :Asinka:asinka:javaPreCompileDebug
+> Task :BookmarkSync:javaPreCompileDebug
+> Task :DesignSystem:packageDebugResources
+> Task :DesignSystem:processDebugNavigationResources
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:javaPreCompileDebug
+> Task :HistorySync:generateDebugResValues
+> Task :HistorySync:generateDebugResources
+> Task :HistorySync:packageDebugResources
+> Task :HistorySync:processDebugNavigationResources
+> Task :DesignSystem:parseDebugLocalResources
+> Task :HistorySync:parseDebugLocalResources
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues
+> Task :HistorySync:generateDebugRFile
+> Task :LanguageSync:generateDebugResources
+> Task :DesignSystem:generateDebugRFile
+> Task :HistorySync:javaPreCompileDebug
+> Task :LanguageSync:packageDebugResources
+> Task :LanguageSync:processDebugNavigationResources
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResValues
+> Task :LanguageSync:parseDebugLocalResources
+> Task :Localizations:generateDebugResources
+> Task :LanguageSync:generateDebugRFile
+> Task :LanguageSync:javaPreCompileDebug
+> Task :Localizations:packageDebugResources
+> Task :Localizations:processDebugNavigationResources
+> Task :Localizations:javaPreCompileDebug
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources
+> Task :Onboarding:generateDebugBuildConfig
+> Task :Onboarding:generateDebugResValues
+> Task :Onboarding:generateDebugResources
+> Task :Localizations:generateDebugRFile
+> Task :Onboarding:packageDebugResources
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Onboarding:processDebugNavigationResources
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig
+> Task :ProfileSync:generateDebugResValues
+> Task :ProfileSync:generateDebugResources
+> Task :Onboarding:parseDebugLocalResources
+> Task :ProfileSync:packageDebugResources
+> Task :ProfileSync:processDebugNavigationResources
+> Task :ProfileSync:parseDebugLocalResources
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugRFile
+> Task :ThemeSync:generateDebugBuildConfig
+> Task :ThemeSync:generateDebugResValues
+> Task :ThemeSync:generateDebugResources
+> Task :Onboarding:generateDebugRFile
+> Task :ThemeSync:packageDebugResources
+> Task :ThemeSync:processDebugNavigationResources
+> Task :ThemeSync:parseDebugLocalResources
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Onboarding:javaPreCompileDebug
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile
+> Task :PreferencesSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugResources
+> Task :PreferencesSync:packageDebugResources
+> Task :PreferencesSync:processDebugNavigationResources
+> Task :PreferencesSync:parseDebugLocalResources
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :RSSSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugRFile
+> Task :RSSSync:generateDebugResources
+> Task :RSSSync:packageDebugResources
+> Task :RSSSync:processDebugNavigationResources
+> Task :RSSSync:parseDebugLocalResources
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:generateDebugRFile
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :ProfileSync:javaPreCompileDebug
+> Task :RSSSync:javaPreCompileDebug
+> Task :PreferencesSync:javaPreCompileDebug
+> Task :ThemeSync:javaPreCompileDebug
+> Task :BookmarkSync:compileDebugLibraryResources
+> Task :DesignSystem:compileDebugLibraryResources
+> Task :HistorySync:compileDebugLibraryResources
+> Task :LanguageSync:compileDebugLibraryResources
+> Task :Localizations:compileDebugLibraryResources
+> Task :Onboarding:compileDebugLibraryResources
+> Task :PreferencesSync:compileDebugLibraryResources
+> Task :ProfileSync:compileDebugLibraryResources
+> Task :RSSSync:compileDebugLibraryResources
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :Localizations:writeDebugAarMetadata
+> Task :HistorySync:writeDebugAarMetadata
+> Task :Onboarding:writeDebugAarMetadata
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :RSSSync:writeDebugAarMetadata
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Tests:processDebugNavigationResources
+> Task :Asinka:asinka:kspDebugKotlin
+
+> Task :DesignSystem:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+The message received from the daemon indicates that the daemon has disappeared.
+Build request sent: Build{id=8fd1738a-eb4e-4772-aaa9-457219748801, currentDir=/home/milosvasic/Projects/ShareConnect}
+Attempting to read last messages from the daemon log...
+Daemon pid: 170774
+  log file: /home/milosvasic/.gradle/daemon/8.14/daemon-170774.out.log
+----- Last 20 lines from daemon log file - daemon-170774.out.log -----
+2025-10-12T21:44:07.112+0300 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [64511b47-53b7-436a-bd54-a1df90d9ccdc port:34999, addresses:[localhost/127.0.0.1]]
+2025-10-12T21:44:07.112+0300 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2025-10-12T21:44:07.112+0300 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2025-10-12T21:44:07.113+0300 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=8fd1738a-eb4e-4772-aaa9-457219748801, currentDir=/home/milosvasic/Projects/ShareConnect}. Dispatching build started information...
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 11357: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@57b5bc63
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: [PATH, USE_CCACHE, STATIC_ASSETS, XMODIFIERS, GDMSESSION, DBUS_SESSION_BUS_ADDRESS, GATEWAY_VM_OPTIONS, ANDROID_HOME, RUSTROVER_VM_OPTIONS, DEEPSEEK_MODEL, COLORTERM, USERNAME, FB_LOGIN_PROTOCOL_SCHEME, SESSION_MANAGER, STUDIO_VM_OPTIONS, PWD, NVM_CD_FLAGS, OLLAMA_MODEL, LESSOPEN, PAGER, CLUTTER_DISABLE_MIPMAPPED_TEXT, GNOME_DESKTOP_SESSION_ID, GNOME_TERMINAL_SCREEN, GTK_MODULES, LC_CTYPE, SHLVL, OLLAMA_HOST, WEBSTORM_VM_OPTIONS, HISTSIZE, MEMORY_PRESSURE_WATCH, CLION_VM_OPTIONS, TERM, XDG_CONFIG_DIRS, GOOGLE_APPLICATION_CREDENTIALS, SINGULAR_SECERT, GOLAND_VM_OPTIONS, NVM_INC, JETBRAINS_CLIENT_VM_OPTIONS, OLLAMA_BASE_URL, GITLAB_TOKEN, XDG_SESSION_CLASS, SUBMODULES_HOME, DESKTOP_SESSION, FIREBASE_TOKEN, XDG_MENU_PREFIX, VTE_VERSION, QT_ACCESSIBILITY, CATALOGIZER_CONFIGURATION_HOME, OLLAMA_NUM_PARALLEL, WEBIDE_VM_OPTIONS, STATIC_ASSETS_UBOOT, NVM_BIN, XAUTHORITY, XDG_DATA_DIRS, XDG_CURRENT_DESKTOP, RIDER_VM_OPTIONS, GSM_SKIP_SSH_AGENT_WORKAROUND, DEVECOSTUDIO_VM_OPTIONS, LOGNAME, SHELL, DEEPSEEK_USE_LOCAL, FACEBOOK_APP_ID, OLDPWD, RU_TRACKER_USERNAME, OPENCODE, DATASPELL_VM_OPTIONS, OBFUSCATION_SALT, DEBUGINFOD_URLS, LESS, SYSTEMD_EXEC_PID, LS_COLORS, XDG_SESSION_DESKTOP, DATAGRIP_VM_OPTIONS, MEMORY_PRESSURE_WRITE, LESSCLOSE, QT_IM_MODULE, PYCHARM_VM_OPTIONS, RU_TRACKER_PASSWORD, JETBRAINSCLIENT_VM_OPTIONS, GNOME_TERMINAL_SERVICE, LANG, XDG_SESSION_TYPE, HISTFILESIZE, DISPLAY, IDEA_VM_OPTIONS, OLLAMA_MAX_LOADED_MODELS, RUBYMINE_VM_OPTIONS, AQUA_VM_OPTIONS, NVM_DIR, OSH, LSCOLORS, OBFUSCATION_TEST, GPG_AGENT_INFO, USER, CCACHE_EXEC, WINDOWPATH, SSH_AUTH_SOCK, SINGULAR_KEY, OLLAMA_MAX_QUEUE, PHPSTORM_VM_OPTIONS, GNOME_SHELL_SESSION_MODE, XDG_RUNTIME_DIR, FACEBOOK_CLIENT_TOKEN, HOME]
+2025-10-12T21:44:07.113+0300 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2025-10-12T21:44:07.114+0300 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 170774). The daemon log file: /home/milosvasic/.gradle/daemon/8.14/daemon-170774.out.log
+2025-10-12T21:44:07.114+0300 [INFO] [org.gradle.launcher.daemon.server.exec.LogAndCheckHealth] Starting 50th build in daemon [uptime: 1 hrs 29 mins 41.663 secs, performance: 93%, GC rate: 0.01/s, heap usage: 56% of 4 GiB]
+2025-10-12T21:44:07.114+0300 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2025-10-12T21:44:07.114+0300 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=79ecaed6-1057-4c23-bb48-0ab900529591,javaHome=/home/milosvasic/.local/share/JetBrains/Toolbox/apps/android-studio/jbr,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/home/milosvasic/.gradle/daemon,pid=170774,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx4096m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.----- End of the daemon log -----
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+> Task :ShareConnector:checkDebugAarMetadata

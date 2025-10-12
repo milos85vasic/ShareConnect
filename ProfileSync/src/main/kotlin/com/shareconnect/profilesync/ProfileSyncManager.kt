@@ -25,6 +25,8 @@ import java.net.ServerSocket
 class ProfileSyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: ProfileRepository,
     private val clientTypeFilter: String? = null  // null = all profiles (ShareConnect), "qbittorrent" = qBit only, "transmission" = Transmission only
@@ -41,18 +43,37 @@ class ProfileSyncManager private constructor(
      * Initialize and start the sync manager
      */
     suspend fun start() {
-        if (isStarted) {
-            Log.w(TAG, "ProfileSyncManager already started")
-            return
+        if (isStarted) return
+        isStarted = true
+
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w("ProfileSyncManager", "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(ProfileSyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion, clientTypeFilter)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(ProfileSyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
         }
 
-        Log.d(TAG, "Starting ProfileSyncManager for $appIdentifier with filter: $clientTypeFilter")
-
-        // Start Asinka client
-        asinkaClient.start()
-
-        // Load existing profiles and register them with Asinka
-        syncLocalProfilesToAsinka()
+        // Register existing profiles with Asinka
+        val existingProfiles = repository.getAllProfilesSync()
+        existingProfiles.forEach { profile ->
+            val syncableProfile = SyncableProfile.fromProfileData(profile)
+            asinkaClient.syncManager.registerObject(syncableProfile)
+        }
 
         // Observe Asinka sync changes
         scope.launch {
@@ -406,6 +427,8 @@ class ProfileSyncManager private constructor(
                 val instance = ProfileSyncManager(
                     context = context.applicationContext,
                     appIdentifier = appId,
+                    appName = appName,
+                    appVersion = appVersion,
                     asinkaClient = asinkaClient,
                     repository = repository,
                     clientTypeFilter = clientTypeFilter

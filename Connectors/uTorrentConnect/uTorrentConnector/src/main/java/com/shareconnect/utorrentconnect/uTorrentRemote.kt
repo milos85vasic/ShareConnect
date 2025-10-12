@@ -14,6 +14,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.evernote.android.job.JobManager
 import com.shareconnect.utorrentconnect.R
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import com.shareconnect.utorrentconnect.analytics.Analytics
 import com.shareconnect.utorrentconnect.di.AppContainer
@@ -168,6 +169,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
         )
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {
+            delay(100) // Small delay to avoid port conflicts
             themeSyncManager.start()
         }
     }
@@ -183,6 +185,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
         )
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {
+            delay(200) // Small delay to avoid port conflicts
             profileSyncManager.start()
         }
     }
@@ -197,6 +200,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
         )
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {
+            delay(300) // Small delay to avoid port conflicts
             historySyncManager.start()
         }
     }

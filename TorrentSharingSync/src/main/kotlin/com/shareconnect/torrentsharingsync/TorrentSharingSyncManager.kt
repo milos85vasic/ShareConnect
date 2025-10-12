@@ -27,6 +27,8 @@ import java.net.ServerSocket
 class TorrentSharingSyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: TorrentSharingRepository
 ) {
@@ -51,8 +53,27 @@ class TorrentSharingSyncManager private constructor(
 
         Log.d(tag, "Starting TorrentSharingSyncManager")
 
-        // Start Asinka client
-        asinkaClient.start()
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w(tag, "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(TorrentSharingSyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(TorrentSharingSyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
+        }
 
         // Register existing preferences with Asinka
         val existingPrefs = repository.getTorrentSharingPrefs()
@@ -303,7 +324,7 @@ class TorrentSharingSyncManager private constructor(
                 val database = TorrentSharingDatabase.getInstance(context)
                 val repository = TorrentSharingRepository(database.torrentSharingDao())
 
-                TorrentSharingSyncManager(context.applicationContext, appId, asinkaClient, repository).also { INSTANCE = it }
+                TorrentSharingSyncManager(context.applicationContext, appId, appName, appVersion, asinkaClient, repository).also { INSTANCE = it }
             }
         }
 

@@ -23,6 +23,8 @@ import java.net.ServerSocket
 class ThemeSyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: ThemeRepository
 ) {
@@ -39,8 +41,27 @@ class ThemeSyncManager private constructor(
         // Initialize default themes if needed
         repository.initializeDefaultThemes()
 
-        // Start Asinka client
-        asinkaClient.start()
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w("ThemeSyncManager", "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(ThemeSyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(ThemeSyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
+        }
 
         // Register existing themes with Asinka
         val existingThemes = repository.getAllThemesSync()
@@ -213,7 +234,7 @@ class ThemeSyncManager private constructor(
                 val asinkaClient = AsinkaClient.create(context, asinkaConfig)
                 val repository = ThemeRepository(context, appId)
 
-                ThemeSyncManager(context.applicationContext, appId, asinkaClient, repository).also { INSTANCE = it }
+                ThemeSyncManager(context.applicationContext, appId, appName, appVersion, asinkaClient, repository).also { INSTANCE = it }
             }
         }
 
