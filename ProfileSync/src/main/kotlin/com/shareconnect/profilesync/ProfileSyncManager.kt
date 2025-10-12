@@ -357,11 +357,14 @@ class ProfileSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8888,
+                    serverPort = uniquePort,
                     serviceName = "profile-sync",
                     exposedSchemas = listOf(profileSchema),
                     capabilities = mapOf("profile_sync" to "1.0")

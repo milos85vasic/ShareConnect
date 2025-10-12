@@ -10,6 +10,9 @@ mkdir -p ../app/src/main/res/mipmap-xxxhdpi
 # Create adaptive icon directories
 mkdir -p ../app/src/main/res/mipmap-anydpi-v26
 
+# Create drawable directory for adaptive icons
+mkdir -p ../app/src/main/res/drawable
+
 # Check if required tools are installed
 if ! command -v inkscape &> /dev/null
 then
@@ -49,15 +52,15 @@ inkscape -w 192 -h 192 -o ../app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.p
 # Generate splash screen logos
 echo "Generating splash screen logos..."
 
-# Light theme splash logo (360x360)
-inkscape -w 360 -h 360 -o ../app/src/main/res/drawable/splash_logo_light.png Assets/logo_light.svg
+# Light theme splash logo (1024x1024 for high resolution)
+inkscape -w 1024 -h 1024 -o ../ShareConnector/src/main/res/drawable/splash_logo_light.png Assets/logo_light.svg
 
-# Dark theme splash logo (360x360)
-inkscape -w 360 -h 360 -o ../app/src/main/res/drawable/splash_logo_dark.png Assets/logo_dark.svg
+# Dark theme splash logo (1024x1024 for high resolution)
+inkscape -w 1024 -h 1024 -o ../ShareConnector/src/main/res/drawable/splash_logo_dark.png Assets/logo_dark.svg
 
-# Generate adaptive icon background (solid color) using magick instead of convert
+# Generate adaptive icon background (solid color)
 echo "Generating adaptive icon background..."
-magick -size 108x108 xc:"#FF9800" ../app/src/main/res/drawable/ic_background.png
+convert -size 108x108 xc:"#FF9800" ../app/src/main/res/drawable/ic_background.png
 
 # Create adaptive icon XML
 echo "Creating adaptive icon XML..."

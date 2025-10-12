@@ -30,3 +30,9 @@
 - **Types**: Prefer explicit types for public APIs; use val over var; avoid nullable types unless necessary.
 - **Error Handling**: Use try-catch for exceptions, Result/ sealed classes for operations; log errors appropriately.
 - **Android/Kotlin**: Follow Material Design 3; use Compose for UI; handle lifecycle properly; encrypt sensitive data with SQLCipher.
+
+## Recent Fixes
+- **uTorrentConnect**: Applied fixes for gRPC port binding crashes and blurry splash screen logos (same as TransmissionConnect). Updated `generate_icons.sh` for uTorrentConnector paths and 1024x1024 resolution splash logos. Modified `splash_background.xml` to reference `@drawable/splash_logo`.
+- **qBitConnector**: Fixed build issues by adding `sourceSets` configuration in `build.gradle` to exclude Java source directories. Made `setActiveServer()` function suspend in `ServerRepository.kt` for coroutine compatibility.
+- **Port Binding**: Fixed gRPC port binding crashes by implementing unique port calculation per app ID across all sync managers (RSSSyncManager, ProfileSyncManager, BookmarkSyncManager, HistorySyncManager, ThemeSyncManager, PreferencesSyncManager, TorrentSharingSyncManager). Each app now uses `basePort + Math.abs(appId.hashCode() % 100)` to ensure no port conflicts. Added `testUniquePortCalculationPerApp()` test in `LanguageSyncAutomationTest.kt` to verify unique port assignment.
+- **Build Stability**: All apps (ShareConnector, TransmissionConnector, uTorrentConnector, qBitConnector) now build successfully with `./assembleDebug`, producing APK files without errors.

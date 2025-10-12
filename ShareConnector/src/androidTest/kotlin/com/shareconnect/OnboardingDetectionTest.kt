@@ -90,6 +90,8 @@ class OnboardingDetectionTest {
                 isDefault = true,
                 serviceType = "torrent",
                 torrentClientType = "transmission",
+                username = null,
+                password = null,
                 sourceApp = "com.shareconnect.test"
             )
             profileSyncManager.addOrUpdateProfile(profile)
@@ -149,6 +151,8 @@ class OnboardingDetectionTest {
                 isDefault = true,
                 serviceType = "torrent",
                 torrentClientType = "transmission",
+                username = null,
+                password = null,
                 sourceApp = "com.shareconnect.test"
             )
             profileSyncManager.addOrUpdateProfile(profile)
@@ -224,16 +228,18 @@ class OnboardingDetectionTest {
             // Only profile
             {
                 runBlocking {
-                    val profile = com.shareconnect.profilesync.models.ProfileData(
-                        id = "test_profile",
-                        name = "Test Profile",
-                        host = "192.168.1.100",
-                        port = 9091,
-                        isDefault = true,
-                        serviceType = "torrent",
-                        torrentClientType = "transmission",
-                        sourceApp = "com.shareconnect.test"
-                    )
+            val profile = com.shareconnect.profilesync.models.ProfileData(
+                id = "test_profile",
+                name = "Test Profile",
+                host = "192.168.1.100",
+                port = 9091,
+                isDefault = true,
+                serviceType = "torrent",
+                torrentClientType = "transmission",
+                username = null,
+                password = null,
+                sourceApp = "com.shareconnect.test"
+            )
                     profileSyncManager.addOrUpdateProfile(profile)
                 }
             },

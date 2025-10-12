@@ -228,11 +228,14 @@ class PreferencesSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val config = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8893,
+                    serverPort = uniquePort,
                     serviceName = "preferences-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("preferences_sync" to "1.0")

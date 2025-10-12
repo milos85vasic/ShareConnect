@@ -10,7 +10,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.shareconnect.EditProfileActivity
 import com.shareconnect.R
 import com.shareconnect.ServerProfile
-import com.shareconnect.manager.ProfileManager
+import com.shareconnect.ProfileManager
 import org.junit.After
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -43,7 +43,7 @@ class EditProfileActivityTest {
     fun tearDown() {
         // Clean up test profile if it exists
         try {
-            profileManager.removeProfile(testProfile)
+            profileManager.deleteProfile(testProfile)
         } catch (e: Exception) {
             // Profile might not exist, ignore
         }

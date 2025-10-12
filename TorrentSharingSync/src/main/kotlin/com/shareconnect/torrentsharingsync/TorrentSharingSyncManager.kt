@@ -244,10 +244,14 @@ class TorrentSharingSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = uniquePort,
                     exposedSchemas = listOf(torrentSharingSchema),
                     capabilities = mapOf("torrent_sharing_sync" to "1.0")
                 )

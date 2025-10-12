@@ -7,10 +7,12 @@
     android:background="@color/black">
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:id="@+id/splash_logo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginBottom="24dp"
-        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitCenter"
+        android:src="@drawable/splash_logo_dark"
         android:contentDescription="@string/app_name" />
 
     <TextView
