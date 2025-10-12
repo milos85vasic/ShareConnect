@@ -179,7 +179,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
             appId = packageName,
             appName = getString(R.string.app_name),
             appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = ProfileData.TORRENT_CLIENT_TRANSMISSION  // Only sync Transmission profiles
+            clientTypeFilter = ProfileData.TORRENT_CLIENT_UTORRENT  // Only sync uTorrent profiles
         )
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {

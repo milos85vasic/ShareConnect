@@ -17,6 +17,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import java.net.ServerSocket
 
 class ThemeSyncManager private constructor(
     private val context: Context,
@@ -145,6 +146,31 @@ class ThemeSyncManager private constructor(
         @Volatile
         private var INSTANCE: ThemeSyncManager? = null
 
+        /**
+         * Check if a port is available
+         */
+        private fun isPortAvailable(port: Int): Boolean {
+            return try {
+                ServerSocket(port).use { true }
+            } catch (e: Exception) {
+                false
+            }
+        }
+
+        /**
+         * Find an available port starting from the preferred port
+         */
+        private fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
+            var port = preferredPort
+            for (i in 0 until maxAttempts) {
+                if (isPortAvailable(port)) {
+                    return port
+                }
+                port++
+            }
+            throw IllegalStateException("No available ports found in range $preferredPort-${preferredPort + maxAttempts - 1}")
+        }
+
         fun getInstance(
             context: Context,
             appId: String,
@@ -168,7 +194,10 @@ class ThemeSyncManager private constructor(
                 )
 
                 val basePort = 8890
-                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+                val preferredPort = basePort + Math.abs(appId.hashCode() % 100)
+                val uniquePort = findAvailablePort(preferredPort)
+
+                Log.d("ThemeSyncManager", "App $appId using port $uniquePort (preferred: $preferredPort)")
 
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
@@ -183,14 +212,7 @@ class ThemeSyncManager private constructor(
                 val asinkaClient = AsinkaClient.create(context, asinkaConfig)
                 val repository = ThemeRepository(context, appId)
 
-                val instance = ThemeSyncManager(
-                    context = context.applicationContext,
-                    appIdentifier = appId,
-                    asinkaClient = asinkaClient,
-                    repository = repository
-                )
-                INSTANCE = instance
-                instance
+                ThemeSyncManager(context.applicationContext, appId, asinkaClient, repository).also { INSTANCE = it }
             }
         }
 
