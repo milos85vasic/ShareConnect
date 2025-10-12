@@ -40,6 +40,7 @@
 ## In progress
 
 - FIXME: Apps crashes at start
+- Modules naming convention and consistency
 - Testing and fixing issues
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
 - Firebase configuration for all Application modules
