@@ -15,6 +15,8 @@ import java.net.ServerSocket
 class RSSSyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: RSSRepository,
     private val clientTypeFilter: String? = null
@@ -31,7 +33,28 @@ class RSSSyncManager private constructor(
         if (isStarted) return
         Log.d(TAG, "Starting RSSSyncManager for $appIdentifier with filter: $clientTypeFilter")
 
-        asinkaClient.start()
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w(TAG, "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(RSSSyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion, clientTypeFilter)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(RSSSyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
+        }
+
         syncLocalFeedsToAsinka()
 
         scope.launch {
@@ -185,7 +208,7 @@ class RSSSyncManager private constructor(
                 val db = RSSDatabase.getInstance(context)
                 val repo = RSSRepository(db.rssDao())
 
-                RSSSyncManager(context.applicationContext, appId, client, repo, clientTypeFilter).also { INSTANCE = it }
+                RSSSyncManager(context.applicationContext, appId, appName, appVersion, client, repo, clientTypeFilter).also { INSTANCE = it }
             }
         }
 

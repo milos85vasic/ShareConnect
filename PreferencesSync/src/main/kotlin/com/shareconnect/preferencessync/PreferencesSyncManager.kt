@@ -15,6 +15,8 @@ import java.net.ServerSocket
 class PreferencesSyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: PreferencesRepository
 ) {
@@ -30,7 +32,28 @@ class PreferencesSyncManager private constructor(
         if (isStarted) return
         Log.d(TAG, "Starting PreferencesSyncManager for $appIdentifier")
 
-        asinkaClient.start()
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w(TAG, "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(PreferencesSyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(PreferencesSyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
+        }
+
         syncLocalPreferencesToAsinka()
 
         scope.launch {
@@ -273,7 +296,7 @@ class PreferencesSyncManager private constructor(
                 val db = PreferencesDatabase.getInstance(context)
                 val repo = PreferencesRepository(db.preferencesDao())
 
-                PreferencesSyncManager(context.applicationContext, appId, client, repo).also { INSTANCE = it }
+                PreferencesSyncManager(context.applicationContext, appId, appName, appVersion, client, repo).also { INSTANCE = it }
             }
         }
 

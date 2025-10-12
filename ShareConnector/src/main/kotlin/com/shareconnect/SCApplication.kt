@@ -20,6 +20,7 @@ import com.shareconnect.onboarding.viewmodel.OnboardingViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SCApplication : BaseApplication() {
@@ -95,6 +96,7 @@ class SCApplication : BaseApplication() {
 
         // Start theme sync in background
         applicationScope.launch {
+            delay(100) // Small delay to avoid port conflicts
             themeSyncManager.start()
         }
     }
@@ -111,6 +113,7 @@ class SCApplication : BaseApplication() {
 
         // Start profile sync in background
         applicationScope.launch {
+            delay(200) // Small delay to avoid port conflicts
             profileSyncManager.start()
         }
     }
@@ -126,6 +129,7 @@ class SCApplication : BaseApplication() {
 
         // Start history sync in background
         applicationScope.launch {
+            delay(300) // Small delay to avoid port conflicts
             historySyncManager.start()
         }
     }
@@ -142,6 +146,7 @@ class SCApplication : BaseApplication() {
 
         // Start RSS sync in background
         applicationScope.launch {
+            delay(400) // Small delay to avoid port conflicts
             rssSyncManager.start()
         }
     }
@@ -157,6 +162,7 @@ class SCApplication : BaseApplication() {
 
         // Start bookmark sync in background
         applicationScope.launch {
+            delay(500) // Small delay to avoid port conflicts
             bookmarkSyncManager.start()
         }
     }
@@ -172,6 +178,7 @@ class SCApplication : BaseApplication() {
 
         // Start preferences sync in background
         applicationScope.launch {
+            delay(600) // Small delay to avoid port conflicts
             preferencesSyncManager.start()
         }
     }
@@ -187,6 +194,7 @@ class SCApplication : BaseApplication() {
 
         // Start language sync in background
         applicationScope.launch {
+            delay(700) // Small delay to avoid port conflicts
             languageSyncManager.start()
         }
     }
@@ -210,6 +218,7 @@ class SCApplication : BaseApplication() {
 
         // Start torrent sharing sync in background
         applicationScope.launch {
+            delay(800) // Small delay to avoid port conflicts
             torrentSharingSyncManager.start()
         }
     }

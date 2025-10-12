@@ -25,6 +25,8 @@ import kotlinx.coroutines.launch
 class HistorySyncManager private constructor(
     private val context: Context,
     private val appIdentifier: String,
+    private val appName: String,
+    private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: HistoryRepository
 ) {
@@ -44,7 +46,27 @@ class HistorySyncManager private constructor(
 
         Log.d(TAG, "Starting HistorySyncManager for $appIdentifier")
 
-        asinkaClient.start()
+        // Start Asinka client with retry logic for port conflicts
+        try {
+            asinkaClient.start()
+        } catch (e: Exception) {
+            if (e.message?.contains("bind failed: EADDRINUSE") == true) {
+                Log.w(TAG, "Port conflict detected, retrying with different port", e)
+                // Force recreation of singleton with new port
+                synchronized(HistorySyncManager::class.java) {
+                    INSTANCE = null
+                }
+                // Recreate with new port
+                val newInstance = getInstance(context, appIdentifier, appName, appVersion)
+                newInstance.asinkaClient.start()
+                // Update the instance reference
+                synchronized(HistorySyncManager::class.java) {
+                    INSTANCE = newInstance
+                }
+            } else {
+                throw e
+            }
+        }
 
         // Register existing history
         syncLocalHistoryToAsinka()
@@ -286,7 +308,7 @@ class HistorySyncManager private constructor(
                 val database = HistoryDatabase.getInstance(context)
                 val repository = HistoryRepository(database.historyDao())
 
-                HistorySyncManager(context.applicationContext, appId, asinkaClient, repository).also { INSTANCE = it }
+                HistorySyncManager(context.applicationContext, appId, appName, appVersion, asinkaClient, repository).also { INSTANCE = it }
             }
         }
 
