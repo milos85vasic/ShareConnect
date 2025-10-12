@@ -177,11 +177,16 @@ class LanguageSyncManager private constructor(
                     )
                 )
 
+                // Calculate unique port per app to avoid EADDRINUSE conflicts
+                val basePort = 8890
+                val appSpecificOffset = appId.hashCode() % 100 // Keep offset reasonable
+                val uniquePort = basePort + Math.abs(appSpecificOffset)
+
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8894,
+                    serverPort = uniquePort,
                     serviceName = "language-sync",
                     exposedSchemas = listOf(languageSchema),
                     capabilities = mapOf("language_sync" to "1.0")

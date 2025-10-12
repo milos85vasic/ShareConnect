@@ -140,11 +140,14 @@ class RSSSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val config = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8891,
+                    serverPort = uniquePort,
                     serviceName = "rss-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("rss_sync" to "1.0")

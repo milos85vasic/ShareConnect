@@ -167,11 +167,14 @@ class ThemeSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8889,
+                    serverPort = uniquePort,
                     serviceName = "theme-sync",
                     exposedSchemas = listOf(themeSchema),
                     capabilities = mapOf("theme_sync" to "1.0")

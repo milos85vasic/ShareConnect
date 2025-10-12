@@ -162,11 +162,14 @@ class BookmarkSyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val config = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8892,
+                    serverPort = uniquePort,
                     serviceName = "bookmark-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("bookmark_sync" to "1.0")

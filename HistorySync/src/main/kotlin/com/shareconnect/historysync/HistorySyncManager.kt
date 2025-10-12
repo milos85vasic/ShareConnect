@@ -240,11 +240,14 @@ class HistorySyncManager private constructor(
                     )
                 )
 
+                val basePort = 8890
+                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
-                    serverPort = 8890,
+                    serverPort = uniquePort,
                     serviceName = "history-sync",
                     exposedSchemas = listOf(historySchema),
                     capabilities = mapOf("history_sync" to "1.0")

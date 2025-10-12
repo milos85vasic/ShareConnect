@@ -353,4 +353,31 @@ class LanguageSyncAutomationTest {
 
         job.cancel()
     }
+
+    @Test
+    fun testUniquePortCalculationPerApp() {
+        // Test that different app IDs generate different ports
+        val appId1 = "com.shareconnect"
+        val appId2 = "com.shareconnect.transmissionconnect"
+        val appId3 = "com.shareconnect.utorrentconnect"
+
+        val basePort = 8890
+
+        val port1 = basePort + Math.abs(appId1.hashCode() % 100)
+        val port2 = basePort + Math.abs(appId2.hashCode() % 100)
+        val port3 = basePort + Math.abs(appId3.hashCode() % 100)
+
+        // Verify ports are different
+        assertNotEquals("Different app IDs should generate different ports", port1, port2)
+        assertNotEquals("Different app IDs should generate different ports", port1, port3)
+        assertNotEquals("Different app IDs should generate different ports", port2, port3)
+
+        // Verify ports are within reasonable range
+        assertTrue("Port should be >= base port", port1 >= basePort)
+        assertTrue("Port should be >= base port", port2 >= basePort)
+        assertTrue("Port should be >= base port", port3 >= basePort)
+        assertTrue("Port should be <= base port + 99", port1 <= basePort + 99)
+        assertTrue("Port should be <= base port + 99", port2 <= basePort + 99)
+        assertTrue("Port should be <= base port + 99", port3 <= basePort + 99)
+    }
 }
