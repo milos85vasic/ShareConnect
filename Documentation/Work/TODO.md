@@ -61,7 +61,7 @@
       - Submodule/Repo Upstreams
   - Obtain Android development documentation with wget mirroring
 - Welcome tutorial/wizard
-- Internal test release [1.0.0 @ 006](./Changes/1.0.0/005.md)
+- Internal test release [1.0.0 @ 006](./Changes/1.0.0/006.md)
 
 ## Completed
 
