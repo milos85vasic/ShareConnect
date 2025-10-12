@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.database.ThemeRepositoryUnitTest" tests="7" skipped="0" failures="3" errors="0" timestamp="2025-10-12T18:09:32.460Z" hostname="thinker" time="0.162">
+  <properties/>
+  <testcase name="testUpdateTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.062"/>
+  <testcase name="testInsertTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.014"/>
+  <testcase name="testGetThemeByColorSchemeAndMode" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.016"/>
+  <testcase name="testInitializeDefaultThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.021">
+    <failure message="android.content.res.Resources$NotFoundException: String resource ID #0x7f110115" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: String resource ID #0x7f110115
+	at android.content.res.Resources.getText(Resources.java:312)
+	at android.content.res.Resources.getString(Resources.java:400)
+	at android.content.Context.getString(Context.java:409)
+	at com.shareconnect.database.ThemeRepository.initializeDefaultThemes(ThemeRepository.kt:78)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testInitializeDefaultThemes(ThemeRepositoryUnitTest.kt:144)
+	at java.base@21.0.8/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</failure>
+  </testcase>
+  <testcase name="testGetAllThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.016"/>
+  <testcase name="testGetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.018">
+    <failure message="android.content.res.Resources$NotFoundException: String resource ID #0x7f110113" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: String resource ID #0x7f110113
+	at android.content.res.Resources.getText(Resources.java:312)
+	at android.content.res.Resources.getString(Resources.java:400)
+	at android.content.res.Resources.getString(Resources.java:429)
+	at android.content.Context.getString(Context.java:425)
+	at com.shareconnect.database.ThemeRepository.getDefaultTheme(ThemeRepository.kt:38)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testGetDefaultTheme(ThemeRepositoryUnitTest.kt:73)
+	at java.base@21.0.8/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</failure>
+  </testcase>
+  <testcase name="testSetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.014">
+    <failure message="android.content.res.Resources$NotFoundException: String resource ID #0x7f110121" type="android.content.res.Resources$NotFoundException">android.content.res.Resources$NotFoundException: String resource ID #0x7f110121
+	at android.content.res.Resources.getText(Resources.java:312)
+	at android.content.res.Resources.getString(Resources.java:400)
+	at android.content.res.Resources.getString(Resources.java:429)
+	at android.content.Context.getString(Context.java:425)
+	at com.shareconnect.database.ThemeRepository.setDefaultTheme(ThemeRepository.kt:60)
+	at com.shareconnect.database.ThemeRepositoryUnitTest.testSetDefaultTheme(ThemeRepositoryUnitTest.kt:134)
+	at java.base@21.0.8/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at app//org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at app//org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</failure>
+  </testcase>
+  <system-out><![CDATA[WARN: Bad identifier when getting value for resource number 0x7f110115
+WARN: Bad identifier when getting value for resource number 0x7f110113
+WARN: Bad identifier when getting value for resource number 0x7f110121
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

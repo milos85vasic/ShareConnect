@@ -1,6 +1,7 @@
 package com.shareconnect.themesync
 
 import android.content.Context
+import android.util.Log
 import digital.vasic.asinka.AsinkaClient
 import digital.vasic.asinka.AsinkaConfig
 import digital.vasic.asinka.models.ObjectSchema

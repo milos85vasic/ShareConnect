@@ -306,7 +306,6 @@ class TorrentSharingSyncManager private constructor(
                 TorrentSharingSyncManager(context.applicationContext, appId, asinkaClient, repository).also { INSTANCE = it }
             }
         }
-        }
 
         fun resetInstance() {
             INSTANCE = null
