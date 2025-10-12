@@ -36,47 +36,10 @@
 # For 1.0.2
 
 - Tbd
-
-## FIXME
-
-- qBitConnect: Crash at start
-  ```
-   E  FATAL EXCEPTION: main
-    Process: com.shareconnect.qbitconnect.debug, PID: 17393
-    java.net.BindException: bind failed: EADDRINUSE (Address already in use)
-        at libcore.io.IoBridge.bind(IoBridge.java:149)
-        at java.net.PlainSocketImpl.socketBind(PlainSocketImpl.java:162)
-        at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:427)
-        at java.net.ServerSocket.bind(ServerSocket.java:399)
-        at java.net.ServerSocket.bind(ServerSocket.java:353)
-        at io.grpc.okhttp.OkHttpServer.start(OkHttpServer.java:79)
-        at io.grpc.internal.ServerImpl.start(ServerImpl.java:185)
-        at io.grpc.internal.ServerImpl.start(ServerImpl.java:94)
-        at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:59)
-        at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:73)
-        at com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)
-        at com.shareconnect.qbitconnect.App$initializeProfileSync$1.invokeSuspend(App.kt:101)
-        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-        at android.os.Handler.handleCallback(Handler.java:959)
-        at android.os.Handler.dispatchMessage(Handler.java:100)
-        at android.os.Looper.loopOnce(Looper.java:257)
-        at android.os.Looper.loop(Looper.java:342)
-        at android.app.ActivityThread.main(ActivityThread.java:9634)
-        at java.lang.reflect.Method.invoke(Native Method)
-        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
-        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
-        Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@c6301bb, Dispatchers.Main]
-    Caused by: android.system.ErrnoException: bind failed: EADDRINUSE (Address already in use)
-        at libcore.io.Linux.bind(Native Method)
-        at libcore.io.ForwardingOs.bind(ForwardingOs.java:138)
-        at libcore.io.ForwardingOs.bind(ForwardingOs.java:138)
-        at libcore.io.IoBridge.bind(IoBridge.java:145)
-        ... 21 more
-  ```
-
+  
 ## In progress
 
+- FIXME: Apps crashes at start
 - Testing and fixing issues
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
 - Firebase configuration for all Application modules
