@@ -34,7 +34,7 @@ echo -e "${BLUE}Cleaning project for unit tests...${NC}"
 
 # Run unit tests with detailed output
 echo -e "${BLUE}Running Unit Test Suite...${NC}"
-./gradlew :Application:test \
+./gradlew :ShareConnector:test \
     --continue \
     2>&1 | tee "${REPORT_DIR}/unit_test_execution.log"
 
@@ -49,13 +49,13 @@ fi
 
 # Copy test reports
 echo -e "${BLUE}Copying test reports...${NC}"
-if [ -d "Application/build/reports/tests/testDebugUnitTest" ]; then
-    cp -r Application/build/reports/tests/testDebugUnitTest/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/reports/tests/testDebugUnitTest" ]; then
+    cp -r ShareConnector/build/reports/tests/testDebugUnitTest/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ HTML test reports copied${NC}"
 fi
 
-if [ -d "Application/build/test-results/testDebugUnitTest" ]; then
-    cp -r Application/build/test-results/testDebugUnitTest/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/test-results/testDebugUnitTest" ]; then
+    cp -r ShareConnector/build/test-results/testDebugUnitTest/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ XML test results copied${NC}"
 fi
 cat > "${REPORT_DIR}/test_summary.txt" << EOF
@@ -84,7 +84,7 @@ Files Generated:
 - TEST-*.xml: JUnit XML results (if available)
 
 Command Used:
-./gradlew test --tests "com.shareconnect.suites.UnitTestSuite" --info --stacktrace
+./gradlew :ShareConnector:test --info --stacktrace
 
 EOF
 

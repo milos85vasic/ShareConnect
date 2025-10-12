@@ -144,6 +144,8 @@ class RSSSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8891,
+                    serviceName = "rss-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("rss_sync" to "1.0")
                 )

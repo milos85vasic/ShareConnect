@@ -232,6 +232,8 @@ class PreferencesSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8893,
+                    serviceName = "preferences-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("preferences_sync" to "1.0")
                 )
