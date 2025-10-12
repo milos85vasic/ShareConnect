@@ -166,6 +166,8 @@ class BookmarkSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8892,
+                    serviceName = "bookmark-sync",
                     exposedSchemas = listOf(schema),
                     capabilities = mapOf("bookmark_sync" to "1.0")
                 )

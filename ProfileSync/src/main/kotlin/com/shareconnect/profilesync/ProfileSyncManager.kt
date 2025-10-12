@@ -361,6 +361,8 @@ class ProfileSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8888,
+                    serviceName = "profile-sync",
                     exposedSchemas = listOf(profileSchema),
                     capabilities = mapOf("profile_sync" to "1.0")
                 )

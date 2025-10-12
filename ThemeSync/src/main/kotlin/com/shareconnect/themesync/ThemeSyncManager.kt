@@ -171,6 +171,8 @@ class ThemeSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8889,
+                    serviceName = "theme-sync",
                     exposedSchemas = listOf(themeSchema),
                     capabilities = mapOf("theme_sync" to "1.0")
                 )

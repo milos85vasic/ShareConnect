@@ -244,6 +244,8 @@ class HistorySyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8890,
+                    serviceName = "history-sync",
                     exposedSchemas = listOf(historySchema),
                     capabilities = mapOf("history_sync" to "1.0")
                 )

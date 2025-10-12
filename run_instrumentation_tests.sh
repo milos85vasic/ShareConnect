@@ -121,7 +121,7 @@ echo ""
 
 # Build the app first
 echo -e "${BLUE}Building application...${NC}"
-./gradlew :Application:assembleDebug :Application:assembleDebugAndroidTest
+./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest
 
 # Clean up any previous test data to ensure test isolation
 echo -e "${BLUE}Cleaning up previous test data...${NC}"
@@ -136,7 +136,7 @@ sleep 2
 
 # Run instrumentation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Instrumentation Test Suite...${NC}"
-if ./gradlew :Application:connectedAndroidTest \
+if ./gradlew :ShareConnector:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.database,com.shareconnect.activities \
     --info \
     --stacktrace \
@@ -151,19 +151,19 @@ fi
 
 # Copy test reports
 echo -e "${BLUE}Copying test reports...${NC}"
-if [ -d "Application/build/reports/androidTests/connected" ]; then
-    cp -r Application/build/reports/androidTests/connected/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/reports/androidTests/connected" ]; then
+    cp -r ShareConnector/build/reports/androidTests/connected/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ HTML test reports copied${NC}"
 fi
 
-if [ -d "Application/build/outputs/androidTest-results/connected" ]; then
-    cp -r Application/build/outputs/androidTest-results/connected/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/outputs/androidTest-results/connected" ]; then
+    cp -r ShareConnector/build/outputs/androidTest-results/connected/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ XML test results copied${NC}"
 fi
 
 # Copy any screenshots or additional artifacts
-if [ -d "Application/build/outputs/connected_android_test_additional_output" ]; then
-    cp -r Application/build/outputs/connected_android_test_additional_output/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/outputs/connected_android_test_additional_output" ]; then
+    cp -r ShareConnector/build/outputs/connected_android_test_additional_output/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ Additional test artifacts copied${NC}"
 fi
 
@@ -193,7 +193,7 @@ Files Generated:
 - TEST-*.xml: JUnit XML results (if available)
 
 Command Used:
-./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.shareconnect.suites.InstrumentationTestSuite --info --stacktrace
+./gradlew :ShareConnector:connectedAndroidTest --info --stacktrace
 
 Requirements:
 - Connected Android device or emulator

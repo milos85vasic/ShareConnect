@@ -181,6 +181,8 @@ class LanguageSyncManager private constructor(
                     appId = appId,
                     appName = appName,
                     appVersion = appVersion,
+                    serverPort = 8894,
+                    serviceName = "language-sync",
                     exposedSchemas = listOf(languageSchema),
                     capabilities = mapOf("language_sync" to "1.0")
                 )
