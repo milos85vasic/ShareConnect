@@ -41,6 +41,7 @@
 
 - FIXME: Apps crashes at start
 - Modules naming convention and consistency
+- Sync Modules grouping (like Connectors)
 - Testing and fixing issues
 - Internal test release [1.0.0 @ 004](./Changes/1.0.0/004.md)
 - Firebase configuration for all Application modules
