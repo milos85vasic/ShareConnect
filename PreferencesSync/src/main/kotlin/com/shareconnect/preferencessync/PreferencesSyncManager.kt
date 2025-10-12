@@ -10,6 +10,7 @@ import digital.vasic.asinka.models.*
 import digital.vasic.asinka.sync.SyncChange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
+import java.net.ServerSocket
 
 class PreferencesSyncManager private constructor(
     private val context: Context,
@@ -210,6 +211,31 @@ class PreferencesSyncManager private constructor(
         @Volatile
         private var INSTANCE: PreferencesSyncManager? = null
 
+        /**
+         * Check if a port is available
+         */
+        private fun isPortAvailable(port: Int): Boolean {
+            return try {
+                ServerSocket(port).use { true }
+            } catch (e: Exception) {
+                false
+            }
+        }
+
+        /**
+         * Find an available port starting from the preferred port
+         */
+        private fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
+            var port = preferredPort
+            for (i in 0 until maxAttempts) {
+                if (isPortAvailable(port)) {
+                    return port
+                }
+                port++
+            }
+            throw IllegalStateException("No available ports found in range $preferredPort-${preferredPort + maxAttempts - 1}")
+        }
+
         fun getInstance(context: Context, appId: String, appName: String, appVersion: String): PreferencesSyncManager {
             return INSTANCE ?: synchronized(this) {
                 val schema = ObjectSchema(
@@ -229,7 +255,10 @@ class PreferencesSyncManager private constructor(
                 )
 
                 val basePort = 8890
-                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+                val preferredPort = basePort + Math.abs(appId.hashCode() % 100)
+                val uniquePort = findAvailablePort(preferredPort)
+
+                Log.d("PreferencesSyncManager", "App $appId using port $uniquePort (preferred: $preferredPort)")
 
                 val config = AsinkaConfig(
                     appId = appId,

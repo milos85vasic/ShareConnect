@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import java.net.ServerSocket
 
 class ProfileSyncManager private constructor(
     private val context: Context,
@@ -325,6 +326,31 @@ class ProfileSyncManager private constructor(
         private var INSTANCE: ProfileSyncManager? = null
 
         /**
+         * Check if a port is available
+         */
+        private fun isPortAvailable(port: Int): Boolean {
+            return try {
+                ServerSocket(port).use { true }
+            } catch (e: Exception) {
+                false
+            }
+        }
+
+        /**
+         * Find an available port starting from the preferred port
+         */
+        private fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
+            var port = preferredPort
+            for (i in 0 until maxAttempts) {
+                if (isPortAvailable(port)) {
+                    return port
+                }
+                port++
+            }
+            throw IllegalStateException("No available ports found in range $preferredPort-${preferredPort + maxAttempts - 1}")
+        }
+
+        /**
          * Get or create the singleton instance
          */
         fun getInstance(
@@ -358,7 +384,10 @@ class ProfileSyncManager private constructor(
                 )
 
                 val basePort = 8890
-                val uniquePort = basePort + Math.abs(appId.hashCode() % 100)
+                val preferredPort = basePort + Math.abs(appId.hashCode() % 100)
+                val uniquePort = findAvailablePort(preferredPort)
+
+                Log.d("ProfileSyncManager", "App $appId using port $uniquePort (preferred: $preferredPort)")
 
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,
