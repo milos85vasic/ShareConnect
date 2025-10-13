@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.shareconnect.MetadataFetcherTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.shareconnect.MetadataFetcherTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shareconnect.html">com.shareconnect</a> &gt; MetadataFetcherTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">19</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">19</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">2.537s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testContentTypeInference_MovieByExtension"></a>
+<h3 class="failures">testContentTypeInference_MovieByExtension</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testContentTypeInference_MusicByKeyword"></a>
+<h3 class="failures">testContentTypeInference_MusicByKeyword</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testContentTypeInference_SoftwareByExtension"></a>
+<h3 class="failures">testContentTypeInference_SoftwareByExtension</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testContentTypeInference_TVShowBySeason"></a>
+<h3 class="failures">testContentTypeInference_TVShowBySeason</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_BookDocument"></a>
+<h3 class="failures">testMagnetMetadataExtraction_BookDocument</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_MinimalInfo"></a>
+<h3 class="failures">testMagnetMetadataExtraction_MinimalInfo</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_MovieWithFullInfo"></a>
+<h3 class="failures">testMagnetMetadataExtraction_MovieWithFullInfo</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_MusicAlbum"></a>
+<h3 class="failures">testMagnetMetadataExtraction_MusicAlbum</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_NoDisplayName"></a>
+<h3 class="failures">testMagnetMetadataExtraction_NoDisplayName</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_OnlyInfoHash"></a>
+<h3 class="failures">testMagnetMetadataExtraction_OnlyInfoHash</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_SoftwareGame"></a>
+<h3 class="failures">testMagnetMetadataExtraction_SoftwareGame</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_TVShowWithMultipleTrackers"></a>
+<h3 class="failures">testMagnetMetadataExtraction_TVShowWithMultipleTrackers</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMagnetMetadataExtraction_WithURLEncoding"></a>
+<h3 class="failures">testMagnetMetadataExtraction_WithURLEncoding</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testMalformedMagnetUrl_ReturnsBasicMetadata"></a>
+<h3 class="failures">testMalformedMagnetUrl_ReturnsBasicMetadata</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testRegularUrl_FallsBackToGenericHandling"></a>
+<h3 class="failures">testRegularUrl_FallsBackToGenericHandling</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testSizeFormatting_Bytes"></a>
+<h3 class="failures">testSizeFormatting_Bytes</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testSizeFormatting_Kilobytes"></a>
+<h3 class="failures">testSizeFormatting_Kilobytes</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testSizeFormatting_Terabytes"></a>
+<h3 class="failures">testSizeFormatting_Terabytes</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testTorrentFileUrl_ExtractsFilename"></a>
+<h3 class="failures">testTorrentFileUrl_ExtractsFilename</h3>
+<span class="code">
+<pre>android.content.res.Resources$NotFoundException: Resource ID #0x7f040007
+	at android.content.res.ResourcesImpl.getValue(ResourcesImpl.java:226)
+	at android.content.res.Resources.getBoolean(Resources.java:1175)
+	at com.shareconnect.SCApplication.isProduction(SCApplication.kt:261)
+	at com.shareconnect.SCApplication.firebaseEnabled(SCApplication.kt:256)
+	at com.redelf.commons.application.BaseApplication.initFirebaseWithAnalytics(BaseApplication.kt:804)
+	at com.redelf.commons.application.BaseApplication.onCreate(BaseApplication.kt:669)
+	at com.shareconnect.SCApplication.onCreate(SCApplication.kt:62)
+	at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1266)
+	at org.robolectric.android.internal.RoboMonitoringInstrumentation.callApplicationOnCreate(RoboMonitoringInstrumentation.java:157)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$installAndCreateApplication$2(AndroidTestEnvironment.java:407)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:83)
+	at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:405)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:275)
+	at app//org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:52)
+	at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:272)
+	at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:198)
+	at org.robolectric.RuntimeEnvironment.lambda$getApplication$0(RuntimeEnvironment.java:75)
+	at org.robolectric.shadows.ShadowInstrumentation.runOnMainSyncNoIdle(ShadowInstrumentation.java:1183)
+	at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:75)
+	at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:242)
+	at app//org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:309)
+	at app//org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:489)
+	at app//org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at app//org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at app//org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at app//org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at app//org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at app//org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at app//org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at app//org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at app//org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base@21.0.8/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base@21.0.8/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base@21.0.8/java.lang.Thread.run(Unknown Source)
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">testContentTypeInference_MovieByExtension</td>
+<td class="failures">0.024s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testContentTypeInference_MusicByKeyword</td>
+<td class="failures">0.025s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testContentTypeInference_SoftwareByExtension</td>
+<td class="failures">0.027s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testContentTypeInference_TVShowBySeason</td>
+<td class="failures">0.036s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_BookDocument</td>
+<td class="failures">0.025s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_MinimalInfo</td>
+<td class="failures">0.028s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_MovieWithFullInfo</td>
+<td class="failures">0.026s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_MusicAlbum</td>
+<td class="failures">0.021s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_NoDisplayName</td>
+<td class="failures">2.079s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_OnlyInfoHash</td>
+<td class="failures">0.027s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_SoftwareGame</td>
+<td class="failures">0.031s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_TVShowWithMultipleTrackers</td>
+<td class="failures">0.021s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMagnetMetadataExtraction_WithURLEncoding</td>
+<td class="failures">0.023s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testMalformedMagnetUrl_ReturnsBasicMetadata</td>
+<td class="failures">0.024s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testRegularUrl_FallsBackToGenericHandling</td>
+<td class="failures">0.025s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testSizeFormatting_Bytes</td>
+<td class="failures">0.026s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testSizeFormatting_Kilobytes</td>
+<td class="failures">0.021s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testSizeFormatting_Terabytes</td>
+<td class="failures">0.024s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testTorrentFileUrl_ExtractsFilename</td>
+<td class="failures">0.024s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+No package ID 7f found for ID 0x7f040007.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Oct 13, 2025, 7:41:36 PM</p>
+</div>
+</div>
+</body>
+</html>

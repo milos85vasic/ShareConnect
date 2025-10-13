@@ -39,8 +39,8 @@ object UrlCompatibilityUtils {
                 // Streaming platforms - check this before generic HTTP/HTTPS
                 isStreamingUrl(host) && scheme in listOf("http", "https") -> UrlType.STREAMING
 
-                // Direct download URLs (HTTP/HTTPS) - fallback for non-streaming URLs
-                scheme in listOf("http", "https") -> UrlType.DIRECT_DOWNLOAD
+                // Direct download URLs (HTTP/HTTPS/FTP) - fallback for non-streaming URLs
+                scheme in listOf("http", "https", "ftp") -> UrlType.DIRECT_DOWNLOAD
 
                 else -> null
             }
@@ -49,7 +49,7 @@ object UrlCompatibilityUtils {
             return when {
                 url.startsWith("magnet:", ignoreCase = true) -> UrlType.TORRENT
                 url.endsWith(".torrent", ignoreCase = true) -> UrlType.TORRENT
-                url.startsWith("http://", ignoreCase = true) || url.startsWith("https://", ignoreCase = true) -> {
+                url.startsWith("http://", ignoreCase = true) || url.startsWith("https://", ignoreCase = true) || url.startsWith("ftp://", ignoreCase = true) -> {
                     // Simple string-based host detection as fallback
                     val isStreaming = listOf(
                         "youtube.com", "www.youtube.com", "youtu.be", "m.youtube.com",
@@ -78,16 +78,37 @@ object UrlCompatibilityUtils {
         if (host == null) return false
 
         val streamingHosts = setOf(
+            // Major platforms
             "youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be",
-            "vimeo.com", "www.vimeo.com",
-            "twitch.tv", "www.twitch.tv",
+            "vimeo.com", "www.vimeo.com", "player.vimeo.com",
+            "twitch.tv", "www.twitch.tv", "m.twitch.tv",
             "reddit.com", "www.reddit.com",
             "twitter.com", "www.twitter.com", "x.com", "www.x.com",
             "instagram.com", "www.instagram.com",
-            "facebook.com", "www.facebook.com",
+            "facebook.com", "www.facebook.com", "fb.watch",
             "soundcloud.com", "www.soundcloud.com",
             "dailymotion.com", "www.dailymotion.com",
-            "bandcamp.com", "www.bandcamp.com"
+            "bandcamp.com", "www.bandcamp.com",
+            "tiktok.com", "www.tiktok.com", "vm.tiktok.com",
+
+            // Additional streaming services supported by YTDLP/MeTube
+            "bilibili.com", "www.bilibili.com",
+            "nicovideo.jp", "www.nicovideo.jp",
+            "mixcloud.com", "www.mixcloud.com",
+            "spotify.com", "www.spotify.com", "open.spotify.com",
+            "deezer.com", "www.deezer.com",
+            "tidal.com", "www.tidal.com",
+            "music.youtube.com",
+
+            // International platforms
+            "youku.com", "www.youku.com",
+            "qq.com", "v.qq.com",
+            "iqiyi.com", "www.iqiyi.com",
+
+            // News and media sites
+            "cnn.com", "www.cnn.com",
+            "bbc.com", "www.bbc.com",
+            "australia.plus", "www.australia.plus"
         )
 
         return streamingHosts.contains(host)
@@ -114,8 +135,15 @@ object UrlCompatibilityUtils {
             }
 
             ServerProfile.TYPE_JDOWNLOADER -> {
-                // jDownloader supports direct downloads and some streaming URLs
-                urlType in listOf(UrlType.DIRECT_DOWNLOAD, UrlType.STREAMING)
+                // jDownloader is a comprehensive download manager that supports:
+                // - Direct downloads (HTTP/HTTPS/FTP)
+                // - Premium link downloaders
+                // - Container formats (DLC, RSDF, CCF, etc.)
+                // - Streaming sites
+                // - File hosting services
+                // - And many other specialized download types
+                // Basically everything except torrents
+                urlType != UrlType.TORRENT
             }
 
             else -> false
@@ -138,10 +166,10 @@ object UrlCompatibilityUtils {
      */
     fun getProfileSupportDescription(profile: ServerProfile): String {
         return when (profile.serviceType) {
-            ServerProfile.TYPE_METUBE -> "Streaming videos (YouTube, Vimeo, etc.)"
-            ServerProfile.TYPE_YTDL -> "Streaming videos and direct downloads"
+            ServerProfile.TYPE_METUBE -> "Streaming videos from 1000+ sites (YouTube, Vimeo, TikTok, etc.)"
+            ServerProfile.TYPE_YTDL -> "Streaming videos from 1000+ sites and direct downloads"
             ServerProfile.TYPE_TORRENT -> "Torrent files and magnet links"
-            ServerProfile.TYPE_JDOWNLOADER -> "Direct downloads and streaming videos"
+            ServerProfile.TYPE_JDOWNLOADER -> "Downloads from any website (streaming, direct, premium links, etc.)"
             else -> "Unknown content types"
         }
     }

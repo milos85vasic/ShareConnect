@@ -1,0 +1,1389 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Toolkit:JCommons:compileJava
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes
+> Task :Toolkit:JCommons:jar
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues
+> Task :BookmarkSync:generateDebugResources
+> Task :BookmarkSync:packageDebugResources
+> Task :BookmarkSync:processDebugNavigationResources
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:generateDebugBuildConfig
+> Task :BookmarkSync:parseDebugLocalResources
+> Task :Asinka:asinka:extractDebugProto
+> Task :BookmarkSync:generateDebugRFile
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:extractProto
+> Task :Asinka:asinka:generateDebugProto
+> Task :Asinka:asinka:generateDebugResValues
+> Task :Asinka:asinka:generateDebugResources
+> Task :Asinka:asinka:packageDebugResources
+> Task :Asinka:asinka:processDebugNavigationResources
+> Task :Asinka:asinka:parseDebugLocalResources
+> Task :Asinka:asinka:javaPreCompileDebug
+> Task :Asinka:asinka:generateDebugRFile
+> Task :BookmarkSync:javaPreCompileDebug
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig
+> Task :DesignSystem:generateDebugResValues
+> Task :DesignSystem:generateDebugResources
+> Task :DesignSystem:packageDebugResources
+> Task :DesignSystem:processDebugNavigationResources
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :DesignSystem:javaPreCompileDebug
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :HistorySync:generateDebugResValues
+> Task :DesignSystem:parseDebugLocalResources
+> Task :HistorySync:generateDebugResources
+> Task :DesignSystem:generateDebugRFile
+> Task :HistorySync:packageDebugResources
+> Task :HistorySync:processDebugNavigationResources
+> Task :HistorySync:parseDebugLocalResources
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :HistorySync:javaPreCompileDebug
+> Task :LanguageSync:generateDebugResValues
+> Task :HistorySync:generateDebugRFile
+> Task :LanguageSync:generateDebugResources
+> Task :LanguageSync:packageDebugResources
+> Task :LanguageSync:processDebugNavigationResources
+> Task :LanguageSync:parseDebugLocalResources
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:javaPreCompileDebug
+> Task :Localizations:generateDebugResValues
+> Task :LanguageSync:generateDebugRFile
+> Task :Localizations:generateDebugResources
+> Task :Localizations:packageDebugResources
+> Task :Localizations:processDebugNavigationResources
+> Task :Localizations:javaPreCompileDebug
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources
+> Task :Onboarding:generateDebugBuildConfig
+> Task :Onboarding:generateDebugResValues
+> Task :Onboarding:generateDebugResources
+> Task :Localizations:generateDebugRFile
+> Task :Onboarding:packageDebugResources
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :Onboarding:processDebugNavigationResources
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig
+> Task :ProfileSync:generateDebugResValues
+> Task :Onboarding:parseDebugLocalResources
+> Task :ProfileSync:generateDebugResources
+> Task :Onboarding:generateDebugRFile
+> Task :ProfileSync:packageDebugResources
+> Task :ProfileSync:processDebugNavigationResources
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ProfileSync:parseDebugLocalResources
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:javaPreCompileDebug
+> Task :ThemeSync:generateDebugBuildConfig
+> Task :ProfileSync:generateDebugRFile
+> Task :ThemeSync:generateDebugResValues
+> Task :ThemeSync:generateDebugResources
+> Task :ThemeSync:packageDebugResources
+> Task :ThemeSync:processDebugNavigationResources
+> Task :ThemeSync:parseDebugLocalResources
+> Task :Onboarding:javaPreCompileDebug
+> Task :ThemeSync:javaPreCompileDebug
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile
+> Task :PreferencesSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugResources
+> Task :PreferencesSync:packageDebugResources
+> Task :PreferencesSync:processDebugNavigationResources
+> Task :PreferencesSync:parseDebugLocalResources
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileDebug
+> Task :RSSSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugRFile
+> Task :RSSSync:generateDebugResources
+> Task :RSSSync:packageDebugResources
+> Task :RSSSync:processDebugNavigationResources
+> Task :RSSSync:parseDebugLocalResources
+> Task :RSSSync:javaPreCompileDebug
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:generateDebugRFile
+> Task :BookmarkSync:compileDebugLibraryResources
+> Task :DesignSystem:compileDebugLibraryResources
+> Task :HistorySync:compileDebugLibraryResources
+> Task :LanguageSync:compileDebugLibraryResources
+> Task :Localizations:compileDebugLibraryResources
+> Task :Onboarding:compileDebugLibraryResources
+> Task :PreferencesSync:compileDebugLibraryResources
+> Task :ProfileSync:compileDebugLibraryResources
+> Task :RSSSync:compileDebugLibraryResources
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :HistorySync:writeDebugAarMetadata
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :Localizations:writeDebugAarMetadata
+> Task :Onboarding:writeDebugAarMetadata
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Tests:processDebugNavigationResources
+> Task :TorrentSharingSync:processDebugNavigationResources
+> Task :Toolkit:Analytics:processDebugNavigationResources
+> Task :Toolkit:Main:processDebugNavigationResources
+> Task :ShareConnector:checkDebugAarMetadata
+> Task :ShareConnector:processDebugNavigationResources
+> Task :ShareConnector:compileDebugNavigationResources
+> Task :ShareConnector:generateDebugResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug
+> Task :ShareConnector:processDebugGoogleServices
+> Task :Tests:generateDebugResValues
+> Task :Tests:generateDebugResources
+> Task :Tests:packageDebugResources
+> Task :TorrentSharingSync:generateDebugResValues
+> Task :TorrentSharingSync:generateDebugResources
+> Task :TorrentSharingSync:packageDebugResources
+> Task :Toolkit:Analytics:generateDebugResValues
+> Task :Toolkit:Analytics:generateDebugResources
+> Task :Toolkit:Analytics:packageDebugResources
+> Task :Toolkit:Main:generateDebugResValues
+> Task :Toolkit:Main:generateDebugResources
+> Task :Toolkit:Main:packageDebugResources
+> Task :ShareConnector:mapDebugSourceSetPaths
+> Task :ShareConnector:generateDebugResources
+> Task :Asinka:asinka:kspDebugKotlin
+> Task :ShareConnector:packageDebugResources
+> Task :ShareConnector:createDebugCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksDebug
+> Task :DesignSystem:extractDeepLinksDebug
+> Task :BookmarkSync:processDebugManifest
+> Task :HistorySync:extractDeepLinksDebug
+> Task :DesignSystem:processDebugManifest
+> Task :LanguageSync:extractDeepLinksDebug
+> Task :HistorySync:processDebugManifest
+> Task :Localizations:extractDeepLinksDebug
+> Task :LanguageSync:processDebugManifest
+> Task :ShareConnector:parseDebugLocalResources
+> Task :Onboarding:extractDeepLinksDebug
+> Task :Localizations:processDebugManifest
+> Task :PreferencesSync:extractDeepLinksDebug
+> Task :Onboarding:processDebugManifest
+> Task :ProfileSync:extractDeepLinksDebug
+> Task :PreferencesSync:processDebugManifest
+> Task :RSSSync:extractDeepLinksDebug
+> Task :ProfileSync:processDebugManifest
+> Task :ShareConnector:extractDeepLinksDebug
+> Task :RSSSync:processDebugManifest
+> Task :Tests:extractDeepLinksDebug
+> Task :ThemeSync:extractDeepLinksDebug
+
+> Task :Tests:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksDebug
+> Task :ThemeSync:processDebugManifest
+> Task :Asinka:asinka:extractDeepLinksDebug
+> Task :TorrentSharingSync:processDebugManifest
+> Task :Toolkit:Analytics:extractDeepLinksDebug
+
+> Task :Asinka:asinka:processDebugManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksDebug
+> Task :Toolkit:Analytics:processDebugManifest
+> Task :Tests:compileDebugLibraryResources
+
+> Task :Toolkit:Main:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :Tests:parseDebugLocalResources
+> Task :ThemeSync:compileDebugLibraryResources
+> Task :ShareConnector:mergeDebugResources
+
+> Task :ShareConnector:processDebugMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :ShareConnector:processDebugManifest
+> Task :Tests:generateDebugRFile
+> Task :TorrentSharingSync:compileDebugLibraryResources
+> Task :TorrentSharingSync:parseDebugLocalResources
+> Task :Asinka:asinka:compileDebugLibraryResources
+> Task :TorrentSharingSync:generateDebugRFile
+> Task :Toolkit:Analytics:compileDebugLibraryResources
+> Task :Toolkit:Analytics:parseDebugLocalResources
+> Task :Toolkit:Main:compileDebugLibraryResources
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Main:parseDebugLocalResources
+> Task :Toolkit:Main:generateReleaseResValues
+> Task :Toolkit:Analytics:generateDebugRFile
+> Task :Toolkit:Main:generateReleaseResources
+> Task :Toolkit:Main:generateDebugRFile
+> Task :Toolkit:Main:packageReleaseResources
+> Task :Toolkit:Main:processReleaseNavigationResources
+> Task :Toolkit:Main:parseReleaseLocalResources
+> Task :Tests:javaPreCompileDebug
+> Task :Toolkit:Main:javaPreCompileDebug
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:generateReleaseRFile
+> Task :TorrentSharingSync:javaPreCompileDebug
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Analytics:javaPreCompileDebug
+> Task :ShareConnector:preDebugUnitTestBuild UP-TO-DATE
+
+> Task :DesignSystem:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:javaPreCompileDebug
+> Task :DesignSystem:compileDebugJavaWithJavac
+> Task :DesignSystem:bundleLibRuntimeToJarDebug
+> Task :DesignSystem:processDebugJavaRes
+> Task :ShareConnector:processDebugManifestForPackage
+> Task :DesignSystem:bundleLibCompileToJarDebug
+> Task :BookmarkSync:preReleaseBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebugUnitTest
+> Task :BookmarkSync:generateReleaseResValues
+> Task :BookmarkSync:generateReleaseResources
+> Task :BookmarkSync:packageReleaseResources
+> Task :BookmarkSync:processReleaseNavigationResources
+> Task :Asinka:asinka:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:generateReleaseBuildConfig
+> Task :BookmarkSync:parseReleaseLocalResources
+> Task :Asinka:asinka:extractIncludeReleaseProto
+> Task :Asinka:asinka:extractReleaseProto
+> Task :BookmarkSync:generateReleaseRFile
+
+> Task :Asinka:asinka:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :Asinka:asinka:generateReleaseProto
+> Task :Toolkit:Main:kspReleaseKotlin
+> Task :ShareConnector:processDebugResources
+> Task :Asinka:asinka:compileDebugJavaWithJavac
+> Task :Asinka:asinka:bundleLibCompileToJarDebug
+> Task :Asinka:asinka:processDebugJavaRes
+> Task :Asinka:asinka:generateReleaseResValues
+> Task :Asinka:asinka:generateReleaseResources
+> Task :Asinka:asinka:packageReleaseResources
+> Task :Asinka:asinka:processReleaseNavigationResources
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug
+> Task :Asinka:asinka:parseReleaseLocalResources
+> Task :Asinka:asinka:javaPreCompileRelease
+> Task :Asinka:asinka:generateReleaseRFile
+> Task :BookmarkSync:javaPreCompileRelease
+> Task :DesignSystem:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:generateReleaseBuildConfig
+> Task :DesignSystem:generateReleaseResValues
+> Task :DesignSystem:generateReleaseResources
+> Task :DesignSystem:packageReleaseResources
+> Task :DesignSystem:processReleaseNavigationResources
+> Task :HistorySync:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:generateReleaseResValues
+> Task :DesignSystem:javaPreCompileRelease
+> Task :HistorySync:generateReleaseResources
+> Task :DesignSystem:parseReleaseLocalResources
+> Task :HistorySync:packageReleaseResources
+> Task :HistorySync:processReleaseNavigationResources
+> Task :DesignSystem:generateReleaseRFile
+> Task :HistorySync:parseReleaseLocalResources
+> Task :LanguageSync:preReleaseBuild UP-TO-DATE
+> Task :LanguageSync:generateReleaseResValues
+> Task :HistorySync:generateReleaseRFile
+> Task :LanguageSync:generateReleaseResources
+> Task :HistorySync:javaPreCompileRelease
+> Task :LanguageSync:packageReleaseResources
+> Task :LanguageSync:processReleaseNavigationResources
+> Task :LanguageSync:parseReleaseLocalResources
+> Task :LanguageSync:javaPreCompileRelease
+> Task :Localizations:preReleaseBuild UP-TO-DATE
+> Task :Localizations:generateReleaseResValues
+> Task :LanguageSync:generateReleaseRFile
+> Task :Localizations:generateReleaseResources
+> Task :Localizations:packageReleaseResources
+> Task :Localizations:processReleaseNavigationResources
+> Task :Localizations:processReleaseJavaRes NO-SOURCE
+> Task :Onboarding:preReleaseBuild UP-TO-DATE
+> Task :Localizations:javaPreCompileRelease
+> Task :Localizations:parseReleaseLocalResources
+> Task :Onboarding:generateReleaseBuildConfig
+> Task :Onboarding:generateReleaseResValues
+> Task :Localizations:generateReleaseRFile
+> Task :Onboarding:generateReleaseResources
+> Task :Localizations:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarRelease
+> Task :Onboarding:packageReleaseResources
+> Task :Onboarding:processReleaseNavigationResources
+> Task :ProfileSync:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:generateReleaseBuildConfig
+> Task :Onboarding:parseReleaseLocalResources
+> Task :ProfileSync:generateReleaseResValues
+> Task :Onboarding:generateReleaseRFile
+> Task :ProfileSync:generateReleaseResources
+> Task :ProfileSync:packageReleaseResources
+> Task :ProfileSync:processReleaseNavigationResources
+> Task :ThemeSync:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:generateReleaseBuildConfig
+> Task :ProfileSync:parseReleaseLocalResources
+> Task :ProfileSync:javaPreCompileRelease
+> Task :ThemeSync:generateReleaseResValues
+> Task :ThemeSync:generateReleaseResources
+> Task :ProfileSync:generateReleaseRFile
+> Task :ThemeSync:packageReleaseResources
+> Task :ThemeSync:processReleaseNavigationResources
+> Task :ThemeSync:parseReleaseLocalResources
+> Task :ThemeSync:javaPreCompileRelease
+> Task :ThemeSync:generateReleaseRFile
+> Task :PreferencesSync:preReleaseBuild UP-TO-DATE
+> Task :Onboarding:javaPreCompileRelease
+> Task :PreferencesSync:generateReleaseResValues
+> Task :PreferencesSync:generateReleaseResources
+> Task :PreferencesSync:packageReleaseResources
+> Task :PreferencesSync:processReleaseNavigationResources
+> Task :PreferencesSync:parseReleaseLocalResources
+> Task :PreferencesSync:javaPreCompileRelease
+> Task :RSSSync:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:generateReleaseResValues
+> Task :RSSSync:generateReleaseResources
+> Task :PreferencesSync:generateReleaseRFile
+> Task :RSSSync:packageReleaseResources
+> Task :RSSSync:processReleaseNavigationResources
+> Task :RSSSync:parseReleaseLocalResources
+> Task :RSSSync:generateReleaseRFile
+> Task :RSSSync:javaPreCompileRelease
+> Task :ShareConnector:buildKotlinToolingMetadata
+> Task :Localizations:bundleLibCompileToJarRelease
+> Task :BookmarkSync:compileReleaseLibraryResources
+> Task :HistorySync:compileReleaseLibraryResources
+> Task :DesignSystem:compileReleaseLibraryResources
+> Task :LanguageSync:compileReleaseLibraryResources
+> Task :Localizations:compileReleaseLibraryResources
+> Task :PreferencesSync:compileReleaseLibraryResources
+> Task :Onboarding:compileReleaseLibraryResources
+> Task :ProfileSync:compileReleaseLibraryResources
+> Task :RSSSync:compileReleaseLibraryResources
+> Task :BookmarkSync:writeReleaseAarMetadata
+> Task :DesignSystem:writeReleaseAarMetadata
+> Task :HistorySync:writeReleaseAarMetadata
+> Task :LanguageSync:writeReleaseAarMetadata
+> Task :Localizations:writeReleaseAarMetadata
+> Task :Onboarding:writeReleaseAarMetadata
+> Task :PreferencesSync:writeReleaseAarMetadata
+> Task :ShareConnector:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:writeReleaseAarMetadata
+> Task :Tests:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:writeReleaseAarMetadata
+> Task :Tests:writeReleaseAarMetadata
+> Task :TorrentSharingSync:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:writeReleaseAarMetadata
+> Task :TorrentSharingSync:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:writeReleaseAarMetadata
+> Task :Toolkit:Main:writeReleaseAarMetadata
+> Task :Tests:processReleaseNavigationResources
+> Task :TorrentSharingSync:processReleaseNavigationResources
+> Task :Toolkit:Analytics:processReleaseNavigationResources
+> Task :ShareConnector:checkReleaseAarMetadata
+> Task :ShareConnector:processReleaseNavigationResources
+> Task :ShareConnector:compileReleaseNavigationResources
+> Task :ShareConnector:generateReleaseResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdRelease
+> Task :ShareConnector:extractReleaseVersionControlInfo
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoRelease
+> Task :ShareConnector:processReleaseGoogleServices
+> Task :Tests:generateReleaseResValues
+> Task :Tests:generateReleaseResources
+> Task :Tests:packageReleaseResources
+> Task :TorrentSharingSync:generateReleaseResValues
+> Task :TorrentSharingSync:generateReleaseResources
+> Task :TorrentSharingSync:packageReleaseResources
+> Task :Toolkit:Analytics:generateReleaseResValues
+> Task :Toolkit:Analytics:generateReleaseResources
+> Task :Toolkit:Analytics:packageReleaseResources
+> Task :ShareConnector:mapReleaseSourceSetPaths
+> Task :ShareConnector:generateReleaseResources
+> Task :Toolkit:Main:kspDebugKotlin
+> Task :Asinka:asinka:kspReleaseKotlin
+> Task :LanguageSync:kspDebugKotlin
+> Task :ShareConnector:packageReleaseResources
+> Task :ShareConnector:createReleaseCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksRelease
+> Task :DesignSystem:extractDeepLinksRelease
+> Task :HistorySync:extractDeepLinksRelease
+> Task :BookmarkSync:processReleaseManifest
+> Task :DesignSystem:processReleaseManifest
+> Task :LanguageSync:extractDeepLinksRelease
+> Task :HistorySync:processReleaseManifest
+> Task :LanguageSync:processReleaseManifest
+> Task :Localizations:extractDeepLinksRelease
+> Task :ShareConnector:parseReleaseLocalResources
+> Task :Localizations:processReleaseManifest
+> Task :Onboarding:extractDeepLinksRelease
+> Task :PreferencesSync:extractDeepLinksRelease
+> Task :Onboarding:processReleaseManifest
+> Task :ProfileSync:extractDeepLinksRelease
+> Task :PreferencesSync:processReleaseManifest
+> Task :ShareConnector:mergeReleaseResources
+> Task :RSSSync:extractDeepLinksRelease
+> Task :ProfileSync:processReleaseManifest
+> Task :RSSSync:processReleaseManifest
+> Task :ShareConnector:extractDeepLinksRelease
+> Task :Tests:extractDeepLinksRelease
+> Task :ThemeSync:extractDeepLinksRelease
+
+> Task :Tests:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksRelease
+> Task :ThemeSync:processReleaseManifest
+> Task :Asinka:asinka:extractDeepLinksRelease
+> Task :TorrentSharingSync:processReleaseManifest
+> Task :Toolkit:Analytics:extractDeepLinksRelease
+
+> Task :Asinka:asinka:processReleaseManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksRelease
+> Task :Toolkit:Analytics:processReleaseManifest
+> Task :Tests:compileReleaseLibraryResources
+> Task :ThemeSync:compileReleaseLibraryResources
+
+> Task :Toolkit:Main:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :Tests:parseReleaseLocalResources
+> Task :TorrentSharingSync:compileReleaseLibraryResources
+
+> Task :ShareConnector:processReleaseMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :ShareConnector:processReleaseManifest
+> Task :ShareConnector:processReleaseManifestForPackage
+> Task :Asinka:asinka:compileReleaseLibraryResources
+> Task :Tests:generateReleaseRFile
+> Task :Toolkit:Analytics:compileReleaseLibraryResources
+> Task :TorrentSharingSync:parseReleaseLocalResources
+> Task :Toolkit:Analytics:parseReleaseLocalResources
+> Task :TorrentSharingSync:generateReleaseRFile
+> Task :Toolkit:Main:compileReleaseLibraryResources
+> Task :BookmarkSync:kspDebugKotlin
+> Task :Toolkit:Analytics:generateReleaseRFile
+> Task :Toolkit:Main:javaPreCompileRelease
+> Task :Tests:javaPreCompileRelease
+> Task :TorrentSharingSync:javaPreCompileRelease
+> Task :Toolkit:Analytics:javaPreCompileRelease
+> Task :ShareConnector:preReleaseUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileRelease
+> Task :ShareConnector:javaPreCompileReleaseUnitTest
+
+> Task :LanguageSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :LanguageSync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:processDebugJavaRes
+> Task :LanguageSync:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:kspDebugKotlin
+> Task :PreferencesSync:kspDebugKotlin
+> Task :HistorySync:kspDebugKotlin
+> Task :ThemeSync:kspDebugKotlin
+> Task :ProfileSync:kspDebugKotlin
+> Task :ShareConnector:processReleaseResources
+> Task :RSSSync:kspDebugKotlin
+
+> Task :TorrentSharingSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:processDebugJavaRes
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug
+> Task :BookmarkSync:compileDebugKotlin
+> Task :BookmarkSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:processDebugJavaRes
+> Task :BookmarkSync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:compileDebugKotlin
+> Task :PreferencesSync:compileDebugJavaWithJavac NO-SOURCE
+
+> Task :DesignSystem:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 'static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug
+> Task :PreferencesSync:processDebugJavaRes
+> Task :PreferencesSync:bundleLibCompileToJarDebug
+
+> Task :ThemeSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :DesignSystem:compileReleaseJavaWithJavac
+> Task :RSSSync:compileDebugKotlin
+
+> Task :Asinka:asinka:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :ThemeSync:compileDebugJavaWithJavac
+
+> Task :ProfileSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ThemeSync:bundleLibCompileToJarDebug
+> Task :ProfileSync:compileDebugJavaWithJavac
+
+> Task :HistorySync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileDebugJavaWithJavac NO-SOURCE
+> Task :ProfileSync:bundleLibCompileToJarDebug
+> Task :ProfileSync:bundleLibRuntimeToJarDebug
+> Task :HistorySync:bundleLibRuntimeToJarDebug
+> Task :HistorySync:processDebugJavaRes
+> Task :ProfileSync:processDebugJavaRes
+> Task :RSSSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :RSSSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:processDebugJavaRes
+> Task :RSSSync:bundleLibCompileToJarDebug
+> Task :HistorySync:bundleLibCompileToJarDebug
+> Task :ThemeSync:bundleLibRuntimeToJarDebug
+> Task :ThemeSync:processDebugJavaRes
+> Task :Asinka:asinka:compileReleaseJavaWithJavac
+> Task :DesignSystem:bundleLibRuntimeToJarRelease
+> Task :DesignSystem:processReleaseJavaRes
+> Task :DesignSystem:bundleLibCompileToJarRelease
+> Task :Asinka:asinka:bundleLibCompileToJarRelease
+> Task :Asinka:asinka:processReleaseJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarRelease
+> Task :Onboarding:compileDebugKotlin
+> Task :Onboarding:compileDebugJavaWithJavac
+> Task :Onboarding:bundleLibRuntimeToJarDebug
+> Task :Onboarding:processDebugJavaRes
+> Task :Onboarding:bundleLibCompileToJarDebug
+> Task :LanguageSync:kspReleaseKotlin
+> Task :BookmarkSync:kspReleaseKotlin
+> Task :TorrentSharingSync:kspReleaseKotlin
+
+> Task :LanguageSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :LanguageSync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:processReleaseJavaRes
+> Task :LanguageSync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:kspReleaseKotlin
+> Task :ProfileSync:kspReleaseKotlin
+> Task :ThemeSync:kspReleaseKotlin
+> Task :HistorySync:kspReleaseKotlin
+> Task :RSSSync:kspReleaseKotlin
+
+> Task :TorrentSharingSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibCompileToJarRelease
+> Task :TorrentSharingSync:bundleLibRuntimeToJarRelease
+> Task :TorrentSharingSync:processReleaseJavaRes
+> Task :PreferencesSync:compileReleaseKotlin
+> Task :PreferencesSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :PreferencesSync:bundleLibRuntimeToJarRelease
+> Task :PreferencesSync:processReleaseJavaRes
+> Task :PreferencesSync:bundleLibCompileToJarRelease
+> Task :BookmarkSync:compileReleaseKotlin
+> Task :BookmarkSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:processReleaseJavaRes
+> Task :BookmarkSync:bundleLibCompileToJarRelease
+
+> Task :ThemeSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ThemeSync:compileReleaseJavaWithJavac
+> Task :ThemeSync:bundleLibCompileToJarRelease
+> Task :ThemeSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:processReleaseJavaRes
+
+> Task :ProfileSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :RSSSync:compileReleaseKotlin
+> Task :ProfileSync:compileReleaseJavaWithJavac
+> Task :ProfileSync:processReleaseJavaRes
+> Task :ProfileSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:bundleLibCompileToJarRelease
+> Task :RSSSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :RSSSync:processReleaseJavaRes
+> Task :RSSSync:bundleLibRuntimeToJarRelease
+> Task :RSSSync:bundleLibCompileToJarRelease
+
+> Task :HistorySync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibRuntimeToJarRelease
+> Task :HistorySync:processReleaseJavaRes
+> Task :HistorySync:bundleLibCompileToJarRelease
+> Task :Onboarding:compileReleaseKotlin
+> Task :Onboarding:compileReleaseJavaWithJavac
+> Task :Onboarding:bundleLibRuntimeToJarRelease
+> Task :Onboarding:processReleaseJavaRes
+> Task :Onboarding:bundleLibCompileToJarRelease
+
+> Task :Toolkit:Main:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileDebugJavaWithJavac
+> Task :Toolkit:Main:processDebugJavaRes
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Main:bundleLibCompileToJarDebug
+> Task :Toolkit:Main:compileReleaseJavaWithJavac
+> Task :Toolkit:Main:processReleaseJavaRes
+> Task :Toolkit:Main:bundleLibCompileToJarRelease
+> Task :Toolkit:Main:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:compileDebugKotlin
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Analytics:processDebugJavaRes
+> Task :Tests:compileDebugKotlin
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibCompileToJarDebug
+> Task :Tests:bundleLibRuntimeToJarDebug
+> Task :Tests:processDebugJavaRes
+> Task :Toolkit:Analytics:compileReleaseKotlin
+> Task :Tests:compileReleaseKotlin
+> Task :Tests:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibRuntimeToJarRelease
+> Task :Tests:processReleaseJavaRes
+> Task :Tests:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:processReleaseJavaRes
+> Task :ShareConnector:kspDebugKotlin
+> Task :ShareConnector:kspReleaseKotlin
+
+> Task :ShareConnector:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:51:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:52:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:624:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:44:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:45:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:168:17 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:293:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:108:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:245:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:284:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:43:20 'fun setDecorFitsSystemWindows(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:139:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SCApplication.kt:236:14 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:93:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:141:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:306:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:357:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:441:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:488:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:533:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:633:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:679:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:59:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:75:19 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:97:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:102:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:266:17 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:829:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SplashActivity.kt:26:9 'constructor(): Handler' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:30:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:31:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:125:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:56:26 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:91:17 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:772:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:776:19 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/database/HistoryRepository.kt:23:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/database/ThemeRepository.kt:23:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ShareConnector:compileDebugJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processDebugJavaRes
+
+> Task :ShareConnector:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:51:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:52:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:624:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:44:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:45:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:168:17 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:293:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:108:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:245:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:284:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:43:20 'fun setDecorFitsSystemWindows(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:139:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SCApplication.kt:236:14 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:93:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:141:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:306:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:357:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:441:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:488:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:533:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:633:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ServiceApiClient.kt:679:49 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:59:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:75:19 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:97:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:102:9 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:266:17 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:829:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SplashActivity.kt:26:9 'constructor(): Handler' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:30:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:31:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:125:9 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:56:26 'fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:91:17 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:772:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:776:19 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/database/HistoryRepository.kt:23:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/database/ThemeRepository.kt:23:18 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ShareConnector:compileReleaseJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processReleaseJavaRes
+> Task :ShareConnector:bundleDebugClassesToCompileJar
+> Task :ShareConnector:bundleDebugClassesToRuntimeJar
+> Task :ShareConnector:bundleReleaseClassesToCompileJar
+> Task :ShareConnector:bundleReleaseClassesToRuntimeJar
+> Task :ShareConnector:kspDebugUnitTestKotlin
+> Task :ShareConnector:kspReleaseUnitTestKotlin
+
+> Task :ShareConnector:compileDebugUnitTestKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/api/ServiceApiClientTest.kt:25:64 'static field application: Application!' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processDebugUnitTestJavaRes
+
+> Task :ShareConnector:compileReleaseUnitTestKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/api/ServiceApiClientTest.kt:25:64 'static field application: Application!' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:testDebugUnitTest
+
+MetadataFetcherTest > testRegularUrl_FallsBackToGenericHandling FAILED
+    java.lang.IllegalStateException at FirebaseApp.java:179
+        Caused by: java.lang.IllegalStateException at FirebaseApp.java:179
+
+LayoutResponsivenessTest > testSmallTabletLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:82
+
+LayoutResponsivenessTest > testViewIdsConsistencyAcrossLayouts FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:160
+
+LayoutResponsivenessTest > testFoldableLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:116
+
+LayoutResponsivenessTest > testExtraLargeScreenLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:133
+
+LayoutResponsivenessTest > testLayoutInflationWithDifferentOrientations FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:150
+
+LayoutResponsivenessTest > testLargePhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:65
+
+LayoutResponsivenessTest > testLargeTabletLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:99
+
+LayoutResponsivenessTest > testSmallPhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:31
+
+LayoutResponsivenessTest > testNormalPhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:48
+
+MainActivityUnitTest > testHistoryButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testSettingsButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testOpenMeTubeButtonWithoutDefaultProfile FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testActivityCreation FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testOpenMeTubeButtonWithDefaultProfile FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testActivityLifecycle FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testFabAddButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testToolbarIsDisplayed FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+SplashScreenTest > testDarkThemeSplashScreenUsesCorrectLogo FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:48
+
+SplashScreenTest > testLightThemeSplashScreenUsesCorrectLogo FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:27
+
+SplashScreenTest > testSplashScreenLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:69
+
+ThemeRepositoryUnitTest > testInitializeDefaultThemes FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:145
+
+ThemeRepositoryUnitTest > testGetDefaultTheme FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:74
+
+ThemeRepositoryUnitTest > testSetDefaultTheme FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:135
+
+ProfileManagerUnitTest > testClearDefaultProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testHasProfilesWithEmptyProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testSetDefaultProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileReturnsNullWhenNoProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAllTorrentClientTypes FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileFallsBackToSharedPreferences FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testHasProfilesWithExistingProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileReturnsRepositoryDefault FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testUpdateProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAllServiceTypes FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testProfileManagerInitialization FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileFallsBackToFirstProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAddProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDeleteProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfilesByServiceType FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfilesEmpty FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+TorrentAppHelperTest > testGetAppName_returnsCorrectNames FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTransmissionConnectInstalled_returnsTrueWhenInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsQBitConnectForQBitTorrentProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetSuggestedAppForProfile_returnsCorrectApp FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsQBitConnectInstalled_returnsTrueWhenInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTorrentFile_detectsTorrentFiles FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsTrueWhenTransmissionConnectInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsQBitConnectInstalled_returnsFalseWhenNotInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsTransmissionConnectForTransmissionProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsNullForNonTorrentProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetAppPackageForClientType_returnsCorrectPackage FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTorrentContent_detectsTorrentContent FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsTrueWhenQBitConnectInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsMagnetLink_detectsMagnetLinks FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsFalseWhenNoneInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+UrlCompatibilityUtilsTest > testDetectUrlType_DirectDownloadUrls FAILED
+    java.lang.AssertionError at UrlCompatibilityUtilsTest.kt:117
+
+UrlCompatibilityUtilsTest > testDetectUrlType_StreamingUrls FAILED
+    java.lang.AssertionError at UrlCompatibilityUtilsTest.kt:27
+
+191 tests completed, 58 failed
+
+> Task :ShareConnector:testDebugUnitTest FAILED
+> Task :ShareConnector:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processReleaseUnitTestJavaRes
+
+> Task :ShareConnector:testReleaseUnitTest
+
+MetadataFetcherTest > testRegularUrl_FallsBackToGenericHandling FAILED
+    java.lang.IllegalStateException at FirebaseApp.java:179
+        Caused by: java.lang.IllegalStateException at FirebaseApp.java:179
+
+LayoutResponsivenessTest > testSmallTabletLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:82
+
+LayoutResponsivenessTest > testViewIdsConsistencyAcrossLayouts FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:160
+
+LayoutResponsivenessTest > testFoldableLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:116
+
+LayoutResponsivenessTest > testExtraLargeScreenLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:133
+
+LayoutResponsivenessTest > testLayoutInflationWithDifferentOrientations FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:150
+
+LayoutResponsivenessTest > testLargePhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:65
+
+LayoutResponsivenessTest > testLargeTabletLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:99
+
+LayoutResponsivenessTest > testSmallPhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:31
+
+LayoutResponsivenessTest > testNormalPhoneLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at LayoutResponsivenessTest.kt:48
+
+MainActivityUnitTest > testHistoryButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testSettingsButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testOpenMeTubeButtonWithoutDefaultProfile FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testActivityCreation FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testOpenMeTubeButtonWithDefaultProfile FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testActivityLifecycle FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testFabAddButtonExists FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+MainActivityUnitTest > testToolbarIsDisplayed FAILED
+    android.content.res.Resources$NotFoundException at MainActivityUnitTest.kt:44
+
+SplashScreenTest > testDarkThemeSplashScreenUsesCorrectLogo FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:48
+
+SplashScreenTest > testLightThemeSplashScreenUsesCorrectLogo FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:27
+
+SplashScreenTest > testSplashScreenLayoutInflation FAILED
+    android.content.res.Resources$NotFoundException at SplashScreenTest.kt:69
+
+ThemeRepositoryUnitTest > testInitializeDefaultThemes FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:145
+
+ThemeRepositoryUnitTest > testGetDefaultTheme FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:74
+
+ThemeRepositoryUnitTest > testSetDefaultTheme FAILED
+    android.content.res.Resources$NotFoundException at ThemeRepositoryUnitTest.kt:135
+
+ProfileManagerUnitTest > testClearDefaultProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testHasProfilesWithEmptyProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testSetDefaultProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileReturnsNullWhenNoProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAllTorrentClientTypes FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileFallsBackToSharedPreferences FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testHasProfilesWithExistingProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileReturnsRepositoryDefault FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testUpdateProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAllServiceTypes FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testProfileManagerInitialization FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfiles FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDefaultProfileFallsBackToFirstProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testAddProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testDeleteProfile FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfilesByServiceType FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+ProfileManagerUnitTest > testGetProfilesEmpty FAILED
+    java.lang.ClassCastException at ProfileManagerUnitTest.kt:51
+
+TorrentAppHelperTest > testGetAppName_returnsCorrectNames FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTransmissionConnectInstalled_returnsTrueWhenInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsQBitConnectForQBitTorrentProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetSuggestedAppForProfile_returnsCorrectApp FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsQBitConnectInstalled_returnsTrueWhenInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTorrentFile_detectsTorrentFiles FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsTrueWhenTransmissionConnectInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsQBitConnectInstalled_returnsFalseWhenNotInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsTransmissionConnectForTransmissionProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetInstalledAppForProfile_returnsNullForNonTorrentProfile FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testGetAppPackageForClientType_returnsCorrectPackage FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsTorrentContent_detectsTorrentContent FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsTrueWhenQBitConnectInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testIsMagnetLink_detectsMagnetLinks FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+TorrentAppHelperTest > testHasAnyTorrentAppInstalled_returnsFalseWhenNoneInstalled FAILED
+    org.mockito.exceptions.misusing.MissingMethodInvocationException at TorrentAppHelperTest.kt:37
+
+UrlCompatibilityUtilsTest > testDetectUrlType_DirectDownloadUrls FAILED
+    java.lang.AssertionError at UrlCompatibilityUtilsTest.kt:117
+
+UrlCompatibilityUtilsTest > testDetectUrlType_StreamingUrls FAILED
+    java.lang.AssertionError at UrlCompatibilityUtilsTest.kt:27
+
+191 tests completed, 58 failed
+
+> Task :ShareConnector:testReleaseUnitTest FAILED
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:testReleaseUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/build/reports/tests/testReleaseUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 46s
+557 actionable tasks: 557 executed

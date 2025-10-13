@@ -14,6 +14,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
+@org.robolectric.annotation.Config(sdk = [33], application = android.app.Application::class)
 class ThemeRepositoryUnitTest {
 
     private lateinit var mockThemeDao: ThemeDao

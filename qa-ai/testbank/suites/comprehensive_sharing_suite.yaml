@@ -1,0 +1,81 @@
+id: "TS_SHARING_001"
+name: "Comprehensive URL Sharing Test Suite"
+description: "Complete test suite for all URL sharing scenarios across different services"
+
+test_cases:
+  # Basic sharing functionality
+  - "TC_UI_002"        # Basic Share URL Functionality
+  - "TC_UI_003"        # Comprehensive URL Sharing Test Suite
+
+  # Profile creation tests
+  - "TC_PROF_001"      # Create MeTube Profile
+  - "TC_PROF_002"      # Create qBittorrent Profile
+  - "TC_PROF_004"      # Create JDownloader Profile
+  - "TC_PROF_005"      # Create YT-DLP Profile
+
+  # Streaming service tests
+  - "TC_STREAM_001"    # YouTube Sharing
+  - "TC_STREAM_002"    # TikTok Sharing
+  - "TC_STREAM_003"    # Vimeo Sharing
+  - "TC_STREAM_004"    # SoundCloud Sharing
+  - "TC_STREAM_005"    # Spotify Sharing
+  - "TC_STREAM_006"    # Twitch Sharing
+  - "TC_STREAM_007"    # Instagram Sharing
+  - "TC_STREAM_008"    # Twitter/X Sharing
+
+  # File hosting tests
+  - "TC_FILEHOST_001"  # MediaFire Sharing
+  - "TC_FILEHOST_002"  # Mega.nz Sharing
+  - "TC_FILEHOST_003"  # Google Drive Sharing
+  - "TC_FILEHOST_004"  # Dropbox Sharing
+  - "TC_FILEHOST_005"  # OneDrive Sharing
+
+  # Premium link tests
+  - "TC_PREMIUM_001"   # Rapidgator Sharing
+  - "TC_PREMIUM_002"   # Uploaded.net Sharing
+  - "TC_PREMIUM_003"   # Nitroflare Sharing
+  - "TC_PREMIUM_004"   # FileFactory Sharing
+
+  # Torrent tests
+  - "TC_TORRENT_001"   # Magnet Link Sharing
+  - "TC_TORRENT_002"   # Torrent File Sharing
+  - "TC_TORRENT_003"   # Multiple Torrent Clients
+
+  # Archive and container tests
+  - "TC_ARCHIVE_001"   # RAR Archive Sharing
+  - "TC_ARCHIVE_002"   # 7Z Archive Sharing
+  - "TC_ARCHIVE_003"   # ZIP Archive Sharing
+  - "TC_CONTAINER_001" # DLC Container Sharing
+  - "TC_CONTAINER_002" # RSDF Container Sharing
+  - "TC_CONTAINER_003" # CCF Container Sharing
+
+  # Direct download tests
+  - "TC_DIRECT_001"    # ZIP File Sharing
+  - "TC_DIRECT_002"    # EXE File Sharing
+  - "TC_DIRECT_003"    # PDF File Sharing
+  - "TC_DIRECT_004"    # Image File Sharing
+  - "TC_DIRECT_005"    # Video File Sharing
+
+setup_steps:
+  - "Clear app data"
+  - "Ensure network connectivity"
+  - "Start emulator/device"
+  - "Create all required profiles (MeTube, YT-DLP, JDownloader, qBittorrent, Transmission, uTorrent)"
+  - "Verify all services are running and accessible"
+
+teardown_steps:
+  - "Capture final screenshots"
+  - "Collect logs"
+  - "Generate detailed sharing report"
+  - "Verify no crashes occurred"
+  - "Check service connectivity"
+
+expected_results:
+  - "All streaming URLs are properly shared to appropriate services"
+  - "All file hosting URLs are properly downloaded"
+  - "All premium links are properly handled by JDownloader"
+  - "All torrent URLs are properly added to torrent clients"
+  - "All archive files are properly extracted and downloaded"
+  - "All direct downloads complete successfully"
+  - "No sharing failures or crashes occur"
+  - "All services remain accessible after testing"

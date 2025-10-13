@@ -2,7 +2,10 @@ package com.shareconnect
 
 import android.content.Context
 import kotlinx.coroutines.runBlocking
+import okhttp3.Call
 import okhttp3.OkHttpClient
+import okhttp3.Response
+import okhttp3.ResponseBody
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -12,7 +15,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(manifest = Config.NONE)
+@Config(sdk = [33], application = SCApplication::class, manifest = Config.NONE)
 class MetadataFetcherTest {
 
     private lateinit var metadataFetcher: MetadataFetcher
@@ -29,6 +32,19 @@ class MetadataFetcherTest {
         mockClient = mock<OkHttpClient>()
 
         metadataFetcher = MetadataFetcher(mockContext, mockClient)
+    }
+
+    private fun mockHttpCall(responseBody: String? = null, isSuccessful: Boolean = true) {
+        val mockResponse = mock<Response>().apply {
+            whenever(isSuccessful).thenReturn(isSuccessful)
+            whenever(body).thenReturn(mock<ResponseBody>().apply {
+                whenever(string()).thenReturn(responseBody ?: "<html><head><title>Test Page</title></head><body></body></html>")
+            })
+        }
+        val mockCall = mock<Call>().apply {
+            whenever(execute()).thenReturn(mockResponse)
+        }
+        whenever(mockClient.newCall(any())).thenReturn(mockCall)
     }
 
     @Test
@@ -226,8 +242,17 @@ class MetadataFetcherTest {
     fun testRegularUrl_FallsBackToGenericHandling() = runBlocking {
         val regularUrl = "http://example.com/some-page"
 
-        // This would normally try to fetch the page, but will fail in unit tests
-        // The error handling should provide fallback metadata
+        // Mock HTTP call to fail (network error)
+        val mockResponse = mock<Response>().apply {
+            whenever(isSuccessful).thenReturn(false)
+            whenever(code).thenReturn(404)
+        }
+        val mockCall = mock<Call>().apply {
+            whenever(execute()).thenReturn(mockResponse)
+        }
+        whenever(mockClient.newCall(any())).thenReturn(mockCall)
+
+        // This should fall back to generic handling
         val metadata = metadataFetcher.fetchMetadata(regularUrl)
 
         assertNotNull(metadata.title)
