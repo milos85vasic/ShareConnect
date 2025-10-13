@@ -163,6 +163,12 @@ android {
             java.srcDirs += "build/generated/ksp/release/kotlin"
         }
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 // Force resolution strategy for consistent Hamcrest versions

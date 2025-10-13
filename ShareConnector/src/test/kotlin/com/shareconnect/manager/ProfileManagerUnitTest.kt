@@ -18,25 +18,26 @@ import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.kotlin.any
 import org.mockito.kotlin.verify
+import org.mockito.ArgumentMatchers.anyInt
+import org.mockito.ArgumentMatchers.anyString
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = android.app.Application::class)
+@Config(sdk = [33], application = com.shareconnect.TestApplication::class)
 class ProfileManagerUnitTest {
 
     private lateinit var mockRepository: ServerProfileRepository
     private lateinit var mockSharedPreferences: SharedPreferences
     private lateinit var mockEditor: SharedPreferences.Editor
+    private lateinit var mockContext: Context
 
-    private lateinit var context: Context
     private lateinit var profileManager: ProfileManager
 
     @Before
     fun setUp() {
-        context = ApplicationProvider.getApplicationContext()
-
         // Create mocks using Mockito.mock() for final classes
+        mockContext = Mockito.mock(Context::class.java)
         mockRepository = Mockito.mock(ServerProfileRepository::class.java)
         mockSharedPreferences = Mockito.mock(SharedPreferences::class.java)
         mockEditor = Mockito.mock(SharedPreferences.Editor::class.java)
@@ -47,8 +48,12 @@ class ProfileManagerUnitTest {
         `when`(mockEditor.remove(any())).thenReturn(mockEditor)
         `when`(mockEditor.apply()).then {}
 
+        // Mock context methods that might be called
+        `when`(mockContext.getSharedPreferences(anyString(), anyInt())).thenReturn(mockSharedPreferences)
+        `when`(mockContext.applicationContext).thenReturn(mockContext)
+
         // Create ProfileManager with mocked dependencies
-        profileManager = ProfileManager(context, mockRepository, mockSharedPreferences)
+        profileManager = ProfileManager(mockContext, mockRepository, mockSharedPreferences)
     }
 
     @Test

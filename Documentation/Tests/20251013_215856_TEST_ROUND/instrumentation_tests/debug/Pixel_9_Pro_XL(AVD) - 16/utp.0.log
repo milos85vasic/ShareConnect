@@ -1,0 +1,43 @@
+INFO: Constructing runner from config.
+INFO: Configuring Android Instrumentation driver: android_instrumentation_runtime {
+  instrumentation_info {
+    app_package: "com.shareconnect.debug"
+    test_package: "com.shareconnect.debug.test"
+    test_runner_class: "androidx.test.runner.AndroidJUnitRunner"
+  }
+  instrumentation_args {
+    args_map {
+      key: "additionalTestOutputDir"
+      value: "/sdcard/Android/media/com.shareconnect.debug/additional_test_output"
+    }
+    args_map {
+      key: "package"
+      value: "com.shareconnect.database,com.shareconnect.activities"
+    }
+  }
+}
+am_instrument_timeout: 31536000
+
+INFO: Configuring AndroidTestApkInstallerPlugin: apks_to_install {
+  apk_paths: "/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/apk/debug/ShareConnector-debug.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+apks_to_install {
+  apk_paths: "/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/apk/androidTest/debug/ShareConnector-debug-androidTest.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+instrumentation_target_package_id: "com.shareconnect.debug"
+
+INFO: No installables found in test fixture. Nothing to install.
+INFO: Installing [/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/apk/debug/ShareConnector-debug.apk] on device emulator-5554.
+INFO: Installing [/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/apk/androidTest/debug/ShareConnector-debug-androidTest.apk] on device emulator-5554.
+INFO: Start logcat streaming.
+INFO: Running Android Instrumentation driver.
+INFO: Copying files from device to host: /sdcard/Android/media/com.shareconnect.debug/additional_test_output to /home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/Pixel_9_Pro_XL(AVD) - 16
+INFO: Stop logcat streaming.
+INFO: Uninstalling com.shareconnect.debug for device emulator-5554.
+INFO: Uninstalling com.shareconnect.debug.test for device emulator-5554.

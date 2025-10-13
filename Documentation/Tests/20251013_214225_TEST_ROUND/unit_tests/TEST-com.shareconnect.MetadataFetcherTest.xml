@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.MetadataFetcherTest" tests="19" skipped="0" failures="1" errors="0" timestamp="2025-10-13T18:42:57.653Z" hostname="thinker" time="4.097">
+  <properties/>
+  <testcase name="testMagnetMetadataExtraction_NoDisplayName" classname="com.shareconnect.MetadataFetcherTest" time="3.389"/>
+  <testcase name="testContentTypeInference_TVShowBySeason" classname="com.shareconnect.MetadataFetcherTest" time="0.046"/>
+  <testcase name="testMagnetMetadataExtraction_BookDocument" classname="com.shareconnect.MetadataFetcherTest" time="0.035"/>
+  <testcase name="testContentTypeInference_MusicByKeyword" classname="com.shareconnect.MetadataFetcherTest" time="0.033"/>
+  <testcase name="testMagnetMetadataExtraction_SoftwareGame" classname="com.shareconnect.MetadataFetcherTest" time="0.036"/>
+  <testcase name="testTorrentFileUrl_ExtractsFilename" classname="com.shareconnect.MetadataFetcherTest" time="0.032"/>
+  <testcase name="testMagnetMetadataExtraction_WithURLEncoding" classname="com.shareconnect.MetadataFetcherTest" time="0.03"/>
+  <testcase name="testContentTypeInference_MovieByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.033"/>
+  <testcase name="testMagnetMetadataExtraction_MusicAlbum" classname="com.shareconnect.MetadataFetcherTest" time="0.043"/>
+  <testcase name="testSizeFormatting_Bytes" classname="com.shareconnect.MetadataFetcherTest" time="0.04"/>
+  <testcase name="testMagnetMetadataExtraction_MinimalInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.031"/>
+  <testcase name="testMagnetMetadataExtraction_TVShowWithMultipleTrackers" classname="com.shareconnect.MetadataFetcherTest" time="0.029"/>
+  <testcase name="testSizeFormatting_Terabytes" classname="com.shareconnect.MetadataFetcherTest" time="0.028"/>
+  <testcase name="testContentTypeInference_SoftwareByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.025"/>
+  <testcase name="testMalformedMagnetUrl_ReturnsBasicMetadata" classname="com.shareconnect.MetadataFetcherTest" time="0.025"/>
+  <testcase name="testMagnetMetadataExtraction_MovieWithFullInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.025"/>
+  <testcase name="testSizeFormatting_Kilobytes" classname="com.shareconnect.MetadataFetcherTest" time="0.026"/>
+  <testcase name="testMagnetMetadataExtraction_OnlyInfoHash" classname="com.shareconnect.MetadataFetcherTest" time="0.025"/>
+  <testcase name="testRegularUrl_FallsBackToGenericHandling" classname="com.shareconnect.MetadataFetcherTest" time="0.164">
+    <failure message="java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.shareconnect.debug. Make sure to call FirebaseApp.initializeApp(Context) first." type="java.lang.IllegalStateException">java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.shareconnect.debug. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.FirebaseApp.getInstance(FirebaseApp.java:179)
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.MetadataFetcher$fetchMetadata$2.invokeSuspend(MetadataFetcher.kt:47)
+	at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:42)
+	at com.shareconnect.MetadataFetcherTest$testRegularUrl_FallsBackToGenericHandling$1.invokeSuspend(MetadataFetcherTest.kt:256)
+Caused by: java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.shareconnect.debug. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.FirebaseApp.getInstance(FirebaseApp.java:179)
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.MetadataFetcher$fetchMetadata$2.invokeSuspend(MetadataFetcher.kt:47)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/tmp/byteBuddyAgent14467095929436477964.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

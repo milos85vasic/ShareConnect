@@ -7,18 +7,22 @@ import com.google.gson.reflect.TypeToken
 import com.shareconnect.database.ServerProfileRepository
 import java.util.UUID
 
-class ProfileManager(private val context: Context) {
+class ProfileManager private constructor(
+    private val context: Context,
+    private val isTestMode: Boolean = false
+) {
     private lateinit var repository: ServerProfileRepository
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var gson: Gson
-    private var isTestMode = false
+
+    // Primary constructor for normal usage
+    constructor(context: Context) : this(context, false)
 
     // Secondary constructor for testing with mocked dependencies
-    constructor(context: Context, repository: ServerProfileRepository, sharedPreferences: SharedPreferences) : this(context) {
+    constructor(context: Context, repository: ServerProfileRepository, sharedPreferences: SharedPreferences) : this(context, true) {
         this.repository = repository
         this.sharedPreferences = sharedPreferences
         this.gson = Gson()
-        this.isTestMode = true
         // Migration is skipped in test mode
     }
 

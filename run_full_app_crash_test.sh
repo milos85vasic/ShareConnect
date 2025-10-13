@@ -9,7 +9,7 @@ set -e
 # Configuration
 APPS=("ShareConnector" "qBitConnector" "TransmissionConnector" "uTorrentConnector")
 APP_MODULES=("ShareConnector" "qBitConnector" "TransmissionConnector" "uTorrentConnector")
-APP_PACKAGES=("com.shareconnect" "com.shareconnect.qbitconnect" "com.shareconnect.transmissionconnect" "com.shareconnect.utorrentconnect")
+APP_PACKAGES=("com.shareconnect.debug" "com.shareconnect.qbitconnect.debug" "com.shareconnect.transmissionconnect" "com.shareconnect.utorrentconnect")
 
 if [ -z "$ANDROID_HOME" ]; then
     echo "ERROR: ANDROID_HOME is not defined"

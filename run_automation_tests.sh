@@ -126,16 +126,16 @@ echo ""
 
 # Build the app first
 echo -e "${BLUE}Building application...${NC}"
-./gradlew :Application:assembleDebug :Application:assembleDebugAndroidTest
+./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest
 
 # Clean up any previous test data to ensure test isolation
 echo -e "${BLUE}Cleaning up previous test data...${NC}"
-adb shell pm clear com.shareconnect 2>/dev/null || true
-adb shell pm clear com.shareconnect.test 2>/dev/null || true
+adb shell pm clear com.shareconnect.debug 2>/dev/null || true
+adb shell pm clear com.shareconnect.debug.test 2>/dev/null || true
 
 # Install the app to ensure fresh state
 echo -e "${BLUE}Installing application...${NC}"
-./gradlew :Application:installDebug
+./gradlew :ShareConnector:installDebug
 
 # Ensure emulator is in a clean state
 echo -e "${BLUE}Preparing emulator for testing...${NC}"
@@ -145,7 +145,7 @@ sleep 2
 
 # Run automation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Full Automation Test Suite...${NC}"
-if ./gradlew :Application:connectedAndroidTest \
+if ./gradlew :ShareConnector:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.automation \
     --info \
     --stacktrace \
@@ -160,19 +160,19 @@ fi
 
 # Copy test reports
 echo -e "${BLUE}Copying test reports...${NC}"
-if [ -d "Application/build/reports/androidTests/connected" ]; then
-    cp -r Application/build/reports/androidTests/connected/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/reports/androidTests/connected" ]; then
+    cp -r ShareConnector/build/reports/androidTests/connected/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ HTML test reports copied${NC}"
 fi
 
-if [ -d "Application/build/outputs/androidTest-results/connected" ]; then
-    cp -r Application/build/outputs/androidTest-results/connected/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/outputs/androidTest-results/connected" ]; then
+    cp -r ShareConnector/build/outputs/androidTest-results/connected/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ XML test results copied${NC}"
 fi
 
 # Copy any screenshots or additional artifacts
-if [ -d "Application/build/outputs/connected_android_test_additional_output" ]; then
-    cp -r Application/build/outputs/connected_android_test_additional_output/* "${REPORT_DIR}/"
+if [ -d "ShareConnector/build/outputs/connected_android_test_additional_output" ]; then
+    cp -r ShareConnector/build/outputs/connected_android_test_additional_output/* "${REPORT_DIR}/"
     echo -e "${GREEN}✓ Screenshots and artifacts copied${NC}"
 fi
 
