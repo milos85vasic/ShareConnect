@@ -15,7 +15,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33], application = SCApplication::class, manifest = Config.NONE)
+@Config(sdk = [33], application = TestApplication::class, manifest = Config.NONE)
 class MetadataFetcherTest {
 
     private lateinit var metadataFetcher: MetadataFetcher

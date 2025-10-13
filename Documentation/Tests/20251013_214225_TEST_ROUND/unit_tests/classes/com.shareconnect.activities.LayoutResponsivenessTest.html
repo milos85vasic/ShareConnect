@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.shareconnect.activities.LayoutResponsivenessTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.shareconnect.activities.LayoutResponsivenessTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shareconnect.activities.html">com.shareconnect.activities</a> &gt; LayoutResponsivenessTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.226s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Failed tests</a>
+</li>
+<li>
+<a href="#">Tests</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testLayoutInflationWithDifferentOrientations"></a>
+<h3 class="failures">testLayoutInflationWithDifferentOrientations</h3>
+<span class="code">
+<pre>android.view.InflateException: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Error inflating class &lt;unknown&gt;
+Caused by: android.view.InflateException: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Error inflating class &lt;unknown&gt;
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createView(LayoutInflater.java:858)
+	at android.view.LayoutInflater.createView(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createViewFromTag(LayoutInflater.java:1010)
+	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createViewFromTag(LayoutInflater.java:965)
+	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$rInflate(LayoutInflater.java:1127)
+	at android.view.LayoutInflater.rInflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$rInflateChildren(LayoutInflater.java:1088)
+	at android.view.LayoutInflater.rInflateChildren(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:686)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:538)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:485)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at com.shareconnect.activities.LayoutResponsivenessTest.testLayoutInflationWithDifferentOrientations(LayoutResponsivenessTest.kt:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+	at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+	at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: The style on this component requires your app theme to be Theme.AppCompat (or a descendant).
+	at com.google.android.material.internal.ThemeEnforcement.checkTheme(ThemeEnforcement.java:249)
+	at com.google.android.material.internal.ThemeEnforcement.checkAppCompatTheme(ThemeEnforcement.java:214)
+	at com.google.android.material.internal.ThemeEnforcement.checkCompatibleTheme(ThemeEnforcement.java:149)
+	at com.google.android.material.internal.ThemeEnforcement.obtainStyledAttributes(ThemeEnforcement.java:78)
+	at com.google.android.material.appbar.ViewUtilsLollipop.setStateListAnimatorFromAttrs(ViewUtilsLollipop.java:44)
+	at com.google.android.material.appbar.AppBarLayout.&lt;init&gt;(AppBarLayout.java:270)
+	at com.google.android.material.appbar.AppBarLayout.&lt;init&gt;(AppBarLayout.java:255)
+	... 43 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testViewIdsConsistencyAcrossLayouts"></a>
+<h3 class="failures">testViewIdsConsistencyAcrossLayouts</h3>
+<span class="code">
+<pre>android.view.InflateException: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Error inflating class com.google.android.material.appbar.AppBarLayout
+Caused by: android.view.InflateException: Binary XML file line #13 in com.shareconnect.debug:layout/activity_main: Error inflating class com.google.android.material.appbar.AppBarLayout
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createView(LayoutInflater.java:858)
+	at android.view.LayoutInflater.createView(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createViewFromTag(LayoutInflater.java:1010)
+	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$createViewFromTag(LayoutInflater.java:965)
+	at android.view.LayoutInflater.createViewFromTag(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$rInflate(LayoutInflater.java:1127)
+	at android.view.LayoutInflater.rInflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$rInflateChildren(LayoutInflater.java:1088)
+	at android.view.LayoutInflater.rInflateChildren(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:686)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:538)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at android.view.LayoutInflater.$$robo$$android_view_LayoutInflater$inflate(LayoutInflater.java:485)
+	at android.view.LayoutInflater.inflate(LayoutInflater.java)
+	at com.shareconnect.activities.LayoutResponsivenessTest.testViewIdsConsistencyAcrossLayouts(LayoutResponsivenessTest.kt:35)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.robolectric.RobolectricTestRunner$HelperTestRunner$1.evaluate(RobolectricTestRunner.java:524)
+	at org.robolectric.internal.SandboxTestRunner.executeInSandbox(SandboxTestRunner.java:494)
+	at org.robolectric.internal.SandboxTestRunner.access$900(SandboxTestRunner.java:67)
+	at org.robolectric.internal.SandboxTestRunner$7.evaluate(SandboxTestRunner.java:442)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.robolectric.internal.SandboxTestRunner.access$600(SandboxTestRunner.java:67)
+	at org.robolectric.internal.SandboxTestRunner$6.evaluate(SandboxTestRunner.java:333)
+	at org.robolectric.internal.SandboxTestRunner$3.evaluate(SandboxTestRunner.java:233)
+	at org.robolectric.internal.SandboxTestRunner$5.lambda$evaluate$0(SandboxTestRunner.java:317)
+	at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:101)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: The style on this component requires your app theme to be Theme.AppCompat (or a descendant).
+	at com.google.android.material.internal.ThemeEnforcement.checkTheme(ThemeEnforcement.java:249)
+	at com.google.android.material.internal.ThemeEnforcement.checkAppCompatTheme(ThemeEnforcement.java:214)
+	at com.google.android.material.internal.ThemeEnforcement.checkCompatibleTheme(ThemeEnforcement.java:149)
+	at com.google.android.material.internal.ThemeEnforcement.obtainStyledAttributes(ThemeEnforcement.java:78)
+	at com.google.android.material.appbar.ViewUtilsLollipop.setStateListAnimatorFromAttrs(ViewUtilsLollipop.java:44)
+	at com.google.android.material.appbar.AppBarLayout.&lt;init&gt;(AppBarLayout.java:270)
+	at com.google.android.material.appbar.AppBarLayout.&lt;init&gt;(AppBarLayout.java:255)
+	... 43 more
+</pre>
+</span>
+</div>
+</div>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">testLayoutInflationWithDifferentOrientations</td>
+<td class="failures">0.023s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testViewIdsConsistencyAcrossLayouts</td>
+<td class="failures">0.203s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Oct 13, 2025, 9:43:10 PM</p>
+</div>
+</div>
+</body>
+</html>

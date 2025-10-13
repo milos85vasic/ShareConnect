@@ -1,0 +1,575 @@
+[0;34mShareConnect Instrumentation Tests Execution[0m
+[0;34m===========================================[0m
+
+[1;33mChecking for connected devices...[0m
+List of devices attached
+emulator-5554          device product:sdk_gphone64_x86_64 model:sdk_gphone64_x86_64 device:emu64xa transport_id:1
+
+[0;32m✓ Found 1 connected device(s)[0m
+
+[1;33mStarting Instrumentation Tests...[0m
+Report will be saved to: Documentation/Tests/20251013_215130_TEST_ROUND/instrumentation_tests
+
+[0;34mBuilding application...[0m
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :Toolkit:JCommons:compileJava UP-TO-DATE
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes UP-TO-DATE
+> Task :Toolkit:JCommons:jar UP-TO-DATE
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues UP-TO-DATE
+> Task :BookmarkSync:generateDebugResources UP-TO-DATE
+> Task :BookmarkSync:packageDebugResources UP-TO-DATE
+> Task :BookmarkSync:processDebugNavigationResources UP-TO-DATE
+> Task :BookmarkSync:parseDebugLocalResources UP-TO-DATE
+> Task :BookmarkSync:generateDebugRFile UP-TO-DATE
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:generateDebugBuildConfig UP-TO-DATE
+> Task :Asinka:asinka:extractDebugProto UP-TO-DATE
+> Task :Asinka:asinka:extractIncludeDebugProto UP-TO-DATE
+> Task :Asinka:asinka:extractProto UP-TO-DATE
+> Task :Asinka:asinka:generateDebugProto UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResValues UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResources UP-TO-DATE
+> Task :Asinka:asinka:packageDebugResources UP-TO-DATE
+> Task :Asinka:asinka:processDebugNavigationResources UP-TO-DATE
+> Task :Asinka:asinka:parseDebugLocalResources UP-TO-DATE
+> Task :Asinka:asinka:generateDebugRFile UP-TO-DATE
+> Task :Asinka:asinka:kspDebugKotlin UP-TO-DATE
+> Task :Asinka:asinka:compileDebugKotlin UP-TO-DATE
+> Task :Asinka:asinka:javaPreCompileDebug UP-TO-DATE
+> Task :Asinka:asinka:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Asinka:asinka:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :BookmarkSync:kspDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:compileDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:javaPreCompileDebug UP-TO-DATE
+> Task :BookmarkSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig UP-TO-DATE
+> Task :DesignSystem:generateDebugResValues UP-TO-DATE
+> Task :DesignSystem:generateDebugResources UP-TO-DATE
+> Task :DesignSystem:packageDebugResources UP-TO-DATE
+> Task :DesignSystem:processDebugNavigationResources UP-TO-DATE
+> Task :DesignSystem:parseDebugLocalResources UP-TO-DATE
+> Task :DesignSystem:generateDebugRFile UP-TO-DATE
+> Task :DesignSystem:compileDebugKotlin UP-TO-DATE
+> Task :DesignSystem:javaPreCompileDebug UP-TO-DATE
+> Task :DesignSystem:compileDebugJavaWithJavac UP-TO-DATE
+> Task :DesignSystem:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :HistorySync:generateDebugResValues UP-TO-DATE
+> Task :HistorySync:generateDebugResources UP-TO-DATE
+> Task :HistorySync:packageDebugResources UP-TO-DATE
+> Task :HistorySync:processDebugNavigationResources UP-TO-DATE
+> Task :HistorySync:parseDebugLocalResources UP-TO-DATE
+> Task :HistorySync:generateDebugRFile UP-TO-DATE
+> Task :HistorySync:kspDebugKotlin UP-TO-DATE
+> Task :HistorySync:compileDebugKotlin UP-TO-DATE
+> Task :HistorySync:javaPreCompileDebug UP-TO-DATE
+> Task :HistorySync:compileDebugJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues UP-TO-DATE
+> Task :LanguageSync:generateDebugResources UP-TO-DATE
+> Task :LanguageSync:packageDebugResources UP-TO-DATE
+> Task :LanguageSync:processDebugNavigationResources UP-TO-DATE
+> Task :LanguageSync:parseDebugLocalResources UP-TO-DATE
+> Task :LanguageSync:generateDebugRFile UP-TO-DATE
+> Task :LanguageSync:kspDebugKotlin UP-TO-DATE
+> Task :LanguageSync:compileDebugKotlin UP-TO-DATE
+> Task :LanguageSync:javaPreCompileDebug UP-TO-DATE
+> Task :LanguageSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :LanguageSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResValues UP-TO-DATE
+> Task :Localizations:generateDebugResources UP-TO-DATE
+> Task :Localizations:packageDebugResources UP-TO-DATE
+> Task :Localizations:processDebugNavigationResources UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources UP-TO-DATE
+> Task :Localizations:generateDebugRFile UP-TO-DATE
+> Task :Localizations:javaPreCompileDebug UP-TO-DATE
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Onboarding:generateDebugBuildConfig UP-TO-DATE
+> Task :Onboarding:generateDebugResValues UP-TO-DATE
+> Task :Onboarding:generateDebugResources UP-TO-DATE
+> Task :Onboarding:packageDebugResources UP-TO-DATE
+> Task :Onboarding:processDebugNavigationResources UP-TO-DATE
+> Task :Onboarding:parseDebugLocalResources UP-TO-DATE
+> Task :Onboarding:generateDebugRFile UP-TO-DATE
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig UP-TO-DATE
+> Task :ProfileSync:generateDebugResValues UP-TO-DATE
+> Task :ProfileSync:generateDebugResources UP-TO-DATE
+> Task :ProfileSync:packageDebugResources UP-TO-DATE
+> Task :ProfileSync:processDebugNavigationResources UP-TO-DATE
+> Task :ProfileSync:parseDebugLocalResources UP-TO-DATE
+> Task :ProfileSync:generateDebugRFile UP-TO-DATE
+> Task :ProfileSync:kspDebugKotlin UP-TO-DATE
+> Task :ProfileSync:compileDebugKotlin UP-TO-DATE
+> Task :ProfileSync:javaPreCompileDebug UP-TO-DATE
+> Task :ProfileSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ProfileSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig UP-TO-DATE
+> Task :ThemeSync:generateDebugResValues UP-TO-DATE
+> Task :ThemeSync:generateDebugResources UP-TO-DATE
+> Task :ThemeSync:packageDebugResources UP-TO-DATE
+> Task :ThemeSync:processDebugNavigationResources UP-TO-DATE
+> Task :ThemeSync:parseDebugLocalResources UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile UP-TO-DATE
+> Task :ThemeSync:kspDebugKotlin UP-TO-DATE
+> Task :ThemeSync:compileDebugKotlin UP-TO-DATE
+> Task :ThemeSync:javaPreCompileDebug UP-TO-DATE
+> Task :ThemeSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ThemeSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Onboarding:compileDebugKotlin UP-TO-DATE
+> Task :Onboarding:javaPreCompileDebug UP-TO-DATE
+> Task :Onboarding:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Onboarding:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:generateDebugResValues UP-TO-DATE
+> Task :PreferencesSync:generateDebugResources UP-TO-DATE
+> Task :PreferencesSync:packageDebugResources UP-TO-DATE
+> Task :PreferencesSync:processDebugNavigationResources UP-TO-DATE
+> Task :PreferencesSync:parseDebugLocalResources UP-TO-DATE
+> Task :PreferencesSync:generateDebugRFile UP-TO-DATE
+> Task :PreferencesSync:kspDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:compileDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileDebug UP-TO-DATE
+> Task :PreferencesSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :PreferencesSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :RSSSync:generateDebugResValues UP-TO-DATE
+> Task :RSSSync:generateDebugResources UP-TO-DATE
+> Task :RSSSync:packageDebugResources UP-TO-DATE
+> Task :RSSSync:processDebugNavigationResources UP-TO-DATE
+> Task :RSSSync:parseDebugLocalResources UP-TO-DATE
+> Task :RSSSync:generateDebugRFile UP-TO-DATE
+> Task :RSSSync:kspDebugKotlin UP-TO-DATE
+> Task :RSSSync:compileDebugKotlin UP-TO-DATE
+> Task :RSSSync:javaPreCompileDebug UP-TO-DATE
+> Task :RSSSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :RSSSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:compileDebugLibraryResources UP-TO-DATE
+> Task :DesignSystem:compileDebugLibraryResources UP-TO-DATE
+> Task :HistorySync:compileDebugLibraryResources UP-TO-DATE
+> Task :LanguageSync:compileDebugLibraryResources UP-TO-DATE
+> Task :Localizations:compileDebugLibraryResources UP-TO-DATE
+> Task :Onboarding:compileDebugLibraryResources UP-TO-DATE
+> Task :PreferencesSync:compileDebugLibraryResources UP-TO-DATE
+> Task :ProfileSync:compileDebugLibraryResources UP-TO-DATE
+> Task :RSSSync:compileDebugLibraryResources UP-TO-DATE
+> Task :BookmarkSync:writeDebugAarMetadata UP-TO-DATE
+> Task :DesignSystem:writeDebugAarMetadata UP-TO-DATE
+> Task :HistorySync:writeDebugAarMetadata UP-TO-DATE
+> Task :LanguageSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Localizations:writeDebugAarMetadata UP-TO-DATE
+> Task :Onboarding:writeDebugAarMetadata UP-TO-DATE
+> Task :PreferencesSync:writeDebugAarMetadata UP-TO-DATE
+> Task :ProfileSync:writeDebugAarMetadata UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata UP-TO-DATE
+> Task :ThemeSync:writeDebugAarMetadata UP-TO-DATE
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Main:writeDebugAarMetadata UP-TO-DATE
+> Task :ShareConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :Tests:processDebugNavigationResources UP-TO-DATE
+> Task :TorrentSharingSync:processDebugNavigationResources UP-TO-DATE
+> Task :Toolkit:Analytics:processDebugNavigationResources UP-TO-DATE
+> Task :Toolkit:Main:processDebugNavigationResources UP-TO-DATE
+> Task :ShareConnector:processDebugNavigationResources UP-TO-DATE
+> Task :ShareConnector:compileDebugNavigationResources UP-TO-DATE
+> Task :ShareConnector:generateDebugResValues UP-TO-DATE
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug UP-TO-DATE
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug UP-TO-DATE
+> Task :ShareConnector:processDebugGoogleServices UP-TO-DATE
+> Task :Tests:generateDebugResValues UP-TO-DATE
+> Task :Tests:generateDebugResources UP-TO-DATE
+> Task :Tests:packageDebugResources UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResValues UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResources UP-TO-DATE
+> Task :TorrentSharingSync:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugResources UP-TO-DATE
+> Task :Toolkit:Analytics:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResources UP-TO-DATE
+> Task :Toolkit:Main:packageDebugResources UP-TO-DATE
+> Task :ShareConnector:mapDebugSourceSetPaths UP-TO-DATE
+> Task :ShareConnector:generateDebugResources UP-TO-DATE
+> Task :ShareConnector:mergeDebugResources UP-TO-DATE
+> Task :ShareConnector:packageDebugResources UP-TO-DATE
+> Task :ShareConnector:parseDebugLocalResources UP-TO-DATE
+> Task :ShareConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :BookmarkSync:extractDeepLinksDebug UP-TO-DATE
+> Task :BookmarkSync:processDebugManifest UP-TO-DATE
+> Task :DesignSystem:extractDeepLinksDebug UP-TO-DATE
+> Task :DesignSystem:processDebugManifest UP-TO-DATE
+> Task :HistorySync:extractDeepLinksDebug UP-TO-DATE
+> Task :HistorySync:processDebugManifest UP-TO-DATE
+> Task :LanguageSync:extractDeepLinksDebug UP-TO-DATE
+> Task :LanguageSync:processDebugManifest UP-TO-DATE
+> Task :Localizations:extractDeepLinksDebug UP-TO-DATE
+> Task :Localizations:processDebugManifest UP-TO-DATE
+> Task :Onboarding:extractDeepLinksDebug UP-TO-DATE
+> Task :Onboarding:processDebugManifest UP-TO-DATE
+> Task :PreferencesSync:extractDeepLinksDebug UP-TO-DATE
+> Task :PreferencesSync:processDebugManifest UP-TO-DATE
+> Task :ProfileSync:extractDeepLinksDebug UP-TO-DATE
+> Task :ProfileSync:processDebugManifest UP-TO-DATE
+> Task :RSSSync:extractDeepLinksDebug UP-TO-DATE
+> Task :RSSSync:processDebugManifest UP-TO-DATE
+> Task :ShareConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :Tests:extractDeepLinksDebug UP-TO-DATE
+> Task :Tests:processDebugManifest UP-TO-DATE
+> Task :ThemeSync:extractDeepLinksDebug UP-TO-DATE
+> Task :ThemeSync:processDebugManifest UP-TO-DATE
+> Task :TorrentSharingSync:extractDeepLinksDebug UP-TO-DATE
+> Task :TorrentSharingSync:processDebugManifest UP-TO-DATE
+> Task :Asinka:asinka:extractDeepLinksDebug UP-TO-DATE
+> Task :Asinka:asinka:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Analytics:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:Analytics:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Main:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:Main:processDebugManifest UP-TO-DATE
+> Task :ShareConnector:processDebugMainManifest UP-TO-DATE
+> Task :ShareConnector:processDebugManifest UP-TO-DATE
+> Task :ShareConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :Tests:compileDebugLibraryResources UP-TO-DATE
+> Task :Tests:parseDebugLocalResources UP-TO-DATE
+> Task :Tests:generateDebugRFile UP-TO-DATE
+> Task :ThemeSync:compileDebugLibraryResources UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugLibraryResources UP-TO-DATE
+> Task :TorrentSharingSync:parseDebugLocalResources UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugRFile UP-TO-DATE
+> Task :Asinka:asinka:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:Analytics:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:Analytics:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:Main:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:Main:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:Main:generateDebugRFile UP-TO-DATE
+> Task :ShareConnector:processDebugResources UP-TO-DATE
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:kspDebugKotlin UP-TO-DATE
+> Task :Toolkit:Main:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:Main:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:Main:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Toolkit:Main:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Tests:compileDebugKotlin UP-TO-DATE
+> Task :Tests:javaPreCompileDebug UP-TO-DATE
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TorrentSharingSync:kspDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:javaPreCompileDebug UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Analytics:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:Analytics:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ShareConnector:kspDebugKotlin UP-TO-DATE
+> Task :ShareConnector:compileDebugKotlin UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebug UP-TO-DATE
+> Task :ShareConnector:compileDebugJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:mergeDebugShaders UP-TO-DATE
+> Task :BookmarkSync:compileDebugShaders NO-SOURCE
+> Task :BookmarkSync:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:mergeDebugAssets UP-TO-DATE
+> Task :DesignSystem:mergeDebugShaders UP-TO-DATE
+> Task :DesignSystem:compileDebugShaders NO-SOURCE
+> Task :DesignSystem:generateDebugAssets UP-TO-DATE
+> Task :DesignSystem:mergeDebugAssets UP-TO-DATE
+> Task :HistorySync:mergeDebugShaders UP-TO-DATE
+> Task :HistorySync:compileDebugShaders NO-SOURCE
+> Task :HistorySync:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:mergeDebugAssets UP-TO-DATE
+> Task :LanguageSync:mergeDebugShaders UP-TO-DATE
+> Task :LanguageSync:compileDebugShaders NO-SOURCE
+> Task :LanguageSync:generateDebugAssets UP-TO-DATE
+> Task :LanguageSync:mergeDebugAssets UP-TO-DATE
+> Task :Localizations:mergeDebugShaders UP-TO-DATE
+> Task :Localizations:compileDebugShaders NO-SOURCE
+> Task :Localizations:generateDebugAssets UP-TO-DATE
+> Task :Localizations:mergeDebugAssets UP-TO-DATE
+> Task :Onboarding:mergeDebugShaders UP-TO-DATE
+> Task :Onboarding:compileDebugShaders NO-SOURCE
+> Task :Onboarding:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:mergeDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugShaders UP-TO-DATE
+> Task :PreferencesSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugAssets UP-TO-DATE
+> Task :ProfileSync:mergeDebugShaders UP-TO-DATE
+> Task :ProfileSync:compileDebugShaders NO-SOURCE
+> Task :ProfileSync:generateDebugAssets UP-TO-DATE
+> Task :ProfileSync:mergeDebugAssets UP-TO-DATE
+> Task :RSSSync:mergeDebugShaders UP-TO-DATE
+> Task :RSSSync:compileDebugShaders NO-SOURCE
+> Task :RSSSync:generateDebugAssets UP-TO-DATE
+> Task :RSSSync:mergeDebugAssets UP-TO-DATE
+> Task :ShareConnector:mergeDebugShaders UP-TO-DATE
+> Task :ShareConnector:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugShaders UP-TO-DATE
+> Task :Tests:compileDebugShaders NO-SOURCE
+> Task :Tests:generateDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugAssets UP-TO-DATE
+> Task :ThemeSync:mergeDebugShaders UP-TO-DATE
+> Task :ThemeSync:compileDebugShaders NO-SOURCE
+> Task :ThemeSync:generateDebugAssets UP-TO-DATE
+> Task :ThemeSync:mergeDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugShaders UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugShaders NO-SOURCE
+> Task :TorrentSharingSync:generateDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugShaders UP-TO-DATE
+> Task :Asinka:asinka:compileDebugShaders NO-SOURCE
+> Task :Asinka:asinka:generateDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:Analytics:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:Main:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Main:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugAssets UP-TO-DATE
+> Task :ShareConnector:mergeDebugAssets UP-TO-DATE
+> Task :Onboarding:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :DesignSystem:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Tests:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ThemeSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ProfileSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :HistorySync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :RSSSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :LanguageSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Localizations:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ShareConnector:compressDebugAssets
+> Task :ShareConnector:desugarDebugFileDependencies
+> Task :ShareConnector:dexBuilderDebug
+> Task :BookmarkSync:processDebugJavaRes UP-TO-DATE
+> Task :DesignSystem:processDebugJavaRes UP-TO-DATE
+> Task :HistorySync:processDebugJavaRes UP-TO-DATE
+> Task :LanguageSync:processDebugJavaRes UP-TO-DATE
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Onboarding:processDebugJavaRes UP-TO-DATE
+> Task :PreferencesSync:processDebugJavaRes UP-TO-DATE
+> Task :ProfileSync:processDebugJavaRes UP-TO-DATE
+> Task :RSSSync:processDebugJavaRes UP-TO-DATE
+> Task :ShareConnector:processDebugJavaRes UP-TO-DATE
+> Task :Tests:processDebugJavaRes UP-TO-DATE
+> Task :ThemeSync:processDebugJavaRes UP-TO-DATE
+> Task :TorrentSharingSync:processDebugJavaRes UP-TO-DATE
+> Task :Asinka:asinka:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:Analytics:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:Main:processDebugJavaRes UP-TO-DATE
+> Task :Tests:bundleLibRuntimeToDirDebug
+> Task :DesignSystem:bundleLibRuntimeToDirDebug
+> Task :RSSSync:bundleLibRuntimeToDirDebug
+> Task :Toolkit:Analytics:bundleLibRuntimeToDirDebug
+> Task :BookmarkSync:bundleLibRuntimeToDirDebug
+> Task :ThemeSync:bundleLibRuntimeToDirDebug
+> Task :HistorySync:bundleLibRuntimeToDirDebug
+> Task :LanguageSync:bundleLibRuntimeToDirDebug
+> Task :Onboarding:bundleLibRuntimeToDirDebug
+> Task :PreferencesSync:bundleLibRuntimeToDirDebug
+> Task :ProfileSync:bundleLibRuntimeToDirDebug
+> Task :ShareConnector:checkDebugDuplicateClasses
+> Task :Localizations:bundleLibRuntimeToDirDebug
+> Task :BookmarkSync:mergeDebugJniLibFolders
+> Task :BookmarkSync:mergeDebugNativeLibs NO-SOURCE
+> Task :BookmarkSync:copyDebugJniLibsProjectOnly
+> Task :DesignSystem:mergeDebugJniLibFolders
+> Task :DesignSystem:mergeDebugNativeLibs NO-SOURCE
+> Task :DesignSystem:copyDebugJniLibsProjectOnly
+> Task :HistorySync:mergeDebugJniLibFolders
+> Task :HistorySync:mergeDebugNativeLibs NO-SOURCE
+> Task :HistorySync:copyDebugJniLibsProjectOnly
+> Task :TorrentSharingSync:bundleLibRuntimeToDirDebug
+> Task :LanguageSync:mergeDebugJniLibFolders
+> Task :LanguageSync:mergeDebugNativeLibs NO-SOURCE
+> Task :LanguageSync:copyDebugJniLibsProjectOnly
+> Task :Localizations:mergeDebugJniLibFolders
+> Task :Localizations:mergeDebugNativeLibs NO-SOURCE
+> Task :Localizations:copyDebugJniLibsProjectOnly
+> Task :Onboarding:mergeDebugJniLibFolders
+> Task :Onboarding:mergeDebugNativeLibs NO-SOURCE
+> Task :Onboarding:copyDebugJniLibsProjectOnly
+> Task :PreferencesSync:mergeDebugJniLibFolders
+> Task :PreferencesSync:mergeDebugNativeLibs NO-SOURCE
+> Task :PreferencesSync:copyDebugJniLibsProjectOnly
+> Task :ProfileSync:mergeDebugJniLibFolders
+> Task :ProfileSync:mergeDebugNativeLibs NO-SOURCE
+> Task :ProfileSync:copyDebugJniLibsProjectOnly
+> Task :RSSSync:mergeDebugJniLibFolders
+> Task :RSSSync:mergeDebugNativeLibs NO-SOURCE
+> Task :RSSSync:copyDebugJniLibsProjectOnly
+> Task :ShareConnector:mergeDebugJniLibFolders
+> Task :Tests:mergeDebugJniLibFolders
+> Task :Tests:mergeDebugNativeLibs NO-SOURCE
+> Task :Asinka:asinka:bundleLibRuntimeToDirDebug
+> Task :Tests:copyDebugJniLibsProjectOnly
+> Task :ThemeSync:mergeDebugJniLibFolders
+> Task :ThemeSync:mergeDebugNativeLibs NO-SOURCE
+> Task :ShareConnector:mergeProjectDexDebug
+> Task :ThemeSync:copyDebugJniLibsProjectOnly
+> Task :TorrentSharingSync:mergeDebugJniLibFolders
+> Task :TorrentSharingSync:mergeDebugNativeLibs NO-SOURCE
+> Task :TorrentSharingSync:copyDebugJniLibsProjectOnly
+> Task :Asinka:asinka:mergeDebugJniLibFolders
+> Task :Asinka:asinka:mergeDebugNativeLibs NO-SOURCE
+> Task :Asinka:asinka:copyDebugJniLibsProjectOnly
+> Task :Toolkit:Analytics:mergeDebugJniLibFolders
+> Task :Toolkit:Analytics:mergeDebugNativeLibs NO-SOURCE
+> Task :Toolkit:Analytics:copyDebugJniLibsProjectOnly
+> Task :Toolkit:Main:mergeDebugJniLibFolders
+> Task :Toolkit:Main:mergeDebugNativeLibs NO-SOURCE
+> Task :Toolkit:Main:copyDebugJniLibsProjectOnly
+> Task :ShareConnector:validateSigningDebug
+> Task :Toolkit:Main:bundleLibRuntimeToDirDebug
+> Task :ShareConnector:writeDebugAppMetadata
+> Task :ShareConnector:writeDebugSigningConfigVersions
+> Task :ShareConnector:bundleDebugClassesToCompileJar UP-TO-DATE
+> Task :ShareConnector:preDebugAndroidTestBuild SKIPPED
+> Task :ShareConnector:mergeDebugNativeLibs
+> Task :ShareConnector:checkDebugAndroidTestAarMetadata
+> Task :ShareConnector:processDebugAndroidTestNavigationResources
+> Task :ShareConnector:compileDebugAndroidTestNavigationResources
+> Task :ShareConnector:generateDebugAndroidTestResValues
+> Task :ShareConnector:mapDebugAndroidTestSourceSetPaths
+> Task :ShareConnector:generateDebugAndroidTestResources
+
+> Task :ShareConnector:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so, libdatastore_shared_counter.so, libsqlcipher.so. Run with --info option to learn more.
+
+> Task :ShareConnector:processDebugAndroidTestManifest
+> Task :ShareConnector:javaPreCompileDebugAndroidTest
+> Task :ShareConnector:mergeDebugAndroidTestShaders
+> Task :ShareConnector:compileDebugAndroidTestShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :ShareConnector:mergeDebugAndroidTestAssets
+> Task :ShareConnector:compressDebugAndroidTestAssets
+> Task :ShareConnector:desugarDebugAndroidTestFileDependencies
+> Task :ShareConnector:checkDebugAndroidTestDuplicateClasses
+> Task :ShareConnector:mergeDebugAndroidTestResources
+> Task :ShareConnector:mergeDebugGlobalSynthetics
+> Task :ShareConnector:mergeDebugAndroidTestJniLibFolders
+> Task :ShareConnector:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :ShareConnector:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :ShareConnector:validateSigningDebugAndroidTest
+> Task :ShareConnector:writeDebugAndroidTestSigningConfigVersions
+> Task :ShareConnector:mergeDebugJavaResource
+> Task :ShareConnector:processDebugAndroidTestResources
+> Task :ShareConnector:mergeLibDexDebugAndroidTest
+> Task :ShareConnector:mergeLibDexDebug
+> Task :ShareConnector:mergeExtDexDebugAndroidTest
+> Task :ShareConnector:kspDebugAndroidTestKotlin
+
+> Task :ShareConnector:compileDebugAndroidTestKotlin FAILED
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:3:30 Unresolved reference 'testing'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:44:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:46:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:47:39 Unresolved reference 'findPreference'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:58:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:60:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:61:39 Unresolved reference 'findPreference'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:70:13 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:92:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:94:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:95:39 Unresolved reference 'findPreference'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:101:13 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:113:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:115:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:116:39 Unresolved reference 'findPreference'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:129:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:131:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:132:39 Unresolved reference 'findPreference'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:145:24 Unresolved reference 'launchFragmentInContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:147:31 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/androidTest/kotlin/com/shareconnect/activities/SettingsFragmentTest.kt:148:39 Unresolved reference 'findPreference'.
+
+> Task :ShareConnector:mergeExtDexDebug
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':ShareConnector:compileDebugAndroidTestKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 12s
+387 actionable tasks: 82 executed, 305 up-to-date

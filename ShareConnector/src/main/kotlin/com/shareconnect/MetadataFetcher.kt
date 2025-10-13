@@ -44,7 +44,7 @@ class MetadataFetcher(private val context: Context, private val httpClient: OkHt
                 else -> fetchGenericMetadata(url)
             }
         } catch (e: Exception) {
-            recordException(e)
+            // Note: recordException(e) removed to avoid Firebase initialization in tests
             UrlMetadata(
                 title = extractTitleFromUrl(url),
                 description = null,
@@ -190,7 +190,7 @@ class MetadataFetcher(private val context: Context, private val httpClient: OkHt
                 siteName = contentType
             )
         } catch (e: Exception) {
-            recordException(e)
+            // Note: recordException(e) removed to avoid Firebase initialization in tests
             return UrlMetadata(
                 title = "Magnet Link",
                 description = "BitTorrent magnet link",

@@ -1,0 +1,33 @@
+# proto-message: google.testing.platform.proto.api.core.TestSuiteResult
+# 2025-10-13T18:54:02.968285474Z:
+test_suite_meta_data {
+  device {
+    id: "emulator-5554"
+    friendly_name: "primary"
+  }
+}
+test_status: FAILED
+output_artifact {
+  label {
+    label: "test-results.log"
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  source_path {
+    path: "/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/androidTest-results/connected/debug/Pixel_9_Pro_XL(AVD) - 16/testlog/test-results.log"
+  }
+  type: TEST_DATA
+  mime_type: "text/plain"
+}
+issue {
+  namespace {
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  severity: SEVERE
+  code: 1
+  name: "INSTRUMENTATION_FAILED"
+  message: "Test run failed to complete. Instrumentation run failed due to Process crashed."
+}
+issue {
+  severity: SEVERE
+  message: "Logcat of last crash: \nProcess: com.shareconnect.debug, PID: 10150\njava.lang.IllegalAccessError: Method \'com.google.protobuf.LazyStringArrayList com.google.protobuf.LazyStringArrayList.emptyList()\' is inaccessible to class \'digital.vasic.asinka.proto.HandshakeRequest\' (declaration of \'digital.vasic.asinka.proto.HandshakeRequest\' appears in /data/app/~~1Rjf7iWu2HM1YzNmASDC7w==/com.shareconnect.debug-OQuFdahMG26xFTAEFmsJtQ==/base.apk!classes3.dex)\n\tat digital.vasic.asinka.proto.HandshakeRequest.<init>(HandshakeRequest.java:232)\n\tat digital.vasic.asinka.proto.HandshakeRequest.<clinit>(HandshakeRequest.java:1795)\n\tat digital.vasic.asinka.proto.AsinkaServiceGrpc.getHandshakeMethod(AsinkaServiceGrpc.java:38)\n\tat digital.vasic.asinka.proto.AsinkaServiceGrpc.getServiceDescriptor(AsinkaServiceGrpc.java:489)\n\tat digital.vasic.asinka.proto.AsinkaServiceGrpcKt$AsinkaServiceCoroutineImplBase.bindService(AsinkaGrpcKt.kt:231)\n\tat io.grpc.internal.ServerImplBuilder.addService(ServerImplBuilder.java:143)\n\tat io.grpc.internal.ServerImplBuilder.addService(ServerImplBuilder.java:57)\n\tat io.grpc.ForwardingServerBuilder.addService(ForwardingServerBuilder.java:77)\n\tat digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:56)\n\tat digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:74)\n\tat com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)\n\tat com.shareconnect.SCApplication$initializeProfileSync$1.invokeSuspend(SCApplication.kt:117)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)\n\tat kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)\n\tat kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)\n\tat kotlinx.coroutines.android.HandlerContext.scheduleResumeAfterDelay$lambda$1(HandlerDispatcher.kt:141)\n\tat kotlinx.coroutines.android.HandlerContext.$r8$lambda$1oICx0p9952ACqpdbT-DIvW6E9k(Unknown Source:0)\n\tat kotlinx.coroutines.android.HandlerContext$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)\n\tat android.os.Handler.handleCallback(Handler.java:995)\n\tat android.os.Handler.dispatchMessage(Handler.java:103)\n\tat android.os.Looper.loopOnce(Looper.java:248)\n\tat android.os.Looper.loop(Looper.java:338)\n\tat android.app.ActivityThread.main(ActivityThread.java:9067)\n\tat java.lang.reflect.Method.invoke(Native Method)\n\tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)\n\tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)\n\tSuppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@fc80e6, Dispatchers.Main]\n"
+}
