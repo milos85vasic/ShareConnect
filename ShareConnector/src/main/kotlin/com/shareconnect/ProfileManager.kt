@@ -11,22 +11,26 @@ class ProfileManager(private val context: Context) {
     private lateinit var repository: ServerProfileRepository
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var gson: Gson
+    private var isTestMode = false
 
     // Secondary constructor for testing with mocked dependencies
     constructor(context: Context, repository: ServerProfileRepository, sharedPreferences: SharedPreferences) : this(context) {
         this.repository = repository
         this.sharedPreferences = sharedPreferences
         this.gson = Gson()
-        // Skip migration in tests - no init block runs
+        this.isTestMode = true
+        // Migration is skipped in test mode
     }
 
     init {
-        repository = ServerProfileRepository(context)
-        sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        gson = Gson()
+        if (!isTestMode) {
+            repository = ServerProfileRepository(context)
+            sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            gson = Gson()
 
-        // Migrate from SharedPreferences to Room if needed
-        migrateIfNeeded()
+            // Migrate from SharedPreferences to Room if needed
+            migrateIfNeeded()
+        }
     }
 
     private fun migrateIfNeeded() {

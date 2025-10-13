@@ -2,6 +2,7 @@ package com.shareconnect.manager
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.test.core.app.ApplicationProvider
 import com.shareconnect.ProfileManager
 import com.shareconnect.ServerProfile
 import com.shareconnect.database.ServerProfileRepository
@@ -18,11 +19,10 @@ import org.mockito.Mockito.`when`
 import org.mockito.kotlin.any
 import org.mockito.kotlin.verify
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33])
+@Config(sdk = [33], application = android.app.Application::class)
 class ProfileManagerUnitTest {
 
     private lateinit var mockRepository: ServerProfileRepository
@@ -34,7 +34,7 @@ class ProfileManagerUnitTest {
 
     @Before
     fun setUp() {
-        context = RuntimeEnvironment.getApplication()
+        context = ApplicationProvider.getApplicationContext()
 
         // Create mocks using Mockito.mock() for final classes
         mockRepository = Mockito.mock(ServerProfileRepository::class.java)

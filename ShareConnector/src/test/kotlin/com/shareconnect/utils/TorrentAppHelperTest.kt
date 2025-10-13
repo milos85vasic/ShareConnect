@@ -3,7 +3,6 @@ package com.shareconnect.utils
 import android.content.Context
 import android.content.pm.PackageManager
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.ServerProfile
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import kotlinx.coroutines.runBlocking
@@ -15,8 +14,12 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.*
 import org.mockito.MockitoAnnotations
+import org.mockito.kotlin.spy
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
-@RunWith(AndroidJUnit4::class)
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [33], application = android.app.Application::class)
 class TorrentAppHelperTest {
 
     private lateinit var context: Context
@@ -29,14 +32,14 @@ class TorrentAppHelperTest {
     @Before
     fun setUp() {
         openMocks = MockitoAnnotations.openMocks(this)
-        context = ApplicationProvider.getApplicationContext()
+        context = mock(Context::class.java)
         mockPackageManager = mock(PackageManager::class.java)
 
-        // Mock the package manager
+        // Mock the context to return our mock packageManager
         `when`(context.packageManager).thenReturn(mockPackageManager)
 
-        // Initialize TorrentAppHelper with mock sync manager
-        TorrentAppHelper.initialize(context, "test_app", "Test App", "1.0.0")
+        // Skip initialization for tests that don't need sync manager
+        // TorrentAppHelper.initialize(context, "test_app", "Test App", "1.0.0")
     }
 
     @After
@@ -48,8 +51,8 @@ class TorrentAppHelperTest {
     @Test
     fun testIsQBitConnectInstalled_returnsTrueWhenInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.isQBitConnectInstalled(context)
@@ -61,8 +64,10 @@ class TorrentAppHelperTest {
     @Test
     fun testIsQBitConnectInstalled_returnsFalseWhenNotInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenThrow(PackageManager.NameNotFoundException())
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0)
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT), any<PackageManager.PackageInfoFlags>())
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT_DEBUG, 0)
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT_DEBUG), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.isQBitConnectInstalled(context)
@@ -74,8 +79,8 @@ class TorrentAppHelperTest {
     @Test
     fun testIsTransmissionConnectInstalled_returnsTrueWhenInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.isTransmissionConnectInstalled(context)
@@ -87,10 +92,8 @@ class TorrentAppHelperTest {
     @Test
     fun testHasAnyTorrentAppInstalled_returnsTrueWhenQBitConnectInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0))
-            .thenThrow(PackageManager.NameNotFoundException())
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.hasAnyTorrentAppInstalled(context)
@@ -102,10 +105,8 @@ class TorrentAppHelperTest {
     @Test
     fun testHasAnyTorrentAppInstalled_returnsTrueWhenTransmissionConnectInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenThrow(PackageManager.NameNotFoundException())
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.hasAnyTorrentAppInstalled(context)
@@ -117,10 +118,12 @@ class TorrentAppHelperTest {
     @Test
     fun testHasAnyTorrentAppInstalled_returnsFalseWhenNoneInstalled() {
         // Given
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenThrow(PackageManager.NameNotFoundException())
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0))
-            .thenThrow(PackageManager.NameNotFoundException())
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0)
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT), any<PackageManager.PackageInfoFlags>())
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT_DEBUG, 0)
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT_DEBUG), any<PackageManager.PackageInfoFlags>())
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0)
+        doThrow(PackageManager.NameNotFoundException()).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.hasAnyTorrentAppInstalled(context)
@@ -136,8 +139,8 @@ class TorrentAppHelperTest {
             serviceType = ServerProfile.TYPE_TORRENT
             torrentClientType = ServerProfile.TORRENT_CLIENT_QBITTORRENT
         }
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_QBITCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_QBITCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.getInstalledAppForProfile(context, profile)
@@ -153,8 +156,8 @@ class TorrentAppHelperTest {
             serviceType = ServerProfile.TYPE_TORRENT
             torrentClientType = ServerProfile.TORRENT_CLIENT_TRANSMISSION
         }
-        `when`(mockPackageManager.getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0))
-            .thenReturn(mock(android.content.pm.PackageInfo::class.java))
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT, 0)
+        doReturn(mock(android.content.pm.PackageInfo::class.java)).`when`(mockPackageManager).getPackageInfo(eq(TorrentAppHelper.PACKAGE_TRANSMISSIONCONNECT), any<PackageManager.PackageInfoFlags>())
 
         // When
         val result = TorrentAppHelper.getInstalledAppForProfile(context, profile)

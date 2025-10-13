@@ -1,0 +1,301 @@
+id: "TC_UI_003"
+name: "Comprehensive URL Sharing Test Suite"
+description: "Test sharing various types of URLs to different profile types"
+category: "UI_FLOW"
+priority: "CRITICAL"
+tags:
+  - "share"
+  - "streaming"
+  - "file-hosting"
+  - "torrents"
+  - "comprehensive"
+
+preconditions:
+  - "App is installed"
+  - "MeTube profile configured"
+  - "YT-DLP profile configured"
+  - "JDownloader profile configured"
+  - "qBittorrent profile configured"
+
+test_cases:
+  # Streaming Service Tests
+  - name: "Share YouTube URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share YouTube URL"
+        input:
+          url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "MeTube, YT-DLP, and JDownloader profiles are available"
+      - step_number: 3
+        action: "tap"
+        description: "Select MeTube profile"
+        target: "profile_MeTube"
+        expected_outcome: "MeTube profile selected"
+      - step_number: 4
+        action: "tap"
+        description: "Confirm share"
+        target: "buttonShare"
+        expected_outcome: "URL sent to MeTube successfully"
+
+  - name: "Share TikTok URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share TikTok URL"
+        input:
+          url: "https://www.tiktok.com/@user/video/1234567890123456789"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "MeTube, YT-DLP, and JDownloader profiles are available"
+      - step_number: 3
+        action: "tap"
+        description: "Select YT-DLP profile"
+        target: "profile_YT-DLP"
+        expected_outcome: "YT-DLP profile selected"
+      - step_number: 4
+        action: "tap"
+        description: "Confirm share"
+        target: "buttonShare"
+        expected_outcome: "URL sent to YT-DLP successfully"
+
+  - name: "Share Vimeo URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Vimeo URL"
+        input:
+          url: "https://vimeo.com/123456789"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "MeTube, YT-DLP, and JDownloader profiles are available"
+
+  - name: "Share SoundCloud URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share SoundCloud URL"
+        input:
+          url: "https://soundcloud.com/artist/track-name"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "MeTube, YT-DLP, and JDownloader profiles are available"
+
+  - name: "Share Spotify URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Spotify URL"
+        input:
+          url: "https://open.spotify.com/track/4iV5W9uYEdYUVa79Axb7Rh"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "MeTube, YT-DLP, and JDownloader profiles are available"
+
+  # File Hosting Service Tests
+  - name: "Share MediaFire URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share MediaFire URL"
+        input:
+          url: "https://www.mediafire.com/file/abc123def456/file.zip"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+      - step_number: 3
+        action: "tap"
+        description: "Select JDownloader profile"
+        target: "profile_JDownloader"
+        expected_outcome: "JDownloader profile selected"
+
+  - name: "Share Mega.nz URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Mega.nz URL"
+        input:
+          url: "https://mega.nz/file/abc123#def456"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+  - name: "Share Google Drive URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Google Drive URL"
+        input:
+          url: "https://drive.google.com/file/d/1abc123def456/view"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+  - name: "Share Dropbox URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Dropbox URL"
+        input:
+          url: "https://www.dropbox.com/s/abc123/file.pdf"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+  # Premium Link Service Tests
+  - name: "Share Rapidgator URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Rapidgator URL"
+        input:
+          url: "https://rapidgator.net/file/abc123/file.zip.html"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "JDownloader profile is available"
+
+  - name: "Share Uploaded.net URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Uploaded.net URL"
+        input:
+          url: "https://uploaded.net/file/abc123"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "JDownloader profile is available"
+
+  - name: "Share Nitroflare URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share Nitroflare URL"
+        input:
+          url: "https://nitroflare.com/view/ABC123/file.zip"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "JDownloader profile is available"
+
+  # Torrent Tests
+  - name: "Share Magnet Link"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share magnet link"
+        input:
+          url: "magnet:?xt=urn:btih:abc123def456&dn=Example+File&tr=udp%3A%2F%2Ftracker.example.com%3A6969"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "qBittorrent profile is available"
+      - step_number: 3
+        action: "tap"
+        description: "Select qBittorrent profile"
+        target: "profile_qBittorrent"
+        expected_outcome: "qBittorrent profile selected"
+
+  - name: "Share Torrent File URL"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share .torrent file URL"
+        input:
+          url: "https://example.com/file.torrent"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "qBittorrent profile is available"
+
+  # Archive/Container Tests
+  - name: "Share RAR Archive"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share RAR archive URL"
+        input:
+          url: "https://example.com/archive.rar"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+  - name: "Share DLC Container"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share DLC container URL"
+        input:
+          url: "https://example.com/links.dlc"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "JDownloader profile is available"
+
+  # Direct Download Tests
+  - name: "Share Direct ZIP Download"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share direct ZIP download"
+        input:
+          url: "https://cdn.example.com/software.zip"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+  - name: "Share Direct EXE Download"
+    steps:
+      - step_number: 1
+        action: "share_intent"
+        description: "Share direct EXE download"
+        input:
+          url: "https://download.example.com/installer.exe"
+        expected_outcome: "ShareConnect opens with URL"
+      - step_number: 2
+        action: "verify"
+        description: "Verify compatible profiles shown"
+        expected_outcome: "YT-DLP and JDownloader profiles are available"
+
+expected_results:
+  - "All streaming URLs are properly detected and offered to appropriate profiles"
+  - "All file hosting URLs are properly detected and offered to download profiles"
+  - "All premium link URLs are properly detected and offered to JDownloader"
+  - "All torrent URLs are properly detected and offered to torrent clients"
+  - "All archive/container URLs are properly detected and offered to appropriate profiles"
+  - "All direct download URLs are properly detected and offered to download profiles"
+
+estimated_duration_ms: 300000
+retry_on_failure: true
+max_retries: 2

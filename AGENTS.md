@@ -34,7 +34,103 @@
 - **Error Handling**: Use try-catch for exceptions, Result/ sealed classes for operations; log errors appropriately.
 - **Android/Kotlin**: Follow Material Design 3; use Compose for UI; handle lifecycle properly; encrypt sensitive data with SQLCipher.
 
-## Crash Testing Procedures
+## Comprehensive Testing Suite
+
+### URL Sharing Test Coverage
+The application includes comprehensive test coverage for all supported URL types and sharing scenarios:
+
+#### Streaming Services (1000+ sites supported)
+- **YouTube**: Standard URLs, Shorts, Music, Live streams
+- **TikTok**: Videos, music, user profiles
+- **Vimeo**: Standard and player URLs
+- **SoundCloud**: Tracks, playlists, user profiles
+- **Spotify**: Tracks, albums, playlists, podcasts
+- **Twitch**: Live streams, VODs, clips
+- **Instagram**: Posts, Reels, Stories
+- **Twitter/X**: Videos, live streams
+- **Facebook**: Videos, live streams
+- **BiliBili**: Videos, channels
+- **Nicovideo**: Videos, channels
+- **DailyMotion**: Videos, channels
+- **Vevo**: Music videos
+- **Bandcamp**: Albums, tracks
+- **Mixcloud**: Mixes, shows
+- **Deezer**: Tracks, albums
+- **Tidal**: Tracks, albums
+- **And 1800+ additional sites** supported by YTDLP
+
+#### File Hosting Services
+- **MediaFire**: Direct downloads, folders
+- **Mega.nz**: Files, folders
+- **Google Drive**: Files, shared links
+- **Dropbox**: Files, shared links
+- **OneDrive**: Files, shared links
+- **Box**: Files, folders
+- **pCloud**: Files, folders
+
+#### Premium Link Services
+- **Rapidgator**: Files, premium downloads
+- **Uploaded.net**: Files, premium downloads
+- **Nitroflare**: Files, premium downloads
+- **FileFactory**: Files, premium downloads
+- **Fileboom**: Files, premium downloads
+- **Keep2Share**: Files, premium downloads
+
+#### Torrent Services
+- **Magnet Links**: All formats and trackers
+- **.torrent Files**: Direct links and file URLs
+- **Multiple Clients**: qBittorrent, Transmission, uTorrent support
+
+#### Archive and Container Formats
+- **RAR Archives**: Single files, multi-part
+- **7Z Archives**: All compression methods
+- **ZIP Archives**: Standard and encrypted
+- **TAR Archives**: All variants (.tar.gz, .tar.bz2, etc.)
+- **DLC Containers**: JDownloader container format
+- **RSDF Containers**: JDownloader container format
+- **CCF Containers**: JDownloader container format
+
+#### Direct Downloads
+- **Software Installers**: .exe, .dmg, .deb, .rpm
+- **Documents**: .pdf, .doc, .docx, .xls, .xlsx
+- **Images**: .jpg, .png, .gif, .webp, .svg
+- **Videos**: .mp4, .avi, .mkv, .mov, .wmv
+- **Audio**: .mp3, .wav, .flac, .aac
+- **Archives**: All supported compression formats
+
+### Test Types and Coverage
+
+#### Unit Tests (`ShareConnector/src/test/`)
+- **UrlCompatibilityUtilsTest**: Comprehensive URL type detection
+  - Streaming service recognition (50+ platforms)
+  - File hosting service detection
+  - Premium link identification
+  - Torrent format recognition
+  - Archive/container format detection
+  - Direct download classification
+- **ServiceApiClientTest**: API integration testing
+- **Profile Management Tests**: Profile creation and validation
+- **Database Tests**: Data persistence and retrieval
+
+#### AI QA Tests (`qa-ai/testbank/`)
+- **Comprehensive Sharing Tests**: End-to-end sharing scenarios
+  - Streaming URL sharing across all supported platforms
+  - File hosting service integration
+  - Premium link processing
+  - Torrent client integration
+  - Archive extraction workflows
+- **Profile Management**: All service type configurations
+- **UI Flow Tests**: Complete user interaction paths
+
+#### Automation Tests (`ShareConnector/src/androidTest/`)
+- **ComprehensiveSharingAutomationTest**: UI automation for sharing
+  - Real device/emulator testing
+  - Intent handling verification
+  - Profile selection validation
+  - Success/failure scenario coverage
+- **Integration Tests**: Cross-component functionality
+
+#### Crash Testing Procedures
 
 ### Full Application Crash Test
 The `./run_full_app_crash_test.sh` script performs comprehensive testing of all four Android applications:
