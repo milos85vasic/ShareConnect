@@ -178,9 +178,19 @@ All crash tests generate comprehensive reports including:
 ## Recent Fixes
 - **uTorrentConnect**: Applied fixes for gRPC port binding crashes and blurry splash screen logos (same as TransmissionConnect). Updated `generate_icons.sh` for uTorrentConnector paths and 1024x1024 resolution splash logos. Modified `splash_background.xml` to reference `@drawable/splash_logo`. Fixed clientTypeFilter to use `TORRENT_CLIENT_UTORRENT` instead of `TORRENT_CLIENT_TRANSMISSION`.
 - **qBitConnector**: Fixed build issues by adding `sourceSets` configuration in `build.gradle` to exclude Java source directories. Made `setActiveServer()` function suspend in `ServerRepository.kt` for coroutine compatibility.
-- **Port Binding**: Fixed gRPC port binding crashes by implementing unique port calculation per app ID with port availability checking across all sync managers (RSSSyncManager, ProfileSyncManager, BookmarkSyncManager, HistorySyncManager, ThemeSyncManager, PreferencesSyncManager, TorrentSharingSyncManager). Each app now calculates a preferred port using `basePort + Math.abs(appId.hashCode() % 100)` and then finds the next available port if the preferred one is in use. Added logging to show which port each app is using. This prevents BindException crashes when multiple apps try to use the same port.
+- **Port Binding**: Fixed gRPC port binding crashes by implementing unique port calculation per sync manager with distinct basePorts to prevent conflicts. Each sync manager now uses a unique basePort:
+  - ThemeSyncManager: 8890
+  - ProfileSyncManager: 8900
+  - HistorySyncManager: 8910
+  - RSSSyncManager: 8920
+  - BookmarkSyncManager: 8930
+  - PreferencesSyncManager: 8940
+  - LanguageSyncManager: 8950
+  - TorrentSharingSyncManager: 8960
+  Each calculates a preferred port using `basePort + Math.abs(appId.hashCode() % 100)` and finds the next available port if needed. Added logging to show which port each manager uses. This prevents BindException crashes when multiple sync managers start simultaneously.
 - **Constructor Parameters**: Fixed compilation errors in sync managers by adding missing `appName` and `appVersion` constructor parameters to PreferencesSyncManager, RSSSyncManager, and TorrentSharingSyncManager. Updated getInstance methods to properly pass these parameters to constructors.
 - **Build Stability**: All apps (ShareConnector, TransmissionConnector, uTorrentConnector, qBitConnector) now build successfully with `./assembleDebug`, producing APK files without errors. Kotlin compilation passes for all sync managers.
 - **Unit Test Fixes**: Fixed major unit test issues including Robolectric resource access, Firebase initialization conflicts, and activity testing problems. Implemented proper test configuration with custom TestApplication and testOptions. Reduced test failures from 59 to 17 (91% improvement), with 152 out of 184 tests now passing (83% success rate).
 - **Test Infrastructure**: Added comprehensive test configuration including robolectric.properties, testOptions for Android resources, and proper test application setup. Disabled problematic tests that require complex environment setup while maintaining core functionality testing.
 - **Crash Testing**: Implemented comprehensive crash testing automation for all four Android applications with real emulator testing, crash detection, sync operation verification, and detailed reporting.
+- **LanguageSyncManager**: Added missing ServerSocket import and helper functions (isPortAvailable, findAvailablePort) to support unique port allocation and prevent conflicts.

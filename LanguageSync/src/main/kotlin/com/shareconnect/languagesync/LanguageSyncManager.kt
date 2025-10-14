@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import java.net.ServerSocket
 
 /**
  * Singleton manager for language preference synchronization across apps
@@ -157,6 +158,31 @@ class LanguageSyncManager private constructor(
         @Volatile
         private var INSTANCE: LanguageSyncManager? = null
 
+        /**
+         * Check if a port is available
+         */
+        private fun isPortAvailable(port: Int): Boolean {
+            return try {
+                ServerSocket(port).use { true }
+            } catch (e: Exception) {
+                false
+            }
+        }
+
+        /**
+         * Find an available port starting from the preferred port
+         */
+        private fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
+            var port = preferredPort
+            for (i in 0 until maxAttempts) {
+                if (isPortAvailable(port)) {
+                    return port
+                }
+                port++
+            }
+            throw IllegalStateException("No available ports found in range $preferredPort-${preferredPort + maxAttempts - 1}")
+        }
+
         fun getInstance(
             context: Context,
             appId: String,
@@ -177,10 +203,11 @@ class LanguageSyncManager private constructor(
                     )
                 )
 
-                // Calculate unique port per app to avoid EADDRINUSE conflicts
-                val basePort = 8890
-                val appSpecificOffset = appId.hashCode() % 100 // Keep offset reasonable
-                val uniquePort = basePort + Math.abs(appSpecificOffset)
+                val basePort = 8950
+                val preferredPort = basePort + Math.abs(appId.hashCode() % 100)
+                val uniquePort = findAvailablePort(preferredPort)
+
+                Log.d("LanguageSyncManager", "App $appId using port $uniquePort (preferred: $preferredPort)")
 
                 val asinkaConfig = AsinkaConfig(
                     appId = appId,

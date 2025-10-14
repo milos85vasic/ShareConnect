@@ -211,7 +211,7 @@ class BookmarkSyncManager private constructor(
                     )
                 )
 
-                val basePort = 8890
+                 val basePort = 8930
                 val preferredPort = basePort + Math.abs(appId.hashCode() % 100)
                 val uniquePort = findAvailablePort(preferredPort)
 
