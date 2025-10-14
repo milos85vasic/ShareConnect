@@ -30,13 +30,19 @@ echo ""
 
 # Ensure clean state for consistent results
 echo -e "${BLUE}Cleaning project for unit tests...${NC}"
-./gradlew clean > /dev/null 2>&1
+timeout 300 ./gradlew clean > /dev/null 2>&1 || {
+    echo -e "${RED}✗ Gradle clean timed out or failed${NC}"
+    exit 1
+}
 
 # Run unit tests with detailed output
 echo -e "${BLUE}Running Unit Test Suite...${NC}"
-./gradlew :ShareConnector:test \
+timeout 600 ./gradlew :ShareConnector:test \
     --continue \
-    2>&1 | tee "${REPORT_DIR}/unit_test_execution.log"
+    2>&1 | tee "${REPORT_DIR}/unit_test_execution.log" || {
+    echo -e "${RED}✗ Unit tests timed out${NC}"
+    exit 1
+}
 
 # Check if tests passed
 if [ ${PIPESTATUS[0]} -eq 0 ]; then

@@ -102,7 +102,7 @@ install_apk() {
 
     log "Installing $app_name..."
 
-    if timeout $APK_TIMEOUT adb install -r "$apk_path"; then
+    if adb install -r "$apk_path"; then
         log "Successfully installed $app_name"
         return 0
     else
@@ -122,7 +122,7 @@ test_app() {
     adb logcat -c
 
     # Launch app
-    if ! adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1; then
+    if ! timeout 30 adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1; then
         error "Failed to launch $app_name"
         return 1
     fi
@@ -152,7 +152,7 @@ test_app() {
     done
 
     # Force stop app
-    adb shell am force-stop "$package_name"
+    timeout 30 adb shell am force-stop "$package_name"
 
     if [ "$crash_detected" = false ]; then
         log "✅ $app_name test PASSED - no crashes detected"

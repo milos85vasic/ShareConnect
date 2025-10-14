@@ -121,7 +121,10 @@ echo ""
 
 # Build the app first
 echo -e "${BLUE}Building application...${NC}"
-./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest
+timeout 600 ./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest || {
+    echo -e "${RED}✗ Build timed out or failed${NC}"
+    exit 1
+}
 
 # Clean up any previous test data to ensure test isolation
 echo -e "${BLUE}Cleaning up previous test data...${NC}"
@@ -136,7 +139,7 @@ sleep 2
 
 # Run instrumentation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Instrumentation Test Suite...${NC}"
-if ./gradlew :ShareConnector:connectedAndroidTest \
+if timeout 900 ./gradlew :ShareConnector:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.database,com.shareconnect.activities \
     --info \
     --stacktrace \
