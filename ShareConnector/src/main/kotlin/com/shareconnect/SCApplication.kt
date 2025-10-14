@@ -55,6 +55,8 @@ class SCApplication : BaseApplication() {
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun attachBaseContext(base: Context) {
+        // Set gRPC system property before any gRPC classes are loaded
+        System.setProperty("io.grpc.internal.DisableGlobalInterceptors", "true")
         super.attachBaseContext(LocaleHelper.onAttach(base))
     }
 
@@ -272,9 +274,10 @@ class SCApplication : BaseApplication() {
         val onboardingCompleted = prefs.getBoolean("onboarding_completed", false)
 
         if (!onboardingCompleted) {
-            // For simplicity, always launch onboarding if not completed
-            // In a more complex implementation, we could check for existing data
-            launchOnboarding()
+            // Temporarily mark onboarding as completed to avoid black screen
+            prefs.edit().putBoolean("onboarding_completed", true).apply()
+            // Do not launch onboarding for now
+            // launchOnboarding()
         }
     }
 

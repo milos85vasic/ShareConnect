@@ -1,0 +1,60 @@
+INSTRUMENTATION_STATUS: stack=io.grpc.ServerRegistry$ProviderNotFoundException: No functional server found. Try adding a dependency on the grpc-netty, grpc-netty-shaded, or grpc-okhttp artifact
+at io.grpc.ServerRegistry.newServerBuilderForPort(ServerRegistry.java:140)
+at io.grpc.Grpc.newServerBuilderForPort(Grpc.java:133)
+at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:55)
+at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:74)
+at com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)
+at com.shareconnect.SCApplication$initializeProfileSync$1.invokeSuspend(SCApplication.kt:119)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+at kotlinx.coroutines.android.HandlerContext.scheduleResumeAfterDelay$lambda$1(HandlerDispatcher.kt:141)
+at kotlinx.coroutines.android.HandlerContext.$r8$lambda$1oICx0p9952ACqpdbT-DIvW6E9k(Unknown Source:0)
+at kotlinx.coroutines.android.HandlerContext$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
+at android.os.Handler.handleCallback(Handler.java:959)
+at android.os.Handler.dispatchMessage(Handler.java:100)
+at android.os.Looper.loopOnce(Looper.java:257)
+at android.os.Looper.loop(Looper.java:342)
+at android.app.ActivityThread.main(ActivityThread.java:9634)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@2523e35, Dispatchers.Main]
+
+INSTRUMENTATION_STATUS: stream=
+Process crashed before executing the test(s):
+io.grpc.ServerRegistry$ProviderNotFoundException: No functional server found. Try adding a dependency on the grpc-netty, grpc-netty-shaded, or grpc-okhttp artifact
+at io.grpc.ServerRegistry.newServerBuilderForPort(ServerRegistry.java:140)
+at io.grpc.Grpc.newServerBuilderForPort(Grpc.java:133)
+at digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:55)
+at digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:74)
+at com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)
+at com.shareconnect.SCApplication$initializeProfileSync$1.invokeSuspend(SCApplication.kt:119)
+at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)
+at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)
+at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)
+at kotlinx.coroutines.android.HandlerContext.scheduleResumeAfterDelay$lambda$1(HandlerDispatcher.kt:141)
+at kotlinx.coroutines.android.HandlerContext.$r8$lambda$1oICx0p9952ACqpdbT-DIvW6E9k(Unknown Source:0)
+at kotlinx.coroutines.android.HandlerContext$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)
+at android.os.Handler.handleCallback(Handler.java:959)
+at android.os.Handler.dispatchMessage(Handler.java:100)
+at android.os.Looper.loopOnce(Looper.java:257)
+at android.os.Looper.loop(Looper.java:342)
+at android.app.ActivityThread.main(ActivityThread.java:9634)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)
+Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@2523e35, Dispatchers.Main]
+
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: shortMsg=Process crashed.
+INSTRUMENTATION_CODE: 0
+

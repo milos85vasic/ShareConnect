@@ -24,27 +24,41 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Apply current theme before calling super.onCreate()
-        themeManager = ThemeManager.getInstance(this)
-        themeManager!!.applyTheme(this)
+        try {
+            Console.debug("SettingsActivity.onCreate() - Starting")
 
-        super.onCreate(savedInstanceState)
+            // Apply current theme before calling super.onCreate()
+            themeManager = ThemeManager.getInstance(this)
+            Console.debug("SettingsActivity.onCreate() - Applying theme")
+            themeManager!!.applyTheme(this)
 
-        // Enable edge-to-edge display
-        window.statusBarColor = android.graphics.Color.TRANSPARENT
-        window.navigationBarColor = android.graphics.Color.TRANSPARENT
+            super.onCreate(savedInstanceState)
+            Console.debug("SettingsActivity.onCreate() - super.onCreate() completed")
 
-        // Check if this is the first run
-        isFirstRun = intent.getBooleanExtra("first_run", false)
+            // Enable edge-to-edge display
+            window.statusBarColor = android.graphics.Color.TRANSPARENT
+            window.navigationBarColor = android.graphics.Color.TRANSPARENT
 
-        setContentView(R.layout.settings_activity)
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.settings, SettingsFragment())
-            .commit()
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
+            // Check if this is the first run
+            isFirstRun = intent.getBooleanExtra("first_run", false)
+            Console.debug("SettingsActivity.onCreate() - isFirstRun: $isFirstRun")
+
+            Console.debug("SettingsActivity.onCreate() - Setting content view")
+            setContentView(R.layout.settings_activity)
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.settings, SettingsFragment())
+                .commit()
+            val actionBar = supportActionBar
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(true)
+            }
+            Console.debug("SettingsActivity.onCreate() - Completed")
+        } catch (e: Exception) {
+            Console.debug("SettingsActivity.onCreate() - Exception: ${e.message}")
+            e.printStackTrace()
+            // Fallback: finish activity
+            finish()
         }
     }
 

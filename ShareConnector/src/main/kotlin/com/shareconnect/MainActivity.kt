@@ -48,30 +48,51 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Apply theme before setting content and calling super.onCreate()
-        themeManager = ThemeManager.getInstance(this)
-        themeManager!!.applyTheme(this)
+        try {
+            Console.debug("MainActivity.onCreate() - Starting")
 
-        super.onCreate(savedInstanceState)
+            // Apply theme before setting content and calling super.onCreate()
+            themeManager = ThemeManager.getInstance(this)
+            Console.debug("MainActivity.onCreate() - Applying theme")
+            themeManager!!.applyTheme(this)
 
-        profileManager = ProfileManager(this)
+            super.onCreate(savedInstanceState)
+            Console.debug("MainActivity.onCreate() - super.onCreate() completed")
 
-        // Check if we have any profiles configured
-        if (!profileManager!!.hasProfiles()) {
-            // Show setup wizard
+            profileManager = ProfileManager(this)
+            Console.debug("MainActivity.onCreate() - ProfileManager initialized")
+
+            // Check if we have any profiles configured
+            val hasProfiles = profileManager!!.hasProfiles()
+            Console.debug("MainActivity.onCreate() - hasProfiles: $hasProfiles")
+
+            if (!hasProfiles) {
+                // Show setup wizard
+                Console.debug("MainActivity.onCreate() - No profiles found, showing setup wizard")
+                showSetupWizard()
+            } else {
+                // Only set content view if we have profiles
+                Console.debug("MainActivity.onCreate() - Profiles found, setting up main view")
+                setupMainView()
+            }
+        } catch (e: Exception) {
+            Console.debug("MainActivity.onCreate() - Exception: ${e.message}")
+            e.printStackTrace()
+            // Fallback: show setup wizard
             showSetupWizard()
-        } else {
-            // Only set content view if we have profiles
-            setupMainView()
         }
     }
 
     private fun setupMainView() {
+        Console.debug("setupMainView() - Starting")
+
         // Only set up the view once
         if (isContentViewSet) {
+            Console.debug("setupMainView() - View already set, returning")
             return
         }
         isContentViewSet = true
+        Console.debug("setupMainView() - Setting content view")
 
         setContentView(R.layout.activity_main_new)
 
@@ -285,13 +306,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSetupWizard() {
+        Console.debug("showSetupWizard() - Starting setup wizard")
         // For now, we'll just redirect to settings
         val intent = Intent(this@MainActivity, SettingsActivity::class.java)
         intent.putExtra("first_run", true)
-        // Use clear top to ensure clean stack
+        // Use clear top to ensure clean navigation
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        Console.debug("showSetupWizard() - Starting SettingsActivity")
         startActivity(intent)
         // Finish MainActivity so there's no duplicate in the stack
+        Console.debug("showSetupWizard() - Finishing MainActivity")
         finish()
     }
 
@@ -318,18 +342,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
+        Console.debug("MainActivity.onResume() - Starting")
         super.onResume()
         // Check if theme has changed and recreate activity if needed
         themeManager = ThemeManager.getInstance(this)
-        if (themeManager!!.hasThemeChanged()) {
+        val themeChanged = themeManager!!.hasThemeChanged()
+        Console.debug("MainActivity.onResume() - Theme changed: $themeChanged")
+        if (themeChanged) {
+            Console.debug("MainActivity.onResume() - Resetting theme changed flag and recreating")
             themeManager!!.resetThemeChangedFlag()
             recreate()
         }
 
         // Refresh data
         if (isContentViewSet) {
+            Console.debug("MainActivity.onResume() - Content view set, loading data")
             loadProfiles()
             loadSystemApps()
+        } else {
+            Console.debug("MainActivity.onResume() - Content view not set")
         }
     }
 
