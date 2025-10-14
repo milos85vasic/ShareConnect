@@ -1,0 +1,33 @@
+# proto-message: google.testing.platform.proto.api.core.TestSuiteResult
+# 2025-10-14T13:58:04.799314789Z:
+test_suite_meta_data {
+  device {
+    id: "R5CW33CBVQV"
+    friendly_name: "primary"
+  }
+}
+test_status: FAILED
+output_artifact {
+  label {
+    label: "test-results.log"
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  source_path {
+    path: "/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/androidTest-results/connected/debug/SM-S918B - 15/testlog/test-results.log"
+  }
+  type: TEST_DATA
+  mime_type: "text/plain"
+}
+issue {
+  namespace {
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  severity: SEVERE
+  code: 1
+  name: "INSTRUMENTATION_FAILED"
+  message: "Test run failed to complete. Instrumentation run failed due to Process crashed."
+}
+issue {
+  severity: SEVERE
+  message: "Logcat of last crash: \nProcess: com.shareconnect.debug, PID: 32244\nio.grpc.ServerRegistry$ProviderNotFoundException: No functional server found. Try adding a dependency on the grpc-netty, grpc-netty-shaded, or grpc-okhttp artifact\n\tat io.grpc.ServerRegistry.newServerBuilderForPort(ServerRegistry.java:140)\n\tat io.grpc.Grpc.newServerBuilderForPort(Grpc.java:133)\n\tat digital.vasic.asinka.transport.GrpcTransport.startServer(GrpcTransport.kt:55)\n\tat digital.vasic.asinka.AsinkaClient.start(AsinkaClient.kt:74)\n\tat com.shareconnect.profilesync.ProfileSyncManager.start(ProfileSyncManager.kt:51)\n\tat com.shareconnect.SCApplication$initializeProfileSync$1.invokeSuspend(SCApplication.kt:119)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:233)\n\tat kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:152)\n\tat kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)\n\tat kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:596)\n\tat kotlinx.coroutines.android.HandlerContext.scheduleResumeAfterDelay$lambda$1(HandlerDispatcher.kt:141)\n\tat kotlinx.coroutines.android.HandlerContext.$r8$lambda$1oICx0p9952ACqpdbT-DIvW6E9k(Unknown Source:0)\n\tat kotlinx.coroutines.android.HandlerContext$$ExternalSyntheticLambda1.run(D8$$SyntheticClass:0)\n\tat android.os.Handler.handleCallback(Handler.java:959)\n\tat android.os.Handler.dispatchMessage(Handler.java:100)\n\tat android.os.Looper.loopOnce(Looper.java:257)\n\tat android.os.Looper.loop(Looper.java:342)\n\tat android.app.ActivityThread.main(ActivityThread.java:9634)\n\tat java.lang.reflect.Method.invoke(Native Method)\n\tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:619)\n\tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:929)\n\tSuppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [StandaloneCoroutine{Cancelling}@2523e35, Dispatchers.Main]\n"
+}
