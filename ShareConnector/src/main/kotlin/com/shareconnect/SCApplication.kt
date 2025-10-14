@@ -21,6 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class SCApplication : BaseApplication() {
@@ -57,6 +58,8 @@ class SCApplication : BaseApplication() {
     override fun attachBaseContext(base: Context) {
         // Set gRPC system property before any gRPC classes are loaded
         System.setProperty("io.grpc.internal.DisableGlobalInterceptors", "true")
+        // Disable Netty native transports to prevent epoll issues on Android
+        System.setProperty("io.grpc.netty.shaded.io.netty.transport.noNative", "true")
         super.attachBaseContext(LocaleHelper.onAttach(base))
     }
 
@@ -274,10 +277,25 @@ class SCApplication : BaseApplication() {
         val onboardingCompleted = prefs.getBoolean("onboarding_completed", false)
 
         if (!onboardingCompleted) {
-            // Temporarily mark onboarding as completed to avoid black screen
-            prefs.edit().putBoolean("onboarding_completed", true).apply()
-            // Do not launch onboarding for now
-            // launchOnboarding()
+            // Check if user has any existing data that would indicate they've used the app before
+            applicationScope.launch {
+                val hasExistingProfiles = runCatching<Boolean> {
+                    profileSyncManager.getAllProfiles().first().isNotEmpty()
+                }.getOrDefault(false)
+
+                val hasExistingThemes = runCatching<Boolean> {
+                    themeSyncManager.getAllThemes().first().isNotEmpty()
+                }.getOrDefault(false)
+
+                val hasExistingLanguage = runCatching<Boolean> {
+                    languageSyncManager.getLanguagePreference() != null
+                }.getOrDefault(false)
+
+                // If no existing data, launch onboarding
+                if (!hasExistingProfiles && !hasExistingThemes && !hasExistingLanguage) {
+                    launchOnboarding()
+                }
+            }
         }
     }
 
