@@ -40,6 +40,7 @@
 ## In progress
 
 - FIXME: Apps crashes at start
+- Create icon generation for ShareConnect so icon is expanded to all edges of the launcher icon space
 - Modules naming convention and consistency
 - Sync Modules grouping (like Connectors) and short naming
 - Testing and fixing issues

@@ -102,6 +102,8 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
 
     override fun onCreate() {
         super.onCreate()
+        // Disable Netty native transports to prevent epoll issues on Android
+        System.setProperty("io.grpc.netty.shaded.io.netty.transport.noNative", "true")
         appContainer = AppContainer(this)
         analytics = appContainer.analytics
         featureManager = appContainer.featureManager
