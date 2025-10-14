@@ -17,3 +17,7 @@
     public static int i(...);
     public static int d(...);
 }
+
+# gRPC keep rules
+-keep class io.grpc.** { *; }
+-keep class io.grpc.internal.** { *; }

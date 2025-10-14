@@ -212,7 +212,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
             appId = packageName,
             appName = getString(R.string.app_name),
             appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = RSSFeedData.TORRENT_CLIENT_TRANSMISSION  // Only sync Transmission RSS feeds
+            clientTypeFilter = RSSFeedData.TORRENT_CLIENT_UTORRENT  // Only sync uTorrent RSS feeds
         )
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {

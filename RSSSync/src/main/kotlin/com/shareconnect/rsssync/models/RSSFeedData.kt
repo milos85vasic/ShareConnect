@@ -25,8 +25,10 @@ data class RSSFeedData(
         const val OBJECT_TYPE = "rss_feed"
         const val TORRENT_CLIENT_QBITTORRENT = "qbittorrent"
         const val TORRENT_CLIENT_TRANSMISSION = "transmission"
+        const val TORRENT_CLIENT_UTORRENT = "utorrent"
     }
 
     fun isForQBittorrent() = torrentClientType == TORRENT_CLIENT_QBITTORRENT
     fun isForTransmission() = torrentClientType == TORRENT_CLIENT_TRANSMISSION
+    fun isForUTorrent() = torrentClientType == TORRENT_CLIENT_UTORRENT
 }
