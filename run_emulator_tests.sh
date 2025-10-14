@@ -91,7 +91,17 @@ else
 
     # Start emulator
     echo "Starting emulator '$EMULATOR_NAME'..."
-    emulator -avd "$EMULATOR_NAME" -no-audio -no-window -gpu swiftshader_indirect &
+    timeout 600 emulator -avd "$EMULATOR_NAME" -no-audio -no-window -gpu swiftshader_indirect &
+    EMULATOR_PID=$!
+
+    # Wait a moment for emulator to start
+    sleep 5
+
+    # Check if emulator process is still running
+    if ! kill -0 $EMULATOR_PID 2>/dev/null; then
+        echo "Emulator failed to start"
+        exit 1
+    fi
 
     # Wait for emulator to be ready
     if wait_for_device; then

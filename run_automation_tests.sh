@@ -126,16 +126,22 @@ echo ""
 
 # Build the app first
 echo -e "${BLUE}Building application...${NC}"
-./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest
+timeout 600 ./gradlew :ShareConnector:assembleDebug :ShareConnector:assembleDebugAndroidTest || {
+    echo -e "${RED}✗ Build timed out or failed${NC}"
+    exit 1
+}
 
 # Clean up any previous test data to ensure test isolation
 echo -e "${BLUE}Cleaning up previous test data...${NC}"
-adb shell pm clear com.shareconnect.debug 2>/dev/null || true
-adb shell pm clear com.shareconnect.debug.test 2>/dev/null || true
+timeout 30 adb shell pm clear com.shareconnect.debug 2>/dev/null || true
+timeout 30 adb shell pm clear com.shareconnect.debug.test 2>/dev/null || true
 
 # Install the app to ensure fresh state
 echo -e "${BLUE}Installing application...${NC}"
-./gradlew :ShareConnector:installDebug
+timeout 300 ./gradlew :ShareConnector:installDebug || {
+    echo -e "${RED}✗ Install timed out or failed${NC}"
+    exit 1
+}
 
 # Ensure emulator is in a clean state
 echo -e "${BLUE}Preparing emulator for testing...${NC}"
@@ -145,7 +151,7 @@ sleep 2
 
 # Run automation tests with detailed output (abort on first failure)
 echo -e "${BLUE}Running Full Automation Test Suite...${NC}"
-if ./gradlew :ShareConnector:connectedAndroidTest \
+if timeout 1200 ./gradlew :ShareConnector:connectedAndroidTest \
     -Pandroid.testInstrumentationRunnerArguments.package=com.shareconnect.automation \
     --info \
     --stacktrace \

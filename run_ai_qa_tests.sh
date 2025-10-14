@@ -114,7 +114,7 @@ echo -e "${GREEN}✓ Screenshot directory: $SCREENSHOT_DIR${NC}"
 
 # Build the qa-ai module
 echo -e "${YELLOW}[3/7] Building AI QA module...${NC}"
-./gradlew :qa-ai:assembleDebug >> "$LOG_FILE" 2>&1
+timeout 600 ./gradlew :qa-ai:assembleDebug >> "$LOG_FILE" 2>&1
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Build successful${NC}"
 else
@@ -125,7 +125,7 @@ fi
 
 # Generate test data if needed
 echo -e "${YELLOW}[4/7] Generating test data...${NC}"
-./gradlew :qa-ai:generateTestData >> "$LOG_FILE" 2>&1
+timeout 300 ./gradlew :qa-ai:generateTestData >> "$LOG_FILE" 2>&1
 echo -e "${GREEN}✓ Test data generated${NC}"
 
 # Prepare test arguments
@@ -153,8 +153,8 @@ fi
 
 # Install the test APK
 echo -e "${YELLOW}[5/7] Installing test application...${NC}"
-./gradlew :ShareConnector:installDebug >> "$LOG_FILE" 2>&1
-./gradlew :qa-ai:installDebugAndroidTest >> "$LOG_FILE" 2>&1
+timeout 300 ./gradlew :ShareConnector:installDebug >> "$LOG_FILE" 2>&1
+timeout 300 ./gradlew :qa-ai:installDebugAndroidTest >> "$LOG_FILE" 2>&1
 echo -e "${GREEN}✓ Application installed${NC}"
 
 # Run the AI QA tests
@@ -165,13 +165,16 @@ echo ""
 START_TIME=$(date +%s)
 
 # Execute tests with instrumentation runner
-adb shell am instrument -w -r \
+timeout 1800 adb shell am instrument -w -r \
     -e debug false \
     -e reportDir "$REPORT_DIR" \
     -e screenshotDir "$SCREENSHOT_DIR" \
     $TEST_ARGS \
     com.shareconnect.qa.ai.test/androidx.test.runner.AndroidJUnitRunner \
-    2>&1 | tee -a "$LOG_FILE"
+    2>&1 | tee -a "$LOG_FILE" || {
+    echo -e "${RED}✗ AI QA tests timed out${NC}"
+    exit 1
+}
 
 TEST_EXIT_CODE=${PIPESTATUS[0]}
 END_TIME=$(date +%s)

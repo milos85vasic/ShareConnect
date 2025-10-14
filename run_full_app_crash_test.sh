@@ -104,9 +104,9 @@ test_app_launch_and_restart() {
 
     # Launch app
     echo "Launching $app_name..."
-    adb shell am start -n "$package_name/$activity_name" 2>/dev/null || {
+    timeout 30 adb shell am start -n "$package_name/$activity_name" 2>/dev/null || {
         echo -e "${YELLOW}⚠ Could not start $app_name with specified activity, trying default${NC}"
-        adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null || {
+        timeout 30 adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null || {
             echo -e "${RED}✗ Failed to launch $app_name${NC}"
             APP_RESULTS[$app_name]="LAUNCH_FAILED"
             return 1
@@ -134,11 +134,11 @@ test_app_launch_and_restart() {
 
     # Force stop and restart app
     echo "Force stopping $app_name..."
-    adb shell am force-stop "$package_name"
+    timeout 30 adb shell am force-stop "$package_name"
     sleep 2
 
     echo "Restarting $app_name..."
-    adb shell am start -n "$package_name/$activity_name" 2>/dev/null || adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
+    timeout 30 adb shell am start -n "$package_name/$activity_name" 2>/dev/null || timeout 30 adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
 
     # Wait for restart
     sleep 5
@@ -176,9 +176,9 @@ test_asinka_sync() {
 
     # Launch app to trigger sync operations
     if [ "$app_name" = "ShareConnector" ]; then
-        adb shell am start -n "$package_name/.SplashActivity" 2>/dev/null || adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
+        timeout 30 adb shell am start -n "$package_name/.SplashActivity" 2>/dev/null || timeout 30 adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
     else
-        adb shell am start -n "$package_name/.MainActivity" 2>/dev/null || adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
+        timeout 30 adb shell am start -n "$package_name/.MainActivity" 2>/dev/null || timeout 30 adb shell monkey -p "$package_name" -c android.intent.category.LAUNCHER 1 2>/dev/null
     fi
 
     # Wait for sync operations to initialize
@@ -253,11 +253,11 @@ for i in "${!APPS[@]}"; do
 
     # Build and install app
     echo -e "${BLUE}Building and installing $app...${NC}"
-    if ./gradlew ":$module:assembleDebug" --quiet; then
+    if timeout 600 ./gradlew ":$module:assembleDebug" --quiet; then
         echo -e "${GREEN}✓ $app built successfully${NC}"
 
         # Install app
-        if ./gradlew ":$module:installDebug" --quiet; then
+        if timeout 300 ./gradlew ":$module:installDebug" --quiet; then
             echo -e "${GREEN}✓ $app installed successfully${NC}"
 
             # Test launch and restart
@@ -271,8 +271,8 @@ for i in "${!APPS[@]}"; do
             test_asinka_sync "$app" "$package"
 
             # Clean up
-            adb shell am force-stop "$package"
-            adb shell pm clear "$package" 2>/dev/null || true
+            timeout 30 adb shell am force-stop "$package"
+            timeout 30 adb shell pm clear "$package" 2>/dev/null || true
 
         else
             echo -e "${RED}✗ Failed to install $app${NC}"
