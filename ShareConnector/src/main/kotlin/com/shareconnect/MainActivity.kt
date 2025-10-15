@@ -21,6 +21,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.redelf.commons.logging.Console
 import com.shareconnect.languagesync.utils.LocaleHelper
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
     private var buttonSettings: MaterialButton? = null
@@ -34,6 +36,9 @@ class MainActivity : AppCompatActivity() {
 
     internal var profileManager: ProfileManager? = null
     private var themeManager: ThemeManager? = null
+    private lateinit var themeSyncManager: com.shareconnect.themesync.ThemeSyncManager
+    private lateinit var profileSyncManager: com.shareconnect.profilesync.ProfileSyncManager
+    private lateinit var languageSyncManager: com.shareconnect.languagesync.LanguageSyncManager
     private var profileAdapter: ProfileIconAdapter? = null
     private var systemAppAdapter: SystemAppAdapter? = null
     private var isContentViewSet = false
@@ -62,25 +67,73 @@ class MainActivity : AppCompatActivity() {
             profileManager = ProfileManager(this)
             Console.debug("MainActivity.onCreate() - ProfileManager initialized")
 
-            // Check if we have any profiles configured
-            val hasProfiles = profileManager!!.hasProfiles()
-            Console.debug("MainActivity.onCreate() - hasProfiles: $hasProfiles")
-
-            if (!hasProfiles) {
-                // Show setup wizard
-                Console.debug("MainActivity.onCreate() - No profiles found, showing setup wizard")
-                showSetupWizard()
-            } else {
-                // Only set content view if we have profiles
-                Console.debug("MainActivity.onCreate() - Profiles found, setting up main view")
-                setupMainView()
+            // Initialize sync managers
+            val app = application as SCApplication
+            try {
+                themeSyncManager = app.themeSyncManager
+                profileSyncManager = app.profileSyncManager
+                languageSyncManager = app.languageSyncManager
+                Console.debug("MainActivity.onCreate() - Sync managers initialized")
+            } catch (e: UninitializedPropertyAccessException) {
+                Console.debug("MainActivity.onCreate() - Sync managers not ready yet: ${e.message}")
+                // Sync managers not initialized, assume onboarding needed
+                launchOnboarding()
+                finish()
+                return
             }
+
+            // Check if onboarding has been completed
+            val prefs = getSharedPreferences("onboarding_prefs", MODE_PRIVATE)
+            val onboardingCompleted = prefs.getBoolean("onboarding_completed", false)
+            Console.debug("MainActivity.onCreate() - onboardingCompleted: $onboardingCompleted")
+
+            // For debugging: clear onboarding flag if needed
+            // prefs.edit().putBoolean("onboarding_completed", false).apply()
+
+            if (!onboardingCompleted) {
+                // Onboarding not completed, check if we should launch onboarding
+                Console.debug("MainActivity.onCreate() - Onboarding not completed, checking for existing data")
+
+                // Check synchronously if user has existing profiles
+                val hasExistingProfiles = try {
+                    // Check ProfileManager directly (more reliable than sync manager)
+                    val hasProfiles = profileManager?.hasProfiles() ?: false
+                    Console.debug("MainActivity.onCreate() - hasProfiles: $hasProfiles")
+                    hasProfiles
+                } catch (e: Exception) {
+                    Console.debug("MainActivity.onCreate() - Error checking existing profiles: ${e.message}")
+                    false
+                }
+
+                if (!hasExistingProfiles) {
+                    // No existing data, launch onboarding
+                    Console.debug("MainActivity.onCreate() - No existing data, launching onboarding")
+                    launchOnboarding()
+                    finish()
+                    return
+                } else {
+                    // Has existing data but onboarding not marked complete, mark it complete
+                    Console.debug("MainActivity.onCreate() - Has existing data, marking onboarding complete")
+                    prefs.edit().putBoolean("onboarding_completed", true).apply()
+                }
+            }
+
+            // Onboarding completed or has existing data, set up main view
+            Console.debug("MainActivity.onCreate() - Setting up main view")
+            setupMainView()
         } catch (e: Exception) {
             Console.debug("MainActivity.onCreate() - Exception: ${e.message}")
             e.printStackTrace()
             // Fallback: show setup wizard
             showSetupWizard()
         }
+    }
+
+    private fun launchOnboarding() {
+        Console.debug("launchOnboarding() - Starting onboarding activity")
+        val intent = Intent(this, ShareConnectOnboardingActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
     }
 
     private fun setupMainView() {

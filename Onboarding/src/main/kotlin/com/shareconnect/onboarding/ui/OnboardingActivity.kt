@@ -24,6 +24,8 @@ import com.shareconnect.onboarding.viewmodel.OnboardingViewModel
 open class OnboardingActivity : ComponentActivity() {
 
     protected lateinit var viewModel: OnboardingViewModel
+    protected open var appName: String = "ShareConnect"
+    protected open var appDescription: String = "Connect and share across your favorite applications"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +54,8 @@ open class OnboardingActivity : ComponentActivity() {
         NavHost(navController = navController, startDestination = "welcome") {
             composable("welcome") {
                 WelcomeScreen(
+                    appName = appName,
+                    appDescription = appDescription,
                     onNext = { navController.navigate("theme") }
                 )
             }

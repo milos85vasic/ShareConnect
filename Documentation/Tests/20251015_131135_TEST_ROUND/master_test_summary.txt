@@ -1,0 +1,73 @@
+ShareConnect Full Test Suite Execution Summary
+==============================================
+
+Execution Date: Wed Oct 15 01:17:25 PM MSK 2025
+Test Round ID: 20251015_131135
+Overall Status: PASSED
+
+══════════════════════════════════════════════════════════
+
+UNIT TESTS
+Status: PASSED
+Duration: 69 seconds
+Test Suite: com.shareconnect.suites.UnitTestSuite
+Coverage: Core business logic and data models
+
+Test Classes:
+- MainActivityUnitTest: Main activity unit testing
+- HistoryRepositoryUnitTest: History repository operations
+- ThemeRepositoryUnitTest: Theme repository operations
+- ProfileManagerUnitTest: Profile management operations
+
+CRASH TESTS
+Status: PASSED
+Duration: 281 seconds
+Test Suite: Full Application Crash Test Suite
+Coverage: All 4 Android applications crash testing
+
+Test Coverage:
+- ShareConnector: App launch, restart, and sync operations
+- TransmissionConnector: App launch, restart, and sync operations
+- uTorrentConnector: App launch, restart, and sync operations
+- qBitConnector: App launch, restart, and sync operations
+- Asinka Library: Sync operations and gRPC functionality
+- Crash Detection: Logcat monitoring for crashes and exceptions
+
+══════════════════════════════════════════════════════════
+
+EXECUTION METRICS
+Total Duration: 350 seconds (00:05:50)
+Unit Tests: 69s
+Crash Tests: 281s
+
+COVERAGE SUMMARY
+✓ Business Logic: Unit tests verify core functionality
+✓ Data Operations: Unit tests verify repository operations
+✓ UI Logic: Unit tests verify activity behavior
+✓ App Stability: Crash tests verify no crashes on launch/restart
+✓ Sync Operations: Crash tests verify Asinka library functionality
+✓ Cross-App Compatibility: All 4 apps tested simultaneously
+
+REPORT STRUCTURE
+Documentation/Tests/20251015_131135_TEST_ROUND/
+├── master_test_summary.txt (this file)
+├── unit_tests/
+│   ├── test_summary.txt
+│   ├── unit_test_execution.log
+│   └── [HTML/XML reports]
+└── full_app_crash_test/
+    ├── full_crash_test_report.txt
+    ├── unit_tests.log
+    ├── instrumentation_tests.log
+    ├── final_device_state.png
+    └── [additional test artifacts]
+
+COMMAND EXECUTION
+./run_all_tests.sh
+
+This script executed:
+1. ./run_unit_tests.sh
+2. ./run_full_app_crash_test.sh
+
+═════════════════════════════════════════════════════════
+

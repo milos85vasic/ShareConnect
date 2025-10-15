@@ -9,6 +9,10 @@ class ShareConnectOnboardingActivity : OnboardingActivity() {
     override fun onCreate(savedInstanceState: android.os.Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Set app-specific information
+        appName = "ShareConnect"
+        appDescription = "Connect and share across your favorite applications. Set up your profiles, choose your theme, and select your language."
+
         // Initialize viewModel with sync managers from SCApplication
         val app = application as SCApplication
         viewModel.initializeSyncManagers(

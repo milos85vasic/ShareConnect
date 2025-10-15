@@ -199,7 +199,8 @@
 
         <activity
              android:name=".LanguageSelectionActivity"
-             android:exported="false" />
+             android:exported="false"
+             android:theme="@style/Theme.ShareConnect.Material.Light.NoActionBar" />
 
         <activity
             android:name=".ShareConnectOnboardingActivity"

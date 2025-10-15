@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.database.ThemeRepositoryUnitTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-10-15T10:16:41.071Z" hostname="thinker" time="0.173">
+  <properties/>
+  <testcase name="testUpdateTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.06"/>
+  <testcase name="testInsertTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.021"/>
+  <testcase name="testGetThemeByColorSchemeAndMode" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.016"/>
+  <testcase name="testInitializeDefaultThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.022"/>
+  <testcase name="testGetAllThemes" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.015"/>
+  <testcase name="testGetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.021"/>
+  <testcase name="testSetDefaultTheme" classname="com.shareconnect.database.ThemeRepositoryUnitTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
