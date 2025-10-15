@@ -1,0 +1,75 @@
+ShareConnect Full Application Crash Test Report
+===============================================
+
+Execution Date: Wed Oct 15 06:37:55 PM MSK 2025
+Test Round ID: 20251015_183203
+Overall Status: FAILED
+
+═══════════════════════════════════════════════════════════
+
+TEST ENVIRONMENT
+Device Model: sdk_gphone64_x86_64
+API Level: 36
+Android Version: 16
+Emulator: emulator-5554	device
+
+═══════════════════════════════════════════════════════════
+
+APPLICATION LAUNCH & CRASH TESTS
+
+ShareConnector:
+  Status: PASSED
+  Crash Check: NO_CRASH
+  Sync Status: NO_ACTIVITY
+
+qBitConnector:
+  Status: PASSED
+  Crash Check: NO_CRASH
+  Sync Status: NO_ACTIVITY
+
+TransmissionConnector:
+  Status: PASSED
+  Crash Check: NO_CRASH
+  Sync Status: NO_ACTIVITY
+
+uTorrentConnector:
+  Status: PASSED
+  Crash Check: NO_CRASH
+  Sync Status: NO_ACTIVITY
+
+═══════════════════════════════════════════════════════════
+
+EXISTING TEST SUITE RESULTS
+Unit Tests: PASSED
+Instrumentation Tests: FAILED
+
+═══════════════════════════════════════════════════════════
+
+DETAILED RESULTS
+
+CRASH ANALYSIS:
+ShareConnector Crash Status: NO_CRASH
+qBitConnector Crash Status: NO_CRASH
+TransmissionConnector Crash Status: NO_CRASH
+uTorrentConnector Crash Status: NO_CRASH
+
+SYNC ANALYSIS:
+ShareConnector Sync Status: NO_ACTIVITY
+qBitConnector Sync Status: NO_ACTIVITY
+TransmissionConnector Sync Status: NO_ACTIVITY
+uTorrentConnector Sync Status: NO_ACTIVITY
+
+═══════════════════════════════════════════════════════════
+
+TEST ARTIFACTS
+Report Directory: Documentation/Tests/20251015_183203_TEST_ROUND/full_app_crash_test
+Unit Test Log: unit_tests.log
+Instrumentation Test Log: instrumentation_tests.log
+Full Report: full_crash_test_report.txt
+
+═══════════════════════════════════════════════════════════
+
+RECOMMENDATIONS
+✗ Some applications have issues that need attention
+✗ Review individual app statuses above
+✗ Check log files for detailed error information

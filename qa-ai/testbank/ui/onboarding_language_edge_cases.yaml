@@ -1,0 +1,95 @@
+id: "TC_UI_ONBOARDING_003"
+name: "Onboarding Language Selection Edge Cases"
+description: "Test language selection edge cases and immediate application"
+category: "ONBOARDING"
+priority: "HIGH"
+tags:
+  - "ui"
+  - "onboarding"
+  - "language"
+  - "edge-cases"
+  - "localization"
+
+preconditions:
+  - "App is freshly installed"
+  - "Onboarding flow is active"
+
+steps:
+  - step_number: 1
+    action: "navigate"
+    description: "Navigate to language selection screen"
+    target: "languageSelectionScreen"
+    expected_outcome: "Language selection screen is displayed"
+
+  - step_number: 2
+    action: "tap"
+    description: "Select English language"
+    target: "languageItem"
+    input:
+      language: "en"
+    expected_outcome: "English language is applied immediately"
+    screenshot: true
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify English language application"
+    expected_outcome: "UI displays in English"
+    screenshot: true
+
+  - step_number: 4
+    action: "tap"
+    description: "Change to French language"
+    target: "languageItem"
+    input:
+      language: "fr"
+    expected_outcome: "French language is applied immediately"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify French language application"
+    expected_outcome: "UI displays in French"
+    screenshot: true
+
+  - step_number: 6
+    action: "tap"
+    description: "Change to German language"
+    target: "languageItem"
+    input:
+      language: "de"
+    expected_outcome: "German language is applied immediately"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify German language application"
+    expected_outcome: "UI displays in German"
+    screenshot: true
+
+  - step_number: 8
+    action: "tap"
+    description: "Change back to English"
+    target: "languageItem"
+    input:
+      language: "en"
+    expected_outcome: "English language is applied immediately"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 9
+    action: "verify"
+    description: "Verify language switching works correctly"
+    expected_outcome: "UI correctly switches between languages"
+    screenshot: true
+
+expected_results:
+  - "Language selection works immediately"
+  - "Language switching is smooth and correct"
+  - "All supported languages apply properly"
+  - "UI text updates correctly for each language"
+
+estimated_duration_ms: 60000
+retry_on_failure: true
+max_retries: 2

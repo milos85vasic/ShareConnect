@@ -1,0 +1,75 @@
+id: "TC_UI_ONBOARDING_002"
+name: "Onboarding Theme Selection Edge Cases"
+description: "Test theme selection edge cases and immediate application"
+category: "ONBOARDING"
+priority: "HIGH"
+tags:
+  - "ui"
+  - "onboarding"
+  - "theme"
+  - "edge-cases"
+
+preconditions:
+  - "App is freshly installed"
+  - "Onboarding flow is active"
+
+steps:
+  - step_number: 1
+    action: "navigate"
+    description: "Navigate to theme selection screen"
+    target: "themeSelectionScreen"
+    expected_outcome: "Theme selection screen is displayed"
+
+  - step_number: 2
+    action: "tap"
+    description: "Select light theme"
+    target: "themeItem"
+    input:
+      theme: "light"
+    expected_outcome: "Light theme is applied immediately"
+    screenshot: true
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify light theme application"
+    expected_outcome: "UI displays in light mode"
+    screenshot: true
+
+  - step_number: 4
+    action: "tap"
+    description: "Change to dark theme"
+    target: "themeItem"
+    input:
+      theme: "dark"
+    expected_outcome: "Dark theme is applied immediately"
+    screenshot: true
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify dark theme application"
+    expected_outcome: "UI displays in dark mode"
+    screenshot: true
+
+  - step_number: 6
+    action: "tap"
+    description: "Change back to light theme"
+    target: "themeItem"
+    input:
+      theme: "light"
+    expected_outcome: "Light theme is applied immediately again"
+    screenshot: true
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify theme switching works correctly"
+    expected_outcome: "UI correctly switches between light and dark themes"
+    screenshot: true
+
+expected_results:
+  - "Theme selection works immediately"
+  - "Theme switching is smooth and correct"
+  - "Both light and dark themes apply properly"
+
+estimated_duration_ms: 45000
+retry_on_failure: true
+max_retries: 2

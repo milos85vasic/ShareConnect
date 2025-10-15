@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.manager.ProfileManagerUnitTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2025-10-15T15:31:46.281Z" hostname="thinker" time="0.644">
+  <properties/>
+  <testcase name="testClearDefaultProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.271"/>
+  <testcase name="testHasProfilesWithEmptyProfiles" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.028"/>
+  <testcase name="testSetDefaultProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.031"/>
+  <testcase name="testDefaultProfileReturnsNullWhenNoProfiles" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.038"/>
+  <testcase name="testAllTorrentClientTypes" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.019"/>
+  <testcase name="testDefaultProfileFallsBackToSharedPreferences" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.024"/>
+  <testcase name="testHasProfilesWithExistingProfiles" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.025"/>
+  <testcase name="testDefaultProfileReturnsRepositoryDefault" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.028"/>
+  <testcase name="testUpdateProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.021"/>
+  <testcase name="testAllServiceTypes" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.02"/>
+  <testcase name="testProfileManagerInitialization" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.021"/>
+  <testcase name="testGetProfiles" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.021"/>
+  <testcase name="testDefaultProfileFallsBackToFirstProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.025"/>
+  <testcase name="testAddProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.02"/>
+  <testcase name="testDeleteProfile" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.016"/>
+  <testcase name="testGetProfilesByServiceType" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.016"/>
+  <testcase name="testGetProfilesEmpty" classname="com.shareconnect.manager.ProfileManagerUnitTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

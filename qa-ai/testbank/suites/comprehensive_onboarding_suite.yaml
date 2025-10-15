@@ -1,0 +1,20 @@
+id: "SUITE_ONBOARDING_COMPREHENSIVE"
+name: "Comprehensive Onboarding Test Suite"
+description: "Complete test suite covering all onboarding scenarios including theme selection, language selection, immediate application, and persistence"
+test_cases:
+  - "TC_UI_ONBOARDING_001"  # Comprehensive onboarding flow
+  - "TC_UI_ONBOARDING_002"  # Theme selection edge cases
+  - "TC_UI_ONBOARDING_003"  # Language selection edge cases
+  - "TC_UI_ONBOARDING_004"  # Persistence test
+
+setup_steps:
+  - "Ensure emulator/device is in clean state"
+  - "Uninstall app if previously installed"
+  - "Install fresh app build"
+  - "Grant necessary permissions"
+
+teardown_steps:
+  - "Clear app data"
+  - "Reset device theme to default"
+  - "Reset device language to default"
+  - "Capture final screenshots and logs"

@@ -17,6 +17,7 @@ import com.shareconnect.languagesync.utils.LocaleHelper
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import com.shareconnect.utils.TorrentAppHelper
 import com.shareconnect.onboarding.viewmodel.OnboardingViewModel
+import com.shareconnect.themesync.utils.ThemeApplier
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -77,6 +78,9 @@ class SCApplication : BaseApplication() {
         initializePreferencesSync()
         observeLanguageChanges()
 
+        // Apply saved preferences if onboarding is completed
+        applySavedPreferencesIfNeeded()
+
         // Check if onboarding is needed
         checkAndLaunchOnboardingIfNeeded()
     }
@@ -86,6 +90,32 @@ class SCApplication : BaseApplication() {
             languageSyncManager.languageChangeFlow.collect { languageData ->
                 // Persist language change so it applies on next app start
                 LocaleHelper.persistLanguage(this@SCApplication, languageData.languageCode)
+            }
+        }
+    }
+
+    private fun applySavedPreferencesIfNeeded() {
+        // Check if onboarding has been completed
+        val prefs = getSharedPreferences("onboarding_prefs", MODE_PRIVATE)
+        val onboardingCompleted = prefs.getBoolean("onboarding_completed", false)
+
+        if (onboardingCompleted) {
+            // Apply saved theme and language preferences
+            applicationScope.launch {
+                try {
+                    // Apply saved theme
+                    val defaultTheme = themeSyncManager.getDefaultTheme()
+                    defaultTheme?.let { theme ->
+                        ThemeApplier.applyDarkMode(theme)
+                    }
+
+                    // Apply saved language - get current language from sync manager
+                    val currentLanguage = languageSyncManager.getOrCreateDefault()
+                    // Note: Language application requires an Activity context, so we skip it here
+                    // It will be applied when the first Activity starts
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
     }
