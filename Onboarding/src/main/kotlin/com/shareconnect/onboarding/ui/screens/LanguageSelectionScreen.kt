@@ -10,6 +10,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -27,26 +31,22 @@ fun LanguageSelectionScreen(
 ) {
     val scrollState = rememberScrollState()
     val selectedLanguage by viewModel.selectedLanguage.collectAsState()
+    val languages by viewModel.availableLanguages.collectAsState()
 
-    // Mock language options - in real app, these would come from LanguageSyncManager
-    val languages = listOf(
-        LanguageData(languageCode = "en", displayName = "English"),
-        LanguageData(languageCode = "es", displayName = "Español"),
-        LanguageData(languageCode = "fr", displayName = "Français"),
-        LanguageData(languageCode = "de", displayName = "Deutsch"),
-        LanguageData(languageCode = "it", displayName = "Italiano"),
-        LanguageData(languageCode = "pt", displayName = "Português"),
-        LanguageData(languageCode = "ru", displayName = "Русский"),
-        LanguageData(languageCode = "ja", displayName = "日本語"),
-        LanguageData(languageCode = "ko", displayName = "한국어"),
-        LanguageData(languageCode = "zh", displayName = "中文")
-    )
+    val density = LocalDensity.current
+    val statusBarHeight = WindowInsets.statusBars.getTop(density)
+    val navigationBarHeight = WindowInsets.navigationBars.getBottom(density)
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(24.dp),
+            .padding(
+                top = with(density) { statusBarHeight.toDp() } + 24.dp,
+                bottom = with(density) { navigationBarHeight.toDp() } + 24.dp,
+                start = 24.dp,
+                end = 24.dp
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Title
