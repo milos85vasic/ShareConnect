@@ -1,0 +1,162 @@
+id: "TC_UI_ONBOARDING_001"
+name: "Comprehensive Onboarding Flow with Theme and Language Selection"
+description: "Test complete onboarding flow including theme selection, language selection, immediate application, and persistence after app restart"
+category: "ONBOARDING"
+priority: "CRITICAL"
+tags:
+  - "ui"
+  - "onboarding"
+  - "theme"
+  - "language"
+  - "persistence"
+  - "smoke"
+  - "comprehensive"
+
+preconditions:
+  - "App is freshly installed (first run)"
+  - "No previous data exists"
+  - "Emulator/device is in default state"
+
+steps:
+  - step_number: 1
+    action: "verify"
+    description: "Verify onboarding welcome screen appears"
+    target: "onboardingActivity"
+    expected_outcome: "Onboarding welcome screen is displayed with app branding"
+    screenshot: true
+
+  - step_number: 2
+    action: "tap"
+    description: "Tap Next button to proceed"
+    target: "buttonNext"
+    expected_outcome: "Language selection screen appears"
+    screenshot: true
+
+  - step_number: 3
+    action: "verify"
+    description: "Verify language selection screen"
+    expected_outcome: "Language selection UI is displayed with available languages"
+    screenshot: true
+
+  - step_number: 4
+    action: "tap"
+    description: "Select Spanish language"
+    target: "languageItem"
+    input:
+      language: "es"
+    expected_outcome: "Spanish language is selected and applied immediately"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 5
+    action: "verify"
+    description: "Verify Spanish language is applied immediately"
+    expected_outcome: "UI text changes to Spanish language during onboarding"
+    screenshot: true
+
+  - step_number: 6
+    action: "tap"
+    description: "Tap Next button to proceed to theme selection"
+    target: "buttonNext"
+    expected_outcome: "Theme selection screen appears"
+    screenshot: true
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify theme selection screen"
+    expected_outcome: "Theme selection UI is displayed with light/dark options"
+    screenshot: true
+
+  - step_number: 8
+    action: "tap"
+    description: "Select dark theme"
+    target: "themeItem"
+    input:
+      theme: "dark"
+    expected_outcome: "Dark theme is selected and applied immediately"
+    screenshot: true
+    wait_after_ms: 1000
+
+  - step_number: 9
+    action: "verify"
+    description: "Verify dark theme is applied immediately"
+    expected_outcome: "UI switches to dark theme during onboarding"
+    screenshot: true
+
+  - step_number: 10
+    action: "tap"
+    description: "Tap Next button to proceed to profile setup"
+    target: "buttonNext"
+    expected_outcome: "Profile setup screen appears"
+    screenshot: true
+
+  - step_number: 11
+    action: "verify"
+    description: "Verify profile setup screen"
+    expected_outcome: "Profile creation UI is displayed"
+    screenshot: true
+
+  - step_number: 12
+    action: "input"
+    description: "Create a test profile"
+    target: "profileForm"
+    input:
+      name: "Test Transmission"
+      host: "192.168.1.100"
+      port: "9091"
+      serviceType: "torrent"
+      torrentClientType: "transmission"
+    expected_outcome: "Profile is created successfully"
+    screenshot: true
+
+  - step_number: 13
+    action: "tap"
+    description: "Tap Complete Setup button"
+    target: "buttonComplete"
+    expected_outcome: "Onboarding completes and main screen appears"
+    screenshot: true
+    wait_after_ms: 2000
+
+  - step_number: 14
+    action: "verify"
+    description: "Verify onboarding completion and theme persistence"
+    expected_outcome: "Main screen displays in dark theme (Spanish language if applicable)"
+    screenshot: true
+
+  - step_number: 15
+    action: "system"
+    description: "Kill and restart the app"
+    target: "app"
+    input:
+      action: "kill_restart"
+    expected_outcome: "App restarts successfully"
+    wait_after_ms: 3000
+
+  - step_number: 16
+    action: "verify"
+    description: "Verify theme and language persistence after restart"
+    expected_outcome: "App displays in dark theme and Spanish language on restart"
+    screenshot: true
+
+  - step_number: 17
+    action: "verify"
+    description: "Verify onboarding is not shown again"
+    expected_outcome: "App goes directly to main screen without onboarding"
+    screenshot: true
+
+expected_results:
+  - "Language selection is applied immediately during onboarding"
+  - "Theme selection is applied immediately during onboarding"
+  - "Selected preferences persist after onboarding completion"
+  - "Selected preferences persist after app restart/kill"
+  - "Onboarding is not shown on subsequent app launches"
+  - "Main screen reflects chosen theme and language"
+
+postconditions:
+  - "Onboarding is marked as complete"
+  - "User preferences are saved and applied"
+  - "App functions normally with selected preferences"
+
+estimated_duration_ms: 90000
+retry_on_failure: true
+max_retries: 3

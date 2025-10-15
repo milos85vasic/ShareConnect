@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.database.HistoryRepositoryUnitTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-10-15T15:30:05.820Z" hostname="thinker" time="0.376">
+  <properties/>
+  <testcase name="testDeleteAllHistoryItems" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.068"/>
+  <testcase name="testGetAllServiceTypes" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.019"/>
+  <testcase name="testDeleteHistoryItem" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.022"/>
+  <testcase name="testGetAllTypes" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.033"/>
+  <testcase name="testGetAllServiceProviders" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.023"/>
+  <testcase name="testDeleteHistoryItemsByType" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.023"/>
+  <testcase name="testDeleteHistoryItemsByServiceType" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.024"/>
+  <testcase name="testGetHistoryItemsByType" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.019"/>
+  <testcase name="testGetAllHistoryItems" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.019"/>
+  <testcase name="testDeleteHistoryItemsByServiceProvider" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.021"/>
+  <testcase name="testInsertHistoryItem" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.027"/>
+  <testcase name="testGetHistoryItemsByServiceProvider" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.025"/>
+  <testcase name="testGetHistoryItemsByServiceType" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.03"/>
+  <testcase name="testRepositoryInitialization" classname="com.shareconnect.database.HistoryRepositoryUnitTest" time="0.023"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

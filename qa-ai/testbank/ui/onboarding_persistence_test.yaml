@@ -1,0 +1,106 @@
+id: "TC_UI_ONBOARDING_004"
+name: "Onboarding Preferences Persistence Test"
+description: "Test that theme and language preferences persist after app restart and kill"
+category: "ONBOARDING"
+priority: "CRITICAL"
+tags:
+  - "ui"
+  - "onboarding"
+  - "persistence"
+  - "restart"
+  - "theme"
+  - "language"
+
+preconditions:
+  - "App has completed onboarding with specific theme and language selections"
+  - "App is currently running with selected preferences applied"
+
+steps:
+  - step_number: 1
+    action: "verify"
+    description: "Verify current theme and language are applied"
+    expected_outcome: "App displays with previously selected theme and language"
+    screenshot: true
+
+  - step_number: 2
+    action: "system"
+    description: "Minimize app to background"
+    target: "app"
+    input:
+      action: "minimize"
+    expected_outcome: "App is minimized"
+
+  - step_number: 3
+    action: "system"
+    description: "Reopen app from background"
+    target: "app"
+    input:
+      action: "reopen"
+    expected_outcome: "App reopens with preferences intact"
+    wait_after_ms: 2000
+
+  - step_number: 4
+    action: "verify"
+    description: "Verify preferences persist after backgrounding"
+    expected_outcome: "Theme and language preferences are maintained"
+    screenshot: true
+
+  - step_number: 5
+    action: "system"
+    description: "Force stop the app"
+    target: "app"
+    input:
+      action: "force_stop"
+    expected_outcome: "App is force stopped"
+
+  - step_number: 6
+    action: "system"
+    description: "Restart the app"
+    target: "app"
+    input:
+      action: "restart"
+    expected_outcome: "App restarts successfully"
+    wait_after_ms: 3000
+
+  - step_number: 7
+    action: "verify"
+    description: "Verify preferences persist after force stop and restart"
+    expected_outcome: "Theme and language preferences are restored correctly"
+    screenshot: true
+
+  - step_number: 8
+    action: "system"
+    description: "Clear app data"
+    target: "app"
+    input:
+      action: "clear_data"
+    expected_outcome: "App data is cleared"
+
+  - step_number: 9
+    action: "system"
+    description: "Restart app after data clear"
+    target: "app"
+    input:
+      action: "restart"
+    expected_outcome: "App shows onboarding again"
+    wait_after_ms: 2000
+
+  - step_number: 10
+    action: "verify"
+    description: "Verify onboarding resets after data clear"
+    expected_outcome: "Onboarding flow starts fresh, preferences are reset"
+    screenshot: true
+
+expected_results:
+  - "Theme and language preferences persist through app backgrounding"
+  - "Theme and language preferences persist through app force stop and restart"
+  - "Onboarding resets correctly when app data is cleared"
+  - "Fresh onboarding flow works after data reset"
+
+postconditions:
+  - "App state is consistent with user expectations"
+  - "Preferences are properly managed across app lifecycles"
+
+estimated_duration_ms: 75000
+retry_on_failure: true
+max_retries: 3

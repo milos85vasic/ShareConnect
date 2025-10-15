@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.MetadataFetcherTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2025-10-15T15:25:55.177Z" hostname="thinker" time="6.03">
+  <properties/>
+  <testcase name="testMagnetMetadataExtraction_NoDisplayName" classname="com.shareconnect.MetadataFetcherTest" time="4.9"/>
+  <testcase name="testContentTypeInference_TVShowBySeason" classname="com.shareconnect.MetadataFetcherTest" time="0.083"/>
+  <testcase name="testMagnetMetadataExtraction_BookDocument" classname="com.shareconnect.MetadataFetcherTest" time="0.053"/>
+  <testcase name="testContentTypeInference_MusicByKeyword" classname="com.shareconnect.MetadataFetcherTest" time="0.063"/>
+  <testcase name="testMagnetMetadataExtraction_SoftwareGame" classname="com.shareconnect.MetadataFetcherTest" time="0.071"/>
+  <testcase name="testTorrentFileUrl_ExtractsFilename" classname="com.shareconnect.MetadataFetcherTest" time="0.063"/>
+  <testcase name="testMagnetMetadataExtraction_WithURLEncoding" classname="com.shareconnect.MetadataFetcherTest" time="0.069"/>
+  <testcase name="testContentTypeInference_MovieByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.044"/>
+  <testcase name="testMagnetMetadataExtraction_MusicAlbum" classname="com.shareconnect.MetadataFetcherTest" time="0.052"/>
+  <testcase name="testSizeFormatting_Bytes" classname="com.shareconnect.MetadataFetcherTest" time="0.053"/>
+  <testcase name="testMagnetMetadataExtraction_MinimalInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.044"/>
+  <testcase name="testMagnetMetadataExtraction_TVShowWithMultipleTrackers" classname="com.shareconnect.MetadataFetcherTest" time="0.055"/>
+  <testcase name="testSizeFormatting_Terabytes" classname="com.shareconnect.MetadataFetcherTest" time="0.051"/>
+  <testcase name="testContentTypeInference_SoftwareByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.038"/>
+  <testcase name="testMalformedMagnetUrl_ReturnsBasicMetadata" classname="com.shareconnect.MetadataFetcherTest" time="0.048"/>
+  <testcase name="testMagnetMetadataExtraction_MovieWithFullInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.044"/>
+  <testcase name="testSizeFormatting_Kilobytes" classname="com.shareconnect.MetadataFetcherTest" time="0.038"/>
+  <testcase name="testMagnetMetadataExtraction_OnlyInfoHash" classname="com.shareconnect.MetadataFetcherTest" time="0.026"/>
+  <testcase name="testRegularUrl_FallsBackToGenericHandling" classname="com.shareconnect.MetadataFetcherTest" time="0.23"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/tmp/byteBuddyAgent4251318875178824535.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

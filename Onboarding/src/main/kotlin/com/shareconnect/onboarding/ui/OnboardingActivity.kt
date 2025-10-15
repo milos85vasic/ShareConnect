@@ -1,5 +1,6 @@
 package com.shareconnect.onboarding.ui
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -35,6 +36,10 @@ open class OnboardingActivity : ComponentActivity() {
     protected open var appName: String = "ShareConnect"
     protected open var appDescription: String = "Connect and share across your favorite applications"
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(com.shareconnect.languagesync.utils.LocaleHelper.onAttach(newBase))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,6 +47,7 @@ open class OnboardingActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         viewModel = OnboardingViewModel(application)
+        viewModel.setOnboardingActivity(this)
 
         setContent {
             val selectedTheme by viewModel.selectedTheme.collectAsState()
