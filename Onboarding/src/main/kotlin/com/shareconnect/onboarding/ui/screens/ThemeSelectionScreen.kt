@@ -8,6 +8,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -26,19 +30,22 @@ fun ThemeSelectionScreen(
 ) {
     val scrollState = rememberScrollState()
     val selectedTheme by viewModel.selectedTheme.collectAsState()
+    val themes by viewModel.availableThemes.collectAsState()
 
-    // Mock theme options - in real app, these would come from ThemeSyncManager
-    val themes = listOf(
-        ThemeData("light", "Light Theme", "material", false, true, "com.shareconnect"),
-        ThemeData("dark", "Dark Theme", "material", true, false, "com.shareconnect"),
-        ThemeData("system", "System Theme", "material", false, false, "com.shareconnect")
-    )
+    val density = LocalDensity.current
+    val statusBarHeight = WindowInsets.statusBars.getTop(density)
+    val navigationBarHeight = WindowInsets.navigationBars.getBottom(density)
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .verticalScroll(scrollState)
-            .padding(24.dp),
+            .padding(
+                top = with(density) { statusBarHeight.toDp() } + 24.dp,
+                bottom = with(density) { navigationBarHeight.toDp() } + 24.dp,
+                start = 24.dp,
+                end = 24.dp
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Title

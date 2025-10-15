@@ -13,6 +13,7 @@ import com.shareconnect.themesync.models.ThemeData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class OnboardingViewModel(application: Application) : AndroidViewModel(application) {
@@ -34,6 +35,13 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
     private val _selectedProfile = MutableStateFlow<ProfileData?>(null)
     val selectedProfile: StateFlow<ProfileData?> = _selectedProfile.asStateFlow()
 
+    // Available options
+    private val _availableThemes = MutableStateFlow<List<ThemeData>>(emptyList())
+    val availableThemes: StateFlow<List<ThemeData>> = _availableThemes.asStateFlow()
+
+    private val _availableLanguages = MutableStateFlow<List<LanguageData>>(emptyList())
+    val availableLanguages: StateFlow<List<LanguageData>> = _availableLanguages.asStateFlow()
+
     // Loading states
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
@@ -46,6 +54,10 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
         themeSyncManager = themeManager
         profileSyncManager = profileManager
         languageSyncManager = languageManager
+
+        // Load available themes and languages
+        loadAvailableThemes()
+        loadAvailableLanguages()
     }
 
     fun selectTheme(theme: ThemeData) {
@@ -54,6 +66,8 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
 
     fun selectLanguage(language: LanguageData) {
         _selectedLanguage.value = language
+        // Immediately apply the language selection
+        applyLanguage(language)
     }
 
     fun selectProfile(profile: ProfileData) {
@@ -85,6 +99,51 @@ class OnboardingViewModel(application: Application) : AndroidViewModel(applicati
                 e.printStackTrace()
             } finally {
                 _isLoading.value = false
+            }
+        }
+    }
+
+    private fun loadAvailableThemes() {
+        viewModelScope.launch {
+            try {
+                val themes = themeSyncManager.getAllThemes().first()
+                _availableThemes.value = themes
+            } catch (e: Exception) {
+                // Fallback to default themes if sync manager fails
+                _availableThemes.value = ThemeData.getDefaultThemes("com.shareconnect")
+            }
+        }
+    }
+
+    private fun loadAvailableLanguages() {
+        // Load supported languages - these are the languages the app supports
+        _availableLanguages.value = listOf(
+            LanguageData(languageCode = "en", displayName = "English"),
+            LanguageData(languageCode = "es", displayName = "Español"),
+            LanguageData(languageCode = "fr", displayName = "Français"),
+            LanguageData(languageCode = "de", displayName = "Deutsch"),
+            LanguageData(languageCode = "it", displayName = "Italiano"),
+            LanguageData(languageCode = "pt", displayName = "Português"),
+            LanguageData(languageCode = "ru", displayName = "Русский"),
+            LanguageData(languageCode = "ja", displayName = "日本語"),
+            LanguageData(languageCode = "ko", displayName = "한국어"),
+            LanguageData(languageCode = "zh", displayName = "中文"),
+            LanguageData(languageCode = "ar", displayName = "العربية"),
+            LanguageData(languageCode = "hi", displayName = "हिन्दी"),
+            LanguageData(languageCode = "bn", displayName = "বাংলা"),
+            LanguageData(languageCode = "kn", displayName = "ಕನ್ನಡ")
+        )
+    }
+
+    private fun applyLanguage(language: LanguageData) {
+        // Apply language immediately by updating the app's locale
+        // This would typically involve updating the app's configuration
+        // For now, we'll just save the preference
+        viewModelScope.launch {
+            try {
+                languageSyncManager.setLanguagePreference(language.languageCode, language.displayName)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }

@@ -80,8 +80,33 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
     }
 
     private fun loadThemes() {
-        val themes = themeRepository!!.allThemes
-        themeAdapter!!.updateThemes(themes)
+        lifecycleScope.launch {
+            try {
+                // Try to load from theme sync manager first
+                val syncedThemes = themeSyncManager.getAllThemes().first()
+                if (syncedThemes.isNotEmpty()) {
+                    // Convert synced themes to legacy Theme objects for display
+                    val themes = syncedThemes.map { syncedTheme ->
+                        Theme(
+                            id = syncedTheme.id.hashCode(),
+                            name = syncedTheme.name,
+                            colorScheme = syncedTheme.colorScheme,
+                            isDarkMode = syncedTheme.isDarkMode,
+                            isDefault = syncedTheme.isDefault
+                        )
+                    }
+                    themeAdapter?.updateThemes(themes)
+                } else {
+                    // Fallback to legacy themes
+                    val themes = themeRepository!!.allThemes
+                    themeAdapter!!.updateThemes(themes)
+                }
+            } catch (e: Exception) {
+                // Fallback to legacy themes if sync manager fails
+                val themes = themeRepository!!.allThemes
+                themeAdapter!!.updateThemes(themes)
+            }
+        }
     }
 
     override fun onThemeSelected(theme: Theme) {
