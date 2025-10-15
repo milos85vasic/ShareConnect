@@ -86,7 +86,7 @@ fun ProfileCreationScreen(
             value = serverUrl,
             onValueChange = { serverUrl = it },
             label = { Text(stringResource(com.shareconnect.onboarding.R.string.onboarding_profile_url_hint)) },
-            placeholder = { Text("http://192.168.1.100") },
+            placeholder = { Text(stringResource(com.shareconnect.onboarding.R.string.onboarding_profile_url_placeholder)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
@@ -98,7 +98,7 @@ fun ProfileCreationScreen(
         OutlinedTextField(
             value = port,
             onValueChange = { port = it },
-            label = { Text("Port") },
+            label = { Text(stringResource(com.shareconnect.onboarding.R.string.onboarding_profile_port_hint)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),

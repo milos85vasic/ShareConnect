@@ -63,7 +63,7 @@ fun WelcomeScreen(
 
         // Welcome title
         Text(
-            text = "Welcome to $appName",
+            text = stringResource(OnboardingR.string.onboarding_welcome_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,

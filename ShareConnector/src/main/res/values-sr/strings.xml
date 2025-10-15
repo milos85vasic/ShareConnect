@@ -13,7 +13,7 @@
     <string name="set_default">Постави као подразумевано</string>
     <string name="default_profile">Подразумевани профил</string>
     <string name="no_profiles_yet">Још увек нема конфигурисаних профила</string>
-    <string name="sending_to_service">Слање сервису…</string>
+
     <string name="sent_successfully">Линк је успешно послат!</string>
     <string name="error_sending_link_custom">Грешка при слању линка сервису</string>
     <string name="please_configure_profile_custom">Прво конфигуришите профил сервера</string>
@@ -67,8 +67,288 @@
     <string name="torrent_client_utorrent">uTorrent</string>
     <string name="testing">Тестирање...</string>
      <string name="test_connection">Тестирај везу</string>
-     <string name="open_default_service">Open Default Service</string>
-     <string name="could_not_open_profile">Could not open %s</string>
-     <string name="edit">Edit</string>
-     <string name="set_as_default">Set as Default</string>
- </resources>
+     <string name="open_default_service">Отвори подразумевани сервис</string>
+     <string name="could_not_open_profile">Није могуће отворити %s</string>
+     <string name="edit">Измени</string>
+     <string name="set_as_default">Постави као подразумевано</string>
+     <string name="profile_set_as_default">%s постављен као подразумевани</string>
+     <string name="delete_profile">Обриши профил</string>
+     <string name="confirm_delete_profile_with_name">Да ли сте сигурни да желите да обришете %s?</string>
+     <string name="could_not_open_app">Није могуће отворити апликацију</string>
+     <string name="no_valid_urls_in_clipboard">Није пронађен ниједан важећи URL у историји оставе</string>
+     <string name="clipboard_history_cleared">Историја оставе је очишћена</string>
+     <string name="invalid_url_with_text">Неважећи URL: %s</string>
+     <string name="sending_to_service">Слање сервису %s...</string>
+     <string name="send_to_service">Пошаљи сервису %s</string>
+     <string name="link_sent_successfully_to_service">Линк је успешно послат сервису %s!</string>
+     <string name="magnet_link_copied_to_clipboard">Магнетни линк је копиран у оставу.</string>
+     <string name="share_to_apps">Подели са апликацијама</string>
+     <string name="shared_media_link">Подељени медијски линк</string>
+     <string name="no_profiles_support_type">Ниједан профил не подржава %s. Молимо конфигуришите компатибилни профил у Подешавањима.</string>
+     <string name="opened_with_app">Отворено са %s</string>
+     <string name="failed_to_open_app">Неуспешно отварање %s</string>
+     <string name="invalid_profile">Неважећи профил</string>
+     <string name="unknown_error">Непозната грешка</string>
+     <string name="network_error">Мрежна грешка</string>
+     <string name="error_loading_page">Грешка при учитавању странице: %s</string>
+     <string name="magnet_link_added_qbittorrent">Магнетни линк је успешно додан преко qBittorrent API-ја</string>
+     <string name="torrent_url_added_qbittorrent">Torrent URL је успешно додан преко qBittorrent API-ја</string>
+     <string name="url_to_download">URL за преузимање: %s</string>
+     <string name="url_passed_transmission">URL прослеђен Transmission-у: %s</string>
+     <string name="url_to_add">URL за додавање: %s</string>
+     <string name="torrent_file">Torrent датотека</string>
+     <string name="bittorrent">BitTorrent</string>
+     <string name="open_profile">Отвори %s</string>
+     <string name="magnet_link">Магнетни линк</string>
+     <string name="add_from_clipboard">Додај из оставе</string>
+
+     <!-- Theme names -->
+     <string name="theme_warm_orange_light">Топла наранџаста светла</string>
+     <string name="theme_warm_orange_dark">Топла наранџаста тамна</string>
+     <string name="theme_crimson_light">Крвavo црвена светла</string>
+     <string name="theme_crimson_dark">Крвavo црвена тамна</string>
+     <string name="theme_light_blue_light">Светло плава светла</string>
+     <string name="theme_light_blue_dark">Светло плава тамна</string>
+     <string name="theme_purple_light">Љубичаста светла</string>
+     <string name="theme_purple_dark">Љубичаста тамна</string>
+     <string name="theme_green_light">Зелена светла</string>
+     <string name="theme_green_dark">Зелена тамна</string>
+     <string name="theme_material_light">Material светла</string>
+     <string name="theme_material_dark">Material тамна</string>
+
+     <!-- Database and logging strings -->
+     <string name="db_history_database">history_database</string>
+     <string name="log_set_default_theme_called">setDefaultTheme() позван са themeId: %s</string>
+     <string name="log_set_default_theme_completed">setDefaultTheme() завршен</string>
+     <string name="log_failed_verify_default_theme">Неуспешна верификација нове подразумеване теме - getDefaultTheme() вратио null</string>
+     <string name="log_initialize_default_themes_called">initializeDefaultThemes() позван</string>
+     <string name="log_no_existing_themes">Нису пронађене постојеће теме, креирање подразумеваних тема</string>
+     <string name="log_default_themes_created">Подразумеване теме креиране</string>
+     <string name="log_themes_already_exist">Теме већ постоје, не креирати подразумеване</string>
+     <string name="log_existing_theme">Постојећа тема: %1$s (ID: %2$d, isDefault: %3$b)</string>
+     <string name="log_get_default_theme">getDefaultTheme() вратио: %1$s</string>
+     <string name="log_applying_default_material_theme">Примена подразумеване material теме</string>
+     <string name="log_applying_theme">Примена теме: %1$s, colorScheme: %2$s, isDarkMode: %3$b, currentTheme: %4$s</string>
+     <string name="log_activity_uses_toolbar">Активност %1$s користи toolbar: %2$b</string>
+     <string name="log_setting_night_mode_yes">Постављање ноћног режима на YES</string>
+     <string name="log_setting_night_mode_no">Постављање ноћног режима на NO</string>
+     <string name="log_notify_theme_changed_called">notifyThemeChanged() позван</string>
+     <string name="log_notify_theme_changed_completed">notifyThemeChanged() завршен, SharedPreferences ажуриран</string>
+     <string name="log_reset_theme_changed_flag_called">resetThemeChangedFlag() позван</string>
+     <string name="log_reset_theme_changed_flag_completed">resetThemeChangedFlag() завршен, SharedPreferences ажуриран</string>
+     <string name="log_has_theme_changed">hasThemeChanged() вратио: %b</string>
+     <string name="log_theme_change_detected">Промена теме детектована, рекреирање активности</string>
+     <string name="log_on_theme_selected">onThemeSelected() позван са темом: %1$s (ID: %2$d, isDefault: %3$b)</string>
+     <string name="log_selected_theme">Изабрана тема: %1$s (ID: %2$d)</string>
+
+     <!-- WebUI Activity strings -->
+     <string name="log_qbittorrent_auth_script_executed">qBittorrent скрипта за аутентификацију извршена: %s</string>
+     <string name="log_utorrent_auth_script_executed">uTorrent скрипта за аутентификацију извршена: %s</string>
+     <string name="log_auth_verification_result">Резултат верификације аутентификације: %1$s (аутентификован: %2$b)</string>
+     <string name="log_auth_verification_failed">Верификација аутентификације неуспела, покушавање API приступа или продужење чекања</string>
+     <string name="log_api_approach_failed">API приступ неуспео, повратак на UI аутоматизацију</string>
+     <string name="log_qbittorrent_api_add_response">qBittorrent API одговор на додавање: %d</string>
+     <string name="log_qbittorrent_api_login_failed">qBittorrent API пријављивање неуспело: %d</string>
+     <string name="log_qbittorrent_enhanced_url_script_executed">qBittorrent побољшана скрипта за прослеђивање URL-а извршена: %s</string>
+     <string name="log_transmission_url_script_executed">Transmission скрипта за прослеђивање URL-а извршена: %s</string>
+
+     <!-- JavaScript and HTML strings -->
+     <string name="js_user_agent">Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36</string>
+     <string name="js_qbittorrent_login_script">
+         var usernameField = document.querySelector(\'input[name="username"], input[id="username"], input[type="text"], #username\');
+         var passwordField = document.querySelector(\'input[name="password"], input[id="password"], input[type="password"], #password\');
+         var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"], #login, .login-button, input[value*="Login"], button[onclick*="login"]\');
+
+         if (usernameField &amp;&amp; passwordField &amp;&amp; loginButton) {
+             usernameField.value = \'%1$s\';
+             passwordField.value = \'%2$s\';
+             loginButton.click();
+         }
+     </string>
+     <string name="js_utorrent_login_script">
+         var passwordField = document.querySelector(\'input[name="password"], input[type="password"]\');
+         var loginButton = document.querySelector(\'input[type="submit"], button[type="submit"]\');
+
+         if (passwordField &amp;&amp; loginButton) {
+             passwordField.value = \'%s\';
+             loginButton.click();
+         }
+     </string>
+     <string name="js_auth_verification_script">
+         var isOnLoginPage = document.querySelector(\'input[name="username"], input[name="password"], .login-form\') !== null;
+         isOnLoginPage ? "false" : "true";
+     </string>
+     <string name="js_qbittorrent_add_torrent_script">
+         var url = \'%s\';
+
+         // Try multiple selectors for URL input field
+         var urlSelectors = [
+             \'input[name="urls"]\',
+             \'textarea[name="urls"]\',
+             \'input[placeholder*="URL"]\',
+             \'input[placeholder*="url"]\',
+             \'input[placeholder*="magnet"]\',
+             \'textarea[placeholder*="URL"]\',
+             \'textarea[placeholder*="url"]\',
+             \'textarea[placeholder*="magnet"]\',
+             \'input[id*="url"]\',
+             \'textarea[id*="url"]\',
+             \'input[type="url"]\',
+             \'.form-control[placeholder*="URL"]\'
+         ];
+
+         var urlField = null;
+         for (var i = 0; i &lt; urlSelectors.length; i++) {
+             urlField = document.querySelector(urlSelectors[i]);
+             if (urlField) break;
+         }
+
+         if (urlField) {
+             urlField.value = url;
+             urlField.dispatchEvent(new Event(\'input\', { bubbles: true }));
+             urlField.dispatchEvent(new Event(\'change\', { bubbles: true }));
+
+             // Try multiple selectors for submit buttons
+             var submitSelectors = [
+                 \'input[type="submit"]\',
+                 \'button[type="submit"]\',
+                 \'input[value*="Download"]\',
+                 \'button[onclick*="add"]\',
+                 \'button[onclick*="download"]\',
+                 \'input[value*="Add"]\',
+                 \'button:contains("Add")\',
+                 \'button:contains("OK")\',
+                 \'button:contains("Download")\'
+             ];
+
+             var submitButton = null;
+             for (var j = 0; j &lt; submitSelectors.length; j++) {
+                 submitButton = document.querySelector(submitSelectors[j]);
+                 if (submitButton) break;
+             }
+
+             if (submitButton) {
+                 submitButton.click();
+                 "success";
+             } else {
+                 // Try to find modern qBittorrent UI "Add Torrent" button
+                 var contextMenu = document.querySelector(\'.context-menu, .dropdown-menu\');
+                 if (!contextMenu) {
+                     // Try to trigger context menu or find toolbar buttons
+                     var toolbarButtons = [
+                         \'button[title*="Add"]\',
+                         \'a[title*="Add"]\',
+                         \'.toolbar button[title*="Add"]\',
+                         \'.toolbar a[title*="Add"]\',
+                         \'button[onclick*="add"]\',
+                         \'a[onclick*="add"]\',
+                         \'.material-icons:contains("add")\',
+                         \'button:contains("Add")\',
+                         \'a:contains("Add")\'
+                     ];
+
+                     for (var k = 0; k &lt; toolbarButtons.length; k++) {
+                         var addButton = document.querySelector(toolbarButtons[k]);
+                         if (addButton) {
+                             addButton.click();
+                             break;
+                         }
+                     }
+
+                     // Try menu items
+                     var menuItems = [
+                         \'.menu-item[onclick*="add"]\',
+                         \'.dropdown-item[onclick*="add"]\'
+                     ];
+
+                     for (var l = 0; l &lt; menuItems.length; l++) {
+                         var menuItem = document.querySelector(menuItems[l]);
+                         if (menuItem) {
+                             menuItem.click();
+                             break;
+                         }
+                     }
+                 } else {
+                     var addItem = contextMenu.querySelector(\'[onclick*="add"], :contains("Add")\');
+                     if (addItem) {
+                         addItem.click();
+                     }
+                 }
+                 "success";
+             }
+         } else {
+             "url_field_not_found";
+         }
+     </string>
+     <string name="html_qbittorrent_success_message">
+         &lt;div style="background: rgba(255,255,255,0.2); padding: 8px; margin: 8px 0; border-radius: 4px; font-size: 12px; word-break: break-all;"&gt;
+         URL успешно додан у qBittorrent!
+         &lt;/div&gt;
+     </string>
+
+     <!-- ShareActivity strings -->
+     <string name="add_from_clipboard_functionality">Функционалност додавања из оставе ће бити имплементирана овде</string>
+     <string name="shared_via_apps">Подељено преко апликација</string>
+     <string name="system_app">Системска апликација</string>
+     <string name="playlist">Плејлиста</string>
+     <string name="channel">Канал</string>
+     <string name="single_video">Појединачни видео</string>
+
+     <!-- Service provider names -->
+     <string name="service_youtube">YouTube</string>
+     <string name="service_vimeo">Vimeo</string>
+     <string name="service_twitch">Twitch</string>
+     <string name="service_reddit">Reddit</string>
+     <string name="service_twitter">Twitter</string>
+     <string name="service_instagram">Instagram</string>
+     <string name="service_facebook">Facebook</string>
+     <string name="service_soundcloud">SoundCloud</string>
+     <string name="service_dailymotion">Dailymotion</string>
+     <string name="service_bandcamp">Bandcamp</string>
+     <string name="service_magnet_link">Магнетни линк</string>
+     <string name="service_unknown">Непознато</string>
+
+     <!-- API Error messages -->
+     <string name="error_metube_api">MeTube API грешка: %s</string>
+     <string name="error_ytdlp_api">YT-DLP API грешка: %s</string>
+     <string name="error_qbittorrent_login">qBittorrent грешка пријављивања: %s</string>
+     <string name="error_qbittorrent_api">qBittorrent API грешка: %s</string>
+     <string name="error_transmission_api">Transmission API грешка: %s</string>
+     <string name="error_utorrent_token">uTorrent грешка токена: %s</string>
+     <string name="error_utorrent_api">uTorrent API грешка: %s</string>
+     <string name="error_my_jdownloader_api">My.JDownloader API грешка: %s</string>
+     <string name="error_legacy_jdownloader_api">Legacy jDownloader API грешка: %s</string>
+
+     <!-- User-facing API error messages -->
+     <string name="error_api_generic">API грешка: %1$d - %2$s</string>
+     <string name="error_login_failed">Пријављивање неуспело: %1$d - %2$s</string>
+     <string name="error_token_failed">Грешка токена: %1$d - %2$s</string>
+     <string name="error_qbittorrent_auth_failed">qBittorrent аутентификација неуспела: %s</string>
+     <string name="error_transmission_generic">Transmission грешка: %s</string>
+
+     <!-- Torrent App Integration strings -->
+     <string name="torrent_app_icon">Икона торент апликације</string>
+     <string name="install_torrent_app">Инсталирај торент апликацију</string>
+     <string name="torrent_app_install_message">Инсталирај %s да управљаш торентима директно са свог уређаја. ShareConnect ће аутоматски делити торент линкове и датотеке овој апликацији.</string>
+     <string name="qbitconnect_install_message">Инсталирај qBitConnect да управљаш qBittorrent торентима директно са свог уређаја. ShareConnect ће аутоматски делити торент линкове и датотеке овој апликацији.</string>
+     <string name="transmissionconnect_install_message">Инсталирај TransmissionConnect да управљаш Transmission торентима директно са свог уређаја. ShareConnect ће аутоматски делити торент линкове и датотеке овој апликацији.</string>
+     <string name="benefits">Предности:</string>
+     <string name="torrent_app_benefits">• Беспрекорна интеграција са ShareConnect\n• Директно управљање торентима на уређају\n• Аутоматско прослеђивање линкова\n• Побољшана контрола торената</string>
+     <string name="dont_ask_again">Не питај поново</string>
+     <string name="not_now">Не сада</string>
+     <string name="install_from_store">Инсталирај из продавнице</string>
+     <string name="share_to_torrent_app">Подели са %s</string>
+     <string name="torrent_app_not_installed">%s није инсталиран</string>
+     <string name="direct_torrent_sharing">Директно дељење торената</string>
+     <string name="enable_direct_torrent_sharing">Омогући директно дељење торената</string>
+     <string name="enable_direct_torrent_sharing_summary">Аутоматски дели торент линкове и датотеке директно qBitConnect или TransmissionConnect када су инсталирани</string>
+     <string name="reset_torrent_prompts">Ресетуј подсетнике</string>
+     <string name="reset_torrent_prompts_summary">Ресетуј "Не питај поново" подешавања за подсетнике инсталације торент апликација</string>
+     <string name="torrent_prompts_reset">Подсетници су успешно ресетовани</string>
+     <string name="shared_to_torrent_app">Подељено са %s</string>
+     <string name="failed_to_share_torrent">Неуспешно дељење торента: %s</string>
+     <string name="torrent_sharing_disabled">Директно дељење торената је онемогућено у подешавањима</string>
+     <string name="not_torrent_content">Садржај није магнетни линк или торент датотека</string>
+     <string name="qbitconnect">qBitConnect</string>
+     <string name="transmissionconnect">TransmissionConnect</string>
+</resources>

@@ -263,7 +263,7 @@ class LanguageSyncAutomationTest {
 
     @Test
     fun testLocaleApplicationForEnglish() {
-        val locale = Locale("en")
+        val locale = Locale.forLanguageTag("en")
         val context = LanguageUtils.applyLanguage(this.context, LanguageData.CODE_ENGLISH)
 
         assertNotNull("Context should not be null", context)
@@ -297,7 +297,7 @@ class LanguageSyncAutomationTest {
 
     @Test
     fun testLanguageCodeFromLocale() {
-        val englishLocale = Locale("en")
+        val englishLocale = Locale.forLanguageTag("en")
         val code = LanguageUtils.localeToLanguageCode(englishLocale)
 
         assertEquals("Should return en", "en", code)

@@ -103,7 +103,7 @@ fun LanguageSelectionScreen(
                     if (selectedLanguage?.languageCode == language.languageCode) {
                         Icon(
                             imageVector = Icons.Filled.Check,
-                            contentDescription = "Selected",
+                            contentDescription = stringResource(com.shareconnect.onboarding.R.string.onboarding_selected),
                             tint = MaterialTheme.colorScheme.primary
                         )
                     }

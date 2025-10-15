@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">uTorrentConnect</string>
+    <string name="search_hing">Претражи торент</string>
+
+    <!-- Actions -->
+    <string name="action_open_torrent">Отвори торент</string>
+    <string name="action_start_all_torrents">Покрени све торенте</string>
+    <string name="action_pause_all_torrents">Паузирај све торенте</string>
+    <string name="action_remove_torrents">Уклони изабране торенте</string>
+    <string name="action_remove_torrent">Уклони торент</string>
+    <string name="action_select_all">Изабери све</string>
+    <string name="action_pause">Паузирај</string>
+    <string name="action_start">Покрени</string>
+    <string name="action_start_now">Покрени одмах (без реда)</string>
+    <string name="action_verify">Провери локалне податке</string>
+    <string name="action_request_more_peers">Затражи више парњака</string>
+    <string name="action_set_location">Постави локацију</string>
+    <string name="action_rename">Преименуј</string>
+    <string name="action_share_magnet">Подели магнетни линк</string>
+
+    <!-- Filters -->
+    <string name="filters">Филтери</string>
+    <string name="filter_all">Сви</string>
+    <string name="filter_active">Активни</string>
+    <string name="filter_downloading">Преузимање</string>
+    <string name="filter_seeding">Сеедовање</string>
+    <string name="filter_paused">Паузирани</string>
+    <string name="filter_download_completed">Преузети</string>
+    <string name="filter_finished">Завршени</string>
+    <string name="filter_name">Име</string>
+    <string name="filter_empty_all">Нема торената</string>
+    <string name="filter_empty_active">Нема активних торената</string>
+    <string name="filter_empty_downloading">Нема торената у преузимању</string>
+    <string name="filter_empty_seeding">Нема торената у сеедовању</string>
+    <string name="filter_empty_paused">Нема паузираних торената</string>
+    <string name="filter_empty_download_completed">Нема преузетих торената</string>
+    <string name="filter_empty_finished">Нема завршених торената</string>
+    <string name="filter_empty_name">Нема одговарајућих торената</string>
+
+    <!-- Sort by -->
+    <string name="drawer_sort_by">Сортирај по</string>
+    <string name="drawer_sort_by_name">Име</string>
+    <string name="drawer_sort_by_size">Величина</string>
+    <string name="drawer_sort_by_time_remaining">Преостало време</string>
+    <string name="drawer_sort_by_date_added">Датум додавања</string>
+    <string name="drawer_sort_by_last_activity">Последња активност</string>
+    <string name="drawer_sort_by_progress">Напредак</string>
+    <string name="drawer_sort_by_queue_position">Редослед у реду</string>
+    <string name="drawer_sort_by_upload_ratio">Однос</string>
+    <string name="drawer_sort_by_activity">Активност</string>
+    <string name="drawer_sort_by_state">Статус</string>
+
+    <!-- Preferences -->
+    <string name="action_settings">Подешавања</string>
+    <string name="notifications_pref_title">Обавештења</string>
+    <string name="notification_settings">Подешавања обавештења</string>
+    <string name="advanced_pref_title">Напредна подешавања</string>
+    <string name="show_add_torrent_fab_title">Прикажи дугме "Додај торент"</string>
+
+    <!-- Servers -->
+    <string name="add_new_server_title">Додај нови сервер</string>
+    <string name="server_parameters">Параметри сервера</string>
+    <string name="server_name_hint">Име сервера</string>
+    <string name="server_host_hint">Име хоста или IP адреса</string>
+    <string name="server_port_hint">Порт</string>
+    <string name="server_rpc_url_hint">RPC URL</string>
+    <string name="trust_self_signed_ssl_cert">Веровање само-potписаним SSL сертификатима</string>
+    <string name="authentication">Аутентификација</string>
+    <string name="rpc_url">RPC URL:</string>
+    <string name="default_url">Подразумевано</string>
+    <string name="username">Корисничко име</string>
+    <string name="password">Лозинка</string>
+    <string name="server_name_error_message">Име мора бити непразно</string>
+    <string name="host_name_error_message">Унесите IP адресу или име хоста рачунара на којем је uTorrent покренут</string>
+    <string name="port_number_error_message">Молимо унесите број порта. Мора бити исти као онај наведен у uTorrent подешавањима</string>
+    <string name="servers">Сервери</string>
+    <string name="add_remove_servers">Додај или уклони сервере</string>
+    <string name="remove_server">Уклони сервер</string>
+    <string name="save_server">Сачувај</string>
+    <string name="remove_server_confirmation">Уклонити сервер?</string>
+    <string name="saved">Сачувано</string>
+    <string name="save_changes_question">Сачувати промене?</string>
+    <string name="save_changes_save">Сачувај</string>
+    <string name="save_changes_discard">Одбаци</string>
+    <string name="enter_server_parameters">Унесите параметре сервера да започнете.</string>
+    <string name="add_server">Додај сервер</string>
+    <string name="manage_servers">Управљање серверима</string>
+    <string name="servers_empty_text">Нема сервера</string>
+
+    <!-- Preferences -->
+    <string name="update_interval_title">Интервал ажурирања</string>
+    <string name="update_interval_summary">Интервал ажурирања листе торената</string>
+    <string name="torrent_finished_notification_title">Омогући обавештење о завршеном торенту</string>
+    <string name="torrent_finished_notification_summary">Проверава торенте у позадини</string>
+    <string name="torrent_finished_notification_vibrate_title">Вибрација</string>
+    <string name="torrent_finished_notification_sound_title">Звук</string>
+    <string name="torrent_finished_notification_only_unmetered_wifi_title">Само на неограниченом WiFi-ју</string>
+    <string name="torrent_finished_notification_only_unmetered_wifi_summary">Укључивање овога ће дозволити позадинско ажурирање на ћелијској мрежи и другим ограниченим мрежама</string>
+
+    <!-- Status strings -->
+    <string name="status_checking">Провера</string>
+    <string name="status_downloading">Преузимање</string>
+    <string name="status_seeding">Сеедовање</string>
+    <string name="status_paused">Паузирано</string>
+    <string name="status_queued">У реду</string>
+    <string name="status_verifying">Провера</string>
+    <string name="status_error">Грешка</string>
+    <string name="status_unknown">Непознато</string>
+
+    <!-- Size units -->
+    <string name="size_kb">KB</string>
+    <string name="size_mb">MB</string>
+    <string name="size_gb">GB</string>
+    <string name="size_tb">TB</string>
+
+    <!-- Time units -->
+    <string name="time_second">сек</string>
+    <string name="time_minute">мин</string>
+    <string name="time_hour">ч</string>
+    <string name="time_day">д</string>
+    <string name="time_week">нед</string>
+    <string name="time_month">мес</string>
+    <string name="time_year">год</string>
+
+    <!-- Speed units -->
+    <string name="speed_bps">B/s</string>
+    <string name="speed_kbps">KB/s</string>
+    <string name="speed_mbps">MB/s</string>
+    <string name="speed_gbps">GB/s</string>
+
+    <!-- Error messages -->
+    <string name="error_connecting_to_server">Грешка при повезивању са сервером</string>
+    <string name="error_authentication_failed">Аутентификација није успела</string>
+    <string name="error_invalid_server_response">Неважећи одговор сервера</string>
+    <string name="error_network_timeout">Мрежни тајмаут</string>
+    <string name="error_unknown">Непозната грешка</string>
+    <string name="error_no_internet_connection">Нема интернет везе</string>
+
+    <!-- Dialog messages -->
+    <string name="dialog_remove_torrent_title">Уклонити торент?</string>
+    <string name="dialog_remove_torrent_message">Да ли сте сигурни да желите да уклоните овај торент? Ова акција се не може опозвати.</string>
+    <string name="dialog_remove_torrent_with_data_title">Уклонити торент и податке?</string>
+    <string name="dialog_remove_torrent_with_data_message">Да ли сте сигурни да желите да уклоните овај торент и све повезане датотеке? Ова акција се не може опозвати.</string>
+    <string name="dialog_yes">Да</string>
+    <string name="dialog_no">Не</string>
+    <string name="dialog_cancel">Откажи</string>
+    <string name="dialog_ok">У реду</string>
+
+    <!-- Notification strings -->
+    <string name="notification_channel_name">uTorrent обавештења</string>
+    <string name="notification_torrent_finished_title">Торент завршен</string>
+    <string name="notification_torrent_finished_text">%s је завршен</string>
+    <string name="notification_torrent_added_title">Торент додан</string>
+    <string name="notification_torrent_added_text">%s је додан у ред за преузимање</string>
+
+    <!-- Menu items -->
+    <string name="menu_refresh">Освежи</string>
+    <string name="menu_add_torrent">Додај торент</string>
+    <string name="menu_settings">Подешавања</string>
+    <string name="menu_about">О апликацији</string>
+
+    <!-- About dialog -->
+    <string name="about_title">О uTorrentConnect</string>
+    <string name="about_version">Верзија %s</string>
+    <string name="about_description">uTorrentConnect вам омогућава да управљате својим uTorrent торент клијентом са вашег Android уређаја.</string>
+    <string name="about_website">Вебсајт</string>
+    <string name="about_source_code">Изворни код</string>
+    <string name="about_license">Лиценца</string>
+
+    <!-- Torrent details -->
+    <string name="torrent_detail_name">Име</string>
+    <string name="torrent_detail_size">Величина</string>
+    <string name="torrent_detail_downloaded">Преузето</string>
+    <string name="torrent_detail_uploaded">Отпремљено</string>
+    <string name="torrent_detail_ratio">Однос</string>
+    <string name="torrent_detail_peers">Парњаци</string>
+    <string name="torrent_detail_seeds">Сидери</string>
+    <string name="torrent_detail_status">Статус</string>
+    <string name="torrent_detail_eta">Преостало време</string>
+    <string name="torrent_detail_download_speed">Брзина преузимања</string>
+    <string name="torrent_detail_upload_speed">Брзина отпремања</string>
+    <string name="torrent_detail_location">Локација</string>
+    <string name="torrent_detail_date_added">Датум додавања</string>
+    <string name="torrent_detail_date_completed">Датум завршетка</string>
+
+    <!-- Add torrent dialog -->
+    <string name="add_torrent_title">Додај торент</string>
+    <string name="add_torrent_url_hint">URL торента или магнетни линк</string>
+    <string name="add_torrent_file_hint">Изаберите .torrent датотеку</string>
+    <string name="add_torrent_download_directory_hint">Директоријум за преузимање</string>
+    <string name="add_torrent_start_paused">Покрени паузирано</string>
+    <string name="add_torrent_add">Додај</string>
+
+    <!-- Search -->
+    <string name="search_hint">Претражи торенте...</string>
+    <string name="search_no_results">Нема резултата претраге</string>
+
+    <!-- Connectivity -->
+    <string name="connectivity_connected">Повезано</string>
+    <string name="connectivity_connecting">Повезивање...</string>
+    <string name="connectivity_disconnected">Неповезано</string>
+    <string name="connectivity_error">Грешка повезивања</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">Статистике</string>
+    <string name="statistics_total_downloaded">Укупно преузето</string>
+    <string name="statistics_total_uploaded">Укупно отпремљено</string>
+    <string name="statistics_session_downloaded">Преузето у сесији</string>
+    <string name="statistics_session_uploaded">Отпремљено у сесији</string>
+    <string name="statistics_active_torrents">Активни торенти</string>
+    <string name="statistics_paused_torrents">Паузирани торенти</string>
+    <string name="statistics_total_torrents">Укупно торената</string>
+
+</resources>
