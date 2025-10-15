@@ -223,11 +223,24 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
             }
     );
 
+    private boolean isOnboardingNeeded() {
+        android.content.SharedPreferences prefs = getSharedPreferences("onboarding_prefs", MODE_PRIVATE);
+        return !prefs.getBoolean("onboarding_completed", false);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen.installSplashScreen(this);
         application = uTorrentRemote.getApplication(this);
         super.onCreate(savedInstanceState);
+
+        // Check if onboarding is needed BEFORE setting up UI
+        if (isOnboardingNeeded()) {
+            // Finish this activity immediately - onboarding will be launched from uTorrentRemote
+            finish();
+            return;
+        }
+
         logAppStartupTime();
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
 

@@ -20,6 +20,8 @@ import com.shareconnect.onboarding.R as OnboardingR
 
 @Composable
 fun WelcomeScreen(
+    appName: String,
+    appDescription: String,
     onNext: () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -49,7 +51,7 @@ fun WelcomeScreen(
 
         // Welcome title
         Text(
-            text = stringResource(OnboardingR.string.onboarding_welcome_title),
+            text = "Welcome to $appName",
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -58,7 +60,7 @@ fun WelcomeScreen(
 
         // Welcome message
         Text(
-            text = stringResource(OnboardingR.string.onboarding_welcome_message),
+            text = appDescription,
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(bottom = 48.dp)

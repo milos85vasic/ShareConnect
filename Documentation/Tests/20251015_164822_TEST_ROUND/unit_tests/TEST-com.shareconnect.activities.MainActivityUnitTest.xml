@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.activities.MainActivityUnitTest" tests="8" skipped="8" failures="0" errors="0" timestamp="2025-10-15T13:49:01.460Z" hostname="thinker" time="0.0">
+  <properties/>
+  <testcase name="testHistoryButtonExists" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSettingsButtonExists" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testOpenMeTubeButtonWithoutDefaultProfile" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testActivityCreation" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testOpenMeTubeButtonWithDefaultProfile" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testActivityLifecycle" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testFabAddButtonExists" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testToolbarIsDisplayed" classname="com.shareconnect.activities.MainActivityUnitTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

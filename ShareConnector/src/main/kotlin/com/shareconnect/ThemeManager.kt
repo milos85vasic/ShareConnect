@@ -19,7 +19,7 @@ import kotlinx.coroutines.runBlocking
 class ThemeManager private constructor(private val context: Context) {
     private val themeRepository: ThemeRepository
     private val sharedPreferences: SharedPreferences
-    private val themeSyncManager: ThemeSyncManager
+    private var themeSyncManager: ThemeSyncManager? = null
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     init {
@@ -27,17 +27,34 @@ class ThemeManager private constructor(private val context: Context) {
         themeRepository.initializeDefaultThemes()
         sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
-        // Get ThemeSyncManager from Application
-        themeSyncManager = (context.applicationContext as SCApplication).themeSyncManager
+        // Initialize theme sync manager lazily to avoid race condition
+        initializeThemeSyncManager()
+    }
 
-        // Observe theme changes from sync
-        scope.launch {
-            themeSyncManager.themeChangeFlow.collect { syncedTheme ->
-                // If this is the default theme, notify change
-                if (syncedTheme.isDefault) {
-                    notifyThemeChanged()
+    private fun initializeThemeSyncManager() {
+        try {
+            // Get ThemeSyncManager from Application - may not be initialized yet
+            val app = context.applicationContext as SCApplication
+            if (themeSyncManager != null) {
+                // Already initialized
+                return
+            }
+
+            themeSyncManager = app.themeSyncManager
+
+            // Observe theme changes from sync
+            scope.launch {
+                themeSyncManager?.themeChangeFlow?.collect { syncedTheme ->
+                    // If this is the default theme, notify change
+                    if (syncedTheme.isDefault) {
+                        notifyThemeChanged()
+                    }
                 }
             }
+        } catch (e: UninitializedPropertyAccessException) {
+            // themeSyncManager not initialized yet in application
+            // Will be initialized later when needed
+            Console.debug("ThemeManager: themeSyncManager not ready yet, will initialize later")
         }
     }
 

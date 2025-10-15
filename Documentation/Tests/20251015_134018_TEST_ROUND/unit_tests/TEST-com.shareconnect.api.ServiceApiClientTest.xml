@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.api.ServiceApiClientTest" tests="34" skipped="0" failures="0" errors="0" timestamp="2025-10-15T10:40:56.453Z" hostname="thinker" time="4.685">
+  <properties/>
+  <testcase name="testProfileTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="1.562"/>
+  <testcase name="testTorrentClientTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.043"/>
+  <testcase name="testMeTubeProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.036"/>
+  <testcase name="testTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.032"/>
+  <testcase name="testUTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.023"/>
+  <testcase name="testSendUrlToServiceCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.052"/>
+  <testcase name="testJDownloaderProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.038"/>
+  <testcase name="testProfileWithoutAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.032"/>
+  <testcase name="testTransmissionProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.03"/>
+  <testcase name="testYtdlProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.043"/>
+  <testcase name="testServiceApiCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.034"/>
+  <testcase name="testProfileWithEmptyAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.03"/>
+  <testcase name="testServiceApiClientInitialization" classname="com.shareconnect.api.ServiceApiClientTest" time="0.024"/>
+  <testcase name="testProfileWithAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.024"/>
+  <testcase name="testQBittorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.024"/>
+  <testcase name="testUnsupportedServiceType" classname="com.shareconnect.api.ServiceApiClientTest" time="0.023"/>
+  <testcase name="testServiceApiClientCreation" classname="com.shareconnect.api.ServiceApiClientTest" time="0.026"/>
+  <testcase name="testProfileTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.041"/>
+  <testcase name="testTorrentClientTypes" classname="com.shareconnect.api.ServiceApiClientTest" time="0.03"/>
+  <testcase name="testMeTubeProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.031"/>
+  <testcase name="testTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.041"/>
+  <testcase name="testUTorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.038"/>
+  <testcase name="testSendUrlToServiceCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.037"/>
+  <testcase name="testJDownloaderProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.027"/>
+  <testcase name="testProfileWithoutAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.026"/>
+  <testcase name="testTransmissionProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.027"/>
+  <testcase name="testYtdlProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.025"/>
+  <testcase name="testServiceApiCallback" classname="com.shareconnect.api.ServiceApiClientTest" time="0.025"/>
+  <testcase name="testProfileWithEmptyAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.027"/>
+  <testcase name="testServiceApiClientInitialization" classname="com.shareconnect.api.ServiceApiClientTest" time="0.023"/>
+  <testcase name="testProfileWithAuthentication" classname="com.shareconnect.api.ServiceApiClientTest" time="0.022"/>
+  <testcase name="testQBittorrentProfile" classname="com.shareconnect.api.ServiceApiClientTest" time="0.026"/>
+  <testcase name="testUnsupportedServiceType" classname="com.shareconnect.api.ServiceApiClientTest" time="0.024"/>
+  <testcase name="testServiceApiClientCreation" classname="com.shareconnect.api.ServiceApiClientTest" time="0.025"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Exception in thread "OkHttp Dispatcher" java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.shareconnect.debug. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.FirebaseApp.getInstance(FirebaseApp.java:179)
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.ServiceApiClient$sendUrlToMeTube$1.onFailure(ServiceApiClient.kt:83)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:538)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Exception in thread "OkHttp Dispatcher" java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.shareconnect.debug. Make sure to call FirebaseApp.initializeApp(Context) first.
+	at com.google.firebase.crashlytics.FirebaseCrashlytics.getInstance(FirebaseCrashlytics.java:194)
+	at com.redelf.commons.extensions.MainKt.recordException(main.kt:154)
+	at com.shareconnect.ServiceApiClient$sendUrlToMeTube$1.onFailure(ServiceApiClient.kt:83)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:538)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+]]></system-err>
+</testsuite>

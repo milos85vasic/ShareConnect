@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.utils.TorrentAppHelperTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2025-10-15T10:16:43.678Z" hostname="thinker" time="0.769">
+  <properties/>
+  <testcase name="testGetAppName_returnsCorrectNames" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.387"/>
+  <testcase name="testIsTransmissionConnectInstalled_returnsTrueWhenInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.09"/>
+  <testcase name="testGetInstalledAppForProfile_returnsQBitConnectForQBitTorrentProfile" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.02"/>
+  <testcase name="testGetSuggestedAppForProfile_returnsCorrectApp" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.026"/>
+  <testcase name="testIsQBitConnectInstalled_returnsTrueWhenInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.023"/>
+  <testcase name="testIsTorrentFile_detectsTorrentFiles" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.024"/>
+  <testcase name="testHasAnyTorrentAppInstalled_returnsTrueWhenTransmissionConnectInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.023"/>
+  <testcase name="testIsQBitConnectInstalled_returnsFalseWhenNotInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.027"/>
+  <testcase name="testGetInstalledAppForProfile_returnsTransmissionConnectForTransmissionProfile" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.02"/>
+  <testcase name="testGetInstalledAppForProfile_returnsNullForNonTorrentProfile" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.022"/>
+  <testcase name="testGetAppPackageForClientType_returnsCorrectPackage" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.018"/>
+  <testcase name="testIsTorrentContent_detectsTorrentContent" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.025"/>
+  <testcase name="testHasAnyTorrentAppInstalled_returnsTrueWhenQBitConnectInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.019"/>
+  <testcase name="testIsMagnetLink_detectsMagnetLinks" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.021"/>
+  <testcase name="testHasAnyTorrentAppInstalled_returnsFalseWhenNoneInstalled" classname="com.shareconnect.utils.TorrentAppHelperTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

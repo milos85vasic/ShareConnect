@@ -1,0 +1,2 @@
+INFO: Constructing runner from config.
+SEVERE: Fatal error while executing main with args: --proto_config=/home/milosvasic/.android/utp/runnerConfig1265557735702040255.pb --proto_server_config=/home/milosvasic/.android/utp/serverConfig2044004702871860146.pb

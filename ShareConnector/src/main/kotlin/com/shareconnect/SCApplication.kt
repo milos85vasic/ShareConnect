@@ -279,22 +279,15 @@ class SCApplication : BaseApplication() {
         if (!onboardingCompleted) {
             // Check if user has any existing data that would indicate they've used the app before
             applicationScope.launch {
-                val hasExistingProfiles = runCatching<Boolean> {
-                    profileSyncManager.getAllProfiles().first().isNotEmpty()
-                }.getOrDefault(false)
+            val hasExistingProfiles = runCatching<Boolean> {
+                val profileManager = ProfileManager(this@SCApplication)
+                profileManager.hasProfiles()
+            }.getOrDefault(false)
 
-                val hasExistingThemes = runCatching<Boolean> {
-                    themeSyncManager.getAllThemes().first().isNotEmpty()
-                }.getOrDefault(false)
-
-                val hasExistingLanguage = runCatching<Boolean> {
-                    languageSyncManager.getLanguagePreference() != null
-                }.getOrDefault(false)
-
-                // If no existing data, launch onboarding
-                if (!hasExistingProfiles && !hasExistingThemes && !hasExistingLanguage) {
-                    launchOnboarding()
-                }
+            // If no existing profiles, launch onboarding
+            if (!hasExistingProfiles) {
+                launchOnboarding()
+            }
             }
         }
     }
