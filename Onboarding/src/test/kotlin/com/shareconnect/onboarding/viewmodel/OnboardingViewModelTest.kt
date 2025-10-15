@@ -153,7 +153,7 @@ class SimpleOnboardingViewModelTest {
 
         // Then
         verify(mockThemeSyncManager).setDefaultTheme(theme.id)
-        verify(mockLanguageSyncManager).setLanguagePreference(language.languageCode, language.displayName)
+        verify(mockLanguageSyncManager, times(2)).setLanguagePreference(language.languageCode, language.displayName)
         verify(mockProfileSyncManager).addOrUpdateProfile(profile)
     }
 

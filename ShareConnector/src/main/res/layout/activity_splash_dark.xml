@@ -12,7 +12,7 @@
         android:layout_height="300dp"
         android:layout_marginBottom="24dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/splash_logo_dark"
+        android:src="@mipmap/ic_launcher_round"
         android:contentDescription="@string/app_name" />
 
     <TextView
