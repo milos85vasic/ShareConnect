@@ -88,7 +88,7 @@ fun ThemeSelectionScreen(
                         fontWeight = FontWeight.Medium
                     )
                     Text(
-                        text = if (theme.isDarkMode) "Dark theme" else "Light theme",
+                        text = if (theme.isDarkMode) stringResource(com.shareconnect.onboarding.R.string.onboarding_theme_dark) else stringResource(com.shareconnect.onboarding.R.string.onboarding_theme_light),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

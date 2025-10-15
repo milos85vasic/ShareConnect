@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_welcome_title">Добродошли у ShareConnect</string>
+    <string name="onboarding_welcome_message">Хајде да вас поставимо са савршеним искуством торентовања. Помоћи ћемо вам да изаберете тему, језик и креирате ваш први профил.</string>
+    <string name="onboarding_get_started">Започните</string>
+
+    <string name="onboarding_theme_title">Изаберите вашу тему</string>
+    <string name="onboarding_theme_message">Изаберите тему која вам одговара. Ово увек можете променити касније у подешавањима.</string>
+    <string name="onboarding_theme_light">Светла</string>
+    <string name="onboarding_theme_dark">Тамна</string>
+    <string name="onboarding_theme_system">Системска</string>
+
+    <string name="onboarding_language_title">Изаберите језик</string>
+    <string name="onboarding_language_message">Изаберите жељени језик за интерфејс апликације.</string>
+
+    <string name="onboarding_profile_title">Креирајте ваш профил</string>
+    <string name="onboarding_profile_message">Подесите ваш први профил торент клијента да започнете.</string>
+    <string name="onboarding_profile_name_hint">Име профила</string>
+    <string name="onboarding_profile_url_hint">URL сервера</string>
+    <string name="onboarding_profile_url_placeholder">http://192.168.1.100</string>
+    <string name="onboarding_profile_port_hint">Порт</string>
+    <string name="onboarding_profile_username_hint">Корисничко име (опционо)</string>
+    <string name="onboarding_profile_password_hint">Лозинка (опционо)</string>
+    <string name="onboarding_profile_create">Креирај профил</string>
+
+    <string name="onboarding_completion_title">Све је спремно!</string>
+    <string name="onboarding_completion_message">Ваше ShareConnect искуство је спремно. Уживајте у беспрекорном управљању торентима на свим вашим уређајима.</string>
+    <string name="onboarding_completion_start">Почните да користите ShareConnect</string>
+
+    <string name="onboarding_next">Следеће</string>
+    <string name="onboarding_back">Назад</string>
+    <string name="onboarding_skip">Прескочи</string>
+    <string name="onboarding_selected">Изабрано</string>
+</resources>

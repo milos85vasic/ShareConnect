@@ -23,6 +23,8 @@ import com.redelf.commons.logging.Console
 import com.shareconnect.languagesync.utils.LocaleHelper
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import androidx.core.content.edit
+import androidx.core.net.toUri
 
 class MainActivity : AppCompatActivity() {
     private var buttonSettings: MaterialButton? = null
@@ -114,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     // Has existing data but onboarding not marked complete, mark it complete
                     Console.debug("MainActivity.onCreate() - Has existing data, marking onboarding complete")
-                    prefs.edit().putBoolean("onboarding_completed", true).apply()
+                    prefs.edit { putBoolean("onboarding_completed", true) }
                 }
             }
 
@@ -548,7 +550,7 @@ class MainActivity : AppCompatActivity() {
     private fun isValidUrl(url: String?): Boolean {
         if (url == null) return false
         return try {
-            val uri = Uri.parse(url)
+            val uri = url.toUri()
             uri.scheme != null && (uri.scheme == "http" || uri.scheme == "https" ||
                 uri.scheme == "magnet" || url.endsWith(".torrent"))
         } catch (e: Exception) {
