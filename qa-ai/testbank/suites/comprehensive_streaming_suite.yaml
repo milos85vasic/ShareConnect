@@ -1,0 +1,124 @@
+id: "TS_STREAMING_001"
+name: "Comprehensive Streaming Services Test Suite"
+description: "Complete test suite for all supported streaming services"
+
+test_cases:
+  # YouTube Tests
+  - "TC_STREAMING_YOUTUBE_001"  # Standard YouTube video
+  - "TC_STREAMING_YOUTUBE_002"  # YouTube Shorts
+  - "TC_STREAMING_YOUTUBE_003"  # YouTube Music
+  - "TC_STREAMING_YOUTUBE_004"  # YouTube Live stream
+  - "TC_STREAMING_YOUTUBE_005"  # YouTube playlist
+  - "TC_STREAMING_YOUTUBE_006"  # YouTube channel
+
+  # TikTok Tests
+  - "TC_STREAMING_TIKTOK_001"   # TikTok video
+  - "TC_STREAMING_TIKTOK_002"   # TikTok music
+  - "TC_STREAMING_TIKTOK_003"   # TikTok user profile
+
+  # Vimeo Tests
+  - "TC_STREAMING_VIMEO_001"    # Standard Vimeo video
+  - "TC_STREAMING_VIMEO_002"    # Vimeo player URL
+
+  # SoundCloud Tests
+  - "TC_STREAMING_SOUNDCLOUD_001"  # SoundCloud track
+  - "TC_STREAMING_SOUNDCLOUD_002"  # SoundCloud playlist
+  - "TC_STREAMING_SOUNDCLOUD_003"  # SoundCloud user profile
+
+  # Spotify Tests
+  - "TC_STREAMING_SPOTIFY_001"  # Spotify track
+  - "TC_STREAMING_SPOTIFY_002"  # Spotify album
+  - "TC_STREAMING_SPOTIFY_003"  # Spotify playlist
+  - "TC_STREAMING_SPOTIFY_004"  # Spotify podcast
+
+  # Twitch Tests
+  - "TC_STREAMING_TWITCH_001"   # Twitch live stream
+  - "TC_STREAMING_TWITCH_002"   # Twitch VOD
+  - "TC_STREAMING_TWITCH_003"   # Twitch clip
+
+  # Instagram Tests
+  - "TC_STREAMING_INSTAGRAM_001"  # Instagram post
+  - "TC_STREAMING_INSTAGRAM_002"  # Instagram Reel
+  - "TC_STREAMING_INSTAGRAM_003"  # Instagram Story
+
+  # Twitter/X Tests
+  - "TC_STREAMING_TWITTER_001"  # Twitter video
+  - "TC_STREAMING_TWITTER_002"  # Twitter live stream
+
+  # Facebook Tests
+  - "TC_STREAMING_FACEBOOK_001"  # Facebook video
+  - "TC_STREAMING_FACEBOOK_002"  # Facebook live stream
+
+  # Additional Streaming Services (1800+ sites)
+  - "TC_STREAMING_ADDITIONAL_001"  # BiliBili video
+  - "TC_STREAMING_ADDITIONAL_002"  # Nicovideo video
+  - "TC_STREAMING_ADDITIONAL_003"  # DailyMotion video
+  - "TC_STREAMING_ADDITIONAL_004"  # Vevo music video
+  - "TC_STREAMING_ADDITIONAL_005"  # Bandcamp album
+  - "TC_STREAMING_ADDITIONAL_006"  # Mixcloud mix
+  - "TC_STREAMING_ADDITIONAL_007"  # Deezer track
+  - "TC_STREAMING_ADDITIONAL_008"  # Tidal track
+
+setup_steps:
+  - "Clear all app data and cache"
+  - "Reset emulator to clean state"
+  - "Ensure stable network connection"
+  - "Install all required apps (ShareConnector, torrent clients)"
+  - "Configure test profiles for each service type"
+  - "Set up mock servers for testing"
+
+teardown_steps:
+  - "Stop all mock servers"
+  - "Clear test data from all apps"
+  - "Collect logs, screenshots, and performance metrics"
+  - "Generate comprehensive test report"
+  - "Archive all test artifacts"
+
+test_data:
+  youtube_videos:
+    - "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    - "https://youtube.com/shorts/abc123"
+    - "https://music.youtube.com/watch?v=xyz789"
+
+  tiktok_videos:
+    - "https://www.tiktok.com/@user/video/123456789"
+    - "https://vm.tiktok.com/abc123"
+
+  vimeo_videos:
+    - "https://vimeo.com/123456789"
+    - "https://player.vimeo.com/video/123456789"
+
+  soundcloud_tracks:
+    - "https://soundcloud.com/artist/track"
+    - "https://soundcloud.com/artist/sets/playlist"
+
+  spotify_content:
+    - "https://open.spotify.com/track/123456789"
+    - "https://open.spotify.com/album/123456789"
+    - "https://open.spotify.com/playlist/123456789"
+    - "https://open.spotify.com/episode/123456789"
+
+  twitch_content:
+    - "https://www.twitch.tv/channel"
+    - "https://www.twitch.tv/videos/123456789"
+    - "https://clips.twitch.tv/AmazingClip"
+
+  instagram_content:
+    - "https://www.instagram.com/p/ABC123/"
+    - "https://www.instagram.com/reel/DEF456/"
+
+  twitter_content:
+    - "https://twitter.com/user/status/123456789"
+    - "https://x.com/user/status/123456789"
+
+  facebook_content:
+    - "https://www.facebook.com/watch/?v=123456789"
+    - "https://www.facebook.com/user/videos/123456789"
+
+expected_results:
+  - "All streaming URLs should be correctly identified"
+  - "Appropriate apps should be suggested for each URL type"
+  - "Sharing should work seamlessly across all platforms"
+  - "Metadata should be extracted correctly"
+  - "No crashes or exceptions during sharing process"
+  - "Performance should remain smooth with large numbers of URLs"

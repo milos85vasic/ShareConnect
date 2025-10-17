@@ -1,0 +1,122 @@
+id: "TS_DIRECT_DL_001"
+name: "Comprehensive Direct Download Test Suite"
+description: "Complete test suite for all supported direct download types"
+
+test_cases:
+  # Software Installer Tests
+  - "TC_DIRECT_DL_EXE_001"      # Windows executable
+  - "TC_DIRECT_DL_DMG_001"      # macOS disk image
+  - "TC_DIRECT_DL_DEB_001"      # Debian package
+  - "TC_DIRECT_DL_RPM_001"      # RPM package
+  - "TC_DIRECT_DL_APK_001"      # Android package
+  - "TC_DIRECT_DL_MSI_001"      # Windows installer
+
+  # Document Tests
+  - "TC_DIRECT_DL_PDF_001"      # PDF document
+  - "TC_DIRECT_DL_DOC_001"      # Word document
+  - "TC_DIRECT_DL_DOCX_001"     # Word document (modern)
+  - "TC_DIRECT_DL_XLS_001"      # Excel spreadsheet
+  - "TC_DIRECT_DL_XLSX_001"     # Excel spreadsheet (modern)
+  - "TC_DIRECT_DL_PPT_001"      # PowerPoint presentation
+  - "TC_DIRECT_DL_PPTX_001"     # PowerPoint presentation (modern)
+
+  # Image Tests
+  - "TC_DIRECT_DL_JPG_001"      # JPEG image
+  - "TC_DIRECT_DL_PNG_001"      # PNG image
+  - "TC_DIRECT_DL_GIF_001"      # GIF image
+  - "TC_DIRECT_DL_WEBP_001"     # WebP image
+  - "TC_DIRECT_DL_SVG_001"      # SVG image
+  - "TC_DIRECT_DL_BMP_001"      # BMP image
+  - "TC_DIRECT_DL_TIFF_001"     # TIFF image
+
+  # Video Tests
+  - "TC_DIRECT_DL_MP4_001"      # MP4 video
+  - "TC_DIRECT_DL_AVI_001"      # AVI video
+  - "TC_DIRECT_DL_MKV_001"      # Matroska video
+  - "TC_DIRECT_DL_MOV_001"      # QuickTime video
+  - "TC_DIRECT_DL_WMV_001"      # Windows Media Video
+  - "TC_DIRECT_DL_FLV_001"      # Flash video
+  - "TC_DIRECT_DL_WEBM_001"     # WebM video
+
+  # Audio Tests
+  - "TC_DIRECT_DL_MP3_001"      # MP3 audio
+  - "TC_DIRECT_DL_WAV_001"      # WAV audio
+  - "TC_DIRECT_DL_FLAC_001"     # FLAC audio
+  - "TC_DIRECT_DL_AAC_001"      # AAC audio
+  - "TC_DIRECT_DL_OGG_001"      # OGG audio
+  - "TC_DIRECT_DL_WMA_001"      # Windows Media Audio
+
+  # Archive Tests (Direct Download)
+  - "TC_DIRECT_DL_RAR_001"      # RAR archive
+  - "TC_DIRECT_DL_7Z_001"       # 7Z archive
+  - "TC_DIRECT_DL_ZIP_001"      # ZIP archive
+  - "TC_DIRECT_DL_TAR_001"      # TAR archive
+
+  # Large File Tests
+  - "TC_DIRECT_DL_LARGE_001"    # Files > 1GB
+  - "TC_DIRECT_DL_LARGE_002"    # Files > 5GB
+  - "TC_DIRECT_DL_LARGE_003"    # Files > 10GB
+
+  # Resume Tests
+  - "TC_DIRECT_DL_RESUME_001"   # Resume interrupted download
+  - "TC_DIRECT_DL_RESUME_002"   # Resume from different location
+
+setup_steps:
+  - "Clear all app data and cache"
+  - "Reset emulator to clean state"
+  - "Ensure stable network connection"
+  - "Install all required apps (ShareConnector, download managers)"
+  - "Configure test profiles for direct downloads"
+  - "Set up mock servers for file downloads"
+  - "Prepare test files of various sizes and types"
+  - "Configure download directories"
+
+teardown_steps:
+  - "Stop all mock servers"
+  - "Clear test data from all apps"
+  - "Remove any downloaded test files"
+  - "Collect logs, screenshots, and performance metrics"
+  - "Generate comprehensive test report"
+  - "Archive all test artifacts"
+
+test_data:
+  software_installers:
+    - "https://example.com/software/setup.exe"
+    - "https://example.com/software/app.dmg"
+    - "https://example.com/software/package.deb"
+    - "https://example.com/software/package.rpm"
+
+  documents:
+    - "https://example.com/docs/document.pdf"
+    - "https://example.com/docs/spreadsheet.xlsx"
+    - "https://example.com/docs/presentation.pptx"
+
+  images:
+    - "https://example.com/images/photo.jpg"
+    - "https://example.com/images/graphic.png"
+    - "https://example.com/images/animation.gif"
+
+  videos:
+    - "https://example.com/videos/movie.mp4"
+    - "https://example.com/videos/clip.avi"
+    - "https://example.com/videos/show.mkv"
+
+  audio:
+    - "https://example.com/audio/song.mp3"
+    - "https://example.com/audio/track.flac"
+    - "https://example.com/audio/podcast.aac"
+
+  large_files:
+    - "https://example.com/large/file_1gb.zip"
+    - "https://example.com/large/file_5gb.iso"
+    - "https://example.com/large/file_10gb.video"
+
+expected_results:
+  - "All file types should be correctly identified"
+  - "Appropriate download methods should be suggested"
+  - "Direct downloads should work for all supported formats"
+  - "File metadata should be extracted correctly"
+  - "Large files should be handled efficiently"
+  - "Resume functionality should work correctly"
+  - "No crashes or exceptions during download operations"
+  - "Performance should remain smooth with concurrent downloads"

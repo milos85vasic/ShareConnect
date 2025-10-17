@@ -1,0 +1,104 @@
+id: "TS_FILEHOSTING_001"
+name: "Comprehensive File Hosting Services Test Suite"
+description: "Complete test suite for all supported file hosting services"
+
+test_cases:
+  # MediaFire Tests
+  - "TC_FILEHOSTING_MEDIAFIRE_001"  # Direct download link
+  - "TC_FILEHOSTING_MEDIAFIRE_002"  # Folder link
+  - "TC_FILEHOSTING_MEDIAFIRE_003"  # Premium download
+
+  # Mega.nz Tests
+  - "TC_FILEHOSTING_MEGA_001"       # File link
+  - "TC_FILEHOSTING_MEGA_002"       # Folder link
+  - "TC_FILEHOSTING_MEGA_003"       # Encrypted file
+
+  # Google Drive Tests
+  - "TC_FILEHOSTING_GDRIVE_001"     # Shared file
+  - "TC_FILEHOSTING_GDRIVE_002"     # Shared folder
+  - "TC_FILEHOSTING_GDRIVE_003"     # Google Workspace file
+
+  # Dropbox Tests
+  - "TC_FILEHOSTING_DROPBOX_001"    # Shared file
+  - "TC_FILEHOSTING_DROPBOX_002"    # Shared folder
+
+  # OneDrive Tests
+  - "TC_FILEHOSTING_ONEDRIVE_001"  # Shared file
+  - "TC_FILEHOSTING_ONEDRIVE_002"  # Shared folder
+
+  # Box Tests
+  - "TC_FILEHOSTING_BOX_001"        # File link
+  - "TC_FILEHOSTING_BOX_002"        # Folder link
+
+  # pCloud Tests
+  - "TC_FILEHOSTING_PCLOUD_001"     # File link
+  - "TC_FILEHOSTING_PCLOUD_002"     # Folder link
+
+  # Premium Link Services
+  - "TC_FILEHOSTING_RAPIDGATOR_001"  # Premium download
+  - "TC_FILEHOSTING_UPLOADED_001"    # Premium download
+  - "TC_FILEHOSTING_NITROFLARE_001"  # Premium download
+  - "TC_FILEHOSTING_FILEFACTORY_001" # Premium download
+  - "TC_FILEHOSTING_FILEBOOM_001"    # Premium download
+  - "TC_FILEHOSTING_KEEP2SHARE_001"  # Premium download
+
+setup_steps:
+  - "Clear all app data and cache"
+  - "Reset emulator to clean state"
+  - "Ensure stable network connection"
+  - "Install all required apps (ShareConnector, torrent clients, JDownloader)"
+  - "Configure test profiles for file hosting services"
+  - "Set up mock file servers for testing"
+  - "Prepare test files of various sizes and types"
+
+teardown_steps:
+  - "Stop all mock servers"
+  - "Clear test data from all apps"
+  - "Remove any downloaded test files"
+  - "Collect logs, screenshots, and performance metrics"
+  - "Generate comprehensive test report"
+  - "Archive all test artifacts"
+
+test_data:
+  mediafire_links:
+    - "https://www.mediafire.com/file/abc123/test_file.zip"
+    - "https://www.mediafire.com/folder/def456/shared_folder"
+
+  mega_links:
+    - "https://mega.nz/file/abc123#def456"
+    - "https://mega.nz/folder/ghi789#jkl012"
+
+  gdrive_links:
+    - "https://drive.google.com/file/d/abc123/view"
+    - "https://drive.google.com/drive/folders/def456"
+
+  dropbox_links:
+    - "https://www.dropbox.com/s/abc123/test_file.pdf"
+    - "https://www.dropbox.com/sh/def456/shared_folder"
+
+  onedrive_links:
+    - "https://1drv.ms/u/s!abc123def456"
+    - "https://1drv.ms/f/s!ghi789jkl012"
+
+  box_links:
+    - "https://app.box.com/s/abc123"
+    - "https://app.box.com/folder/def456"
+
+  pcloud_links:
+    - "https://u.pcloud.com/abc123"
+    - "https://my.pcloud.com/publink/show?code=def456"
+
+  premium_links:
+    - "https://rapidgator.net/file/abc123/test_file.zip"
+    - "https://uploaded.net/file/def456/test_file.zip"
+    - "https://nitroflare.com/view/ABC123/test_file.zip"
+
+expected_results:
+  - "All file hosting URLs should be correctly identified"
+  - "Appropriate download methods should be suggested"
+  - "JDownloader integration should work for supported services"
+  - "Direct downloads should work for public links"
+  - "Premium link processing should be handled correctly"
+  - "File metadata should be extracted accurately"
+  - "No crashes or exceptions during file operations"
+  - "Performance should remain smooth with large files"

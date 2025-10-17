@@ -229,7 +229,7 @@ class ThemeCreatorActivity : AppCompatActivity() {
                     val themeData = ThemeData.createCustomTheme(
                         name = themeName,
                         isDarkMode = isDarkMode,
-                        sourceApp = getString(R.string.app_package_name),
+                        sourceApp = applicationContext.packageName,
                         primary = primaryColor.toLong(),
                         onPrimary = onPrimaryColor.toLong(),
                         secondary = secondaryColor.toLong(),

@@ -161,6 +161,8 @@ class ThemeSyncManager private constructor(
 
     fun observeDefaultTheme(): Flow<ThemeData?> = repository.observeDefaultTheme()
 
+    suspend fun getThemeById(themeId: String): ThemeData? = repository.getThemeById(themeId)
+
     suspend fun connect(host: String, port: Int): Result<AsinkaClient.SessionInfo> {
         return asinkaClient.connect(host, port)
     }

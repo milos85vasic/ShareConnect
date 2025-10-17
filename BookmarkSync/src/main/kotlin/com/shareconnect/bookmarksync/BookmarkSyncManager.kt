@@ -11,6 +11,7 @@ import digital.vasic.asinka.sync.SyncChange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
+import androidx.startup.Initializer
 
 class BookmarkSyncManager private constructor(
     private val context: Context,
@@ -19,7 +20,7 @@ class BookmarkSyncManager private constructor(
     private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: BookmarkRepository
-) {
+) : Initializer<BookmarkSyncManager> {
     private val TAG = "BookmarkSyncManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -152,6 +153,14 @@ class BookmarkSyncManager private constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error deleting bookmark", e)
         }
+    }
+
+    override fun create(context: Context): BookmarkSyncManager {
+        return getInstance(context, "bookmark-sync", "BookmarkSync", "1.0")
+    }
+
+    override fun dependencies(): List<Class<out Initializer<*>>> {
+        return emptyList()
     }
 
     companion object {

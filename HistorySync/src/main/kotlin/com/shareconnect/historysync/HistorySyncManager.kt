@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import java.net.ServerSocket
 import kotlinx.coroutines.launch
+import androidx.startup.Initializer
 
 class HistorySyncManager private constructor(
     private val context: Context,
@@ -29,7 +30,7 @@ class HistorySyncManager private constructor(
     private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: HistoryRepository
-) {
+) : Initializer<HistorySyncManager> {
     private val TAG = "HistorySyncManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -219,6 +220,14 @@ class HistorySyncManager private constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error handling deleted history", e)
         }
+    }
+
+    override fun create(context: Context): HistorySyncManager {
+        return getInstance(context, "history-sync", "HistorySync", "1.0")
+    }
+
+    override fun dependencies(): List<Class<out Initializer<*>>> {
+        return emptyList()
     }
 
     companion object {

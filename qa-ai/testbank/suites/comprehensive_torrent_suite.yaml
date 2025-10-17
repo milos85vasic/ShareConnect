@@ -1,0 +1,104 @@
+id: "TS_TORRENT_001"
+name: "Comprehensive Torrent Services Test Suite"
+description: "Complete test suite for all supported torrent services and clients"
+
+test_cases:
+  # Magnet Links Tests
+  - "TC_TORRENT_MAGNET_001"     # Standard magnet link
+  - "TC_TORRENT_MAGNET_002"     # Magnet with multiple trackers
+  - "TC_TORRENT_MAGNET_003"     # Magnet with custom trackers
+  - "TC_TORRENT_MAGNET_004"     # Magnet with file selection
+
+  # Torrent Files Tests
+  - "TC_TORRENT_FILE_001"       # Direct .torrent file URL
+  - "TC_TORRENT_FILE_002"       # Torrent file from file hosting
+  - "TC_TORRENT_FILE_003"       # Multi-file torrent
+
+  # qBittorrent Integration Tests
+  - "TC_TORRENT_QBIT_001"       # qBittorrent app detection
+  - "TC_TORRENT_QBIT_002"       # qBittorrent profile creation
+  - "TC_TORRENT_QBIT_003"       # qBittorrent magnet handling
+  - "TC_TORRENT_QBIT_004"       # qBittorrent torrent file handling
+  - "TC_TORRENT_QBIT_005"       # qBittorrent settings sync
+
+  # Transmission Integration Tests
+  - "TC_TORRENT_TRANSMISSION_001"  # Transmission app detection
+  - "TC_TORRENT_TRANSMISSION_002"  # Transmission profile creation
+  - "TC_TORRENT_TRANSMISSION_003"  # Transmission magnet handling
+  - "TC_TORRENT_TRANSMISSION_004"  # Transmission torrent file handling
+  - "TC_TORRENT_TRANSMISSION_005"  # Transmission settings sync
+
+  # uTorrent Integration Tests
+  - "TC_TORRENT_UTORRENT_001"   # uTorrent app detection
+  - "TC_TORRENT_UTORRENT_002"   # uTorrent profile creation
+  - "TC_TORRENT_UTORRENT_003"   # uTorrent magnet handling
+  - "TC_TORRENT_UTORRENT_004"   # uTorrent torrent file handling
+  - "TC_TORRENT_UTORRENT_005"   # uTorrent settings sync
+
+  # Cross-Client Tests
+  - "TC_TORRENT_CROSS_CLIENT_001"  # Multiple clients installed
+  - "TC_TORRENT_CROSS_CLIENT_002"  # Client switching
+  - "TC_TORRENT_CROSS_CLIENT_003"  # Profile migration between clients
+
+  # Torrent Sharing Sync Tests
+  - "TC_TORRENT_SHARING_001"    # Torrent sharing data sync
+  - "TC_TORRENT_SHARING_002"    # Torrent metadata sync
+  - "TC_TORRENT_SHARING_003"    # Torrent status sync
+
+setup_steps:
+  - "Clear all app data and cache"
+  - "Reset emulator to clean state"
+  - "Ensure stable network connection"
+  - "Install all torrent client apps (qBittorrent, Transmission, uTorrent)"
+  - "Install ShareConnector and all connector apps"
+  - "Configure test profiles for each torrent client"
+  - "Set up mock torrent servers for testing"
+  - "Prepare test torrent files and magnet links"
+
+teardown_steps:
+  - "Stop all mock servers"
+  - "Clear test data from all apps"
+  - "Remove any downloaded test torrents"
+  - "Collect logs, screenshots, and performance metrics"
+  - "Generate comprehensive test report"
+  - "Archive all test artifacts"
+
+test_data:
+  magnet_links:
+    - "magnet:?xt=urn:btih:abc123def456&dn=Test+Torrent&tr=udp://tracker.example.com:80"
+    - "magnet:?xt=urn:btih:def456ghi789&dn=Multi+File+Torrent&tr=udp://tracker1.example.com:80&tr=udp://tracker2.example.com:80"
+
+  torrent_files:
+    - "https://example.com/test.torrent"
+    - "https://files.example.com/torrents/multi_file.torrent"
+
+  qbittorrent_profiles:
+    - name: "qBittorrent Local"
+      host: "192.168.1.100"
+      port: 8080
+      username: "admin"
+      password: "adminadmin"
+
+  transmission_profiles:
+    - name: "Transmission Remote"
+      host: "192.168.1.101"
+      port: 9091
+      username: "transmission"
+      password: "transmission"
+
+  utorrent_profiles:
+    - name: "uTorrent Mobile"
+      host: "192.168.1.102"
+      port: 5000
+      username: "admin"
+      password: "admin"
+
+expected_results:
+  - "All torrent URLs should be correctly identified"
+  - "Appropriate torrent clients should be suggested"
+  - "Magnet links should be handled correctly by all clients"
+  - "Torrent files should be downloaded and processed"
+  - "Profile creation and management should work seamlessly"
+  - "Settings should sync correctly between apps"
+  - "No crashes or exceptions during torrent operations"
+  - "Performance should remain smooth with large torrents"
