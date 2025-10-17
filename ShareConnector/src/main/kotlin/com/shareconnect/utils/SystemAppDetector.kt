@@ -149,70 +149,74 @@ object SystemAppDetector {
         return apps
     }
 
-    /**
-     * Get streaming service specific apps (YouTube app for YouTube URLs, etc.)
-     */
-    private fun getStreamingSpecificApps(context: Context, url: String): List<AppInfo> {
-        val packageManager = context.packageManager
-        val apps = mutableListOf<AppInfo>()
+     /**
+      * Get streaming service specific apps (YouTube app for YouTube URLs, etc.)
+      */
+     private fun getStreamingSpecificApps(context: Context, url: String): List<AppInfo> {
+         val packageManager = context.packageManager
+         val apps = mutableListOf<AppInfo>()
 
-        try {
-            when {
-                url.contains("youtube.com") || url.contains("youtu.be") -> {
-                    // Look for YouTube app
-                    apps.addAll(getAppsByPackageName(context, listOf(
-                        "com.google.android.youtube",
-                        "com.google.android.youtube.tv"
-                    )))
-                }
-                url.contains("vimeo.com") -> {
-                    // Look for Vimeo app
-                    apps.addAll(getAppsByPackageName(context, listOf("com.vimeo.android.videoapp")))
-                }
-                url.contains("twitch.tv") -> {
-                    // Look for Twitch app
-                    apps.addAll(getAppsByPackageName(context, listOf("tv.twitch.android.app")))
-                }
-                url.contains("soundcloud.com") -> {
-                    // Look for SoundCloud app
-                    apps.addAll(getAppsByPackageName(context, listOf("com.soundcloud.android")))
-                }
-                url.contains("reddit.com") -> {
-                    // Look for Reddit apps
-                    apps.addAll(getAppsByPackageName(context, listOf(
-                        "com.reddit.frontpage",
-                        "com.laurencedawson.reddit_sync",
-                        "com.onelouder.baconreader"
-                    )))
-                }
-            }
-        } catch (e: Exception) {
-            // Ignore errors
-        }
+         try {
+             when {
+                 url.contains("youtube.com") || url.contains("youtu.be") -> {
+                     // Look for YouTube app
+                     apps.addAll(getAppsByPackageName(context, listOf(
+                         "com.google.android.youtube",
+                         "com.google.android.youtube.tv"
+                     )))
+                 }
+                 url.contains("vimeo.com") -> {
+                     // Look for Vimeo app
+                     apps.addAll(getAppsByPackageName(context, listOf("com.vimeo.android.videoapp")))
+                 }
+                 url.contains("twitch.tv") -> {
+                     // Look for Twitch app
+                     apps.addAll(getAppsByPackageName(context, listOf("tv.twitch.android.app")))
+                 }
+                 url.contains("soundcloud.com") -> {
+                     // Look for SoundCloud app
+                     apps.addAll(getAppsByPackageName(context, listOf("com.soundcloud.android")))
+                 }
+                 url.contains("reddit.com") -> {
+                     // Look for Reddit apps
+                     apps.addAll(getAppsByPackageName(context, listOf(
+                         "com.reddit.frontpage",
+                         "com.laurencedawson.reddit_sync",
+                         "com.onelouder.baconreader"
+                     )))
+                 }
+             }
 
-        return apps
-    }
+             // Always include MyJDownloader for streaming URLs as JDownloader supports streaming sites
+             apps.addAll(getAppsByPackageName(context, listOf("org.appwork.myjdremote")))
+         } catch (e: Exception) {
+             // Ignore errors
+         }
 
-    /**
-     * Get download manager apps
-     */
-    private fun getDownloadManagerApps(context: Context): List<AppInfo> {
-        val packageManager = context.packageManager
-        val apps = mutableListOf<AppInfo>()
+         return apps
+     }
 
-        // Common download manager package names
-        val downloadManagers = listOf(
-            "com.dv.adm", // Advanced Download Manager
-            "idm.internet.download.manager.plus", // Internet Download Manager
-            "com.downloadmanager", // Download Manager
-            "com.loadr.downloadmanager", // Loadr Download Manager
-            "com.farthan.download" // Fast Download Manager
-        )
+     /**
+      * Get download manager apps
+      */
+     private fun getDownloadManagerApps(context: Context): List<AppInfo> {
+         val packageManager = context.packageManager
+         val apps = mutableListOf<AppInfo>()
 
-        apps.addAll(getAppsByPackageName(context, downloadManagers))
+         // Common download manager package names
+         val downloadManagers = listOf(
+             "com.dv.adm", // Advanced Download Manager
+             "idm.internet.download.manager.plus", // Internet Download Manager
+             "com.downloadmanager", // Download Manager
+             "com.loadr.downloadmanager", // Loadr Download Manager
+             "com.farthan.download", // Fast Download Manager
+             "org.appwork.myjdremote" // MyJDownloader - JDownloader Android app
+         )
 
-        return apps
-    }
+         apps.addAll(getAppsByPackageName(context, downloadManagers))
+
+         return apps
+     }
 
     /**
      * Get apps by package name if they exist

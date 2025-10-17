@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.activities.SplashScreenTest" tests="3" skipped="3" failures="0" errors="0" timestamp="2025-10-17T12:58:41.793Z" hostname="thinker" time="0.0">
+  <properties/>
+  <testcase name="testDarkThemeSplashScreenUsesCorrectLogo" classname="com.shareconnect.activities.SplashScreenTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testLightThemeSplashScreenUsesCorrectLogo" classname="com.shareconnect.activities.SplashScreenTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSplashScreenLayoutInflation" classname="com.shareconnect.activities.SplashScreenTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
