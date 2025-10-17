@@ -239,12 +239,65 @@ class UrlCompatibilityUtilsTest {
         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
             UrlCompatibilityUtils.detectUrlType("https://example.com/links.rsdf")!!))
 
-        // Archive files
-        assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
-            UrlCompatibilityUtils.detectUrlType("https://example.com/archive.rar")!!))
-        assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
-            UrlCompatibilityUtils.detectUrlType("https://example.com/files.7z")!!))
-    }
+         // Archive files
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://example.com/archive.rar")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://example.com/files.7z")!!))
+
+         // Additional JDownloader supported sites
+         // File hosting services
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.mediafire.com/file/abc123/file.zip")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://mega.nz/file/abc123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://drive.google.com/file/d/abc123/view")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://1drv.ms/u/s!abc123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.dropbox.com/s/abc123/file.pdf")!!))
+
+         // Premium link services
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://rapidgator.net/file/abc123/file.zip")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://uploaded.net/file/abc123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://nitroflare.com/view/abc123/file.zip")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://filefactory.com/file/abc123")!!))
+
+         // Container formats
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://example.com/container.dlc")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://example.com/links.rsdf")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://example.com/package.ccf")!!))
+
+         // Additional streaming platforms supported by JDownloader
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.tiktok.com/@user/video/123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.instagram.com/p/abc123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.facebook.com/watch?v=123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://twitter.com/user/status/123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://x.com/user/status/123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.bilibili.com/video/av123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.nicovideo.jp/watch/sm123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.deezer.com/track/123")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://open.spotify.com/track/abc")!!))
+         assertTrue(UrlCompatibilityUtils.isProfileCompatible(jdownloaderProfile,
+             UrlCompatibilityUtils.detectUrlType("https://www.tidal.com/track/123")!!))
+     }
 
     @Test
     fun testFilterCompatibleProfiles() {

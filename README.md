@@ -99,9 +99,12 @@ For services that require authentication, ShareConnect supports optional usernam
 
 ### For jDownloader
 
-- Direct download links
-- File hosting services (MediaFire, RapidGator, etc.)
-- One-click hosting services
+- **Streaming Services**: YouTube, Vimeo, Twitch, TikTok, Instagram, Facebook, Twitter/X, Reddit, SoundCloud, and 1800+ other sites
+- **File Hosting Services**: MediaFire, Mega.nz, Google Drive, Dropbox, OneDrive, Box, pCloud, and more
+- **Premium Link Services**: RapidGator, Uploaded.net, Nitroflare, FileFactory, Fileboom, Keep2Share, and more
+- **Container Formats**: DLC, RSDF, CCF (JDownloader container formats)
+- **Archive Files**: RAR, 7Z, ZIP, TAR, and other compressed formats
+- **Direct Downloads**: Any HTTP/HTTPS/FTP download link
 
 ## Setup
 
