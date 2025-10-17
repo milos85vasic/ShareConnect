@@ -31,11 +31,16 @@
             app:title="@string/language"
             app:summary="@string/language_summary" />
 
-        <Preference
-            app:key="theme_selection"
-            app:title="@string/theme"
-            app:summary="@string/theme_summary" />
+         <Preference
+             app:key="theme_selection"
+             app:title="@string/theme"
+             app:summary="@string/theme_summary" />
 
-    </PreferenceCategory>
+         <Preference
+             app:key="theme_creator"
+             app:title="@string/theme_creator"
+             app:summary="@string/theme_creator_summary" />
+
+     </PreferenceCategory>
 
 </PreferenceScreen>

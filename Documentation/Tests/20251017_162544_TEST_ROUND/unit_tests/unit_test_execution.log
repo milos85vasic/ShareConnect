@@ -1,0 +1,1171 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Toolkit:JCommons:compileJava
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes
+> Task :Toolkit:JCommons:jar
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues
+> Task :BookmarkSync:generateDebugResources
+> Task :BookmarkSync:packageDebugResources
+> Task :BookmarkSync:processDebugNavigationResources
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:generateDebugBuildConfig
+> Task :BookmarkSync:parseDebugLocalResources
+> Task :Asinka:asinka:extractDebugProto
+> Task :BookmarkSync:generateDebugRFile
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:extractProto
+> Task :Asinka:asinka:generateDebugProto
+> Task :Asinka:asinka:generateDebugResValues
+> Task :Asinka:asinka:generateDebugResources
+> Task :Asinka:asinka:packageDebugResources
+> Task :Asinka:asinka:processDebugNavigationResources
+> Task :Asinka:asinka:parseDebugLocalResources
+> Task :Asinka:asinka:javaPreCompileDebug
+> Task :Asinka:asinka:generateDebugRFile
+> Task :BookmarkSync:javaPreCompileDebug
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig
+> Task :DesignSystem:generateDebugResValues
+> Task :DesignSystem:generateDebugResources
+> Task :DesignSystem:packageDebugResources
+> Task :DesignSystem:processDebugNavigationResources
+> Task :DesignSystem:javaPreCompileDebug
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :HistorySync:generateDebugResValues
+> Task :DesignSystem:parseDebugLocalResources
+> Task :HistorySync:generateDebugResources
+> Task :HistorySync:packageDebugResources
+> Task :DesignSystem:generateDebugRFile
+> Task :HistorySync:processDebugNavigationResources
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:parseDebugLocalResources
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :HistorySync:javaPreCompileDebug
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues
+> Task :HistorySync:generateDebugRFile
+> Task :LanguageSync:generateDebugResources
+> Task :LanguageSync:packageDebugResources
+> Task :LanguageSync:processDebugNavigationResources
+> Task :LanguageSync:parseDebugLocalResources
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:javaPreCompileDebug
+> Task :Localizations:generateDebugResValues
+> Task :Localizations:generateDebugResources
+> Task :LanguageSync:generateDebugRFile
+> Task :Localizations:packageDebugResources
+> Task :Localizations:processDebugNavigationResources
+> Task :Localizations:javaPreCompileDebug
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources
+> Task :Onboarding:generateDebugBuildConfig
+> Task :Localizations:generateDebugRFile
+> Task :Onboarding:generateDebugResValues
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :Onboarding:generateDebugResources
+> Task :Onboarding:packageDebugResources
+> Task :Onboarding:processDebugNavigationResources
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig
+> Task :Onboarding:parseDebugLocalResources
+> Task :ProfileSync:generateDebugResValues
+> Task :ProfileSync:generateDebugResources
+> Task :Onboarding:generateDebugRFile
+> Task :ProfileSync:packageDebugResources
+> Task :ProfileSync:processDebugNavigationResources
+> Task :ProfileSync:parseDebugLocalResources
+> Task :ProfileSync:javaPreCompileDebug
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig
+> Task :ProfileSync:generateDebugRFile
+> Task :ThemeSync:generateDebugResValues
+> Task :ThemeSync:generateDebugResources
+> Task :ThemeSync:packageDebugResources
+> Task :ThemeSync:processDebugNavigationResources
+> Task :ThemeSync:parseDebugLocalResources
+> Task :Onboarding:javaPreCompileDebug
+> Task :ThemeSync:javaPreCompileDebug
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:generateDebugResValues
+> Task :ThemeSync:generateDebugRFile
+> Task :PreferencesSync:generateDebugResources
+> Task :PreferencesSync:packageDebugResources
+> Task :PreferencesSync:processDebugNavigationResources
+> Task :PreferencesSync:parseDebugLocalResources
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileDebug
+> Task :RSSSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugRFile
+> Task :RSSSync:generateDebugResources
+> Task :RSSSync:packageDebugResources
+> Task :RSSSync:processDebugNavigationResources
+> Task :RSSSync:parseDebugLocalResources
+> Task :RSSSync:javaPreCompileDebug
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :RSSSync:generateDebugRFile
+> Task :BookmarkSync:compileDebugLibraryResources
+> Task :DesignSystem:compileDebugLibraryResources
+> Task :HistorySync:compileDebugLibraryResources
+> Task :LanguageSync:compileDebugLibraryResources
+> Task :Localizations:compileDebugLibraryResources
+> Task :Onboarding:compileDebugLibraryResources
+> Task :PreferencesSync:compileDebugLibraryResources
+> Task :ProfileSync:compileDebugLibraryResources
+> Task :RSSSync:compileDebugLibraryResources
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :HistorySync:writeDebugAarMetadata
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :Localizations:writeDebugAarMetadata
+> Task :Onboarding:writeDebugAarMetadata
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Tests:processDebugNavigationResources
+> Task :TorrentSharingSync:processDebugNavigationResources
+> Task :Toolkit:Analytics:processDebugNavigationResources
+> Task :Toolkit:Main:processDebugNavigationResources
+> Task :ShareConnector:checkDebugAarMetadata
+> Task :ShareConnector:processDebugNavigationResources
+> Task :ShareConnector:compileDebugNavigationResources
+> Task :ShareConnector:generateDebugResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug
+> Task :ShareConnector:processDebugGoogleServices
+> Task :Tests:generateDebugResValues
+> Task :Tests:generateDebugResources
+> Task :Tests:packageDebugResources
+> Task :TorrentSharingSync:generateDebugResValues
+> Task :TorrentSharingSync:generateDebugResources
+> Task :TorrentSharingSync:packageDebugResources
+> Task :Toolkit:Analytics:generateDebugResValues
+> Task :Toolkit:Analytics:generateDebugResources
+> Task :Toolkit:Analytics:packageDebugResources
+> Task :Toolkit:Main:generateDebugResValues
+> Task :Toolkit:Main:generateDebugResources
+> Task :Toolkit:Main:packageDebugResources
+> Task :ShareConnector:mapDebugSourceSetPaths
+> Task :ShareConnector:generateDebugResources
+> Task :Asinka:asinka:kspDebugKotlin
+
+> Task :DesignSystem:compileDebugKotlin FAILED
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:9:25 Unresolved reference 'themesync'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:92:43 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:93:26 Unresolved reference 'isCustom'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:93:48 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:97:43 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:98:45 Unresolved reference 'customOnPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:99:52 Unresolved reference 'customPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:99:88 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:100:54 Unresolved reference 'customOnPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:101:45 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:101:74 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:102:47 Unresolved reference 'customOnSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:54 Unresolved reference 'customSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:92 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:121 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:104:56 Unresolved reference 'customOnSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:105:44 Unresolved reference 'customTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:106:46 Unresolved reference 'customOnTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:107:53 Unresolved reference 'customTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:108:55 Unresolved reference 'customOnTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:109:41 Unresolved reference 'customError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:110:43 Unresolved reference 'customOnError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:111:50 Unresolved reference 'customErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:112:52 Unresolved reference 'customOnErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:113:46 Unresolved reference 'customBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:114:48 Unresolved reference 'customOnBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:115:43 Unresolved reference 'customSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:116:45 Unresolved reference 'customOnSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:117:50 Unresolved reference 'customSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:118:52 Unresolved reference 'customOnSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:119:47 Unresolved reference 'customSurfaceTint'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:119:78 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:120:43 Unresolved reference 'customOutline'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:121:50 Unresolved reference 'customOutlineVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:122:41 Unresolved reference 'customScrim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:123:49 Unresolved reference 'customSurfaceBright'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:124:46 Unresolved reference 'customSurfaceDim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:125:52 Unresolved reference 'customSurfaceContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:126:56 Unresolved reference 'customSurfaceContainerHigh'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:127:59 Unresolved reference 'customSurfaceContainerHighest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:128:55 Unresolved reference 'customSurfaceContainerLow'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:129:58 Unresolved reference 'customSurfaceContainerLowest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:133:43 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:134:45 Unresolved reference 'customOnPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:135:52 Unresolved reference 'customPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:135:88 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:136:54 Unresolved reference 'customOnPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:137:45 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:137:74 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:138:47 Unresolved reference 'customOnSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:54 Unresolved reference 'customSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:92 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:121 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:140:56 Unresolved reference 'customOnSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:141:44 Unresolved reference 'customTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:142:46 Unresolved reference 'customOnTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:143:53 Unresolved reference 'customTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:144:55 Unresolved reference 'customOnTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:145:41 Unresolved reference 'customError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:146:43 Unresolved reference 'customOnError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:147:50 Unresolved reference 'customErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:148:52 Unresolved reference 'customOnErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:149:46 Unresolved reference 'customBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:150:48 Unresolved reference 'customOnBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:151:43 Unresolved reference 'customSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:152:45 Unresolved reference 'customOnSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:153:50 Unresolved reference 'customSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:154:52 Unresolved reference 'customOnSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:155:47 Unresolved reference 'customSurfaceTint'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:155:78 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:156:43 Unresolved reference 'customOutline'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:157:50 Unresolved reference 'customOutlineVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:158:41 Unresolved reference 'customScrim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:159:49 Unresolved reference 'customSurfaceBright'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:160:46 Unresolved reference 'customSurfaceDim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:161:52 Unresolved reference 'customSurfaceContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:162:56 Unresolved reference 'customSurfaceContainerHigh'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:163:59 Unresolved reference 'customSurfaceContainerHighest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:164:55 Unresolved reference 'customSurfaceContainerLow'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:165:58 Unresolved reference 'customSurfaceContainerLowest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:170:25 Unresolved reference 'colorScheme'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:171:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:172:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:173:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:174:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:175:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:176:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:205:16 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:208:71 Unresolved reference 'isDarkMode'.
+
+> Task :ShareConnector:packageDebugResources
+> Task :ShareConnector:createDebugCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksDebug
+> Task :DesignSystem:extractDeepLinksDebug
+> Task :BookmarkSync:processDebugManifest
+> Task :HistorySync:extractDeepLinksDebug
+
+> Task :ShareConnector:parseDebugLocalResources FAILED
+[Fatal Error] item_theme.xml:1:7: The processing instruction target matching "[xX][mM][lL]" is not allowed.
+
+> Task :DesignSystem:processDebugManifest
+> Task :HistorySync:processDebugManifest
+> Task :LanguageSync:extractDeepLinksDebug
+> Task :Localizations:extractDeepLinksDebug
+> Task :LanguageSync:processDebugManifest
+> Task :Onboarding:extractDeepLinksDebug
+> Task :Localizations:processDebugManifest
+> Task :PreferencesSync:extractDeepLinksDebug
+> Task :Onboarding:processDebugManifest
+> Task :ProfileSync:extractDeepLinksDebug
+> Task :PreferencesSync:processDebugManifest
+> Task :RSSSync:extractDeepLinksDebug
+> Task :ProfileSync:processDebugManifest
+> Task :ShareConnector:extractDeepLinksDebug
+> Task :Tests:extractDeepLinksDebug
+> Task :ThemeSync:extractDeepLinksDebug
+> Task :RSSSync:processDebugManifest
+> Task :TorrentSharingSync:extractDeepLinksDebug
+
+> Task :Tests:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :Asinka:asinka:extractDeepLinksDebug
+> Task :TorrentSharingSync:processDebugManifest
+> Task :ThemeSync:processDebugManifest
+> Task :Toolkit:Analytics:extractDeepLinksDebug
+
+> Task :Asinka:asinka:processDebugManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksDebug
+> Task :Toolkit:Analytics:processDebugManifest
+> Task :Tests:compileDebugLibraryResources
+> Task :ThemeSync:compileDebugLibraryResources
+> Task :Tests:parseDebugLocalResources
+> Task :TorrentSharingSync:compileDebugLibraryResources
+> Task :Tests:generateDebugRFile
+
+> Task :Toolkit:Main:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :TorrentSharingSync:parseDebugLocalResources
+
+> Task :ShareConnector:processDebugMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :ShareConnector:processDebugManifest
+> Task :Asinka:asinka:compileDebugLibraryResources
+> Task :Toolkit:Analytics:compileDebugLibraryResources
+> Task :TorrentSharingSync:generateDebugRFile
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Analytics:parseDebugLocalResources
+> Task :Toolkit:Main:generateReleaseResValues
+> Task :Toolkit:Main:parseDebugLocalResources
+> Task :Toolkit:Main:compileDebugLibraryResources
+> Task :Toolkit:Main:generateReleaseResources
+> Task :Toolkit:Main:generateDebugRFile
+> Task :Toolkit:Analytics:generateDebugRFile
+> Task :ShareConnector:mergeDebugResources FAILED
+> Task :Toolkit:Main:packageReleaseResources
+> Task :ShareConnector:processDebugManifestForPackage
+> Task :Toolkit:Main:processReleaseNavigationResources
+> Task :Toolkit:Main:javaPreCompileDebug
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Tests:javaPreCompileDebug
+> Task :Toolkit:Main:parseReleaseLocalResources
+> Task :TorrentSharingSync:javaPreCompileDebug
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:generateReleaseRFile
+> Task :Toolkit:Analytics:javaPreCompileDebug
+> Task :ShareConnector:javaPreCompileDebug
+> Task :ShareConnector:preDebugUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebugUnitTest
+> Task :BookmarkSync:mergeDebugShaders
+> Task :BookmarkSync:compileDebugShaders NO-SOURCE
+> Task :BookmarkSync:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:mergeDebugAssets
+> Task :DesignSystem:mergeDebugShaders
+> Task :DesignSystem:compileDebugShaders NO-SOURCE
+> Task :DesignSystem:generateDebugAssets UP-TO-DATE
+> Task :DesignSystem:mergeDebugAssets
+> Task :HistorySync:mergeDebugShaders
+> Task :HistorySync:compileDebugShaders NO-SOURCE
+> Task :HistorySync:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:mergeDebugAssets
+> Task :LanguageSync:mergeDebugShaders
+> Task :LanguageSync:compileDebugShaders NO-SOURCE
+> Task :LanguageSync:generateDebugAssets UP-TO-DATE
+> Task :LanguageSync:mergeDebugAssets
+> Task :Localizations:mergeDebugShaders
+> Task :Localizations:compileDebugShaders NO-SOURCE
+> Task :Localizations:generateDebugAssets UP-TO-DATE
+> Task :Localizations:mergeDebugAssets
+> Task :Onboarding:mergeDebugShaders
+> Task :Onboarding:compileDebugShaders NO-SOURCE
+> Task :Onboarding:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:mergeDebugAssets
+> Task :PreferencesSync:mergeDebugShaders
+> Task :PreferencesSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugAssets
+> Task :ProfileSync:mergeDebugShaders
+> Task :ProfileSync:compileDebugShaders NO-SOURCE
+> Task :ProfileSync:generateDebugAssets UP-TO-DATE
+> Task :ProfileSync:mergeDebugAssets
+> Task :RSSSync:mergeDebugShaders
+> Task :RSSSync:compileDebugShaders NO-SOURCE
+> Task :RSSSync:generateDebugAssets UP-TO-DATE
+> Task :RSSSync:mergeDebugAssets
+> Task :ShareConnector:mergeDebugShaders
+> Task :ShareConnector:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugShaders
+> Task :Tests:compileDebugShaders NO-SOURCE
+> Task :Tests:generateDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugAssets
+> Task :ThemeSync:mergeDebugShaders
+> Task :ThemeSync:compileDebugShaders NO-SOURCE
+> Task :ThemeSync:generateDebugAssets UP-TO-DATE
+> Task :ThemeSync:mergeDebugAssets
+> Task :TorrentSharingSync:mergeDebugShaders
+> Task :TorrentSharingSync:compileDebugShaders NO-SOURCE
+> Task :TorrentSharingSync:generateDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugAssets
+> Task :Asinka:asinka:mergeDebugShaders
+> Task :Asinka:asinka:compileDebugShaders NO-SOURCE
+> Task :Asinka:asinka:generateDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugAssets
+> Task :Toolkit:Analytics:mergeDebugShaders
+> Task :Toolkit:Analytics:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugAssets
+> Task :Toolkit:Main:mergeDebugShaders
+> Task :Toolkit:Main:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Main:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugAssets
+> Task :ShareConnector:mergeDebugAssets
+
+> Task :ShareConnector:processDebugUnitTestManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+/home/milosvasic/Projects/ShareConnect/ShareConnector/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest13524830573086963512.xml Warning:
+	application@android:name was tagged at tempFile1ProcessTestManifest13524830573086963512.xml:0 to replace other declarations but no other declaration present
+
+> Task :BookmarkSync:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:generateReleaseResValues
+> Task :BookmarkSync:generateReleaseResources
+> Task :BookmarkSync:packageReleaseResources
+> Task :BookmarkSync:processReleaseNavigationResources
+> Task :BookmarkSync:parseReleaseLocalResources
+> Task :Asinka:asinka:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:generateReleaseBuildConfig
+> Task :BookmarkSync:generateReleaseRFile
+> Task :Asinka:asinka:extractIncludeReleaseProto
+> Task :Asinka:asinka:extractReleaseProto
+> Task :Asinka:asinka:generateReleaseProto
+> Task :Asinka:asinka:generateReleaseResValues
+> Task :Asinka:asinka:generateReleaseResources
+> Task :Asinka:asinka:packageReleaseResources
+> Task :Asinka:asinka:processReleaseNavigationResources
+> Task :Asinka:asinka:parseReleaseLocalResources
+> Task :Asinka:asinka:javaPreCompileRelease
+> Task :DesignSystem:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:javaPreCompileRelease
+> Task :DesignSystem:generateReleaseBuildConfig
+> Task :Asinka:asinka:generateReleaseRFile
+> Task :DesignSystem:generateReleaseResValues
+> Task :DesignSystem:generateReleaseResources
+> Task :DesignSystem:packageReleaseResources
+> Task :DesignSystem:processReleaseNavigationResources
+> Task :HistorySync:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:generateReleaseResValues
+> Task :DesignSystem:parseReleaseLocalResources
+> Task :HistorySync:generateReleaseResources
+> Task :DesignSystem:javaPreCompileRelease
+> Task :DesignSystem:generateReleaseRFile
+> Task :HistorySync:packageReleaseResources
+> Task :HistorySync:processReleaseNavigationResources
+> Task :HistorySync:parseReleaseLocalResources
+> Task :LanguageSync:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:javaPreCompileRelease
+> Task :LanguageSync:generateReleaseResValues
+> Task :HistorySync:generateReleaseRFile
+> Task :LanguageSync:generateReleaseResources
+> Task :LanguageSync:packageReleaseResources
+> Task :LanguageSync:processReleaseNavigationResources
+> Task :Localizations:preReleaseBuild UP-TO-DATE
+> Task :Localizations:generateReleaseResValues
+> Task :LanguageSync:parseReleaseLocalResources
+> Task :LanguageSync:javaPreCompileRelease
+> Task :Localizations:generateReleaseResources
+> Task :LanguageSync:generateReleaseRFile
+> Task :Localizations:packageReleaseResources
+> Task :Localizations:processReleaseNavigationResources
+> Task :Localizations:javaPreCompileRelease
+> Task :Localizations:processReleaseJavaRes NO-SOURCE
+> Task :Onboarding:preReleaseBuild UP-TO-DATE
+> Task :Localizations:parseReleaseLocalResources
+> Task :Onboarding:generateReleaseBuildConfig
+> Task :Onboarding:generateReleaseResValues
+> Task :Onboarding:generateReleaseResources
+> Task :Localizations:generateReleaseRFile
+> Task :Onboarding:packageReleaseResources
+> Task :Localizations:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarRelease
+> Task :Onboarding:processReleaseNavigationResources
+> Task :ProfileSync:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:generateReleaseBuildConfig
+> Task :ProfileSync:generateReleaseResValues
+> Task :Onboarding:parseReleaseLocalResources
+> Task :ProfileSync:generateReleaseResources
+> Task :Onboarding:generateReleaseRFile
+
+> Task :Asinka:asinka:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :ProfileSync:packageReleaseResources
+> Task :Toolkit:Main:kspReleaseKotlin
+> Task :Asinka:asinka:kspReleaseKotlin
+
+> Task :DesignSystem:compileReleaseKotlin FAILED
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:9:25 Unresolved reference 'themesync'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:92:43 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:93:26 Unresolved reference 'isCustom'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:93:48 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:97:43 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:98:45 Unresolved reference 'customOnPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:99:52 Unresolved reference 'customPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:99:88 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:100:54 Unresolved reference 'customOnPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:101:45 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:101:74 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:102:47 Unresolved reference 'customOnSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:54 Unresolved reference 'customSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:92 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:103:121 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:104:56 Unresolved reference 'customOnSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:105:44 Unresolved reference 'customTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:106:46 Unresolved reference 'customOnTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:107:53 Unresolved reference 'customTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:108:55 Unresolved reference 'customOnTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:109:41 Unresolved reference 'customError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:110:43 Unresolved reference 'customOnError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:111:50 Unresolved reference 'customErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:112:52 Unresolved reference 'customOnErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:113:46 Unresolved reference 'customBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:114:48 Unresolved reference 'customOnBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:115:43 Unresolved reference 'customSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:116:45 Unresolved reference 'customOnSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:117:50 Unresolved reference 'customSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:118:52 Unresolved reference 'customOnSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:119:47 Unresolved reference 'customSurfaceTint'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:119:78 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:120:43 Unresolved reference 'customOutline'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:121:50 Unresolved reference 'customOutlineVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:122:41 Unresolved reference 'customScrim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:123:49 Unresolved reference 'customSurfaceBright'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:124:46 Unresolved reference 'customSurfaceDim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:125:52 Unresolved reference 'customSurfaceContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:126:56 Unresolved reference 'customSurfaceContainerHigh'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:127:59 Unresolved reference 'customSurfaceContainerHighest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:128:55 Unresolved reference 'customSurfaceContainerLow'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:129:58 Unresolved reference 'customSurfaceContainerLowest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:133:43 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:134:45 Unresolved reference 'customOnPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:135:52 Unresolved reference 'customPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:135:88 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:136:54 Unresolved reference 'customOnPrimaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:137:45 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:137:74 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:138:47 Unresolved reference 'customOnSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:54 Unresolved reference 'customSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:92 Unresolved reference 'customSecondary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:139:121 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:140:56 Unresolved reference 'customOnSecondaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:141:44 Unresolved reference 'customTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:142:46 Unresolved reference 'customOnTertiary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:143:53 Unresolved reference 'customTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:144:55 Unresolved reference 'customOnTertiaryContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:145:41 Unresolved reference 'customError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:146:43 Unresolved reference 'customOnError'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:147:50 Unresolved reference 'customErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:148:52 Unresolved reference 'customOnErrorContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:149:46 Unresolved reference 'customBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:150:48 Unresolved reference 'customOnBackground'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:151:43 Unresolved reference 'customSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:152:45 Unresolved reference 'customOnSurface'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:153:50 Unresolved reference 'customSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:154:52 Unresolved reference 'customOnSurfaceVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:155:47 Unresolved reference 'customSurfaceTint'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:155:78 Unresolved reference 'customPrimary'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:156:43 Unresolved reference 'customOutline'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:157:50 Unresolved reference 'customOutlineVariant'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:158:41 Unresolved reference 'customScrim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:159:49 Unresolved reference 'customSurfaceBright'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:160:46 Unresolved reference 'customSurfaceDim'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:161:52 Unresolved reference 'customSurfaceContainer'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:162:56 Unresolved reference 'customSurfaceContainerHigh'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:163:59 Unresolved reference 'customSurfaceContainerHighest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:164:55 Unresolved reference 'customSurfaceContainerLow'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:165:58 Unresolved reference 'customSurfaceContainerLowest'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:170:25 Unresolved reference 'colorScheme'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:171:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:172:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:173:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:174:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:175:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:176:13 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:205:16 Unresolved reference 'ThemeData'.
+e: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/compose/theme/DesignSystemTheme.kt:208:71 Unresolved reference 'isDarkMode'.
+
+> Task :Asinka:asinka:compileDebugJavaWithJavac
+> Task :Asinka:asinka:bundleLibCompileToJarDebug
+> Task :Asinka:asinka:processDebugJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:processReleaseNavigationResources
+> Task :ThemeSync:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:parseReleaseLocalResources
+> Task :ThemeSync:generateReleaseBuildConfig
+> Task :ProfileSync:javaPreCompileRelease
+> Task :ThemeSync:generateReleaseResValues
+> Task :ProfileSync:generateReleaseRFile
+> Task :ThemeSync:generateReleaseResources
+> Task :ThemeSync:packageReleaseResources
+> Task :ThemeSync:processReleaseNavigationResources
+> Task :PreferencesSync:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:parseReleaseLocalResources
+> Task :Onboarding:javaPreCompileRelease
+> Task :ThemeSync:javaPreCompileRelease
+> Task :PreferencesSync:generateReleaseResValues
+> Task :ThemeSync:generateReleaseRFile
+> Task :PreferencesSync:generateReleaseResources
+> Task :PreferencesSync:packageReleaseResources
+> Task :PreferencesSync:processReleaseNavigationResources
+> Task :PreferencesSync:parseReleaseLocalResources
+> Task :PreferencesSync:javaPreCompileRelease
+> Task :RSSSync:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:generateReleaseResValues
+> Task :PreferencesSync:generateReleaseRFile
+> Task :RSSSync:generateReleaseResources
+> Task :RSSSync:packageReleaseResources
+> Task :RSSSync:processReleaseNavigationResources
+> Task :RSSSync:parseReleaseLocalResources
+> Task :RSSSync:javaPreCompileRelease
+> Task :ShareConnector:buildKotlinToolingMetadata
+> Task :RSSSync:generateReleaseRFile
+> Task :BookmarkSync:compileReleaseLibraryResources
+> Task :DesignSystem:compileReleaseLibraryResources
+> Task :Localizations:bundleLibCompileToJarRelease
+> Task :HistorySync:compileReleaseLibraryResources
+> Task :LanguageSync:compileReleaseLibraryResources
+> Task :Localizations:compileReleaseLibraryResources
+> Task :Onboarding:compileReleaseLibraryResources
+> Task :PreferencesSync:compileReleaseLibraryResources
+> Task :ProfileSync:compileReleaseLibraryResources
+> Task :RSSSync:compileReleaseLibraryResources
+> Task :BookmarkSync:writeReleaseAarMetadata
+> Task :DesignSystem:writeReleaseAarMetadata
+> Task :HistorySync:writeReleaseAarMetadata
+> Task :LanguageSync:writeReleaseAarMetadata
+> Task :Localizations:writeReleaseAarMetadata
+> Task :Onboarding:writeReleaseAarMetadata
+> Task :PreferencesSync:writeReleaseAarMetadata
+> Task :ShareConnector:preReleaseBuild UP-TO-DATE
+> Task :Tests:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:writeReleaseAarMetadata
+> Task :TorrentSharingSync:preReleaseBuild UP-TO-DATE
+> Task :Tests:writeReleaseAarMetadata
+> Task :RSSSync:writeReleaseAarMetadata
+> Task :ThemeSync:writeReleaseAarMetadata
+> Task :TorrentSharingSync:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:writeReleaseAarMetadata
+> Task :Toolkit:Main:writeReleaseAarMetadata
+> Task :Tests:processReleaseNavigationResources
+> Task :TorrentSharingSync:processReleaseNavigationResources
+> Task :ShareConnector:checkReleaseAarMetadata
+> Task :Toolkit:Analytics:processReleaseNavigationResources
+> Task :ShareConnector:processReleaseNavigationResources
+> Task :ShareConnector:compileReleaseNavigationResources
+> Task :ShareConnector:generateReleaseResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdRelease
+> Task :ShareConnector:extractReleaseVersionControlInfo
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoRelease
+> Task :ShareConnector:processReleaseGoogleServices
+> Task :Tests:generateReleaseResValues
+> Task :Tests:generateReleaseResources
+> Task :Tests:packageReleaseResources
+> Task :TorrentSharingSync:generateReleaseResValues
+> Task :TorrentSharingSync:generateReleaseResources
+> Task :TorrentSharingSync:packageReleaseResources
+> Task :Toolkit:Analytics:generateReleaseResValues
+> Task :Toolkit:Analytics:generateReleaseResources
+> Task :Toolkit:Analytics:packageReleaseResources
+> Task :ShareConnector:mapReleaseSourceSetPaths
+> Task :ShareConnector:generateReleaseResources
+> Task :Toolkit:Main:kspDebugKotlin
+> Task :ShareConnector:mergeReleaseResources FAILED
+> Task :ShareConnector:packageReleaseResources
+> Task :ShareConnector:createReleaseCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksRelease
+> Task :DesignSystem:extractDeepLinksRelease
+> Task :BookmarkSync:processReleaseManifest
+> Task :HistorySync:extractDeepLinksRelease
+
+> Task :ShareConnector:parseReleaseLocalResources FAILED
+[Fatal Error] item_theme.xml:1:7: The processing instruction target matching "[xX][mM][lL]" is not allowed.
+
+> Task :DesignSystem:processReleaseManifest
+> Task :LanguageSync:extractDeepLinksRelease
+> Task :HistorySync:processReleaseManifest
+> Task :LanguageSync:processReleaseManifest
+> Task :Localizations:extractDeepLinksRelease
+> Task :Localizations:processReleaseManifest
+> Task :Onboarding:extractDeepLinksRelease
+> Task :PreferencesSync:extractDeepLinksRelease
+> Task :Onboarding:processReleaseManifest
+> Task :ProfileSync:extractDeepLinksRelease
+> Task :PreferencesSync:processReleaseManifest
+> Task :RSSSync:extractDeepLinksRelease
+> Task :ShareConnector:extractDeepLinksRelease
+> Task :Tests:extractDeepLinksRelease
+> Task :RSSSync:processReleaseManifest
+> Task :ProfileSync:processReleaseManifest
+> Task :ThemeSync:extractDeepLinksRelease
+
+> Task :Tests:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksRelease
+> Task :ThemeSync:processReleaseManifest
+> Task :Asinka:asinka:extractDeepLinksRelease
+> Task :TorrentSharingSync:processReleaseManifest
+> Task :Toolkit:Analytics:extractDeepLinksRelease
+
+> Task :Asinka:asinka:processReleaseManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksRelease
+> Task :Toolkit:Analytics:processReleaseManifest
+
+> Task :Toolkit:Main:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :ThemeSync:compileReleaseLibraryResources
+> Task :Tests:compileReleaseLibraryResources
+> Task :Tests:parseReleaseLocalResources
+
+> Task :ShareConnector:processReleaseMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :ShareConnector:processReleaseManifest
+> Task :Tests:generateReleaseRFile
+> Task :TorrentSharingSync:compileReleaseLibraryResources
+> Task :Asinka:asinka:compileReleaseLibraryResources
+> Task :ShareConnector:processReleaseManifestForPackage
+> Task :Toolkit:Analytics:compileReleaseLibraryResources
+> Task :TorrentSharingSync:parseReleaseLocalResources
+> Task :Toolkit:Analytics:parseReleaseLocalResources
+> Task :Toolkit:Main:compileReleaseLibraryResources
+> Task :TorrentSharingSync:generateReleaseRFile
+> Task :Toolkit:Analytics:generateReleaseRFile
+> Task :Toolkit:Main:javaPreCompileRelease
+> Task :Tests:javaPreCompileRelease
+> Task :TorrentSharingSync:javaPreCompileRelease
+> Task :Toolkit:Analytics:javaPreCompileRelease
+> Task :ShareConnector:javaPreCompileRelease
+> Task :ShareConnector:preReleaseUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileReleaseUnitTest
+> Task :BookmarkSync:mergeReleaseShaders
+> Task :BookmarkSync:compileReleaseShaders NO-SOURCE
+> Task :BookmarkSync:generateReleaseAssets UP-TO-DATE
+> Task :BookmarkSync:mergeReleaseAssets
+> Task :DesignSystem:mergeReleaseShaders
+> Task :DesignSystem:compileReleaseShaders NO-SOURCE
+> Task :DesignSystem:generateReleaseAssets UP-TO-DATE
+> Task :DesignSystem:mergeReleaseAssets
+> Task :HistorySync:mergeReleaseShaders
+> Task :HistorySync:compileReleaseShaders NO-SOURCE
+> Task :HistorySync:generateReleaseAssets UP-TO-DATE
+> Task :HistorySync:mergeReleaseAssets
+> Task :LanguageSync:mergeReleaseShaders
+> Task :LanguageSync:compileReleaseShaders NO-SOURCE
+> Task :LanguageSync:generateReleaseAssets UP-TO-DATE
+> Task :LanguageSync:mergeReleaseAssets
+
+> Task :Asinka:asinka:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 'class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 'enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 'enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 'class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 'enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :Localizations:mergeReleaseShaders
+> Task :LanguageSync:kspDebugKotlin
+> Task :BookmarkSync:kspDebugKotlin
+> Task :TorrentSharingSync:kspDebugKotlin
+> Task :Asinka:asinka:compileReleaseJavaWithJavac
+> Task :Localizations:compileReleaseShaders NO-SOURCE
+> Task :Localizations:generateReleaseAssets UP-TO-DATE
+> Task :Localizations:mergeReleaseAssets
+> Task :Asinka:asinka:bundleLibCompileToJarRelease
+> Task :Onboarding:mergeReleaseShaders
+> Task :PreferencesSync:kspDebugKotlin
+> Task :HistorySync:kspDebugKotlin
+
+> Task :TorrentSharingSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:processDebugJavaRes
+
+> Task :LanguageSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :ProfileSync:kspDebugKotlin
+> Task :LanguageSync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:processDebugJavaRes
+> Task :LanguageSync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:compileDebugKotlin
+> Task :PreferencesSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug
+> Task :PreferencesSync:processDebugJavaRes
+> Task :PreferencesSync:bundleLibCompileToJarDebug
+> Task :Onboarding:compileReleaseShaders NO-SOURCE
+> Task :Onboarding:generateReleaseAssets UP-TO-DATE
+> Task :Onboarding:mergeReleaseAssets
+> Task :PreferencesSync:mergeReleaseShaders
+> Task :PreferencesSync:compileReleaseShaders NO-SOURCE
+> Task :PreferencesSync:generateReleaseAssets UP-TO-DATE
+> Task :PreferencesSync:mergeReleaseAssets
+> Task :ProfileSync:mergeReleaseShaders
+> Task :ProfileSync:compileReleaseShaders NO-SOURCE
+> Task :ProfileSync:generateReleaseAssets UP-TO-DATE
+> Task :ProfileSync:mergeReleaseAssets
+> Task :RSSSync:mergeReleaseShaders
+> Task :RSSSync:compileReleaseShaders NO-SOURCE
+> Task :RSSSync:generateReleaseAssets UP-TO-DATE
+> Task :RSSSync:mergeReleaseAssets
+> Task :ShareConnector:mergeReleaseShaders
+> Task :ShareConnector:compileReleaseShaders NO-SOURCE
+> Task :ShareConnector:generateReleaseAssets UP-TO-DATE
+> Task :Tests:mergeReleaseShaders
+> Task :Tests:compileReleaseShaders NO-SOURCE
+> Task :Tests:generateReleaseAssets UP-TO-DATE
+> Task :Tests:mergeReleaseAssets
+> Task :ThemeSync:mergeReleaseShaders
+> Task :ThemeSync:compileReleaseShaders NO-SOURCE
+> Task :ThemeSync:generateReleaseAssets UP-TO-DATE
+> Task :ThemeSync:mergeReleaseAssets
+> Task :TorrentSharingSync:mergeReleaseShaders
+> Task :TorrentSharingSync:compileReleaseShaders NO-SOURCE
+> Task :TorrentSharingSync:generateReleaseAssets UP-TO-DATE
+> Task :TorrentSharingSync:mergeReleaseAssets
+> Task :Asinka:asinka:mergeReleaseShaders
+> Task :Asinka:asinka:compileReleaseShaders NO-SOURCE
+> Task :Asinka:asinka:generateReleaseAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeReleaseAssets
+> Task :Toolkit:Analytics:mergeReleaseShaders
+> Task :Toolkit:Analytics:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:Analytics:mergeReleaseAssets
+> Task :Toolkit:Main:mergeReleaseShaders
+> Task :BookmarkSync:compileDebugKotlin
+> Task :Toolkit:Main:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Main:generateReleaseAssets UP-TO-DATE
+> Task :BookmarkSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:processDebugJavaRes
+> Task :BookmarkSync:bundleLibCompileToJarDebug
+> Task :Toolkit:Main:mergeReleaseAssets
+> Task :RSSSync:kspDebugKotlin
+> Task :ShareConnector:mergeReleaseAssets
+
+> Task :ShareConnector:processReleaseUnitTestManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+/home/milosvasic/Projects/ShareConnect/ShareConnector/build/intermediates/tmp/manifest/test/release/tempFile1ProcessTestManifest2381821108679721135.xml Warning:
+	application@android:name was tagged at tempFile1ProcessTestManifest2381821108679721135.xml:0 to replace other declarations but no other declaration present
+
+> Task :ThemeSync:kspDebugKotlin
+> Task :Asinka:asinka:processReleaseJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarRelease
+
+> Task :HistorySync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileDebugJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibRuntimeToJarDebug
+> Task :HistorySync:processDebugJavaRes
+> Task :HistorySync:bundleLibCompileToJarDebug
+
+> Task :ProfileSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :RSSSync:compileDebugKotlin
+> Task :ProfileSync:compileDebugJavaWithJavac
+> Task :ProfileSync:processDebugJavaRes
+> Task :ProfileSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:compileDebugJavaWithJavac NO-SOURCE
+> Task :ProfileSync:bundleLibCompileToJarDebug
+> Task :RSSSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:processDebugJavaRes
+> Task :RSSSync:bundleLibCompileToJarDebug
+> Task :LanguageSync:kspReleaseKotlin
+
+> Task :ThemeSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :LanguageSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/database/LanguageDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<LanguageDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 'constructor(p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :ThemeSync:compileDebugJavaWithJavac
+> Task :ThemeSync:bundleLibRuntimeToJarDebug
+> Task :ThemeSync:processDebugJavaRes
+> Task :LanguageSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :ThemeSync:bundleLibCompileToJarDebug
+> Task :LanguageSync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:processReleaseJavaRes
+> Task :LanguageSync:bundleLibCompileToJarRelease
+> Task :TorrentSharingSync:kspReleaseKotlin
+> Task :PreferencesSync:kspReleaseKotlin
+> Task :ProfileSync:kspReleaseKotlin
+> Task :BookmarkSync:kspReleaseKotlin
+
+> Task :TorrentSharingSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/kotlin/com/shareconnect/torrentsharingsync/database/TorrentSharingDatabase.kt:32:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<TorrentSharingDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :TorrentSharingSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :TorrentSharingSync:bundleLibCompileToJarRelease
+> Task :TorrentSharingSync:bundleLibRuntimeToJarRelease
+> Task :TorrentSharingSync:processReleaseJavaRes
+> Task :RSSSync:kspReleaseKotlin
+> Task :PreferencesSync:compileReleaseKotlin
+> Task :PreferencesSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :PreferencesSync:bundleLibRuntimeToJarRelease
+> Task :PreferencesSync:processReleaseJavaRes
+> Task :PreferencesSync:bundleLibCompileToJarRelease
+> Task :HistorySync:kspReleaseKotlin
+> Task :ThemeSync:kspReleaseKotlin
+
+> Task :ProfileSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ProfileSync/src/main/kotlin/com/shareconnect/profilesync/database/ProfileDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ProfileDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :BookmarkSync:compileReleaseKotlin
+> Task :RSSSync:compileReleaseKotlin
+> Task :ProfileSync:compileReleaseJavaWithJavac
+> Task :BookmarkSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :BookmarkSync:processReleaseJavaRes
+> Task :BookmarkSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:processReleaseJavaRes
+> Task :ProfileSync:bundleLibCompileToJarRelease
+> Task :RSSSync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :RSSSync:bundleLibRuntimeToJarRelease
+> Task :RSSSync:processReleaseJavaRes
+> Task :BookmarkSync:bundleLibCompileToJarRelease
+> Task :RSSSync:bundleLibCompileToJarRelease
+
+> Task :HistorySync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/HistorySync/src/main/kotlin/com/shareconnect/historysync/database/HistoryDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<HistoryDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :HistorySync:compileReleaseJavaWithJavac NO-SOURCE
+> Task :HistorySync:bundleLibRuntimeToJarRelease
+> Task :HistorySync:processReleaseJavaRes
+> Task :HistorySync:bundleLibCompileToJarRelease
+
+> Task :ThemeSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/src/main/kotlin/com/shareconnect/themesync/database/ThemeDatabase.kt:24:22 'fun fallbackToDestructiveMigration(): RoomDatabase.Builder<ThemeDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+
+> Task :ThemeSync:compileReleaseJavaWithJavac
+> Task :ThemeSync:bundleLibCompileToJarRelease
+> Task :ThemeSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:processReleaseJavaRes
+
+> Task :Toolkit:Main:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 'static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/net/retrofit/gson/SerializationBenchmarkLoggingInterceptor.kt:20:13 Condition is always 'true'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 'val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileDebugJavaWithJavac
+> Task :Toolkit:Main:processDebugJavaRes
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Main:bundleLibCompileToJarDebug
+> Task :Toolkit:Main:compileReleaseJavaWithJavac
+> Task :Toolkit:Main:processReleaseJavaRes
+> Task :Toolkit:Main:bundleLibCompileToJarRelease
+> Task :Toolkit:Main:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:compileDebugKotlin
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:compileDebugKotlin
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibRuntimeToJarDebug
+> Task :Tests:processDebugJavaRes
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug
+> Task :Tests:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Analytics:processDebugJavaRes
+> Task :Tests:compileReleaseKotlin
+> Task :Tests:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:compileReleaseKotlin
+> Task :Tests:bundleLibCompileToJarRelease
+> Task :Tests:bundleLibRuntimeToJarRelease
+> Task :Tests:processReleaseJavaRes
+> Task :Toolkit:Analytics:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:processReleaseJavaRes
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 6 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':DesignSystem:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:parseDebugLocalResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.ParseLibraryResourcesTask$ParseResourcesRunnable
+   > Failed to parse XML file '/home/milosvasic/Projects/ShareConnect/ShareConnector/build/intermediates/packaged_res/debug/packageDebugResources/layout/item_theme.xml'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+3: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:mergeDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+   > Resource compilation failed (Failed to compile resource file: /home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/res/layout/item_theme.xml: . Cause: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,7]
+     Message: The processing instruction target matching "[xX][mM][lL]" is not allowed.). Check logs for more details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+4: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':DesignSystem:compileReleaseKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+5: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:mergeReleaseResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+   > Resource compilation failed (Failed to compile resource file: /home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/res/layout/item_theme.xml: . Cause: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[1,7]
+     Message: The processing instruction target matching "[xX][mM][lL]" is not allowed.). Check logs for more details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+6: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:parseReleaseLocalResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.ParseLibraryResourcesTask$ParseResourcesRunnable
+   > Failed to parse XML file '/home/milosvasic/Projects/ShareConnect/ShareConnector/build/intermediates/packaged_res/release/packageReleaseResources/layout/item_theme.xml'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 22s
+585 actionable tasks: 585 executed

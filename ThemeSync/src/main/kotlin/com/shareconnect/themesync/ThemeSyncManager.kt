@@ -107,6 +107,13 @@ class ThemeSyncManager private constructor(
         asinkaClient.syncManager.registerObject(syncableTheme)
     }
 
+    suspend fun createTheme(theme: ThemeData) {
+        repository.insertTheme(theme)
+        val syncableTheme = SyncableTheme.fromThemeData(theme)
+        asinkaClient.syncManager.registerObject(syncableTheme)
+        _themeChangeFlow.emit(theme)
+    }
+
     suspend fun updateTheme(theme: ThemeData) {
         val updatedTheme = theme.copy(
             version = theme.version + 1,
@@ -202,7 +209,7 @@ class ThemeSyncManager private constructor(
             return INSTANCE ?: synchronized(this) {
                 val themeSchema = ObjectSchema(
                     objectType = ThemeData.OBJECT_TYPE,
-                    version = "1",
+                    version = "2",
                     fields = listOf(
                         FieldSchema("id", FieldType.STRING),
                         FieldSchema("name", FieldType.STRING),
@@ -211,7 +218,41 @@ class ThemeSyncManager private constructor(
                         FieldSchema("isDefault", FieldType.BOOLEAN),
                         FieldSchema("sourceApp", FieldType.STRING),
                         FieldSchema("version", FieldType.INT),
-                        FieldSchema("lastModified", FieldType.LONG)
+                        FieldSchema("lastModified", FieldType.LONG),
+                        FieldSchema("isCustom", FieldType.BOOLEAN),
+                        FieldSchema("customPrimary", FieldType.LONG),
+                        FieldSchema("customOnPrimary", FieldType.LONG),
+                        FieldSchema("customPrimaryContainer", FieldType.LONG),
+                        FieldSchema("customOnPrimaryContainer", FieldType.LONG),
+                        FieldSchema("customSecondary", FieldType.LONG),
+                        FieldSchema("customOnSecondary", FieldType.LONG),
+                        FieldSchema("customSecondaryContainer", FieldType.LONG),
+                        FieldSchema("customOnSecondaryContainer", FieldType.LONG),
+                        FieldSchema("customTertiary", FieldType.LONG),
+                        FieldSchema("customOnTertiary", FieldType.LONG),
+                        FieldSchema("customTertiaryContainer", FieldType.LONG),
+                        FieldSchema("customOnTertiaryContainer", FieldType.LONG),
+                        FieldSchema("customError", FieldType.LONG),
+                        FieldSchema("customOnError", FieldType.LONG),
+                        FieldSchema("customErrorContainer", FieldType.LONG),
+                        FieldSchema("customOnErrorContainer", FieldType.LONG),
+                        FieldSchema("customBackground", FieldType.LONG),
+                        FieldSchema("customOnBackground", FieldType.LONG),
+                        FieldSchema("customSurface", FieldType.LONG),
+                        FieldSchema("customOnSurface", FieldType.LONG),
+                        FieldSchema("customSurfaceVariant", FieldType.LONG),
+                        FieldSchema("customOnSurfaceVariant", FieldType.LONG),
+                        FieldSchema("customSurfaceTint", FieldType.LONG),
+                        FieldSchema("customOutline", FieldType.LONG),
+                        FieldSchema("customOutlineVariant", FieldType.LONG),
+                        FieldSchema("customScrim", FieldType.LONG),
+                        FieldSchema("customSurfaceBright", FieldType.LONG),
+                        FieldSchema("customSurfaceDim", FieldType.LONG),
+                        FieldSchema("customSurfaceContainer", FieldType.LONG),
+                        FieldSchema("customSurfaceContainerHigh", FieldType.LONG),
+                        FieldSchema("customSurfaceContainerHighest", FieldType.LONG),
+                        FieldSchema("customSurfaceContainerLow", FieldType.LONG),
+                        FieldSchema("customSurfaceContainerLowest", FieldType.LONG)
                     )
                 )
 

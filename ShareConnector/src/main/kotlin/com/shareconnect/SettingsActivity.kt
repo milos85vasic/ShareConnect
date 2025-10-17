@@ -138,14 +138,24 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
 
-            val themePreference = findPreference<Preference>("theme_selection")
-            if (themePreference != null) {
-                themePreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                    // Call the parent activity's method to start theme selection
-                    (activity as? SettingsActivity)?.startThemeSelection()
-                    true
-                }
-            }
+             val themePreference = findPreference<Preference>("theme_selection")
+             if (themePreference != null) {
+                 themePreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                     // Call the parent activity's method to start theme selection
+                     (activity as? SettingsActivity)?.startThemeSelection()
+                     true
+                 }
+             }
+
+             val themeCreatorPreference = findPreference<Preference>("theme_creator")
+             if (themeCreatorPreference != null) {
+                 themeCreatorPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                     // Start theme creator activity
+                     val intent = android.content.Intent(context, com.shareconnect.ThemeCreatorActivity::class.java)
+                     startActivity(intent)
+                     true
+                 }
+             }
 
             // Torrent sharing preferences
             val directSharingPreference = findPreference<SwitchPreferenceCompat>("direct_torrent_sharing_enabled")

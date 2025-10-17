@@ -11,6 +11,11 @@ The ShareConnect Design System provides a unified set of design tokens, reusable
 - **Semantic Colors**: Success, warning, error, and info states
 - **Surface System**: Multi-layered surface colors for depth
 - **Typography**: Consistent text colors and contrast ratios
+- **Custom Themes**: User-created themes with full color customization
+  - 30+ color parameters for complete theme customization
+  - Real-time preview during theme creation/editing
+  - Cross-app synchronization of custom themes
+  - Backward compatibility with built-in themes
 
 ### Spacing
 - **4pt Grid System**: Consistent spacing scale (4dp, 8dp, 12dp, 16dp, 20dp, 24dp, 28dp, 32dp)
@@ -23,6 +28,32 @@ The ShareConnect Design System provides a unified set of design tokens, reusable
 ### Elevation & Shadows
 - **Material Design 3 Elevation**: 6 levels of elevation (0dp to 12dp)
 - **Consistent Shadows**: Proper shadow implementation for depth
+
+## Theme System
+
+### Built-in Themes
+- **Warm Orange**: Default theme with orange primary colors
+- **Crimson**: Red-based theme for a bold look
+- **Light Blue**: Calming blue color scheme
+- **Purple**: Modern purple-based theme
+- **Green**: Nature-inspired green theme
+- **Material**: Google's Material Design 3 baseline
+
+### Custom Theme Creator
+- **Color Customization**: 30+ color parameters including:
+  - Primary and secondary color families
+  - Background and surface colors
+  - Error, success, and warning states
+  - Text and icon colors
+- **Real-time Preview**: Live preview of theme changes
+- **Theme Management**: Create, edit, delete, and sync custom themes
+- **Cross-app Sync**: Custom themes sync across all ShareConnect apps instantly
+
+### Theme Architecture
+- **ThemeData Model**: Extended data model supporting custom color schemes
+- **ThemeSyncManager**: Handles cross-app theme synchronization
+- **DesignSystemTheme**: Compose theme provider with custom theme support
+- **ThemeRepository**: Database operations for theme persistence
 
 ## Components
 

@@ -41,6 +41,8 @@
     <string name="appearance">Appearance</string>
     <string name="theme">Theme</string>
     <string name="theme_summary">Select application theme and color scheme</string>
+    <string name="theme_creator">Theme Creator</string>
+    <string name="theme_creator_summary">Create and customize your own themes</string>
     <string name="language">Language</string>
     <string name="language_selection">Language Selection</string>
     <string name="language_summary">Select application language</string>
