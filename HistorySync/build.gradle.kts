@@ -36,11 +36,22 @@ android {
     }
 }
 
+// Force Kotlin version to avoid conflicts
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-common:2.0.0")
+    }
+}
+
 dependencies {
     implementation(project(":Asinka:asinka"))
 
     // Room
-    val roomVersion = "2.8.1"
+    val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
@@ -50,6 +61,7 @@ dependencies {
 
     // AndroidX
     implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.startup:startup-runtime:1.2.0")
 
     // Gson for JSON serialization
     implementation("com.google.code.gson:gson:2.11.0")
@@ -60,4 +72,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
+}
+
+// Force Kotlin version for KSP to avoid conflicts
+configurations.matching { it.name.startsWith("ksp") }.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-stdlib:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-common:2.0.0")
+    }
 }

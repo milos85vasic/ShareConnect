@@ -11,6 +11,7 @@ import digital.vasic.asinka.sync.SyncChange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
+import androidx.startup.Initializer
 
 class RSSSyncManager private constructor(
     private val context: Context,
@@ -20,7 +21,7 @@ class RSSSyncManager private constructor(
     private val asinkaClient: AsinkaClient,
     private val repository: RSSRepository,
     private val clientTypeFilter: String? = null
-) {
+) : Initializer<RSSSyncManager> {
     private val TAG = "RSSSyncManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -134,6 +135,14 @@ class RSSSyncManager private constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error deleting RSS feed", e)
         }
+    }
+
+    override fun create(context: Context): RSSSyncManager {
+        return getInstance(context, "rss-sync", "RSSSync", "1.0")
+    }
+
+    override fun dependencies(): List<Class<out Initializer<*>>> {
+        return emptyList()
     }
 
     companion object {

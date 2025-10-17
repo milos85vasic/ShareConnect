@@ -1,0 +1,93 @@
+id: "TS_ARCHIVE_001"
+name: "Comprehensive Archive and Container Formats Test Suite"
+description: "Complete test suite for all supported archive and container formats"
+
+test_cases:
+  # RAR Archive Tests
+  - "TC_ARCHIVE_RAR_001"        # Single file RAR
+  - "TC_ARCHIVE_RAR_002"        # Multi-part RAR
+  - "TC_ARCHIVE_RAR_003"        # Password protected RAR
+  - "TC_ARCHIVE_RAR_004"        # RAR with comments
+
+  # 7Z Archive Tests
+  - "TC_ARCHIVE_7Z_001"         # Standard 7Z
+  - "TC_ARCHIVE_7Z_002"         # 7Z with LZMA2 compression
+  - "TC_ARCHIVE_7Z_003"         # 7Z with AES encryption
+  - "TC_ARCHIVE_7Z_004"         # Multi-volume 7Z
+
+  # ZIP Archive Tests
+  - "TC_ARCHIVE_ZIP_001"        # Standard ZIP
+  - "TC_ARCHIVE_ZIP_002"        # Encrypted ZIP
+  - "TC_ARCHIVE_ZIP_003"        # Multi-disk ZIP
+  - "TC_ARCHIVE_ZIP_004"        # ZIP with comments
+
+  # TAR Archive Tests
+  - "TC_ARCHIVE_TAR_001"        # Standard TAR
+  - "TC_ARCHIVE_TAR_002"        # TAR.GZ (gzip)
+  - "TC_ARCHIVE_TAR_003"        # TAR.BZ2 (bzip2)
+  - "TC_ARCHIVE_TAR_004"        # TAR.XZ (xz)
+  - "TC_ARCHIVE_TAR_005"        # TAR.Z (compress)
+
+  # JDownloader Container Tests
+  - "TC_ARCHIVE_DLC_001"        # DLC container
+  - "TC_ARCHIVE_RSDF_001"       # RSDF container
+  - "TC_ARCHIVE_CCF_001"        # CCF container
+
+  # Archive Integration Tests
+  - "TC_ARCHIVE_INTEGRATION_001"  # Archive extraction workflow
+  - "TC_ARCHIVE_INTEGRATION_002"  # Nested archives
+  - "TC_ARCHIVE_INTEGRATION_003"  # Corrupted archive handling
+  - "TC_ARCHIVE_INTEGRATION_004"  # Large archive processing
+
+setup_steps:
+  - "Clear all app data and cache"
+  - "Reset emulator to clean state"
+  - "Ensure stable network connection"
+  - "Install all required apps (ShareConnector, JDownloader, archive tools)"
+  - "Configure test profiles for archive handling"
+  - "Set up mock servers for archive downloads"
+  - "Prepare test archives of various formats and sizes"
+
+teardown_steps:
+  - "Stop all mock servers"
+  - "Clear test data from all apps"
+  - "Remove any extracted test files"
+  - "Collect logs, screenshots, and performance metrics"
+  - "Generate comprehensive test report"
+  - "Archive all test artifacts"
+
+test_data:
+  rar_archives:
+    - "https://example.com/test.rar"
+    - "https://example.com/test.part1.rar"
+    - "https://example.com/test.part2.rar"
+
+  seven_z_archives:
+    - "https://example.com/test.7z"
+    - "https://example.com/test.7z.001"
+    - "https://example.com/test.7z.002"
+
+  zip_archives:
+    - "https://example.com/test.zip"
+    - "https://example.com/encrypted.zip"
+
+  tar_archives:
+    - "https://example.com/test.tar"
+    - "https://example.com/test.tar.gz"
+    - "https://example.com/test.tar.bz2"
+    - "https://example.com/test.tar.xz"
+
+  jdownloader_containers:
+    - "https://example.com/test.dlc"
+    - "https://example.com/test.rsdf"
+    - "https://example.com/test.ccf"
+
+expected_results:
+  - "All archive formats should be correctly identified"
+  - "Archive extraction should work for supported formats"
+  - "JDownloader should handle container formats correctly"
+  - "Password protected archives should be handled appropriately"
+  - "Corrupted archives should be detected and reported"
+  - "Large archives should be processed efficiently"
+  - "Nested archives should be extracted recursively"
+  - "No crashes or exceptions during archive operations"

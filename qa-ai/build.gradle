@@ -74,7 +74,7 @@ dependencies {
     implementation project("${toolkit_context}:Main")
 
     // Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.1.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:2.0.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0'

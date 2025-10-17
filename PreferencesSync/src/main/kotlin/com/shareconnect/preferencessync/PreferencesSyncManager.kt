@@ -11,6 +11,7 @@ import digital.vasic.asinka.sync.SyncChange
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
+import androidx.startup.Initializer
 
 class PreferencesSyncManager private constructor(
     private val context: Context,
@@ -19,7 +20,7 @@ class PreferencesSyncManager private constructor(
     private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: PreferencesRepository
-) {
+) : Initializer<PreferencesSyncManager> {
     private val TAG = "PreferencesSyncManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -228,6 +229,14 @@ class PreferencesSyncManager private constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error deleting preference", e)
         }
+    }
+
+    override fun create(context: Context): PreferencesSyncManager {
+        return getInstance(context, "preferences-sync", "PreferencesSync", "1.0")
+    }
+
+    override fun dependencies(): List<Class<out Initializer<*>>> {
+        return emptyList()
     }
 
     companion object {

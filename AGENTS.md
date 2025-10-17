@@ -17,7 +17,7 @@
 - Kotlin analysis: `./gradlew detekt`
 
 ## Version Requirements
-- **Android Gradle Plugin (AGP)**: 8.9.1
+- **Android Gradle Plugin (AGP)**: 8.13.0
 - **Kotlin**: 2.0.0
 - **KSP**: 2.0.0-1.0.21
 - **Gradle**: 8.14.3

@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.net.ServerSocket
+import androidx.startup.Initializer
 
 /**
  * Singleton manager for torrent sharing preferences synchronization across apps
@@ -31,7 +32,7 @@ class TorrentSharingSyncManager private constructor(
     private val appVersion: String,
     private val asinkaClient: AsinkaClient,
     private val repository: TorrentSharingRepository
-) {
+) : Initializer<TorrentSharingSyncManager> {
 
     private val tag = "TorrentSharingSyncManager"
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -240,6 +241,14 @@ class TorrentSharingSyncManager private constructor(
 
         _prefsChangeFlow.emit(updated)
         Log.d(tag, "All don't ask again preferences reset")
+    }
+
+    override fun create(context: Context): TorrentSharingSyncManager {
+        return getInstance(context, "torrent-sharing-sync", "TorrentSharingSync", "1.0")
+    }
+
+    override fun dependencies(): List<Class<out Initializer<*>>> {
+        return emptyList()
     }
 
     companion object {
