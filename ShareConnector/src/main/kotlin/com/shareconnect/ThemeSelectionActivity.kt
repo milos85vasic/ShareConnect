@@ -14,6 +14,33 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
 
 class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectListener {
+
+    override fun onThemeEdit(theme: com.shareconnect.database.Theme) {
+        // For now, we'll need to find the actual theme ID from the sync manager
+        // This is a simplified approach - in a real implementation, we'd store the actual theme ID
+        lifecycleScope.launch {
+            try {
+                val allThemes = themeSyncManager.getAllThemes().first()
+                val matchingTheme = allThemes.find {
+                    it.name == theme.name &&
+                    it.colorScheme == theme.colorScheme &&
+                    it.isDarkMode == theme.isDarkMode &&
+                    it.isCustom == theme.isCustom
+                }
+
+                if (matchingTheme != null) {
+                    val intent = android.content.Intent(this@ThemeSelectionActivity, com.shareconnect.ThemeCreatorActivity::class.java)
+                    intent.putExtra(com.shareconnect.ThemeCreatorActivity.EXTRA_THEME_ID, matchingTheme.id)
+                    startActivityForResult(intent, THEME_EDIT_REQUEST)
+                } else {
+                    android.widget.Toast.makeText(this@ThemeSelectionActivity, "Theme not found", android.widget.Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                Console.error("Error finding theme for editing: ${e.message}")
+                android.widget.Toast.makeText(this@ThemeSelectionActivity, "Error finding theme", android.widget.Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
     private var recyclerViewThemes: RecyclerView? = null
     private var themeAdapter: ThemeAdapter? = null
     private var themeRepository: com.shareconnect.database.ThemeRepository? = null
@@ -92,7 +119,8 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
                             name = syncedTheme.name,
                             colorScheme = syncedTheme.colorScheme,
                             isDarkMode = syncedTheme.isDarkMode,
-                            isDefault = syncedTheme.isDefault
+                            isDefault = syncedTheme.isDefault,
+                            isCustom = syncedTheme.isCustom
                         )
                     }
                     themeAdapter?.updateThemes(themes)
@@ -149,5 +177,17 @@ class ThemeSelectionActivity : AppCompatActivity(), ThemeAdapter.OnThemeSelectLi
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: android.content.Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == THEME_EDIT_REQUEST && resultCode == RESULT_OK) {
+            // Refresh the theme list
+            loadThemes()
+        }
+    }
+
+    companion object {
+        private const val THEME_EDIT_REQUEST = 1003
     }
 }

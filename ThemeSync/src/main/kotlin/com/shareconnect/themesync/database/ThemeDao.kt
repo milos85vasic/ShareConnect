@@ -57,4 +57,19 @@ interface ThemeDao {
 
     @Query("SELECT COUNT(*) FROM synced_themes")
     suspend fun getThemeCount(): Int
+
+    @Query("SELECT * FROM synced_themes WHERE isCustom = 1")
+    fun getCustomThemes(): Flow<List<ThemeData>>
+
+    @Query("SELECT * FROM synced_themes WHERE isCustom = 1")
+    suspend fun getCustomThemesSync(): List<ThemeData>
+
+    @Query("SELECT * FROM synced_themes WHERE isCustom = 1 AND sourceApp = :sourceApp")
+    suspend fun getCustomThemesBySourceApp(sourceApp: String): List<ThemeData>
+
+    @Query("SELECT * FROM synced_themes WHERE isCustom = 0")
+    fun getDefaultThemes(): Flow<List<ThemeData>>
+
+    @Query("SELECT * FROM synced_themes WHERE isCustom = 0")
+    suspend fun getDefaultThemesSync(): List<ThemeData>
 }

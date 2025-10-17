@@ -79,4 +79,158 @@ class ThemeDataTest {
             assertEquals(ThemeData.APP_QBIT_CONNECT, theme.sourceApp)
         }
     }
+
+    @Test
+    fun `test custom theme creation with basic colors`() {
+        val customTheme = ThemeData.createCustomTheme(
+            name = "My Custom Theme",
+            isDarkMode = true,
+            sourceApp = "test_app",
+            primary = 0xFF6200EE,
+            onPrimary = 0xFFFFFFFF,
+            background = 0xFF121212,
+            onBackground = 0xFFFFFFFF
+        )
+
+        assertEquals("My Custom Theme", customTheme.name)
+        assertTrue(customTheme.isDarkMode)
+        assertTrue(customTheme.isCustom)
+        assertEquals(ThemeData.COLOR_CUSTOM, customTheme.colorScheme)
+        assertEquals("test_app", customTheme.sourceApp)
+        assertEquals(0xFF6200EE, customTheme.customPrimary)
+        assertEquals(0xFFFFFFFF, customTheme.customOnPrimary)
+        assertEquals(0xFF121212, customTheme.customBackground)
+        assertEquals(0xFFFFFFFF, customTheme.customOnBackground)
+        assertFalse(customTheme.isDefault)
+    }
+
+    @Test
+    fun `test custom theme creation with all color parameters`() {
+        val customTheme = ThemeData.createCustomTheme(
+            name = "Full Custom Theme",
+            isDarkMode = false,
+            sourceApp = "test_app",
+            primary = 0xFF6200EE,
+            onPrimary = 0xFFFFFFFF,
+            primaryContainer = 0xFFE1BEE7,
+            onPrimaryContainer = 0xFF1C1B1F,
+            secondary = 0xFF03DAC6,
+            onSecondary = 0xFF000000,
+            secondaryContainer = 0xFFCEF6F2,
+            onSecondaryContainer = 0xFF00141A,
+            tertiary = 0xFF7D5800,
+            onTertiary = 0xFFFFFFFF,
+            tertiaryContainer = 0xFFFFDF9E,
+            onTertiaryContainer = 0xFF271900,
+            error = 0xFFBA1A1A,
+            onError = 0xFFFFFFFF,
+            errorContainer = 0xFFFFDAD6,
+            onErrorContainer = 0xFF410002,
+            background = 0xFFFFFBFE,
+            onBackground = 0xFF1C1B1F,
+            surface = 0xFFFFFBFE,
+            onSurface = 0xFF1C1B1F,
+            surfaceVariant = 0xFFE7E0EC,
+            onSurfaceVariant = 0xFF49454F,
+            surfaceTint = 0xFF6200EE,
+            outline = 0xFF79747E,
+            outlineVariant = 0xFFCAC4D0,
+            scrim = 0xFF000000,
+            surfaceBright = 0xFFFFFBFE,
+            surfaceDim = 0xFFDED8E1,
+            surfaceContainer = 0xFFF3EDF7,
+            surfaceContainerHigh = 0xFFECE6F0,
+            surfaceContainerHighest = 0xFFE6E0E9,
+            surfaceContainerLow = 0xFFF7F2FA,
+            surfaceContainerLowest = 0xFFFFFFFF
+        )
+
+        assertEquals("Full Custom Theme", customTheme.name)
+        assertFalse(customTheme.isDarkMode)
+        assertTrue(customTheme.isCustom)
+        assertEquals(ThemeData.COLOR_CUSTOM, customTheme.colorScheme)
+        assertEquals("test_app", customTheme.sourceApp)
+
+        // Verify all custom colors are set correctly
+        assertEquals(0xFF6200EE, customTheme.customPrimary)
+        assertEquals(0xFFFFFFFF, customTheme.customOnPrimary)
+        assertEquals(0xFFE1BEE7, customTheme.customPrimaryContainer)
+        assertEquals(0xFF1C1B1F, customTheme.customOnPrimaryContainer)
+        assertEquals(0xFF03DAC6, customTheme.customSecondary)
+        assertEquals(0xFF000000, customTheme.customOnSecondary)
+        assertEquals(0xFFCEF6F2, customTheme.customSecondaryContainer)
+        assertEquals(0xFF00141A, customTheme.customOnSecondaryContainer)
+        assertEquals(0xFF7D5800, customTheme.customTertiary)
+        assertEquals(0xFFFFFFFF, customTheme.customOnTertiary)
+        assertEquals(0xFFFFDF9E, customTheme.customTertiaryContainer)
+        assertEquals(0xFF271900, customTheme.customOnTertiaryContainer)
+        assertEquals(0xFFBA1A1A, customTheme.customError)
+        assertEquals(0xFFFFFFFF, customTheme.customOnError)
+        assertEquals(0xFFFFDAD6, customTheme.customErrorContainer)
+        assertEquals(0xFF410002, customTheme.customOnErrorContainer)
+        assertEquals(0xFFFFFBFE, customTheme.customBackground)
+        assertEquals(0xFF1C1B1F, customTheme.customOnBackground)
+        assertEquals(0xFFFFFBFE, customTheme.customSurface)
+        assertEquals(0xFF1C1B1F, customTheme.customOnSurface)
+        assertEquals(0xFFE7E0EC, customTheme.customSurfaceVariant)
+        assertEquals(0xFF49454F, customTheme.customOnSurfaceVariant)
+        assertEquals(0xFF6200EE, customTheme.customSurfaceTint)
+        assertEquals(0xFF79747E, customTheme.customOutline)
+        assertEquals(0xFFCAC4D0, customTheme.customOutlineVariant)
+        assertEquals(0xFF000000, customTheme.customScrim)
+        assertEquals(0xFFFFFBFE, customTheme.customSurfaceBright)
+        assertEquals(0xFFDED8E1, customTheme.customSurfaceDim)
+        assertEquals(0xFFF3EDF7, customTheme.customSurfaceContainer)
+        assertEquals(0xFFECE6F0, customTheme.customSurfaceContainerHigh)
+        assertEquals(0xFFE6E0E9, customTheme.customSurfaceContainerHighest)
+        assertEquals(0xFFF7F2FA, customTheme.customSurfaceContainerLow)
+        assertEquals(0xFFFFFFFF, customTheme.customSurfaceContainerLowest)
+    }
+
+    @Test
+    fun `test custom theme ID generation is unique`() {
+        val theme1 = ThemeData.createCustomTheme(
+            name = "Test Theme",
+            isDarkMode = false,
+            sourceApp = "test_app"
+        )
+
+        val theme2 = ThemeData.createCustomTheme(
+            name = "Test Theme",
+            isDarkMode = false,
+            sourceApp = "test_app"
+        )
+
+        // IDs should be different due to timestamp
+        assertNotEquals(theme1.id, theme2.id)
+        assertTrue(theme1.id.startsWith("custom_test_app_"))
+        assertTrue(theme2.id.startsWith("custom_test_app_"))
+    }
+
+    @Test
+    fun `test custom theme defaults to non-default`() {
+        val customTheme = ThemeData.createCustomTheme(
+            name = "Custom Theme",
+            isDarkMode = false,
+            sourceApp = "test_app"
+        )
+
+        assertFalse(customTheme.isDefault)
+    }
+
+    @Test
+    fun `test default themes are not custom`() {
+        val themes = ThemeData.getDefaultThemes("test_app")
+
+        themes.forEach { theme ->
+            assertFalse(theme.isCustom)
+            assertNull(theme.customPrimary)
+            assertNull(theme.customOnPrimary)
+        }
+    }
+
+    @Test
+    fun `test custom theme color scheme constant exists`() {
+        assertEquals("custom", ThemeData.COLOR_CUSTOM)
+    }
 }

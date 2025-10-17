@@ -50,6 +50,23 @@ class ThemeRepository(
 
     suspend fun getThemeCount(): Int = themeDao.getThemeCount()
 
+    fun getCustomThemes(): Flow<List<ThemeData>> = themeDao.getCustomThemes()
+
+    suspend fun getCustomThemesSync(): List<ThemeData> = themeDao.getCustomThemesSync()
+
+    suspend fun getCustomThemesBySourceApp(sourceApp: String): List<ThemeData> =
+        themeDao.getCustomThemesBySourceApp(sourceApp)
+
+    fun getDefaultThemes(): Flow<List<ThemeData>> = themeDao.getDefaultThemes()
+
+    suspend fun getDefaultThemesSync(): List<ThemeData> = themeDao.getDefaultThemesSync()
+
+    suspend fun createCustomTheme(themeData: ThemeData): Long = themeDao.insert(themeData)
+
+    suspend fun updateCustomTheme(themeData: ThemeData) = themeDao.update(themeData)
+
+    suspend fun deleteCustomTheme(themeId: String) = themeDao.deleteTheme(themeId)
+
     suspend fun initializeDefaultThemes() {
         val count = getThemeCount()
         if (count == 0) {

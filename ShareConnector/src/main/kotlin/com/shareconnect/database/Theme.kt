@@ -12,6 +12,7 @@ class Theme {
     var colorScheme: String? = null
     var isDarkMode: Boolean = false
     var isDefault: Boolean = false
+    var isCustom: Boolean = false
 
     constructor()
 
@@ -22,5 +23,16 @@ class Theme {
         this.colorScheme = colorScheme
         this.isDarkMode = isDarkMode
         this.isDefault = isDefault
+        this.isCustom = false
+    }
+
+    @androidx.room.Ignore
+    constructor(id: Int, name: String?, colorScheme: String?, isDarkMode: Boolean, isDefault: Boolean, isCustom: Boolean) {
+        this.id = id
+        this.name = name
+        this.colorScheme = colorScheme
+        this.isDarkMode = isDarkMode
+        this.isDefault = isDefault
+        this.isCustom = isCustom
     }
 }

@@ -14,6 +14,7 @@ class ThemeAdapter(private val listener: OnThemeSelectListener) :
 
     interface OnThemeSelectListener {
         fun onThemeSelected(theme: Theme)
+        fun onThemeEdit(theme: Theme)
     }
 
     fun updateThemes(themes: List<Theme>) {
@@ -40,7 +41,9 @@ class ThemeAdapter(private val listener: OnThemeSelectListener) :
     inner class ThemeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textViewThemeName: TextView = itemView.findViewById(R.id.textViewThemeName)
         private val textViewThemeVariant: TextView = itemView.findViewById(R.id.textViewThemeVariant)
+        private val textViewThemeType: TextView = itemView.findViewById(R.id.textViewThemeType)
         private val buttonSelectTheme: MaterialButton = itemView.findViewById(R.id.buttonSelectTheme)
+        private val buttonEditTheme: MaterialButton = itemView.findViewById(R.id.buttonEditTheme)
 
         fun bind(theme: Theme) {
             textViewThemeName.text = theme.name
@@ -50,8 +53,22 @@ class ThemeAdapter(private val listener: OnThemeSelectListener) :
                 itemView.context.getString(R.string.light)
             }
 
+            // Show theme type indicator for custom themes
+            if (theme.isCustom) {
+                textViewThemeType.text = "CUSTOM"
+                textViewThemeType.visibility = View.VISIBLE
+                buttonEditTheme.visibility = View.VISIBLE
+            } else {
+                textViewThemeType.visibility = View.GONE
+                buttonEditTheme.visibility = View.GONE
+            }
+
             buttonSelectTheme.setOnClickListener {
                 listener.onThemeSelected(theme)
+            }
+
+            buttonEditTheme.setOnClickListener {
+                listener.onThemeEdit(theme)
             }
         }
     }

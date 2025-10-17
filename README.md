@@ -22,7 +22,13 @@ ShareConnect Wiki: [https://deepwiki.com/vasic-digital/ShareConnect](https://dee
 - **Authentication Support**: Optional username and password authentication for protected services
 - **Clipboard URL Sharing**: Share URLs directly from clipboard
 - **System App Integration**: Share links to compatible installed applications
-- **Customizable Themes**: 6 color schemes with light/dark variants (Warm Orange, Crimson, Light Blue, Purple, Green, Material)
+- **Customizable Themes**: 6 built-in color schemes with light/dark variants (Warm Orange, Crimson, Light Blue, Purple, Green, Material) plus user-created custom themes
+- **Theme Creator**: Create and customize your own themes with full color control
+  - Design custom color schemes with primary, secondary, background, and surface colors
+  - Real-time preview of theme changes
+  - Edit existing themes or create new ones
+  - Custom themes sync across all ShareConnect apps instantly
+  - Comprehensive theme management in Settings
 - **Encrypted Storage**: All data stored with Room database and SQLCipher encryption
 - **Rich Media Metadata**: Automatic fetching of titles, descriptions, and thumbnails for shared URLs
 - **Visual Profile Management**: Modern grid layout with profile icons, default indicators, and lock badges for authenticated profiles
@@ -34,6 +40,19 @@ ShareConnect Wiki: [https://deepwiki.com/vasic-digital/ShareConnect](https://dee
 - **Bulk Cleanup**: Flexible history cleanup options (individual items, by service, by type, or all)
 
 ## What's New
+
+### Version 1.1.0
+- **Custom Theme Creator**: Create, edit, and delete custom themes with full color customization
+  - Design your own color schemes with 30+ color parameters
+  - Real-time preview of your custom themes
+  - Edit existing themes or create new ones from scratch
+  - Custom themes sync across all ShareConnect apps in real-time
+  - Comprehensive theme management in Settings
+- **Enhanced Theme System**:
+  - Extended theme data model with custom color support
+  - Improved theme selection UI with custom theme indicators
+  - Better theme sync performance and reliability
+  - Full backward compatibility with existing themes
 
 ### Version 1.0.0
 - **Profile Database Migration**: Profiles now stored in encrypted Room database alongside history
