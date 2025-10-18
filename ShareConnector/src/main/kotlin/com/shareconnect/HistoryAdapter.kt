@@ -6,21 +6,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import com.shareconnect.database.HistoryItem
+import com.shareconnect.historysync.models.HistoryData
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class HistoryAdapter(private val listener: OnHistoryItemClickListener) :
     RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
-    private val historyItems: MutableList<HistoryItem> = ArrayList()
+    private val historyItems: MutableList<HistoryData> = ArrayList()
 
     interface OnHistoryItemClickListener {
-        fun onResendClick(item: HistoryItem)
-        fun onDeleteClick(item: HistoryItem)
+        fun onResendClick(item: HistoryData)
+        fun onDeleteClick(item: HistoryData)
     }
 
-    fun updateHistoryItems(items: List<HistoryItem>) {
+    fun updateHistoryItems(items: List<HistoryData>) {
         historyItems.clear()
         historyItems.addAll(items)
         notifyDataSetChanged()
@@ -51,22 +51,46 @@ class HistoryAdapter(private val listener: OnHistoryItemClickListener) :
         private val textViewTimestamp: TextView = itemView.findViewById(R.id.textViewTimestamp)
         private val textViewStatus: TextView = itemView.findViewById(R.id.textViewStatus)
         private val textViewServiceType: TextView = itemView.findViewById(R.id.textViewServiceType)
+        private val textViewDuration: TextView = itemView.findViewById(R.id.textViewDuration)
+        private val textViewQuality: TextView = itemView.findViewById(R.id.textViewQuality)
+        private val textViewFileSize: TextView = itemView.findViewById(R.id.textViewFileSize)
+        private val textViewTorrentClient: TextView = itemView.findViewById(R.id.textViewTorrentClient)
+        private val textViewCategory: TextView = itemView.findViewById(R.id.textViewCategory)
+        private val textViewTags: TextView = itemView.findViewById(R.id.textViewTags)
+        private val textViewSourceApp: TextView = itemView.findViewById(R.id.textViewSourceApp)
+        private val layoutMediaDetails: ViewGroup = itemView.findViewById(R.id.layoutMediaDetails)
+        private val layoutTorrentDetails: ViewGroup = itemView.findViewById(R.id.layoutTorrentDetails)
         private val buttonResend: MaterialButton = itemView.findViewById(R.id.buttonResend)
         private val buttonDelete: MaterialButton = itemView.findViewById(R.id.buttonDelete)
 
-        fun bind(item: HistoryItem) {
-            textViewTitle.text = item.title ?: "Unknown Title"
+        fun bind(item: HistoryData) {
+            // Basic information
+            textViewTitle.text = item.getDisplayTitle()
             textViewDescription.text = item.description ?: ""
             textViewUrl.text = item.url
-            textViewServiceProvider.text = item.serviceProvider
+            textViewServiceProvider.text = item.serviceProvider ?: "Unknown"
             textViewType.text = item.type
-            textViewServiceType.text = item.serviceType ?: itemView.context.getString(R.string.metube)
 
-            textViewProfile.text = if (item.profileName != null && item.profileName!!.isNotEmpty()) {
-                item.profileName
+            // Service type with fallback
+            val serviceTypeText = when (item.serviceType) {
+                HistoryData.SERVICE_METUBE -> itemView.context.getString(R.string.metube)
+                HistoryData.SERVICE_YTDL -> "YTDL"
+                HistoryData.SERVICE_TORRENT -> "Torrent"
+                HistoryData.SERVICE_JDOWNLOADER -> "JDownloader"
+                else -> item.serviceType ?: itemView.context.getString(R.string.metube)
+            }
+            textViewServiceType.text = serviceTypeText
+
+            // Profile information
+            val profileName = item.profileName
+            textViewProfile.text = if (profileName != null && profileName.isNotEmpty()) {
+                "Profile: $profileName"
             } else {
                 itemView.context.getString(R.string.not_sent)
             }
+
+            // Source app
+            textViewSourceApp.text = "from ${item.sourceApp}"
 
             // Format timestamp
             val sdf = SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault())
@@ -81,13 +105,49 @@ class HistoryAdapter(private val listener: OnHistoryItemClickListener) :
                 if (item.isSentSuccessfully) {
                     textViewStatus.setBackgroundResource(R.drawable.status_background)
                 } else {
-                    // Create a red status background for failed items
                     textViewStatus.setBackgroundResource(R.drawable.tag_background)
                 }
             }
 
-            // Show/hide description based on whether it's available
+            // Show/hide description
             textViewDescription.visibility = if (item.description.isNullOrEmpty()) View.GONE else View.VISIBLE
+
+            // Media details (duration, quality, file size)
+            val hasMediaDetails = item.duration != null || item.quality != null || item.fileSize != null
+            layoutMediaDetails.visibility = if (hasMediaDetails) View.VISIBLE else View.GONE
+
+            if (hasMediaDetails) {
+                textViewDuration.text = item.getFormattedDuration() ?: ""
+                textViewDuration.visibility = if (item.duration != null) View.VISIBLE else View.GONE
+
+                textViewQuality.text = item.quality ?: ""
+                textViewQuality.visibility = if (item.quality != null) View.VISIBLE else View.GONE
+
+                textViewFileSize.text = item.getFormattedFileSize() ?: ""
+                textViewFileSize.visibility = if (item.fileSize != null) View.VISIBLE else View.GONE
+            }
+
+            // Torrent details (client, category, tags)
+            val hasTorrentDetails = item.isTorrentHistory() || item.category != null || item.tags != null
+            layoutTorrentDetails.visibility = if (hasTorrentDetails) View.VISIBLE else View.GONE
+
+            if (hasTorrentDetails) {
+                val torrentClientText = when (item.torrentClientType) {
+                    HistoryData.TORRENT_CLIENT_QBITTORRENT -> "qBittorrent"
+                    HistoryData.TORRENT_CLIENT_TRANSMISSION -> "Transmission"
+                    HistoryData.TORRENT_CLIENT_UTORRENT -> "µTorrent"
+                    else -> item.torrentClientType ?: "Torrent"
+                }
+                textViewTorrentClient.text = torrentClientText
+                textViewTorrentClient.visibility = if (item.isTorrentHistory()) View.VISIBLE else View.GONE
+
+                textViewCategory.text = item.category ?: ""
+                textViewCategory.visibility = if (item.category != null) View.VISIBLE else View.GONE
+
+                val tagsText = item.getTagsList().take(3).joinToString(", ") // Limit to 3 tags
+                textViewTags.text = tagsText
+                textViewTags.visibility = if (tagsText.isNotEmpty()) View.VISIBLE else View.GONE
+            }
 
             // Set button listeners
             buttonResend.setOnClickListener {

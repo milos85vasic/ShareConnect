@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="12dp">
+    app:cardElevation="2dp"
+    app:cardCornerRadius="16dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="?attr/colorOutline">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +16,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Header with title and status -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +31,8 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:ellipsize="end"
+                tools:text="Amazing Video Title" />
 
             <TextView
                 android:id="@+id/textViewStatus"
@@ -40,6 +45,7 @@
 
         </LinearLayout>
 
+        <!-- Description -->
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
@@ -48,8 +54,12 @@
             android:textColor="@android:color/darker_gray"
             android:maxLines="2"
             android:ellipsize="end"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            tools:text="This is a detailed description of the shared content"
+            tools:visibility="visible" />
 
+        <!-- URL -->
         <TextView
             android:id="@+id/textViewUrl"
             android:layout_width="match_parent"
@@ -58,13 +68,15 @@
             android:textColor="@android:color/darker_gray"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            tools:text="https://youtube.com/watch?v=example" />
 
+        <!-- Service info row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="8dp">
 
             <TextView
                 android:id="@+id/textViewServiceProvider"
@@ -74,7 +86,8 @@
                 android:textSize="12sp"
                 android:background="@drawable/tag_background"
                 android:padding="4dp"
-                android:layout_marginEnd="4dp" />
+                android:layout_marginEnd="4dp"
+                tools:text="YouTube" />
 
             <TextView
                 android:id="@+id/textViewType"
@@ -85,7 +98,8 @@
                 android:background="@drawable/tag_background"
                 android:padding="4dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp" />
+                android:layout_marginEnd="4dp"
+                tools:text="Video" />
 
             <TextView
                 android:id="@+id/textViewServiceType"
@@ -95,17 +109,129 @@
                 android:textSize="12sp"
                 android:background="@drawable/tag_background"
                 android:padding="4dp"
-                android:layout_marginStart="4dp" />
+                android:layout_marginStart="4dp"
+                tools:text="MeTube" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textViewProfile"
+        <!-- Media details row (duration, quality, file size) -->
+        <LinearLayout
+            android:id="@+id/layoutMediaDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:orientation="horizontal"
             android:layout_marginBottom="8dp"
-            android:textStyle="italic" />
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/textViewDuration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginEnd="4dp"
+                tools:text="10:30" />
+
+            <TextView
+                android:id="@+id/textViewQuality"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                tools:text="1080p" />
+
+            <TextView
+                android:id="@+id/textViewFileSize"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginStart="4dp"
+                tools:text="250 MB" />
+
+        </LinearLayout>
+
+        <!-- Torrent details row (for torrent items) -->
+        <LinearLayout
+            android:id="@+id/layoutTorrentDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/textViewTorrentClient"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginEnd="4dp"
+                tools:text="qBittorrent" />
+
+            <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                tools:text="Movies" />
+
+            <TextView
+                android:id="@+id/textViewTags"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/tag_background"
+                android:padding="4dp"
+                android:layout_marginStart="4dp"
+                tools:text="HD, Action" />
+
+        </LinearLayout>
+
+        <!-- Profile and timestamp -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/textViewProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                tools:text="Profile: My Server" />
+
+            <TextView
+                android:id="@+id/textViewSourceApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginStart="8dp"
+                tools:text="from ShareConnector" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textViewTimestamp"
@@ -113,33 +239,40 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            tools:text="Dec 25, 2024 14:30" />
 
+        <!-- Action buttons with modern Material Design 3 styling -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonResend"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.ElevatedButton.Icon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:text="Resend"
-                android:textSize="12sp" />
+                android:text="Re-share"
+                android:textSize="14sp"
+                app:icon="@android:drawable/ic_menu_send"
+                app:iconGravity="textStart"
+                app:iconSize="18dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDelete"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:text="Delete"
-                android:textSize="12sp"
-                android:textColor="@color/design_default_color_error" />
+                android:textSize="14sp"
+                android:textColor="?attr/colorError" />
 
         </LinearLayout>
 

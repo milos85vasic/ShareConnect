@@ -11,11 +11,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import com.shareconnect.database.HistoryItem
-import com.shareconnect.database.HistoryRepository
+import com.shareconnect.historysync.HistorySyncManager
+import com.shareconnect.historysync.models.HistoryData
+import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickListener {
     private var recyclerViewHistory: RecyclerView? = null
@@ -26,8 +28,8 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
     private var autoCompleteServiceTypeFilter: AutoCompleteTextView? = null
     private var buttonClearFilters: MaterialButton? = null
 
-    private var historyRepository: HistoryRepository? = null
-    private var allHistoryItems: List<HistoryItem> = ArrayList()
+    private var historySyncManager: HistorySyncManager? = null
+    private var allHistoryItems: List<HistoryData> = ArrayList()
     private var serviceProviders: List<String> = ArrayList()
     private var types: List<String> = ArrayList()
     private var serviceTypes: List<String> = ArrayList()
@@ -51,7 +53,15 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
         setupRecyclerView()
         setupFilters()
 
-        historyRepository = HistoryRepository(this)
+        // Get HistorySyncManager instance
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        val appVersion = packageInfo.versionName ?: "1.0.0"
+        historySyncManager = HistorySyncManager.getInstance(
+            this,
+            "ShareConnector",
+            "ShareConnector",
+            appVersion
+        )
         loadHistoryItems()
     }
 
@@ -88,57 +98,63 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
     }
 
     private fun loadHistoryItems() {
-        allHistoryItems = historyRepository!!.allHistoryItems
-        serviceProviders = historyRepository!!.allServiceProviders
-        types = historyRepository!!.allTypes
-        serviceTypes = historyRepository!!.allServiceTypes
+        lifecycleScope.launch {
+            try {
+                // Get all history items from sync manager
+                allHistoryItems = historySyncManager?.getAllHistoryItems() ?: emptyList()
 
-        // Setup filter adapters
-        val serviceAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_dropdown_item_1line, serviceProviders
-        )
-        autoCompleteServiceFilter!!.setAdapter(serviceAdapter)
+                // Extract unique values for filters
+                serviceProviders = allHistoryItems.mapNotNull { it.serviceProvider }.distinct().sorted()
+                types = allHistoryItems.map { it.type }.distinct().sorted()
+                serviceTypes = allHistoryItems.mapNotNull { it.serviceType }.distinct().sorted()
 
-        val typeAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_dropdown_item_1line, types
-        )
-        autoCompleteTypeFilter!!.setAdapter(typeAdapter)
+                // Setup filter adapters
+                val serviceAdapter = ArrayAdapter(
+                    this@HistoryActivity,
+                    android.R.layout.simple_dropdown_item_1line, serviceProviders
+                )
+                autoCompleteServiceFilter!!.setAdapter(serviceAdapter)
 
-        val serviceTypeAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_dropdown_item_1line, serviceTypes
-        )
-        autoCompleteServiceTypeFilter!!.setAdapter(serviceTypeAdapter)
+                val typeAdapter = ArrayAdapter(
+                    this@HistoryActivity,
+                    android.R.layout.simple_dropdown_item_1line, types
+                )
+                autoCompleteTypeFilter!!.setAdapter(typeAdapter)
 
-        // Apply filters if any
-        val selectedService = autoCompleteServiceFilter!!.text.toString()
-        val selectedType = autoCompleteTypeFilter!!.text.toString()
-        val selectedServiceType = autoCompleteServiceTypeFilter!!.text.toString()
+                val serviceTypeAdapter = ArrayAdapter(
+                    this@HistoryActivity,
+                    android.R.layout.simple_dropdown_item_1line, serviceTypes
+                )
+                autoCompleteServiceTypeFilter!!.setAdapter(serviceTypeAdapter)
 
-        val filteredItems = ArrayList(allHistoryItems)
+                // Apply filters if any
+                val selectedService = autoCompleteServiceFilter!!.text.toString()
+                val selectedType = autoCompleteTypeFilter!!.text.toString()
+                val selectedServiceType = autoCompleteServiceTypeFilter!!.text.toString()
 
-        if (selectedService.isNotEmpty()) {
-            filteredItems.removeIf { item -> item.serviceProvider != selectedService }
-        }
+                val filteredItems = ArrayList(allHistoryItems)
 
-        if (selectedType.isNotEmpty()) {
-            filteredItems.removeIf { item -> item.type != selectedType }
-        }
-
-        if (selectedServiceType.isNotEmpty()) {
-            filteredItems.removeIf { item ->
-                var itemServiceType = item.serviceType
-                if (itemServiceType == null) {
-                    itemServiceType = "MeTube" // Default for backward compatibility
+                if (selectedService.isNotEmpty()) {
+                    filteredItems.removeIf { item -> item.serviceProvider != selectedService }
                 }
-                itemServiceType != selectedServiceType
+
+                if (selectedType.isNotEmpty()) {
+                    filteredItems.removeIf { item -> item.type != selectedType }
+                }
+
+                if (selectedServiceType.isNotEmpty()) {
+                    filteredItems.removeIf { item -> item.serviceType != selectedServiceType }
+                }
+
+                historyAdapter!!.updateHistoryItems(filteredItems)
+                updateUI()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // Fallback to empty list on error
+                historyAdapter!!.updateHistoryItems(emptyList())
+                updateUI()
             }
         }
-
-        historyAdapter!!.updateHistoryItems(filteredItems)
-        updateUI()
     }
 
     private fun updateUI() {
@@ -201,8 +217,14 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
         builder.setTitle("Delete All History")
         builder.setMessage("Are you sure you want to delete all history items?")
         builder.setPositiveButton("Delete") { _, _ ->
-            historyRepository!!.deleteAllHistoryItems()
-            loadHistoryItems()
+            lifecycleScope.launch {
+                try {
+                    historySyncManager?.deleteAllHistory()
+                    loadHistoryItems()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
         builder.setNegativeButton("Cancel", null)
         builder.show()
@@ -217,8 +239,14 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
         builder.setTitle("Delete by Service Provider")
         builder.setItems(serviceProviders.toTypedArray()) { _, which ->
             val serviceProvider = serviceProviders[which]
-            historyRepository!!.deleteHistoryItemsByServiceProvider(serviceProvider)
-            loadHistoryItems()
+            lifecycleScope.launch {
+                try {
+                    historySyncManager?.deleteHistoryItemsByServiceProvider(serviceProvider)
+                    loadHistoryItems()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
         builder.setNegativeButton("Cancel", null)
         builder.show()
@@ -233,8 +261,14 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
         builder.setTitle("Delete by Type")
         builder.setItems(types.toTypedArray()) { _, which ->
             val type = types[which]
-            historyRepository!!.deleteHistoryItemsByType(type)
-            loadHistoryItems()
+            lifecycleScope.launch {
+                try {
+                    historySyncManager?.deleteHistoryItemsByType(type)
+                    loadHistoryItems()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
         builder.setNegativeButton("Cancel", null)
         builder.show()
@@ -249,29 +283,54 @@ class HistoryActivity : AppCompatActivity(), HistoryAdapter.OnHistoryItemClickLi
         builder.setTitle("Delete by Service Type")
         builder.setItems(serviceTypes.toTypedArray()) { _, which ->
             val serviceType = serviceTypes[which]
-            historyRepository!!.deleteHistoryItemsByServiceType(serviceType)
-            loadHistoryItems()
+            lifecycleScope.launch {
+                try {
+                    historySyncManager?.deleteHistoryItemsByServiceType(serviceType)
+                    loadHistoryItems()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
         builder.setNegativeButton("Cancel", null)
         builder.show()
     }
 
-    override fun onResendClick(item: HistoryItem) {
-        // Open share activity with the URL
+    override fun onResendClick(item: HistoryData) {
+        // Open share activity with enhanced context for re-sharing
         val intent = Intent(this, ShareActivity::class.java)
         intent.action = Intent.ACTION_SEND
         intent.type = "text/plain"
         intent.putExtra(Intent.EXTRA_TEXT, item.url)
+
+        // Pass additional metadata for better re-share experience
+        intent.putExtra("EXTRA_HISTORY_ID", item.id)
+        intent.putExtra("EXTRA_TITLE", item.title)
+        intent.putExtra("EXTRA_DESCRIPTION", item.description)
+        intent.putExtra("EXTRA_SERVICE_PROVIDER", item.serviceProvider)
+        intent.putExtra("EXTRA_TYPE", item.type)
+        intent.putExtra("EXTRA_SERVICE_TYPE", item.serviceType)
+        intent.putExtra("EXTRA_THUMBNAIL_URL", item.thumbnailUrl)
+        intent.putExtra("EXTRA_FILE_SIZE", item.fileSize)
+        intent.putExtra("EXTRA_DURATION", item.duration)
+        intent.putExtra("EXTRA_QUALITY", item.quality)
+
         startActivity(intent)
     }
 
-    override fun onDeleteClick(item: HistoryItem) {
+    override fun onDeleteClick(item: HistoryData) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Delete Item")
         builder.setMessage("Are you sure you want to delete this history item?")
         builder.setPositiveButton("Delete") { _, _ ->
-            historyRepository!!.deleteHistoryItem(item)
-            loadHistoryItems()
+            lifecycleScope.launch {
+                try {
+                    historySyncManager?.deleteHistoryItem(item)
+                    loadHistoryItems()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
         }
         builder.setNegativeButton("Cancel", null)
         builder.show()

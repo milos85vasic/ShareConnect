@@ -99,6 +99,18 @@ class HistoryRepository(private val historyDao: HistoryDao) {
         return historyDao.getSuccessfulHistoryCount()
     }
 
+    suspend fun deleteHistoryByServiceProvider(serviceProvider: String) {
+        historyDao.deleteHistoryByServiceProvider(serviceProvider)
+    }
+
+    suspend fun deleteHistoryByType(type: String) {
+        historyDao.deleteHistoryByType(type)
+    }
+
+    suspend fun deleteHistoryByServiceType(serviceType: String) {
+        historyDao.deleteHistoryByServiceType(serviceType)
+    }
+
     /**
      * Filter history for qBitConnect (only qBittorrent torrents and general media)
      */

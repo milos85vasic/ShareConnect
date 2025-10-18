@@ -78,4 +78,13 @@ interface HistoryDao {
 
     @Query("SELECT COUNT(*) FROM synced_history WHERE isSentSuccessfully = 1")
     suspend fun getSuccessfulHistoryCount(): Int
+
+    @Query("DELETE FROM synced_history WHERE serviceProvider = :serviceProvider")
+    suspend fun deleteHistoryByServiceProvider(serviceProvider: String)
+
+    @Query("DELETE FROM synced_history WHERE type = :type")
+    suspend fun deleteHistoryByType(type: String)
+
+    @Query("DELETE FROM synced_history WHERE serviceType = :serviceType")
+    suspend fun deleteHistoryByServiceType(serviceType: String)
 }
