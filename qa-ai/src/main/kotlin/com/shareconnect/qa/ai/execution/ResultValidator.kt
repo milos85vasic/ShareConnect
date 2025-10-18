@@ -129,7 +129,7 @@ class ResultValidator(
             "triple_app_complex_sync" to true,
             "triple_app_resource_management" to true,
             "triple_app_no_interference" to true,
-            "triple_app_performance_stable" to result.durationMs < 20 * 60 * 1000 // Under 20 minutes
+            "triple_app_performance_stable" to (result.durationMs < 20 * 60 * 1000) // Under 20 minutes
         )
     }
 
@@ -139,7 +139,7 @@ class ResultValidator(
             "all_apps_complete_sync" to true,
             "all_apps_maximum_complexity" to true,
             "all_apps_system_stability" to result.errorMessage.isNullOrEmpty(),
-            "all_apps_performance_acceptable" to result.durationMs < 30 * 60 * 1000, // Under 30 minutes
+            "all_apps_performance_acceptable" to (result.durationMs < 30 * 60 * 1000), // Under 30 minutes
             "all_apps_no_resource_issues" to true
         )
     }

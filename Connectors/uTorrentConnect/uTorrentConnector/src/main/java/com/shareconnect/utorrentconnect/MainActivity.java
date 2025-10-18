@@ -45,11 +45,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.lifecycleScope;
+
 
 import com.shareconnect.designsystem.components.fabs.AnimatedFAB;
-import digital.vasic.security.access.SecurityAccessManager;
-import digital.vasic.security.access.data.AccessMethod;
+// SecurityAccessManager handled via helper
+
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -161,7 +161,7 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
 
     private uTorrentRemote application;
     private TorrentUpdater torrentUpdater;
-    private SecurityAccessManager securityAccessManager;
+    private SecurityAccessHelper securityAccessHelper;
 
     private Timer prefsUpdateTimer;
 
@@ -234,7 +234,7 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
 
     private boolean isSecurityAccessRequired() {
         try {
-            return securityAccessManager.isAccessRequired();
+            return securityAccessHelper.isAccessRequiredBlocking();
         } catch (Exception e) {
             Log.e(TAG, "Error checking security access requirement", e);
             return false; // Default to no security if there's an error
@@ -279,27 +279,23 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
     }
 
     private void authenticateWithPin(String pin) {
-        lifecycleScope.launchWhenCreated(() -> {
-            try {
-                SecurityAccessManager.AuthenticationResult result = securityAccessManager.authenticate(AccessMethod.PIN, pin);
-                if (result instanceof SecurityAccessManager.AuthenticationResult.Success) {
-                    // Authentication successful, continue with normal flow
-                    runOnUiThread(this::setupMainUI);
-                } else {
-                    // Authentication failed, show error and retry
-                    runOnUiThread(() -> {
-                        Toast.makeText(this, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
-                        showSecurityAccessDialog();
-                    });
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Error during PIN authentication", e);
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "Authentication error. Please try again.", Toast.LENGTH_SHORT).show();
-                    showSecurityAccessDialog();
-                });
-            }
-        });
+        securityAccessHelper.authenticateWithPin(
+            this,
+            pin,
+            this::setupMainUI,
+            this::onAuthenticationFailed,
+            this::onAuthenticationError
+        );
+    }
+
+    private void onAuthenticationFailed() {
+        Toast.makeText(this, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+        showSecurityAccessDialog();
+    }
+
+    private void onAuthenticationError(String errorMessage) {
+        Toast.makeText(this, "Authentication error: " + errorMessage, Toast.LENGTH_SHORT).show();
+        showSecurityAccessDialog();
     }
 
     private void setupMainUI() {
@@ -315,19 +311,20 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
         setupFloatingActionButton();
 
         application.addOnSpeedLimitEnabledChangedListener(this);
-
-        if (savedInstanceState != null) {
-            openTorrentUri = savedInstanceState.getParcelable(KEY_OPEN_TORRENT_URI);
-            openTorrentScheme = savedInstanceState.getString(KEY_OPEN_TORRENT_SCHEME);
-        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SplashScreen.installSplashScreen(this);
         application = uTorrentRemote.getApplication(this);
-        securityAccessManager = SecurityAccessManager.getInstance(this);
+        securityAccessHelper = new SecurityAccessHelper(this);
         super.onCreate(savedInstanceState);
+
+        // Handle saved instance state
+        if (savedInstanceState != null) {
+            openTorrentUri = savedInstanceState.getParcelable(KEY_OPEN_TORRENT_URI);
+            openTorrentScheme = savedInstanceState.getString(KEY_OPEN_TORRENT_SCHEME);
+        }
 
         // Check if security access is required BEFORE onboarding
         if (isSecurityAccessRequired()) {

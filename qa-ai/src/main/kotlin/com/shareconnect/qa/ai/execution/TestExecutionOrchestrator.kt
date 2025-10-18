@@ -139,12 +139,15 @@ class TestExecutionOrchestrator(
 
         for ((scenario, scenarioTests) in testsByScenario) {
             // Execute tests for same scenario in parallel
-            val scenarioResults = scenarioTests.map { config ->
-                Thread {
+            data class ThreadWithResult(val thread: Thread, var result: TestResult? = null)
+
+            val threads = scenarioTests.map { config ->
+                var capturedResult: TestResult? = null
+                val thread = Thread {
                     try {
-                        executeTest(config)
+                        capturedResult = executeTest(config)
                     } catch (e: Exception) {
-                        TestResult(
+                        capturedResult = TestResult(
                             testId = config.testId,
                             success = false,
                             durationMs = 0,
@@ -152,8 +155,13 @@ class TestExecutionOrchestrator(
                         )
                     }
                 }.apply { start() }
-            }.map { it.join(); it.result }
+                ThreadWithResult(thread, null).apply {
+                    thread.join()
+                    result = capturedResult
+                }
+            }
 
+            val scenarioResults = threads.mapNotNull { it.result }
             results.addAll(scenarioResults)
         }
 

@@ -5,6 +5,7 @@ import okhttp3.mockwebserver.QueueDispatcher
 import okhttp3.mockwebserver.RecordedRequest
 import org.json.JSONObject
 import java.net.URLDecoder
+import kotlin.random.Random
 
 /**
  * Mock dispatcher for qBittorrent WebUI API
@@ -280,7 +281,7 @@ class QBittorrentMockDispatcher : QueueDispatcher() {
                 var progress = torrents[hash]?.progress ?: 0.0f
                 while (progress < 1.0f) {
                     Thread.sleep(1000) // Update every second
-                    progress += (0.001f..0.01f).random() // 0.1% to 1% per second
+                    progress += Random.nextFloat() * (0.01f - 0.001f) + 0.001f // 0.1% to 1% per second
                     if (progress > 1.0f) progress = 1.0f
 
                     torrents[hash]?.let { torrent ->

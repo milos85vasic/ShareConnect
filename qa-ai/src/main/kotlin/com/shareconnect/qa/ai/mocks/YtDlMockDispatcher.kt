@@ -215,8 +215,8 @@ class YtDlMockDispatcher : QueueDispatcher() {
             JSONObject().apply {
                 put("format_id", "audio_only")
                 put("ext", "m4a")
-                put("resolution", null)
-                put("fps", null)
+                put("resolution", null as String?)
+                put("fps", null as Int?)
                 put("filesize", 5242880) // 5MB
             }
         )
