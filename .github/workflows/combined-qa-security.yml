@@ -1,0 +1,275 @@
+name: Combined QA + Security Testing
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_qa_tests:
+        description: 'Run AI QA tests'
+        required: false
+        default: true
+        type: boolean
+      run_security_scan:
+        description: 'Run Snyk security scanning'
+        required: false
+        default: true
+        type: boolean
+      qa_test_suite:
+        description: 'QA test suite to run'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+        - comprehensive
+        - smoke
+        - regression
+      security_scan_type:
+        description: 'Type of security scan'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+        - full
+        - deps-only
+        - container-only
+        - gradle-only
+        - quick
+      security_severity:
+        description: 'Security severity threshold'
+        required: false
+        default: 'medium'
+        type: choice
+        options:
+        - low
+        - medium
+        - high
+        - critical
+      fail_on_security_issues:
+        description: 'Fail if security issues found'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  combined-testing:
+    name: Combined QA + Security Testing
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Make scripts executable
+      run: |
+        chmod +x gradlew
+        chmod +x run_snyk_scan.sh
+        chmod +x snyk_scan_on_demand.sh
+        chmod +x run_ai_qa_with_snyk.sh
+
+    - name: Build all apps
+      if: github.event.inputs.run_qa_tests == 'true' || github.event.inputs.run_security_scan == 'true'
+      run: |
+        echo "Building all applications..."
+        ./gradlew :ShareConnector:assembleDebug
+        ./gradlew :TransmissionConnect:assembleDebug
+        ./gradlew :uTorrentConnect:assembleDebug
+        ./gradlew :qBitConnect:assembleDebug
+
+    - name: Set up Android SDK (for QA tests)
+      if: github.event.inputs.run_qa_tests == 'true'
+      uses: android-actions/setup-android@v3
+
+    - name: Create AVD and start emulator (for QA tests)
+      if: github.event.inputs.run_qa_tests == 'true'
+      run: |
+        echo "Setting up Android emulator for QA tests..."
+        echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-34;google_apis;x86_64'
+        echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-34;google_apis;x86_64' --force
+        echo "Starting emulator..."
+        nohup $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window -gpu swiftshader_indirect &
+        $ANDROID_HOME/platform-tools/adb wait-for-device
+        echo "Emulator ready for testing"
+
+    - name: Run AI QA tests
+      id: qa-tests
+      if: github.event.inputs.run_qa_tests == 'true'
+      run: |
+        echo "🤖 Running AI QA tests..."
+        echo "Test Suite: ${{ github.event.inputs.qa_test_suite }}"
+        echo ""
+
+        cd qa-ai
+        chmod +x run_comprehensive_qa.sh
+        ./run_comprehensive_qa.sh
+      env:
+        QA_TEST_SUITE: ${{ github.event.inputs.qa_test_suite }}
+      continue-on-error: true
+
+    - name: Run Snyk security scan
+      id: security-scan
+      if: github.event.inputs.run_security_scan == 'true'
+      run: |
+        echo "🔒 Running Snyk security scan..."
+        echo "Scan Type: ${{ github.event.inputs.security_scan_type }}"
+        echo "Severity: ${{ github.event.inputs.security_severity }}"
+        echo "Fail on Issues: ${{ github.event.inputs.fail_on_security_issues }}"
+        echo ""
+
+        if [ "${{ github.event.inputs.security_scan_type }}" = "quick" ]; then
+          if [ "${{ github.event.inputs.fail_on_security_issues }}" = "true" ]; then
+            ./snyk_scan_on_demand.sh --severity ${{ github.event.inputs.security_severity }} --fail-on-issues
+          else
+            ./snyk_scan_on_demand.sh --severity ${{ github.event.inputs.security_severity }}
+          fi
+        else
+          case "${{ github.event.inputs.security_scan_type }}" in
+            "full")
+              SCAN_ARGS="--scan"
+              ;;
+            "deps-only")
+              SCAN_ARGS="--deps-only"
+              ;;
+            "container-only")
+              SCAN_ARGS="--container-only"
+              ;;
+            "gradle-only")
+              SCAN_ARGS="--gradle-only"
+              ;;
+          esac
+
+          if [ "${{ github.event.inputs.fail_on_security_issues }}" = "true" ]; then
+            SCAN_ARGS="$SCAN_ARGS --severity ${{ github.event.inputs.security_severity }}"
+          fi
+
+          ./run_snyk_scan.sh $SCAN_ARGS
+        fi
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        SNYK_ORG_ID: ${{ secrets.SNYK_ORG_ID }}
+      continue-on-error: ${{ github.event.inputs.fail_on_security_issues == false }}
+
+    - name: Run integrated QA + Security testing
+      id: integrated-testing
+      if: github.event.inputs.run_qa_tests == 'true' && github.event.inputs.run_security_scan == 'true'
+      run: |
+        echo "🔗 Running integrated QA + Security testing..."
+        ./run_ai_qa_with_snyk.sh --suite ${{ github.event.inputs.qa_test_suite }}
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        SNYK_ORG_ID: ${{ secrets.SNYK_ORG_ID }}
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      continue-on-error: true
+
+    - name: Upload test reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: combined-test-reports-${{ github.run_number }}
+        path: |
+          qa-ai/reports/
+          qa-ai/testbank/results/
+          Documentation/Tests/*_SNYK_*/**/*
+          Documentation/Tests/*_SNYK_*/*
+        retention-days: 30
+
+    - name: Generate comprehensive summary
+      if: always()
+      run: |
+        echo "## 🔍 Combined QA + Security Testing Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Configuration" >> $GITHUB_STEP_SUMMARY
+        echo "| Setting | Value |" >> $GITHUB_STEP_SUMMARY
+        echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+        echo "| QA Tests | ${{ github.event.inputs.run_qa_tests }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| Security Scan | ${{ github.event.inputs.run_security_scan }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| QA Suite | ${{ github.event.inputs.qa_test_suite }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| Security Scan Type | ${{ github.event.inputs.security_scan_type }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| Security Severity | ${{ github.event.inputs.security_severity }} |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        # QA Test Results
+        if [ "${{ github.event.inputs.run_qa_tests }}" = "true" ]; then
+          echo "### 🤖 QA Test Results" >> $GITHUB_STEP_SUMMARY
+          if [ -f "qa-ai/reports/*/comprehensive_report.json" ]; then
+            SUCCESS_RATE=$(jq -r '.summary.success_rate // "N/A"' qa-ai/reports/*/comprehensive_report.json)
+            TOTAL_TESTS=$(jq -r '.summary.total_tests // "N/A"' qa-ai/reports/*/comprehensive_report.json)
+            PASSED_TESTS=$(jq -r '.summary.passed_tests // "N/A"' qa-ai/reports/*/comprehensive_report.json)
+            FAILED_TESTS=$(jq -r '.summary.failed_tests // "N/A"' qa-ai/reports/*/comprehensive_report.json)
+
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Success Rate | ${SUCCESS_RATE}% |" >> $GITHUB_STEP_SUMMARY
+            echo "| Total Tests | ${TOTAL_TESTS} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Passed | ${PASSED_TESTS} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Failed | ${FAILED_TESTS} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Status | ${{ steps.qa-tests.outcome == 'success' && '✅ PASSED' || '❌ FAILED' }} |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ QA test report not found" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+        fi
+
+        # Security Scan Results
+        if [ "${{ github.event.inputs.run_security_scan }}" = "true" ]; then
+          echo "### 🔒 Security Scan Results" >> $GITHUB_STEP_SUMMARY
+          if find Documentation/Tests -name "*_SNYK_*" -type d | grep -q .; then
+            LATEST_REPORT=$(find Documentation/Tests -name "*_SNYK_*" -type d | sort | tail -1)
+            echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| Scan Type | ${{ github.event.inputs.security_scan_type }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Severity Threshold | ${{ github.event.inputs.security_severity }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Status | ${{ steps.security-scan.outcome == 'success' && '✅ PASSED' || '❌ ISSUES FOUND' }} |" >> $GITHUB_STEP_SUMMARY
+            echo "| Report | [View Details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Security scan report not found" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+        fi
+
+        # Overall Status
+        echo "### 📊 Overall Status" >> $GITHUB_STEP_SUMMARY
+        QA_STATUS="${{ steps.qa-tests.outcome }}"
+        SECURITY_STATUS="${{ steps.security-scan.outcome }}"
+
+        if [ "${{ github.event.inputs.run_qa_tests }}" = "true" ] && [ "${{ github.event.inputs.run_security_scan }}" = "true" ]; then
+          if [ "$QA_STATUS" = "success" ] && [ "$SECURITY_STATUS" = "success" ]; then
+            echo "✅ **ALL CHECKS PASSED** - Code is ready for deployment" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **ISSUES DETECTED** - Review reports above" >> $GITHUB_STEP_SUMMARY
+          fi
+        elif [ "${{ github.event.inputs.run_qa_tests }}" = "true" ]; then
+          if [ "$QA_STATUS" = "success" ]; then
+            echo "✅ **QA TESTS PASSED**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **QA TESTS FAILED**" >> $GITHUB_STEP_SUMMARY
+          fi
+        elif [ "${{ github.event.inputs.run_security_scan }}" = "true" ]; then
+          if [ "$SECURITY_STATUS" = "success" ]; then
+            echo "✅ **SECURITY SCAN PASSED**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **SECURITY ISSUES FOUND**" >> $GITHUB_STEP_SUMMARY
+          fi
+        fi
+
+    - name: Clean up emulator
+      if: always() && github.event.inputs.run_qa_tests == 'true'
+      run: |
+        echo "Cleaning up emulator..."
+        pkill -f emulator || true
+        $ANDROID_HOME/platform-tools/adb kill-server || true

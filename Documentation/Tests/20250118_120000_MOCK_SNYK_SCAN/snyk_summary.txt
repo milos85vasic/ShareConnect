@@ -1,0 +1,49 @@
+ShareConnect Snyk Security Scan Summary
+======================================
+
+Generated: Sat Oct 18 12:00:00 UTC 2025
+Project: ShareConnect
+Scan Type: full
+Severity Threshold: medium
+
+Results:
+- Total Vulnerabilities: 3
+- Unique Vulnerabilities: 3
+- Dependencies Scanned: 245
+- Scan Time: 45 seconds
+
+Vulnerability Breakdown:
+- Critical: 0 (0%)
+- High: 1 (33%)
+- Medium: 1 (33%)
+- Low: 1 (33%)
+
+Key Findings:
+1. HIGH: Jackson Databind deserialization vulnerability (CVE-2023-20862)
+   - Package: com.fasterxml.jackson.core:jackson-databind@2.14.0
+   - Fixed in: 2.14.1
+   - Impact: Remote code execution possible
+
+2. MEDIUM: Spring Core DoS vulnerability (CVE-2023-20861)
+   - Package: org.springframework:spring-core@5.3.20
+   - Fixed in: 5.3.21
+   - Impact: Denial of service attacks
+
+3. LOW: Guava information disclosure (CVE-2023-20863)
+   - Package: com.google.guava:guava@31.0.1-jre
+   - Fixed in: 31.1-jre
+   - Impact: Information leakage via race condition
+
+Recommendations:
+- Fix high-severity vulnerability immediately
+- Address medium-severity issue in next sprint
+- Monitor low-severity issue for future updates
+
+All vulnerabilities have available fixes through dependency updates.
+
+Reports generated:
+- HTML Report: snyk_report.html
+- JSON Report: snyk_report.json
+- Text Summary: snyk_summary.txt
+
+Snyk Dashboard: https://app.snyk.io/org/shareconnect/projects

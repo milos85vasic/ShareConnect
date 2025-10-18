@@ -1,0 +1,89 @@
+# Snyk Configuration for ShareConnect
+# Comprehensive security scanning configuration
+
+# Organization settings
+org: ${SNYK_ORG_ID}
+
+# Project settings
+project-name: ShareConnect
+project-tags: android,kotlin,multi-app,sync-platform
+
+# Scanning settings
+detection-depth: 6
+severity-threshold: medium
+fail-on: upgradable
+
+# Exclude patterns
+exclude:
+  - "**/build/**"
+  - "**/generated/**"
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.jpeg"
+  - "**/*.gif"
+  - "**/*.svg"
+  - "**/*.ico"
+  - "**/*.webp"
+  - "**/*.mp4"
+  - "**/*.avi"
+  - "**/*.mov"
+  - "**/*.pdf"
+  - "**/*.doc"
+  - "**/*.docx"
+  - "**/*.xls"
+  - "**/*.xlsx"
+  - "**/*.zip"
+  - "**/*.rar"
+  - "**/*.7z"
+  - "**/*.tar.gz"
+  - "**/*.jar"
+  - "**/*.aar"
+  - "**/*.so"
+  - "**/*.dex"
+  - "**/proguard/**"
+  - "**/lint/**"
+  - "**/assets/**"
+  - "**/res/raw/**"
+  - "**/res/xml/**"
+  - "**/node_modules/**"
+  - "**/.gradle/**"
+  - "**/.idea/**"
+  - "**/.vscode/**"
+  - "**/Documentation/**"
+  - "**/docs/**"
+
+# Include patterns for different project types
+gradle:
+  include:
+    - "**/build.gradle"
+    - "**/build.gradle.kts"
+    - "**/settings.gradle"
+    - "**/settings.gradle.kts"
+
+# Remote repository settings
+remote-repo-url: ${GIT_REMOTE_URL}
+
+# Integration settings
+integration:
+  name: ShareConnect
+  version: 1.0.0
+
+# Analytics and reporting
+disable-analytics: true
+json: true
+sarif: true
+
+# Custom policies
+policies:
+  - name: android-security-policy
+    severity: high
+    rules:
+      - id: SNYK-JAVA-*
+      - id: SNYK-KOTLIN-*
+      - id: SNYK-ANDROID-*
+
+# CI/CD integration
+ci: true
+
+# Debug settings (set to true for troubleshooting)
+debug: false

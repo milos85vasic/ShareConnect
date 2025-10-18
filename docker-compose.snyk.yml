@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  snyk:
+    image: snyk/snyk:linux
+    container_name: shareconnect-snyk
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /tmp:/tmp
+    environment:
+      - SNYK_TOKEN=${SNYK_TOKEN}
+      - SNYK_INTEGRATION_NAME=ShareConnect
+      - SNYK_INTEGRATION_VERSION=1.0.0
+      - SNYK_CFG_ORG=${SNYK_ORG_ID}
+      - SNYK_DISABLE_ANALYTICS=1
+    networks:
+      - snyk-network
+    command: >
+      sh -c "
+        echo '🔍 ShareConnect Snyk Security Scanning' &&
+        echo '======================================' &&
+        echo '' &&
+        echo '🔧 Testing configuration...' &&
+        snyk config &&
+        echo '' &&
+        echo '📦 Scanning dependencies...' &&
+        snyk test --all-projects --detection-depth=6 --severity-threshold=medium --json > /tmp/snyk-deps-results.json || true &&
+        echo '' &&
+        echo '🐳 Scanning container images...' &&
+        snyk container test --file=Dockerfile --json > /tmp/snyk-container-results.json 2>/dev/null || echo 'No container images to scan' &&
+        echo '' &&
+        echo '📱 Scanning Android dependencies...' &&
+        find . -name 'build.gradle*' -exec snyk test --file={} --json > /tmp/snyk-gradle-results.json \; 2>/dev/null || true &&
+        echo '' &&
+        echo '📊 Generating reports...' &&
+        snyk-to-html -i /tmp/snyk-deps-results.json -o /tmp/snyk-report.html 2>/dev/null || echo 'HTML report generation failed' &&
+        echo '✅ Snyk scanning completed'
+      "
+
+  snyk-cli:
+    image: snyk/snyk-cli:latest
+    container_name: shareconnect-snyk-cli
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - snyk_cache:/root/.snyk
+    environment:
+      - SNYK_TOKEN=${SNYK_TOKEN}
+      - SNYK_INTEGRATION_NAME=ShareConnect
+      - SNYK_INTEGRATION_VERSION=1.0.0
+      - SNYK_CFG_ORG=${SNYK_ORG_ID}
+      - SNYK_DISABLE_ANALYTICS=1
+      - SNYK_ADDITIONAL_ARGS=--all-projects --detection-depth=6 --severity-threshold=medium
+    networks:
+      - snyk-network
+    profiles:
+      - cli
+
+volumes:
+  snyk_cache:
+    driver: local
+
+networks:
+  snyk-network:
+    driver: bridge
