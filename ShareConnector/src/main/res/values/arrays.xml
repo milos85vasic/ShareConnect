@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="auth_method_entries">
+        <item>PIN</item>
+        <item>Password</item>
+        <item>Biometric</item>
+    </string-array>
+    <string-array name="auth_method_values">
+        <item>pin</item>
+        <item>password</item>
+        <item>biometric</item>
+    </string-array>
+</resources>

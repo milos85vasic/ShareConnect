@@ -274,4 +274,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.7.0'
     androidTestImplementation 'androidx.test.espresso:espresso-web:3.7.0'
     androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.7.0'
+
+    // Biometric authentication
+    implementation 'androidx.biometric:biometric:1.1.0'
 }

@@ -48,6 +48,68 @@
     <string name="language_summary">Select application language</string>
     <string name="selected">Selected</string>
     <string name="all_history">All History</string>
+
+    <!-- Secure Access -->
+    <string name="security">Security</string>
+    <string name="enable_secure_access">Enable Secure Access</string>
+    <string name="enable_secure_access_summary">Require authentication to access the app</string>
+    <string name="authentication_method">Authentication Method</string>
+    <string name="authentication_method_summary">Choose how to authenticate</string>
+    <string name="enable_biometric">Enable Biometric Authentication</string>
+    <string name="enable_biometric_summary">Use fingerprint or face recognition</string>
+    <string name="change_pin">Change PIN</string>
+    <string name="change_pin_summary">Update your PIN code</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_password_summary">Update your password</string>
+
+    <!-- Secure Access Activity -->
+    <string name="secure_access_title">Secure Access</string>
+    <string name="secure_access_subtitle">Please authenticate to continue</string>
+    <string name="secure_access_required">Secure access is required</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="authenticate_with_pin">Enter PIN</string>
+    <string name="authenticate_with_password">Enter Password</string>
+    <string name="use_biometric">Use Biometric</string>
+    <string name="enter_pin">Enter PIN</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="pin_too_short">PIN must be at least 4 digits</string>
+    <string name="password_required">Password is required</string>
+    <string name="invalid_pin">Invalid PIN</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="authentication_successful">Authentication successful</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="forgot_password_message">You can change your secure access settings in the app settings.</string>
+    <string name="go_to_settings">Go to Settings</string>
+
+    <!-- Biometric Authentication -->
+    <string name="biometric_prompt_title">Biometric Authentication</string>
+    <string name="biometric_prompt_subtitle">Use your fingerprint or face to authenticate</string>
+    <string name="biometric_auth_success">Biometric authentication successful</string>
+    <string name="biometric_auth_failed">Biometric authentication failed</string>
+    <string name="biometric_auth_error">Biometric authentication error: %s</string>
+    <string name="biometric_auth_error_generic">Biometric authentication failed</string>
+    <string name="biometric_not_available">Biometric authentication not available</string>
+
+    <!-- Setup Dialogs -->
+    <string name="setup_secure_access">Setup Secure Access</string>
+    <string name="confirm_pin">Confirm PIN</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="pin_saved">PIN saved successfully</string>
+    <string name="password_saved">Password saved successfully</string>
+    <string name="pins_do_not_match">PINs do not match</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="current_pin">Current PIN</string>
+    <string name="new_pin">New PIN</string>
+    <string name="confirm_new_pin">Confirm New PIN</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="current_pin_incorrect">Current PIN is incorrect</string>
+    <string name="current_password_incorrect">Current password is incorrect</string>
+    <string name="pin_changed">PIN changed successfully</string>
+    <string name="password_changed">Password changed successfully</string>
+    <string name="secure_access_not_configured">Secure access not configured</string>
     <string name="by_service_provider">By Service Provider</string>
     <string name="by_type">By Type</string>
     <string name="by_service_type">By Service Type</string>
