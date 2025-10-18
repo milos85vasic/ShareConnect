@@ -316,4 +316,117 @@
 
     <string name="notification_channel_name">Torrent Downloading Finished</string>
 
+    <!-- Status strings -->
+    <string name="status_checking">Checking</string>
+    <string name="status_downloading">Downloading</string>
+    <string name="status_seeding">Seeding</string>
+    <string name="status_paused">Paused</string>
+    <string name="status_queued">Queued</string>
+    <string name="status_verifying">Verifying</string>
+    <string name="status_error">Error</string>
+    <string name="status_unknown">Unknown</string>
+
+    <!-- Size units -->
+    <string name="size_kb">KB</string>
+    <string name="size_mb">MB</string>
+    <string name="size_gb">GB</string>
+    <string name="size_tb">TB</string>
+
+    <!-- Time units -->
+    <string name="time_second">sec</string>
+    <string name="time_minute">min</string>
+    <string name="time_hour">hr</string>
+    <string name="time_day">d</string>
+    <string name="time_week">wk</string>
+    <string name="time_month">mo</string>
+    <string name="time_year">yr</string>
+
+    <!-- Speed units -->
+    <string name="speed_bps">B/s</string>
+    <string name="speed_kbps">KB/s</string>
+    <string name="speed_mbps">MB/s</string>
+    <string name="speed_gbps">GB/s</string>
+
+    <!-- Error messages -->
+    <string name="error_connecting_to_server">Error connecting to server</string>
+    <string name="error_authentication_failed">Authentication failed</string>
+    <string name="error_invalid_server_response">Invalid server response</string>
+    <string name="error_network_timeout">Network timeout</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name="error_no_internet_connection">No internet connection</string>
+
+    <!-- Dialog messages -->
+    <string name="dialog_remove_torrent_title">Remove torrent?</string>
+    <string name="dialog_remove_torrent_message">Are you sure you want to remove this torrent? This action cannot be undone.</string>
+    <string name="dialog_remove_torrent_with_data_title">Remove torrent and data?</string>
+    <string name="dialog_remove_torrent_with_data_message">Are you sure you want to remove this torrent and all associated files? This action cannot be undone.</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_ok">OK</string>
+
+    <!-- Notification strings -->
+    <string name="notification_torrent_finished_title">Torrent finished</string>
+    <string name="notification_torrent_finished_text">%s has finished</string>
+    <string name="notification_torrent_added_title">Torrent added</string>
+    <string name="notification_torrent_added_text">%s has been added to download queue</string>
+
+    <!-- Menu items -->
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_add_torrent">Add torrent</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+
+    <!-- About dialog -->
+    <string name="about_title">About uTorrentConnect</string>
+    <string name="about_version">Version %s</string>
+    <string name="about_description">uTorrentConnect allows you to control your uTorrent torrent client from your Android device.</string>
+    <string name="about_website">Website</string>
+    <string name="about_source_code">Source code</string>
+    <string name="about_license">License</string>
+
+    <!-- Torrent details -->
+    <string name="torrent_detail_name">Name</string>
+    <string name="torrent_detail_size">Size</string>
+    <string name="torrent_detail_downloaded">Downloaded</string>
+    <string name="torrent_detail_uploaded">Uploaded</string>
+    <string name="torrent_detail_ratio">Ratio</string>
+    <string name="torrent_detail_peers">Peers</string>
+    <string name="torrent_detail_seeds">Seeds</string>
+    <string name="torrent_detail_status">Status</string>
+    <string name="torrent_detail_eta">ETA</string>
+    <string name="torrent_detail_download_speed">Download speed</string>
+    <string name="torrent_detail_upload_speed">Upload speed</string>
+    <string name="torrent_detail_location">Location</string>
+    <string name="torrent_detail_date_added">Date added</string>
+    <string name="torrent_detail_date_completed">Date completed</string>
+
+    <!-- Add torrent dialog -->
+    <string name="add_torrent_title">Add torrent</string>
+    <string name="add_torrent_url_hint">Torrent URL or magnet link</string>
+    <string name="add_torrent_file_hint">Choose .torrent file</string>
+    <string name="add_torrent_download_directory_hint">Download directory</string>
+    <string name="add_torrent_start_paused">Start paused</string>
+    <string name="add_torrent_add">Add</string>
+
+    <!-- Search -->
+    <string name="search_hint">Search torrents...</string>
+    <string name="search_no_results">No search results</string>
+
+    <!-- Connectivity -->
+    <string name="connectivity_connected">Connected</string>
+    <string name="connectivity_connecting">Connecting...</string>
+    <string name="connectivity_disconnected">Disconnected</string>
+    <string name="connectivity_error">Connection error</string>
+
+    <!-- Statistics -->
+    <string name="statistics_title">Statistics</string>
+    <string name="statistics_total_downloaded">Total downloaded</string>
+    <string name="statistics_total_uploaded">Total uploaded</string>
+    <string name="statistics_session_downloaded">Session downloaded</string>
+    <string name="statistics_session_uploaded">Session uploaded</string>
+    <string name="statistics_active_torrents">Active torrents</string>
+    <string name="statistics_paused_torrents">Paused torrents</string>
+    <string name="statistics_total_torrents">Total torrents</string>
+
 </resources>

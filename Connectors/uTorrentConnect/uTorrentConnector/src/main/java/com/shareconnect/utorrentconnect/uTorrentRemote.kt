@@ -40,6 +40,7 @@ import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.languagesync.utils.LocaleHelper
+import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import java.util.LinkedList
 import java.util.Objects
 import java.util.WeakHashMap
@@ -95,6 +96,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
     lateinit var bookmarkSyncManager: BookmarkSyncManager
     lateinit var preferencesSyncManager: PreferencesSyncManager
     lateinit var languageSyncManager: LanguageSyncManager
+    lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(LocaleHelper.onAttach(base))
@@ -140,6 +142,7 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
         }
         createNotificationChannel()
         initializeLanguageSync()
+        initializeTorrentSharingSync()
         initializeThemeSync()
         initializeProfileSync()
         initializeHistorySync()
@@ -261,6 +264,21 @@ class uTorrentRemote : Application(), OnSharedPreferenceChangeListener {
 
         ProcessLifecycleOwner.get().lifecycleScope.launch {
             languageSyncManager.start()
+        }
+    }
+
+    private fun initializeTorrentSharingSync() {
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
+            context = this,
+            appId = packageName,
+            appName = getString(R.string.app_name),
+            appVersion = packageInfo.versionName ?: "1.0.0"
+        )
+
+        ProcessLifecycleOwner.get().lifecycleScope.launch {
+            delay(700) // Small delay to avoid port conflicts
+            torrentSharingSyncManager.start()
         }
     }
 
