@@ -58,6 +58,16 @@ class MainActivity : AppCompatActivity() {
         try {
             Console.debug("MainActivity.onCreate() - Starting")
 
+            // Check if secure access is required before applying theme
+            if (SecureAccessActivity.isSecureAccessEnabled(this)) {
+                Console.debug("MainActivity.onCreate() - Secure access enabled, redirecting to SecureAccessActivity")
+                val intent = Intent(this, SecureAccessActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
+                finish()
+                return
+            }
+
             // Apply theme before setting content and calling super.onCreate()
             themeManager = ThemeManager.getInstance(this)
             Console.debug("MainActivity.onCreate() - Applying theme")

@@ -41,6 +41,44 @@
              app:title="@string/theme_creator"
              app:summary="@string/theme_creator_summary" />
 
-     </PreferenceCategory>
+      </PreferenceCategory>
 
-</PreferenceScreen>
+    <PreferenceCategory app:title="@string/security">
+
+        <SwitchPreferenceCompat
+            app:key="secure_access_enabled"
+            app:title="@string/enable_secure_access"
+            app:summary="@string/enable_secure_access_summary"
+            app:defaultValue="false" />
+
+        <ListPreference
+            app:key="auth_method"
+            app:title="@string/authentication_method"
+            app:summary="@string/authentication_method_summary"
+            app:entries="@array/auth_method_entries"
+            app:entryValues="@array/auth_method_values"
+            app:defaultValue="pin"
+            app:dependency="secure_access_enabled" />
+
+        <SwitchPreferenceCompat
+            app:key="biometric_enabled"
+            app:title="@string/enable_biometric"
+            app:summary="@string/enable_biometric_summary"
+            app:defaultValue="true"
+            app:dependency="secure_access_enabled" />
+
+        <Preference
+            app:key="change_pin"
+            app:title="@string/change_pin"
+            app:summary="@string/change_pin_summary"
+            app:dependency="secure_access_enabled" />
+
+        <Preference
+            app:key="change_password"
+            app:title="@string/change_password"
+            app:summary="@string/change_password_summary"
+            app:dependency="secure_access_enabled" />
+
+    </PreferenceCategory>
+
+ </PreferenceScreen>
