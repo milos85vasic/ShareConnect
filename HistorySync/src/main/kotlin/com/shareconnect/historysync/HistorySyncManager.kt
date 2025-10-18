@@ -194,6 +194,10 @@ class HistorySyncManager private constructor(
         repository.deleteHistoryByServiceType(serviceType)
     }
 
+    suspend fun filterForTransmissionConnect(items: List<HistoryData>): List<HistoryData> {
+        return repository.filterForTransmissionConnect(items)
+    }
+
     private suspend fun syncLocalHistoryToAsinka() {
         try {
             val historyList = repository.getAllHistorySync()

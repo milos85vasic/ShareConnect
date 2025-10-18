@@ -37,14 +37,14 @@ class UTorrentMockDispatcher : QueueDispatcher() {
         val path = request.path ?: return createErrorResponse("Invalid request path")
 
         return when {
-            path == "/gui/token.html" && request.method == "GET" -> handleGetToken()
+            path == "/gui/token.html" && request.method == "GET" -> handleGetToken(request)
             path == "/gui/" && request.method == "GET" -> handleGuiRequest(request)
             path == "/gui/" && request.method == "POST" -> handleGuiRequest(request)
             else -> createErrorResponse("Endpoint not found: $path")
         }
     }
 
-    private fun handleGetToken(): MockResponse {
+    private fun handleGetToken(request: RecordedRequest): MockResponse {
         // Check basic auth
         if (!checkBasicAuth(request)) {
             return createAuthError()

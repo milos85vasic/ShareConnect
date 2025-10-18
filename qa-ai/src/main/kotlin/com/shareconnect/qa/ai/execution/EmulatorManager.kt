@@ -124,7 +124,13 @@ class EmulatorManager(
         )
 
         emulatorProcess = processBuilder.start()
-        emulatorPid = emulatorProcess?.pid()
+        emulatorPid = try {
+            // Use reflection to get PID for compatibility
+            val pidMethod = Process::class.java.getMethod("pid")
+            pidMethod.invoke(emulatorProcess) as? Long
+        } catch (e: Exception) {
+            null
+        }
 
         println("Emulator started with PID: $emulatorPid")
     }

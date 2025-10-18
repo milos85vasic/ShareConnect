@@ -6,6 +6,7 @@ import okhttp3.mockwebserver.RecordedRequest
 import org.json.JSONObject
 import java.net.URLDecoder
 import java.util.Base64
+import kotlin.random.Random
 
 /**
  * Mock dispatcher for Transmission RPC API
@@ -326,7 +327,7 @@ class TransmissionMockDispatcher : QueueDispatcher() {
                 var percentDone = torrents[torrentId]?.percentDone ?: 0.0f
                 while (percentDone < 1.0f) {
                     Thread.sleep(2000) // Update every 2 seconds
-                    percentDone += (0.005f..0.02f).random() // 0.5% to 2% per update
+                    percentDone += Random.nextFloat() * (0.02f - 0.005f) + 0.005f // 0.5% to 2% per update
                     if (percentDone > 1.0f) percentDone = 1.0f
 
                     torrents[torrentId]?.let { torrent ->

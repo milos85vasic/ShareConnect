@@ -60,7 +60,7 @@ android {
 
         resources {
 
-            excludes += ['META-INF/notice.txt', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt']
+            excludes += ['META-INF/notice.txt', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/INDEX.LIST']
         }
     }
 
