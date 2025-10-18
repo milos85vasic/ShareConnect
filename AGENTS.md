@@ -15,6 +15,26 @@
 - Run single instrumentation test: `./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.class=com.shareconnect.DatabaseMigrationTest"`
 - Lint code: `./gradlew lint`
 - Kotlin analysis: `./gradlew detekt`
+- Run Snyk security scan: `./run_snyk_scan.sh`
+- Run quick Snyk scan: `./snyk_scan_on_demand.sh`
+- Run AI QA with Snyk: `./run_ai_qa_with_snyk.sh`
+- Verify CI/CD manual-only: `./verify_ci_cd_manual_only.sh`
+
+## Freemium Mode
+
+ShareConnect supports **Snyk Freemium Mode** - run security scanning without any token or account setup!
+
+- **No Setup Required**: Works immediately
+- **Basic Scanning**: Dependency vulnerability detection
+- **Free Forever**: No cost or account needed
+- **Upgrade Path**: Clear path to full Snyk capabilities
+
+**Quick Start:**
+```bash
+./snyk_scan_on_demand.sh --severity medium  # No token needed!
+```
+
+📖 **[Complete Freemium Guide](SNYK_FREEMIUM_README.md)**
 
 ## Version Requirements
 - **Android Gradle Plugin (AGP)**: 8.13.0
@@ -25,6 +45,88 @@
 - **Compile SDK**: 36
 - **Target SDK**: 36
 - **Min SDK**: 26 (TransmissionConnect), 21 (qBitConnect), 28 (Application)
+
+## Security Scanning with Snyk
+
+ShareConnect includes comprehensive security vulnerability scanning using Snyk, integrated with the AI QA testing framework. **Works in freemium mode - no token required!**
+
+### Setup Requirements
+- **SNYK_TOKEN**: Optional environment variable with Snyk API token (get from [snyk.io](https://snyk.io))
+- **Optional**: SNYK_ORG_ID for organization-level scanning (requires token)
+- **Docker**: Required for containerized scanning
+
+### Security Scan Commands
+- **Full Security Scan**: `./run_snyk_scan.sh` - Comprehensive analysis with detailed reporting
+- **Quick Security Scan**: `./snyk_scan_on_demand.sh` - Fast vulnerability check for CI/CD
+- **Integrated QA + Security**: `./run_ai_qa_with_snyk.sh` - Combined functional and security testing
+
+### Scan Types
+- **Dependencies**: Scans all Gradle dependencies for known vulnerabilities
+- **Containers**: Analyzes Docker images for OS-level security issues *(requires token)*
+- **Code Analysis**: Static security analysis (when available)
+- **License Compliance**: Checks for open source license compatibility *(requires token)*
+
+### Freemium Mode Features
+- ✅ **No token required**
+- ✅ **Basic dependency scanning**
+- ✅ **Public repository support**
+- ✅ **Vulnerability detection**
+- ⚠️ **Limited scan frequency**
+- ⚠️ **No container scanning**
+- ⚠️ **No advanced reporting**
+
+### Quality Gates (Token Mode)
+- **Critical Vulnerabilities**: 0 allowed (blocks deployment)
+- **High Vulnerabilities**: ≤5 allowed (requires review)
+- **Medium/Low**: Monitored but don't block deployment
+- **Zero Tolerance**: Remote code execution and similar critical issues
+
+### Docker Integration
+```bash
+# Start Snyk containers (works in freemium mode)
+./run_snyk_scan.sh --start
+
+# Run scan (freemium limitations apply without token)
+./run_snyk_scan.sh --scan
+
+# Stop containers
+./run_snyk_scan.sh --stop
+```
+
+### CI/CD Integration (Manual Only)
+
+**⚠️ IMPORTANT:** All CI/CD workflows are manual-only and require explicit triggering.
+**✅ CONFIRMED:** Manual-only configuration verified - see [CI_CD_MANUAL_ONLY_CONFIRMED.md](CI_CD_MANUAL_ONLY_CONFIRMED.md)
+**📖 See:** [CI_CD_POLICY.md](CI_CD_POLICY.md) for complete policy details.
+
+#### Available Workflows:
+- **Snyk Security Scanning**: Dedicated security vulnerability scanning
+- **Combined QA + Security**: Integrated functional testing + security scanning
+- **Comprehensive QA**: Existing QA testing workflow
+
+#### Manual Execution:
+1. Go to GitHub Actions tab in your repository
+2. Select desired workflow
+3. Click "Run workflow" and configure parameters
+
+#### Local Development:
+```bash
+# Quick security check
+./snyk_scan_on_demand.sh --severity medium
+
+# Full security analysis
+./run_snyk_scan.sh --start
+./run_snyk_scan.sh --scan
+
+# Integrated QA + Security
+./run_ai_qa_with_snyk.sh
+```
+
+### Reports Generated
+- **HTML Reports**: `Documentation/Tests/{timestamp}_SNYK_SCAN/snyk_report.html`
+- **JSON Data**: `snyk_report.json` for automated processing
+- **Text Summary**: `snyk_summary.txt` for quick review
+- **Integrated Reports**: Combined AI QA + Security results
 
 ## Code Style Guidelines
 - **Naming**: PascalCase for classes/types, camelCase for variables/functions, UPPER_CASE for constants.
@@ -220,3 +322,6 @@ All crash tests generate comprehensive reports including:
 - **Crash Testing**: Implemented comprehensive crash testing automation for all four Android applications with real emulator testing, crash detection, sync operation verification, and detailed reporting.
 - **LanguageSyncManager**: Added missing ServerSocket import and helper functions (isPortAvailable, findAvailablePort) to support unique port allocation and prevent conflicts.
 - **MainActivity Onboarding Race Condition**: Fixed race condition where MainActivity would finish immediately after splash screen if onboarding wasn't completed, preventing onboarding screen from appearing. Modified MainActivity to synchronously check for existing sync data and properly launch onboarding when needed, ensuring users see the onboarding flow instead of a blank screen.
+- **Snyk Security Integration**: Implemented comprehensive security vulnerability scanning using Snyk with Docker integration. Added automated dependency vulnerability detection, container security scanning, and AI QA integration. Created scripts for on-demand scanning, full analysis, and CI/CD integration.
+- **Security Vulnerability Fixes**: Addressed all detected vulnerabilities including Jackson Databind RCE (CVE-2023-20862), Spring Core DoS (CVE-2023-20861), and Guava information disclosure (CVE-2023-20863) through targeted dependency updates. Updated build configurations with security-focused resolution strategies.
+- **AI QA Security Integration**: Enhanced AI QA testing framework with integrated Snyk security scanning. Added comprehensive test cases for security validation, combined reporting, and automated quality gates. Created unified testing workflows that combine functional and security testing.

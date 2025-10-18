@@ -165,3 +165,18 @@ security:
   encrypted_sensitive_data: true
   isolated_test_environment: true
   clear_data_after_test: true
+  snyk_scanning:
+    enabled: true
+    severity_threshold: "medium"
+    fail_on_vulnerabilities: true
+    scan_types:
+      - "dependencies"
+      - "containers"
+      - "gradle"
+    api_token_env: "SNYK_TOKEN"
+    org_id_env: "SNYK_ORG_ID"
+    docker_integration: true
+    report_formats:
+      - "html"
+      - "json"
+      - "sarif"

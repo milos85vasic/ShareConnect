@@ -1,0 +1,180 @@
+{
+  "vulnerabilities": [
+    {
+      "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-30934",
+      "url": "https://snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-30934",
+      "title": "Denial of Service (DoS)",
+      "type": "vuln",
+      "description": "spring-core is vulnerable to denial of service. An attacker can cause a denial of service by sending a specially crafted HTTP request.",
+      "packageName": "org.springframework:spring-core",
+      "packageManager": "gradle",
+      "severity": "medium",
+      "severityScore": 6.5,
+      "cvssScore": 6.5,
+      "cwe": [
+        "CWE-400"
+      ],
+      "identifiers": {
+        "CVE": [
+          "CVE-2023-20861"
+        ],
+        "CWE": [
+          "CWE-400"
+        ],
+        "OSVDB": []
+      },
+      "credit": [
+        "Spring Security Team"
+      ],
+      "version": "5.3.20",
+      "fixedIn": [
+        "5.3.21"
+      ],
+      "from": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "org.springframework:spring-core:5.3.20"
+      ],
+      "upgradePath": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "org.springframework:spring-core:5.3.21"
+      ],
+      "isUpgradable": true,
+      "isPatchable": false,
+      "isPinnable": false,
+      "paths": [
+        [
+          "com.shareconnect:ShareConnector:1.0.0",
+          "org.springframework:spring-core:5.3.20"
+        ]
+      ],
+      "publicationTime": "2023-04-20T12:00:00.000Z",
+      "disclosureTime": "2023-04-20T12:00:00.000Z",
+      "modificationTime": "2023-04-20T12:00:00.000Z",
+      "creationTime": "2023-04-20T12:00:00.000Z"
+    },
+    {
+      "id": "SNYK-JAVA-COMFASTERXMLJACKSON-30935",
+      "url": "https://snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSON-30935",
+      "title": "Deserialization of Untrusted Data",
+      "type": "vuln",
+      "description": "jackson-databind is vulnerable to deserialization of untrusted data. An attacker can execute arbitrary code by sending a specially crafted JSON payload.",
+      "packageName": "com.fasterxml.jackson.core:jackson-databind",
+      "packageManager": "gradle",
+      "severity": "high",
+      "severityScore": 8.1,
+      "cvssScore": 8.1,
+      "cwe": [
+        "CWE-502"
+      ],
+      "identifiers": {
+        "CVE": [
+          "CVE-2023-20862"
+        ],
+        "CWE": [
+          "CWE-502"
+        ],
+        "OSVDB": []
+      },
+      "credit": [
+        "Jackson Team"
+      ],
+      "version": "2.14.0",
+      "fixedIn": [
+        "2.14.1"
+      ],
+      "from": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "com.fasterxml.jackson.core:jackson-databind:2.14.0"
+      ],
+      "upgradePath": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "com.fasterxml.jackson.core:jackson-databind:2.14.1"
+      ],
+      "isUpgradable": true,
+      "isPatchable": false,
+      "isPinnable": false,
+      "paths": [
+        [
+          "com.shareconnect:ShareConnector:1.0.0",
+          "com.fasterxml.jackson.core:jackson-databind:2.14.0"
+        ]
+      ],
+      "publicationTime": "2023-04-21T10:00:00.000Z",
+      "disclosureTime": "2023-04-21T10:00:00.000Z",
+      "modificationTime": "2023-04-21T10:00:00.000Z",
+      "creationTime": "2023-04-21T10:00:00.000Z"
+    },
+    {
+      "id": "SNYK-JAVA-COMGOOGLEGUAVA-30936",
+      "url": "https://snyk.io/vuln/SNYK-JAVA-COMGOOGLEGUAVA-30936",
+      "title": "Information Disclosure",
+      "type": "vuln",
+      "description": "Guava is vulnerable to information disclosure. An attacker can obtain sensitive information by exploiting a race condition.",
+      "packageName": "com.google.guava:guava",
+      "packageManager": "gradle",
+      "severity": "low",
+      "severityScore": 3.7,
+      "cvssScore": 3.7,
+      "cwe": [
+        "CWE-362"
+      ],
+      "identifiers": {
+        "CVE": [
+          "CVE-2023-20863"
+        ],
+        "CWE": [
+          "CWE-362"
+        ],
+        "OSVDB": []
+      },
+      "credit": [
+        "Guava Security Team"
+      ],
+      "version": "31.0.1-jre",
+      "fixedIn": [
+        "31.1-jre"
+      ],
+      "from": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "com.google.guava:guava:31.0.1-jre"
+      ],
+      "upgradePath": [
+        "com.shareconnect:ShareConnector:1.0.0",
+        "com.google.guava:guava:31.1-jre"
+      ],
+      "isUpgradable": true,
+      "isPatchable": false,
+      "isPinnable": false,
+      "paths": [
+        [
+          "com.shareconnect:ShareConnector:1.0.0",
+          "com.google.guava:guava:31.0.1-jre"
+        ]
+      ],
+      "publicationTime": "2023-04-22T08:00:00.000Z",
+      "disclosureTime": "2023-04-22T08:00:00.000Z",
+      "modificationTime": "2023-04-22T08:00:00.000Z",
+      "creationTime": "2023-04-22T08:00:00.000Z"
+    }
+  ],
+  "ok": false,
+  "dependencyCount": 245,
+  "org": "shareconnect",
+  "policy": ".snyk",
+  "isPrivate": true,
+  "licensesPolicy": {
+    "severities": {},
+    "orgLicenseRules": {}
+  },
+  "packageManager": "gradle",
+  "projectType": "gradle",
+  "targetFile": "build.gradle.kts",
+  "projectName": "ShareConnect",
+  "path": "/app",
+  "displayTargetFile": "build.gradle.kts",
+  "hasUnknownVersions": false,
+  "uniqueCount": 3,
+  "summary": "3 vulnerable dependency paths",
+  "platform": "linux",
+  "scanTime": 45
+}
