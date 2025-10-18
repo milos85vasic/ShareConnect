@@ -20,6 +20,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.shareconnect.adapter.SystemAppAdapter
 import com.shareconnect.database.HistoryItem
 import com.shareconnect.database.HistoryRepository
+import com.shareconnect.historysync.HistorySyncManager
+import com.shareconnect.historysync.models.HistoryData
 import com.shareconnect.utils.SystemAppDetector
 import com.shareconnect.utils.TorrentAppHelper
 import com.shareconnect.utils.UrlCompatibilityUtils
@@ -50,6 +52,7 @@ class ShareActivity : AppCompatActivity() {
     private var themeManager: ThemeManager? = null
     private var metadataFetcher: MetadataFetcher? = null
     private var urlMetadata: UrlMetadata? = null
+    private var historySyncManager: HistorySyncManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Apply theme before setting content
@@ -73,6 +76,17 @@ class ShareActivity : AppCompatActivity() {
         setupListeners()
         serviceApiClient = ServiceApiClient(this)
         metadataFetcher = MetadataFetcher(this)
+
+        // Initialize HistorySyncManager
+        val packageInfo = packageManager.getPackageInfo(packageName, 0)
+        val appVersion = packageInfo.versionName ?: "1.0.0"
+        historySyncManager = HistorySyncManager.getInstance(
+            this,
+            "ShareConnector",
+            "ShareConnector",
+            appVersion
+        )
+
         fetchMetadataForUrl()
         loadSystemApps()
     }
@@ -126,6 +140,20 @@ class ShareActivity : AppCompatActivity() {
             mediaLink = intent.getStringExtra(Intent.EXTRA_TEXT)
             if (mediaLink != null) {
                 textViewMediaLink!!.text = mediaLink
+
+                // Check if this is a re-share with enhanced metadata
+                val historyId = intent.getStringExtra("EXTRA_HISTORY_ID")
+                if (historyId != null) {
+                    // This is a re-share - we already have metadata, skip fetching
+                    urlMetadata = UrlMetadata(
+                        title = intent.getStringExtra("EXTRA_TITLE"),
+                        description = intent.getStringExtra("EXTRA_DESCRIPTION"),
+                        thumbnailUrl = intent.getStringExtra("EXTRA_THUMBNAIL_URL"),
+                        siteName = intent.getStringExtra("EXTRA_SERVICE_PROVIDER")
+                    )
+                    // Don't fetch metadata again for re-shares
+                    return
+                }
             }
         } else if (Intent.ACTION_VIEW == action && data != null) {
             // Handle direct URL intent
@@ -455,33 +483,58 @@ class ShareActivity : AppCompatActivity() {
         url: String, profileId: String, profileName: String,
         serviceType: String, success: Boolean
     ) {
-        // Create history item
-        val historyItem = HistoryItem()
-        historyItem.url = url
+        // Create comprehensive history data with all available metadata
+        val historyData = HistoryData(
+            id = "${System.currentTimeMillis()}_${url.hashCode()}",
+            url = url,
+            title = if (urlMetadata != null) urlMetadata?.title ?: extractTitleFromUrl(url) else extractTitleFromUrl(url),
+            description = urlMetadata?.description,
+            thumbnailUrl = urlMetadata?.thumbnailUrl,
+            serviceProvider = if (urlMetadata != null) urlMetadata?.siteName ?: extractServiceProviderFromUrl(url) else extractServiceProviderFromUrl(url),
+            type = determineMediaType(url),
+            timestamp = System.currentTimeMillis(),
+            profileId = profileId,
+            profileName = profileName,
+            isSentSuccessfully = success,
+            serviceType = serviceType,
+            torrentClientType = null, // Will be set for torrent operations
+            sourceApp = "ShareConnector",
+            version = 1,
+            lastModified = System.currentTimeMillis(),
+            fileSize = null, // Will be populated for downloads
+            duration = null, // Will be populated for videos
+            quality = null, // Will be populated for videos
+            downloadPath = null, // Will be populated for downloads
+            torrentHash = null, // Will be populated for torrents
+            magnetUri = null, // Will be populated for magnet links
+            category = null, // Will be populated for torrents
+            tags = null // Will be populated for torrents
+        )
 
-        // Use fetched metadata if available, otherwise fall back to simple extraction
-        if (urlMetadata != null) {
-            historyItem.title = urlMetadata?.title ?: extractTitleFromUrl(url)
-            historyItem.description = urlMetadata?.description
-            historyItem.thumbnailUrl = urlMetadata?.thumbnailUrl
-            historyItem.serviceProvider = urlMetadata?.siteName ?: extractServiceProviderFromUrl(url)
-        } else {
-            historyItem.title = extractTitleFromUrl(url)
-            historyItem.description = null
-            historyItem.thumbnailUrl = null
-            historyItem.serviceProvider = extractServiceProviderFromUrl(url)
+        // Save to sync-enabled history system
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                historySyncManager?.addHistory(historyData)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                // Fallback to old system if sync fails
+                val historyItem = HistoryItem()
+                historyItem.url = url
+                historyItem.title = historyData.title
+                historyItem.description = historyData.description
+                historyItem.thumbnailUrl = historyData.thumbnailUrl
+                historyItem.serviceProvider = historyData.serviceProvider
+                historyItem.type = historyData.type
+                historyItem.timestamp = historyData.timestamp
+                historyItem.profileId = historyData.profileId
+                historyItem.profileName = historyData.profileName
+                historyItem.isSentSuccessfully = historyData.isSentSuccessfully
+                historyItem.serviceType = historyData.serviceType
+
+                val repository = HistoryRepository(this@ShareActivity)
+                repository.insertHistoryItem(historyItem)
+            }
         }
-
-        historyItem.type = determineMediaType(url)
-        historyItem.timestamp = System.currentTimeMillis()
-        historyItem.profileId = profileId
-        historyItem.profileName = profileName
-        historyItem.isSentSuccessfully = success
-        historyItem.serviceType = serviceType
-
-        // Save to database
-        val repository = HistoryRepository(this)
-        repository.insertHistoryItem(historyItem)
     }
 
     private fun extractTitleFromUrl(url: String): String {

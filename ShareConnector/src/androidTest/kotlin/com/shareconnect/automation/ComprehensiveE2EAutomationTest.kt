@@ -334,6 +334,114 @@ class ComprehensiveE2EAutomationTest {
         takeScreenshot("multiple_history_entries")
     }
 
+    @Test
+    fun testHistoryFunctionality() {
+        // Share a few items first to populate history
+        shareYouTubeVideo()
+        shareTorrentMagnet()
+        shareDirectDownload()
+
+        // Navigate to history screen
+        val historyButton = device.findObject(By.res(packageName, "history_button"))
+        historyButton?.click()
+        device.waitForIdle()
+
+        // Verify history screen loads
+        val historyRecyclerView = device.findObject(By.res(packageName, "recyclerViewHistory"))
+        assertNotNull("History recycler view should be visible", historyRecyclerView)
+
+        // Check for history items
+        val historyItems = device.findObjects(By.res(packageName, "history_item"))
+        assertTrue("Should have at least 3 history items", historyItems.size >= 3)
+
+        takeScreenshot("history_screen_loaded")
+
+        // Test filtering by service type
+        val serviceTypeFilter = device.findObject(By.res(packageName, "autoCompleteServiceTypeFilter"))
+        serviceTypeFilter?.click()
+        device.waitForIdle()
+
+        // Select "MeTube" filter
+        val metubeOption = device.findObject(By.text("MeTube"))
+        metubeOption?.click()
+        device.waitForIdle()
+
+        // Verify filtered results
+        val filteredItems = device.findObjects(By.res(packageName, "history_item"))
+        assertTrue("Should have filtered results", filteredItems.size >= 1)
+
+        takeScreenshot("history_filtered_metube")
+
+        // Test re-sharing functionality
+        val firstHistoryItem = device.findObject(By.res(packageName, "history_item"))
+        firstHistoryItem?.click()
+
+        val resendButton = device.findObject(By.res(packageName, "buttonResend"))
+        resendButton?.click()
+        device.waitForIdle()
+
+        // Should navigate back to share screen or show sharing dialog
+        takeScreenshot("history_reshare_attempted")
+
+        // Test history cleanup
+        device.pressBack() // Go back to history screen
+
+        val menuButton = device.findObject(By.desc("More options"))
+        menuButton?.click()
+        device.waitForIdle()
+
+        val cleanupOption = device.findObject(By.text("Cleanup History"))
+        cleanupOption?.click()
+        device.waitForIdle()
+
+        val deleteAllOption = device.findObject(By.text("All History"))
+        deleteAllOption?.click()
+        device.waitForIdle()
+
+        val confirmButton = device.findObject(By.text("Delete"))
+        confirmButton?.click()
+        device.waitForIdle()
+
+        // Verify history is cleared
+        val emptyState = device.findObject(By.res(packageName, "textViewEmptyHistory"))
+        assertNotNull("Empty history state should be visible", emptyState)
+
+        takeScreenshot("history_cleared")
+    }
+
+    @Test
+    fun testHistoryDetailedInformation() {
+        // Share a video with detailed metadata
+        shareYouTubeVideo()
+
+        // Navigate to history
+        val historyButton = device.findObject(By.res(packageName, "history_button"))
+        historyButton?.click()
+        device.waitForIdle()
+
+        // Check for detailed information display
+        val historyItem = device.findObject(By.res(packageName, "history_item"))
+        assertNotNull("History item should exist", historyItem)
+
+        // Verify title is displayed
+        val titleText = device.findObject(By.res(packageName, "textViewTitle"))
+        assertNotNull("Title should be displayed", titleText)
+
+        // Verify service provider
+        val serviceProviderText = device.findObject(By.res(packageName, "textViewServiceProvider"))
+        assertNotNull("Service provider should be displayed", serviceProviderText)
+
+        // Verify type
+        val typeText = device.findObject(By.res(packageName, "textViewType"))
+        assertNotNull("Type should be displayed", typeText)
+
+        // Verify timestamp
+        val timestampText = device.findObject(By.res(packageName, "textViewTimestamp"))
+        assertNotNull("Timestamp should be displayed", timestampText)
+
+        takeScreenshot("history_detailed_info")
+    }
+
     private fun createMultipleProfiles() {
         // Navigate to profiles screen
         val profilesButton = device.findObject(By.res(packageName, "profiles_button"))

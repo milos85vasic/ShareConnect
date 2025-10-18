@@ -174,6 +174,26 @@ class HistorySyncManager private constructor(
         return repository.getHistoryCount()
     }
 
+    suspend fun getAllHistoryItems(): List<HistoryData> {
+        return repository.getAllHistorySync()
+    }
+
+    suspend fun deleteHistoryItem(item: HistoryData) {
+        deleteHistory(item.id)
+    }
+
+    suspend fun deleteHistoryItemsByServiceProvider(serviceProvider: String) {
+        repository.deleteHistoryByServiceProvider(serviceProvider)
+    }
+
+    suspend fun deleteHistoryItemsByType(type: String) {
+        repository.deleteHistoryByType(type)
+    }
+
+    suspend fun deleteHistoryItemsByServiceType(serviceType: String) {
+        repository.deleteHistoryByServiceType(serviceType)
+    }
+
     private suspend fun syncLocalHistoryToAsinka() {
         try {
             val historyList = repository.getAllHistorySync()
