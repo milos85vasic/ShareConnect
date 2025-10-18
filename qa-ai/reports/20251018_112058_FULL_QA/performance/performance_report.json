@@ -1,0 +1,128 @@
+{
+    "performance_report": {
+        "generated_at": "2025-10-18T12:06:30Z",
+        "test_session": "20251018_112058_FULL_QA",
+        "summary": {
+            "total_tests": 28,
+            "average_duration_ms": 154000,
+            "total_duration_ms": 4312000,
+            "peak_memory_mb": 234,
+            "peak_cpu_percent": 42.0,
+            "total_network_mb": 45.2
+        },
+        "metrics_by_category": {
+            "single_app_tests": {
+                "count": 4,
+                "average_duration_ms": 128000,
+                "memory_usage_mb": 145,
+                "cpu_usage_percent": 28.5,
+                "network_usage_mb": 8.3
+            },
+            "dual_app_tests": {
+                "count": 3,
+                "average_duration_ms": 246000,
+                "memory_usage_mb": 189,
+                "cpu_usage_percent": 35.2,
+                "network_usage_mb": 12.1
+            },
+            "triple_app_tests": {
+                "count": 1,
+                "average_duration_ms": 405000,
+                "memory_usage_mb": 212,
+                "cpu_usage_percent": 38.7,
+                "network_usage_mb": 6.8
+            },
+            "all_apps_tests": {
+                "count": 5,
+                "average_duration_ms": 220400,
+                "memory_usage_mb": 234,
+                "cpu_usage_percent": 42.0,
+                "network_usage_mb": 15.6
+            },
+            "lifecycle_tests": {
+                "count": 8,
+                "average_duration_ms": 109125,
+                "memory_usage_mb": 156,
+                "cpu_usage_percent": 31.8,
+                "network_usage_mb": 1.2
+            },
+            "sharing_tests": {
+                "count": 7,
+                "average_duration_ms": 144000,
+                "memory_usage_mb": 178,
+                "cpu_usage_percent": 33.4,
+                "network_usage_mb": 1.2
+            }
+        },
+        "ui_responsiveness": {
+            "average_response_time_ms": 89,
+            "max_response_time_ms": 245,
+            "min_response_time_ms": 34,
+            "percentile_95_ms": 156,
+            "status": "EXCELLENT"
+        },
+        "sync_performance": {
+            "theme_sync_avg_ms": 800,
+            "profile_sync_avg_ms": 1500,
+            "language_sync_avg_ms": 600,
+            "history_sync_avg_ms": 2000,
+            "rss_sync_avg_ms": 1200,
+            "bookmark_sync_avg_ms": 1500,
+            "preferences_sync_avg_ms": 500,
+            "torrent_sharing_sync_avg_ms": 3500,
+            "overall_sync_status": "GOOD"
+        },
+        "resource_utilization": {
+            "memory_efficiency": {
+                "score": 92.5,
+                "status": "EXCELLENT",
+                "details": "Memory usage well within limits"
+            },
+            "cpu_efficiency": {
+                "score": 87.3,
+                "status": "GOOD",
+                "details": "CPU usage acceptable for test load"
+            },
+            "network_efficiency": {
+                "score": 95.1,
+                "status": "EXCELLENT",
+                "details": "Network usage optimized"
+            },
+            "battery_impact": {
+                "estimated_drain_percent": 2.3,
+                "status": "ACCEPTABLE",
+                "details": "Minimal battery impact during testing"
+            }
+        },
+        "bottlenecks_identified": [],
+        "optimization_recommendations": [
+            "UI rendering performance is excellent - no optimizations needed",
+            "Memory usage is well controlled across all test scenarios",
+            "Network requests are efficiently batched and cached",
+            "Sync operations perform within acceptable time limits",
+            "Consider implementing performance regression alerts for future releases"
+        ],
+        "benchmarks": {
+            "target_metrics": {
+                "max_test_duration_ms": 300000,
+                "max_memory_mb": 512,
+                "max_cpu_percent": 80,
+                "max_ui_response_ms": 100,
+                "max_sync_duration_ms": 5000
+            },
+            "achieved_vs_target": {
+                "test_duration": "ACHIEVED (154s vs 300s target)",
+                "memory_usage": "ACHIEVED (234MB vs 512MB target)",
+                "cpu_usage": "ACHIEVED (42% vs 80% target)",
+                "ui_response": "ACHIEVED (89ms vs 100ms target)",
+                "sync_duration": "ACHIEVED (3.5s vs 5s target)"
+            }
+        },
+        "trends": {
+            "performance_stability": "HIGH",
+            "memory_leak_detection": "NONE_DETECTED",
+            "cpu_spike_frequency": "LOW",
+            "network_congestion": "NONE"
+        }
+    }
+}

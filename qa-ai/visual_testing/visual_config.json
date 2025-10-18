@@ -1,0 +1,47 @@
+{
+  "visual_testing": {
+    "enabled": true,
+    "screenshot_tool": "uiautomator",
+    "comparison_tool": "pixelmatch",
+    "threshold": 0.01,
+    "baseline_images": {
+      "main_screen": "main_activity_baseline.png",
+      "settings_screen": "settings_activity_baseline.png",
+      "profile_screen": "profile_management_baseline.png",
+      "sharing_dialog": "url_sharing_dialog_baseline.png",
+      "sync_status": "sync_status_indicator_baseline.png"
+    },
+    "test_scenarios": [
+      {
+        "name": "main_screen",
+        "description": "Main application screen layout",
+        "activity": "MainActivity",
+        "wait_time_ms": 2000
+      },
+      {
+        "name": "settings_screen",
+        "description": "Settings screen layout",
+        "activity": "SettingsActivity",
+        "wait_time_ms": 1500
+      },
+      {
+        "name": "profile_screen",
+        "description": "Profile management screen",
+        "activity": "ProfileManagementActivity",
+        "wait_time_ms": 2000
+      },
+      {
+        "name": "sharing_dialog",
+        "description": "URL sharing dialog appearance",
+        "activity": "ShareActivity",
+        "wait_time_ms": 1000
+      },
+      {
+        "name": "sync_status",
+        "description": "Sync status indicator",
+        "activity": "MainActivity",
+        "wait_time_ms": 500
+      }
+    ]
+  }
+}
