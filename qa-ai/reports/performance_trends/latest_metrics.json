@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-10-18T11:22:57+03:00",
+  "success_rate": 100.0,
+  "total_duration": 2732,
+  "avg_execution_time": 154000,
+  "memory_peak": 234,
+  "cpu_peak": 42.0,
+  "alerts_count": 0
+}

@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  sonarqube:
+    image: sonarqube:10.6-community
+    container_name: shareconnect-sonarqube
+    restart: unless-stopped
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+      SONAR_WEB_JAVAOPTS: "-Xmx2g -Xms512m"
+      SONAR_CE_JAVAOPTS: "-Xmx2g -Xms512m"
+      SONAR_SEARCH_JAVAOPTS: "-Xmx1g -Xms512m"
+    ports:
+      - "9000:9000"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_temp:/opt/sonarqube/temp
+    networks:
+      - sonarqube-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/api/system/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  sonar-postgres:
+    image: postgres:15-alpine
+    container_name: shareconnect-sonar-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonarqube
+    volumes:
+      - sonar_postgres_data:/var/lib/postgresql/data
+    networks:
+      - sonarqube-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  sonarqube_data:
+    driver: local
+  sonarqube_extensions:
+    driver: local
+  sonarqube_logs:
+    driver: local
+  sonarqube_temp:
+    driver: local
+  sonar_postgres_data:
+    driver: local
+
+networks:
+  sonarqube-network:
+    driver: bridge

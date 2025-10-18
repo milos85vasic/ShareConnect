@@ -31,6 +31,7 @@ mkdir -p "$MASTER_REPORT_DIR"
 # Track test results
 UNIT_TEST_STATUS="NOT_RUN"
 CRASH_TEST_STATUS="NOT_RUN"
+SONARQUBE_STATUS="NOT_RUN"
 
 # Track execution times
 START_TIME=$(date +%s)
@@ -71,11 +72,30 @@ fi
 
 CRASH_END_TIME=$(date +%s)
 CRASH_DURATION=$((CRASH_END_TIME - CRASH_START_TIME))
-TOTAL_DURATION=$((CRASH_END_TIME - START_TIME))
+
+echo -e "${BOLD}${YELLOW}═══════════════════════════════════════════════════════════${NC}"
+echo -e "${BOLD}${YELLOW}                 SONARQUBE ANALYSIS                       ${NC}"
+echo -e "${BOLD}${YELLOW}═══════════════════════════════════════════════════════════${NC}"
+echo ""
+
+# Run SonarQube Analysis
+SONARQUBE_START_TIME=$(date +%s)
+echo -e "${BLUE}Executing SonarQube code quality analysis...${NC}"
+if ./run_sonarqube_tests.sh; then
+    SONARQUBE_STATUS="PASSED"
+    echo -e "${GREEN}✓ SonarQube analysis completed successfully${NC}"
+else
+    SONARQUBE_STATUS="FAILED"
+    echo -e "${RED}✗ SonarQube analysis failed${NC}"
+fi
+
+SONARQUBE_END_TIME=$(date +%s)
+SONARQUBE_DURATION=$((SONARQUBE_END_TIME - SONARQUBE_START_TIME))
+TOTAL_DURATION=$((SONARQUBE_END_TIME - START_TIME))
 
 # Determine overall status
 OVERALL_STATUS="$UNIT_TEST_STATUS"
-if [ "$CRASH_TEST_STATUS" != "PASSED" ]; then
+if [ "$CRASH_TEST_STATUS" != "PASSED" ] || [ "$SONARQUBE_STATUS" != "PASSED" ]; then
     OVERALL_STATUS="FAILED"
 fi
 
@@ -122,12 +142,26 @@ Test Coverage:
 - Asinka Library: Sync operations and gRPC functionality
 - Crash Detection: Logcat monitoring for crashes and exceptions
 
+SONARQUBE ANALYSIS
+Status: ${SONARQUBE_STATUS}
+Duration: ${SONARQUBE_DURATION} seconds
+Test Suite: SonarQube Code Quality Analysis
+Coverage: Static code analysis, security hotspots, code smells
+
+Test Coverage:
+- Code Quality: Complexity, duplication, maintainability
+- Security: Vulnerability detection and hotspots
+- Reliability: Bug detection and error-prone patterns
+- Test Coverage: Unit test coverage analysis
+- Technical Debt: Code maintainability assessment
+
 ══════════════════════════════════════════════════════════
 
 EXECUTION METRICS
 Total Duration: ${TOTAL_DURATION} seconds ($(printf '%02d:%02d:%02d' $((TOTAL_DURATION/3600)) $((TOTAL_DURATION%3600/60)) $((TOTAL_DURATION%60))))
 Unit Tests: ${UNIT_DURATION}s
 Crash Tests: ${CRASH_DURATION}s
+SonarQube Analysis: ${SONARQUBE_DURATION}s
 
 COVERAGE SUMMARY
 ✓ Business Logic: Unit tests verify core functionality
@@ -168,6 +202,7 @@ echo -e "${BLUE}=======================${NC}"
 echo ""
 echo -e "Unit Tests:          ${UNIT_TEST_STATUS} (${UNIT_DURATION}s)"
 echo -e "Crash Tests:         ${CRASH_TEST_STATUS} (${CRASH_DURATION}s)"
+echo -e "SonarQube Analysis:  ${SONARQUBE_STATUS} (${SONARQUBE_DURATION}s)"
 echo ""
 echo -e "Total Duration:      ${TOTAL_DURATION}s ($(printf '%02d:%02d:%02d' $((TOTAL_DURATION/3600)) $((TOTAL_DURATION%3600/60)) $((TOTAL_DURATION%60))))"
 echo -e "Overall Status:      ${OVERALL_STATUS}"
@@ -193,6 +228,7 @@ if [ "$OVERALL_STATUS" = "PASSED" ]; then
     echo -e "${GREEN}✓ Activity logic functions as expected${NC}"
     echo -e "${GREEN}✓ All applications launch and restart without crashes${NC}"
     echo -e "${GREEN}✓ Asinka sync operations are functioning${NC}"
+    echo -e "${GREEN}✓ Code quality standards met (SonarQube analysis passed)${NC}"
     exit 0
 else
     echo -e "${BOLD}${RED}❌ TESTS FAILED ❌${NC}"
@@ -204,6 +240,10 @@ else
 
     if [ "$CRASH_TEST_STATUS" != "PASSED" ]; then
         echo -e "${RED}• Crash tests need attention${NC}"
+    fi
+
+    if [ "$SONARQUBE_STATUS" != "PASSED" ]; then
+        echo -e "${RED}• SonarQube analysis needs attention${NC}"
     fi
 
     exit 1

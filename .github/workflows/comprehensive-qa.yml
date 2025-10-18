@@ -1,0 +1,141 @@
+name: Comprehensive QA Testing
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run comprehensive QA every Monday at 2 AM UTC
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Test suite to run'
+        required: false
+        default: 'comprehensive'
+        type: choice
+        options:
+        - comprehensive
+        - smoke
+        - regression
+
+jobs:
+  comprehensive-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Make gradlew executable
+      run: chmod +x gradlew
+
+    - name: Build all apps
+      run: |
+        echo "Building ShareConnector..."
+        ./gradlew :ShareConnector:assembleDebug
+        echo "Building TransmissionConnector..."
+        ./gradlew :TransmissionConnect:assembleDebug
+        echo "Building uTorrentConnector..."
+        ./gradlew :uTorrentConnect:assembleDebug
+        echo "Building qBitConnector..."
+        ./gradlew :qBitConnect:assembleDebug
+
+    - name: Set up Android SDK
+      uses: android-actions/setup-android@v3
+
+    - name: Create AVD and start emulator
+      run: |
+        echo "Creating Android Virtual Device..."
+        echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-34;google_apis;x86_64'
+        echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n test -k 'system-images;android-34;google_apis;x86_64' --force
+        echo "Starting emulator..."
+        nohup $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window -gpu swiftshader_indirect &
+        $ANDROID_HOME/platform-tools/adb wait-for-device
+        echo "Emulator started successfully"
+
+    - name: Run comprehensive QA tests
+      run: |
+        echo "Starting comprehensive QA test suite..."
+        cd qa-ai
+        chmod +x run_comprehensive_qa.sh
+        ./run_comprehensive_qa.sh
+      env:
+        QA_TEST_SUITE: ${{ github.event.inputs.test_suite || 'comprehensive' }}
+
+    - name: Upload test reports
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: qa-test-reports-${{ github.run_number }}
+        path: |
+          qa-ai/reports/
+          qa-ai/testbank/results/
+        retention-days: 30
+
+    - name: Generate test summary
+      if: always()
+      run: |
+        if [ -f "qa-ai/reports/*/comprehensive_report.json" ]; then
+          echo "## QA Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          # Extract key metrics from the JSON report
+          SUCCESS_RATE=$(jq -r '.summary.success_rate' qa-ai/reports/*/comprehensive_report.json)
+          TOTAL_TESTS=$(jq -r '.summary.total_tests' qa-ai/reports/*/comprehensive_report.json)
+          PASSED_TESTS=$(jq -r '.summary.passed_tests' qa-ai/reports/*/comprehensive_report.json)
+          FAILED_TESTS=$(jq -r '.summary.failed_tests' qa-ai/reports/*/comprehensive_report.json)
+          DURATION=$(jq -r '.summary.total_duration_seconds' qa-ai/reports/*/comprehensive_report.json)
+
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Success Rate | ${SUCCESS_RATE}% |" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Tests | ${TOTAL_TESTS} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Passed | ${PASSED_TESTS} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Failed | ${FAILED_TESTS} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Duration | ${DURATION}s |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 [View Detailed Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ Test report not found" >> $GITHUB_STEP_SUMMARY
+        fi
+
+    - name: Notify on failure
+      if: failure()
+      run: |
+        echo "🚨 QA Tests Failed" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Please check the test reports and logs for details." >> $GITHUB_STEP_SUMMARY
+
+    - name: Performance monitoring
+      if: success()
+      run: |
+        # Extract performance metrics for trend analysis
+        if [ -f "qa-ai/reports/*/performance/performance_report.json" ]; then
+          jq '.' qa-ai/reports/*/performance/performance_report.json > performance_metrics.json
+          echo "Performance metrics extracted for monitoring"
+        fi
+
+    - name: Clean up emulator
+      if: always()
+      run: |
+        echo "Cleaning up emulator..."
+        pkill -f emulator || true
+        $ANDROID_HOME/platform-tools/adb kill-server || true
