@@ -91,6 +91,7 @@ dependencies {
     implementation project(':PreferencesSync')
     implementation project(':LanguageSync')
     implementation project(':Localizations')
+    implementation project(':Toolkit:SecurityAccess')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // Force specific version to avoid Kotlin version conflicts

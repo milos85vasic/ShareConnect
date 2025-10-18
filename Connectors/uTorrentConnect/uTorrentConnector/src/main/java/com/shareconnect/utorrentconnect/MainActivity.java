@@ -45,8 +45,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.lifecycleScope;
 
 import com.shareconnect.designsystem.components.fabs.AnimatedFAB;
+import digital.vasic.security.access.SecurityAccessManager;
+import digital.vasic.security.access.data.AccessMethod;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -158,6 +161,7 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
 
     private uTorrentRemote application;
     private TorrentUpdater torrentUpdater;
+    private SecurityAccessManager securityAccessManager;
 
     private Timer prefsUpdateTimer;
 
@@ -228,19 +232,78 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
         return !prefs.getBoolean("onboarding_completed", false);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.installSplashScreen(this);
-        application = uTorrentRemote.getApplication(this);
-        super.onCreate(savedInstanceState);
-
-        // Check if onboarding is needed BEFORE setting up UI
-        if (isOnboardingNeeded()) {
-            // Finish this activity immediately - onboarding will be launched from uTorrentRemote
-            finish();
-            return;
+    private boolean isSecurityAccessRequired() {
+        try {
+            return securityAccessManager.isAccessRequired();
+        } catch (Exception e) {
+            Log.e(TAG, "Error checking security access requirement", e);
+            return false; // Default to no security if there's an error
         }
+    }
 
+    private void launchSecurityAccess() {
+        try {
+            // For now, we'll show a simple PIN dialog. In a full implementation,
+            // this would launch the SecurityAccessSetupActivity or authentication screen
+            showSecurityAccessDialog();
+        } catch (Exception e) {
+            Log.e(TAG, "Error launching security access", e);
+            // If security access fails, continue with normal flow
+            setupMainUI();
+        }
+    }
+
+    private void showSecurityAccessDialog() {
+        // Simple PIN input dialog for demonstration
+        // In production, this should use the full SecurityAccess UI components
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+        builder.setTitle("Security Access Required");
+        builder.setMessage("Please enter your PIN to access the application");
+
+        final android.widget.EditText input = new android.widget.EditText(this);
+        input.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+        builder.setView(input);
+
+        builder.setPositiveButton("Unlock", (dialog, which) -> {
+            String pin = input.getText().toString();
+            authenticateWithPin(pin);
+        });
+
+        builder.setNegativeButton("Cancel", (dialog, which) -> {
+            dialog.cancel();
+            finish(); // Close app if user cancels
+        });
+
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    private void authenticateWithPin(String pin) {
+        lifecycleScope.launchWhenCreated(() -> {
+            try {
+                SecurityAccessManager.AuthenticationResult result = securityAccessManager.authenticate(AccessMethod.PIN, pin);
+                if (result instanceof SecurityAccessManager.AuthenticationResult.Success) {
+                    // Authentication successful, continue with normal flow
+                    runOnUiThread(this::setupMainUI);
+                } else {
+                    // Authentication failed, show error and retry
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+                        showSecurityAccessDialog();
+                    });
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error during PIN authentication", e);
+                runOnUiThread(() -> {
+                    Toast.makeText(this, "Authentication error. Please try again.", Toast.LENGTH_SHORT).show();
+                    showSecurityAccessDialog();
+                });
+            }
+        });
+    }
+
+    private void setupMainUI() {
+        // Extract the UI setup logic from onCreate
         logAppStartupTime();
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
 
@@ -257,6 +320,30 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
             openTorrentUri = savedInstanceState.getParcelable(KEY_OPEN_TORRENT_URI);
             openTorrentScheme = savedInstanceState.getString(KEY_OPEN_TORRENT_SCHEME);
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.installSplashScreen(this);
+        application = uTorrentRemote.getApplication(this);
+        securityAccessManager = SecurityAccessManager.getInstance(this);
+        super.onCreate(savedInstanceState);
+
+        // Check if security access is required BEFORE onboarding
+        if (isSecurityAccessRequired()) {
+            // Launch security access setup/activity
+            launchSecurityAccess();
+            return;
+        }
+
+        // Check if onboarding is needed BEFORE setting up UI
+        if (isOnboardingNeeded()) {
+            // Finish this activity immediately - onboarding will be launched from uTorrentRemote
+            finish();
+            return;
+        }
+
+        setupMainUI();
     }
 
     private void logAppStartupTime() {
@@ -566,6 +653,13 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
     @Override
     protected void onResume() {
         super.onResume();
+
+        // Check security access when app comes back to foreground
+        if (isSecurityAccessRequired()) {
+            launchSecurityAccess();
+            return;
+        }
+
         isActivityResumed = true;
         getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
 
