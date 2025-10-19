@@ -75,6 +75,9 @@ fastlane/readme.md
 
 salt.txt
 
+# Android tools
+android-tools/
+
 .kotlin
 .kotlin/*
 .kotlin/*.*
