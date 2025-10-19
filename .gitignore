@@ -95,3 +95,5 @@ qa-ai/reports/
 .kotlin
 .kotlin/*
 .kotlin/*.*
+
+*.log
