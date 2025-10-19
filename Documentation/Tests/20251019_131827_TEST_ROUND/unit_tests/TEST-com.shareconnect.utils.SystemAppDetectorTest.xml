@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.utils.SystemAppDetectorTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-10-19T10:19:29.205Z" hostname="thinker" time="0.342">
+  <properties/>
+  <testcase name="testGetCompatibleApps_StreamingUrl_IncludesMyJDownloader" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.196"/>
+  <testcase name="testGetCompatibleApps_TorrentUrl_DoesNotIncludeMyJDownloader" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.021"/>
+  <testcase name="testGetCompatibleApps_InvalidUrl_ReturnsEmptyList" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.022"/>
+  <testcase name="testGetCompatibleApps_EmptyUrl_ReturnsEmptyList" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.026"/>
+  <testcase name="testGetCompatibleApps_ContainerFormatUrl_IncludesMyJDownloader" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.016"/>
+  <testcase name="testGetCompatibleApps_NullUrl_ReturnsEmptyList" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.02"/>
+  <testcase name="testGetCompatibleApps_FileHostingUrl_IncludesMyJDownloader" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.02"/>
+  <testcase name="testGetCompatibleApps_PremiumLinkUrl_IncludesMyJDownloader" classname="com.shareconnect.utils.SystemAppDetectorTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

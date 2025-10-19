@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.MetadataFetcherTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2025-10-19T10:00:35.298Z" hostname="thinker" time="1.317">
+  <properties/>
+  <testcase name="testMagnetMetadataExtraction_NoDisplayName" classname="com.shareconnect.MetadataFetcherTest" time="0.671"/>
+  <testcase name="testContentTypeInference_TVShowBySeason" classname="com.shareconnect.MetadataFetcherTest" time="0.058"/>
+  <testcase name="testMagnetMetadataExtraction_BookDocument" classname="com.shareconnect.MetadataFetcherTest" time="0.046"/>
+  <testcase name="testContentTypeInference_MusicByKeyword" classname="com.shareconnect.MetadataFetcherTest" time="0.032"/>
+  <testcase name="testMagnetMetadataExtraction_SoftwareGame" classname="com.shareconnect.MetadataFetcherTest" time="0.034"/>
+  <testcase name="testTorrentFileUrl_ExtractsFilename" classname="com.shareconnect.MetadataFetcherTest" time="0.032"/>
+  <testcase name="testMagnetMetadataExtraction_WithURLEncoding" classname="com.shareconnect.MetadataFetcherTest" time="0.03"/>
+  <testcase name="testContentTypeInference_MovieByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.031"/>
+  <testcase name="testMagnetMetadataExtraction_MusicAlbum" classname="com.shareconnect.MetadataFetcherTest" time="0.027"/>
+  <testcase name="testSizeFormatting_Bytes" classname="com.shareconnect.MetadataFetcherTest" time="0.026"/>
+  <testcase name="testMagnetMetadataExtraction_MinimalInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.023"/>
+  <testcase name="testMagnetMetadataExtraction_TVShowWithMultipleTrackers" classname="com.shareconnect.MetadataFetcherTest" time="0.029"/>
+  <testcase name="testSizeFormatting_Terabytes" classname="com.shareconnect.MetadataFetcherTest" time="0.025"/>
+  <testcase name="testContentTypeInference_SoftwareByExtension" classname="com.shareconnect.MetadataFetcherTest" time="0.02"/>
+  <testcase name="testMalformedMagnetUrl_ReturnsBasicMetadata" classname="com.shareconnect.MetadataFetcherTest" time="0.019"/>
+  <testcase name="testMagnetMetadataExtraction_MovieWithFullInfo" classname="com.shareconnect.MetadataFetcherTest" time="0.021"/>
+  <testcase name="testSizeFormatting_Kilobytes" classname="com.shareconnect.MetadataFetcherTest" time="0.018"/>
+  <testcase name="testMagnetMetadataExtraction_OnlyInfoHash" classname="com.shareconnect.MetadataFetcherTest" time="0.02"/>
+  <testcase name="testRegularUrl_FallsBackToGenericHandling" classname="com.shareconnect.MetadataFetcherTest" time="0.154"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

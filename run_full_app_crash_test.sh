@@ -209,15 +209,14 @@ test_asinka_sync() {
 echo -e "${YELLOW}Setting up Android emulator...${NC}"
 
 if ! is_emulator_running; then
-    echo "Starting emulator..."
-    ./run_emulator_tests.sh &
-    EMULATOR_PID=$!
-
-    # Wait for emulator to be ready
-    if ! wait_for_device; then
-        echo -e "${RED}✗ Failed to start emulator${NC}"
+    echo "Starting emulator using emulator manager..."
+    if ! ./emulator_manager.sh start; then
+        echo -e "${RED}✗ Failed to start emulator using emulator manager${NC}"
         exit 1
     fi
+
+    # Source the environment variables set by emulator manager
+    eval "$(./emulator_manager.sh start)"
 else
     echo -e "${GREEN}✓ Emulator already running${NC}"
 fi

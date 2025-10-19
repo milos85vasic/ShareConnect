@@ -13,12 +13,18 @@ class BookmarkDataTest {
         val title = "Test Bookmark"
         val description = "Test Description"
         val thumbnailUrl = "https://example.com/thumb.jpg"
-        val faviconUrl = "https://example.com/favicon.ico"
+        val type = "website"
+        val category = "test"
         val tags = "test,bookmark"
-        val folder = "Test Folder"
-        val isRead = true
         val isFavorite = false
-        val timestamp = System.currentTimeMillis()
+        val notes = "Test notes"
+        val serviceProvider = "TestProvider"
+        val torrentHash = null
+        val magnetUri = null
+        val createdAt = System.currentTimeMillis()
+        val lastAccessedAt = null
+        val accessCount = 0
+        val sourceApp = "TestApp"
         val version = 1
         val lastModified = System.currentTimeMillis()
 
@@ -29,12 +35,18 @@ class BookmarkDataTest {
             title = title,
             description = description,
             thumbnailUrl = thumbnailUrl,
-            faviconUrl = faviconUrl,
+            type = type,
+            category = category,
             tags = tags,
-            folder = folder,
-            isRead = isRead,
             isFavorite = isFavorite,
-            timestamp = timestamp,
+            notes = notes,
+            serviceProvider = serviceProvider,
+            torrentHash = torrentHash,
+            magnetUri = magnetUri,
+            createdAt = createdAt,
+            lastAccessedAt = lastAccessedAt,
+            accessCount = accessCount,
+            sourceApp = sourceApp,
             version = version,
             lastModified = lastModified
         )
@@ -45,12 +57,18 @@ class BookmarkDataTest {
         assertEquals(title, bookmarkData.title)
         assertEquals(description, bookmarkData.description)
         assertEquals(thumbnailUrl, bookmarkData.thumbnailUrl)
-        assertEquals(faviconUrl, bookmarkData.faviconUrl)
+        assertEquals(type, bookmarkData.type)
+        assertEquals(category, bookmarkData.category)
         assertEquals(tags, bookmarkData.tags)
-        assertEquals(folder, bookmarkData.folder)
-        assertEquals(isRead, bookmarkData.isRead)
         assertEquals(isFavorite, bookmarkData.isFavorite)
-        assertEquals(timestamp, bookmarkData.timestamp)
+        assertEquals(notes, bookmarkData.notes)
+        assertEquals(serviceProvider, bookmarkData.serviceProvider)
+        assertEquals(torrentHash, bookmarkData.torrentHash)
+        assertEquals(magnetUri, bookmarkData.magnetUri)
+        assertEquals(createdAt, bookmarkData.createdAt)
+        assertEquals(lastAccessedAt, bookmarkData.lastAccessedAt)
+        assertEquals(accessCount, bookmarkData.accessCount)
+        assertEquals(sourceApp, bookmarkData.sourceApp)
         assertEquals(version, bookmarkData.version)
         assertEquals(lastModified, bookmarkData.lastModified)
     }
@@ -61,52 +79,69 @@ class BookmarkDataTest {
         val id = "test-bookmark-id"
         val url = "https://example.com"
         val title = "Test Bookmark"
-        val timestamp = System.currentTimeMillis()
+        val type = "website"
+        val sourceApp = "TestApp"
+        val createdAt = System.currentTimeMillis()
 
         // When
         val bookmarkData = BookmarkData(
             id = id,
             url = url,
             title = title,
-            timestamp = timestamp
+            type = type,
+            sourceApp = sourceApp,
+            createdAt = createdAt
         )
 
         // Then
         assertEquals(id, bookmarkData.id)
         assertEquals(url, bookmarkData.url)
         assertEquals(title, bookmarkData.title)
-        assertEquals(timestamp, bookmarkData.timestamp)
+        assertEquals(type, bookmarkData.type)
+        assertEquals(sourceApp, bookmarkData.sourceApp)
+        assertEquals(createdAt, bookmarkData.createdAt)
         assertNull(bookmarkData.description)
         assertNull(bookmarkData.thumbnailUrl)
-        assertNull(bookmarkData.faviconUrl)
+        assertNull(bookmarkData.category)
         assertNull(bookmarkData.tags)
-        assertNull(bookmarkData.folder)
-        assertFalse(bookmarkData.isRead)
         assertFalse(bookmarkData.isFavorite)
-        assertEquals(0, bookmarkData.version)
-        assertEquals(0L, bookmarkData.lastModified)
+        assertNull(bookmarkData.notes)
+        assertNull(bookmarkData.serviceProvider)
+        assertNull(bookmarkData.torrentHash)
+        assertNull(bookmarkData.magnetUri)
+        assertNull(bookmarkData.lastAccessedAt)
+        assertEquals(0, bookmarkData.accessCount)
+        assertEquals(1, bookmarkData.version)
+        assertEquals(createdAt, bookmarkData.lastModified)
     }
 
     @Test
     fun `test BookmarkData equals and hashCode work correctly`() {
         // Given
+        val timestamp = System.currentTimeMillis()
         val bookmark1 = BookmarkData(
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis()
+            type = "website",
+            sourceApp = "TestApp",
+            createdAt = timestamp
         )
         val bookmark2 = BookmarkData(
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis()
+            type = "website",
+            sourceApp = "TestApp",
+            createdAt = timestamp
         )
         val bookmark3 = BookmarkData(
             id = "different-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis()
+            type = "website",
+            sourceApp = "TestApp",
+            createdAt = timestamp
         )
 
         // Then
@@ -123,7 +158,9 @@ class BookmarkDataTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis()
+            type = "website",
+            sourceApp = "TestApp",
+            createdAt = System.currentTimeMillis()
         )
 
         // When

@@ -5,6 +5,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.shareconnect.bookmarksync.models.BookmarkData
 import com.shareconnect.bookmarksync.repository.BookmarkRepository
 import digital.vasic.asinka.AsinkaClient
+import digital.vasic.asinka.models.SyncableBookmark
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.*
@@ -16,6 +17,7 @@ import org.mockito.kotlin.any
 import org.mockito.kotlin.never
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
+import java.lang.reflect.Constructor
 
 class BookmarkSyncManagerTest {
 
@@ -33,14 +35,23 @@ class BookmarkSyncManagerTest {
         MockitoAnnotations.openMocks(this)
         context = ApplicationProvider.getApplicationContext()
 
-        // Create a test instance
-        bookmarkSyncManager = BookmarkSyncManager(
-            context = context,
-            appIdentifier = "test-app",
-            appName = "TestApp",
-            appVersion = "1.0.0",
-            asinkaClient = mockAsinkaClient,
-            repository = mockRepository
+        // Use reflection to access private constructor for testing
+        val constructor = BookmarkSyncManager::class.java.getDeclaredConstructor(
+            Context::class.java,
+            String::class.java,
+            String::class.java,
+            String::class.java,
+            AsinkaClient::class.java,
+            BookmarkRepository::class.java
+        )
+        constructor.isAccessible = true
+        bookmarkSyncManager = constructor.newInstance(
+            context,
+            "test-app",
+            "TestApp",
+            "1.0.0",
+            mockAsinkaClient,
+            mockRepository
         )
     }
 
@@ -83,15 +94,33 @@ class BookmarkSyncManagerTest {
             url = "https://example.com",
             title = "Test Bookmark",
             description = "Test Description",
-            timestamp = System.currentTimeMillis(),
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
+        val syncableBookmark = SyncableBookmark.fromBookmarkData(bookmarkData)
+
         whenever(mockRepository.getBookmarkById("test-bookmark-id")).thenReturn(null)
         whenever(mockRepository.insertBookmark(any())).then { }
 
+        // Use reflection to access private method
+        val method = BookmarkSyncManager::class.java.getDeclaredMethod("handleReceivedBookmark", SyncableBookmark::class.java)
+        method.isAccessible = true
+
         // When
-        bookmarkSyncManager.handleReceivedBookmark(bookmarkData)
+        method.invoke(bookmarkSyncManager, syncableBookmark)
 
         // Then
         verify(mockRepository).insertBookmark(bookmarkData)
@@ -104,7 +133,20 @@ class BookmarkSyncManagerTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Old Title",
-            timestamp = System.currentTimeMillis() - 1000,
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis() - 1000,
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis() - 1000
         )
@@ -112,16 +154,34 @@ class BookmarkSyncManagerTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "New Title",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
+        val syncableBookmark = SyncableBookmark.fromBookmarkData(newBookmark)
 
         whenever(mockRepository.getBookmarkById("test-bookmark-id")).thenReturn(existingBookmark)
         whenever(mockRepository.updateBookmark(any())).then { }
 
+        // Use reflection to access private method
+        val method = BookmarkSyncManager::class.java.getDeclaredMethod("handleReceivedBookmark", SyncableBookmark::class.java)
+        method.isAccessible = true
+
         // When
-        bookmarkSyncManager.handleReceivedBookmark(newBookmark)
+        method.invoke(bookmarkSyncManager, syncableBookmark)
 
         // Then
         verify(mockRepository).updateBookmark(newBookmark)
@@ -134,7 +194,20 @@ class BookmarkSyncManagerTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "New Title",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -142,15 +215,33 @@ class BookmarkSyncManagerTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Old Title",
-            timestamp = System.currentTimeMillis() - 1000,
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis() - 1000,
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis() - 1000
         )
+        val syncableBookmark = SyncableBookmark.fromBookmarkData(oldBookmark)
 
         whenever(mockRepository.getBookmarkById("test-bookmark-id")).thenReturn(existingBookmark)
 
+        // Use reflection to access private method
+        val method = BookmarkSyncManager::class.java.getDeclaredMethod("handleReceivedBookmark", SyncableBookmark::class.java)
+        method.isAccessible = true
+
         // When
-        bookmarkSyncManager.handleReceivedBookmark(oldBookmark)
+        method.invoke(bookmarkSyncManager, syncableBookmark)
 
         // Then
         verify(mockRepository, never()).updateBookmark(any())
@@ -162,8 +253,12 @@ class BookmarkSyncManagerTest {
         // Given
         whenever(mockRepository.deleteBookmark("test-bookmark-id")).then { }
 
+        // Use reflection to access private method
+        val method = BookmarkSyncManager::class.java.getDeclaredMethod("handleDeletedBookmark", String::class.java)
+        method.isAccessible = true
+
         // When
-        bookmarkSyncManager.handleDeletedBookmark("test-bookmark-id")
+        method.invoke(bookmarkSyncManager, "test-bookmark-id")
 
         // Then
         verify(mockRepository).deleteBookmark("test-bookmark-id")
@@ -176,10 +271,24 @@ class BookmarkSyncManagerTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
+        val syncableBookmark = SyncableBookmark.fromBookmarkData(bookmarkData)
 
         whenever(mockRepository.getBookmarkById("test-bookmark-id")).thenReturn(null)
         whenever(mockRepository.insertBookmark(any())).then { }
@@ -189,17 +298,15 @@ class BookmarkSyncManagerTest {
             bookmarkSyncManager.bookmarkChangeFlow.collect { emittedBookmark = it }
         }
 
-        // When
-        bookmarkSyncManager.handleReceivedBookmark(bookmarkData)
+        // Use reflection to access private method
+        val method = BookmarkSyncManager::class.java.getDeclaredMethod("handleReceivedBookmark", SyncableBookmark::class.java)
+        method.isAccessible = true
 
-        // Small delay to allow flow emission
-        kotlinx.coroutines.delay(100)
+        // When
+        method.invoke(bookmarkSyncManager, syncableBookmark)
 
         // Then
-        assertNotNull(emittedBookmark)
-        assertEquals("test-bookmark-id", emittedBookmark?.id)
-        assertEquals("Test Bookmark", emittedBookmark?.title)
-
+        assertEquals(bookmarkData, emittedBookmark)
         job.cancel()
     }
 }

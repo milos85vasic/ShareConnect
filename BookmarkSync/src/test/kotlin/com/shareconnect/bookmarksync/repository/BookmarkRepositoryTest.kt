@@ -41,7 +41,19 @@ class BookmarkRepositoryTest {
             url = "https://example.com",
             title = "Test Bookmark",
             description = "Test Description",
-            timestamp = System.currentTimeMillis(),
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -50,11 +62,9 @@ class BookmarkRepositoryTest {
         repository.insertBookmark(bookmarkData)
 
         // Then
-        val savedBookmark = repository.getBookmarkById("test-bookmark-id")
-        assertNotNull(savedBookmark)
-        assertEquals("test-bookmark-id", savedBookmark?.id)
-        assertEquals("Test Bookmark", savedBookmark?.title)
-        assertEquals("https://example.com", savedBookmark?.url)
+        val retrievedBookmark = repository.getBookmarkById("test-bookmark-id")
+        assertNotNull(retrievedBookmark)
+        assertEquals(bookmarkData, retrievedBookmark)
     }
 
     @Test
@@ -64,7 +74,20 @@ class BookmarkRepositoryTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Original Title",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -74,7 +97,20 @@ class BookmarkRepositoryTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Updated Title",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -96,7 +132,20 @@ class BookmarkRepositoryTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -120,7 +169,20 @@ class BookmarkRepositoryTest {
             id = "test-bookmark-id-1",
             url = "https://example1.com",
             title = "Bookmark 1",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -128,11 +190,23 @@ class BookmarkRepositoryTest {
             id = "test-bookmark-id-2",
             url = "https://example2.com",
             title = "Bookmark 2",
-            timestamp = System.currentTimeMillis(),
+            description = null,
+            thumbnailUrl = null,
+            type = "website",
+            category = null,
+            tags = null,
+            isFavorite = false,
+            notes = null,
+            serviceProvider = null,
+            torrentHash = null,
+            magnetUri = null,
+            createdAt = System.currentTimeMillis(),
+            lastAccessedAt = null,
+            accessCount = 0,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
-
         repository.insertBookmark(bookmark1)
         repository.insertBookmark(bookmark2)
 
@@ -141,8 +215,8 @@ class BookmarkRepositoryTest {
 
         // Then
         assertEquals(2, allBookmarks.size)
-        assertTrue(allBookmarks.any { it.id == "test-bookmark-id-1" })
-        assertTrue(allBookmarks.any { it.id == "test-bookmark-id-2" })
+        assertTrue(allBookmarks.contains(bookmark1))
+        assertTrue(allBookmarks.contains(bookmark2))
     }
 
     @Test

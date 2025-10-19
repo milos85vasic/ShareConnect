@@ -35,72 +35,18 @@ adb devices -l
 
 DEVICE_COUNT=$(adb devices | grep -v "List of devices" | grep -c "device$" || true)
 if [ "$DEVICE_COUNT" -eq 0 ]; then
-    echo -e "${YELLOW}No devices found. Attempting to start emulator...${NC}"
+    echo -e "${YELLOW}No devices found. Starting emulator using emulator manager...${NC}"
 
-    # Check for available emulators
-    AVAILABLE_EMULATORS=$(emulator -list-avds 2>/dev/null || true)
-
-    if [ -z "$AVAILABLE_EMULATORS" ]; then
-        echo -e "${YELLOW}No emulators found. Creating a new emulator...${NC}"
-
-        # Check if Android SDK is available
-        if ! command -v avdmanager &> /dev/null; then
-            echo -e "${RED}✗ Android SDK tools not found! Please install Android SDK.${NC}"
-            exit 1
-        fi
-
-        # List available system images
-        echo -e "${BLUE}Available system images:${NC}"
-        avdmanager list target
-
-        # Create a basic emulator with API 30 (common target)
-        AVD_NAME="ShareConnect_Test_Emulator"
-        echo -e "${YELLOW}Creating emulator: $AVD_NAME${NC}"
-        echo "no" | avdmanager create avd -n "$AVD_NAME" -k "system-images;android-30;google_apis;x86_64" --force || {
-            echo -e "${RED}✗ Failed to create emulator. Please check your Android SDK installation.${NC}"
-            exit 1
-        }
-    else
-        # Get the first available emulator
-        AVD_NAME=$(echo "$AVAILABLE_EMULATORS" | head -1)
-        echo -e "${GREEN}Found emulator: $AVD_NAME${NC}"
-    fi
-
-    # Start the emulator
-    echo -e "${YELLOW}Starting emulator: $AVD_NAME${NC}"
-    emulator -avd "$AVD_NAME" -no-snapshot-save -wipe-data > /dev/null 2>&1 &
-    EMULATOR_PID=$!
-
-    # Wait for emulator to boot
-    echo -e "${YELLOW}Waiting for emulator to boot...${NC}"
-    timeout=300  # 5 minutes timeout
-    counter=0
-
-    while [ $counter -lt $timeout ]; do
-        if adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; then
-            echo -e "${GREEN}✓ Emulator booted successfully!${NC}"
-            break
-        fi
-
-        if [ $((counter % 10)) -eq 0 ]; then
-            echo -e "${BLUE}Still waiting... (${counter}s/${timeout}s)${NC}"
-        fi
-
-        sleep 1
-        counter=$((counter + 1))
-    done
-
-    if [ $counter -ge $timeout ]; then
-        echo -e "${RED}✗ Emulator failed to boot within $timeout seconds!${NC}"
-        kill $EMULATOR_PID 2>/dev/null || true
+    # Use our polished emulator manager
+    if ! ./emulator_manager.sh start; then
+        echo -e "${RED}✗ Failed to start emulator using emulator manager!${NC}"
         exit 1
     fi
 
-    # Wait a bit more for the emulator to be fully ready
-    echo -e "${YELLOW}Waiting for emulator to be ready...${NC}"
-    sleep 10
+    # Source the environment variables set by emulator manager
+    eval "$(./emulator_manager.sh start)"
 
-    # Check again for connected devices
+    # Verify device is connected
     DEVICE_COUNT=$(adb devices | grep -v "List of devices" | grep -c "device$" || true)
 fi
 

@@ -1,0 +1,87 @@
+ShareConnect Full Test Suite Execution Summary
+==============================================
+
+Execution Date: Sun Oct 19 01:24:45 PM MSK 2025
+Test Round ID: 20251019_131827
+Overall Status: FAILED
+
+══════════════════════════════════════════════════════════
+
+UNIT TESTS
+Status: PASSED
+Duration: 77 seconds
+Test Suite: com.shareconnect.suites.UnitTestSuite
+Coverage: Core business logic and data models
+
+Test Classes:
+- MainActivityUnitTest: Main activity unit testing
+- HistoryRepositoryUnitTest: History repository operations
+- ThemeRepositoryUnitTest: Theme repository operations
+- ProfileManagerUnitTest: Profile management operations
+
+CRASH TESTS
+Status: FAILED
+Duration: 300 seconds
+Test Suite: Full Application Crash Test Suite
+Coverage: All 4 Android applications crash testing
+
+Test Coverage:
+- ShareConnector: App launch, restart, and sync operations
+- TransmissionConnector: App launch, restart, and sync operations
+- uTorrentConnector: App launch, restart, and sync operations
+- qBitConnector: App launch, restart, and sync operations
+- Asinka Library: Sync operations and gRPC functionality
+- Crash Detection: Logcat monitoring for crashes and exceptions
+
+SONARQUBE ANALYSIS
+Status: FAILED
+Duration: 1 seconds
+Test Suite: SonarQube Code Quality Analysis
+Coverage: Static code analysis, security hotspots, code smells
+
+Test Coverage:
+- Code Quality: Complexity, duplication, maintainability
+- Security: Vulnerability detection and hotspots
+- Reliability: Bug detection and error-prone patterns
+- Test Coverage: Unit test coverage analysis
+- Technical Debt: Code maintainability assessment
+
+══════════════════════════════════════════════════════════
+
+EXECUTION METRICS
+Total Duration: 378 seconds (00:06:18)
+Unit Tests: 77s
+Crash Tests: 300s
+SonarQube Analysis: 1s
+
+COVERAGE SUMMARY
+✓ Business Logic: Unit tests verify core functionality
+✓ Data Operations: Unit tests verify repository operations
+✓ UI Logic: Unit tests verify activity behavior
+✓ App Stability: Crash tests verify no crashes on launch/restart
+✓ Sync Operations: Crash tests verify Asinka library functionality
+✓ Cross-App Compatibility: All 4 apps tested simultaneously
+
+REPORT STRUCTURE
+Documentation/Tests/20251019_131827_TEST_ROUND/
+├── master_test_summary.txt (this file)
+├── unit_tests/
+│   ├── test_summary.txt
+│   ├── unit_test_execution.log
+│   └── [HTML/XML reports]
+└── full_app_crash_test/
+    ├── full_crash_test_report.txt
+    ├── unit_tests.log
+    ├── instrumentation_tests.log
+    ├── final_device_state.png
+    └── [additional test artifacts]
+
+COMMAND EXECUTION
+./run_all_tests.sh
+
+This script executed:
+1. ./run_unit_tests.sh
+2. ./run_full_app_crash_test.sh
+
+═════════════════════════════════════════════════════════
+
