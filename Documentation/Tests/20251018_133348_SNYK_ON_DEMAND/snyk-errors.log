@@ -1,4 +1,0 @@
-Unable to find image 'snyk/snyk-cli:latest' locally
-docker: Error response from daemon: manifest for snyk/snyk-cli:latest not found: manifest unknown: manifest unknown
-
-Run 'docker run --help' for more information

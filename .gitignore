@@ -78,6 +78,20 @@ salt.txt
 # Android tools
 android-tools/
 
+# Test artifacts and reports
+Documentation/Tests/**/*.png
+Documentation/Tests/**/*.log
+Documentation/Tests/**/test-results.log
+Documentation/Tests/**/utp.*.log
+qa-ai/reports/
+*.log
+
+# Large binary files
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
 .kotlin
 .kotlin/*
 .kotlin/*.*
