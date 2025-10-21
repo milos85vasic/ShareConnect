@@ -1,0 +1,31 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    plugins {
+        id 'com.android.application' version '8.9.1'
+        id 'com.android.library' version '8.9.1'
+        id 'org.jetbrains.kotlin.android' version '2.1.0'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '2.1.0'
+        id 'org.jetbrains.kotlin.plugin.compose' version '2.1.0'
+        id 'com.google.protobuf' version '0.9.4'
+        id 'com.google.devtools.ksp' version '2.1.0-1.0.29'
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'JDownloaderConnector'
+
+include ':JDownloaderConnector'
+include ':Asinka:asinka'
+
+project(':Asinka:asinka').projectDir = new File('../../Asinka/asinka')

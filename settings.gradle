@@ -75,6 +75,9 @@ project(':TransmissionConnector').projectDir = new File(settingsDir, 'Connectors
 include ':uTorrentConnector'
 project(':uTorrentConnector').projectDir = new File(settingsDir, 'Connectors/uTorrentConnect/uTorrentConnector')
 
+include ':JDownloaderConnector'
+project(':JDownloaderConnector').projectDir = new File(settingsDir, 'Connectors/JDownloaderConnect/JDownloaderConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 
