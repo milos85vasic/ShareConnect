@@ -132,13 +132,14 @@ CRASH TESTS
 Status: ${CRASH_TEST_STATUS}
 Duration: ${CRASH_DURATION} seconds
 Test Suite: Full Application Crash Test Suite
-Coverage: All 4 Android applications crash testing
+Coverage: All 5 Android applications crash testing
 
 Test Coverage:
 - ShareConnector: App launch, restart, and sync operations
 - TransmissionConnector: App launch, restart, and sync operations
 - uTorrentConnector: App launch, restart, and sync operations
 - qBitConnector: App launch, restart, and sync operations
+- JDownloaderConnector: App launch, restart, and sync operations
 - Asinka Library: Sync operations and gRPC functionality
 - Crash Detection: Logcat monitoring for crashes and exceptions
 

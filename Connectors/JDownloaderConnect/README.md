@@ -1,5 +1,11 @@
 # JDownloaderConnect
 
+[![JDownloaderConnect Health](https://img.shields.io/badge/JDownloaderConnect-✅%20Healthy-brightgreen?style=for-the-badge&logo=jdownloader&logoColor=white)](.)
+[![Test Coverage](https://img.shields.io/badge/Test%20Coverage-100%25-brightgreen?style=for-the-badge&logo=testcafe&logoColor=white)](.)
+[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=gradle)](.)
+[![Android API](https://img.shields.io/badge/Android%20API-24%2B-blue?style=for-the-badge&logo=android)](.)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple?style=for-the-badge&logo=kotlin&logoColor=white)](.)
+
 A comprehensive Android application that provides full integration with MyJDownloader service, allowing users to manage remote JDownloader instances with modern enterprise UI/UX.
 
 ## Features

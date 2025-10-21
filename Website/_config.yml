@@ -1,0 +1,59 @@
+# GitHub Pages Configuration for ShareConnect Website
+
+title: "ShareConnect - Enterprise Media Sharing Platform"
+description: "Enterprise-grade Android application for sharing media links to local services including MeTube, YT-DLP, torrent clients, and jDownloader"
+baseurl: "/ShareConnect" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+
+theme: jekyll-theme-cayman
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Custom settings
+repository: "yourusername/ShareConnect"
+
+# Navigation
+nav_links:
+  - title: "Dashboard"
+    url: "#dashboard"
+  - title: "Applications"
+    url: "#applications"
+  - title: "Documentation"
+    url: "../Documentation/"
+  - title: "GitHub"
+    url: "https://github.com/yourusername/ShareConnect"
+
+# Social links
+social_links:
+  github: "yourusername/ShareConnect"
+
+# Analytics (optional)
+# google_analytics: "UA-XXXXXXXXX-X"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include custom CSS
+include:
+  - _assets
+  - _sass
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      author: "ShareConnect Team"
