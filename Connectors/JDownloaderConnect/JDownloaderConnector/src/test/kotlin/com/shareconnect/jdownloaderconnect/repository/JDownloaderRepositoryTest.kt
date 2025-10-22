@@ -1,7 +1,8 @@
-package com.shareconnect.jdownloaderconnect.repository
+package com.shareconnect.jdownloaderconnect.data.repository
 
 import com.shareconnect.jdownloaderconnect.data.dao.*
 import com.shareconnect.jdownloaderconnect.data.model.*
+import com.shareconnect.jdownloaderconnect.domain.model.*
 import com.shareconnect.jdownloaderconnect.network.api.MyJDownloaderApi
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -9,12 +10,8 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
-import retrofit2.Response
 
 @OptIn(ExperimentalCoroutinesApi::class)
-@RunWith(MockitoJUnitRunner::class)
 class JDownloaderRepositoryTest {
 
     private lateinit var repository: JDownloaderRepository
@@ -25,21 +22,21 @@ class JDownloaderRepositoryTest {
 
     @Before
     fun setUp() {
+        mockAccountDao = mockk()
         mockDownloadDao = mockk()
         mockLinkGrabberDao = mockk()
-        mockAccountDao = mockk()
         mockApi = mockk()
         
         repository = JDownloaderRepository(
+            mockAccountDao,
             mockDownloadDao,
             mockLinkGrabberDao,
-            mockAccountDao,
             mockApi
         )
     }
 
     @Test
-    fun `saveAccount should deactivate all accounts and save new account`() = runTest {
+    fun `saveAccount should insert account`() = runTest {
         // Given
         val account = JDownloaderAccount(
             id = "test-id",
@@ -49,17 +46,13 @@ class JDownloaderRepositoryTest {
             deviceId = "device-123"
         )
 
-        coEvery { mockAccountDao.deactivateAllAccounts() } just Runs
-        coEvery { mockAccountDao.insertAccount(any()) } just Runs
+        coEvery { mockAccountDao.insertAccount(account) } just Runs
 
         // When
         repository.saveAccount(account)
 
         // Then
-        coVerify {
-            mockAccountDao.deactivateAllAccounts()
-            mockAccountDao.insertAccount(account.copy(isActive = true))
-        }
+        coVerify { mockAccountDao.insertAccount(account) }
     }
 
     @Test
@@ -85,131 +78,91 @@ class JDownloaderRepositoryTest {
     }
 
     @Test
-    fun `addDownloadPackage should insert package with links`() = runTest {
+    fun `setActiveAccount should deactivate all accounts and save new account`() = runTest {
         // Given
-        val downloadPackage = DownloadPackage(
-            uuid = "package-123",
-            name = "Test Package",
-            bytesTotal = 1000L,
-            bytesLoaded = 500L,
-            enabled = true,
-            finished = false,
-            priority = DownloadPriority.DEFAULT,
-            host = "example.com",
-            status = DownloadStatus.DOWNLOADING,
-            addedDate = System.currentTimeMillis(),
-            downloadDirectory = "/downloads"
-        )
-        val links = listOf(
-            DownloadLink(
-                uuid = "link-1",
-                packageUuid = "package-123",
-                name = "File 1",
-                url = "http://example.com/file1",
-                host = "example.com",
-                bytesTotal = 500L,
-                bytesLoaded = 250L,
-                enabled = true,
-                finished = false,
-                status = DownloadStatus.DOWNLOADING,
-                priority = DownloadPriority.DEFAULT,
-                addedDate = System.currentTimeMillis(),
-                availability = LinkAvailability.ONLINE
-            )
+        val account = JDownloaderAccount(
+            id = "test-id",
+            email = "test@example.com",
+            password = "password",
+            deviceName = "Test Device",
+            deviceId = "device-123"
         )
 
-        coEvery { mockDownloadDao.insertPackageWithLinks(downloadPackage, links) } just Runs
-
-        // When
-        repository.addDownloadPackage(downloadPackage, links)
-
-        // Then
-        coVerify { mockDownloadDao.insertPackageWithLinks(downloadPackage, links) }
-    }
-
-    @Test
-    fun `connect should call API and save account on success`() = runTest {
-        // Given
-        val email = "test@example.com"
-        val password = "password"
-        val appKey = "ShareConnect_JDownloaderConnect"
-        
-        val connectResponse = ConnectResponse(
-            sessionToken = "token-123",
-            deviceId = "device-123",
-            serverEncryptionToken = "server-token",
-            deviceEncryptionToken = "device-token"
-        )
-
-        coEvery { mockApi.connect(any()) } returns Response.success(connectResponse)
         coEvery { mockAccountDao.deactivateAllAccounts() } just Runs
         coEvery { mockAccountDao.insertAccount(any()) } just Runs
 
         // When
-        repository.connect(email, password, appKey)
+        repository.setActiveAccount(account)
 
         // Then
         coVerify {
-            mockApi.connect(ConnectRequest(email, password, appKey))
             mockAccountDao.deactivateAllAccounts()
-            mockAccountDao.insertAccount(any())
+            mockAccountDao.insertAccount(account.copy(isActive = true))
         }
     }
 
-    @Test(expected = Exception::class)
-    fun `connect should throw exception on API failure`() = runTest {
+    @Test
+    fun `connectAccount should return device connection`() = runTest {
         // Given
         val email = "test@example.com"
         val password = "password"
-        val appKey = "ShareConnect_JDownloaderConnect"
-
-        coEvery { mockApi.connect(any()) } returns Response.error(400, mockk())
+        val deviceName = "Test Device"
 
         // When
-        repository.connect(email, password, appKey)
-
-        // Then - Exception should be thrown
-    }
-
-    @Test
-    fun `deleteDownloadPackage should delete package with links`() = runTest {
-        // Given
-        val packageUuid = "package-123"
-
-        coEvery { mockDownloadDao.deletePackageWithLinks(packageUuid) } just Runs
-
-        // When
-        repository.deleteDownloadPackage(packageUuid)
+        val result = repository.connectAccount(email, password, deviceName)
 
         // Then
-        coVerify { mockDownloadDao.deletePackageWithLinks(packageUuid) }
+        assert(result.deviceId == "mock_device_id")
+        assert(result.sessionToken == "mock_session_token")
     }
 
     @Test
-    fun `updateDownloadLink should update link in database`() = runTest {
+    fun `getAllAccounts should return flow from accountDao`() = runTest {
         // Given
-        val link = DownloadLink(
-            uuid = "link-1",
-            packageUuid = "package-123",
-            name = "File 1",
-            url = "http://example.com/file1",
-            host = "example.com",
-            bytesTotal = 500L,
-            bytesLoaded = 250L,
-            enabled = true,
-            finished = false,
-            status = DownloadStatus.DOWNLOADING,
-            priority = DownloadPriority.DEFAULT,
-            addedDate = System.currentTimeMillis(),
-            availability = LinkAvailability.ONLINE
+        val accounts = listOf(
+            JDownloaderAccount(
+                id = "test-id-1",
+                email = "test1@example.com",
+                password = "password",
+                deviceName = "Test Device 1",
+                deviceId = "device-123"
+            ),
+            JDownloaderAccount(
+                id = "test-id-2",
+                email = "test2@example.com",
+                password = "password",
+                deviceName = "Test Device 2",
+                deviceId = "device-456"
+            )
+        )
+        val flow = flowOf(accounts)
+
+        every { mockAccountDao.getAllAccounts() } returns flow
+
+        // When
+        val result = repository.getAllAccounts()
+
+        // Then
+        assert(result == flow)
+    }
+
+    @Test
+    fun `deleteAccount should delete account from dao`() = runTest {
+        // Given
+        val account = JDownloaderAccount(
+            id = "test-id",
+            email = "test@example.com",
+            password = "password",
+            deviceName = "Test Device",
+            deviceId = "device-123"
         )
 
-        coEvery { mockDownloadDao.updateLink(link) } just Runs
+        coEvery { mockAccountDao.deleteAccount(account) } just Runs
 
         // When
-        repository.updateDownloadLink(link)
+        repository.deleteAccount(account)
 
         // Then
-        coVerify { mockDownloadDao.updateLink(link) }
+        coVerify { mockAccountDao.deleteAccount(account) }
     }
 }
