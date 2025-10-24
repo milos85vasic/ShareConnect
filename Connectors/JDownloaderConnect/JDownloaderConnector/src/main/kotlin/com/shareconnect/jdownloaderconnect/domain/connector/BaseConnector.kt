@@ -191,7 +191,7 @@ abstract class BaseConnector(
         return when {
             profile.username != null && profile.password != null ->
                 AuthenticationMethod.BasicAuth(profile.username!!, profile.password!!)
-            else -> AuthenticationMethod.NoAuth()
+            else -> AuthenticationMethod.NoAuth
         }
     }
 

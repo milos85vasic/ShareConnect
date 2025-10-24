@@ -4,10 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
-import com.shareconnect.securityaccess.SecurityAccessManager
-import com.shareconnect.securityaccess.model.SecurityLevel
 
 class MainActivity : ComponentActivity() {
 

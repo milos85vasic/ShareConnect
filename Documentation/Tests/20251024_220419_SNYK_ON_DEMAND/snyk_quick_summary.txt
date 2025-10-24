@@ -1,0 +1,20 @@
+ShareConnect Quick Snyk Security Scan (Freemium Mode)
+====================================================
+
+Generated: Fri Oct 24 10:04:30 PM MSK 2025
+Severity Threshold: medium
+
+FREEMIUM LIMITATIONS:
+- Limited scan frequency
+- No private repository support
+- Basic vulnerability detection only
+- No advanced reporting features
+
+Status: Freemium mode - upgrade to token for full functionality
+
+To get full Snyk capabilities:
+1. Sign up at https://snyk.io
+2. Get API token from account settings
+3. Set: export SNYK_TOKEN=your_token_here
+
+Report Directory: Documentation/Tests/20251024_220419_SNYK_ON_DEMAND
