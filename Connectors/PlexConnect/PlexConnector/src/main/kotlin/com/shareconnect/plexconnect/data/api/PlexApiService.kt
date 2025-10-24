@@ -1,0 +1,84 @@
+package com.shareconnect.plexconnect.data.api
+
+import com.shareconnect.plexconnect.data.model.*
+import retrofit2.Response
+import retrofit2.http.*
+
+interface PlexApiService {
+
+    // Authentication endpoints
+    @POST("https://plex.tv/api/v2/pins")
+    suspend fun requestPin(@Body request: PlexPinRequest): Response<PlexPinResponse>
+
+    @GET("https://plex.tv/api/v2/pins/{pinId}")
+    suspend fun checkPin(@Path("pinId") pinId: Long): Response<PlexPinResponse>
+
+    // Server discovery and information
+    @GET
+    suspend fun getServerInfo(@Url url: String = "{serverUrl}"): Response<PlexServerInfo>
+
+    @GET("{serverUrl}/library/sections")
+    suspend fun getLibraries(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Query("X-Plex-Token") token: String
+    ): Response<PlexLibraryResponse>
+
+    @GET("{serverUrl}/library/sections/{sectionKey}/all")
+    suspend fun getLibraryItems(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Path("sectionKey") sectionKey: String,
+        @Query("X-Plex-Token") token: String,
+        @Query("limit") limit: Int = 50,
+        @Query("offset") offset: Int = 0
+    ): Response<PlexMediaResponse>
+
+    @GET("{serverUrl}/library/metadata/{ratingKey}")
+    suspend fun getMediaItem(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Path("ratingKey") ratingKey: String,
+        @Query("X-Plex-Token") token: String
+    ): Response<PlexMediaResponse>
+
+    @GET("{serverUrl}/library/metadata/{ratingKey}/children")
+    suspend fun getMediaChildren(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Path("ratingKey") ratingKey: String,
+        @Query("X-Plex-Token") token: String
+    ): Response<PlexMediaResponse>
+
+    // Playback and status updates
+    @PUT("{serverUrl}/:/scrobble")
+    suspend fun markAsPlayed(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Query("key") key: String,
+        @Query("identifier") identifier: String = "com.plexapp.plugins.library",
+        @Query("X-Plex-Token") token: String
+    ): Response<Unit>
+
+    @PUT("{serverUrl}/:/unscrobble")
+    suspend fun markAsUnplayed(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Query("key") key: String,
+        @Query("identifier") identifier: String = "com.plexapp.plugins.library",
+        @Query("X-Plex-Token") token: String
+    ): Response<Unit>
+
+    @PUT("{serverUrl}/:/progress")
+    suspend fun updateProgress(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Query("key") key: String,
+        @Query("identifier") identifier: String = "com.plexapp.plugins.library",
+        @Query("time") time: Long,
+        @Query("state") state: String = "playing",
+        @Query("X-Plex-Token") token: String
+    ): Response<Unit>
+
+    // Search
+    @GET("{serverUrl}/search")
+    suspend fun search(
+        @Path("serverUrl", encoded = true) serverUrl: String,
+        @Query("query") query: String,
+        @Query("limit") limit: Int = 50,
+        @Query("X-Plex-Token") token: String
+    ): Response<PlexSearchResponse>
+}

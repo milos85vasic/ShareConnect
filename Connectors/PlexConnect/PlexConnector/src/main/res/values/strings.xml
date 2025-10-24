@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PlexConnect</string>
+    <string name="plex_connect_description">Connect to your Plex Media Server</string>
+    <string name="plex_server_setup">Plex Server Setup</string>
+    <string name="plex_authentication">Plex Authentication</string>
+    <string name="plex_libraries">Libraries</string>
+    <string name="plex_media">Media</string>
+    <string name="plex_settings">Settings</string>
+    <string name="plex_sync">Sync</string>
+    <string name="plex_search">Search</string>
+    <string name="plex_play">Play</string>
+    <string name="plex_pause">Pause</string>
+    <string name="plex_stop">Stop</string>
+    <string name="plex_mark_watched">Mark as Watched</string>
+    <string name="plex_mark_unwatched">Mark as Unwatched</string>
+    <string name="plex_add_to_playlist">Add to Playlist</string>
+    <string name="plex_remove_from_playlist">Remove from Playlist</string>
+    <string name="plex_server_address">Server Address</string>
+    <string name="plex_server_port">Port</string>
+    <string name="plex_username">Username</string>
+    <string name="plex_password">Password</string>
+    <string name="plex_pin_code">PIN Code</string>
+    <string name="plex_connect">Connect</string>
+    <string name="plex_disconnect">Disconnect</string>
+    <string name="plex_refresh">Refresh</string>
+    <string name="plex_loading">Loading...</string>
+    <string name="plex_error">Error</string>
+    <string name="plex_success">Success</string>
+    <string name="plex_no_servers">No servers found</string>
+    <string name="plex_no_libraries">No libraries found</string>
+    <string name="plex_no_media">No media found</string>
+    <string name="plex_auth_required">Authentication required</string>
+    <string name="plex_auth_success">Authentication successful</string>
+    <string name="plex_auth_failed">Authentication failed</string>
+    <string name="plex_connection_failed">Connection failed</string>
+    <string name="plex_server_not_found">Server not found</string>
+    <string name="plex_invalid_credentials">Invalid credentials</string>
+    <string name="plex_network_error">Network error</string>
+    <string name="plex_unknown_error">Unknown error</string>
+</resources>

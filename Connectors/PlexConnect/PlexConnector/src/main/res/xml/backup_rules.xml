@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Include database -->
+    <include domain="database" path="plex_database" />
+
+    <!-- Include shared preferences -->
+    <include domain="sharedpref" path="plex_preferences.xml" />
+
+    <!-- Exclude sensitive data -->
+    <exclude domain="database" path="plex_database-wal" />
+    <exclude domain="database" path="plex_database-shm" />
+</full-backup-content>

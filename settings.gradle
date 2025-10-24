@@ -78,6 +78,9 @@ project(':uTorrentConnector').projectDir = new File(settingsDir, 'Connectors/uTo
 include ':JDownloaderConnector'
 project(':JDownloaderConnector').projectDir = new File(settingsDir, 'Connectors/JDownloaderConnect/JDownloaderConnector')
 
+include ':PlexConnector'
+project(':PlexConnector').projectDir = new File(settingsDir, 'Connectors/PlexConnect/PlexConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 
