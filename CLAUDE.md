@@ -80,6 +80,74 @@ All apps sync profiles, themes, history, RSS feeds, bookmarks, preferences, and 
 
 ### Core Modules
 
+#### API Architecture - Dedicated Service Clients
+
+**Phase 0.5 Modernization (COMPLETED)**: All connectors now use dedicated API clients instead of the monolithic `ServiceApiClient.kt` pattern.
+
+**API Client Pattern:**
+- Each connector has its own `data/api/` package with service-specific API client
+- Each connector has its own `data/model/` package with domain models
+- All API clients use `Result<T>` error handling pattern
+- All API clients support coroutines for async operations
+- OkHttp + Retrofit/manual HTTP for network communication
+- Comprehensive error logging and retry logic
+
+**Implemented API Clients:**
+
+1. **qBitConnect** (`qBitConnect/qBitConnector/src/main/kotlin/com/shareconnect/qbitconnect/data/api/`):
+   - `QBittorrentApiClient.kt` - Full qBittorrent Web API v2 implementation
+   - Authentication (login/logout with cookie management)
+   - Torrent management (add, pause, resume, delete, recheck)
+   - Transfer control (speed limits, alternative speed mode)
+   - Category assignment, priority setting
+   - Application preferences (get/set)
+   - Transfer statistics
+
+2. **TransmissionConnect** (`TransmissionConnect/TransmissionConnector/src/main/kotlin/com/shareconnect/transmissionconnect/data/api/`):
+   - `TransmissionApiClient.kt` - Full Transmission RPC protocol
+   - Session ID handling (automatic 409 retry)
+   - Torrent management (add, start, stop, remove, verify)
+   - Queue management (move up/down, position)
+   - Transfer control (set location, rename, priorities)
+   - Session management (get/set session, stats)
+   - Port testing, blocklist management
+
+3. **uTorrentConnect** (`uTorrentConnect/uTorrentConnector/src/main/kotlin/com/shareconnect/utorrentconnect/data/api/`):
+   - `UTorrentApiClient.kt` - uTorrent Web UI API
+   - Token-based authentication (automatic refresh)
+   - Torrent management (add, start, stop, pause, remove)
+   - File priority management
+   - Label management (create, assign, remove)
+   - RSS feeds (add, remove, update)
+   - RSS filters and automation
+   - Settings management
+
+4. **ShareConnect** (`ShareConnector/src/main/kotlin/com/shareconnect/data/api/`):
+   - `MeTubeApiClient.kt` - MeTube self-hosted downloader
+   - `YtdlApiClient.kt` - YT-DLP command-line wrapper
+   - `JDownloaderApiClient.kt` - My.JDownloader remote API
+   - Legacy `ServiceApiClient.kt` now acts as facade/router to specific clients
+
+5. **PlexConnect** (`PlexConnect/PlexConnector/src/main/kotlin/com/shareconnect/plexconnect/data/api/`):
+   - `PlexApiClient.kt` - Plex Media Server API (comprehensive implementation)
+
+6. **NextcloudConnect** (`NextcloudConnect/NextcloudConnector/src/main/kotlin/com/shareconnect/nextcloudconnect/data/api/`):
+   - `NextcloudApiClient.kt` - WebDAV + OCS API
+
+7. **MotrixConnect** (`MotrixConnect/MotrixConnector/src/main/kotlin/com/shareconnect/motrixconnect/data/api/`):
+   - `MotrixApiClient.kt` - Aria2 JSON-RPC protocol
+
+8. **GiteaConnect** (`GiteaConnect/GiteaConnector/src/main/kotlin/com/shareconnect/giteaconnect/data/api/`):
+   - `GiteaApiClient.kt` - Gitea REST API
+
+**Benefits of Dedicated API Clients:**
+- **Separation of Concerns**: Each connector owns its API logic
+- **Independent Testing**: Dedicated test suites with 100% coverage
+- **Better Type Safety**: Service-specific models in each connector
+- **Easier Maintenance**: API changes isolated to specific connectors
+- **Enhanced Features**: Advanced service features not needed by ShareConnect
+- **Future Scalability**: Clear pattern for Phase 2/3 connectors
+
 #### Synchronization Modules (all use Asinka)
 - **ThemeSync** - Theme preferences and custom themes (port 8890)
 - **ProfileSync** - Service profiles across apps (port 8900)

@@ -1,0 +1,204 @@
+package com.shareconnect.data.api
+
+import android.util.Log
+import com.google.gson.Gson
+import com.shareconnect.data.model.JDownloaderDevice
+import com.shareconnect.data.model.JDownloaderPackage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
+import java.util.concurrent.TimeUnit
+
+/**
+ * JDownloader My.JDownloader API client
+ * Remote download manager control
+ */
+class JDownloaderApiClient(
+    private val email: String,
+    private val password: String,
+    private val deviceId: String? = null
+) {
+    private val tag = "JDownloaderApiClient"
+    private val gson = Gson()
+
+    private val apiUrl = "https://api.jdownloader.org"
+    private var sessionToken: String? = null
+    private var regainToken: String? = null
+
+    private val okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        })
+        .build()
+
+    /**
+     * Connect to My.JDownloader
+     */
+    suspend fun connect(): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            val json = JSONObject().apply {
+                put("email", email)
+                put("password", password)
+            }
+
+            val requestBody = json.toString().toRequestBody("application/json".toMediaType())
+
+            val request = Request.Builder()
+                .url("$apiUrl/my/connect")
+                .post(requestBody)
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                val responseBody = response.body?.string()
+                response.close()
+
+                if (responseBody != null) {
+                    val jsonResponse = JSONObject(responseBody)
+                    sessionToken = jsonResponse.optString("sessiontoken")
+                    regainToken = jsonResponse.optString("regaintoken")
+                    Result.success(Unit)
+                } else {
+                    Result.failure(Exception("Empty response"))
+                }
+            } else {
+                response.close()
+                Result.failure(Exception("Connect failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error connecting", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * List devices
+     */
+    suspend fun listDevices(): Result<List<JDownloaderDevice>> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val request = Request.Builder()
+                .url("$apiUrl/my/listdevices")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .get()
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                val responseBody = response.body?.string()
+                response.close()
+
+                if (responseBody != null) {
+                    val devices = gson.fromJson(responseBody, Array<JDownloaderDevice>::class.java)
+                    Result.success(devices.toList())
+                } else {
+                    Result.success(emptyList())
+                }
+            } else {
+                response.close()
+                Result.failure(Exception("List devices failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error listing devices", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Add links to link grabber
+     */
+    suspend fun addLinks(links: List<String>): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val json = JSONObject().apply {
+                put("links", links.joinToString("\n"))
+            }
+
+            val requestBody = json.toString().toRequestBody("application/json".toMediaType())
+
+            val devicePath = if (deviceId != null) "/device/$deviceId" else ""
+            val request = Request.Builder()
+                .url("$apiUrl/my$devicePath/linkgrabberv2/addLinks")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .post(requestBody)
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                response.close()
+                Result.success(Unit)
+            } else {
+                response.close()
+                Result.failure(Exception("Add links failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error adding links", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Get download packages
+     */
+    suspend fun getPackages(): Result<List<JDownloaderPackage>> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val devicePath = if (deviceId != null) "/device/$deviceId" else ""
+            val request = Request.Builder()
+                .url("$apiUrl/my$devicePath/downloadsV2/queryPackages")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .post("{}".toRequestBody("application/json".toMediaType()))
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                val responseBody = response.body?.string()
+                response.close()
+
+                if (responseBody != null) {
+                    val packages = gson.fromJson(responseBody, Array<JDownloaderPackage>::class.java)
+                    Result.success(packages.toList())
+                } else {
+                    Result.success(emptyList())
+                }
+            } else {
+                response.close()
+                Result.failure(Exception("Get packages failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting packages", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Ensure connected (auto-connect if needed)
+     */
+    private suspend fun ensureConnected() {
+        if (sessionToken == null) {
+            val result = connect()
+            if (result.isFailure) {
+                throw result.exceptionOrNull() ?: Exception("Connection failed")
+            }
+        }
+    }
+
+    companion object {
+        private const val TAG = "JDownloaderApiClient"
+    }
+}
