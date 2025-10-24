@@ -43,6 +43,7 @@ class MediaListViewModel(
     private var currentOffset = 0
     private val pageSize = 50
     private var hasMoreItems = true
+    private val maxItemsInMemory = 500 // Limit to prevent excessive memory usage
 
     init {
         loadServerAndLibrary()
@@ -114,14 +115,24 @@ class MediaListViewModel(
 
                 refreshResult.fold(
                     onSuccess = { newItems ->
-                        if (refresh) {
-                            _mediaItems.value = newItems
+                        val currentItems = _mediaItems.value
+                        val combinedItems = if (refresh) {
+                            newItems
                         } else {
-                            _mediaItems.value = _mediaItems.value + newItems
+                            currentItems + newItems
                         }
 
+                        // Limit memory usage by keeping only the most recent items
+                        val limitedItems = if (combinedItems.size > maxItemsInMemory) {
+                            combinedItems.takeLast(maxItemsInMemory)
+                        } else {
+                            combinedItems
+                        }
+
+                        _mediaItems.value = limitedItems
+
                         currentOffset += newItems.size
-                        hasMoreItems = newItems.size >= pageSize
+                        hasMoreItems = newItems.size >= pageSize && limitedItems.size < maxItemsInMemory
                     },
                     onFailure = { error ->
                         _error.value = "Failed to load media items: ${error.message}"

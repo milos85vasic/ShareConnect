@@ -1,0 +1,90 @@
+id: "TC_PLEXCONNECT_AUTH_001"
+name: "Successful Plex.tv Authentication"
+description: "Test complete Plex.tv authentication flow"
+category: "UI_FLOW"
+priority: "CRITICAL"
+tags:
+  - "plexconnect"
+  - "authentication"
+  - "plex.tv"
+
+preconditions:
+  - "PlexConnect app is installed"
+  - "Plex server added and connection tested"
+  - "Valid Plex.tv account available"
+  - "Internet connection available"
+
+test_cases:
+  - name: "Complete Authentication Flow"
+    steps:
+      - step_number: 1
+        action: "launch_app"
+        description: "Launch PlexConnect application"
+        expected_outcome: "App opens to server list screen"
+      - step_number: 2
+        action: "tap"
+        description: "Select server requiring authentication"
+        target: "server_with_auth_required"
+        expected_outcome: "Authentication screen opens"
+      - step_number: 3
+        action: "verify"
+        description: "Verify authentication screen"
+        expected_outcome: "Shows 'Plex Authentication' title and 'Start Authentication' button"
+      - step_number: 4
+        action: "tap"
+        description: "Start authentication process"
+        target: "Start Authentication"
+        expected_outcome: "PIN request initiated"
+      - step_number: 5
+        action: "verify"
+        description: "Verify PIN display"
+        expected_outcome: "Shows PIN code and instructions"
+      - step_number: 6
+        action: "external_action"
+        description: "Complete authentication on plex.tv/link"
+        note: "Manual step: User must visit plex.tv/link and enter PIN"
+        expected_outcome: "Authentication completes on Plex.tv"
+      - step_number: 7
+        action: "wait"
+        description: "Wait for authentication completion"
+        duration: 10000
+        expected_outcome: "App detects successful authentication"
+      - step_number: 8
+        action: "verify"
+        description: "Verify authentication success"
+        expected_outcome: "Shows success message and navigates back to server list"
+      - step_number: 9
+        action: "verify"
+        description: "Verify server status updated"
+        expected_outcome: "Server shows 'Connected' status"
+
+  - name: "Authentication Timeout Handling"
+    steps:
+      - step_number: 1
+        action: "launch_app"
+        description: "Launch PlexConnect application"
+        expected_outcome: "App opens to server list screen"
+      - step_number: 2
+        action: "tap"
+        description: "Select server requiring authentication"
+        target: "server_with_auth_required"
+        expected_outcome: "Authentication screen opens"
+      - step_number: 3
+        action: "tap"
+        description: "Start authentication process"
+        target: "Start Authentication"
+        expected_outcome: "PIN request initiated"
+      - step_number: 4
+        action: "wait"
+        description: "Wait for PIN expiry"
+        duration: 300000  # 5 minutes
+        expected_outcome: "PIN expires"
+      - step_number: 5
+        action: "verify"
+        description: "Verify timeout handling"
+        expected_outcome: "Shows timeout error message"
+      - step_number: 6
+        action: "tap"
+        description: "Retry authentication"
+        target: "Try Again"
+        expected_outcome: "New PIN generated"

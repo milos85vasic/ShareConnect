@@ -18,6 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.shareconnect.plexconnect.di.DependencyContainer
+import com.shareconnect.plexconnect.ui.components.PlexImageLoader
 import com.shareconnect.plexconnect.ui.viewmodels.LibraryListViewModel
 import com.shareconnect.plexconnect.ui.viewmodels.LibraryListViewModelFactory
 import com.shareconnect.plexconnect.data.model.PlexLibrary
@@ -151,6 +152,7 @@ private fun LibraryCard(
                         model = imageUrl,
                         contentDescription = library.title,
                         contentScale = ContentScale.Crop,
+                        imageLoader = PlexImageLoader.getImageLoader(LocalContext.current),
                         modifier = Modifier.fillMaxSize()
                     )
                 } else {

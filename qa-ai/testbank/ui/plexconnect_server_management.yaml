@@ -1,0 +1,90 @@
+id: "TC_PLEXCONNECT_SERVER_001"
+name: "Add Plex Server Successfully"
+description: "Test adding a Plex Media Server with valid connection details"
+category: "UI_FLOW"
+priority: "CRITICAL"
+tags:
+  - "plexconnect"
+  - "server"
+  - "setup"
+
+preconditions:
+  - "PlexConnect app is installed"
+  - "Plex Media Server is running and accessible"
+  - "Valid server IP address and port available"
+
+test_cases:
+  - name: "Add Plex Server with Valid Details"
+    steps:
+      - step_number: 1
+        action: "launch_app"
+        description: "Launch PlexConnect application"
+        expected_outcome: "App opens to server list screen"
+      - step_number: 2
+        action: "verify"
+        description: "Verify empty state"
+        expected_outcome: "Shows 'No Plex Servers' message"
+      - step_number: 3
+        action: "tap"
+        description: "Tap Add Server button"
+        target: "Add Server"
+        expected_outcome: "Navigates to Add Plex Server screen"
+      - step_number: 4
+        action: "input_text"
+        description: "Enter server name"
+        target: "Server Name"
+        input: "Home Plex Server"
+        expected_outcome: "Server name field populated"
+      - step_number: 5
+        action: "input_text"
+        description: "Enter server address"
+        target: "Server Address"
+        input: "192.168.1.100"
+        expected_outcome: "Server address field populated"
+      - step_number: 6
+        action: "input_text"
+        description: "Enter server port"
+        target: "Port"
+        input: "32400"
+        expected_outcome: "Port field populated"
+      - step_number: 7
+        action: "tap"
+        description: "Tap Test Connection button"
+        target: "Test Connection"
+        expected_outcome: "Connection test initiated"
+      - step_number: 8
+        action: "wait"
+        description: "Wait for connection test"
+        duration: 5000
+        expected_outcome: "Connection test completes"
+      - step_number: 9
+        action: "verify"
+        description: "Verify server added successfully"
+        expected_outcome: "Server appears in server list with 'Authentication Required' status"
+
+  - name: "Add Server with Invalid Details"
+    steps:
+      - step_number: 1
+        action: "launch_app"
+        description: "Launch PlexConnect application"
+        expected_outcome: "App opens to server list screen"
+      - step_number: 2
+        action: "tap"
+        description: "Tap Add Server button"
+        target: "Add Server"
+        expected_outcome: "Navigates to Add Plex Server screen"
+      - step_number: 3
+        action: "input_text"
+        description: "Enter invalid server address"
+        target: "Server Address"
+        input: "invalid.server.address"
+        expected_outcome: "Invalid address entered"
+      - step_number: 4
+        action: "tap"
+        description: "Tap Test Connection button"
+        target: "Test Connection"
+        expected_outcome: "Connection test fails"
+      - step_number: 5
+        action: "verify"
+        description: "Verify error handling"
+        expected_outcome: "Error message displayed for connection failure"

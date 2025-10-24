@@ -12,6 +12,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -32,13 +33,10 @@ class AuthenticationViewModelTest {
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        mockAuthService = mockk()
+        mockAuthService = mockk(relaxed = true)
         mockAuthState = MutableStateFlow(PlexAuthService.AuthState.Idle)
         every { mockAuthService.authState } returns mockAuthState
         every { mockAuthService.isAuthenticating() } returns false
-        every { mockAuthService.startAuthentication() } just Runs
-        every { mockAuthService.cancelAuthentication() } just Runs
-        every { mockAuthService.reset() } just Runs
 
         viewModel = AuthenticationViewModel(mockAuthService)
     }
@@ -77,6 +75,7 @@ class AuthenticationViewModelTest {
 
         // When
         viewModel.startAuthentication()
+        advanceUntilIdle()
 
         // Then
         verify { mockAuthService.startAuthentication(any()) }

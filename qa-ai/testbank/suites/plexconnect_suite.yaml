@@ -1,0 +1,80 @@
+id: "TS_PLEXCONNECT_001"
+name: "PlexConnect Comprehensive Test Suite"
+description: "Complete test suite for Plex Media Server Android client functionality"
+
+test_cases:
+  # Server Management Tests
+  - "TC_PLEXCONNECT_SERVER_001"  # Add Plex server successfully
+  - "TC_PLEXCONNECT_SERVER_002"  # Add server with invalid details
+  - "TC_PLEXCONNECT_SERVER_003"  # Test server connection validation
+  - "TC_PLEXCONNECT_SERVER_004"  # Delete server from list
+  - "TC_PLEXCONNECT_SERVER_005"  # Edit server configuration
+
+  # Authentication Tests
+  - "TC_PLEXCONNECT_AUTH_001"    # Successful Plex.tv authentication
+  - "TC_PLEXCONNECT_AUTH_002"    # Authentication timeout handling
+  - "TC_PLEXCONNECT_AUTH_003"    # Invalid PIN handling
+  - "TC_PLEXCONNECT_AUTH_004"    # Network error during authentication
+  - "TC_PLEXCONNECT_AUTH_005"    # Cancel authentication flow
+
+  # Library Browsing Tests
+  - "TC_PLEXCONNECT_LIBRARY_001" # Browse movie libraries
+  - "TC_PLEXCONNECT_LIBRARY_002" # Browse TV show libraries
+  - "TC_PLEXCONNECT_LIBRARY_003" # Browse music libraries
+  - "TC_PLEXCONNECT_LIBRARY_004" # Browse photo libraries
+  - "TC_PLEXCONNECT_LIBRARY_005" # Handle empty libraries
+  - "TC_PLEXCONNECT_LIBRARY_006" # Library loading errors
+
+  # Media Playback Tests
+  - "TC_PLEXCONNECT_MEDIA_001"   # Play movie content
+  - "TC_PLEXCONNECT_MEDIA_002"   # Play TV episode
+  - "TC_PLEXCONNECT_MEDIA_003"   # Play music track
+  - "TC_PLEXCONNECT_MEDIA_004"   # View photo content
+  - "TC_PLEXCONNECT_MEDIA_005"   # Handle playback errors
+  - "TC_PLEXCONNECT_MEDIA_006"   # Resume playback position
+
+  # Navigation Tests
+  - "TC_PLEXCONNECT_NAV_001"     # Server list to library navigation
+  - "TC_PLEXCONNECT_NAV_002"     # Library to media detail navigation
+  - "TC_PLEXCONNECT_NAV_003"     # Back navigation consistency
+  - "TC_PLEXCONNECT_NAV_004"     # Settings navigation
+  - "TC_PLEXCONNECT_NAV_005"     # Deep linking support
+
+  # Settings Tests
+  - "TC_PLEXCONNECT_SETTINGS_001" # View settings screen
+  - "TC_PLEXCONNECT_SETTINGS_002" # Theme preference changes
+  - "TC_PLEXCONNECT_SETTINGS_003" # Connection timeout settings
+  - "TC_PLEXCONNECT_SETTINGS_004" # Cache management
+  - "TC_PLEXCONNECT_SETTINGS_005" # About information display
+
+  # Error Handling Tests
+  - "TC_PLEXCONNECT_ERROR_001"   # Server connection failure
+  - "TC_PLEXCONNECT_ERROR_002"   # Authentication token expiry
+  - "TC_PLEXCONNECT_ERROR_003"   # Network connectivity issues
+  - "TC_PLEXCONNECT_ERROR_004"   # Invalid server response
+  - "TC_PLEXCONNECT_ERROR_005"   # Memory/storage constraints
+
+  # Performance Tests
+  - "TC_PLEXCONNECT_PERF_001"    # Library loading performance
+  - "TC_PLEXCONNECT_PERF_002"    # Media browsing performance
+  - "TC_PLEXCONNECT_PERF_003"    # Image loading optimization
+  - "TC_PLEXCONNECT_PERF_004"    # Memory usage monitoring
+  - "TC_PLEXCONNECT_PERF_005"    # Battery consumption
+
+  # Multi-Server Tests
+  - "TC_PLEXCONNECT_MULTI_001"   # Switch between servers
+  - "TC_PLEXCONNECT_MULTI_002"   # Server preference persistence
+  - "TC_PLEXCONNECT_MULTI_003"   # Concurrent server connections
+  - "TC_PLEXCONNECT_MULTI_004"   # Server offline handling
+
+  # Data Persistence Tests
+  - "TC_PLEXCONNECT_DATA_001"    # Server configuration persistence
+  - "TC_PLEXCONNECT_DATA_002"    # Authentication state persistence
+  - "TC_PLEXCONNECT_DATA_003"    # Playback position persistence
+  - "TC_PLEXCONNECT_DATA_004"    # User preferences persistence
+
+  # Accessibility Tests
+  - "TC_PLEXCONNECT_ACCESS_001"  # Screen reader compatibility
+  - "TC_PLEXCONNECT_ACCESS_002"  # Keyboard navigation
+  - "TC_PLEXCONNECT_ACCESS_003"  # High contrast support
+  - "TC_PLEXCONNECT_ACCESS_004"  # Font scaling support

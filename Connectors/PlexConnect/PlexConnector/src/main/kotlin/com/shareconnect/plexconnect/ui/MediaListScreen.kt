@@ -22,6 +22,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.shareconnect.plexconnect.di.DependencyContainer
+import com.shareconnect.plexconnect.ui.components.PlexImageLoader
 import com.shareconnect.plexconnect.ui.viewmodels.MediaListViewModel
 import com.shareconnect.plexconnect.ui.viewmodels.MediaListViewModelFactory
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
@@ -189,6 +190,7 @@ private fun MediaCard(
                         model = imageUrl,
                         contentDescription = mediaItem.title,
                         contentScale = ContentScale.Crop,
+                        imageLoader = PlexImageLoader.getImageLoader(LocalContext.current),
                         modifier = Modifier.fillMaxSize()
                     )
                 } else {

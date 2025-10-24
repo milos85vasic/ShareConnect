@@ -18,6 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.shareconnect.plexconnect.di.DependencyContainer
+import com.shareconnect.plexconnect.ui.components.PlexImageLoader
 import com.shareconnect.plexconnect.ui.viewmodels.MediaDetailViewModel
 import com.shareconnect.plexconnect.ui.viewmodels.MediaDetailViewModelFactory
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
@@ -204,6 +205,7 @@ private fun MediaHeader(
                     model = imageUrl,
                     contentDescription = mediaItem.title,
                     contentScale = ContentScale.Crop,
+                    imageLoader = PlexImageLoader.getImageLoader(LocalContext.current),
                     modifier = Modifier.fillMaxSize()
                 )
             } else {
@@ -439,6 +441,7 @@ private fun ChildMediaCard(
                         model = imageUrl,
                         contentDescription = mediaItem.title,
                         contentScale = ContentScale.Crop,
+                        imageLoader = PlexImageLoader.getImageLoader(LocalContext.current),
                         modifier = Modifier.fillMaxSize()
                     )
                 } else {

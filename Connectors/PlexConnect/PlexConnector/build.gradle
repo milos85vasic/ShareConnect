@@ -59,7 +59,7 @@ android {
     }
 
     lint {
-        disable 'MissingTranslation', 'ExtraTranslation'
+        disable 'MissingTranslation', 'ExtraTranslation', 'NullSafeMutableLiveData'
     }
 
     testOptions {

@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.shareconnect.plexconnect.di.DependencyContainer
+import com.shareconnect.plexconnect.ui.components.PlexImageLoader
 import com.shareconnect.plexconnect.ui.viewmodels.SettingsViewModel
 import com.shareconnect.plexconnect.ui.viewmodels.SettingsViewModelFactory
 
@@ -85,6 +86,30 @@ fun SettingsScreen(navController: NavController) {
                         server = server,
                         onDelete = { viewModel.deleteServer(server) }
                     )
+                }
+            }
+
+            // Cache Management Section
+            item {
+                Spacer(modifier = Modifier.height(32.dp))
+                Text(
+                    text = "Cache Management",
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
+
+            item {
+                Button(
+                    onClick = { PlexImageLoader.clearCache(context) },
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.secondary
+                    )
+                ) {
+                    Icon(Icons.Default.CleaningServices, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text("Clear Image Cache")
                 }
             }
 
