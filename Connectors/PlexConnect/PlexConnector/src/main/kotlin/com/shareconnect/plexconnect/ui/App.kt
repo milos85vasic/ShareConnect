@@ -73,16 +73,10 @@ private val PlexDarkColorScheme = darkColorScheme(
 
 @Composable
 fun App() {
-    val viewModel = viewModel<AppViewModel>(
-        factory = AppViewModelFactory()
-    )
-
-    val uiState by viewModel.uiState.collectAsState()
     val isDarkTheme = isSystemInDarkTheme()
 
     MaterialTheme(
-        colorScheme = if (isDarkTheme) PlexDarkColorScheme else PlexLightColorScheme,
-        typography = PlexTypography
+        colorScheme = if (isDarkTheme) PlexDarkColorScheme else PlexLightColorScheme
     ) {
         Box(modifier = Modifier.testTag("plex_main_screen")) {
             AppNavigation()

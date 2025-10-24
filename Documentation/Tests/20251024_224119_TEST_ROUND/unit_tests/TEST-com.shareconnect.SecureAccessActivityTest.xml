@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.SecureAccessActivityTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-10-24T19:42:26.074Z" hostname="thinker" time="0.866">
+  <properties/>
+  <testcase name="testHashStringConsistency" classname="com.shareconnect.SecureAccessActivityTest" time="0.18"/>
+  <testcase name="testPasswordHashStorage" classname="com.shareconnect.SecureAccessActivityTest" time="0.328"/>
+  <testcase name="testSetAndGetAuthMethod" classname="com.shareconnect.SecureAccessActivityTest" time="0.061"/>
+  <testcase name="testPinAuthenticationFlow" classname="com.shareconnect.SecureAccessActivityTest" time="0.031"/>
+  <testcase name="testPinHashStorage" classname="com.shareconnect.SecureAccessActivityTest" time="0.045"/>
+  <testcase name="testSecureAccessInitiallyDisabled" classname="com.shareconnect.SecureAccessActivityTest" time="0.051"/>
+  <testcase name="testDisableSecureAccess" classname="com.shareconnect.SecureAccessActivityTest" time="0.031"/>
+  <testcase name="testEnableSecureAccess" classname="com.shareconnect.SecureAccessActivityTest" time="0.027"/>
+  <testcase name="testClearSecureData" classname="com.shareconnect.SecureAccessActivityTest" time="0.033"/>
+  <testcase name="testPasswordAuthenticationFlow" classname="com.shareconnect.SecureAccessActivityTest" time="0.035"/>
+  <testcase name="testBiometricEnabledStorage" classname="com.shareconnect.SecureAccessActivityTest" time="0.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

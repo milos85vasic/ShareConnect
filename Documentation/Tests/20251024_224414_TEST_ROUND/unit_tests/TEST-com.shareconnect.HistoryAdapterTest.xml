@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.HistoryAdapterTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2025-10-24T19:44:53.488Z" hostname="thinker" time="4.537">
+  <properties/>
+  <testcase name="getFormattedDuration returns correct formats" classname="com.shareconnect.HistoryAdapterTest" time="3.834"/>
+  <testcase name="button clicks trigger correct listener methods" classname="com.shareconnect.HistoryAdapterTest" time="0.062"/>
+  <testcase name="adapter can be instantiated with listener" classname="com.shareconnect.HistoryAdapterTest" time="0.045"/>
+  <testcase name="getFormattedFileSize returns correct formats" classname="com.shareconnect.HistoryAdapterTest" time="0.041"/>
+  <testcase name="history item contains comprehensive metadata for torrent content" classname="com.shareconnect.HistoryAdapterTest" time="0.068"/>
+  <testcase name="onBindViewHolder shows media details for video items" classname="com.shareconnect.HistoryAdapterTest" time="0.043"/>
+  <testcase name="torrent history item has comprehensive metadata for re-sharing" classname="com.shareconnect.HistoryAdapterTest" time="0.033"/>
+  <testcase name="history item handles null metadata gracefully" classname="com.shareconnect.HistoryAdapterTest" time="0.036"/>
+  <testcase name="getDisplayTitle returns title or URL fallback" classname="com.shareconnect.HistoryAdapterTest" time="0.038"/>
+  <testcase name="getTagsList parses comma separated tags correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.041"/>
+  <testcase name="updateHistoryItems updates adapter with new items" classname="com.shareconnect.HistoryAdapterTest" time="0.038"/>
+  <testcase name="history item contains comprehensive metadata for video content" classname="com.shareconnect.HistoryAdapterTest" time="0.035"/>
+  <testcase name="isTorrentHistory returns true for torrent types" classname="com.shareconnect.HistoryAdapterTest" time="0.047"/>
+  <testcase name="onBindViewHolder shows torrent details for torrent items" classname="com.shareconnect.HistoryAdapterTest" time="0.035"/>
+  <testcase name="onBindViewHolder handles null title with URL fallback" classname="com.shareconnect.HistoryAdapterTest" time="0.037"/>
+  <testcase name="adapter handles torrent history items correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.037"/>
+  <testcase name="onBindViewHolder binds video history item correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.064"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/tmp/byteBuddyAgent9679477229658965039.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

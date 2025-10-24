@@ -84,24 +84,9 @@ tasks.withType(Test) {
 dependencies {
     implementation project(':Asinka:asinka')
 
-    // Conditional dependencies - only include when building from main project
-    def isMainProjectBuild = gradle.startParameter.taskNames.any {
-        it.contains('assemble') || it.contains('build') || it.contains('test')
-    } && project.hasProperty('isMainProjectBuild')
-
-    if (isMainProjectBuild) {
-        // ShareConnect integration modules
-        implementation project(':DesignSystem')
-        implementation project(':Onboarding')
-        implementation project(':Toolkit:SecurityAccess')
-    } else {
-        // Standalone dependencies
-        implementation 'androidx.compose.material3:material3'
-        implementation 'androidx.navigation:navigation-compose:2.7.7'
-        implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2'
-        implementation 'androidx.datastore:datastore-preferences:1.1.1'
-        // Add other standalone dependencies as needed
-    }
+    // ShareConnect integration modules
+    implementation project(':DesignSystem')
+    implementation project(':Onboarding')
 
     def androidxLifecycleVersion = '2.9.4'
     def composeNavigationVersion = '2.9.0-beta03'
