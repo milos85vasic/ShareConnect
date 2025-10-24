@@ -1,0 +1,545 @@
+package com.shareconnect.plexconnect.ui
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import coil.compose.AsyncImage
+import com.shareconnect.plexconnect.di.DependencyContainer
+import com.shareconnect.plexconnect.ui.viewmodels.MediaDetailViewModel
+import com.shareconnect.plexconnect.ui.viewmodels.MediaDetailViewModelFactory
+import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import kotlin.time.Duration.Companion.milliseconds
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MediaDetailScreen(navController: NavController, serverId: Long, ratingKey: String) {
+    val context = LocalContext.current
+    val serverRepository = remember { DependencyContainer.plexServerRepository }
+    val mediaRepository = remember { DependencyContainer.plexMediaRepository }
+
+    val viewModel: MediaDetailViewModel = viewModel(
+        factory = MediaDetailViewModelFactory(
+            serverRepository,
+            mediaRepository,
+            serverId,
+            ratingKey
+        )
+    )
+
+    val isLoading by viewModel.isLoading.collectAsState()
+    val error by viewModel.error.collectAsState()
+    val server by viewModel.server.collectAsState()
+    val mediaItem by viewModel.mediaItem.collectAsState()
+    val children by viewModel.children.collectAsState()
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(mediaItem?.title ?: "Media Details")
+                },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                    }
+                }
+            )
+        }
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+        ) {
+            when {
+                isLoading -> {
+                    CircularProgressIndicator(
+                        modifier = Modifier.align(Alignment.Center)
+                    )
+                }
+                error != null -> {
+                    ErrorScreen(
+                        error = error!!,
+                        onRetry = { viewModel.loadMediaDetails() }
+                    )
+                }
+                mediaItem == null -> {
+                    EmptyStateScreen(
+                        title = "Media Not Found",
+                        message = "The requested media item could not be found.",
+                        onAction = { navController.popBackStack() },
+                        actionText = "Go Back"
+                    )
+                }
+                else -> {
+                    MediaDetailContent(
+                        mediaItem = mediaItem!!,
+                        children = children,
+                        server = server,
+                        onChildClick = { child ->
+                            navController.navigate("media_detail/$serverId/${child.ratingKey}")
+                        },
+                        onMarkPlayed = { viewModel.markAsPlayed() },
+                        onMarkUnplayed = { viewModel.markAsUnplayed() },
+                        onUpdateProgress = { progress -> viewModel.updateProgress(progress) }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MediaDetailContent(
+    mediaItem: PlexMediaItem,
+    children: List<PlexMediaItem>,
+    server: com.shareconnect.plexconnect.data.model.PlexServer?,
+    onChildClick: (PlexMediaItem) -> Unit,
+    onMarkPlayed: () -> Unit,
+    onMarkUnplayed: () -> Unit,
+    onUpdateProgress: (Long) -> Unit
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        // Media poster and basic info
+        item {
+            MediaHeader(
+                mediaItem = mediaItem,
+                server = server
+            )
+        }
+
+        // Action buttons
+        item {
+            MediaActions(
+                mediaItem = mediaItem,
+                onMarkPlayed = onMarkPlayed,
+                onMarkUnplayed = onMarkUnplayed,
+                onUpdateProgress = onUpdateProgress
+            )
+        }
+
+        // Media details
+        item {
+            MediaDetails(mediaItem = mediaItem)
+        }
+
+        // Summary
+        mediaItem.summary?.let { summary ->
+            item {
+                MediaSummary(summary = summary)
+            }
+        }
+
+        // Children (for shows, seasons, albums)
+        if (children.isNotEmpty()) {
+            item {
+                Text(
+                    text = when (mediaItem.type.value) {
+                        "show" -> "Seasons"
+                        "season" -> "Episodes"
+                        "album" -> "Tracks"
+                        "artist" -> "Albums"
+                        else -> "Contents"
+                    },
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+
+            item {
+                LazyRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(vertical = 8.dp)
+                ) {
+                    items(children) { child ->
+                        ChildMediaCard(
+                            mediaItem = child,
+                            server = server,
+                            onClick = { onChildClick(child) }
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MediaHeader(
+    mediaItem: PlexMediaItem,
+    server: com.shareconnect.plexconnect.data.model.PlexServer?
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        // Poster
+        Box(
+            modifier = Modifier
+                .width(120.dp)
+                .aspectRatio(0.67f),
+            contentAlignment = Alignment.Center
+        ) {
+            val posterUrl = mediaItem.thumb?.takeIf { it.isNotBlank() }
+
+            if (posterUrl != null && server != null) {
+                val imageUrl = "${server.baseUrl}$posterUrl?X-Plex-Token=${server.token}"
+                AsyncImage(
+                    model = imageUrl,
+                    contentDescription = mediaItem.title,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+            } else {
+                Surface(
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Movie,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(48.dp)
+                            .align(Alignment.Center),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+        }
+
+        // Title and basic info
+        Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            Text(
+                text = mediaItem.title,
+                style = MaterialTheme.typography.headlineSmall
+            )
+
+            mediaItem.originalTitle?.let { originalTitle ->
+                if (originalTitle != mediaItem.title) {
+                    Text(
+                        text = originalTitle,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            mediaItem.year?.let { year ->
+                Text(
+                    text = year.toString(),
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+
+            mediaItem.duration?.let { duration ->
+                val durationText = formatDuration(duration)
+                Text(
+                    text = durationText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            // Watched status
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                if (mediaItem.isWatched) {
+                    Icon(
+                        imageVector = Icons.Default.CheckCircle,
+                        contentDescription = "Watched",
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Text(
+                        text = "Watched",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                } else if (mediaItem.isPartiallyWatched) {
+                    Icon(
+                        imageVector = Icons.Default.PlayArrow,
+                        contentDescription = "In Progress",
+                        tint = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.size(16.dp)
+                    )
+                    Text(
+                        text = "${mediaItem.progressPercentage.toInt()}% watched",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MediaActions(
+    mediaItem: PlexMediaItem,
+    onMarkPlayed: () -> Unit,
+    onMarkUnplayed: () -> Unit,
+    onUpdateProgress: (Long) -> Unit
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        if (mediaItem.isWatched) {
+            OutlinedButton(
+                onClick = onMarkUnplayed,
+                modifier = Modifier.weight(1f)
+            ) {
+                Icon(Icons.Default.Replay, contentDescription = null)
+                Spacer(modifier = Modifier.width(4.dp))
+                Text("Mark Unplayed")
+            }
+        } else {
+            Button(
+                onClick = onMarkPlayed,
+                modifier = Modifier.weight(1f)
+            ) {
+                Icon(Icons.Default.Check, contentDescription = null)
+                Spacer(modifier = Modifier.width(4.dp))
+                Text("Mark Played")
+            }
+        }
+
+        // Progress update buttons (simplified for demo)
+        if (mediaItem.duration != null && mediaItem.duration > 0) {
+            OutlinedButton(
+                onClick = { onUpdateProgress(mediaItem.duration / 2) },
+                modifier = Modifier.weight(1f)
+            ) {
+                Text("50% Progress")
+            }
+        }
+    }
+}
+
+@Composable
+private fun MediaDetails(mediaItem: PlexMediaItem) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        // Rating
+        mediaItem.rating?.let { rating ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Star,
+                    contentDescription = "Rating",
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.size(16.dp)
+                )
+                Text(
+                    text = "%.1f".format(rating),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        }
+
+        // Genres
+        if (mediaItem.genres.isNotEmpty()) {
+            Text(
+                text = "Genres: ${mediaItem.genres.joinToString(", ")}",
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+
+        // Directors
+        if (mediaItem.directors.isNotEmpty()) {
+            Text(
+                text = "Directed by: ${mediaItem.directors.joinToString(", ")}",
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+
+        // Studio
+        mediaItem.studio?.let { studio ->
+            Text(
+                text = "Studio: $studio",
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+
+        // Content rating
+        mediaItem.contentRating?.let { rating ->
+            Text(
+                text = "Rated: $rating",
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+    }
+}
+
+@Composable
+private fun MediaSummary(summary: String) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Text(
+            text = "Summary",
+            style = MaterialTheme.typography.titleMedium
+        )
+        Text(
+            text = summary,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ChildMediaCard(
+    mediaItem: PlexMediaItem,
+    server: com.shareconnect.plexconnect.data.model.PlexServer?,
+    onClick: () -> Unit
+) {
+    Card(
+        onClick = onClick,
+        modifier = Modifier.width(140.dp)
+    ) {
+        Column {
+            // Thumbnail
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1.5f),
+                contentAlignment = Alignment.Center
+            ) {
+                val thumbUrl = mediaItem.thumb?.takeIf { it.isNotBlank() }
+
+                if (thumbUrl != null && server != null) {
+                    val imageUrl = "${server.baseUrl}$thumbUrl?X-Plex-Token=${server.token}"
+                    AsyncImage(
+                        model = imageUrl,
+                        contentDescription = mediaItem.title,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                } else {
+                    Surface(
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Image,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .size(32.dp)
+                                .align(Alignment.Center),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+
+            // Title
+            Text(
+                text = mediaItem.title,
+                style = MaterialTheme.typography.titleSmall,
+                modifier = Modifier.padding(8.dp),
+                maxLines = 2
+            )
+        }
+    }
+}
+
+private fun formatDuration(milliseconds: Long): String {
+    val duration = milliseconds.milliseconds
+    val hours = duration.inWholeHours
+    val minutes = duration.inWholeMinutes % 60
+
+    return when {
+        hours > 0 -> "${hours}h ${minutes}m"
+        else -> "${minutes}m"
+    }
+}
+
+@Composable
+private fun EmptyStateScreen(
+    title: String,
+    message: String,
+    onAction: () -> Unit,
+    actionText: String
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(modifier = Modifier.height(32.dp))
+        Button(onClick = onAction) {
+            Text(actionText)
+        }
+    }
+}
+
+@Composable
+private fun ErrorScreen(
+    error: String,
+    onRetry: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Error",
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.error
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = error,
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Spacer(modifier = Modifier.height(32.dp))
+        Button(onClick = onRetry) {
+            Text("Retry")
+        }
+    }
+}

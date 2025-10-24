@@ -1,6 +1,7 @@
 package com.shareconnect.plexconnect.data.repository
 
 import com.shareconnect.plexconnect.data.api.PlexApiClient
+import com.shareconnect.plexconnect.data.api.PlexServerInfo
 import com.shareconnect.plexconnect.data.database.dao.PlexServerDao
 import com.shareconnect.plexconnect.data.model.PlexServer
 import kotlinx.coroutines.flow.Flow
@@ -54,6 +55,14 @@ class PlexServerRepository(
                     Result.failure(error)
                 }
             )
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun testServerConnection(server: PlexServer): Result<PlexServerInfo> {
+        return try {
+            apiClient.getServerInfo(server.baseUrl)
         } catch (e: Exception) {
             Result.failure(e)
         }

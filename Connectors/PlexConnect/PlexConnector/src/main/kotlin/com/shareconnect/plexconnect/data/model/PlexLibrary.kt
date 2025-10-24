@@ -22,7 +22,10 @@ data class PlexLibrary(
     val content: Boolean = true,
     val directory: Boolean = true,
     val contentChangedAt: Long? = null,
-    val hidden: Int = 0
+    val hidden: Int = 0,
+    val art: String = "",
+    val composite: String = "",
+    val thumb: String = ""
 )
 
 enum class LibraryType(val value: String) {
