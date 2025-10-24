@@ -89,6 +89,17 @@ class SecurityAccessManagerTest {
     }
 
     @Test
+    fun testAuthenticationWithValidPin() = runBlocking {
+        // Enable security first
+        securityAccessManager.enableSecurity(AccessMethod.PIN)
+
+        // Try to authenticate with valid PIN (test PIN)
+        val result = securityAccessManager.authenticate(AccessMethod.PIN, "1234")
+        assertTrue(result is SecurityAccessManager.AuthenticationResult.Success)
+        assertEquals(0, securityAccessManager.failedAttempts.value)
+    }
+
+    @Test
     fun testSessionTimeout() = runBlocking {
         // Enable security
         securityAccessManager.enableSecurity(AccessMethod.PIN)

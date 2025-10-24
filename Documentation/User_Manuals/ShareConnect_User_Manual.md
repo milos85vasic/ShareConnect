@@ -1,4 +1,4 @@
-# ShareConnector User Manual
+# ShareConnect User Manual
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -14,7 +14,7 @@
 
 ## Introduction
 
-ShareConnector is the central hub of the ShareConnect ecosystem, enabling seamless content sharing between various self-hosted services and torrent clients. With ShareConnector, you can easily share URLs, files, and media across multiple platforms with just a few taps.
+ShareConnect is the central hub of the ShareConnect ecosystem, enabling seamless content sharing between various self-hosted services and torrent clients. With ShareConnect, you can easily share URLs, files, and media across multiple platforms with just a few taps.
 
 ### Key Features
 - **Universal Content Sharing**: Share URLs from any app to supported services
@@ -27,13 +27,13 @@ ShareConnector is the central hub of the ShareConnect ecosystem, enabling seamle
 
 ### From Google Play Store
 1. Open Google Play Store on your Android device
-2. Search for "ShareConnector"
+2. Search for "ShareConnect"
 3. Tap "Install"
 4. Wait for installation to complete
 5. Open the app
 
 ### From APK (Side Loading)
-1. Download the latest APK from the [GitHub Releases](https://github.com/shareconnector/shareconnector/releases)
+1. Download the latest APK from the [GitHub Releases](https://github.com/shareconnect/shareconnect/releases)
 2. Enable "Install from unknown sources" in your device settings
 3. Locate the downloaded APK file
 4. Tap the file and follow installation prompts
@@ -42,7 +42,7 @@ ShareConnector is the central hub of the ShareConnect ecosystem, enabling seamle
 ## Getting Started
 
 ### First Launch
-1. Open ShareConnector after installation
+1. Open ShareConnect after installation
 2. Complete the onboarding process:
    - Grant necessary permissions
    - Set up security preferences
@@ -50,7 +50,7 @@ ShareConnector is the central hub of the ShareConnect ecosystem, enabling seamle
 3. You'll see the main screen with options to add profiles
 
 ### Granting Permissions
-ShareConnector requires the following permissions:
+ShareConnect requires the following permissions:
 - **Internet Access**: For connecting to services
 - **Storage Access**: For handling file downloads
 - **Notification Access**: For download notifications
@@ -59,7 +59,7 @@ ShareConnector requires the following permissions:
 ## Features
 
 ### Content Sharing
-ShareConnector supports sharing various types of content:
+ShareConnect supports sharing various types of content:
 
 #### Streaming Services (1800+ sites)
 - YouTube, Vimeo, Twitch, TikTok
@@ -82,7 +82,7 @@ ShareConnector supports sharing various types of content:
 - DLC, RSDF, CCF containers (JDownloader)
 
 ### Smart URL Detection
-ShareConnector automatically detects URL types and suggests the most appropriate service for handling them.
+ShareConnect automatically detects URL types and suggests the most appropriate service for handling them.
 
 ## Profile Management
 
@@ -117,7 +117,7 @@ Profiles automatically sync across devices when:
 ### Basic Sharing
 1. Find content you want to share (URL, file, etc.)
 2. Use the Android "Share" function
-3. Select "ShareConnector" from the share menu
+3. Select "ShareConnect" from the share menu
 4. Choose the destination profile
 5. Confirm the action
 
@@ -226,30 +226,30 @@ Profiles automatically sync across devices when:
 ## FAQ
 
 ### General Questions
-**Q: Is ShareConnector free?**
-A: Yes, ShareConnector is completely free and open-source.
+**Q: Is ShareConnect free?**
+A: Yes, ShareConnect is completely free and open-source.
 
 **Q: What Android version is required?**
 A: Android 5.0 (API level 21) or higher.
 
-**Q: Does ShareConnector collect personal data?**
+**Q: Does ShareConnect collect personal data?**
 A: No, all data is stored locally on your device.
 
 ### Technical Questions
 **Q: How many profiles can I create?**
 A: There's no limit to the number of profiles.
 
-**Q: Can I use ShareConnector without internet?**
+**Q: Can I use ShareConnect without internet?**
 A: Basic features work offline, but sharing requires internet.
 
-**Q: Does ShareConnector support VPN connections?**
+**Q: Does ShareConnect support VPN connections?**
 A: Yes, VPN connections are fully supported.
 
 ### Privacy and Security
 **Q: Are my credentials secure?**
 A: Yes, all credentials are encrypted using Android Keystore.
 
-**Q: Can ShareConnector access my files?**
+**Q: Can ShareConnect access my files?**
 A: Only files in designated download directories.
 
 **Q: Is my sharing history private?**
@@ -258,16 +258,16 @@ A: Yes, history is stored locally and optionally synced.
 ## Support
 
 ### Getting Help
-- **Documentation**: [Online Manual](https://shareconnector.org/docs)
-- **Community**: [GitHub Discussions](https://github.com/shareconnector/shareconnector/discussions)
-- **Issues**: [Bug Reports](https://github.com/shareconnector/shareconnector/issues)
-- **Email**: support@shareconnector.org
+- **Documentation**: [Online Manual](https://shareconnect.org/docs)
+- **Community**: [GitHub Discussions](https://github.com/shareconnect/shareconnect/discussions)
+- **Issues**: [Bug Reports](https://github.com/shareconnect/shareconnect/issues)
+- **Email**: support@shareconnect.org
 
 ### Contributing
-We welcome contributions! See our [Contributing Guide](https://github.com/shareconnector/shareconnector/blob/main/CONTRIBUTING.md) for details.
+We welcome contributions! See our [Contributing Guide](https://github.com/shareconnect/shareconnect/blob/main/CONTRIBUTING.md) for details.
 
 ### Version History
-See the [CHANGELOG.md](https://github.com/shareconnector/shareconnector/blob/main/CHANGELOG.md) for detailed version information.
+See the [CHANGELOG.md](https://github.com/shareconnect/shareconnect/blob/main/CHANGELOG.md) for detailed version information.
 
 ---
 
@@ -275,4 +275,4 @@ See the [CHANGELOG.md](https://github.com/shareconnector/shareconnector/blob/mai
 **Last Updated**: October 24, 2025  
 **License**: MIT License
 
-For the most up-to-date information, visit our [website](https://shareconnector.org).
+For the most up-to-date information, visit our [website](https://shareconnect.org).

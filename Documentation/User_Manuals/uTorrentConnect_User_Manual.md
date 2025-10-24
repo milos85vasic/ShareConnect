@@ -1,4 +1,4 @@
-# TransmissionConnect User Manual
+# uTorrentConnect User Manual
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -14,10 +14,10 @@
 
 ## Introduction
 
-TransmissionConnect is a native Android client for Transmission torrent daemon, providing comprehensive remote management capabilities. With TransmissionConnect, you can control your Transmission server from anywhere using your Android device.
+uTorrentConnect is a native Android client for uTorrent, providing comprehensive remote management capabilities. With uTorrentConnect, you can control your uTorrent client from anywhere using your Android device.
 
 ### Key Features
-- **Remote Torrent Management**: Full control over Transmission daemon
+- **Remote Torrent Management**: Full control over uTorrent client
 - **Real-time Updates**: Live torrent status and statistics
 - **File Management**: Browse and manage downloaded files
 - **Multiple Torrent Sources**: Support for torrents, magnets, and links
@@ -28,19 +28,19 @@ TransmissionConnect is a native Android client for Transmission torrent daemon, 
 
 ### From Google Play Store
 1. Open Google Play Store
-2. Search for "TransmissionConnect"
+2. Search for "uTorrentConnect"
 3. Tap "Install"
 4. Wait for installation to complete
 5. Open the app
 
 ### From F-Droid
 1. Open F-Droid app store
-2. Search for "TransmissionConnect"
+2. Search for "uTorrentConnect"
 3. Tap "Install"
 4. Follow installation prompts
 
 ### From APK
-1. Download the latest APK from [GitHub Releases](https://github.com/shareconnect/transmissionconnect/releases)
+1. Download the latest APK from [GitHub Releases](https://github.com/shareconnect/utorrentconnect/releases)
 2. Enable "Install from unknown sources"
 3. Install the APK file
 4. Grant necessary permissions
@@ -48,7 +48,7 @@ TransmissionConnect is a native Android client for Transmission torrent daemon, 
 ## Getting Started
 
 ### First Launch
-1. Open TransmissionConnect after installation
+1. Open uTorrentConnect after installation
 2. Complete the onboarding process:
    - Grant storage permissions
    - Set up security preferences
@@ -80,7 +80,7 @@ TransmissionConnect is a native Android client for Transmission torrent daemon, 
 5. Save the profile
 
 ### Transmission Server Setup
-Before using TransmissionConnect, ensure your Transmission daemon is configured:
+Before using uTorrentConnect, ensure your Transmission daemon is configured:
 
 #### Enable Remote Access
 1. Open Transmission settings file (`settings.json`)
@@ -104,7 +104,7 @@ Before using TransmissionConnect, ensure your Transmission daemon is configured:
 - Keep Transmission updated
 
 ### Connection Types
-TransmissionConnect supports various connection scenarios:
+uTorrentConnect supports various connection scenarios:
 
 #### Local Network
 - Use local IP address (192.168.x.x, 10.x.x.x)
@@ -124,12 +124,12 @@ TransmissionConnect supports various connection scenarios:
 ## Torrent Management
 
 ### Adding Torrents
-TransmissionConnect supports multiple methods to add torrents:
+uTorrentConnect supports multiple methods to add torrents:
 
 #### From Share Menu
 1. Find a torrent file or magnet link
 2. Use Android "Share" function
-3. Select "TransmissionConnect"
+3. Select "uTorrentConnect"
 4. Configure download options:
    - **Download Directory**: Where to save files
    - **Priority**: High/Normal/Low
@@ -375,8 +375,8 @@ Track your torrent activity:
 ## FAQ
 
 ### General Questions
-**Q: Is TransmissionConnect free?**
-A: Yes, TransmissionConnect is completely free and open-source.
+**Q: Is uTorrentConnect free?**
+A: Yes, uTorrentConnect is completely free and open-source.
 
 **Q: What Transmission versions are supported?**
 A: Works with Transmission 2.80 and later.
@@ -388,10 +388,10 @@ A: Yes, you can add unlimited server profiles.
 **Q: What is the default RPC port?**
 A: The default RPC port is 9091.
 
-**Q: Does TransmissionConnect work without internet?**
+**Q: Does uTorrentConnect work without internet?**
 A: Only if your Transmission server is on the same local network.
 
-**Q: Can I use TransmissionConnect with a VPN?**
+**Q: Can I use uTorrentConnect with a VPN?**
 A: Yes, VPN connections are fully supported.
 
 ### Configuration Questions
@@ -411,13 +411,13 @@ A: Only if they can bypass the security authentication (PIN/biometrics).
 ## Support
 
 ### Getting Help
-- **Documentation**: [Online Manual](https://shareconnect.org/docs/transmissionconnect)
-- **Community**: [GitHub Discussions](https://github.com/shareconnect/transmissionconnect/discussions)
-- **Issues**: [Bug Reports](https://github.com/shareconnect/transmissionconnect/issues)
+- **Documentation**: [Online Manual](https://shareconnect.org/docs/utorrentconnect)
+- **Community**: [GitHub Discussions](https://github.com/shareconnect/utorrentconnect/discussions)
+- **Issues**: [Bug Reports](https://github.com/shareconnect/utorrentconnect/issues)
 - **Transmission**: [Official Website](https://transmissionbt.com/)
 
 ### Contributing
-We welcome contributions! See our [Contributing Guide](https://github.com/shareconnect/transmissionconnect/blob/main/CONTRIBUTING.md).
+We welcome contributions! See our [Contributing Guide](https://github.com/shareconnect/utorrentconnect/blob/main/CONTRIBUTING.md).
 
 ### Related Projects
 - **ShareConnector**: Main sharing hub application

@@ -1,0 +1,1401 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.7.3) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+
+> Task :Toolkit:JCommons:compileJava
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes
+> Task :Toolkit:JCommons:jar
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues
+> Task :BookmarkSync:generateDebugResources
+> Task :BookmarkSync:packageDebugResources
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:parseDebugLocalResources
+> Task :Asinka:asinka:generateDebugBuildConfig
+> Task :Asinka:asinka:extractDebugProto
+> Task :BookmarkSync:generateDebugRFile
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:extractProto
+> Task :Asinka:asinka:generateDebugProto
+> Task :Asinka:asinka:generateDebugResValues
+> Task :Asinka:asinka:generateDebugResources
+> Task :Asinka:asinka:packageDebugResources
+> Task :Asinka:asinka:parseDebugLocalResources
+> Task :Asinka:asinka:javaPreCompileDebug
+> Task :Asinka:asinka:generateDebugRFile
+> Task :BookmarkSync:javaPreCompileDebug
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig
+> Task :DesignSystem:generateDebugResValues
+> Task :DesignSystem:generateDebugResources
+> Task :DesignSystem:packageDebugResources
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig
+> Task :DesignSystem:parseDebugLocalResources
+> Task :ThemeSync:generateDebugResValues
+> Task :ThemeSync:generateDebugResources
+> Task :DesignSystem:generateDebugRFile
+> Task :ThemeSync:packageDebugResources
+> Task :ThemeSync:parseDebugLocalResources
+> Task :ThemeSync:javaPreCompileDebug
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :DesignSystem:javaPreCompileDebug
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile
+> Task :HistorySync:generateDebugResValues
+> Task :HistorySync:generateDebugResources
+> Task :HistorySync:packageDebugResources
+> Task :HistorySync:parseDebugLocalResources
+> Task :HistorySync:javaPreCompileDebug
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues
+> Task :HistorySync:generateDebugRFile
+> Task :LanguageSync:generateDebugResources
+> Task :LanguageSync:packageDebugResources
+> Task :LanguageSync:parseDebugLocalResources
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResValues
+> Task :LanguageSync:javaPreCompileDebug
+> Task :LanguageSync:generateDebugRFile
+> Task :Localizations:generateDebugResources
+> Task :Localizations:packageDebugResources
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Localizations:javaPreCompileDebug
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources
+> Task :Onboarding:generateDebugBuildConfig
+> Task :Onboarding:generateDebugResValues
+> Task :Localizations:generateDebugRFile
+> Task :Onboarding:generateDebugResources
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :Onboarding:packageDebugResources
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :Onboarding:parseDebugLocalResources
+> Task :ProfileSync:generateDebugBuildConfig
+> Task :ProfileSync:generateDebugResValues
+> Task :ProfileSync:generateDebugResources
+> Task :Onboarding:generateDebugRFile
+> Task :ProfileSync:packageDebugResources
+> Task :ProfileSync:parseDebugLocalResources
+> Task :ProfileSync:javaPreCompileDebug
+> Task :ProfileSync:generateDebugRFile
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:javaPreCompileDebug
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:generateDebugResValues
+> Task :PreferencesSync:generateDebugResources
+> Task :PreferencesSync:packageDebugResources
+> Task :PreferencesSync:parseDebugLocalResources
+> Task :PreferencesSync:javaPreCompileDebug
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:generateDebugRFile
+> Task :RSSSync:generateDebugResValues
+> Task :RSSSync:generateDebugResources
+> Task :RSSSync:packageDebugResources
+> Task :RSSSync:parseDebugLocalResources
+> Task :RSSSync:javaPreCompileDebug
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:generateDebugRFile
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :BookmarkSync:compileDebugLibraryResources
+> Task :DesignSystem:compileDebugLibraryResources
+> Task :HistorySync:compileDebugLibraryResources
+> Task :LanguageSync:compileDebugLibraryResources
+> Task :Localizations:compileDebugLibraryResources
+> Task :Onboarding:compileDebugLibraryResources
+> Task :PreferencesSync:compileDebugLibraryResources
+> Task :ProfileSync:compileDebugLibraryResources
+> Task :RSSSync:compileDebugLibraryResources
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :HistorySync:writeDebugAarMetadata
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :Localizations:writeDebugAarMetadata
+> Task :Onboarding:writeDebugAarMetadata
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata
+> Task :Tests:writeDebugAarMetadata
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Toolkit:SecurityAccess:preBuild UP-TO-DATE
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Toolkit:SecurityAccess:preDebugBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:writeDebugAarMetadata
+> Task :ShareConnector:generateDebugResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug
+> Task :ShareConnector:processDebugGoogleServices
+> Task :Tests:generateDebugResValues
+> Task :Tests:generateDebugResources
+> Task :ShareConnector:checkDebugAarMetadata
+> Task :Tests:packageDebugResources
+> Task :TorrentSharingSync:generateDebugResValues
+> Task :TorrentSharingSync:generateDebugResources
+> Task :TorrentSharingSync:packageDebugResources
+> Task :Toolkit:Analytics:generateDebugResValues
+> Task :Toolkit:Analytics:generateDebugResources
+> Task :Toolkit:Analytics:packageDebugResources
+> Task :Toolkit:Main:generateDebugResValues
+> Task :Toolkit:Main:generateDebugResources
+> Task :Toolkit:Main:packageDebugResources
+> Task :Toolkit:SecurityAccess:generateDebugResValues
+> Task :Toolkit:SecurityAccess:generateDebugResources
+> Task :Toolkit:SecurityAccess:packageDebugResources
+> Task :ShareConnector:mapDebugSourceSetPaths
+> Task :ShareConnector:generateDebugResources
+> Task :Asinka:asinka:kspDebugKotlin
+> Task :ShareConnector:packageDebugResources
+> Task :ShareConnector:createDebugCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksDebug
+> Task :DesignSystem:extractDeepLinksDebug
+
+> Task :BookmarkSync:processDebugManifest
+package="com.shareconnect.bookmarksync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/BookmarkSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.bookmarksync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/BookmarkSync/src/main/AndroidManifest.xml.
+
+> Task :HistorySync:extractDeepLinksDebug
+> Task :DesignSystem:processDebugManifest
+> Task :LanguageSync:extractDeepLinksDebug
+
+> Task :HistorySync:processDebugManifest
+package="com.shareconnect.historysync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/HistorySync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.historysync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/HistorySync/src/main/AndroidManifest.xml.
+
+> Task :Localizations:extractDeepLinksDebug
+> Task :LanguageSync:processDebugManifest
+> Task :ShareConnector:parseDebugLocalResources
+> Task :Onboarding:extractDeepLinksDebug
+> Task :Localizations:processDebugManifest
+> Task :PreferencesSync:extractDeepLinksDebug
+> Task :Onboarding:processDebugManifest
+> Task :ProfileSync:extractDeepLinksDebug
+
+> Task :PreferencesSync:processDebugManifest
+package="com.shareconnect.preferencessync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/PreferencesSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.preferencessync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/PreferencesSync/src/main/AndroidManifest.xml.
+
+> Task :RSSSync:extractDeepLinksDebug
+> Task :ProfileSync:processDebugManifest
+> Task :ShareConnector:extractDeepLinksDebug
+> Task :Tests:extractDeepLinksDebug
+
+> Task :RSSSync:processDebugManifest
+package="com.shareconnect.rsssync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/RSSSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.rsssync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/RSSSync/src/main/AndroidManifest.xml.
+
+> Task :ThemeSync:extractDeepLinksDebug
+
+> Task :Tests:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksDebug
+> Task :ThemeSync:processDebugManifest
+> Task :Asinka:asinka:extractDeepLinksDebug
+
+> Task :TorrentSharingSync:processDebugManifest
+package="com.shareconnect.torrentsharingsync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.torrentsharingsync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Analytics:extractDeepLinksDebug
+
+> Task :Asinka:asinka:processDebugManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksDebug
+> Task :Toolkit:Analytics:processDebugManifest
+> Task :Toolkit:SecurityAccess:extractDeepLinksDebug
+
+> Task :Toolkit:Main:processDebugManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :Toolkit:SecurityAccess:processDebugManifest
+package="digital.vasic.security.access" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.security.access" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/AndroidManifest.xml.
+
+> Task :Tests:compileDebugLibraryResources
+> Task :ShareConnector:mergeDebugResources
+
+> Task :ShareConnector:processDebugMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :ShareConnector:processDebugManifest
+> Task :Tests:parseDebugLocalResources
+> Task :ThemeSync:compileDebugLibraryResources
+> Task :TorrentSharingSync:compileDebugLibraryResources
+> Task :Tests:generateDebugRFile
+> Task :TorrentSharingSync:parseDebugLocalResources
+> Task :Asinka:asinka:compileDebugLibraryResources
+> Task :Toolkit:Analytics:compileDebugLibraryResources
+> Task :TorrentSharingSync:generateDebugRFile
+> Task :Toolkit:Analytics:parseDebugLocalResources
+> Task :Toolkit:Main:compileDebugLibraryResources
+> Task :Toolkit:Analytics:generateDebugRFile
+> Task :Toolkit:SecurityAccess:compileDebugLibraryResources
+> Task :Toolkit:Main:parseDebugLocalResources
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:SecurityAccess:parseDebugLocalResources
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Main:generateReleaseResValues
+> Task :Toolkit:Main:generateDebugRFile
+> Task :Toolkit:SecurityAccess:generateDebugRFile
+> Task :Toolkit:Main:generateReleaseResources
+> Task :Toolkit:Main:packageReleaseResources
+> Task :Toolkit:Main:parseReleaseLocalResources
+> Task :Toolkit:Main:javaPreCompileDebug
+> Task :Tests:javaPreCompileDebug
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:generateReleaseRFile
+> Task :TorrentSharingSync:javaPreCompileDebug
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:SecurityAccess:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Analytics:javaPreCompileDebug
+> Task :Toolkit:SecurityAccess:generateDebugBuildConfig
+> Task :Toolkit:SecurityAccess:javaPreCompileDebug
+> Task :ShareConnector:preDebugUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebug
+> Task :ShareConnector:javaPreCompileDebugUnitTest
+> Task :BookmarkSync:mergeDebugShaders
+> Task :BookmarkSync:compileDebugShaders NO-SOURCE
+> Task :BookmarkSync:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:packageDebugAssets
+> Task :DesignSystem:mergeDebugShaders
+> Task :DesignSystem:compileDebugShaders NO-SOURCE
+> Task :DesignSystem:generateDebugAssets UP-TO-DATE
+> Task :DesignSystem:packageDebugAssets
+> Task :HistorySync:mergeDebugShaders
+> Task :HistorySync:compileDebugShaders NO-SOURCE
+> Task :HistorySync:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:packageDebugAssets
+> Task :LanguageSync:mergeDebugShaders
+> Task :LanguageSync:compileDebugShaders NO-SOURCE
+> Task :LanguageSync:generateDebugAssets UP-TO-DATE
+> Task :LanguageSync:packageDebugAssets
+> Task :Localizations:mergeDebugShaders
+> Task :Localizations:compileDebugShaders NO-SOURCE
+> Task :Localizations:generateDebugAssets UP-TO-DATE
+> Task :Localizations:packageDebugAssets
+> Task :Onboarding:mergeDebugShaders
+> Task :Onboarding:compileDebugShaders NO-SOURCE
+> Task :Onboarding:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:packageDebugAssets
+> Task :PreferencesSync:mergeDebugShaders
+> Task :PreferencesSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:packageDebugAssets
+> Task :ProfileSync:mergeDebugShaders
+> Task :ProfileSync:compileDebugShaders NO-SOURCE
+> Task :ProfileSync:generateDebugAssets UP-TO-DATE
+> Task :ProfileSync:packageDebugAssets
+> Task :RSSSync:mergeDebugShaders
+> Task :RSSSync:compileDebugShaders NO-SOURCE
+> Task :RSSSync:generateDebugAssets UP-TO-DATE
+> Task :RSSSync:packageDebugAssets
+> Task :ShareConnector:mergeDebugShaders
+> Task :ShareConnector:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugShaders
+> Task :Tests:compileDebugShaders NO-SOURCE
+> Task :Tests:generateDebugAssets UP-TO-DATE
+> Task :Tests:packageDebugAssets
+> Task :ThemeSync:mergeDebugShaders
+> Task :ThemeSync:compileDebugShaders NO-SOURCE
+> Task :ThemeSync:generateDebugAssets UP-TO-DATE
+> Task :ThemeSync:packageDebugAssets
+> Task :TorrentSharingSync:mergeDebugShaders
+> Task :TorrentSharingSync:compileDebugShaders NO-SOURCE
+> Task :TorrentSharingSync:generateDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:packageDebugAssets
+> Task :Asinka:asinka:mergeDebugShaders
+> Task :Asinka:asinka:compileDebugShaders NO-SOURCE
+> Task :Asinka:asinka:generateDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:packageDebugAssets
+> Task :Toolkit:Analytics:mergeDebugShaders
+> Task :Toolkit:Analytics:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:processDebugManifestForPackage
+> Task :Toolkit:Analytics:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Analytics:packageDebugAssets
+> Task :Toolkit:Main:mergeDebugShaders
+> Task :Toolkit:Main:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Main:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:packageDebugAssets
+> Task :Toolkit:SecurityAccess:mergeDebugShaders
+> Task :Toolkit:SecurityAccess:compileDebugShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:packageDebugAssets
+> Task :ShareConnector:mergeDebugAssets
+> Task :BookmarkSync:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:generateReleaseResValues
+> Task :BookmarkSync:generateReleaseResources
+> Task :BookmarkSync:packageReleaseResources
+> Task :Asinka:asinka:preReleaseBuild UP-TO-DATE
+> Task :BookmarkSync:parseReleaseLocalResources
+> Task :Asinka:asinka:generateReleaseBuildConfig
+> Task :BookmarkSync:generateReleaseRFile
+> Task :Asinka:asinka:extractIncludeReleaseProto
+> Task :Asinka:asinka:extractReleaseProto
+
+> Task :Asinka:asinka:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 '@Deprecated(...) fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:kspReleaseKotlin
+> Task :Asinka:asinka:generateReleaseProto
+> Task :ShareConnector:processDebugResources
+> Task :Asinka:asinka:compileDebugJavaWithJavac
+> Task :Asinka:asinka:bundleLibCompileToJarDebug
+> Task :ShareConnector:packageDebugUnitTestForUnitTest
+> Task :ShareConnector:generateDebugUnitTestConfig
+> Task :Asinka:asinka:processDebugJavaRes
+> Task :Asinka:asinka:generateReleaseResValues
+> Task :Asinka:asinka:generateReleaseResources
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug
+> Task :Asinka:asinka:packageReleaseResources
+> Task :Asinka:asinka:parseReleaseLocalResources
+> Task :Asinka:asinka:javaPreCompileRelease
+> Task :Asinka:asinka:generateReleaseRFile
+> Task :BookmarkSync:javaPreCompileRelease
+> Task :DesignSystem:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:generateReleaseBuildConfig
+> Task :DesignSystem:generateReleaseResValues
+> Task :DesignSystem:generateReleaseResources
+> Task :DesignSystem:packageReleaseResources
+> Task :ThemeSync:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:parseReleaseLocalResources
+> Task :ThemeSync:generateReleaseBuildConfig
+> Task :ThemeSync:generateReleaseResValues
+> Task :ThemeSync:generateReleaseResources
+> Task :DesignSystem:generateReleaseRFile
+> Task :ThemeSync:packageReleaseResources
+> Task :ThemeSync:parseReleaseLocalResources
+> Task :ThemeSync:javaPreCompileRelease
+> Task :HistorySync:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:javaPreCompileRelease
+> Task :ThemeSync:generateReleaseRFile
+> Task :HistorySync:generateReleaseResValues
+> Task :HistorySync:generateReleaseResources
+> Task :HistorySync:packageReleaseResources
+> Task :HistorySync:parseReleaseLocalResources
+> Task :LanguageSync:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:javaPreCompileRelease
+> Task :LanguageSync:generateReleaseResValues
+> Task :HistorySync:generateReleaseRFile
+> Task :LanguageSync:generateReleaseResources
+> Task :LanguageSync:packageReleaseResources
+> Task :LanguageSync:parseReleaseLocalResources
+> Task :Localizations:preReleaseBuild UP-TO-DATE
+> Task :LanguageSync:javaPreCompileRelease
+> Task :Localizations:generateReleaseResValues
+> Task :Localizations:generateReleaseResources
+> Task :LanguageSync:generateReleaseRFile
+> Task :Localizations:packageReleaseResources
+> Task :Localizations:processReleaseJavaRes NO-SOURCE
+> Task :Onboarding:preReleaseBuild UP-TO-DATE
+> Task :Localizations:javaPreCompileRelease
+> Task :Localizations:parseReleaseLocalResources
+> Task :Onboarding:generateReleaseBuildConfig
+> Task :Onboarding:generateReleaseResValues
+> Task :Onboarding:generateReleaseResources
+> Task :Localizations:generateReleaseRFile
+> Task :Onboarding:packageReleaseResources
+> Task :Localizations:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:preReleaseBuild UP-TO-DATE
+> Task :Onboarding:parseReleaseLocalResources
+> Task :ProfileSync:generateReleaseBuildConfig
+> Task :ProfileSync:generateReleaseResValues
+> Task :ProfileSync:generateReleaseResources
+> Task :Onboarding:generateReleaseRFile
+> Task :ProfileSync:packageReleaseResources
+> Task :ProfileSync:parseReleaseLocalResources
+> Task :ProfileSync:javaPreCompileRelease
+> Task :PreferencesSync:preReleaseBuild UP-TO-DATE
+> Task :Onboarding:javaPreCompileRelease
+> Task :ProfileSync:generateReleaseRFile
+> Task :PreferencesSync:generateReleaseResValues
+> Task :PreferencesSync:generateReleaseResources
+> Task :PreferencesSync:packageReleaseResources
+> Task :PreferencesSync:parseReleaseLocalResources
+> Task :RSSSync:preReleaseBuild UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileRelease
+> Task :RSSSync:generateReleaseResValues
+> Task :PreferencesSync:generateReleaseRFile
+> Task :RSSSync:generateReleaseResources
+> Task :RSSSync:packageReleaseResources
+> Task :RSSSync:parseReleaseLocalResources
+> Task :RSSSync:javaPreCompileRelease
+> Task :ShareConnector:buildKotlinToolingMetadata
+> Task :RSSSync:generateReleaseRFile
+> Task :Localizations:bundleLibCompileToJarRelease
+> Task :BookmarkSync:compileReleaseLibraryResources
+> Task :DesignSystem:compileReleaseLibraryResources
+> Task :HistorySync:compileReleaseLibraryResources
+> Task :LanguageSync:compileReleaseLibraryResources
+> Task :Localizations:compileReleaseLibraryResources
+> Task :Onboarding:compileReleaseLibraryResources
+> Task :PreferencesSync:compileReleaseLibraryResources
+> Task :ProfileSync:compileReleaseLibraryResources
+> Task :RSSSync:compileReleaseLibraryResources
+> Task :BookmarkSync:writeReleaseAarMetadata
+> Task :DesignSystem:writeReleaseAarMetadata
+> Task :HistorySync:writeReleaseAarMetadata
+> Task :LanguageSync:writeReleaseAarMetadata
+> Task :Localizations:writeReleaseAarMetadata
+> Task :Onboarding:writeReleaseAarMetadata
+> Task :PreferencesSync:writeReleaseAarMetadata
+> Task :ProfileSync:writeReleaseAarMetadata
+> Task :ShareConnector:preReleaseBuild UP-TO-DATE
+> Task :Tests:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:writeReleaseAarMetadata
+> Task :TorrentSharingSync:preReleaseBuild UP-TO-DATE
+> Task :Tests:writeReleaseAarMetadata
+> Task :ThemeSync:writeReleaseAarMetadata
+> Task :TorrentSharingSync:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:writeReleaseAarMetadata
+> Task :Toolkit:SecurityAccess:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Main:writeReleaseAarMetadata
+> Task :Toolkit:SecurityAccess:writeReleaseAarMetadata
+> Task :ShareConnector:generateReleaseResValues
+> Task :ShareConnector:injectCrashlyticsMappingFileIdRelease
+> Task :ShareConnector:extractReleaseVersionControlInfo
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoRelease
+> Task :ShareConnector:checkReleaseAarMetadata
+> Task :ShareConnector:processReleaseGoogleServices
+> Task :Tests:generateReleaseResValues
+> Task :Tests:generateReleaseResources
+> Task :Tests:packageReleaseResources
+> Task :TorrentSharingSync:generateReleaseResValues
+> Task :TorrentSharingSync:generateReleaseResources
+> Task :TorrentSharingSync:packageReleaseResources
+> Task :Toolkit:Analytics:generateReleaseResValues
+> Task :Toolkit:Analytics:generateReleaseResources
+> Task :Toolkit:Analytics:packageReleaseResources
+> Task :Toolkit:SecurityAccess:generateReleaseResValues
+> Task :Toolkit:SecurityAccess:generateReleaseResources
+> Task :Toolkit:SecurityAccess:packageReleaseResources
+> Task :ShareConnector:mapReleaseSourceSetPaths
+> Task :ShareConnector:generateReleaseResources
+> Task :Toolkit:Main:kspDebugKotlin
+> Task :Asinka:asinka:kspReleaseKotlin
+> Task :LanguageSync:kspDebugKotlin
+> Task :BookmarkSync:kspDebugKotlin
+> Task :ThemeSync:kspDebugKotlin
+> Task :HistorySync:kspDebugKotlin
+> Task :TorrentSharingSync:kspDebugKotlin
+> Task :ProfileSync:kspDebugKotlin
+> Task :PreferencesSync:kspDebugKotlin
+> Task :RSSSync:kspDebugKotlin
+> Task :ShareConnector:mergeReleaseResources
+> Task :ShareConnector:packageReleaseResources
+> Task :ShareConnector:createReleaseCompatibleScreenManifests
+> Task :BookmarkSync:extractDeepLinksRelease
+
+> Task :BookmarkSync:processReleaseManifest
+package="com.shareconnect.bookmarksync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/BookmarkSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.bookmarksync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/BookmarkSync/src/main/AndroidManifest.xml.
+
+> Task :DesignSystem:extractDeepLinksRelease
+> Task :ShareConnector:parseReleaseLocalResources
+> Task :DesignSystem:processReleaseManifest
+> Task :HistorySync:extractDeepLinksRelease
+> Task :LanguageSync:extractDeepLinksRelease
+
+> Task :HistorySync:processReleaseManifest
+package="com.shareconnect.historysync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/HistorySync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.historysync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/HistorySync/src/main/AndroidManifest.xml.
+
+> Task :LanguageSync:processReleaseManifest
+> Task :Localizations:extractDeepLinksRelease
+> Task :Onboarding:extractDeepLinksRelease
+> Task :Localizations:processReleaseManifest
+> Task :Onboarding:processReleaseManifest
+> Task :PreferencesSync:extractDeepLinksRelease
+
+> Task :PreferencesSync:processReleaseManifest
+package="com.shareconnect.preferencessync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/PreferencesSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.preferencessync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/PreferencesSync/src/main/AndroidManifest.xml.
+
+> Task :ProfileSync:extractDeepLinksRelease
+> Task :RSSSync:extractDeepLinksRelease
+> Task :ProfileSync:processReleaseManifest
+
+> Task :RSSSync:processReleaseManifest
+package="com.shareconnect.rsssync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/RSSSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.rsssync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/RSSSync/src/main/AndroidManifest.xml.
+
+> Task :ShareConnector:extractDeepLinksRelease
+> Task :Tests:extractDeepLinksRelease
+> Task :ThemeSync:extractDeepLinksRelease
+
+> Task :Tests:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Tests/src/main/AndroidManifest.xml:5:5-9:7 Warning:
+	application@android:name was tagged at AndroidManifest.xml:5 to replace other declarations but no other declaration present
+
+> Task :TorrentSharingSync:extractDeepLinksRelease
+> Task :BookmarkSync:compileDebugKotlin
+> Task :ThemeSync:processReleaseManifest
+> Task :Asinka:asinka:extractDeepLinksRelease
+
+> Task :TorrentSharingSync:processReleaseManifest
+package="com.shareconnect.torrentsharingsync" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.shareconnect.torrentsharingsync" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/TorrentSharingSync/src/main/AndroidManifest.xml.
+
+> Task :LanguageSync:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 '@Deprecated(...) constructor(@RecentlyNonNull() p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :HistorySync:compileDebugKotlin
+> Task :PreferencesSync:compileDebugKotlin
+> Task :ThemeSync:compileDebugKotlin
+> Task :TorrentSharingSync:compileDebugKotlin
+> Task :ProfileSync:compileDebugKotlin
+> Task :RSSSync:compileDebugKotlin
+
+> Task :BookmarkSync:compileDebugJavaWithJavac
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:processDebugJavaRes
+> Task :ThemeSync:compileDebugJavaWithJavac
+> Task :ThemeSync:bundleLibCompileToJarDebug
+> Task :HistorySync:compileDebugJavaWithJavac
+> Task :HistorySync:processDebugJavaRes
+> Task :HistorySync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:compileDebugJavaWithJavac
+> Task :LanguageSync:processDebugJavaRes
+> Task :LanguageSync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:bundleLibCompileToJarDebug
+> Task :ProfileSync:compileDebugJavaWithJavac
+> Task :ProfileSync:bundleLibCompileToJarDebug
+
+> Task :Asinka:asinka:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:131:57 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/discovery/ServiceDiscovery.kt:144:40 '@Deprecated(...) fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:6:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:7:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:62:28 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:9 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:63:19 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:27 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:64:37 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:69:9 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:73:40 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/kotlin/digital/vasic/asinka/security/SecurityManager.kt:74:40 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :PreferencesSync:compileDebugJavaWithJavac
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+> Task :PreferencesSync:processDebugJavaRes
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:processDebugJavaRes
+> Task :ProfileSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:compileDebugJavaWithJavac
+> Task :RSSSync:processDebugJavaRes
+> Task :RSSSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:bundleLibCompileToJarDebug
+> Task :HistorySync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:bundleLibCompileToJarDebug
+> Task :RSSSync:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:compileDebugJavaWithJavac
+> Task :ThemeSync:processDebugJavaRes
+> Task :ThemeSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:processDebugJavaRes
+> Task :Asinka:asinka:compileReleaseJavaWithJavac
+> Task :Toolkit:Analytics:extractDeepLinksRelease
+
+> Task :Asinka:asinka:processReleaseManifest
+package="digital.vasic.asinka" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.asinka" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Asinka/asinka/src/main/AndroidManifest.xml.
+
+> Task :Toolkit:Main:extractDeepLinksRelease
+> Task :Toolkit:Analytics:processReleaseManifest
+> Task :Toolkit:SecurityAccess:extractDeepLinksRelease
+
+> Task :Toolkit:Main:processReleaseManifest
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:32:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at AndroidManifest.xml:32:5-79 duplicated with element declared at AndroidManifest.xml:23:5-27:7
+/home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/AndroidManifest.xml:40:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at AndroidManifest.xml:40:5-78 duplicated with element declared at AndroidManifest.xml:30:5-78
+
+> Task :Tests:compileReleaseLibraryResources
+
+> Task :Toolkit:SecurityAccess:processReleaseManifest
+package="digital.vasic.security.access" found in source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="digital.vasic.security.access" from the source AndroidManifest.xml: /home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/AndroidManifest.xml.
+
+> Task :Asinka:asinka:bundleLibCompileToJarRelease
+> Task :Tests:parseReleaseLocalResources
+
+> Task :ShareConnector:processReleaseMainManifest
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:31:5-79 Warning:
+	Element uses-permission#android.permission.SCHEDULE_EXACT_ALARM at [:Toolkit:Main] AndroidManifest.xml:31:5-79 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:25:5-27:47
+[:Toolkit:Main] /home/milosvasic/Projects/ShareConnect/Toolkit/Main/build/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:39:5-78 Warning:
+	Element uses-permission#com.android.alarm.permission.SET_ALARM at [:Toolkit:Main] AndroidManifest.xml:39:5-78 duplicated with element declared at [:Toolkit:Main] AndroidManifest.xml:29:5-78
+
+> Task :DesignSystem:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 '@Deprecated(...) static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :DesignSystem:compileDebugJavaWithJavac
+> Task :DesignSystem:bundleLibRuntimeToJarDebug
+> Task :DesignSystem:processDebugJavaRes
+> Task :DesignSystem:bundleLibCompileToJarDebug
+> Task :ShareConnector:processReleaseManifest
+> Task :ThemeSync:compileReleaseLibraryResources
+> Task :TorrentSharingSync:compileReleaseLibraryResources
+> Task :Tests:generateReleaseRFile
+> Task :TorrentSharingSync:parseReleaseLocalResources
+> Task :Asinka:asinka:compileReleaseLibraryResources
+> Task :TorrentSharingSync:generateReleaseRFile
+> Task :Toolkit:Analytics:compileReleaseLibraryResources
+> Task :Toolkit:Analytics:parseReleaseLocalResources
+> Task :ShareConnector:processReleaseManifestForPackage
+> Task :Toolkit:Analytics:generateReleaseRFile
+> Task :Toolkit:SecurityAccess:compileReleaseLibraryResources
+> Task :Toolkit:Main:compileReleaseLibraryResources
+> Task :Toolkit:SecurityAccess:parseReleaseLocalResources
+> Task :Toolkit:SecurityAccess:generateReleaseRFile
+> Task :Tests:javaPreCompileRelease
+> Task :Toolkit:Main:javaPreCompileRelease
+> Task :Toolkit:Analytics:javaPreCompileRelease
+> Task :TorrentSharingSync:javaPreCompileRelease
+> Task :Toolkit:SecurityAccess:generateReleaseBuildConfig
+> Task :Toolkit:SecurityAccess:javaPreCompileRelease
+> Task :ShareConnector:preReleaseUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileRelease
+> Task :ShareConnector:javaPreCompileReleaseUnitTest
+> Task :BookmarkSync:mergeReleaseShaders
+> Task :BookmarkSync:compileReleaseShaders NO-SOURCE
+> Task :BookmarkSync:generateReleaseAssets UP-TO-DATE
+> Task :BookmarkSync:packageReleaseAssets
+> Task :DesignSystem:mergeReleaseShaders
+> Task :DesignSystem:compileReleaseShaders NO-SOURCE
+> Task :DesignSystem:generateReleaseAssets UP-TO-DATE
+> Task :DesignSystem:packageReleaseAssets
+> Task :HistorySync:mergeReleaseShaders
+> Task :HistorySync:compileReleaseShaders NO-SOURCE
+> Task :HistorySync:generateReleaseAssets UP-TO-DATE
+> Task :HistorySync:packageReleaseAssets
+> Task :LanguageSync:mergeReleaseShaders
+> Task :LanguageSync:compileReleaseShaders NO-SOURCE
+> Task :LanguageSync:generateReleaseAssets UP-TO-DATE
+> Task :LanguageSync:packageReleaseAssets
+> Task :Localizations:mergeReleaseShaders
+> Task :Localizations:compileReleaseShaders NO-SOURCE
+> Task :Localizations:generateReleaseAssets UP-TO-DATE
+> Task :Localizations:packageReleaseAssets
+> Task :Onboarding:mergeReleaseShaders
+> Task :Onboarding:compileReleaseShaders NO-SOURCE
+> Task :Onboarding:generateReleaseAssets UP-TO-DATE
+> Task :Onboarding:packageReleaseAssets
+> Task :PreferencesSync:mergeReleaseShaders
+> Task :PreferencesSync:compileReleaseShaders NO-SOURCE
+> Task :PreferencesSync:generateReleaseAssets UP-TO-DATE
+> Task :PreferencesSync:packageReleaseAssets
+> Task :ProfileSync:mergeReleaseShaders
+> Task :ProfileSync:compileReleaseShaders NO-SOURCE
+> Task :ProfileSync:generateReleaseAssets UP-TO-DATE
+> Task :ProfileSync:packageReleaseAssets
+> Task :RSSSync:mergeReleaseShaders
+> Task :RSSSync:compileReleaseShaders NO-SOURCE
+> Task :RSSSync:generateReleaseAssets UP-TO-DATE
+> Task :RSSSync:packageReleaseAssets
+> Task :ShareConnector:mergeReleaseShaders
+> Task :ShareConnector:compileReleaseShaders NO-SOURCE
+> Task :ShareConnector:generateReleaseAssets UP-TO-DATE
+> Task :Tests:mergeReleaseShaders
+> Task :Tests:compileReleaseShaders NO-SOURCE
+> Task :Tests:generateReleaseAssets UP-TO-DATE
+> Task :Tests:packageReleaseAssets
+> Task :ThemeSync:mergeReleaseShaders
+> Task :ThemeSync:compileReleaseShaders NO-SOURCE
+> Task :ThemeSync:generateReleaseAssets UP-TO-DATE
+> Task :ThemeSync:packageReleaseAssets
+> Task :TorrentSharingSync:mergeReleaseShaders
+> Task :TorrentSharingSync:compileReleaseShaders NO-SOURCE
+> Task :TorrentSharingSync:generateReleaseAssets UP-TO-DATE
+> Task :TorrentSharingSync:packageReleaseAssets
+> Task :Asinka:asinka:mergeReleaseShaders
+> Task :Asinka:asinka:compileReleaseShaders NO-SOURCE
+> Task :Asinka:asinka:generateReleaseAssets UP-TO-DATE
+> Task :Asinka:asinka:packageReleaseAssets
+> Task :Toolkit:Analytics:mergeReleaseShaders
+> Task :Toolkit:Analytics:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:Analytics:packageReleaseAssets
+> Task :Toolkit:Main:mergeReleaseShaders
+> Task :Toolkit:Main:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Main:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:Main:packageReleaseAssets
+> Task :Toolkit:SecurityAccess:mergeReleaseShaders
+> Task :Toolkit:SecurityAccess:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:packageReleaseAssets
+> Task :ShareConnector:mergeReleaseAssets
+> Task :Asinka:asinka:processReleaseJavaRes
+> Task :Asinka:asinka:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:kspReleaseKotlin
+> Task :ThemeSync:kspReleaseKotlin
+> Task :BookmarkSync:compileReleaseKotlin
+> Task :ShareConnector:processReleaseResources
+
+> Task :BookmarkSync:compileReleaseJavaWithJavac
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+> Task :BookmarkSync:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:processReleaseJavaRes
+> Task :BookmarkSync:bundleLibCompileToJarRelease
+> Task :ShareConnector:packageReleaseUnitTestForUnitTest
+> Task :ShareConnector:generateReleaseUnitTestConfig
+
+> Task :Onboarding:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Onboarding/src/main/kotlin/com/shareconnect/onboarding/viewmodel/OnboardingViewModel.kt:268:40 '@Deprecated(...) fun updateConfiguration(p0: Configuration!, p1: DisplayMetrics!): Unit' is deprecated. Deprecated in Java.
+
+> Task :LanguageSync:kspReleaseKotlin
+> Task :ThemeSync:compileReleaseKotlin
+> Task :Onboarding:compileDebugJavaWithJavac
+> Task :Onboarding:bundleLibRuntimeToJarDebug
+> Task :Onboarding:processDebugJavaRes
+> Task :Onboarding:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:kspReleaseKotlin
+> Task :HistorySync:kspReleaseKotlin
+> Task :PreferencesSync:kspReleaseKotlin
+> Task :ProfileSync:kspReleaseKotlin
+> Task :RSSSync:kspReleaseKotlin
+> Task :ThemeSync:compileReleaseJavaWithJavac
+> Task :ThemeSync:bundleLibCompileToJarRelease
+> Task :ThemeSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:processReleaseJavaRes
+> Task :RSSSync:compileReleaseKotlin
+> Task :HistorySync:compileReleaseKotlin
+> Task :TorrentSharingSync:compileReleaseKotlin
+> Task :PreferencesSync:compileReleaseKotlin
+
+> Task :LanguageSync:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/src/main/kotlin/com/shareconnect/languagesync/utils/LanguageUtils.kt:48:22 '@Deprecated(...) constructor(@RecentlyNonNull() p0: String!): Locale' is deprecated. Deprecated in Java.
+
+> Task :ProfileSync:compileReleaseKotlin
+> Task :RSSSync:compileReleaseJavaWithJavac
+> Task :HistorySync:compileReleaseJavaWithJavac
+> Task :HistorySync:processReleaseJavaRes
+> Task :HistorySync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:compileReleaseJavaWithJavac
+> Task :LanguageSync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:processReleaseJavaRes
+> Task :LanguageSync:bundleLibCompileToJarRelease
+> Task :ProfileSync:compileReleaseJavaWithJavac
+> Task :ProfileSync:bundleLibCompileToJarRelease
+
+> Task :PreferencesSync:compileReleaseJavaWithJavac
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+> Task :PreferencesSync:bundleLibRuntimeToJarRelease
+> Task :PreferencesSync:processReleaseJavaRes
+> Task :ProfileSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:processReleaseJavaRes
+> Task :RSSSync:bundleLibRuntimeToJarRelease
+> Task :RSSSync:processReleaseJavaRes
+> Task :HistorySync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:bundleLibCompileToJarRelease
+> Task :RSSSync:bundleLibCompileToJarRelease
+> Task :TorrentSharingSync:compileReleaseJavaWithJavac
+> Task :TorrentSharingSync:processReleaseJavaRes
+> Task :TorrentSharingSync:bundleLibRuntimeToJarRelease
+> Task :TorrentSharingSync:bundleLibCompileToJarRelease
+
+> Task :DesignSystem:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/DesignSystem/src/main/kotlin/com/shareconnect/designsystem/components/dialogs/AnimatedDialog.kt:60:57 '@Deprecated(...) static field SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java.
+
+> Task :DesignSystem:compileReleaseJavaWithJavac
+> Task :DesignSystem:bundleLibRuntimeToJarRelease
+> Task :DesignSystem:processReleaseJavaRes
+> Task :DesignSystem:bundleLibCompileToJarRelease
+
+> Task :Toolkit:Main:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 '@Deprecated(...) static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Onboarding:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Onboarding/src/main/kotlin/com/shareconnect/onboarding/viewmodel/OnboardingViewModel.kt:268:40 '@Deprecated(...) fun updateConfiguration(p0: Configuration!, p1: DisplayMetrics!): Unit' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileDebugJavaWithJavac
+> Task :Toolkit:Main:processDebugJavaRes
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Main:bundleLibCompileToJarDebug
+> Task :Onboarding:compileReleaseJavaWithJavac
+> Task :Onboarding:bundleLibRuntimeToJarRelease
+> Task :Onboarding:processReleaseJavaRes
+> Task :Onboarding:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:compileDebugKotlin
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Analytics:processDebugJavaRes
+> Task :Tests:compileDebugKotlin
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibCompileToJarDebug
+> Task :Tests:bundleLibRuntimeToJarDebug
+> Task :Tests:processDebugJavaRes
+
+> Task :Toolkit:Main:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/extensions/execution.kt:419:60 '@Deprecated(...) static field ACQUIRE_CAUSES_WAKEUP: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:84:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:89:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/GsonParserOptimized.kt:99:13 '@Deprecated(...) val instances: ConcurrentHashMap<String, GsonParserOptimized>' is deprecated. Use StreamingJsonParser directly for better performance.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/Main/src/main/java/com/redelf/commons/persistance/StreamingJsonParser.kt:525:36 'val currentName: String!' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:Main:compileReleaseJavaWithJavac
+> Task :Toolkit:Main:processReleaseJavaRes
+> Task :Toolkit:Main:bundleLibCompileToJarRelease
+> Task :Toolkit:Main:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:compileReleaseKotlin
+> Task :Toolkit:Analytics:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:processReleaseJavaRes
+> Task :Tests:compileReleaseKotlin
+> Task :Tests:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Tests:bundleLibCompileToJarRelease
+> Task :Tests:bundleLibRuntimeToJarRelease
+> Task :Tests:processReleaseJavaRes
+> Task :Toolkit:SecurityAccess:kspDebugKotlin
+> Task :Toolkit:SecurityAccess:kspReleaseKotlin
+
+> Task :Toolkit:SecurityAccess:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/access/SecurityAccessManager.kt:222:21 Duplicate branch condition in 'when'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/database/SecurityAccessDatabase.kt:48:18 '@Deprecated(...) fun fallbackToDestructiveMigration(): RoomDatabase.Builder<SecurityAccessDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:5:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:6:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:135:95 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:136:25 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:136:35 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:137:27 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:137:37 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:140:16 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:144:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:144:40 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:145:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:145:40 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:146:14 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:SecurityAccess:compileDebugJavaWithJavac
+> Task :Toolkit:SecurityAccess:processDebugJavaRes
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToJarDebug
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarDebug
+
+> Task :Toolkit:SecurityAccess:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/access/SecurityAccessManager.kt:222:21 Duplicate branch condition in 'when'.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/database/SecurityAccessDatabase.kt:48:18 '@Deprecated(...) fun fallbackToDestructiveMigration(): RoomDatabase.Builder<SecurityAccessDatabase>' is deprecated. Replace by overloaded version with parameter to indicate if all tables should be dropped or not.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:5:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:6:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:135:95 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:136:25 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:136:35 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:137:27 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:137:37 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:140:16 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:144:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:144:40 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:145:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:145:40 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/Toolkit/SecurityAccess/src/main/java/digital/vasic/security/access/utils/SecurityUtils.kt:146:14 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+
+> Task :Toolkit:SecurityAccess:compileReleaseJavaWithJavac
+> Task :Toolkit:SecurityAccess:processReleaseJavaRes
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToJarRelease
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarRelease
+> Task :ShareConnector:kspDebugKotlin
+> Task :ShareConnector:kspReleaseKotlin
+
+> Task :ShareConnector:compileDebugKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:51:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:52:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:624:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:46:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:47:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:184:17 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:352:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:108:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:337:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:376:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:43:20 '@Deprecated(...) fun setDecorFitsSystemWindows(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:139:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SecureAccessActivity.kt:321:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:42:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:43:20 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:76:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:92:19 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:114:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:119:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:294:17 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:882:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SplashActivity.kt:26:9 '@Deprecated(...) constructor(): Handler' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:55:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:56:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:284:13 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:34:21 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:57:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:58:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:178:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:56:26 '@Deprecated(...) @Nullable() fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:91:17 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:772:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:776:19 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:9:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:10:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:32:29 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:32:39 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:33:31 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:33:41 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:36:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:40:17 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:40:44 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:41:17 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:41:44 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:compileDebugJavaWithJavac
+> Task :ShareConnector:processDebugJavaRes
+> Task :ShareConnector:bundleDebugClassesToCompileJar
+> Task :ShareConnector:bundleDebugClassesToRuntimeJar
+
+> Task :ShareConnector:compileReleaseKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:51:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:52:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/EditProfileActivity.kt:624:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:46:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:47:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:184:17 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/HistoryActivity.kt:352:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:34:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:35:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/LanguageSelectionActivity.kt:108:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:337:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/MainActivity.kt:376:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:43:20 '@Deprecated(...) fun setDecorFitsSystemWindows(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ProfilesActivity.kt:139:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SecureAccessActivity.kt:321:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:42:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:43:20 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:76:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:92:19 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:114:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SettingsActivity.kt:119:9 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:294:17 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ShareActivity.kt:882:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/SplashActivity.kt:26:9 '@Deprecated(...) constructor(): Handler' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:55:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:56:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeCreatorActivity.kt:284:13 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:34:21 '@Deprecated(...) fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+      which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+      contracts for common intents available in
+      {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+      testing, and allow receiving results in separate, testable classes independent from your
+      activity. Use
+      {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+      passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:57:16 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:58:16 'var navigationBarColor: Int' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/ThemeSelectionActivity.kt:178:9 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:56:26 '@Deprecated(...) @Nullable() fun <T : Parcelable!> getParcelableExtra(p0: String!): T?' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:91:17 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:772:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/WebUIActivity.kt:776:19 '@Deprecated(...) @MainThread() @CallSuper() fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:9:8 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:10:8 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:32:29 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:32:39 'constructor(p0: @NonNull() Context!): MasterKey.Builder' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:33:31 '@Deprecated(...) class MasterKey : Any' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:33:41 '@Deprecated(...) enum class KeyScheme : Enum<MasterKey.KeyScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:36:13 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:40:17 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:40:44 '@Deprecated(...) enum class PrefKeyEncryptionScheme : Enum<EncryptedSharedPreferences.PrefKeyEncryptionScheme!>' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:41:17 '@Deprecated(...) class EncryptedSharedPreferences : Any, SharedPreferences' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/main/kotlin/com/shareconnect/utils/SecureStorage.kt:41:44 '@Deprecated(...) enum class PrefValueEncryptionScheme : Enum<EncryptedSharedPreferences.PrefValueEncryptionScheme!>' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:kspDebugUnitTestKotlin
+> Task :ShareConnector:compileReleaseJavaWithJavac
+> Task :ShareConnector:processReleaseJavaRes
+> Task :ShareConnector:bundleReleaseClassesToRuntimeJar
+> Task :ShareConnector:bundleReleaseClassesToCompileJar
+> Task :ShareConnector:kspReleaseUnitTestKotlin
+
+> Task :ShareConnector:compileDebugUnitTestKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/api/ServiceApiClientTest.kt:25:64 '@Deprecated(...) static field application: Application!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/utils/SystemAppDetectorTest.kt:18:38 '@Deprecated(...) static field application: Application!' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processDebugUnitTestJavaRes
+
+> Task :ShareConnector:compileReleaseUnitTestKotlin
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/api/ServiceApiClientTest.kt:25:64 '@Deprecated(...) static field application: Application!' is deprecated. Deprecated in Java.
+w: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/src/test/kotlin/com/shareconnect/utils/SystemAppDetectorTest.kt:18:38 '@Deprecated(...) static field application: Application!' is deprecated. Deprecated in Java.
+
+> Task :ShareConnector:testDebugUnitTest
+
+SecurityAccessManagerTest > testDisableSecurity FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testSingletonInstance FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testIsAccessRequiredWhenEnabled FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testLockoutAfterFailedAttempts FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testSessionTimeout FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testIsAccessRequiredWhenDisabled FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testAuthenticationWithInvalidPin FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testEnableSecurity FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testInitialState FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testLogout FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+238 tests completed, 10 failed, 13 skipped
+
+> Task :ShareConnector:testDebugUnitTest FAILED
+> Task :ShareConnector:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processReleaseUnitTestJavaRes
+
+> Task :ShareConnector:testReleaseUnitTest
+
+SecurityAccessManagerTest > testDisableSecurity FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testSingletonInstance FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testIsAccessRequiredWhenEnabled FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testLockoutAfterFailedAttempts FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testSessionTimeout FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testIsAccessRequiredWhenDisabled FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testAuthenticationWithInvalidPin FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testEnableSecurity FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testInitialState FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+SecurityAccessManagerTest > testLogout FAILED
+    java.lang.AbstractMethodError at SecurityAccessManagerTest.kt:24
+    kotlin.UninitializedPropertyAccessException at SecurityAccessManagerTest.kt:30
+
+238 tests completed, 10 failed, 13 skipped
+
+> Task :ShareConnector:testReleaseUnitTest FAILED
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':ShareConnector:testReleaseUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ShareConnector/build/reports/tests/testReleaseUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1m
+643 actionable tasks: 643 executed

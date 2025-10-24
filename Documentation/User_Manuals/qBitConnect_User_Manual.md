@@ -40,7 +40,7 @@ qBitConnect is a native Android client for qBittorrent, providing a seamless int
 4. Follow installation prompts
 
 ### From APK
-1. Download the latest APK from [GitHub Releases](https://github.com/shareconnector/qbitconnect/releases)
+1. Download the latest APK from [GitHub Releases](https://github.com/shareconnect/qbitconnect/releases)
 2. Enable "Install from unknown sources"
 3. Install the APK file
 4. Grant necessary permissions
@@ -356,13 +356,13 @@ A: Only if they can bypass the security authentication.
 ## Support
 
 ### Getting Help
-- **Documentation**: [Online Manual](https://shareconnector.org/docs/qbitconnect)
-- **Community**: [GitHub Discussions](https://github.com/shareconnector/qbitconnect/discussions)
-- **Issues**: [Bug Reports](https://github.com/shareconnector/qbitconnect/issues)
+- **Documentation**: [Online Manual](https://shareconnect.org/docs/qbitconnect)
+- **Community**: [GitHub Discussions](https://github.com/shareconnect/qbitconnect/discussions)
+- **Issues**: [Bug Reports](https://github.com/shareconnect/qbitconnect/issues)
 - **qBittorrent**: [Official Forums](https://forum.qbittorrent.org/)
 
 ### Contributing
-We welcome contributions! See our [Contributing Guide](https://github.com/shareconnector/qbitconnect/blob/main/CONTRIBUTING.md).
+We welcome contributions! See our [Contributing Guide](https://github.com/shareconnect/qbitconnect/blob/main/CONTRIBUTING.md).
 
 ### Related Projects
 - **ShareConnector**: Main sharing hub
@@ -375,4 +375,4 @@ We welcome contributions! See our [Contributing Guide](https://github.com/sharec
 **Last Updated**: October 24, 2025  
 **License**: MIT License
 
-For the most up-to-date information, visit our [website](https://shareconnector.org).
+For the most up-to-date information, visit our [website](https://shareconnect.org).
