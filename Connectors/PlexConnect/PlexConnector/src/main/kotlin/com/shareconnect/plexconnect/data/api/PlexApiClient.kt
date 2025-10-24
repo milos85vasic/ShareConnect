@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 class PlexApiClient(
-    private val plexApiService: PlexApiService? = null
+    plexApiService: PlexApiService? = null
 ) {
 
     private val tag = "PlexApiClient"
@@ -34,9 +34,7 @@ class PlexApiClient(
             .build()
     }
 
-    private val service: PlexApiService by lazy {
-        plexApiService ?: retrofit.create(PlexApiService::class.java)
-    }
+    private val service: PlexApiService = plexApiService ?: retrofit.create(PlexApiService::class.java)
 
     // Authentication methods
     suspend fun requestPin(clientIdentifier: String): Result<PlexPinResponse> = withContext(Dispatchers.IO) {

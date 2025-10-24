@@ -20,34 +20,39 @@ import java.util.concurrent.TimeUnit
 class NextcloudApiClient(
     private val serverUrl: String,
     private val username: String,
-    private val password: String
+    private val password: String,
+    nextcloudApiService: NextcloudApiService? = null
 ) {
     private val tag = "NextcloudApiClient"
 
-    private val authHeader: String
+    val authHeader: String
         get() {
             val credentials = "$username:$password"
             val encodedCredentials = Base64.encodeToString(credentials.toByteArray(), Base64.NO_WRAP)
             return "Basic $encodedCredentials"
         }
 
-    private val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
-        .build()
+    private val okHttpClient by lazy {
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .build()
+    }
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(serverUrl.removeSuffix("/") + "/")
-        .client(okHttpClient)
-        .addConverterFactory(ScalarsConverterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(serverUrl.removeSuffix("/") + "/")
+            .client(okHttpClient)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    private val apiService = retrofit.create(NextcloudApiService::class.java)
+    private val apiService: NextcloudApiService = nextcloudApiService ?: retrofit.create(NextcloudApiService::class.java)
 
     /**
      * Test connection and get server status
