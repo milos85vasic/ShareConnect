@@ -1,5 +1,7 @@
 package com.shareconnect.jdownloaderconnect.domain.model
 
+import com.shareconnect.jdownloaderconnect.data.model.ServerProfile
+import com.shareconnect.jdownloaderconnect.data.model.ServiceType
 import kotlinx.serialization.Serializable
 
 /**
@@ -56,7 +58,7 @@ sealed class AuthenticationMethod {
     data class CustomHeader(val headerName: String, val headerValue: String) : AuthenticationMethod()
 
     @Serializable
-    data class NoAuth : AuthenticationMethod()
+    object NoAuth : AuthenticationMethod()
 }
 
 /**

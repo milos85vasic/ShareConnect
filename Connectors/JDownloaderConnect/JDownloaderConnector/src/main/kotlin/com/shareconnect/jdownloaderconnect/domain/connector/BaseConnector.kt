@@ -109,7 +109,8 @@ abstract class BaseConnector(
      */
     protected fun <T> cacheResponse(key: String, data: T) {
         if (config.enableCaching) {
-            responseCache[key] = CachedResponse(data, System.currentTimeMillis())
+            @Suppress("UNCHECKED_CAST")
+            responseCache[key] = CachedResponse(data as Any, System.currentTimeMillis())
         }
     }
 

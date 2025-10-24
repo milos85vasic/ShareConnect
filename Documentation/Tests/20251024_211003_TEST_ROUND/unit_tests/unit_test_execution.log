@@ -1,0 +1,116 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.7.3) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Circular dependency between the following tasks:
+:Toolkit:SecurityAccess:bundleLibCompileToJarDebug
++--- :Toolkit:SecurityAccess:compileDebugJavaWithJavac
+|    +--- :Toolkit:SecurityAccess:compileDebugKotlin
+|    |    +--- :Toolkit:SecurityAccess:kaptDebugKotlin
+|    |    |    \--- :Toolkit:SecurityAccess:kaptGenerateStubsDebugKotlin
+|    |    |         +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin
+|    |    |         |    +--- :Toolkit:SecurityAccess:bundleLibCompileToJarDebug (*)
+|    |    |         |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    +--- :Toolkit:SecurityAccess:kspDebugKotlin
+|    |    |         |    |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin
+|    |    |         |    |    |    +--- :Toolkit:SecurityAccess:bundleLibCompileToJarDebug (*)
+|    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin
+|    |    |         |    |    |    |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    |    |    +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    |    |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    |    |    |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin
+|    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:bundleLibCompileToJarRelease
+|    |    |         |    |    |    |         |    +--- :Toolkit:SecurityAccess:compileReleaseJavaWithJavac
+|    |    |         |    |    |    |         |    |    +--- :Toolkit:SecurityAccess:compileReleaseKotlin
+|    |    |         |    |    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kaptReleaseKotlin
+|    |    |         |    |    |    |         |    |    |    |    \--- :Toolkit:SecurityAccess:kaptGenerateStubsReleaseKotlin
+|    |    |         |    |    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    |    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |         |    |    |    |         \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         |    |    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    |    |    |         |    |    |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |         |    |    |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         |    |    |    |         |    |    +--- :Toolkit:SecurityAccess:kaptReleaseKotlin (*)
+|    |    |         |    |    |    |         |    |    \--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |         |    +--- :Toolkit:SecurityAccess:compileReleaseKotlin (*)
+|    |    |         |    |    |    |         |    \--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    |    |    |         +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    |    |         \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         |    |    |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         |    |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    |         +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    |         +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    |         +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    |         \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    |    +--- :Toolkit:SecurityAccess:kspDebugAndroidTestKotlin (*)
+|    |    +--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+|    |    +--- :Toolkit:SecurityAccess:kspDebugUnitTestKotlin (*)
+|    |    +--- :Toolkit:SecurityAccess:kspReleaseKotlin (*)
+|    |    \--- :Toolkit:SecurityAccess:kspReleaseUnitTestKotlin (*)
+|    +--- :Toolkit:SecurityAccess:kaptDebugKotlin (*)
+|    \--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
++--- :Toolkit:SecurityAccess:compileDebugKotlin (*)
+\--- :Toolkit:SecurityAccess:kspDebugKotlin (*)
+
+(*) - details omitted (listed previously)
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 2s

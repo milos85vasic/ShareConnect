@@ -2,6 +2,7 @@ package com.shareconnect.historysync
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.historysync.database.HistoryDatabase
 import com.shareconnect.historysync.models.HistoryData
 import com.shareconnect.historysync.repository.HistoryRepository
@@ -12,9 +13,11 @@ import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.kotlin.any
+import org.mockito.kotlin.never
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
@@ -29,19 +32,15 @@ class HistorySyncManagerTest {
     private lateinit var context: Context
     private lateinit var historySyncManager: HistorySyncManager
 
-    @Before
+@Before
     fun setUp() {
         MockitoAnnotations.openMocks(this)
         context = ApplicationProvider.getApplicationContext()
-
-        // Create a test instance
-        historySyncManager = HistorySyncManager(
+        historySyncManager = HistorySyncManager.getInstance(
             context = context,
-            appIdentifier = "test-app",
-            appName = "TestApp",
-            appVersion = "1.0.0",
-            asinkaClient = mockAsinkaClient,
-            repository = mockRepository
+            appId = "test-app",
+            appName = "Test App",
+            appVersion = "1.0.0"
         )
     }
 
@@ -84,7 +83,16 @@ class HistorySyncManagerTest {
             url = "https://example.com",
             title = "Test Title",
             description = "Test Description",
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -105,7 +113,17 @@ class HistorySyncManagerTest {
             id = "test-id",
             url = "https://example.com",
             title = "Old Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis() - 1000,
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis() - 1000
         )
@@ -113,7 +131,17 @@ class HistorySyncManagerTest {
             id = "test-id",
             url = "https://example.com",
             title = "New Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -135,7 +163,17 @@ class HistorySyncManagerTest {
             id = "test-id",
             url = "https://example.com",
             title = "New Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -143,7 +181,17 @@ class HistorySyncManagerTest {
             id = "test-id",
             url = "https://example.com",
             title = "Old Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis() - 1000,
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis() - 1000
         )
@@ -177,7 +225,17 @@ class HistorySyncManagerTest {
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = "TestProvider",
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = "test-profile",
+            profileName = "Test Profile",
+            isSentSuccessfully = false,
+            serviceType = "test-service",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
