@@ -63,6 +63,7 @@ fun JDownloaderConnectApp(appContainer: AppContainer) {
                 onNavigateToDownloads = { navController.navigate(Screen.Downloads.route) },
                 onNavigateToLinkGrabber = { navController.navigate(Screen.LinkGrabber.route) },
                 onNavigateToSettings = { navController.navigate(Screen.Settings.route) },
+                onNavigateToMyJDownloader = { navController.navigate(Screen.MyJDownloader.route) },
                 viewModel = appContainer.accountViewModel
             )
         }
@@ -82,6 +83,12 @@ fun JDownloaderConnectApp(appContainer: AppContainer) {
                 accountViewModel = appContainer.accountViewModel
             )
         }
+        composable(Screen.MyJDownloader.route) {
+            MyJDownloaderScreen(
+                onNavigateBack = { navController.popBackStack() },
+                viewModel = appContainer.myJDownloaderViewModel
+            )
+        }
         composable(Screen.Settings.route) {
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() },
@@ -95,5 +102,6 @@ sealed class Screen(val route: String) {
     object Accounts : Screen("accounts")
     object Downloads : Screen("downloads")
     object LinkGrabber : Screen("linkgrabber")
+    object MyJDownloader : Screen("myjdownloader")
     object Settings : Screen("settings")
 }

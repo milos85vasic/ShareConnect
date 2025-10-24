@@ -135,6 +135,8 @@ dependencies {
     def profileinstallerVersion = '1.4.1'
     def accompanistVersion = '0.37.3'
     def workRuntimeVersion = '2.10.4'
+    def lottieVersion = '6.4.0'
+    def composeChartsVersion = '0.3.0'
 
     implementation platform('androidx.compose:compose-bom:2025.09.00')
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
@@ -190,6 +192,8 @@ dependencies {
     implementation "sh.calvin.autolinktext:autolinktext:$autolinktextVersion"
 
     implementation "dev.zt64.compose.pipette:compose-pipette:$composePipetteVersion"
+
+
 
     implementation "androidx.appcompat:appcompat:$androidxAppcompatVersion"
 

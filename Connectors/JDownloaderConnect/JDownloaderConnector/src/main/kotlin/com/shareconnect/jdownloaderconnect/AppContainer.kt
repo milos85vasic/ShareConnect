@@ -3,11 +3,13 @@ package com.shareconnect.jdownloaderconnect
 import android.content.Context
 import com.shareconnect.jdownloaderconnect.data.dao.*
 import com.shareconnect.jdownloaderconnect.data.repository.JDownloaderRepository
+import com.shareconnect.jdownloaderconnect.data.repository.MyJDownloaderRepository
 import com.shareconnect.jdownloaderconnect.data.repository.ServerRepository
 import com.shareconnect.jdownloaderconnect.network.api.MyJDownloaderApi
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.AccountViewModel
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.DownloadsViewModel
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.LinkGrabberViewModel
+import com.shareconnect.jdownloaderconnect.presentation.viewmodel.MyJDownloaderViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -51,7 +53,11 @@ class AppContainer(context: Context) {
     val jDownloaderRepository: JDownloaderRepository by lazy {
         JDownloaderRepository(accountDao, downloadDao, linkGrabberDao, myJDownloaderApi)
     }
-    
+
+    val myJDownloaderRepository: MyJDownloaderRepository by lazy {
+        MyJDownloaderRepository(myJDownloaderApi, jDownloaderRepository)
+    }
+
     val serverRepository: ServerRepository by lazy {
         ServerRepository(serverDao)
     }
@@ -67,5 +73,9 @@ class AppContainer(context: Context) {
     
     val linkGrabberViewModel: LinkGrabberViewModel by lazy {
         LinkGrabberViewModel(jDownloaderRepository)
+    }
+
+    val myJDownloaderViewModel: MyJDownloaderViewModel by lazy {
+        MyJDownloaderViewModel(myJDownloaderRepository)
     }
 }

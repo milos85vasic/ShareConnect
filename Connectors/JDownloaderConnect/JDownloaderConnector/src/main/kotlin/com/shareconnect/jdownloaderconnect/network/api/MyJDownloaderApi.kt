@@ -24,6 +24,31 @@ interface MyJDownloaderApi {
         @Header("Authorization") token: String
     ): Response<ListDevicesResponse>
 
+    // Instance monitoring (My JDownloader specific)
+    @GET("/my/listinstances")
+    suspend fun listInstances(
+        @Header("Authorization") token: String
+    ): Response<ListInstancesResponse>
+
+    @GET("/instance/status")
+    suspend fun getInstanceStatus(
+        @Header("Authorization") token: String,
+        @Query("instanceId") instanceId: String
+    ): Response<InstanceStatusResponse>
+
+    @GET("/instance/speed")
+    suspend fun getDownloadSpeed(
+        @Header("Authorization") token: String,
+        @Query("instanceId") instanceId: String
+    ): Response<DownloadSpeedResponse>
+
+    @GET("/instance/speedhistory")
+    suspend fun getSpeedHistory(
+        @Header("Authorization") token: String,
+        @Query("instanceId") instanceId: String,
+        @Query("duration") durationMinutes: Int = 60
+    ): Response<SpeedHistoryResponse>
+
     // Downloads
     @GET("/downloads/queryLinks")
     suspend fun queryLinks(
@@ -206,4 +231,65 @@ data class JDInfo(
     val version: String,
     val revision: String,
     val build: String
+)
+
+// My JDownloader Instance Management
+@Serializable
+data class ListInstancesResponse(
+    val instances: List<JDownloaderInstance>
+)
+
+@Serializable
+data class JDownloaderInstance(
+    val id: String,
+    val name: String,
+    val status: InstanceStatus,
+    val version: String,
+    val lastSeen: Long,
+    val isOnline: Boolean,
+    val deviceId: String,
+    val accountId: String
+)
+
+@Serializable
+enum class InstanceStatus {
+    RUNNING,
+    PAUSED,
+    STOPPED,
+    ERROR,
+    OFFLINE,
+    CONNECTING
+}
+
+@Serializable
+data class InstanceStatusResponse(
+    val instanceId: String,
+    val status: InstanceStatus,
+    val uptime: Long,
+    val activeDownloads: Int,
+    val totalDownloads: Int,
+    val errorMessage: String? = null,
+    val lastUpdated: Long
+)
+
+@Serializable
+data class DownloadSpeedResponse(
+    val instanceId: String,
+    val currentSpeed: Long, // bytes per second
+    val maxSpeed: Long, // bytes per second
+    val averageSpeed: Long, // bytes per second
+    val timestamp: Long
+)
+
+@Serializable
+data class SpeedHistoryResponse(
+    val instanceId: String,
+    val speedPoints: List<SpeedPoint>
+)
+
+@Serializable
+data class SpeedPoint(
+    val timestamp: Long,
+    val speed: Long, // bytes per second
+    val activeConnections: Int
 )

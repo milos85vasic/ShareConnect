@@ -21,6 +21,7 @@ fun AccountsScreen(
     onNavigateToDownloads: () -> Unit,
     onNavigateToLinkGrabber: () -> Unit,
     onNavigateToSettings: () -> Unit,
+    onNavigateToMyJDownloader: () -> Unit,
     viewModel: AccountViewModel
 ) {
     val accounts by viewModel.accounts.collectAsState()
@@ -71,22 +72,44 @@ fun AccountsScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             // Quick Actions
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                QuickActionCard(
-                    title = "Downloads",
-                    icon = Icons.Default.Download,
-                    onClick = onNavigateToDownloads,
-                    modifier = Modifier.weight(1f)
-                )
-                QuickActionCard(
-                    title = "Link Grabber",
-                    icon = Icons.Default.Link,
-                    onClick = onNavigateToLinkGrabber,
-                    modifier = Modifier.weight(1f)
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    QuickActionCard(
+                        title = "Downloads",
+                        icon = Icons.Default.Download,
+                        onClick = onNavigateToDownloads,
+                        modifier = Modifier.weight(1f)
+                    )
+                    QuickActionCard(
+                        title = "Link Grabber",
+                        icon = Icons.Default.Link,
+                        onClick = onNavigateToLinkGrabber,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                ) {
+                    QuickActionCard(
+                        title = "My JDownloader",
+                        icon = Icons.Default.Dashboard,
+                        onClick = onNavigateToMyJDownloader,
+                        modifier = Modifier.weight(1f)
+                    )
+                    QuickActionCard(
+                        title = "Settings",
+                        icon = Icons.Default.Settings,
+                        onClick = onNavigateToSettings,
+                        modifier = Modifier.weight(1f)
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
