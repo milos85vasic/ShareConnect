@@ -1,12 +1,17 @@
-package com.shareconnect.plexconnect.ui
+package com.shareconnect.nextcloudconnect.ui
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
 import com.shareconnect.languagesync.utils.LocaleHelper
 import digital.vasic.security.access.access.SecurityAccessManager
@@ -34,15 +39,6 @@ class MainActivity : ComponentActivity() {
             return
         }
 
-        // Check if onboarding is needed
-        if (isOnboardingNeeded()) {
-            // Launch onboarding activity
-            val intent = Intent(this, OnboardingActivity::class.java)
-            startActivity(intent)
-            finish()
-            return
-        }
-
         // Show main UI
         setupMainView()
     }
@@ -58,13 +54,10 @@ class MainActivity : ComponentActivity() {
 
     private fun setupMainView() {
         setContent {
-            App()
+            MaterialTheme {
+                NextcloudConnectApp()
+            }
         }
-    }
-
-    private fun isOnboardingNeeded(): Boolean {
-        val prefs = getSharedPreferences("plex_onboarding_prefs", MODE_PRIVATE)
-        return !prefs.getBoolean("onboarding_completed", false)
     }
 
     private fun isSecurityAccessRequired(): Boolean {
@@ -91,20 +84,18 @@ class MainActivity : ComponentActivity() {
     private fun showSecurityAccessDialog() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
         builder.setTitle("Security Access Required")
-        builder.setMessage("Please enter your PIN to access PlexConnect")
+        builder.setMessage("Please enter your PIN to access NextcloudConnect")
 
         val input = android.widget.EditText(this)
         input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD
         builder.setView(input)
 
-        builder.setPositiveButton("Unlock") { dialog, _ ->
+        builder.setPositiveButton("Unlock") { dialog: android.content.DialogInterface, _: Int ->
             val pin = input.text.toString()
             authenticateWithPin(pin)
-            dialog.dismiss()
         }
 
-        builder.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.cancel()
+        builder.setNegativeButton("Cancel") { _: android.content.DialogInterface, _: Int ->
             finish() // Close app if user cancels
         }
 
@@ -118,14 +109,8 @@ class MainActivity : ComponentActivity() {
                 val result = securityAccessManager.authenticate(AccessMethod.PIN, pin)
                 when (result) {
                     is SecurityAccessManager.AuthenticationResult.Success -> {
-                        // Authentication successful, check onboarding or show main view
-                        if (isOnboardingNeeded()) {
-                            val intent = Intent(this@MainActivity, OnboardingActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            setupMainView()
-                        }
+                        // Authentication successful, show main view
+                        setupMainView()
                     }
                     else -> {
                         // Authentication failed, show error and retry
@@ -138,6 +123,37 @@ class MainActivity : ComponentActivity() {
                 Toast.makeText(this@MainActivity, "Authentication error. Please try again.", Toast.LENGTH_SHORT).show()
                 showSecurityAccessDialog()
             }
+        }
+    }
+}
+
+@Composable
+fun NextcloudConnectApp() {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "NextcloudConnect",
+                style = MaterialTheme.typography.headlineLarge
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = "Cloud Storage Integration",
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Spacer(modifier = Modifier.height(32.dp))
+            Text(
+                text = "Connect to your Nextcloud server to sync and share files across all ShareConnect apps.",
+                style = MaterialTheme.typography.bodyMedium
+            )
         }
     }
 }

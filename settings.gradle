@@ -81,6 +81,15 @@ project(':JDownloaderConnector').projectDir = new File(settingsDir, 'Connectors/
 include ':PlexConnector'
 project(':PlexConnector').projectDir = new File(settingsDir, 'Connectors/PlexConnect/PlexConnector')
 
+include ':NextcloudConnector'
+project(':NextcloudConnector').projectDir = new File(settingsDir, 'Connectors/NextcloudConnect/NextcloudConnector')
+
+include ':MotrixConnector'
+project(':MotrixConnector').projectDir = new File(settingsDir, 'Connectors/MotrixConnect/MotrixConnector')
+
+include ':GiteaConnector'
+project(':GiteaConnector').projectDir = new File(settingsDir, 'Connectors/GiteaConnect/GiteaConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 

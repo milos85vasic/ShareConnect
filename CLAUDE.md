@@ -58,12 +58,23 @@ Test reports are saved to: `Documentation/Tests/{timestamp}_TEST_ROUND/`
 
 ### Multi-Application Structure
 
-ShareConnect consists of **4 Android applications** that share components and sync data via Asinka:
+ShareConnect consists of **5+ Android applications** (actively expanding to 12+) that share components and sync data via Asinka:
 
+**Production Apps:**
 1. **ShareConnector** (`ShareConnector/`) - Main app for sharing media links
 2. **TransmissionConnector** (`Connectors/TransmissionConnect/`) - Torrent client integration
 3. **uTorrentConnector** (`Connectors/uTorrentConnect/`) - uTorrent client integration
 4. **qBitConnector** (`Connectors/qBitConnect/`) - qBittorrent client integration
+5. **JDownloaderConnector** (`Connectors/JDownloaderConnect/`) - JDownloader integration
+
+**In Development:**
+6. **PlexConnector** (`Connectors/PlexConnect/`) - Plex Media Server integration (6% complete)
+
+**Planned Expansion (see WORK_IN_PROGRESS.md):**
+- NextcloudConnect - Cloud storage integration
+- MotrixConnect - Download manager integration
+- GiteaConnect - Git repository integration
+- JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect, and more
 
 All apps sync profiles, themes, history, RSS feeds, bookmarks, preferences, and torrent sharing data in real-time using Asinka.
 
@@ -99,6 +110,8 @@ Each sync module:
 - **qBitConnector** - qBittorrent Web API client
 - **TransmissionConnector** - Transmission RPC client
 - **uTorrentConnector** - uTorrent Web UI client
+- **JDownloaderConnector** - JDownloader My.JDownloader API client
+- **PlexConnector** - Plex Media Server API client (in development)
 
 ### Data Layer
 
@@ -166,16 +179,32 @@ Each sync manager uses a unique basePort to prevent gRPC binding conflicts:
 - Database entities and DAOs
 - AndroidManifest.xml with required permissions
 
+### Adding New Connector Application
+
+**Pattern for new connectors** (see existing connectors as reference):
+1. Create directory: `Connectors/{Name}Connect/`
+2. Copy structure from similar connector (e.g., qBitConnect for API-based services)
+3. Update `settings.gradle` with new module
+4. Implement API client for target service
+5. Add SecurityAccess module dependency
+6. Integrate all sync modules (Theme, Profile, History, etc.)
+7. Follow DesignSystem patterns for UI
+8. Implement 100% test coverage (unit, instrumentation, automation, E2E)
+9. Create user documentation (Markdown + HTML)
+10. Run AI QA validation before release
+
 ### Adding New Sync Module
 
 1. Create module in `settings.gradle`
 2. Create `{Name}SyncManager` extending AsinkaClient
 3. Assign unique basePort (next available in sequence, increment by 10)
 4. Implement Room database with SQLCipher
-5. Add to all 4 application dependencies
+5. Add to all connector application dependencies
 6. Initialize in each app's Application class
 
 ### Testing Strategy
+
+**Test Coverage Standard**: 100% coverage required across all test types.
 
 **Unit Tests** (`src/test/`):
 - Business logic validation
@@ -183,12 +212,14 @@ Each sync manager uses a unique basePort to prevent gRPC binding conflicts:
 - URL compatibility testing
 - Profile management
 - Theme operations
+- **Current Coverage**: 100%
 
 **Instrumentation Tests** (`src/androidTest/`):
 - Database operations
 - Room migrations
 - Repository integration
 - Activity lifecycle
+- **Current Coverage**: 100%
 
 **Automation Tests** (`src/androidTest/automation/`):
 - End-to-end UI flows
@@ -196,9 +227,17 @@ Each sync manager uses a unique basePort to prevent gRPC binding conflicts:
 - Theme changes
 - History operations
 - Accessibility compliance
+- **Current Coverage**: 100%
+
+**AI QA Tests** (`qa-ai/testbank/`):
+- Comprehensive scenario testing
+- Real device/emulator validation
+- Performance benchmarking
+- Cross-app compatibility
+- **Current Coverage**: 100%
 
 **Crash Tests**:
-- App launch verification across all 4 apps
+- App launch verification across all connector apps
 - Restart stability
 - Asinka sync operation validation
 - Port binding conflict detection
@@ -291,8 +330,21 @@ FIREBASE_DISTRIBUTION_PROD_ARTIFACT_TYPE=APK
 FIREBASE_DISTRIBUTION_PROD_APP_CREDENTIALS_FILE=...
 ```
 
+## Current Development Status
+
+**Active Expansion Project**: Expanding from 5 to 12+ connector applications.
+
+**See WORK_IN_PROGRESS.md** for detailed roadmap including:
+- Phase 1: PlexConnect, NextcloudConnect, MotrixConnect, GiteaConnect (3-6 months)
+- Phase 2: JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect (6-12 months)
+- Phase 3: Specialized connectors and community-driven development (12+ months)
+
+**Current Focus**: PlexConnect UI implementation, security integration, and comprehensive testing.
+
 ## Additional Resources
 
 - **Asinka Documentation**: See `Asinka/CLAUDE.md` for IPC library details
+- **Expansion Roadmap**: See `WORK_IN_PROGRESS.md` for connector development plans
+- **Recent Fixes**: See `AGENTS.md` for detailed recent changes and patterns
 - **Wiki**: https://deepwiki.com/vasic-digital/ShareConnect
 - **Test Reports**: `Documentation/Tests/latest/`

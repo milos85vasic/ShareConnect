@@ -1,11 +1,7 @@
-package com.shareconnect.plexconnect
+package com.shareconnect.motrixconnect
 
 import android.app.Application
 import android.content.Context
-import com.shareconnect.plexconnect.data.database.PlexDatabase
-import com.shareconnect.plexconnect.data.repository.PlexServerRepository
-import com.shareconnect.plexconnect.di.DependencyContainer
-import com.shareconnect.plexconnect.sync.PlexSyncManager
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
 import com.shareconnect.historysync.HistorySyncManager
@@ -15,17 +11,13 @@ import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.languagesync.utils.LocaleHelper
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
-import androidx.room.Room
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class PlexConnectApplication : Application() {
-
-    lateinit var plexSyncManager: PlexSyncManager
-        private set
+class MotrixConnectApplication : Application() {
 
     lateinit var themeSyncManager: ThemeSyncManager
         private set
@@ -64,9 +56,6 @@ class PlexConnectApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Initialize manual dependency injection
-        DependencyContainer.init(this)
-
         // Initialize all sync managers
         initializeLanguageSync()
         initializeTorrentSharingSync()
@@ -76,7 +65,6 @@ class PlexConnectApplication : Application() {
         initializeRSSSync()
         initializeBookmarkSync()
         initializePreferencesSync()
-        initializePlexSync()
 
         // Observe language changes
         observeLanguageChanges()
@@ -86,7 +74,7 @@ class PlexConnectApplication : Application() {
         applicationScope.launch {
             languageSyncManager.languageChangeFlow.collect { languageData ->
                 // Persist language change so it applies on next app start
-                LocaleHelper.persistLanguage(this@PlexConnectApplication, languageData.languageCode)
+                LocaleHelper.persistLanguage(this@MotrixConnectApplication, languageData.languageCode)
             }
         }
     }
@@ -96,7 +84,7 @@ class PlexConnectApplication : Application() {
         themeSyncManager = ThemeSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -112,9 +100,9 @@ class PlexConnectApplication : Application() {
         profileSyncManager = ProfileSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = "MEDIA_SERVER"  // PlexConnect only syncs media server profiles
+            clientTypeFilter = "DOWNLOAD_MANAGER"  // MotrixConnect only syncs download manager profiles
         )
 
         // Start profile sync in background
@@ -129,7 +117,7 @@ class PlexConnectApplication : Application() {
         historySyncManager = HistorySyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -145,9 +133,9 @@ class PlexConnectApplication : Application() {
         rssSyncManager = RSSSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = "MEDIA_SERVER"  // PlexConnect syncs media server RSS feeds
+            clientTypeFilter = "DOWNLOAD_MANAGER"  // MotrixConnect syncs download manager RSS feeds
         )
 
         // Start RSS sync in background
@@ -162,7 +150,7 @@ class PlexConnectApplication : Application() {
         bookmarkSyncManager = BookmarkSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -178,7 +166,7 @@ class PlexConnectApplication : Application() {
         preferencesSyncManager = PreferencesSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -194,7 +182,7 @@ class PlexConnectApplication : Application() {
         languageSyncManager = LanguageSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -210,7 +198,7 @@ class PlexConnectApplication : Application() {
         torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
             context = this,
             appId = packageName,
-            appName = "PlexConnect",
+            appName = "MotrixConnect",
             appVersion = packageInfo.versionName ?: "1.0.0"
         )
 
@@ -218,28 +206,6 @@ class PlexConnectApplication : Application() {
         applicationScope.launch {
             delay(800) // Small delay to avoid port conflicts
             torrentSharingSyncManager.start()
-        }
-    }
-
-    private fun initializePlexSync() {
-        // Initialize Plex sync manager
-        try {
-            plexSyncManager = PlexSyncManager.getInstance(
-                this,
-                packageName,
-                "PlexConnect",
-                "1.0.0",
-                DependencyContainer.plexServerRepository
-            )
-
-            // Start Plex sync in background
-            applicationScope.launch {
-                delay(900) // Small delay to avoid port conflicts
-                plexSyncManager.start()
-            }
-        } catch (e: Exception) {
-            // Handle initialization errors
-            e.printStackTrace()
         }
     }
 }
