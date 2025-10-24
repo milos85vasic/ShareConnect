@@ -9,26 +9,34 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-class PlexApiClient {
+class PlexApiClient(
+    private val plexApiService: PlexApiService? = null
+) {
 
     private val tag = "PlexApiClient"
 
-    private val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
-        .build()
+    private val okHttpClient by lazy {
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .build()
+    }
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://plex.tv/") // Default base URL for auth, will be overridden for server calls
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://plex.tv/") // Default base URL for auth, will be overridden for server calls
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    private val plexApiService = retrofit.create(PlexApiService::class.java)
+    private val service: PlexApiService by lazy {
+        plexApiService ?: retrofit.create(PlexApiService::class.java)
+    }
 
     // Authentication methods
     suspend fun requestPin(clientIdentifier: String): Result<PlexPinResponse> = withContext(Dispatchers.IO) {
