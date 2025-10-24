@@ -46,7 +46,7 @@ class PlexApiClient(
                 product = "PlexConnect",
                 clientIdentifier = clientIdentifier
             )
-            val response = plexApiService.requestPin(request)
+            val response = service.requestPin(request)
             if (response.isSuccessful) {
                 response.body()?.let { Result.success(it) } ?: Result.failure(Exception("Empty response"))
             } else {
@@ -60,7 +60,7 @@ class PlexApiClient(
 
     suspend fun checkPin(pinId: Long): Result<PlexPinResponse> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.checkPin(pinId)
+            val response = service.checkPin(pinId)
             if (response.isSuccessful) {
                 response.body()?.let { Result.success(it) } ?: Result.failure(Exception("Empty response"))
             } else {
@@ -75,7 +75,7 @@ class PlexApiClient(
     // Server interaction methods
     suspend fun getServerInfo(serverUrl: String): Result<PlexServerInfo> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.getServerInfo(serverUrl)
+            val response = service.getServerInfo(serverUrl)
             if (response.isSuccessful) {
                 response.body()?.let { Result.success(it) } ?: Result.failure(Exception("Empty response"))
             } else {
@@ -89,7 +89,7 @@ class PlexApiClient(
 
     suspend fun getLibraries(serverUrl: String, token: String): Result<List<PlexLibrary>> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.getLibraries(serverUrl, token)
+            val response = service.getLibraries(serverUrl, token)
             if (response.isSuccessful) {
                 val libraries = response.body()?.mediaContainer?.Directory ?: emptyList()
                 Result.success(libraries)
@@ -110,7 +110,7 @@ class PlexApiClient(
         offset: Int = 0
     ): Result<List<PlexMediaItem>> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.getLibraryItems(serverUrl, sectionKey, token, limit, offset)
+            val response = service.getLibraryItems(serverUrl, sectionKey, token, limit, offset)
             if (response.isSuccessful) {
                 val items = response.body()?.mediaContainer?.Metadata ?: emptyList()
                 Result.success(items)
@@ -125,7 +125,7 @@ class PlexApiClient(
 
     suspend fun getMediaItem(serverUrl: String, ratingKey: String, token: String): Result<PlexMediaItem?> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.getMediaItem(serverUrl, ratingKey, token)
+            val response = service.getMediaItem(serverUrl, ratingKey, token)
             if (response.isSuccessful) {
                 val item = response.body()?.mediaContainer?.Metadata?.firstOrNull()
                 Result.success(item)
@@ -140,7 +140,7 @@ class PlexApiClient(
 
     suspend fun getMediaChildren(serverUrl: String, ratingKey: String, token: String): Result<List<PlexMediaItem>> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.getMediaChildren(serverUrl, ratingKey, token)
+            val response = service.getMediaChildren(serverUrl, ratingKey, token)
             if (response.isSuccessful) {
                 val children = response.body()?.mediaContainer?.Metadata ?: emptyList()
                 Result.success(children)
@@ -155,7 +155,7 @@ class PlexApiClient(
 
     suspend fun markAsPlayed(serverUrl: String, key: String, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.markAsPlayed(serverUrl, key, token = token)
+            val response = service.markAsPlayed(serverUrl, key, token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
@@ -169,7 +169,7 @@ class PlexApiClient(
 
     suspend fun markAsUnplayed(serverUrl: String, key: String, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.markAsUnplayed(serverUrl, key, token = token)
+            val response = service.markAsUnplayed(serverUrl, key, token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
@@ -183,7 +183,7 @@ class PlexApiClient(
 
     suspend fun updateProgress(serverUrl: String, key: String, time: Long, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.updateProgress(serverUrl, key, time = time, token = token)
+            val response = service.updateProgress(serverUrl, key, time = time, token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
@@ -197,7 +197,7 @@ class PlexApiClient(
 
     suspend fun search(serverUrl: String, query: String, token: String, limit: Int = 50): Result<List<PlexMediaItem>> = withContext(Dispatchers.IO) {
         try {
-            val response = plexApiService.search(serverUrl, query, limit, token)
+            val response = service.search(serverUrl, query, limit, token)
             if (response.isSuccessful) {
                 val results = response.body()?.mediaContainer?.Metadata ?: emptyList()
                 Result.success(results)
