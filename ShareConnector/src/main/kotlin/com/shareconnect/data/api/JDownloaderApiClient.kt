@@ -21,12 +21,13 @@ import java.util.concurrent.TimeUnit
 class JDownloaderApiClient(
     private val email: String,
     private val password: String,
-    private val deviceId: String? = null
+    private val deviceId: String? = null,
+    baseUrl: String = "https://api.jdownloader.org"
 ) {
     private val tag = "JDownloaderApiClient"
     private val gson = Gson()
 
-    private val apiUrl = "https://api.jdownloader.org"
+    private val apiUrl = baseUrl.removeSuffix("/")
     private var sessionToken: String? = null
     private var regainToken: String? = null
 
@@ -100,8 +101,23 @@ class JDownloaderApiClient(
                 response.close()
 
                 if (responseBody != null) {
-                    val devices = gson.fromJson(responseBody, Array<JDownloaderDevice>::class.java)
-                    Result.success(devices.toList())
+                    val jsonResponse = JSONObject(responseBody)
+                    val listArray = jsonResponse.optJSONArray("list")
+                    if (listArray != null) {
+                        val devices = mutableListOf<JDownloaderDevice>()
+                        for (i in 0 until listArray.length()) {
+                            val deviceJson = listArray.getJSONObject(i)
+                            devices.add(JDownloaderDevice(
+                                id = deviceJson.getString("id"),
+                                name = deviceJson.getString("name"),
+                                type = deviceJson.getString("type"),
+                                status = deviceJson.optString("status", "")
+                            ))
+                        }
+                        Result.success(devices)
+                    } else {
+                        Result.success(emptyList())
+                    }
                 } else {
                     Result.success(emptyList())
                 }
@@ -171,8 +187,26 @@ class JDownloaderApiClient(
                 response.close()
 
                 if (responseBody != null) {
-                    val packages = gson.fromJson(responseBody, Array<JDownloaderPackage>::class.java)
-                    Result.success(packages.toList())
+                    val jsonResponse = JSONObject(responseBody)
+                    val dataArray = jsonResponse.optJSONArray("data")
+                    if (dataArray != null) {
+                        val packages = mutableListOf<JDownloaderPackage>()
+                        for (i in 0 until dataArray.length()) {
+                            val packageJson = dataArray.getJSONObject(i)
+                            packages.add(JDownloaderPackage(
+                                uuid = packageJson.getString("uuid"),
+                                name = packageJson.getString("name"),
+                                saveTo = packageJson.optString("saveto", ""),
+                                bytesTotal = packageJson.getLong("bytesTotal"),
+                                bytesLoaded = packageJson.getLong("bytesLoaded"),
+                                enabled = packageJson.getBoolean("enabled"),
+                                finished = packageJson.getBoolean("finished")
+                            ))
+                        }
+                        Result.success(packages)
+                    } else {
+                        Result.success(emptyList())
+                    }
                 } else {
                     Result.success(emptyList())
                 }
@@ -182,6 +216,93 @@ class JDownloaderApiClient(
             }
         } catch (e: Exception) {
             Log.e(tag, "Error getting packages", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Start downloads
+     */
+    suspend fun startDownloads(): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val devicePath = if (deviceId != null) "/device/$deviceId" else ""
+            val request = Request.Builder()
+                .url("$apiUrl/my$devicePath/downloadcontroller/start")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .post("{}".toRequestBody("application/json".toMediaType()))
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                response.close()
+                Result.success(Unit)
+            } else {
+                response.close()
+                Result.failure(Exception("Start downloads failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error starting downloads", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Stop downloads
+     */
+    suspend fun stopDownloads(): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val devicePath = if (deviceId != null) "/device/$deviceId" else ""
+            val request = Request.Builder()
+                .url("$apiUrl/my$devicePath/downloadcontroller/stop")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .post("{}".toRequestBody("application/json".toMediaType()))
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                response.close()
+                Result.success(Unit)
+            } else {
+                response.close()
+                Result.failure(Exception("Stop downloads failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error stopping downloads", e)
+            Result.failure(e)
+        }
+    }
+
+    /**
+     * Pause downloads
+     */
+    suspend fun pauseDownloads(): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            ensureConnected()
+
+            val devicePath = if (deviceId != null) "/device/$deviceId" else ""
+            val request = Request.Builder()
+                .url("$apiUrl/my$devicePath/downloadcontroller/pause")
+                .addHeader("Authorization", "Bearer $sessionToken")
+                .post("{}".toRequestBody("application/json".toMediaType()))
+                .build()
+
+            val response = okHttpClient.newCall(request).execute()
+
+            if (response.isSuccessful) {
+                response.close()
+                Result.success(Unit)
+            } else {
+                response.close()
+                Result.failure(Exception("Pause downloads failed: ${response.code}"))
+            }
+        } catch (e: Exception) {
+            Log.e(tag, "Error pausing downloads", e)
             Result.failure(e)
         }
     }

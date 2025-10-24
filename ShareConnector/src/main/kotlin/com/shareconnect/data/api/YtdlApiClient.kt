@@ -4,10 +4,12 @@ import android.util.Base64
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.FormBody
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 /**
@@ -40,18 +42,37 @@ class YtdlApiClient(
         .build()
 
     /**
-     * Add URL for download
+     * Add download with comprehensive options
      */
-    suspend fun addUrl(url: String, format: String? = null): Result<Unit> = withContext(Dispatchers.IO) {
+    suspend fun addDownload(
+        url: String,
+        outputTemplate: String? = null,
+        format: String? = null,
+        audioOnly: Boolean = false,
+        postProcessor: String? = null,
+        postProcessorArgs: String? = null,
+        writeSubtitles: Boolean = false,
+        subtitleLanguages: String? = null,
+        embedThumbnail: Boolean = false
+    ): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val formBodyBuilder = FormBody.Builder()
-                .add("url", url)
+            val json = JSONObject().apply {
+                put("url", url)
+                outputTemplate?.let { put("output_template", it) }
+                format?.let { put("format", it) }
+                if (audioOnly) put("audio_only", true)
+                postProcessor?.let { put("post_processor", it) }
+                postProcessorArgs?.let { put("post_processor_args", it) }
+                if (writeSubtitles) put("write_subtitles", true)
+                subtitleLanguages?.let { put("subtitle_languages", it) }
+                if (embedThumbnail) put("embed_thumbnail", true)
+            }
 
-            format?.let { formBodyBuilder.add("format", it) }
+            val requestBody = json.toString().toRequestBody("application/json".toMediaType())
 
             val requestBuilder = Request.Builder()
                 .url("$baseUrl/download")
-                .post(formBodyBuilder.build())
+                .post(requestBody)
 
             authHeader?.let { requestBuilder.addHeader("Authorization", it) }
 
@@ -64,13 +85,19 @@ class YtdlApiClient(
             } else {
                 val errorBody = response.body?.string() ?: "Unknown error"
                 response.close()
-                Result.failure(Exception("Add URL failed: ${response.code} $errorBody"))
+                Result.failure(Exception("Add download failed: ${response.code} $errorBody"))
             }
         } catch (e: Exception) {
-            Log.e(tag, "Error adding URL", e)
+            Log.e(tag, "Error adding download", e)
             Result.failure(e)
         }
     }
+
+    /**
+     * Add URL for download (simplified version)
+     */
+    suspend fun addUrl(url: String, format: String? = null): Result<Unit> =
+        addDownload(url = url, format = format)
 
     companion object {
         private const val TAG = "YtdlApiClient"

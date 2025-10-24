@@ -129,10 +129,11 @@ class UTorrentApiClientTest {
             .setBody("<html><body><div id='token'>$testToken</div></body></html>"))
 
         // Mock torrents list response (uTorrent array format)
+        // Array format: [hash, status, name, size, progress, downloaded, uploaded, ratio, upload_speed, download_speed, eta, label, peers_connected, peers_in_swarm, seeds_connected, seeds_in_swarm, availability, torrent_queue_order, remaining]
         val torrentsJson = """
             {
                 "torrents": [
-                    ["hash123", 201, "Test Torrent", 1073741824, 750, 102400, 51200, 1.5, 3, 2, "Movie", ""]
+                    ["hash123", 201, "Test Torrent", 1073741824, 750, 102400, 51200, 1500, 100000, 200000, 300, "Movie", 5, 10, 2, 5, 65536, 1, 500000]
                 ],
                 "torrentc": "12345"
             }
@@ -410,10 +411,11 @@ class UTorrentApiClientTest {
             .setBody("<html><body><div id='token'>$testToken</div></body></html>"))
 
         // Mock RSS feeds response
+        // Array format: [id, enabled, use_url, custom_alias, subscribe_to_downloads, smart_filter_enabled, url, alias]
         val rssJson = """
             {
                 "rssfeeds": [
-                    [1, true, "Feed Name", "http://example.com/feed.rss", 10, "custom"]
+                    [1, 1, 1, "Feed Name", 0, 0, "http://example.com/feed.rss", "Feed Name"]
                 ]
             }
         """.trimIndent()
@@ -427,7 +429,7 @@ class UTorrentApiClientTest {
         assertTrue(result.isSuccess)
         val feeds = result.getOrNull()!!
         assertEquals(1, feeds.size)
-        assertEquals("Feed Name", feeds[0].name)
+        assertEquals("Feed Name", feeds[0].alias)
     }
 
     @Test
@@ -491,22 +493,22 @@ class UTorrentApiClientTest {
             hash = "test",
             status = 1, // Started bit
             name = "Test",
-            sizeBytes = 1000,
-            downloaded = 500,
-            uploaded = 250,
-            ratio = 0.5,
-            uploadSpeed = 100,
-            downloadSpeed = 200,
-            eta = 300,
+            size = 1000L,
+            progress = 500L,
+            downloaded = 500L,
+            uploaded = 250L,
+            ratio = 500L, // Ratio in per mille (0.5 = 500)
+            uploadSpeed = 100L,
+            downloadSpeed = 200L,
+            eta = 300L,
             label = "",
             peersConnected = 5,
             peersInSwarm = 10,
             seedsConnected = 2,
             seedsInSwarm = 5,
-            availability = 1.0,
+            availability = 65536L, // 1.0 in 1/65536ths
             queueOrder = 1,
-            remaining = 500,
-            progress = 500
+            remaining = 500L
         )
 
         assertTrue(torrentStarted.isStarted())
