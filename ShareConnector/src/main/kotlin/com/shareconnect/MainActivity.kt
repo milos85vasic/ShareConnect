@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -21,10 +22,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.redelf.commons.logging.Console
 import com.shareconnect.languagesync.utils.LocaleHelper
+import digital.vasic.security.access.access.SecurityAccessManager
+import digital.vasic.security.access.data.AccessMethod
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import androidx.core.content.edit
 import androidx.core.net.toUri
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private var buttonSettings: MaterialButton? = null
@@ -44,6 +49,7 @@ class MainActivity : AppCompatActivity() {
     private var profileAdapter: ProfileIconAdapter? = null
     private var systemAppAdapter: SystemAppAdapter? = null
     private var isContentViewSet = false
+    private lateinit var securityAccessManager: SecurityAccessManager
 
     companion object {
         private const val SETUP_WIZARD_REQUEST_CODE = 1001
@@ -58,13 +64,13 @@ class MainActivity : AppCompatActivity() {
         try {
             Console.debug("MainActivity.onCreate() - Starting")
 
-            // Check if secure access is required before applying theme
-            if (SecureAccessActivity.isSecureAccessEnabled(this)) {
-                Console.debug("MainActivity.onCreate() - Secure access enabled, redirecting to SecureAccessActivity")
-                val intent = Intent(this, SecureAccessActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                startActivity(intent)
-                finish()
+            // Initialize SecurityAccessManager first
+            securityAccessManager = SecurityAccessManager.getInstance(this)
+
+            // Check if security access is required BEFORE applying theme
+            if (isSecurityAccessRequired()) {
+                Console.debug("MainActivity.onCreate() - Security access required, launching authentication")
+                launchSecurityAccess()
                 return
             }
 
@@ -409,6 +415,14 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         Console.debug("MainActivity.onResume() - Starting")
         super.onResume()
+
+        // Check security access when app comes back to foreground
+        if (isSecurityAccessRequired()) {
+            Console.debug("MainActivity.onResume() - Security access required on resume")
+            launchSecurityAccess()
+            return
+        }
+
         // Check if theme has changed and recreate activity if needed
         themeManager = ThemeManager.getInstance(this)
         val themeChanged = themeManager!!.hasThemeChanged()
@@ -565,6 +579,86 @@ class MainActivity : AppCompatActivity() {
                 uri.scheme == "magnet" || url.endsWith(".torrent"))
         } catch (e: Exception) {
             false
+        }
+    }
+
+    /**
+     * Check if security access is required
+     */
+    private fun isSecurityAccessRequired(): Boolean {
+        return try {
+            runBlocking {
+                securityAccessManager.isAccessRequired()
+            }
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error checking security access requirement", e)
+            false // Default to no security if there's an error
+        }
+    }
+
+    /**
+     * Launch security access authentication
+     */
+    private fun launchSecurityAccess() {
+        try {
+            showSecurityAccessDialog()
+        } catch (e: Exception) {
+            Log.e("MainActivity", "Error launching security access", e)
+            // If security access fails, continue with normal flow
+            setupMainView()
+        }
+    }
+
+    /**
+     * Show security access authentication dialog
+     */
+    private fun showSecurityAccessDialog() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setTitle("Security Access Required")
+        builder.setMessage("Please enter your PIN to access the application")
+
+        val input = android.widget.EditText(this)
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD
+        builder.setView(input)
+
+        builder.setPositiveButton("Unlock") { dialog, _ ->
+            val pin = input.text.toString()
+            authenticateWithPin(pin)
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.cancel()
+            finish() // Close app if user cancels
+        }
+
+        builder.setCancelable(false)
+        builder.show()
+    }
+
+    /**
+     * Authenticate with PIN using SecurityAccessManager
+     */
+    private fun authenticateWithPin(pin: String) {
+        lifecycleScope.launch {
+            try {
+                val result = securityAccessManager.authenticate(AccessMethod.PIN, pin)
+                when (result) {
+                    is SecurityAccessManager.AuthenticationResult.Success -> {
+                        // Authentication successful, continue with normal flow
+                        setupMainView()
+                    }
+                    else -> {
+                        // Authentication failed, show error and retry
+                        Toast.makeText(this@MainActivity, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show()
+                        showSecurityAccessDialog()
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Error during PIN authentication", e)
+                Toast.makeText(this@MainActivity, "Authentication error. Please try again.", Toast.LENGTH_SHORT).show()
+                showSecurityAccessDialog()
+            }
         }
     }
 }

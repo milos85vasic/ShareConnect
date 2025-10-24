@@ -226,6 +226,7 @@ dependencies {
     implementation project(":LanguageSync")
     implementation project(":TorrentSharingSync")
     implementation project(":Localizations")
+    implementation project(':Toolkit:SecurityAccess')
 
     testImplementation project("${toolkit_context}:Main")
     testImplementation project(":Tests")

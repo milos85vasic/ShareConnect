@@ -1,0 +1,170 @@
+name: "Security Access Integration Test"
+description: "Test security access functionality across all ShareConnect applications"
+priority: "high"
+tags: ["security", "authentication", "integration"]
+
+test_cases:
+  - name: "Security Access Disabled by Default"
+    description: "Verify that security access is disabled by default in all applications"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        expected: "MainActivity loads without security prompts"
+      - action: "launch_app"
+        app: "qBitConnect"
+        expected: "MainActivity loads without security prompts"
+      - action: "launch_app"
+        app: "TransmissionConnect"
+        expected: "MainActivity loads without security prompts"
+      - action: "launch_app"
+        app: "uTorrentConnect"
+        expected: "MainActivity loads without security prompts"
+      - action: "launch_app"
+        app: "JDownloaderConnect"
+        expected: "MainActivity loads without security prompts"
+
+  - name: "Enable Security Access"
+    description: "Test enabling security access with PIN authentication"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+      - action: "navigate_to_settings"
+      - action: "enable_security_access"
+        method: "PIN"
+        pin: "1234"
+        expected: "Security access enabled successfully"
+      - action: "restart_app"
+        expected: "Security authentication dialog appears"
+
+  - name: "PIN Authentication Flow"
+    description: "Test complete PIN authentication flow"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+      - action: "enter_pin"
+        pin: "1234"
+        expected: "Authentication successful, main activity loads"
+      - action: "background_app"
+      - action: "foreground_app"
+        expected: "No authentication required (session active)"
+      - action: "wait"
+        duration: "310000" # 5 minutes + 10 seconds
+      - action: "foreground_app"
+        expected: "Authentication dialog appears (session expired)"
+
+  - name: "Invalid PIN Handling"
+    description: "Test behavior with invalid PIN attempts"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+      - action: "enter_pin"
+        pin: "9999"
+        expected: "Authentication failed, dialog remains"
+      - action: "enter_pin"
+        pin: "9999"
+        expected: "Authentication failed, failed attempts counter increases"
+      - action: "enter_pin"
+        pin: "9999"
+        expected: "Authentication failed, failed attempts counter increases"
+      - action: "enter_pin"
+        pin: "9999"
+        expected: "Authentication failed, failed attempts counter increases"
+      - action: "enter_pin"
+        pin: "9999"
+        expected: "Authentication failed, account locked"
+
+  - name: "Biometric Authentication"
+    description: "Test biometric authentication when available"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+        biometric_available: true
+      - action: "enable_biometric_auth"
+        expected: "Biometric prompt appears automatically"
+      - action: "simulate_biometric_success"
+        expected: "Authentication successful"
+
+  - name: "Security Access Across Apps"
+    description: "Verify security access works consistently across all apps"
+    steps:
+      - action: "enable_security_all_apps"
+        method: "PIN"
+        pin: "1234"
+      - action: "launch_app"
+        app: "ShareConnect"
+        expected: "Security dialog appears"
+      - action: "launch_app"
+        app: "qBitConnect"
+        expected: "Security dialog appears"
+      - action: "launch_app"
+        app: "TransmissionConnect"
+        expected: "Security dialog appears"
+      - action: "launch_app"
+        app: "uTorrentConnect"
+        expected: "Security dialog appears"
+      - action: "launch_app"
+        app: "JDownloaderConnect"
+        expected: "Security dialog appears"
+
+  - name: "Session Management"
+    description: "Test session timeout and re-authentication"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+      - action: "authenticate"
+        pin: "1234"
+      - action: "use_app"
+        duration: "300000" # 5 minutes
+        expected: "Session remains active"
+      - action: "background_app"
+      - action: "wait"
+        duration: "10000" # 10 seconds
+      - action: "foreground_app"
+        expected: "Session still active, no authentication required"
+      - action: "background_app"
+      - action: "wait"
+        duration: "320000" # 5 minutes 20 seconds
+      - action: "foreground_app"
+        expected: "Session expired, authentication required"
+
+  - name: "Security Settings Persistence"
+    description: "Verify security settings persist across app restarts"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+      - action: "enable_security"
+        method: "PIN"
+        pin: "1234"
+      - action: "restart_app"
+        expected: "Security settings maintained"
+      - action: "restart_device"
+        expected: "Security settings maintained"
+
+  - name: "Disable Security Access"
+    description: "Test disabling security access"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+      - action: "navigate_to_settings"
+      - action: "disable_security_access"
+        expected: "Security access disabled"
+      - action: "restart_app"
+        expected: "No security prompts, direct access to main activity"
+
+  - name: "Security Access Error Handling"
+    description: "Test error handling in security access flows"
+    steps:
+      - action: "launch_app"
+        app: "ShareConnect"
+        security_enabled: true
+      - action: "simulate_database_error"
+        expected: "Graceful fallback to no security"
+      - action: "simulate_biometric_error"
+        expected: "Fallback to PIN authentication"
+      - action: "simulate_corruption"
+        expected: "Security reset, user can reconfigure"
