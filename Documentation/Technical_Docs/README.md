@@ -62,6 +62,19 @@ This directory contains comprehensive technical documentation for all ShareConne
 - **[Squid](Toolkit/Squid.md)** - Proxy server integration
 - **[Upstreams](Toolkit/Upstreams.md)** - Upstream service management
 
+## Quality Assurance Documentation
+
+### Phase 1 QA Reports
+- **[Code Review Report](../QA/Phase_1_Code_Review_Report.md)** - Comprehensive code quality assessment for Phase 1 connectors
+- **[Security Audit Summary](../QA/Phase_1_Security_Audit_Summary.md)** - Security analysis and vulnerability assessment
+- **[Performance Analysis Summary](../QA/Phase_1_Performance_Analysis_Summary.md)** - Performance benchmarks and optimization analysis
+- **[AI QA Test Plan](../QA/Phase_1_AI_QA_Test_Plan.md)** - AI-powered QA test scenarios and execution plan
+- **[Production Readiness Summary](../QA/Phase_1_Production_Readiness_Summary.md)** - Final production readiness assessment
+
+### Project Documentation
+- **[Phase 1 Completion Report](../Phase_1_Completion_Report.md)** - Comprehensive Phase 1 project completion summary
+- **[Phase 1 Release Notes](../RELEASE_NOTES_PHASE_1.md)** - Release notes for all Phase 1 connectors
+
 ## Documentation Structure
 
 Each documentation file follows a consistent structure:
