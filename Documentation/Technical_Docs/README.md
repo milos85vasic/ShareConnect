@@ -11,6 +11,12 @@ This directory contains comprehensive technical documentation for all ShareConne
 - **[uTorrentConnect](uTorrentConnect.md)** - uTorrent client integration
 - **[JDownloaderConnect](JDownloaderConnect.md)** - JDownloader download manager integration
 
+### Phase 1 Connectors
+- **[PlexConnect](PlexConnect.md)** - Plex Media Server integration for personal media library management
+- **[NextcloudConnect](NextcloudConnect.md)** - Nextcloud cloud storage and file hosting integration
+- **[MotrixConnect](MotrixConnect.md)** - Motrix download manager integration with Aria2 JSON-RPC
+- **[GiteaConnect](GiteaConnect.md)** - Gitea self-hosted Git service integration
+
 ## Modules
 
 ### Core Sync Modules
