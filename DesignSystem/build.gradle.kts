@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -96,6 +97,15 @@ dependencies {
 
     // SwipeRefreshLayout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    // DataStore for caching
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+
+    // Kotlinx Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+    // WorkManager for automation
+    implementation("androidx.work:work-runtime-ktx:2.10.4")
 
     // ThemeSync (for custom theme support)
     implementation(project(":ThemeSync"))
