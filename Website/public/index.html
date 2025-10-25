@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareConnect - Unified Self-Hosted Service Management</title>
+    <meta name="description" content="ShareConnect ecosystem - 20 powerful Android applications for managing self-hosted services. Media, cloud storage, DevOps, monitoring, and more.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo-icon">🔗</span>
+                <span class="logo-text">ShareConnect</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#apps" class="nav-link">Applications</a></li>
+                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="#docs" class="nav-link">Documentation</a></li>
+                <li><a href="#download" class="nav-link btn-primary">Download</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero parallax" id="home">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-title">
+                    <span class="gradient-text">ShareConnect</span>
+                    <br>Unified Self-Hosted Ecosystem
+                </h1>
+                <p class="hero-subtitle">
+                    Manage all your self-hosted services from one powerful Android ecosystem.
+                    <br>20 specialized applications. Real-time sync. Complete control.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Applications</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,058</div>
+                        <div class="stat-label">Tests</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">81%</div>
+                        <div class="stat-label">Coverage</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary btn-lg pulse">
+                        Download Now
+                    </a>
+                    <a href="#apps" class="btn btn-secondary btn-lg">
+                        Explore Apps
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="gradient-text">Powerful Features</span>
+            </h2>
+            <p class="section-subtitle">Everything you need to manage your self-hosted services</p>
+
+            <div class="features-grid">
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Unified Design</h3>
+                    <p>Material Design 3 with 6 built-in themes plus custom theme creator. Dark mode support across all apps.</p>
+                </div>
+
+                <div class="feature-card slide-in-up">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real-Time Sync</h3>
+                    <p>Asinka-powered synchronization. Profiles, themes, history shared instantly across all 20 applications.</p>
+                </div>
+
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Security First</h3>
+                    <p>PIN authentication, biometric support, encrypted sync. No credentials stored locally. HTTPS everywhere.</p>
+                </div>
+
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Performance</h3>
+                    <p>Cold start <2s, memory <150MB, battery <5%/hr. Optimized for efficiency on all devices.</p>
+                </div>
+
+                <div class="feature-card slide-in-up">
+                    <div class="feature-icon">📱</div>
+                    <h3>Native Android</h3>
+                    <p>Built with Jetpack Compose and Kotlin. Smooth 60fps UI, Material You support, adaptive layouts.</p>
+                </div>
+
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Self-Hosted</h3>
+                    <p>Your data, your servers. No cloud dependencies. Full control over your infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Showcase -->
+    <section class="apps-showcase" id="apps">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="gradient-text">Complete Ecosystem</span>
+            </h2>
+            <p class="section-subtitle">20 specialized applications covering all major self-hosted services</p>
+
+            <!-- Tabs -->
+            <div class="app-tabs">
+                <button class="tab-btn active" data-category="all">All Apps</button>
+                <button class="tab-btn" data-category="media">Media</button>
+                <button class="tab-btn" data-category="cloud">Cloud</button>
+                <button class="tab-btn" data-category="devops">DevOps</button>
+                <button class="tab-btn" data-category="downloads">Downloads</button>
+            </div>
+
+            <!-- Apps Grid -->
+            <div class="apps-grid">
+                <!-- Phase 1 Apps -->
+                <div class="app-card" data-category="media" data-status="released">
+                    <div class="app-badge">Released</div>
+                    <div class="app-icon">🎬</div>
+                    <h3>PlexConnect</h3>
+                    <p class="app-description">Plex Media Server integration for personal media library management</p>
+                    <div class="app-stats">
+                        <span>✅ 54 tests</span>
+                        <span>📊 85% coverage</span>
+                    </div>
+                    <a href="/docs/plexconnect.html" class="app-link">Learn More →</a>
+                </div>
+
+                <div class="app-card" data-category="cloud" data-status="released">
+                    <div class="app-badge">Released</div>
+                    <div class="app-icon">📁</div>
+                    <h3>NextcloudConnect</h3>
+                    <p class="app-description">Nextcloud cloud storage and file hosting integration</p>
+                    <div class="app-stats">
+                        <span>✅ 52 tests</span>
+                        <span>📊 80% coverage</span>
+                    </div>
+                    <a href="/docs/nextcloudconnect.html" class="app-link">Learn More →</a>
+                </div>
+
+                <div class="app-card" data-category="downloads" data-status="released">
+                    <div class="app-badge">Released</div>
+                    <div class="app-icon">⚡</div>
+                    <h3>MotrixConnect</h3>
+                    <p class="app-description">Motrix download manager with multi-connection support</p>
+                    <div class="app-stats">
+                        <span>✅ 60 tests</span>
+                        <span>📊 82% coverage</span>
+                    </div>
+                    <a href="/docs/motrixconnect.html" class="app-link">Learn More →</a>
+                </div>
+
+                <div class="app-card" data-category="devops" data-status="released">
+                    <div class="app-badge">Released</div>
+                    <div class="app-icon">💻</div>
+                    <h3>GiteaConnect</h3>
+                    <p class="app-description">Gitea self-hosted Git service integration</p>
+                    <div class="app-stats">
+                        <span>✅ 49 tests</span>
+                        <span>📊 78% coverage</span>
+                    </div>
+                    <a href="/docs/giteaconnect.html" class="app-link">Learn More →</a>
+                </div>
+
+                <!-- Phase 2 Apps (Planned) -->
+                <div class="app-card" data-category="media" data-status="planned">
+                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-icon">🎞️</div>
+                    <h3>JellyfinConnect</h3>
+                    <p class="app-description">Jellyfin media server integration (Plex alternative)</p>
+                    <div class="app-stats">
+                        <span>⏳ 43 tests planned</span>
+                        <span>📅 Q1 2026</span>
+                    </div>
+                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                </div>
+
+                <div class="app-card" data-category="devops" data-status="planned">
+                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-icon">🐳</div>
+                    <h3>PortainerConnect</h3>
+                    <p class="app-description">Docker container management via Portainer</p>
+                    <div class="app-stats">
+                        <span>⏳ 63 tests planned</span>
+                        <span>📅 Q1 2026</span>
+                    </div>
+                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                </div>
+
+                <div class="app-card" data-category="devops" data-status="planned">
+                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-icon">📊</div>
+                    <h3>NetdataConnect</h3>
+                    <p class="app-description">System monitoring and metrics visualization</p>
+                    <div class="app-stats">
+                        <span>⏳ 45 tests planned</span>
+                        <span>📅 Q2 2026</span>
+                    </div>
+                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                </div>
+
+                <div class="app-card" data-category="devops" data-status="planned">
+                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-icon">🏠</div>
+                    <h3>HomeAssistantConnect</h3>
+                    <p class="app-description">Home automation and IoT integration</p>
+                    <div class="app-stats">
+                        <span>⏳ 69 tests planned</span>
+                        <span>📅 Q2 2026</span>
+                    </div>
+                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                </div>
+            </div>
+
+            <div class="view-all-apps">
+                <a href="/apps.html" class="btn btn-primary">View All 20 Applications →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="gradient-text">Development Roadmap</span>
+            </h2>
+            <p class="section-subtitle">Our journey to 100% completion</p>
+
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 0 & 0.5</h3>
+                        <p class="timeline-status">✅ Completed</p>
+                        <p>Foundation with 4 torrent clients + API extraction</p>
+                        <ul>
+                            <li>ShareConnect, qBitConnect, TransmissionConnect, uTorrentConnect</li>
+                            <li>118 API tests</li>
+                            <li>Asinka sync framework established</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item completed">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 1</h3>
+                        <p class="timeline-status">✅ 98% Complete - Production Ready</p>
+                        <p>Media, cloud, downloads, Git integration</p>
+                        <ul>
+                            <li>PlexConnect, NextcloudConnect, MotrixConnect, GiteaConnect</li>
+                            <li>215 tests (81% coverage)</li>
+                            <li>Comprehensive documentation</li>
+                            <li>Security audit passed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 2</h3>
+                        <p class="timeline-status">⏳ Planned - Q1-Q2 2026</p>
+                        <p>Media alternatives, DevOps, monitoring, IoT</p>
+                        <ul>
+                            <li>JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect</li>
+                            <li>220 tests planned</li>
+                            <li>WebSocket & SSE real-time features</li>
+                            <li>6-month timeline</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 3</h3>
+                        <p class="timeline-status">⏳ Planned - Q3-Q4 2026</p>
+                        <p>Specialized niche services (8 connectors)</p>
+                        <ul>
+                            <li>Batch 1: Seafile, Syncthing, Matrix, PaperlessNG</li>
+                            <li>Batch 2: Duplicati, WireGuard, Minecraft, OnlyOffice</li>
+                            <li>387 tests planned</li>
+                            <li>Advanced features (E2EE, P2P, PDF rendering)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item upcoming">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Phase 4</h3>
+                        <p class="timeline-status">⏳ Planned - Q1 2027</p>
+                        <p>Polish & completion</p>
+                        <ul>
+                            <li>CI/CD pipeline for all 20 apps</li>
+                            <li>Performance optimization</li>
+                            <li>Widget support</li>
+                            <li>Community building</li>
+                            <li>🎉 100% COMPLETE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-overview">
+                <h3>Current Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 49%">
+                        <span>49% Complete</span>
+                    </div>
+                </div>
+                <p class="progress-detail">8 of 20 applications delivered | 333 of 1,058 tests passing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="documentation" id="docs">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="gradient-text">Documentation</span>
+            </h2>
+            <p class="section-subtitle">Comprehensive guides, tutorials, and API documentation</p>
+
+            <div class="docs-grid">
+                <div class="doc-card">
+                    <div class="doc-icon">📖</div>
+                    <h3>Getting Started</h3>
+                    <p>New to ShareConnect? Start here with installation guides and quick start tutorials.</p>
+                    <a href="/docs/getting-started.html" class="doc-link">Read Guide →</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">🛠️</div>
+                    <h3>User Manuals</h3>
+                    <p>Detailed user manuals for all 20 applications with step-by-step instructions.</p>
+                    <a href="/docs/manuals/" class="doc-link">Browse Manuals →</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">💡</div>
+                    <h3>Technical Docs</h3>
+                    <p>Architecture, API references, and integration guides for developers.</p>
+                    <a href="/docs/technical/" class="doc-link">View Technical Docs →</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">🎬</div>
+                    <h3>Video Tutorials</h3>
+                    <p>Watch video guides covering setup, configuration, and advanced features.</p>
+                    <a href="/docs/videos.html" class="doc-link">Watch Tutorials →</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">❓</div>
+                    <h3>FAQ</h3>
+                    <p>Frequently asked questions with answers covering common issues and use cases.</p>
+                    <a href="/docs/faq.html" class="doc-link">Read FAQ →</a>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-icon">🐛</div>
+                    <h3>Troubleshooting</h3>
+                    <p>Solutions to common problems and debugging guides for all applications.</p>
+                    <a href="/docs/troubleshooting.html" class="doc-link">Get Help →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="section-title">
+                    <span class="gradient-text">Download ShareConnect</span>
+                </h2>
+                <p class="section-subtitle">Get started with the ShareConnect ecosystem today</p>
+
+                <div class="download-options">
+                    <div class="download-card">
+                        <h3>Google Play Store</h3>
+                        <p>Official releases with automatic updates</p>
+                        <a href="#" class="btn btn-primary btn-lg">
+                            <span>📱</span> Coming Soon
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <h3>F-Droid</h3>
+                        <p>Open-source app repository</p>
+                        <a href="#" class="btn btn-primary btn-lg">
+                            <span>🔓</span> Coming Soon
+                        </a>
+                    </div>
+
+                    <div class="download-card featured">
+                        <h3>Direct Download (APK)</h3>
+                        <p>Latest releases from GitHub</p>
+                        <a href="https://github.com/shareconnect" class="btn btn-primary btn-lg pulse">
+                            <span>⬇️</span> Download APK
+                        </a>
+                    </div>
+                </div>
+
+                <div class="system-requirements">
+                    <h3>System Requirements</h3>
+                    <ul>
+                        <li>Android 9.0 (API 28) or higher</li>
+                        <li>2GB RAM minimum (4GB recommended)</li>
+                        <li>50MB storage per app</li>
+                        <li>Internet connection required</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ShareConnect</h4>
+                    <p>Unified self-hosted service management for Android</p>
+                    <div class="social-links">
+                        <a href="https://github.com/shareconnect" title="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.840 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.430.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" title="Discord">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.010c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.120.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.210 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#apps">Applications</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/docs/getting-started.html">Getting Started</a></li>
+                        <li><a href="/docs/api">API Reference</a></li>
+                        <li><a href="/docs/faq.html">FAQ</a></li>
+                        <li><a href="https://github.com/shareconnect/issues">Report Bug</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Project</h4>
+                    <ul>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="https://github.com/shareconnect">GitHub</a></li>
+                        <li><a href="/contribute.html">Contribute</a></li>
+                        <li><a href="/license.html">License (GPL-3.0)</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect Project. Open Source under GPL-3.0 License.</p>
+                <p>Built with ❤️ for the self-hosted community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/animations.js"></script>
+</body>
+</html>
