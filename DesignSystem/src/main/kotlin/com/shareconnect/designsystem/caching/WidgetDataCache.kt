@@ -158,6 +158,9 @@ data class CachedData<T>(
  * Widget-specific cache helpers
  */
 
+// Shared JSON instance for widget cache extension functions
+private val widgetCacheJson = Json { ignoreUnknownKeys = true }
+
 // HomeAssistant
 suspend fun WidgetDataCache.saveHomeAssistantData(
     lightsOn: Int,
@@ -170,12 +173,12 @@ suspend fun WidgetDataCache.saveHomeAssistantData(
     saveWidgetData(
         "home_assistant",
         HomeAssistantData(lightsOn, totalLights, switchesOn, totalSwitches, totalSensors, isConnected)
-    ) { json.encodeToString(it) }
+    ) { widgetCacheJson.encodeToString(it) }
 }
 
 suspend fun WidgetDataCache.loadHomeAssistantData(): CachedData<HomeAssistantData>? {
     return loadWidgetData("home_assistant") {
-        json.decodeFromString<HomeAssistantData>(it)
+        widgetCacheJson.decodeFromString<HomeAssistantData>(it)
     }
 }
 
@@ -199,12 +202,12 @@ suspend fun WidgetDataCache.saveJellyfinData(
     saveWidgetData(
         "jellyfin",
         JellyfinData(nowPlaying, activeSessions, playing, isConnected)
-    ) { json.encodeToString(it) }
+    ) { widgetCacheJson.encodeToString(it) }
 }
 
 suspend fun WidgetDataCache.loadJellyfinData(): CachedData<JellyfinData>? {
     return loadWidgetData("jellyfin") {
-        json.decodeFromString<JellyfinData>(it)
+        widgetCacheJson.decodeFromString<JellyfinData>(it)
     }
 }
 
@@ -228,12 +231,12 @@ suspend fun WidgetDataCache.saveNetdataData(
     saveWidgetData(
         "netdata",
         NetdataData(healthStatus, cpuUsage, ramUsage, diskUsage, criticalAlarms, warningAlarms)
-    ) { json.encodeToString(it) }
+    ) { widgetCacheJson.encodeToString(it) }
 }
 
 suspend fun WidgetDataCache.loadNetdataData(): CachedData<NetdataData>? {
     return loadWidgetData("netdata") {
-        json.decodeFromString<NetdataData>(it)
+        widgetCacheJson.decodeFromString<NetdataData>(it)
     }
 }
 
@@ -258,12 +261,12 @@ suspend fun WidgetDataCache.savePortainerData(
     saveWidgetData(
         "portainer",
         PortainerData(runningContainers, stoppedContainers, imagesCount, totalContainers, isConnected)
-    ) { json.encodeToString(it) }
+    ) { widgetCacheJson.encodeToString(it) }
 }
 
 suspend fun WidgetDataCache.loadPortainerData(): CachedData<PortainerData>? {
     return loadWidgetData("portainer") {
-        json.decodeFromString<PortainerData>(it)
+        widgetCacheJson.decodeFromString<PortainerData>(it)
     }
 }
 

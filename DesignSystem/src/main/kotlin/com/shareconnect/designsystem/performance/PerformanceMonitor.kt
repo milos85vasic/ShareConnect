@@ -5,6 +5,8 @@ import android.util.Log
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -14,8 +16,10 @@ import java.util.concurrent.ConcurrentHashMap
 class PerformanceMonitor {
 
     companion object {
-        private const val TAG = "PerformanceMonitor"
-        private const val SLOW_OPERATION_THRESHOLD_MS = 1000L
+        @PublishedApi
+        internal const val TAG = "PerformanceMonitor"
+        @PublishedApi
+        internal const val SLOW_OPERATION_THRESHOLD_MS = 1000L
     }
 
     private val operationTimes = ConcurrentHashMap<String, MutableList<Long>>()
@@ -63,7 +67,8 @@ class PerformanceMonitor {
     /**
      * Record operation time
      */
-    private fun recordOperationTime(operationName: String, duration: Long) {
+    @PublishedApi
+    internal fun recordOperationTime(operationName: String, duration: Long) {
         operationTimes.getOrPut(operationName) { mutableListOf() }.add(duration)
     }
 
@@ -178,15 +183,17 @@ class BatchProcessor<T>(
 ) {
     private val batch = mutableListOf<T>()
     private var lastProcessTime = 0L
+    private val mutex = Mutex()
     private val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
     suspend fun add(item: T) {
-        synchronized(batch) {
+        val shouldProcess = mutex.withLock {
             batch.add(item)
+            shouldProcessBatch()
+        }
 
-            if (shouldProcessBatch()) {
-                processBatch()
-            }
+        if (shouldProcess) {
+            processBatch()
         }
     }
 
@@ -200,7 +207,7 @@ class BatchProcessor<T>(
     }
 
     private suspend fun processBatch() {
-        val items = synchronized(batch) {
+        val items = mutex.withLock {
             batch.toList().also { batch.clear() }
         }
 
@@ -225,40 +232,45 @@ class ConnectionPool<T>(
 ) {
     private val availableConnections = mutableListOf<T>()
     private val activeConnections = mutableSetOf<T>()
+    private val mutex = Mutex()
 
     suspend fun acquire(): T {
-        synchronized(availableConnections) {
+        val connection = mutex.withLock {
             // Try to reuse existing connection
             while (availableConnections.isNotEmpty()) {
-                val connection = availableConnections.removeAt(0)
-                if (connectionValidator(connection)) {
-                    activeConnections.add(connection)
-                    return connection
+                val conn = availableConnections.removeAt(0)
+                if (connectionValidator(conn)) {
+                    activeConnections.add(conn)
+                    return@withLock conn
                 }
             }
 
             // Create new connection if under limit
             if (activeConnections.size < maxConnections) {
-                val connection = connectionFactory()
-                activeConnections.add(connection)
-                return connection
+                val conn = connectionFactory()
+                activeConnections.add(conn)
+                return@withLock conn
             }
+
+            null
         }
 
-        // Wait for available connection
-        delay(100)
-        return acquire()
+        return connection ?: run {
+            // Wait for available connection
+            delay(100)
+            acquire()
+        }
     }
 
-    fun release(connection: T) {
-        synchronized(availableConnections) {
+    suspend fun release(connection: T) {
+        mutex.withLock {
             activeConnections.remove(connection)
             availableConnections.add(connection)
         }
     }
 
-    fun clear() {
-        synchronized(availableConnections) {
+    suspend fun clear() {
+        mutex.withLock {
             availableConnections.clear()
             activeConnections.clear()
         }
