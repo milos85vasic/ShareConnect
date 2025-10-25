@@ -1,149 +1,132 @@
 package com.shareconnect.seafileconnect
 
-import android.content.Context
-import android.content.Intent
 import androidx.compose.ui.test.*
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import androidx.test.core.app.ApplicationProvider
+import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.shareconnect.seafileconnect.ui.MainActivity
-import org.junit.Before
+import com.shareconnect.designsystem.theme.ShareConnectTheme
+import com.shareconnect.seafileconnect.ui.SeafileConnectScreen
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import kotlin.test.assertNotNull
 
 /**
- * Automation tests for SeafileConnect UI and workflows
+ * Automation/UI tests for SeafileConnect
  */
 @RunWith(AndroidJUnit4::class)
 class SeafileConnectAutomationTest {
 
     @get:Rule
-    val composeTestRule = createAndroidComposeRule<MainActivity>()
-
-    private lateinit var context: Context
-
-    @Before
-    fun setup() {
-        context = ApplicationProvider.getApplicationContext()
-    }
+    val composeTestRule = createComposeRule()
 
     @Test
-    fun testApplicationLaunchesSuccessfully() {
-        // Verify app launches and main UI is displayed
+    fun testAppLaunches() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
         composeTestRule.onNodeWithText("SeafileConnect").assertExists()
     }
 
     @Test
-    fun testMainScreenDisplaysTitle() {
-        // Verify main screen shows the correct title
-        composeTestRule.onNodeWithText("SeafileConnect")
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testMainScreenDisplaysSubtitle() {
-        // Verify subtitle is displayed
-        composeTestRule.onNodeWithText("Encrypted Cloud Storage")
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testMainScreenDisplaysDescription() {
-        // Verify description text is present
-        composeTestRule.onNodeWithText(
-            "Connect to your Seafile server to securely sync and share files across all ShareConnect apps.",
-            substring = true
-        ).assertExists()
-    }
-
-    @Test
-    fun testApplicationContextIsValid() {
-        // Verify application context
-        assertNotNull(context)
-        assertEquals("com.shareconnect.seafileconnect.debug", context.packageName)
-    }
-
-    @Test
-    fun testActivityRecreation() {
-        // Verify activity handles recreation properly
-        composeTestRule.activityRule.scenario.recreate()
-
-        // UI should still be present after recreation
-        composeTestRule.onNodeWithText("SeafileConnect")
-            .assertExists()
-            .assertIsDisplayed()
-    }
-
-    @Test
-    fun testUIElementsAreAccessible() {
-        // Verify all main UI elements are accessible
-        composeTestRule.onNodeWithText("SeafileConnect").assertExists()
-        composeTestRule.onNodeWithText("Encrypted Cloud Storage").assertExists()
-        composeTestRule.onNodeWithText("Supports encrypted libraries", substring = true).assertExists()
-    }
-
-    @Test
-    fun testApplicationSurvivesBackgroundTransition() {
-        // Send app to background
-        composeTestRule.activityRule.scenario.moveToState(androidx.lifecycle.Lifecycle.State.CREATED)
-
-        // Bring app back to foreground
-        composeTestRule.activityRule.scenario.moveToState(androidx.lifecycle.Lifecycle.State.RESUMED)
-
-        // Verify UI is still intact
-        composeTestRule.onNodeWithText("SeafileConnect").assertExists()
-    }
-
-    @Test
-    fun testIntentHandling() {
-        // Create an intent
-        val intent = Intent(context, MainActivity::class.java)
-        intent.action = Intent.ACTION_MAIN
-
-        // Launch activity with intent
-        composeTestRule.activityRule.scenario.onActivity { activity ->
-            assertNotNull(activity)
-            assertEquals(Intent.ACTION_MAIN, activity.intent.action)
-        }
-    }
-
-    @Test
-    fun testTextContentIsCorrect() {
-        // Verify all expected text content
-        val expectedTexts = listOf(
-            "SeafileConnect",
-            "Encrypted Cloud Storage",
-            "Supports encrypted libraries"
-        )
-
-        expectedTexts.forEach { text ->
-            composeTestRule.onNodeWithText(text, substring = true)
-                .assertExists()
-        }
-    }
-
-    @Test
-    fun testApplicationStateAfterRotation() {
-        // Get current activity
-        var currentActivity: MainActivity? = null
-        composeTestRule.activityRule.scenario.onActivity { activity ->
-            currentActivity = activity
+    fun testNavigationTabs() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
         }
 
-        // Rotate device (simulate configuration change)
-        composeTestRule.activityRule.scenario.recreate()
-
-        // Verify UI is restored
-        composeTestRule.onNodeWithText("SeafileConnect")
-            .assertExists()
-            .assertIsDisplayed()
+        composeTestRule.onNodeWithText("Libraries").assertExists()
+        composeTestRule.onNodeWithText("Files").assertExists()
+        composeTestRule.onNodeWithText("Search").assertExists()
+        composeTestRule.onNodeWithText("Settings").assertExists()
     }
 
-    private fun assertEquals(expected: String, actual: String) {
-        kotlin.test.assertEquals(expected, actual)
+    @Test
+    fun testLibrariesTabContent() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        composeTestRule.onNodeWithText("Libraries").performClick()
+        composeTestRule.onNodeWithText("Libraries - Browse and manage Seafile libraries").assertExists()
+    }
+
+    @Test
+    fun testFilesTabContent() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        composeTestRule.onNodeWithText("Files").performClick()
+        composeTestRule.onNodeWithText("Files - Browse files and directories").assertExists()
+    }
+
+    @Test
+    fun testSearchTabContent() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        composeTestRule.onNodeWithText("Search").performClick()
+        composeTestRule.onNodeWithText("Search - Search across all libraries").assertExists()
+    }
+
+    @Test
+    fun testSettingsTabContent() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        composeTestRule.onNodeWithText("Settings").performClick()
+        composeTestRule.onNodeWithText("Settings - Configure SeafileConnect").assertExists()
+    }
+
+    @Test
+    fun testTabSwitching() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        // Switch to Files
+        composeTestRule.onNodeWithText("Files").performClick()
+        composeTestRule.waitForIdle()
+
+        // Switch to Search
+        composeTestRule.onNodeWithText("Search").performClick()
+        composeTestRule.waitForIdle()
+
+        // Switch back to Libraries
+        composeTestRule.onNodeWithText("Libraries").performClick()
+        composeTestRule.waitForIdle()
+    }
+
+    @Test
+    fun testUIElements() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SeafileConnectScreen()
+            }
+        }
+
+        // Check top bar
+        composeTestRule.onNodeWithText("SeafileConnect").assertIsDisplayed()
+
+        // Check all navigation items exist
+        composeTestRule.onAllNodesWithText("Libraries")[0].assertExists()
+        composeTestRule.onAllNodesWithText("Files")[0].assertExists()
+        composeTestRule.onAllNodesWithText("Search")[0].assertExists()
+        composeTestRule.onAllNodesWithText("Settings")[0].assertExists()
     }
 }

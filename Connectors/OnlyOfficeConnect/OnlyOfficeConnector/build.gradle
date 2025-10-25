@@ -8,61 +8,21 @@ plugins {
 android {
     namespace 'com.shareconnect.onlyofficeconnect'
     compileSdk 36
-
     defaultConfig {
         applicationId "com.shareconnect.onlyofficeconnect"
         minSdk 28
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         buildConfigField "String", "APP_ID", "\"com.shareconnect.onlyofficeconnect\""
         buildConfigField "String", "APP_NAME", "\"OnlyOfficeConnect\""
         buildConfigField "String", "APP_VERSION", "\"${versionName}\""
     }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled false
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions {
-        jvmTarget = '17'
-    }
-
-    buildFeatures {
-        compose true
-        buildConfig true
-    }
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-
-    packaging {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-            excludes += 'META-INF/DEPENDENCIES'
-            excludes += 'META-INF/LICENSE'
-            excludes += 'META-INF/LICENSE.txt'
-            excludes += 'META-INF/NOTICE'
-            excludes += 'META-INF/NOTICE.txt'
-        }
-    }
+    buildTypes { release { minifyEnabled true } }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    kotlinOptions { jvmTarget = '17' }
+    buildFeatures { compose = true; buildConfig = true }
 }
 
 dependencies {
@@ -79,55 +39,17 @@ dependencies {
     implementation project(':Asinka:asinka')
 
     implementation "androidx.core:core-ktx:1.15.0"
-    implementation "androidx.appcompat:appcompat:1.7.0"
     implementation "androidx.activity:activity-compose:1.9.3"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7"
-    implementation "androidx.webkit:webkit:1.12.1"
-
     implementation platform("androidx.compose:compose-bom:2024.12.01")
     implementation "androidx.compose.ui:ui"
-    implementation "androidx.compose.ui:ui-graphics"
-    implementation "androidx.compose.ui:ui-tooling-preview"
     implementation "androidx.compose.material3:material3"
-    implementation "androidx.compose.material:material-icons-extended"
-    implementation "androidx.navigation:navigation-compose:2.8.5"
-
     implementation "androidx.room:room-runtime:2.6.1"
-    implementation "androidx.room:room-ktx:2.6.1"
     ksp "androidx.room:room-compiler:2.6.1"
-
     implementation "net.zetetic:sqlcipher-android:4.6.1"
-    implementation "androidx.sqlite:sqlite-ktx:2.4.0"
-
-    implementation "com.squareup.retrofit2:retrofit:2.11.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.11.0"
-    implementation "com.squareup.okhttp3:okhttp:4.12.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.12.0"
-
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0"
-
-    implementation "com.google.code.gson:gson:2.11.0"
-    implementation "io.jsonwebtoken:jjwt-api:0.11.5"
-    runtimeOnly "io.jsonwebtoken:jjwt-impl:0.11.5"
-    runtimeOnly "io.jsonwebtoken:jjwt-gson:0.11.5"
-
+    implementation "androidx.webkit:webkit:1.9.0"
+    
     testImplementation "junit:junit:4.13.2"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0"
-    testImplementation "io.mockk:mockk:1.13.13"
-    testImplementation "com.squareup.okhttp3:mockwebserver:4.12.0"
-    testImplementation "androidx.arch.core:core-testing:2.2.0"
-    testImplementation "org.robolectric:robolectric:4.14.1"
-
     androidTestImplementation "androidx.test.ext:junit:1.2.1"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.6.1"
-    androidTestImplementation "androidx.test.espresso:espresso-web:3.6.1"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4"
-    androidTestImplementation "io.mockk:mockk-android:1.13.13"
-    androidTestImplementation "androidx.test:runner:1.6.2"
-    androidTestImplementation "androidx.test:rules:1.6.1"
-
-    debugImplementation "androidx.compose.ui:ui-tooling"
-    debugImplementation "androidx.compose.ui:ui-test-manifest"
 }

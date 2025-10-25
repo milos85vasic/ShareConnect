@@ -15,9 +15,7 @@ android {
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         buildConfigField "String", "APP_ID", "\"com.shareconnect.matrixconnect\""
         buildConfigField "String", "APP_NAME", "\"MatrixConnect\""
         buildConfigField "String", "APP_VERSION", "\"${versionName}\""
@@ -27,9 +25,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled false
         }
     }
 
@@ -56,11 +51,6 @@ android {
     packaging {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
-            excludes += 'META-INF/DEPENDENCIES'
-            excludes += 'META-INF/LICENSE'
-            excludes += 'META-INF/LICENSE.txt'
-            excludes += 'META-INF/NOTICE'
-            excludes += 'META-INF/NOTICE.txt'
         }
     }
 }
@@ -108,9 +98,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0"
 
     implementation "com.google.code.gson:gson:2.11.0"
-
-    // Matrix Olm library for E2EE
-    implementation "org.matrix.android:olm-sdk:3.2.15"
 
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0"

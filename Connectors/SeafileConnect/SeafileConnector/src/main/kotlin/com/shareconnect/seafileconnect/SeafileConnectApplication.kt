@@ -1,211 +1,203 @@
 package com.shareconnect.seafileconnect
 
 import android.app.Application
-import android.content.Context
-import com.shareconnect.themesync.ThemeSyncManager
-import com.shareconnect.profilesync.ProfileSyncManager
-import com.shareconnect.historysync.HistorySyncManager
-import com.shareconnect.rsssync.RSSSyncManager
+import android.util.Log
 import com.shareconnect.bookmarksync.BookmarkSyncManager
-import com.shareconnect.preferencessync.PreferencesSyncManager
+import com.shareconnect.historysync.HistorySyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
-import com.shareconnect.languagesync.utils.LocaleHelper
+import com.shareconnect.preferencessync.PreferencesSyncManager
+import com.shareconnect.profilesync.ProfileSyncManager
+import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.seafileconnect.BuildConfig
+import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * SeafileConnect Application
+ * 
+ * Initializes all Asinka sync managers for real-time data synchronization
+ * across all ShareConnect applications.
+ */
 class SeafileConnectApplication : Application() {
 
-    lateinit var themeSyncManager: ThemeSyncManager
-        private set
-
-    lateinit var profileSyncManager: ProfileSyncManager
-        private set
-
-    lateinit var historySyncManager: HistorySyncManager
-        private set
-
-    lateinit var rssSyncManager: RSSSyncManager
-        private set
-
-    lateinit var bookmarkSyncManager: BookmarkSyncManager
-        private set
-
-    lateinit var preferencesSyncManager: PreferencesSyncManager
-        private set
-
-    lateinit var languageSyncManager: LanguageSyncManager
-        private set
-
-    lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
-        private set
+    companion object {
+        private const val TAG = "SeafileConnectApp"
+    }
 
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    override fun attachBaseContext(base: Context) {
-        // Set gRPC system property before any gRPC classes are loaded
-        System.setProperty("io.grpc.internal.DisableGlobalInterceptors", "true")
-        // Disable Netty native transports to prevent epoll issues on Android
-        System.setProperty("io.grpc.netty.shaded.io.netty.transport.noNative", "true")
-        super.attachBaseContext(LocaleHelper.onAttach(base))
-    }
+    // Asinka Sync Managers
+    private lateinit var themeSyncManager: ThemeSyncManager
+    private lateinit var profileSyncManager: ProfileSyncManager
+    private lateinit var historySyncManager: HistorySyncManager
+    private lateinit var rssSyncManager: RssSyncManager
+    private lateinit var bookmarkSyncManager: BookmarkSyncManager
+    private lateinit var preferencesSyncManager: PreferencesSyncManager
+    private lateinit var languageSyncManager: LanguageSyncManager
+    private lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
 
     override fun onCreate() {
         super.onCreate()
-
-        // Initialize all sync managers
-        initializeLanguageSync()
-        initializeTorrentSharingSync()
-        initializeThemeSync()
-        initializeProfileSync()
-        initializeHistorySync()
-        initializeRSSSync()
-        initializeBookmarkSync()
-        initializePreferencesSync()
-
-        // Observe language changes
-        observeLanguageChanges()
+        
+        Log.d(TAG, "SeafileConnect ${BuildConfig.APP_VERSION} starting...")
+        
+        initializeSyncManagers()
+        
+        Log.d(TAG, "SeafileConnect initialization complete")
     }
 
-    private fun observeLanguageChanges() {
-        applicationScope.launch {
-            languageSyncManager.languageChangeFlow.collect { languageData ->
-                // Persist language change so it applies on next app start
-                LocaleHelper.persistLanguage(this@SeafileConnectApplication, languageData.languageCode)
+    /**
+     * Initialize all Asinka sync managers
+     */
+    private fun initializeSyncManagers() {
+        val appId = BuildConfig.APP_ID
+        val appName = BuildConfig.APP_NAME
+        val appVersion = BuildConfig.APP_VERSION
+
+        try {
+            // Initialize Theme Sync (port 8890)
+            themeSyncManager = ThemeSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                themeSyncManager.startSync()
+                Log.d(TAG, "ThemeSyncManager started")
             }
+
+            // Initialize Profile Sync (port 8900)
+            profileSyncManager = ProfileSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                profileSyncManager.startSync()
+                Log.d(TAG, "ProfileSyncManager started")
+            }
+
+            // Initialize History Sync (port 8910)
+            historySyncManager = HistorySyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                historySyncManager.startSync()
+                Log.d(TAG, "HistorySyncManager started")
+            }
+
+            // Initialize RSS Sync (port 8920)
+            rssSyncManager = RssSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                rssSyncManager.startSync()
+                Log.d(TAG, "RssSyncManager started")
+            }
+
+            // Initialize Bookmark Sync (port 8930)
+            bookmarkSyncManager = BookmarkSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                bookmarkSyncManager.startSync()
+                Log.d(TAG, "BookmarkSyncManager started")
+            }
+
+            // Initialize Preferences Sync (port 8940)
+            preferencesSyncManager = PreferencesSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                preferencesSyncManager.startSync()
+                Log.d(TAG, "PreferencesSyncManager started")
+            }
+
+            // Initialize Language Sync (port 8950)
+            languageSyncManager = LanguageSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                languageSyncManager.startSync()
+                Log.d(TAG, "LanguageSyncManager started")
+            }
+
+            // Initialize Torrent Sharing Sync (port 8960)
+            torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
+                context = applicationContext,
+                appId = appId,
+                appName = appName,
+                appVersion = appVersion
+            )
+            applicationScope.launch {
+                torrentSharingSyncManager.startSync()
+                Log.d(TAG, "TorrentSharingSyncManager started")
+            }
+
+            Log.d(TAG, "All sync managers initialized successfully")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to initialize sync managers", e)
         }
     }
 
-    private fun initializeThemeSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        themeSyncManager = ThemeSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
+    /**
+     * Get ThemeSyncManager instance
+     */
+    fun getThemeSyncManager(): ThemeSyncManager = themeSyncManager
 
-        // Start theme sync in background
-        applicationScope.launch {
-            delay(100) // Small delay to avoid port conflicts
-            themeSyncManager.start()
-        }
-    }
+    /**
+     * Get ProfileSyncManager instance
+     */
+    fun getProfileSyncManager(): ProfileSyncManager = profileSyncManager
 
-    private fun initializeProfileSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        profileSyncManager = ProfileSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = "CLOUD_STORAGE"  // SeafileConnect only syncs cloud storage profiles
-        )
+    /**
+     * Get HistorySyncManager instance
+     */
+    fun getHistorySyncManager(): HistorySyncManager = historySyncManager
 
-        // Start profile sync in background
-        applicationScope.launch {
-            delay(200) // Small delay to avoid port conflicts
-            profileSyncManager.start()
-        }
-    }
+    /**
+     * Get RssSyncManager instance
+     */
+    fun getRssSyncManager(): RssSyncManager = rssSyncManager
 
-    private fun initializeHistorySync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        historySyncManager = HistorySyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
+    /**
+     * Get BookmarkSyncManager instance
+     */
+    fun getBookmarkSyncManager(): BookmarkSyncManager = bookmarkSyncManager
 
-        // Start history sync in background
-        applicationScope.launch {
-            delay(300) // Small delay to avoid port conflicts
-            historySyncManager.start()
-        }
-    }
+    /**
+     * Get PreferencesSyncManager instance
+     */
+    fun getPreferencesSyncManager(): PreferencesSyncManager = preferencesSyncManager
 
-    private fun initializeRSSSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        rssSyncManager = RSSSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0",
-            clientTypeFilter = "CLOUD_STORAGE"  // SeafileConnect syncs cloud storage RSS feeds
-        )
+    /**
+     * Get LanguageSyncManager instance
+     */
+    fun getLanguageSyncManager(): LanguageSyncManager = languageSyncManager
 
-        // Start RSS sync in background
-        applicationScope.launch {
-            delay(400) // Small delay to avoid port conflicts
-            rssSyncManager.start()
-        }
-    }
-
-    private fun initializeBookmarkSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        bookmarkSyncManager = BookmarkSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
-
-        // Start bookmark sync in background
-        applicationScope.launch {
-            delay(500) // Small delay to avoid port conflicts
-            bookmarkSyncManager.start()
-        }
-    }
-
-    private fun initializePreferencesSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        preferencesSyncManager = PreferencesSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
-
-        // Start preferences sync in background
-        applicationScope.launch {
-            delay(600) // Small delay to avoid port conflicts
-            preferencesSyncManager.start()
-        }
-    }
-
-    private fun initializeLanguageSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        languageSyncManager = LanguageSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
-
-        // Start language sync in background
-        applicationScope.launch {
-            delay(700) // Small delay to avoid port conflicts
-            languageSyncManager.start()
-        }
-    }
-
-    private fun initializeTorrentSharingSync() {
-        val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
-            context = this,
-            appId = packageName,
-            appName = "SeafileConnect",
-            appVersion = packageInfo.versionName ?: "1.0.0"
-        )
-
-        // Start torrent sharing sync in background
-        applicationScope.launch {
-            delay(800) // Small delay to avoid port conflicts
-            torrentSharingSyncManager.start()
-        }
-    }
+    /**
+     * Get TorrentSharingSyncManager instance
+     */
+    fun getTorrentSharingSyncManager(): TorrentSharingSyncManager = torrentSharingSyncManager
 }

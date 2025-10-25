@@ -1,81 +1,50 @@
 package com.shareconnect.matrixconnect.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.shareconnect.matrixconnect.ui.onboarding.MatrixConnectOnboardingActivity
-import com.shareconnect.matrixconnect.ui.theme.MatrixConnectTheme
-import com.shareconnect.securityaccess.SecurityAccess
+import com.shareconnect.designsystem.theme.ShareConnectTheme
+import com.shareconnect.matrixconnect.MatrixConnectApplication
+import com.shareconnect.securityaccess.SecurityAccessManager
 
-/**
- * Main activity for MatrixConnect
- *
- * Implements SecurityAccess for biometric/PIN authentication
- * Checks for onboarding completion before showing main UI
- */
 class MainActivity : ComponentActivity() {
-
-    private lateinit var securityAccess: SecurityAccess
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Initialize SecurityAccess
-        securityAccess = SecurityAccess(this)
-
-        // Check if onboarding is completed
-        val sharedPrefs = getSharedPreferences("matrix_prefs", MODE_PRIVATE)
-        val onboardingCompleted = sharedPrefs.getBoolean("onboarding_completed", false)
-
-        if (!onboardingCompleted) {
-            // Launch onboarding activity
-            val intent = Intent(this, MatrixConnectOnboardingActivity::class.java)
-            startActivity(intent)
-            finish()
-            return
-        }
-
-        // Check if security access is enabled
-        val securityEnabled = sharedPrefs.getBoolean("security_enabled", false)
-
-        if (securityEnabled) {
-            // Authenticate user with biometric or PIN
-            securityAccess.authenticate(
-                title = "MatrixConnect Authentication",
-                subtitle = "Unlock to access your encrypted messages",
-                onSuccess = {
-                    showMainUI()
-                },
-                onError = { errorCode, errorMessage ->
-                    // Handle authentication error
-                    finish()
-                },
-                onFailed = {
-                    // Authentication failed
-                    finish()
-                }
+        val app = application as MatrixConnectApplication
+        val securityAccessManager = SecurityAccessManager(this)
+        
+        if (securityAccessManager.isSecurityEnabled()) {
+            securityAccessManager.authenticate(
+                onSuccess = { showUI(app) },
+                onFailure = { finish() }
             )
         } else {
-            // No security required, show main UI
-            showMainUI()
+            showUI(app)
         }
     }
 
-    private fun showMainUI() {
+    private fun showUI(app: MatrixConnectApplication) {
         setContent {
-            MatrixConnectTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MatrixConnectApp()
+            val theme by app.getThemeSyncManager().currentThemeState.collectAsState()
+            ShareConnectTheme(darkTheme = theme?.isDark ?: false, customTheme = theme?.theme) {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    MatrixScreen()
                 }
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MatrixScreen() {
+    Scaffold(topBar = { TopAppBar(title = { Text("MatrixConnect") }) }) { padding ->
+        Column(modifier = Modifier.fillMaxSize().padding(padding)) {
+            Text("Matrix E2EE Messaging - Encrypted chat rooms, device keys, E2E encryption")
         }
     }
 }

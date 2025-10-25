@@ -3,78 +3,80 @@ package com.shareconnect.syncthingconnect.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.vasic.toolkit.securityaccess.SecurityAccessManager
+import com.shareconnect.designsystem.theme.ShareConnectTheme
+import com.shareconnect.securityaccess.SecurityAccessManager
+import com.shareconnect.syncthingconnect.SyncthingConnectApplication
 
-/**
- * Main activity for SyncthingConnect
- * P2P file synchronization UI
- */
 class MainActivity : ComponentActivity() {
-
     private lateinit var securityAccessManager: SecurityAccessManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Initialize SecurityAccess
+        
+        val app = application as SyncthingConnectApplication
+        val themeSyncManager = app.getThemeSyncManager()
         securityAccessManager = SecurityAccessManager(this)
 
+        if (securityAccessManager.isSecurityEnabled()) {
+            securityAccessManager.authenticate(
+                onSuccess = { showMainUI(themeSyncManager) },
+                onFailure = { finish() }
+            )
+        } else {
+            showMainUI(themeSyncManager)
+        }
+    }
+
+    private fun showMainUI(themeSyncManager: com.shareconnect.themesync.ThemeSyncManager) {
         setContent {
-            SyncthingConnectTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    SyncthingConnectContent()
+            val themeState by themeSyncManager.currentThemeState.collectAsState()
+
+            ShareConnectTheme(
+                darkTheme = themeState?.isDark ?: false,
+                customTheme = themeState?.theme
+            ) {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    SyncthingConnectScreen()
                 }
             }
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        securityAccessManager.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        securityAccessManager.onPause()
-    }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SyncthingConnectTheme(content: @Composable () -> Unit) {
-    MaterialTheme(
-        content = content
-    )
-}
+fun SyncthingConnectScreen() {
+    var selectedTab by remember { mutableIntStateOf(0) }
+    val tabs = listOf("Folders", "Devices", "Status", "Settings")
 
-@Composable
-fun SyncthingConnectContent() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = "SyncthingConnect",
-            style = MaterialTheme.typography.headlineLarge
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SyncthingConnectPreview() {
-    SyncthingConnectTheme {
-        SyncthingConnectContent()
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text("SyncthingConnect") })
+        },
+        bottomBar = {
+            NavigationBar {
+                tabs.forEachIndexed { index, title ->
+                    NavigationBarItem(
+                        icon = { Text(title.first().toString()) },
+                        label = { Text(title) },
+                        selected = selectedTab == index,
+                        onClick = { selectedTab = index }
+                    )
+                }
+            }
+        }
+    ) { padding ->
+        Column(modifier = Modifier.fillMaxSize().padding(padding)) {
+            when (selectedTab) {
+                0 -> Text("Folders - Manage sync folders")
+                1 -> Text("Devices - Connected devices")
+                2 -> Text("Status - Sync status and statistics")
+                3 -> Text("Settings - Configure Syncthing")
+            }
+        }
     }
 }
