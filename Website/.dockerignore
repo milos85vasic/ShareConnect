@@ -1,0 +1,63 @@
+# ShareConnect Website - Docker Ignore
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+!docker/*.md
+
+# IDE and editors
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies (if using npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Docker files (don't copy into container)
+docker-compose*.yml
+Dockerfile*
+.dockerignore

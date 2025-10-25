@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  shareconnect-website:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: shareconnect-website
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - TZ=UTC
+    volumes:
+      # Mount logs for debugging (optional)
+      - ./logs:/var/log/nginx
+    networks:
+      - shareconnect-network
+    labels:
+      - "com.shareconnect.description=ShareConnect Website"
+      - "com.shareconnect.version=1.0.0"
+    healthcheck:
+      test: ["/healthcheck.sh"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+networks:
+  shareconnect-network:
+    driver: bridge
+
+# Optional: Add volume for persistent logs
+volumes:
+  nginx-logs:
+    driver: local
