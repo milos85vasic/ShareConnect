@@ -1,6 +1,5 @@
 package com.shareconnect.designsystem.performance
 
-import android.os.SystemClock
 import android.util.Log
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
@@ -31,12 +30,12 @@ class PerformanceMonitor {
         operationName: String,
         operation: suspend () -> T
     ): T {
-        val startTime = SystemClock.elapsedRealtime()
+        val startTime = System.currentTimeMillis()
 
         return try {
             operation()
         } finally {
-            val duration = SystemClock.elapsedRealtime() - startTime
+            val duration = System.currentTimeMillis() - startTime
 
             recordOperationTime(operationName, duration)
 
@@ -50,12 +49,12 @@ class PerformanceMonitor {
      * Measure block execution time
      */
     inline fun <T> measure(operationName: String, block: () -> T): T {
-        val startTime = SystemClock.elapsedRealtime()
+        val startTime = System.currentTimeMillis()
 
         return try {
             block()
         } finally {
-            val duration = SystemClock.elapsedRealtime() - startTime
+            val duration = System.currentTimeMillis() - startTime
             recordOperationTime(operationName, duration)
 
             if (duration > SLOW_OPERATION_THRESHOLD_MS) {
@@ -145,7 +144,7 @@ fun <T> Flow<T>.debounce(timeoutMillis: Long): Flow<T> = flow {
     var lastEmissionTime = 0L
 
     collect { value ->
-        val currentTime = SystemClock.elapsedRealtime()
+        val currentTime = System.currentTimeMillis()
         val timeSinceLastEmission = currentTime - lastEmissionTime
 
         if (timeSinceLastEmission >= timeoutMillis) {
@@ -163,7 +162,7 @@ fun <T> Flow<T>.throttle(periodMillis: Long): Flow<T> = flow {
     var lastEmissionTime = 0L
 
     collect { value ->
-        val currentTime = SystemClock.elapsedRealtime()
+        val currentTime = System.currentTimeMillis()
         val timeSinceLastEmission = currentTime - lastEmissionTime
 
         if (timeSinceLastEmission >= periodMillis) {
@@ -200,7 +199,7 @@ class BatchProcessor<T>(
     private fun shouldProcessBatch(): Boolean {
         if (batch.size >= batchSize) return true
 
-        val currentTime = SystemClock.elapsedRealtime()
+        val currentTime = System.currentTimeMillis()
         if (currentTime - lastProcessTime >= batchTimeoutMs) return true
 
         return false
@@ -213,7 +212,7 @@ class BatchProcessor<T>(
 
         if (items.isNotEmpty()) {
             processor(items)
-            lastProcessTime = SystemClock.elapsedRealtime()
+            lastProcessTime = System.currentTimeMillis()
         }
     }
 
@@ -283,17 +282,15 @@ class ConnectionPool<T>(
 class MemoryCache<K, V>(
     private val maxSize: Int = 100
 ) {
-    private val cache = LinkedHashMap<K, CacheEntry<V>>(maxSize, 0.75f, true)
+    private val cache = object : LinkedHashMap<K, CacheEntry<V>>(maxSize + 1, 0.75f, true) {
+        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, CacheEntry<V>>?): Boolean {
+            return size > maxSize
+        }
+    }
 
     fun put(key: K, value: V, ttlMs: Long = Long.MAX_VALUE) {
         synchronized(cache) {
             cache[key] = CacheEntry(value, System.currentTimeMillis() + ttlMs)
-
-            // Evict oldest if over size
-            if (cache.size > maxSize) {
-                val oldest = cache.entries.first()
-                cache.remove(oldest.key)
-            }
         }
     }
 

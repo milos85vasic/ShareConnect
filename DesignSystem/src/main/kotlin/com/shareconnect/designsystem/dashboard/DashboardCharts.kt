@@ -5,22 +5,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottomAxis
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStartAxis
 import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineCartesianLayer
 import com.patrykandpatrick.vico.compose.cartesian.rememberCartesianChart
-import com.patrykandpatrick.vico.compose.common.component.rememberLineComponent
-import com.patrykandpatrick.vico.compose.common.component.rememberShapeComponent
-import com.patrykandpatrick.vico.compose.common.of
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
-import com.patrykandpatrick.vico.core.common.shape.Shape
 
 /**
  * Dashboard chart components using Vico
@@ -62,23 +58,17 @@ fun TimeSeriesLineChart(
             val modelProducer = remember { CartesianChartModelProducer() }
 
             // Update model with data
-            modelProducer.runTransaction {
-                lineSeries {
-                    series(data.map { it.second })
+            LaunchedEffect(data) {
+                modelProducer.runTransaction {
+                    lineSeries {
+                        series(data.map { it.second })
+                    }
                 }
             }
 
             CartesianChartHost(
                 chart = rememberCartesianChart(
-                    rememberLineCartesianLayer(
-                        lines = listOf(
-                            rememberLineComponent(
-                                color = lineColor.toArgb(),
-                                thickness = 2.dp,
-                                shape = Shape.rounded(allPercent = 25)
-                            )
-                        )
-                    ),
+                    rememberLineCartesianLayer(),
                     startAxis = rememberStartAxis(
                         title = yAxisLabel
                     ),
@@ -148,25 +138,19 @@ fun MultiLineChart(
             val modelProducer = remember { CartesianChartModelProducer() }
 
             // Update model with multiple series
-            modelProducer.runTransaction {
-                lineSeries {
-                    series.forEach { chartSeries ->
-                        series(chartSeries.data.map { it.second })
+            LaunchedEffect(series) {
+                modelProducer.runTransaction {
+                    lineSeries {
+                        series.forEach { chartSeries ->
+                            series(chartSeries.data.map { it.second })
+                        }
                     }
                 }
             }
 
             CartesianChartHost(
                 chart = rememberCartesianChart(
-                    rememberLineCartesianLayer(
-                        lines = series.map { chartSeries ->
-                            rememberLineComponent(
-                                color = chartSeries.color.toArgb(),
-                                thickness = 2.dp,
-                                shape = Shape.rounded(allPercent = 25)
-                            )
-                        }
-                    ),
+                    rememberLineCartesianLayer(),
                     startAxis = rememberStartAxis(
                         title = yAxisLabel
                     ),
@@ -225,23 +209,17 @@ fun AreaChart(
             val modelProducer = remember { CartesianChartModelProducer() }
 
             // Update model with data
-            modelProducer.runTransaction {
-                lineSeries {
-                    series(data.map { it.second })
+            LaunchedEffect(data) {
+                modelProducer.runTransaction {
+                    lineSeries {
+                        series(data.map { it.second })
+                    }
                 }
             }
 
             CartesianChartHost(
                 chart = rememberCartesianChart(
-                    rememberLineCartesianLayer(
-                        lines = listOf(
-                            rememberLineComponent(
-                                color = lineColor.toArgb(),
-                                thickness = 2.dp,
-                                shape = Shape.rounded(allPercent = 25)
-                            )
-                        )
-                    ),
+                    rememberLineCartesianLayer(),
                     startAxis = rememberStartAxis(
                         title = yAxisLabel
                     ),
@@ -317,22 +295,17 @@ fun SparklineChart(
         val modelProducer = remember { CartesianChartModelProducer() }
 
         // Update model with data
-        modelProducer.runTransaction {
-            lineSeries {
-                series(data)
+        LaunchedEffect(data) {
+            modelProducer.runTransaction {
+                lineSeries {
+                    series(data)
+                }
             }
         }
 
         CartesianChartHost(
             chart = rememberCartesianChart(
-                rememberLineCartesianLayer(
-                    lines = listOf(
-                        rememberLineComponent(
-                            color = lineColor.toArgb(),
-                            thickness = 1.dp
-                        )
-                    )
-                )
+                rememberLineCartesianLayer()
             ),
             modelProducer = modelProducer,
             modifier = modifier
