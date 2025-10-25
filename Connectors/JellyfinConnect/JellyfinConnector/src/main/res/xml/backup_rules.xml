@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Include database -->
+    <include domain="database" path="jellyfin_database" />
+
+    <!-- Include shared preferences -->
+    <include domain="sharedpref" path="jellyfin_preferences.xml" />
+
+    <!-- Exclude sensitive data -->
+    <exclude domain="database" path="jellyfin_database-wal" />
+    <exclude domain="database" path="jellyfin_database-shm" />
+</full-backup-content>

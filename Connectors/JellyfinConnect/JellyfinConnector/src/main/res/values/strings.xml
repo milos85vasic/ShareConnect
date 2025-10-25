@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JellyfinConnect</string>
+    <string name="jellyfin_connect_description">Connect to your Jellyfin Media Server</string>
+    <string name="jellyfin_server_setup">Jellyfin Server Setup</string>
+    <string name="jellyfin_authentication">Jellyfin Authentication</string>
+    <string name="jellyfin_libraries">Libraries</string>
+    <string name="jellyfin_media">Media</string>
+    <string name="jellyfin_settings">Settings</string>
+    <string name="jellyfin_sync">Sync</string>
+    <string name="jellyfin_search">Search</string>
+    <string name="jellyfin_play">Play</string>
+    <string name="jellyfin_pause">Pause</string>
+    <string name="jellyfin_stop">Stop</string>
+    <string name="jellyfin_mark_watched">Mark as Watched</string>
+    <string name="jellyfin_mark_unwatched">Mark as Unwatched</string>
+    <string name="jellyfin_add_to_playlist">Add to Playlist</string>
+    <string name="jellyfin_remove_from_playlist">Remove from Playlist</string>
+    <string name="jellyfin_server_address">Server Address</string>
+    <string name="jellyfin_server_port">Port</string>
+    <string name="jellyfin_username">Username</string>
+    <string name="jellyfin_password">Password</string>
+    <string name="jellyfin_api_key">API Key</string>
+    <string name="jellyfin_connect">Connect</string>
+    <string name="jellyfin_disconnect">Disconnect</string>
+    <string name="jellyfin_refresh">Refresh</string>
+    <string name="jellyfin_loading">Loading...</string>
+    <string name="jellyfin_error">Error</string>
+    <string name="jellyfin_success">Success</string>
+    <string name="jellyfin_no_servers">No servers found</string>
+    <string name="jellyfin_no_libraries">No libraries found</string>
+    <string name="jellyfin_no_media">No media found</string>
+    <string name="jellyfin_auth_required">Authentication required</string>
+    <string name="jellyfin_auth_success">Authentication successful</string>
+    <string name="jellyfin_auth_failed">Authentication failed</string>
+    <string name="jellyfin_connection_failed">Connection failed</string>
+    <string name="jellyfin_server_not_found">Server not found</string>
+    <string name="jellyfin_invalid_credentials">Invalid credentials</string>
+    <string name="jellyfin_network_error">Network error</string>
+    <string name="jellyfin_unknown_error">Unknown error</string>
+</resources>

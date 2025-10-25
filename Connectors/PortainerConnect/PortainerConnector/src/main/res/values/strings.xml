@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PortainerConnect</string>
+    <string name="portainer_connect_description">Manage Docker containers with Portainer</string>
+    <string name="portainer_server_setup">Portainer Server Setup</string>
+    <string name="portainer_authentication">Portainer Authentication</string>
+    <string name="portainer_containers">Containers</string>
+    <string name="portainer_images">Images</string>
+    <string name="portainer_volumes">Volumes</string>
+    <string name="portainer_networks">Networks</string>
+    <string name="portainer_stacks">Stacks</string>
+    <string name="portainer_settings">Settings</string>
+    <string name="portainer_sync">Sync</string>
+    <string name="portainer_start">Start</string>
+    <string name="portainer_stop">Stop</string>
+    <string name="portainer_restart">Restart</string>
+    <string name="portainer_remove">Remove</string>
+    <string name="portainer_pause">Pause</string>
+    <string name="portainer_unpause">Unpause</string>
+    <string name="portainer_server_address">Server Address</string>
+    <string name="portainer_server_port">Port</string>
+    <string name="portainer_username">Username</string>
+    <string name="portainer_password">Password</string>
+    <string name="portainer_api_token">API Token</string>
+    <string name="portainer_connect">Connect</string>
+    <string name="portainer_disconnect">Disconnect</string>
+    <string name="portainer_refresh">Refresh</string>
+    <string name="portainer_loading">Loading...</string>
+    <string name="portainer_error">Error</string>
+    <string name="portainer_success">Success</string>
+    <string name="portainer_no_containers">No containers found</string>
+    <string name="portainer_no_images">No images found</string>
+    <string name="portainer_no_volumes">No volumes found</string>
+    <string name="portainer_auth_required">Authentication required</string>
+    <string name="portainer_auth_success">Authentication successful</string>
+    <string name="portainer_auth_failed">Authentication failed</string>
+    <string name="portainer_connection_failed">Connection failed</string>
+    <string name="portainer_server_not_found">Server not found</string>
+    <string name="portainer_invalid_credentials">Invalid credentials</string>
+    <string name="portainer_network_error">Network error</string>
+    <string name="portainer_unknown_error">Unknown error</string>
+</resources>

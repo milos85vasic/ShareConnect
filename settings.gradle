@@ -90,6 +90,12 @@ project(':MotrixConnector').projectDir = new File(settingsDir, 'Connectors/Motri
 include ':GiteaConnector'
 project(':GiteaConnector').projectDir = new File(settingsDir, 'Connectors/GiteaConnect/GiteaConnector')
 
+include ':JellyfinConnector'
+project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
+
+include ':PortainerConnector'
+project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 

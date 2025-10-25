@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme -->
+    <style name="Theme.JellyfinConnect" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color (Jellyfin purple) -->
+        <item name="colorPrimary">#AA5CC3</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorPrimaryContainer">#9A3DB8</item>
+        <item name="colorOnPrimaryContainer">@android:color/white</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">#00A4DC</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSecondaryContainer">#0088BB</item>
+        <item name="colorOnSecondaryContainer">@android:color/white</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Navigation bar color -->
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
+
+        <!-- Window attributes -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <!-- Onboarding theme -->
+    <style name="Theme.JellyfinConnect.Onboarding" parent="Theme.JellyfinConnect">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
