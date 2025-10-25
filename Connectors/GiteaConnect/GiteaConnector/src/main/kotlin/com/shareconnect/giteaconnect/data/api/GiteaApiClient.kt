@@ -15,29 +15,34 @@ import java.util.concurrent.TimeUnit
  */
 class GiteaApiClient(
     private val serverUrl: String,
-    private val token: String
+    private val token: String,
+    giteaApiService: GiteaApiService? = null
 ) {
     private val tag = "GiteaApiClient"
 
-    private val authHeader: String
+    val authHeader: String
         get() = "token $token"
 
-    private val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        })
-        .build()
+    private val okHttpClient by lazy {
+        OkHttpClient.Builder()
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .build()
+    }
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(serverUrl.removeSuffix("/") + "/")
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl(serverUrl.removeSuffix("/") + "/")
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
-    private val apiService = retrofit.create(GiteaApiService::class.java)
+    private val apiService: GiteaApiService = giteaApiService ?: retrofit.create(GiteaApiService::class.java)
 
     /**
      * Get current authenticated user
