@@ -7,7 +7,7 @@ This is the official GitHub Pages website for the ShareConnect project, showcasi
 - **Enterprise Design**: Modern, professional UI with dark theme
 - **Real-time Dashboard**: Live project health monitoring
 - **Comprehensive Metrics**: Testing, security, and code quality badges
-- **Application Ecosystem**: Overview of all 5 Android applications
+- **Application Ecosystem**: Overview of all 20 Android applications across 3 phases
 - **Responsive Design**: Optimized for all devices
 - **Interactive Elements**: Smooth animations and hover effects
 
@@ -24,11 +24,32 @@ This is the official GitHub Pages website for the ShareConnect project, showcasi
 - **Build & Technology**: Build status, Android API, Kotlin/Java versions
 
 ### Application Ecosystem
+
+**Phase 1 - Core Applications (4 apps):**
 - **ShareConnector**: Main application for universal media sharing
 - **qBitConnect**: qBittorrent client integration
 - **TransmissionConnect**: Transmission client integration
 - **uTorrentConnect**: uTorrent client integration
+
+**Phase 2 - Cloud Services (8 apps):**
 - **JDownloaderConnect**: JDownloader integration
+- **MeTubeConnect**: MeTube integration for YouTube downloads
+- **YTDLPConnect**: YT-DLP integration (1800+ sites)
+- **NextcloudConnect**: Nextcloud private cloud management
+- **FileBrowserConnect**: Web-based file management
+- **PlexConnect**: Plex media server integration
+- **JellyfinConnect**: Open-source media streaming
+- **EmbyConnect**: Emby server integration
+
+**Phase 3 - Specialized Services (8 apps):**
+- **SeafileConnect**: Encrypted cloud storage (AES-256)
+- **SyncthingConnect**: P2P file synchronization
+- **MatrixConnect**: E2EE messaging (Olm/Megolm)
+- **PaperlessNGConnect**: Document management with OCR
+- **DuplicatiConnect**: Backup management
+- **WireGuardConnect**: VPN configuration manager
+- **MinecraftServerConnect**: Minecraft server control (RCON)
+- **OnlyOfficeConnect**: Collaborative document editing
 
 ## 🛠️ Development
 
