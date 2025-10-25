@@ -96,6 +96,12 @@ project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/Jel
 include ':PortainerConnector'
 project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')
 
+include ':NetdataConnector'
+project(':NetdataConnector').projectDir = new File(settingsDir, 'Connectors/NetdataConnect/NetdataConnector')
+
+include ':HomeAssistantConnector'
+project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 

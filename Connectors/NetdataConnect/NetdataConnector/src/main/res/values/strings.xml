@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NetdataConnect</string>
+
+    <!-- Server -->
+    <string name="server_url">Server URL</string>
+    <string name="server_info">Server Info</string>
+    <string name="server_version">Version</string>
+    <string name="server_hostname">Hostname</string>
+    <string name="server_os">Operating System</string>
+
+    <!-- Charts -->
+    <string name="charts">Charts</string>
+    <string name="chart_data">Chart Data</string>
+    <string name="chart_id">Chart ID</string>
+    <string name="chart_name">Name</string>
+    <string name="chart_type">Type</string>
+    <string name="chart_family">Family</string>
+    <string name="chart_context">Context</string>
+    <string name="chart_units">Units</string>
+
+    <!-- Metrics -->
+    <string name="metrics">Metrics</string>
+    <string name="all_metrics">All Metrics</string>
+    <string name="metric_value">Value</string>
+    <string name="metric_dimension">Dimension</string>
+
+    <!-- Alarms -->
+    <string name="alarms">Alarms</string>
+    <string name="alarm_status">Alarm Status</string>
+    <string name="alarm_log">Alarm Log</string>
+    <string name="alarm_active">Active</string>
+    <string name="alarm_critical">Critical</string>
+    <string name="alarm_warning">Warning</string>
+    <string name="alarm_clear">Clear</string>
+
+    <!-- System Monitoring -->
+    <string name="cpu_usage">CPU Usage</string>
+    <string name="memory_usage">Memory Usage</string>
+    <string name="disk_usage">Disk Usage</string>
+    <string name="network_traffic">Network Traffic</string>
+    <string name="system_load">System Load</string>
+
+    <!-- Actions -->
+    <string name="refresh">Refresh</string>
+    <string name="fetch_data">Fetch Data</string>
+    <string name="view_details">View Details</string>
+
+    <!-- Errors -->
+    <string name="error_connection">Connection error</string>
+    <string name="error_fetch_failed">Failed to fetch data</string>
+    <string name="error_invalid_url">Invalid server URL</string>
+    <string name="error_timeout">Request timeout</string>
+
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="refresh_interval">Refresh Interval</string>
+    <string name="auto_refresh">Auto Refresh</string>
+</resources>
