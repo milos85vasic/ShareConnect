@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MinecraftServerConnect</string>
+    <string name="welcome">Welcome to MinecraftServerConnect</string>
+    <string name="manage_server">Manage your Minecraft Server</string>
+    <string name="rcon_configuration">RCON Configuration</string>
+    <string name="features">Features</string>
+    <string name="get_started">Get Started</string>
+</resources>

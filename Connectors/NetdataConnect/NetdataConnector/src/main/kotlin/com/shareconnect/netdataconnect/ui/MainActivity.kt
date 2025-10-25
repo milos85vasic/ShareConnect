@@ -3,30 +3,47 @@ package com.shareconnect.netdataconnect.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import digital.vasic.security.access.ui.SecurityAccess
+import digital.vasic.security.access.ui.SecurityAccessViewModel
+import digital.vasic.security.access.database.PinLength
+import com.shareconnect.netdataconnect.NetdataConnectApplication
 
 /**
  * Main activity for NetdataConnect
- * System monitoring and metrics collection UI
+ * System monitoring and metrics collection UI with SecurityAccess integration
  */
 class MainActivity : ComponentActivity() {
+
+    private lateinit var securityViewModel: SecurityAccessViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Initialize SecurityAccess ViewModel
+        securityViewModel = SecurityAccessViewModel(application)
+
         setContent {
             NetdataConnectTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NetdataConnectContent()
+                    SecurityAccess(
+                        viewModel = securityViewModel,
+                        pinLength = PinLength.FOUR,
+                        onAuthenticationSuccess = {
+                            // Authentication successful - show main content
+                        }
+                    ) {
+                        NetdataConnectContent()
+                    }
                 }
             }
         }
@@ -42,21 +59,63 @@ fun NetdataConnectTheme(content: @Composable () -> Unit) {
 
 @Composable
 fun NetdataConnectContent() {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             text = "NetdataConnect",
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.Center
         )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = "Monitor your Netdata servers in real-time",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onBackground,
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant
+            )
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text(
+                    text = "Features:",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+
+                FeatureItem("• Real-time system metrics monitoring")
+                FeatureItem("• Comprehensive chart visualization")
+                FeatureItem("• Alarm and alert tracking")
+                FeatureItem("• Server health monitoring")
+                FeatureItem("• Historical data analysis")
+                FeatureItem("• Multi-server support")
+            }
+        }
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun NetdataConnectPreview() {
-    NetdataConnectTheme {
-        NetdataConnectContent()
-    }
+private fun FeatureItem(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodyMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(vertical = 4.dp)
+    )
 }

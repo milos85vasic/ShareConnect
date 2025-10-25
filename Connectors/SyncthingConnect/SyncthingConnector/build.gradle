@@ -1,0 +1,179 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services' version '4.4.3'
+    id 'com.google.firebase.crashlytics' version '3.0.6'
+}
+
+ext.kotlin_version = '2.0.0'
+
+android {
+
+    namespace 'com.shareconnect.syncthingconnect'
+    compileSdk 36
+
+    defaultConfig {
+        minSdk 28
+        targetSdk 30
+
+        versionCode 1
+        versionName '1.0.0'
+        applicationId 'com.shareconnect.syncthingconnect'
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+
+        jvmTarget = '17'
+    }
+
+    buildTypes {
+
+        debug {
+
+            manifestPlaceholders.crashlyticsEnabled = false
+        }
+
+        release {
+
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders.crashlyticsEnabled = true
+
+            lint {
+
+                disable 'MissingTranslation'
+                abortOnError false
+            }
+        }
+    }
+
+    packagingOptions {
+
+        resources {
+
+            excludes += ['META-INF/notice.txt', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/INDEX.LIST']
+        }
+    }
+
+    buildFeatures {
+
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.15"
+    }
+
+    testOptions {
+
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(':DesignSystem')
+    implementation project(':Onboarding')
+    implementation project(':Asinka:asinka')
+    implementation project(':ThemeSync')
+    implementation project(':ProfileSync')
+    implementation project(':HistorySync')
+    implementation project(':RSSSync')
+    implementation project(':BookmarkSync')
+    implementation project(':PreferencesSync')
+    implementation project(':LanguageSync')
+    implementation project(':TorrentSharingSync')
+    implementation project(':Localizations')
+    implementation project(':Toolkit:SecurityAccess')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // Force specific version to avoid Kotlin version conflicts
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version")
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
+
+    // AndroidX
+    implementation "androidx.core:core-ktx:1.17.0"
+    implementation 'androidx.annotation:annotation:1.7.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.activity:activity-compose:1.9.3'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-compose:2.9.4'
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
+
+    // Compose
+    implementation platform('androidx.compose:compose-bom:2024.13.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.compose.runtime:runtime-livedata'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'com.google.code.gson:gson:2.13.2'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:34.3.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // OkHttp & Retrofit
+    implementation platform('com.squareup.okhttp3:okhttp-bom:4.12.0')
+    implementation 'com.squareup.okhttp3:okhttp'
+    implementation 'com.squareup.okhttp3:logging-interceptor'
+    implementation 'com.squareup.okhttp3:sse:4.12.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.11.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'com.google.truth:truth:1.4.4'
+    testImplementation 'org.mockito.kotlin:mockito-kotlin:6.1.0'
+    testImplementation "org.jetbrains.kotlin:kotlin-test:2.0.0"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:2.0.0"
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
+    testImplementation 'org.robolectric:robolectric:4.13'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2'
+    testImplementation 'com.google.code.gson:gson:2.11.0'
+
+    androidTestImplementation 'androidx.test:core:1.7.0'
+    androidTestImplementation 'androidx.test:core-ktx:1.7.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.3.0'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
+    androidTestImplementation 'androidx.test:rules:1.7.0'
+    androidTestImplementation 'com.google.truth:truth:1.4.4'
+    androidTestImplementation 'org.mockito:mockito-android:5.8.0'
+    androidTestImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
+    androidTestUtil 'androidx.test:orchestrator:1.6.0'
+}
+
+// Force Kotlin version to avoid conflicts
+configurations.all {
+    resolutionStrategy {
+        force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        force "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+        force "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+    }
+}
+

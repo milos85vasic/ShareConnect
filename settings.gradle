@@ -103,6 +103,9 @@ project(':NetdataConnector').projectDir = new File(settingsDir, 'Connectors/Netd
 include ':HomeAssistantConnector'
 project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
 
+include ':SeafileConnector'
+project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 

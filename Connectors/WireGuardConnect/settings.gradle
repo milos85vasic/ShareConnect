@@ -1,0 +1,58 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    plugins {
+        id 'com.android.application' version '8.13.0'
+        id 'com.android.library' version '8.13.0'
+        id 'org.jetbrains.kotlin.android' version '2.0.0'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
+        id 'org.jetbrains.kotlin.plugin.compose' version '2.0.0'
+        id 'com.google.protobuf' version '0.9.4'
+        id 'com.google.devtools.ksp' version '2.0.0-1.0.21'
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'WireGuardConnect'
+
+include ':WireGuardConnector'
+
+// Include ShareConnect modules
+include ':Asinka:asinka'
+include ':DesignSystem'
+include ':Onboarding'
+include ':ThemeSync'
+include ':ProfileSync'
+include ':HistorySync'
+include ':RSSSync'
+include ':BookmarkSync'
+include ':PreferencesSync'
+include ':LanguageSync'
+include ':TorrentSharingSync'
+include ':Localizations'
+include ':Toolkit:SecurityAccess'
+
+// Set project directories
+project(':Asinka:asinka').projectDir = new File('../../Asinka/asinka')
+project(':DesignSystem').projectDir = new File('../../DesignSystem')
+project(':Onboarding').projectDir = new File('../../Onboarding')
+project(':ThemeSync').projectDir = new File('../../ThemeSync')
+project(':ProfileSync').projectDir = new File('../../ProfileSync')
+project(':HistorySync').projectDir = new File('../../HistorySync')
+project(':RSSSync').projectDir = new File('../../RSSSync')
+project(':BookmarkSync').projectDir = new File('../../BookmarkSync')
+project(':PreferencesSync').projectDir = new File('../../PreferencesSync')
+project(':LanguageSync').projectDir = new File('../../LanguageSync')
+project(':TorrentSharingSync').projectDir = new File('../../TorrentSharingSync')
+project(':Localizations').projectDir = new File('../../Localizations')
+project(':Toolkit:SecurityAccess').projectDir = new File('../../Toolkit/SecurityAccess')

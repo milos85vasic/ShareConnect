@@ -1,0 +1,53 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+rootProject.name = "PaperlessNGConnect"
+include ':PaperlessNGConnector'
+
+// Include shared modules from main project
+include ':DesignSystem'
+project(':DesignSystem').projectDir = new File(rootProject.projectDir, '../../DesignSystem')
+
+include ':Toolkit:SecurityAccess'
+project(':Toolkit:SecurityAccess').projectDir = new File(rootProject.projectDir, '../../Toolkit/SecurityAccess')
+
+include ':ThemeSync'
+project(':ThemeSync').projectDir = new File(rootProject.projectDir, '../../ThemeSync')
+
+include ':ProfileSync'
+project(':ProfileSync').projectDir = new File(rootProject.projectDir, '../../ProfileSync')
+
+include ':HistorySync'
+project(':HistorySync').projectDir = new File(rootProject.projectDir, '../../HistorySync')
+
+include ':RSSSync'
+project(':RSSSync').projectDir = new File(rootProject.projectDir, '../../RSSSync')
+
+include ':BookmarkSync'
+project(':BookmarkSync').projectDir = new File(rootProject.projectDir, '../../BookmarkSync')
+
+include ':PreferencesSync'
+project(':PreferencesSync').projectDir = new File(rootProject.projectDir, '../../PreferencesSync')
+
+include ':LanguageSync'
+project(':LanguageSync').projectDir = new File(rootProject.projectDir, '../../LanguageSync')
+
+include ':TorrentSharingSync'
+project(':TorrentSharingSync').projectDir = new File(rootProject.projectDir, '../../TorrentSharingSync')
+
+include ':Asinka:asinka'
+project(':Asinka:asinka').projectDir = new File(rootProject.projectDir, '../../Asinka/asinka')

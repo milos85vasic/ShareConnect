@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OnlyOfficeConnect</string>
+    <string name="onlyoffice_server">ONLYOFFICE Server</string>
+    <string name="document_editor">Document Editor</string>
+    <string name="spreadsheet_editor">Spreadsheet Editor</string>
+    <string name="presentation_editor">Presentation Editor</string>
+    <string name="loading_document">Loading document…</string>
+    <string name="saving_document">Saving document…</string>
+    <string name="editor_error">Editor error occurred</string>
+</resources>
