@@ -79,6 +79,11 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.4.0")
     implementation("com.airbnb.android:lottie-compose:6.4.0")
 
+    // Vico Charts for data visualization
+    implementation("com.patrykandpatrick.vico:compose:2.0.0-alpha.28")
+    implementation("com.patrykandpatrick.vico:compose-m3:2.0.0-alpha.28")
+    implementation("com.patrykandpatrick.vico:core:2.0.0-alpha.28")
+
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
