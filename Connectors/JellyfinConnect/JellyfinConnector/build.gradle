@@ -105,6 +105,9 @@ dependencies {
     // Security
     implementation project(':Toolkit:SecurityAccess')
 
+    // WebSocket
+    implementation project(':Toolkit:WebSocket')
+
     def androidxLifecycleVersion = '2.9.4'
     def composeNavigationVersion = '2.9.0-beta03'
     def coroutinesVersion = '1.10.2'
