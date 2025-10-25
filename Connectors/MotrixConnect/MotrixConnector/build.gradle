@@ -63,8 +63,11 @@ android {
     }
 
     testOptions {
-        unitTests.all {
-            it.jvmArgs '-XX:+AllowRedefinitionToAddDeleteMethods'
+        unitTests {
+            all {
+                it.jvmArgs '-XX:+AllowRedefinitionToAddDeleteMethods'
+            }
+            includeAndroidResources = true
         }
     }
 
@@ -165,6 +168,7 @@ dependencies {
     testImplementation 'io.mockk:mockk:1.13.8'
     testImplementation "androidx.room:room-testing:$roomVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
+    testImplementation 'org.robolectric:robolectric:4.11.1'
 
     // Android test dependencies
     androidTestImplementation 'androidx.test.ext:junit:1.3.0'

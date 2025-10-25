@@ -91,7 +91,7 @@ class GiteaApiClientMockKTest {
 
         assertTrue(result.isSuccess)
         assertEquals("test-repo", result.getOrNull()!!.name)
-        coVerify { mockService.getRepository(any(), "testuser", "test-repo") }
+        coVerify { mockService.getRepository("testuser", "test-repo", any()) }
     }
 
     @Test
@@ -116,7 +116,7 @@ class GiteaApiClientMockKTest {
         val result = apiClient.deleteRepository("testuser", "old-repo")
 
         assertTrue(result.isSuccess)
-        coVerify { mockService.deleteRepository(any(), "testuser", "old-repo") }
+        coVerify { mockService.deleteRepository("testuser", "old-repo", any()) }
     }
 
     @Test
@@ -135,7 +135,7 @@ class GiteaApiClientMockKTest {
         assertTrue(result.isSuccess)
         assertEquals(1, result.getOrNull()!!.size)
         assertEquals("Test issue", result.getOrNull()!![0].title)
-        coVerify { mockService.getIssues(any(), "testuser", "test-repo", any(), any(), any()) }
+        coVerify { mockService.getIssues("testuser", "test-repo", any(), any(), any(), any()) }
     }
 
     @Test
@@ -150,7 +150,7 @@ class GiteaApiClientMockKTest {
 
         assertTrue(result.isSuccess)
         assertEquals("New issue", result.getOrNull()!!.title)
-        coVerify { mockService.createIssue(any(), "testuser", "test-repo", any()) }
+        coVerify { mockService.createIssue("testuser", "test-repo", any(), any()) }
     }
 
     @Test
@@ -168,7 +168,7 @@ class GiteaApiClientMockKTest {
         assertTrue(result.isSuccess)
         assertEquals(1, result.getOrNull()!!.size)
         assertEquals("v1.0.0", result.getOrNull()!![0].tagName)
-        coVerify { mockService.getReleases(any(), "testuser", "test-repo", any(), any()) }
+        coVerify { mockService.getReleases("testuser", "test-repo", any(), any(), any()) }
     }
 
     @Test
@@ -186,7 +186,7 @@ class GiteaApiClientMockKTest {
         assertTrue(result.isSuccess)
         assertEquals(1, result.getOrNull()!!.size)
         assertEquals("abc123", result.getOrNull()!![0].sha)
-        coVerify { mockService.getCommits(any(), "testuser", "test-repo", any(), any(), any()) }
+        coVerify { mockService.getCommits("testuser", "test-repo", any(), any(), any(), any()) }
     }
 
     @Test
@@ -204,7 +204,7 @@ class GiteaApiClientMockKTest {
         assertTrue(result.isSuccess)
         assertEquals(1, result.getOrNull()!!.size)
         assertEquals("Test PR", result.getOrNull()!![0].title)
-        coVerify { mockService.getPullRequests(any(), "testuser", "test-repo", any(), any(), any()) }
+        coVerify { mockService.getPullRequests("testuser", "test-repo", any(), any(), any(), any()) }
     }
 
     @Test
@@ -214,7 +214,7 @@ class GiteaApiClientMockKTest {
         val result = apiClient.starRepository("testuser", "test-repo")
 
         assertTrue(result.isSuccess)
-        coVerify { mockService.starRepository(any(), "testuser", "test-repo") }
+        coVerify { mockService.starRepository("testuser", "test-repo", any()) }
     }
 
     @Test
@@ -224,7 +224,7 @@ class GiteaApiClientMockKTest {
         val result = apiClient.unstarRepository("testuser", "test-repo")
 
         assertTrue(result.isSuccess)
-        coVerify { mockService.unstarRepository(any(), "testuser", "test-repo") }
+        coVerify { mockService.unstarRepository("testuser", "test-repo", any()) }
     }
 
     @Test
