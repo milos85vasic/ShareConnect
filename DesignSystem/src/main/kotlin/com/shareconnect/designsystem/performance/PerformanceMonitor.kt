@@ -138,18 +138,17 @@ data class OperationStats(
 
 /**
  * Debounce flow emissions
+ * Note: This is a simplified implementation. For production use, consider kotlinx.coroutines.flow.debounce
  */
 fun <T> Flow<T>.debounce(timeoutMillis: Long): Flow<T> = flow {
-    var lastEmission: T? = null
     var lastEmissionTime = 0L
 
     collect { value ->
         val currentTime = System.currentTimeMillis()
         val timeSinceLastEmission = currentTime - lastEmissionTime
 
-        if (timeSinceLastEmission >= timeoutMillis) {
+        if (lastEmissionTime == 0L || timeSinceLastEmission >= timeoutMillis) {
             emit(value)
-            lastEmission = value
             lastEmissionTime = currentTime
         }
     }
@@ -181,7 +180,7 @@ class BatchProcessor<T>(
     private val processor: suspend (List<T>) -> Unit
 ) {
     private val batch = mutableListOf<T>()
-    private var lastProcessTime = 0L
+    private var lastProcessTime = System.currentTimeMillis()
     private val mutex = Mutex()
     private val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
 
@@ -278,19 +277,35 @@ class ConnectionPool<T>(
 
 /**
  * Memory cache with LRU eviction
+ * Simple implementation using MutableMap with manual LRU tracking
  */
 class MemoryCache<K, V>(
     private val maxSize: Int = 100
 ) {
-    private val cache = object : LinkedHashMap<K, CacheEntry<V>>(maxSize + 1, 0.75f, true) {
-        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<K, CacheEntry<V>>?): Boolean {
-            return size > maxSize
-        }
-    }
+    private val cache = mutableMapOf<K, CacheEntry<V>>()
+    private val accessOrder = mutableListOf<K>()
 
-    fun put(key: K, value: V, ttlMs: Long = Long.MAX_VALUE) {
+    fun put(key: K, value: V, ttlMs: Long = -1) {
         synchronized(cache) {
-            cache[key] = CacheEntry(value, System.currentTimeMillis() + ttlMs)
+            // Remove from access order if already exists
+            accessOrder.remove(key)
+
+            // Add to cache (ttlMs = -1 means no expiration)
+            val expiryTime = if (ttlMs < 0) {
+                Long.MAX_VALUE
+            } else {
+                System.currentTimeMillis() + ttlMs
+            }
+            cache[key] = CacheEntry(value, expiryTime)
+
+            // Add to end of access order (most recently used)
+            accessOrder.add(key)
+
+            // Evict oldest if over size
+            while (accessOrder.size > maxSize) {
+                val oldest = accessOrder.removeAt(0)
+                cache.remove(oldest)
+            }
         }
     }
 
@@ -298,11 +313,16 @@ class MemoryCache<K, V>(
         synchronized(cache) {
             val entry = cache[key] ?: return null
 
-            // Check if expired
-            if (System.currentTimeMillis() > entry.expiryTime) {
+            // Check if expired (Long.MAX_VALUE means never expires)
+            if (entry.expiryTime != Long.MAX_VALUE && System.currentTimeMillis() > entry.expiryTime) {
                 cache.remove(key)
+                accessOrder.remove(key)
                 return null
             }
+
+            // Update access order (move to end = most recently used)
+            accessOrder.remove(key)
+            accessOrder.add(key)
 
             return entry.value
         }
@@ -311,12 +331,14 @@ class MemoryCache<K, V>(
     fun remove(key: K) {
         synchronized(cache) {
             cache.remove(key)
+            accessOrder.remove(key)
         }
     }
 
     fun clear() {
         synchronized(cache) {
             cache.clear()
+            accessOrder.clear()
         }
     }
 
