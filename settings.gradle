@@ -106,6 +106,27 @@ project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connector
 include ':SeafileConnector'
 project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
 
+include ':SyncthingConnector'
+project(':SyncthingConnector').projectDir = new File(settingsDir, 'Connectors/SyncthingConnect/SyncthingConnector')
+
+include ':MatrixConnector'
+project(':MatrixConnector').projectDir = new File(settingsDir, 'Connectors/MatrixConnect/MatrixConnector')
+
+include ':PaperlessNGConnector'
+project(':PaperlessNGConnector').projectDir = new File(settingsDir, 'Connectors/PaperlessNGConnect/PaperlessNGConnector')
+
+include ':DuplicatiConnector'
+project(':DuplicatiConnector').projectDir = new File(settingsDir, 'Connectors/DuplicatiConnect/DuplicatiConnector')
+
+include ':WireGuardConnector'
+project(':WireGuardConnector').projectDir = new File(settingsDir, 'Connectors/WireGuardConnect/WireGuardConnector')
+
+include ':MinecraftServerConnector'
+project(':MinecraftServerConnector').projectDir = new File(settingsDir, 'Connectors/MinecraftServerConnect/MinecraftServerConnector')
+
+include ':OnlyOfficeConnector'
+project(':OnlyOfficeConnector').projectDir = new File(settingsDir, 'Connectors/OnlyOfficeConnect/OnlyOfficeConnector')
+
 include ':Asinka:asinka'
 include ':Asinka:demo-app'
 
