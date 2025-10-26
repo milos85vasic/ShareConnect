@@ -39,14 +39,9 @@ else
     echo -e "${YELLOW}Container is already stopped${NC}"
 fi
 
-# Ask if user wants to remove the container
-echo
-read -p "Remove container? (y/N): " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    docker rm "$CONTAINER_NAME"
-    echo -e "${GREEN}✓ Container removed${NC}"
-fi
+# Remove the container
+docker rm "$CONTAINER_NAME"
+echo -e "${GREEN}✓ Container removed${NC}"
 
 echo
 echo -e "${GREEN}Done!${NC}"
