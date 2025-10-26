@@ -50,27 +50,42 @@
   
   <!-- FOREGROUND ICON AREA -->
   <g id="foreground" transform="translate(2048, 2048)">
-    <!-- Application-specific icon goes here -->
-    <!-- Replace this placeholder with your design -->
-    
-    <!-- Placeholder: App initials with design concept -->
-    <g id="placeholder-icon" opacity="0.8">
-      <!-- Background for icon area -->
-      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
-      
-      <!-- App initials -->
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
-            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
-            fill="#FFFFFF" fill-opacity="0.7">
-        On
-      </text>
-      
-      <!-- Concept indicator -->
-      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-    </g>
+     <!-- Application-specific icon: Document with editing tools -->
+     <g id="document-editor-icon">
+       <!-- Main document -->
+       <rect x="-200" y="-300" width="400" height="500" rx="20" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="15"/>
+       <!-- Document lines -->
+       <line x1="-150" y1="-200" x2="150" y2="-200" stroke="#757575" stroke-width="12"/>
+       <line x1="-150" y1="-100" x2="100" y2="-100" stroke="#757575" stroke-width="12"/>
+       <line x1="-150" y1="0" x2="120" y2="0" stroke="#757575" stroke-width="12"/>
+       <line x1="-150" y1="100" x2="80" y2="100" stroke="#757575" stroke-width="12"/>
+       <!-- Editing tools -->
+       <!-- Pencil -->
+       <rect x="-500" y="-150" width="150" height="20" fill="#795548" stroke="#5D4037" stroke-width="5"/>
+       <polygon points="-350,-160 -330,-140 -370,-140" fill="#FFC107" stroke="#FF8F00" stroke-width="3"/>
+       <!-- Text tool -->
+       <rect x="350" y="-150" width="150" height="20" fill="#2196F3" stroke="#0D47A1" stroke-width="5"/>
+       <text x="425" y="-135" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#FFFFFF" font-weight="bold">A</text>
+       <!-- Spreadsheet -->
+       <rect x="-500" y="100" width="120" height="100" fill="#4CAF50" stroke="#2E7D32" stroke-width="8"/>
+       <line x1="-500" y1="150" x2="-380" y2="150" stroke="#FFFFFF" stroke-width="8"/>
+       <line x1="-440" y1="100" x2="-440" y2="200" stroke="#FFFFFF" stroke-width="8"/>
+       <!-- Presentation -->
+       <rect x="380" y="100" width="120" height="100" fill="#E91E63" stroke="#C2185B" stroke-width="8"/>
+       <circle cx="440" cy="150" r="15" fill="#FFFFFF"/>
+       <!-- Cursor/pointer -->
+       <path d="M-50,-450 L-30,-430 L-40,-420 L-60,-440 L-50,-430 Z" fill="#9C27B0" stroke="#7B1FA2" stroke-width="5"/>
+       <!-- Collaboration indicators -->
+       <circle cx="-150" cy="-350" r="25" fill="#FFC107"/>
+       <circle cx="150" cy="-350" r="25" fill="#4CAF50"/>
+       <circle cx="0" cy="-350" r="25" fill="#2196F3"/>
+       <!-- Cloud sync -->
+       <path d="M-600,300 Q-400,200 -200,300 Q-200,400 -300,400 Q-400,400 -400,300 Q-500,300 -500,400 Q-400,450 -300,400 Q-200,450 -100,400 Q-100,300 0,300" stroke="#03A9F4" stroke-width="20" fill="none" stroke-linecap="round"/>
+       <!-- Edit indicators -->
+       <circle cx="-100" cy="-200" r="8" fill="#FFC107"/>
+       <circle cx="50" cy="-100" r="8" fill="#4CAF50"/>
+       <circle cx="-80" cy="0" r="8" fill="#2196F3"/>
+     </g>
     
     <!-- DESIGN NOTES: -->
     <!-- 

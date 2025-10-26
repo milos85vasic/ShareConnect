@@ -50,27 +50,43 @@
   
   <!-- FOREGROUND ICON AREA -->
   <g id="foreground" transform="translate(2048, 2048)">
-    <!-- Application-specific icon goes here -->
-    <!-- Replace this placeholder with your design -->
-    
-    <!-- Placeholder: App initials with design concept -->
-    <g id="placeholder-icon" opacity="0.8">
-      <!-- Background for icon area -->
-      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
-      
-      <!-- App initials -->
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
-            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
-            fill="#FFFFFF" fill-opacity="0.7">
-        Sh
-      </text>
-      
-      <!-- Concept indicator -->
-      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-    </g>
+     <!-- Application-specific icon: Network nodes connected in star pattern -->
+     <g id="network-sharing-icon">
+       <!-- Central hub -->
+       <circle cx="0" cy="0" r="100" fill="#E91E63" stroke="#C2185B" stroke-width="15"/>
+       <text x="0" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="80" fill="#FFFFFF" font-weight="bold">S</text>
+       <!-- Connected nodes -->
+       <circle cx="-400" cy="-300" r="60" fill="#2196F3" stroke="#0D47A1" stroke-width="10"/>
+       <circle cx="400" cy="-300" r="60" fill="#4CAF50" stroke="#2E7D32" stroke-width="10"/>
+       <circle cx="-400" cy="300" r="60" fill="#FF9800" stroke="#E65100" stroke-width="10"/>
+       <circle cx="400" cy="300" r="60" fill="#9C27B0" stroke="#7B1FA2" stroke-width="10"/>
+       <circle cx="0" cy="-500" r="60" fill="#FFC107" stroke="#FF8F00" stroke-width="10"/>
+       <circle cx="0" cy="500" r="60" fill="#607D8B" stroke="#455A64" stroke-width="10"/>
+       <!-- Connection lines -->
+       <line x1="0" y1="-100" x2="-400" y2="-300" stroke="#2196F3" stroke-width="20" stroke-linecap="round"/>
+       <line x1="0" y1="-100" x2="400" y2="-300" stroke="#4CAF50" stroke-width="20" stroke-linecap="round"/>
+       <line x1="0" y1="100" x2="-400" y2="300" stroke="#FF9800" stroke-width="20" stroke-linecap="round"/>
+       <line x1="0" y1="100" x2="400" y2="300" stroke="#9C27B0" stroke-width="20" stroke-linecap="round"/>
+       <line x1="0" y1="-100" x2="0" y2="-500" stroke="#FFC107" stroke-width="20" stroke-linecap="round"/>
+       <line x1="0" y1="100" x2="0" y2="500" stroke="#607D8B" stroke-width="20" stroke-linecap="round"/>
+       <!-- Data flow arrows -->
+       <path d="M-200,-200 L-300,-250 L-250,-300" stroke="#2196F3" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M200,-200 L300,-250 L250,-300" stroke="#4CAF50" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M-200,200 L-300,250 L-250,300" stroke="#FF9800" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+       <path d="M200,200 L300,250 L250,300" stroke="#9C27B0" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+       <!-- File type indicators -->
+       <rect x="-430" y="-330" width="40" height="50" fill="#FFFFFF" stroke="#2196F3" stroke-width="5"/>
+       <circle x="-410" y="-310" r="8" fill="#2196F3"/>
+       <rect x="390" y="-330" width="40" height="50" fill="#FFFFFF" stroke="#4CAF50" stroke-width="5"/>
+       <polygon points="410,-310 420,-290 400,-290" fill="#4CAF50"/>
+       <rect x="-430" y="280" width="40" height="50" fill="#FFFFFF" stroke="#FF9800" stroke-width="5"/>
+       <line x1="-410" y1="300" x2="-390" y2="300" stroke="#FF9800" stroke-width="6"/>
+       <rect x="390" y="280" width="40" height="50" fill="#FFFFFF" stroke="#9C27B0" stroke-width="5"/>
+       <circle x="410" y="300" r="6" fill="#9C27B0"/>
+       <circle x="410" y="315" r="6" fill="#9C27B0"/>
+       <!-- Share symbol -->
+       <path d="M-50,-450 L50,-450 L50,-350 L100,-350 L0,-250 L-100,-350 L-50,-350 Z" fill="#E91E63" stroke="#C2185B" stroke-width="10"/>
+     </g>
     
     <!-- DESIGN NOTES: -->
     <!-- 

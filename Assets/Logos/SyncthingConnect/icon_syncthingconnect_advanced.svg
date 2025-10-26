@@ -50,27 +50,51 @@
   
   <!-- FOREGROUND ICON AREA -->
   <g id="foreground" transform="translate(2048, 2048)">
-    <!-- Application-specific icon goes here -->
-    <!-- Replace this placeholder with your design -->
-    
-    <!-- Placeholder: App initials with design concept -->
-    <g id="placeholder-icon" opacity="0.8">
-      <!-- Background for icon area -->
-      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
-      
-      <!-- App initials -->
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
-            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
-            fill="#FFFFFF" fill-opacity="0.7">
-        Sy
-      </text>
-      
-      <!-- Concept indicator -->
-      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-    </g>
+     <!-- Application-specific icon: P2P file synchronization -->
+     <g id="p2p-sync-icon">
+       <!-- Device 1 (left) -->
+       <rect x="-550" y="-150" width="200" height="300" rx="20" fill="#607D8B" stroke="#455A64" stroke-width="10"/>
+       <rect x="-530" y="-130" width="160" height="260" fill="#37474F"/>
+       <!-- Screen content -->
+       <rect x="-510" y="-100" width="120" height="80" fill="#FFFFFF"/>
+       <line x1="-490" y1="-80" x2="-430" y2="-80" stroke="#2196F3" stroke-width="6"/>
+       <line x1="-490" y1="-60" x2="-450" y2="-60" stroke="#2196F3" stroke-width="6"/>
+       <!-- Device 2 (right) -->
+       <rect x="350" y="-150" width="200" height="300" rx="20" fill="#607D8B" stroke="#455A64" stroke-width="10"/>
+       <rect x="370" y="-130" width="160" height="260" fill="#37474F"/>
+       <!-- Screen content -->
+       <rect x="390" y="-100" width="120" height="80" fill="#FFFFFF"/>
+       <line x1="410" y1="-80" x2="470" y2="-80" stroke="#4CAF50" stroke-width="6"/>
+       <line x1="410" y1="-60" x2="450" y2="-60" stroke="#4CAF50" stroke-width="6"/>
+       <!-- Sync arrows -->
+       <path d="M-350,-50 L-250,-50 L-250,-100 L-150,-100" stroke="#2196F3" stroke-width="20" fill="none" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+       <path d="M350,-50 L250,-50 L250,-100 L150,-100" stroke="#4CAF50" stroke-width="20" fill="none" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+       <path d="M-350,50 L-250,50 L-250,100 L-150,100" stroke="#4CAF50" stroke-width="20" fill="none" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+       <path d="M350,50 L250,50 L250,100 L150,100" stroke="#2196F3" stroke-width="20" fill="none" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+       <!-- P2P network lines -->
+       <line x1="-350" y1="0" x2="350" y2="0" stroke="#E91E63" stroke-width="15" stroke-linecap="round" stroke-dasharray="30,15"/>
+       <!-- Sync status indicators -->
+       <circle cx="-350" cy="-200" r="25" fill="#4CAF50"/>
+       <circle cx="350" cy="-200" r="25" fill="#4CAF50"/>
+       <!-- Folder icons -->
+       <rect x="-500" y="200" width="100" height="80" fill="#FFC107" stroke="#FF8F00" stroke-width="8"/>
+       <rect x="-480" y="220" width="60" height="50" fill="#FFFFFF"/>
+       <rect x="400" y="200" width="100" height="80" fill="#FFC107" stroke="#FF8F00" stroke-width="8"/>
+       <rect x="420" y="220" width="60" height="50" fill="#FFFFFF"/>
+       <!-- File sync indicators -->
+       <circle cx="-450" cy="250" r="8" fill="#2196F3"/>
+       <circle cx="450" cy="250" r="8" fill="#4CAF50"/>
+       <!-- Network nodes -->
+       <circle cx="-600" cy="-100" r="30" fill="#9C27B0"/>
+       <circle cx="600" cy="-100" r="30" fill="#9C27B0"/>
+       <circle cx="-600" cy="100" r="30" fill="#FF9800"/>
+       <circle cx="600" cy="100" r="30" fill="#FF9800"/>
+       <!-- Connection lines to network -->
+       <line x1="-550" y1="-150" x2="-600" y2="-100" stroke="#9C27B0" stroke-width="12" stroke-linecap="round"/>
+       <line x1="550" y1="-150" x2="600" y2="-100" stroke="#9C27B0" stroke-width="12" stroke-linecap="round"/>
+       <line x1="-550" y1="150" x2="-600" y2="100" stroke="#FF9800" stroke-width="12" stroke-linecap="round"/>
+       <line x1="550" y1="150" x2="600" y2="100" stroke="#FF9800" stroke-width="12" stroke-linecap="round"/>
+     </g>
     
     <!-- DESIGN NOTES: -->
     <!-- 

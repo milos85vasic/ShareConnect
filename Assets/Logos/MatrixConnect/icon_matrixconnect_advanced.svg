@@ -50,27 +50,29 @@
   
   <!-- FOREGROUND ICON AREA -->
   <g id="foreground" transform="translate(2048, 2048)">
-    <!-- Application-specific icon goes here -->
-    <!-- Replace this placeholder with your design -->
-    
-    <!-- Placeholder: App initials with design concept -->
-    <g id="placeholder-icon" opacity="0.8">
-      <!-- Background for icon area -->
-      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
-      
-      <!-- App initials -->
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
-            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
-            fill="#FFFFFF" fill-opacity="0.7">
-        Ma
-      </text>
-      
-      <!-- Concept indicator -->
-      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-    </g>
+     <!-- Application-specific icon: Matrix-style encrypted chat bubbles -->
+     <g id="encrypted-chat-icon">
+       <!-- Chat bubbles -->
+       <path d="M-400,-200 Q-400,-300 -300,-300 L200,-300 Q300,-300 300,-200 L300,100 Q300,200 200,200 L-100,200 L-150,250 L-200,200 L-300,200 Q-400,200 -400,100 Z" fill="#2196F3" stroke="#0D47A1" stroke-width="15"/>
+       <path d="M100,200 Q100,100 200,100 L500,100 Q600,100 600,200 L600,400 Q600,500 500,500 L300,500 L250,550 L200,500 L100,500 Q0,500 0,400 Z" fill="#4CAF50" stroke="#2E7D32" stroke-width="15"/>
+       <!-- Lock symbol -->
+       <rect x="-80" y="-100" width="160" height="120" rx="20" fill="#FFC107" stroke="#FF8F00" stroke-width="10"/>
+       <rect x="-40" y="-60" width="80" height="60" rx="8" fill="#FF8F00"/>
+       <circle cx="0" cy="-30" r="15" fill="#FFC107"/>
+       <!-- Encryption waves -->
+       <path d="M-600,-400 Q-400,-500 -200,-400 Q0,-300 200,-400 Q400,-500 600,-400" stroke="#E91E63" stroke-width="20" fill="none" stroke-linecap="round"/>
+       <path d="M-600,400 Q-400,300 -200,400 Q0,500 200,400 Q400,300 600,400" stroke="#9C27B0" stroke-width="20" fill="none" stroke-linecap="round"/>
+       <!-- Matrix dots -->
+       <circle cx="-500" cy="-300" r="15" fill="#E91E63"/>
+       <circle cx="500" cy="-300" r="15" fill="#E91E63"/>
+       <circle cx="-500" cy="300" r="15" fill="#9C27B0"/>
+       <circle cx="500" cy="300" r="15" fill="#9C27B0"/>
+       <!-- Chat text lines -->
+       <line x1="-200" y1="-150" x2="100" y2="-150" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+       <line x1="-200" y1="-100" x2="50" y2="-100" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+       <line x1="200" y1="300" x2="400" y2="300" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+       <line x1="200" y1="350" x2="350" y2="350" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+     </g>
     
     <!-- DESIGN NOTES: -->
     <!-- 

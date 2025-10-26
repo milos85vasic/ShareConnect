@@ -50,27 +50,38 @@
   
   <!-- FOREGROUND ICON AREA -->
   <g id="foreground" transform="translate(2048, 2048)">
-    <!-- Application-specific icon goes here -->
-    <!-- Replace this placeholder with your design -->
-    
-    <!-- Placeholder: App initials with design concept -->
-    <g id="placeholder-icon" opacity="0.8">
-      <!-- Background for icon area -->
-      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
-      
-      <!-- App initials -->
-      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
-            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
-            fill="#FFFFFF" fill-opacity="0.7">
-        Ho
-      </text>
-      
-      <!-- Concept indicator -->
-      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
-    </g>
+     <!-- Application-specific icon: Smart home with connected devices -->
+     <g id="smart-home-icon">
+       <!-- House structure -->
+       <polygon points="-300,-200 0,-400 300,-200 300,300 -300,300" fill="#795548" stroke="#5D4037" stroke-width="20"/>
+       <!-- Roof -->
+       <polygon points="-350,-200 0,-450 350,-200" fill="#607D8B" stroke="#455A64" stroke-width="15"/>
+       <!-- Door -->
+       <rect x="-80" y="50" width="160" height="250" fill="#8D6E63" stroke="#5D4037" stroke-width="10"/>
+       <!-- Door handle -->
+       <circle cx="20" cy="175" r="15" fill="#FFC107"/>
+       <!-- Windows -->
+       <rect x="-200" y="-50" width="120" height="150" fill="#81D4FA" stroke="#0277BD" stroke-width="8"/>
+       <rect x="80" y="-50" width="120" height="150" fill="#81D4FA" stroke="#0277BD" stroke-width="8"/>
+       <!-- Window cross -->
+       <line x1="-140" y1="-50" x2="-140" y2="100" stroke="#0277BD" stroke-width="6"/>
+       <line x1="-200" y1="25" x2="-80" y2="25" stroke="#0277BD" stroke-width="6"/>
+       <line x1="140" y1="-50" x2="140" y2="100" stroke="#0277BD" stroke-width="6"/>
+       <line x1="80" y1="25" x2="200" y2="25" stroke="#0277BD" stroke-width="6"/>
+       <!-- Smart devices -->
+       <circle cx="-500" cy="-300" r="60" fill="#4CAF50"/>
+       <circle cx="500" cy="-300" r="60" fill="#FF5722"/>
+       <circle cx="-500" cy="300" r="60" fill="#2196F3"/>
+       <circle cx="500" cy="300" r="60" fill="#FFC107"/>
+       <!-- Connection lines -->
+       <line x1="-300" y1="-200" x2="-500" y2="-300" stroke="#4CAF50" stroke-width="15" stroke-linecap="round"/>
+       <line x1="300" y1="-200" x2="500" y2="-300" stroke="#FF5722" stroke-width="15" stroke-linecap="round"/>
+       <line x1="-300" y1="200" x2="-500" y2="300" stroke="#2196F3" stroke-width="15" stroke-linecap="round"/>
+       <line x1="300" y1="200" x2="500" y2="300" stroke="#FFC107" stroke-width="15" stroke-linecap="round"/>
+       <!-- Central hub -->
+       <circle cx="0" cy="0" r="80" fill="#E91E63" stroke="#C2185B" stroke-width="10"/>
+       <text x="0" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" fill="#FFFFFF" font-weight="bold">H</text>
+     </g>
     
     <!-- DESIGN NOTES: -->
     <!-- 
