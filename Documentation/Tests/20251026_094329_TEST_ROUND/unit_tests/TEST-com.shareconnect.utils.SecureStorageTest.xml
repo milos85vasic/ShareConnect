@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.utils.SecureStorageTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-10-26T06:45:15.503Z" hostname="thinker" time="0.228">
+  <properties/>
+  <testcase name="testHashStringConsistency" classname="com.shareconnect.utils.SecureStorageTest" time="0.036"/>
+  <testcase name="testPasswordHashStorageAndRetrieval" classname="com.shareconnect.utils.SecureStorageTest" time="0.026"/>
+  <testcase name="testEncryptedSharedPreferencesCreation" classname="com.shareconnect.utils.SecureStorageTest" time="0.026"/>
+  <testcase name="testHashString" classname="com.shareconnect.utils.SecureStorageTest" time="0.023"/>
+  <testcase name="testClearSecureData" classname="com.shareconnect.utils.SecureStorageTest" time="0.03"/>
+  <testcase name="testBiometricEnabledStorageAndRetrieval" classname="com.shareconnect.utils.SecureStorageTest" time="0.027"/>
+  <testcase name="testPinHashStorageAndRetrieval" classname="com.shareconnect.utils.SecureStorageTest" time="0.025"/>
+  <testcase name="testMultipleOperations" classname="com.shareconnect.utils.SecureStorageTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -433,7 +433,9 @@ class DuplicatiApiClient(
                 }
 
                 try {
-                    val result = gson.fromJson(body, T::class.java)
+                    // Use TypeToken to preserve generic type information
+                    val type = object : com.google.gson.reflect.TypeToken<T>() {}.type
+                    val result = gson.fromJson<T>(body, type)
                     Result.success(result)
                 } catch (e: Exception) {
                     Result.failure(IOException("Failed to parse response: ${e.message}", e))

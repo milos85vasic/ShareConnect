@@ -347,14 +347,14 @@ class DuplicatiApiClientTest {
 
     @Test
     fun `test create backup success`() = runBlocking {
-        val response = """
+        val jsonResponse = """
             {
                 "ID": "2",
                 "Status": "Created"
             }
         """.trimIndent()
 
-        mockServer.enqueue(MockResponse().setBody(response).setResponseCode(200))
+        mockServer.enqueue(MockResponse().setBody(jsonResponse).setResponseCode(200))
 
         val newBackup = DuplicatiBackup(
             id = "",

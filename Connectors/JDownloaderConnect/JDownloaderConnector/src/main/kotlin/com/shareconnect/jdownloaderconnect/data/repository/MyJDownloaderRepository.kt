@@ -3,7 +3,6 @@ package com.shareconnect.jdownloaderconnect.data.repository
 import com.shareconnect.jdownloaderconnect.data.model.JDownloaderAccount
 import com.shareconnect.jdownloaderconnect.domain.model.*
 import com.shareconnect.jdownloaderconnect.network.api.MyJDownloaderApi
-import com.shareconnect.jdownloaderconnect.network.api.InstanceStatus
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.util.concurrent.ConcurrentHashMap

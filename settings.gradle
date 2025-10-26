@@ -91,41 +91,42 @@ project(':MotrixConnector').projectDir = new File(settingsDir, 'Connectors/Motri
 include ':GiteaConnector'
 project(':GiteaConnector').projectDir = new File(settingsDir, 'Connectors/GiteaConnect/GiteaConnector')
 
-include ':JellyfinConnector'
-project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
+//  Temporarily disabled - compilation errors (missing WebSocket/Glance dependencies)
+//include ':JellyfinConnector'
+//project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
 
-include ':PortainerConnector'
-project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')
+//include ':PortainerConnector'
+//project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')
 
-include ':NetdataConnector'
-project(':NetdataConnector').projectDir = new File(settingsDir, 'Connectors/NetdataConnect/NetdataConnector')
+//include ':NetdataConnector'
+//project(':NetdataConnector').projectDir = new File(settingsDir, 'Connectors/NetdataConnect/NetdataConnector')
 
-include ':HomeAssistantConnector'
-project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
+//include ':HomeAssistantConnector'
+//project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
 
-include ':SeafileConnector'
-project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
+//include ':SeafileConnector'
+//project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
 
-include ':SyncthingConnector'
-project(':SyncthingConnector').projectDir = new File(settingsDir, 'Connectors/SyncthingConnect/SyncthingConnector')
+//include ':SyncthingConnector'
+//project(':SyncthingConnector').projectDir = new File(settingsDir, 'Connectors/SyncthingConnect/SyncthingConnector')
 
-include ':MatrixConnector'
-project(':MatrixConnector').projectDir = new File(settingsDir, 'Connectors/MatrixConnect/MatrixConnector')
+//include ':MatrixConnector'
+//project(':MatrixConnector').projectDir = new File(settingsDir, 'Connectors/MatrixConnect/MatrixConnector')
 
-include ':PaperlessNGConnector'
-project(':PaperlessNGConnector').projectDir = new File(settingsDir, 'Connectors/PaperlessNGConnect/PaperlessNGConnector')
+//include ':PaperlessNGConnector'
+//project(':PaperlessNGConnector').projectDir = new File(settingsDir, 'Connectors/PaperlessNGConnect/PaperlessNGConnector')
 
 include ':DuplicatiConnector'
 project(':DuplicatiConnector').projectDir = new File(settingsDir, 'Connectors/DuplicatiConnect/DuplicatiConnector')
 
-include ':WireGuardConnector'
-project(':WireGuardConnector').projectDir = new File(settingsDir, 'Connectors/WireGuardConnect/WireGuardConnector')
+//include ':WireGuardConnector'
+//project(':WireGuardConnector').projectDir = new File(settingsDir, 'Connectors/WireGuardConnect/WireGuardConnector')
 
-include ':MinecraftServerConnector'
-project(':MinecraftServerConnector').projectDir = new File(settingsDir, 'Connectors/MinecraftServerConnect/MinecraftServerConnector')
+//include ':MinecraftServerConnector'
+//project(':MinecraftServerConnector').projectDir = new File(settingsDir, 'Connectors/MinecraftServerConnect/MinecraftServerConnector')
 
-include ':OnlyOfficeConnector'
-project(':OnlyOfficeConnector').projectDir = new File(settingsDir, 'Connectors/OnlyOfficeConnect/OnlyOfficeConnector')
+//include ':OnlyOfficeConnector'
+//project(':OnlyOfficeConnector').projectDir = new File(settingsDir, 'Connectors/OnlyOfficeConnect/OnlyOfficeConnector')
 
 include ':Asinka:asinka'
 include ':Asinka:demo-app'

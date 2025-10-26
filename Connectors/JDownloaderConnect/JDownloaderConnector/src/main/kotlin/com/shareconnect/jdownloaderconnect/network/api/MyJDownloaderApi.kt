@@ -1,6 +1,8 @@
 package com.shareconnect.jdownloaderconnect.network.api
 
 import com.shareconnect.jdownloaderconnect.data.model.*
+import com.shareconnect.jdownloaderconnect.domain.model.JDownloaderInstance
+import com.shareconnect.jdownloaderconnect.domain.model.InstanceStatus
 import kotlinx.serialization.Serializable
 import retrofit2.Response
 import retrofit2.http.*
@@ -234,32 +236,12 @@ data class JDInfo(
 )
 
 // My JDownloader Instance Management
+// Using domain models from com.shareconnect.jdownloaderconnect.domain.model
+
 @Serializable
 data class ListInstancesResponse(
     val instances: List<JDownloaderInstance>
 )
-
-@Serializable
-data class JDownloaderInstance(
-    val id: String,
-    val name: String,
-    val status: InstanceStatus,
-    val version: String,
-    val lastSeen: Long,
-    val isOnline: Boolean,
-    val deviceId: String,
-    val accountId: String
-)
-
-@Serializable
-enum class InstanceStatus {
-    RUNNING,
-    PAUSED,
-    STOPPED,
-    ERROR,
-    OFFLINE,
-    CONNECTING
-}
 
 @Serializable
 data class InstanceStatusResponse(

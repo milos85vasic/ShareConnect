@@ -167,12 +167,37 @@ create_avd_if_needed() {
 
     log "Creating AVD: $EMULATOR_NAME"
 
-    # Check if system image is available
-    local system_image="system-images;android-$ANDROID_API_LEVEL;google_apis;x86"
-    if ! sdkmanager --list_installed | grep -q "$system_image"; then
-        warning "System image not found. Installing: $system_image"
-        echo "y" | sdkmanager "$system_image"
+    # Detect available system images (try multiple variants)
+    local arch="x86_64"
+    local variants=("google_apis_playstore" "google_apis" "default")
+    local system_image=""
+
+    for variant in "${variants[@]}"; do
+        local test_image="system-images;android-$ANDROID_API_LEVEL;$variant;$arch"
+        if sdkmanager --list_installed 2>/dev/null | grep -q "$test_image"; then
+            system_image="$test_image"
+            break
+        fi
+    done
+
+    # If no x86_64 found, try x86
+    if [ -z "$system_image" ]; then
+        arch="x86"
+        for variant in "${variants[@]}"; do
+            local test_image="system-images;android-$ANDROID_API_LEVEL;$variant;$arch"
+            if sdkmanager --list_installed 2>/dev/null | grep -q "$test_image"; then
+                system_image="$test_image"
+                break
+            fi
+        done
     fi
+
+    if [ -z "$system_image" ]; then
+        error "No compatible system image found for API $ANDROID_API_LEVEL"
+        return 1
+    fi
+
+    log "Using system image: $system_image"
 
     # Create AVD
     echo "no" | avdmanager create avd \

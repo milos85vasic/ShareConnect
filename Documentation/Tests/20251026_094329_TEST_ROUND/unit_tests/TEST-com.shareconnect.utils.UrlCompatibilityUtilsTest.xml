@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.utils.UrlCompatibilityUtilsTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2025-10-26T06:45:16.842Z" hostname="thinker" time="0.214">
+  <properties/>
+  <testcase name="testGetUrlTypeDescription" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testDetectUrlType_InvalidUrls" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.018"/>
+  <testcase name="testDetectUrlType_DirectDownloadUrls" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.02"/>
+  <testcase name="testIsProfileCompatible_Torrent" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testGetProfileSupportDescription" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testFilterCompatibleProfiles" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.02"/>
+  <testcase name="testDetectUrlType_TorrentUrls" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testIsProfileCompatible_JDownloader" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testIsProfileCompatible_MeTube" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.019"/>
+  <testcase name="testDetectUrlType_StreamingUrls" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.02"/>
+  <testcase name="testIsProfileCompatible_YTDL" classname="com.shareconnect.utils.UrlCompatibilityUtilsTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
