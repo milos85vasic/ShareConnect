@@ -18,7 +18,25 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Configuration
 CONTAINER_NAME="shareconnect-website"
 IMAGE_NAME="shareconnect-website"
-PORT="${PORT:-8080}"
+DEFAULT_PORT="${PORT:-8080}"
+
+# Function to find first available port
+find_available_port() {
+    local port=$1
+    while lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1; do
+        port=$((port + 1))
+    done
+    echo $port
+}
+
+# Find available port
+PORT=$(find_available_port $DEFAULT_PORT)
+
+# Get local IP address for network access
+LOCAL_IP=$(hostname -I | awk '{print $1}')
+if [ -z "$LOCAL_IP" ]; then
+    LOCAL_IP="localhost"
+fi
 
 echo -e "${CYAN}========================================${NC}"
 echo -e "${CYAN}ShareConnect Website - Deploy Script${NC}"
@@ -104,7 +122,9 @@ echo -e "${GREEN}✓ Deployment completed successfully!${NC}"
 echo -e "${CYAN}========================================${NC}"
 echo
 echo -e "${BLUE}Container:${NC} $CONTAINER_NAME"
-echo -e "${BLUE}URL:${NC} http://localhost:$PORT"
+echo -e "${BLUE}Port:${NC} $PORT"
+echo -e "${BLUE}Local URL:${NC} http://localhost:$PORT"
+echo -e "${BLUE}Network URL:${NC} http://$LOCAL_IP:$PORT"
 echo -e "${BLUE}Status:${NC} $(docker ps --filter "name=$CONTAINER_NAME" --format "{{.Status}}")"
 echo
 echo -e "${YELLOW}Useful commands:${NC}"

@@ -17,7 +17,36 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Configuration
 CONTAINER_NAME="shareconnect-website"
 IMAGE_NAME="shareconnect-website"
-PORT="${1:-8080}"
+DEFAULT_PORT="${1:-8080}"
+
+# Function to find first available port
+find_available_port() {
+    local port=$1
+    while true; do
+        # Check if port is in use by any process
+        if lsof -Pi :$port -sTCP:LISTEN -t >/dev/null 2>&1; then
+            port=$((port + 1))
+            continue
+        fi
+        # Check if Docker has this port allocated
+        if docker ps -a --format '{{.Ports}}' | grep -q "0.0.0.0:$port->"; then
+            port=$((port + 1))
+            continue
+        fi
+        # Port appears available
+        echo $port
+        break
+    done
+}
+
+# Find available port
+PORT=$(find_available_port $DEFAULT_PORT)
+
+# Get local IP address for network access
+LOCAL_IP=$(hostname -I | awk '{print $1}')
+if [ -z "$LOCAL_IP" ]; then
+    LOCAL_IP="localhost"
+fi
 
 echo -e "${BLUE}========================================${NC}"
 echo -e "${BLUE}ShareConnect Website - Start Script${NC}"
@@ -35,12 +64,22 @@ if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo -e "${YELLOW}Container already exists${NC}"
 
     if docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
-        echo -e "${GREEN}Container is already running${NC}"
-        echo -e "URL: ${BLUE}http://localhost:$PORT${NC}"
-        exit 0
+        # Get the current port mapping
+        CURRENT_PORT=$(docker port "$CONTAINER_NAME" 80 | cut -d: -f2)
+        if [ "$CURRENT_PORT" = "$PORT" ]; then
+            echo -e "${GREEN}Container is already running on port $PORT${NC}"
+            echo -e "Port: ${BLUE}$PORT${NC}"
+            echo -e "Local URL: ${BLUE}http://localhost:$PORT${NC}"
+            echo -e "Network URL: ${BLUE}http://$LOCAL_IP:$PORT${NC}"
+            exit 0
+        else
+            echo -e "${YELLOW}Container is running on different port ($CURRENT_PORT), removing and recreating...${NC}"
+            docker stop "$CONTAINER_NAME"
+            docker rm "$CONTAINER_NAME"
+        fi
     else
-        echo -e "${YELLOW}Starting existing container...${NC}"
-        docker start "$CONTAINER_NAME"
+        echo -e "${YELLOW}Removing stopped container to recreate with new port...${NC}"
+        docker rm "$CONTAINER_NAME"
     fi
 else
     # Check if image exists
@@ -66,7 +105,9 @@ if docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
     echo -e "${GREEN}✓ Website started successfully!${NC}"
     echo
     echo -e "${BLUE}Container:${NC} $CONTAINER_NAME"
-    echo -e "${BLUE}URL:${NC} http://localhost:$PORT"
+    echo -e "${BLUE}Port:${NC} $PORT"
+    echo -e "${BLUE}Local URL:${NC} http://localhost:$PORT"
+    echo -e "${BLUE}Network URL:${NC} http://$LOCAL_IP:$PORT"
     echo
     echo -e "${YELLOW}Useful commands:${NC}"
     echo -e "  View logs:    ./scripts/logs.sh"
