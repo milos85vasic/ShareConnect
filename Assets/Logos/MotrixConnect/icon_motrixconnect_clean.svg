@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="4096" height="4096" viewBox="0 0 4096 4096" xmlns="http://www.w3.org/2000/svg">
+  <!-- ============================================== -->
+  <!-- ShareConnect Advanced Icon Template -->
+  <!-- Application: MotrixConnect -->
+  <!-- Concept: Download manager with speed indicators -->
+  <!-- Version: 1.0.0 -->
+  <!-- ============================================== -->
+  
+  <!-- DESIGN GUIDELINES -->
+  <!-- 
+  - Background: Light blue circle (#4FC3F7) at 90% opacity
+  - Foreground: White icons with subtle gradients
+  - Stroke: 120px uniform stroke weight
+  - Padding: 400px from circle edge
+  - Scale: Fill 70% of circle area (2520px diameter)
+  - Export: 4096x4096 PNG with transparency
+  -->
+  
+  <!-- BACKGROUND -->
+  <g id="background">
+    <!-- Light blue circular background with gradient -->
+    <defs>
+      <radialGradient id="bgGradient" cx="0.5" cy="0.5" r="0.8">
+        <stop offset="0%" stop-color="#6FD4FF" stop-opacity="0.95"/>
+        <stop offset="100%" stop-color="#4FC3F7" stop-opacity="0.9"/>
+      </radialGradient>
+    </defs>
+    <circle cx="2048" cy="2048" r="1800" fill="url(#bgGradient)"/>
+    
+    <!-- Subtle shadow for depth -->
+    <defs>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feDropShadow dx="40" dy="40" stdDeviation="60" flood-color="#000000" flood-opacity="0.15"/>
+      </filter>
+    </defs>
+    <circle cx="2048" cy="2048" r="1800" fill="#4FC3F7" filter="url(#shadow)" opacity="0.3"/>
+  </g>
+  
+  <!-- FOREGROUND ICON AREA -->
+  <g id="foreground" transform="translate(2048, 2048)">
+    <!-- Application-specific icon goes here -->
+    <!-- Replace this placeholder with your design -->
+    
+    <!-- Placeholder: App initials with design concept -->
+    <g id="placeholder-icon" opacity="0.8">
+      <!-- Background for icon area -->
+      <circle cx="0" cy="0" r="1000" fill="none" stroke="#FFFFFF" stroke-width="120" stroke-opacity="0.3"/>
+      
+      <!-- App initials -->
+      <text x="0" y="0" text-anchor="middle" dominant-baseline="central" 
+            font-family="Arial, sans-serif" font-size="600" font-weight="bold"
+            fill="#FFFFFF" fill-opacity="0.7">
+        Mo
+      </text>
+      
+      <!-- Concept indicator -->
+      <circle cx="-400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
+      <circle cx="400" cy="-400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
+      <circle cx="-400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
+      <circle cx="400" cy="400" r="80" fill="#FFFFFF" fill-opacity="0.5"/>
+    </g>
+    
+    <!-- DESIGN NOTES: -->
+    <!-- 
+    1. Keep icon within 2520px diameter circle
+    2. Use 120px stroke weight for consistency
+    3. Apply subtle gradients for depth
+    4. Ensure recognizability at small sizes
+    5. Maintain visual balance and symmetry
+    -->
+  </g>
+  
+  2. Remove opacity from placeholder icon or replace with final design
+  3. Export as PNG 4096x4096 with transparency
+  4. Save as: icon_motrixconnect_4k.png
+  5. Verify icon looks good at 48x48 size
+  -->
+</svg>
