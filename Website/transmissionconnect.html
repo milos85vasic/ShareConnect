@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransmissionConnect - Lightweight Torrent Client</title>
+    <meta name="description" content="TransmissionConnect provides efficient integration with Transmission, the lightweight and powerful BitTorrent client. Perfect for headless servers and resource-constrained environments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                     <div class="logo-icon">
+                          <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                      </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#integration" class="nav-link">Integration</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="nav-menu mobile">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#integration" class="nav-link">Integration</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">Lightweight Torrent Client</span>
+                </div>
+                <h1 class="hero-title">
+                    TransmissionConnect
+                    <span class="gradient-text">Efficient Torrenting</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Lightweight and efficient integration with Transmission, the simple and powerful BitTorrent client. Perfect for headless servers, resource-constrained environments, and users who value simplicity and performance.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-feather"></i>
+                        <span>Lightweight</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-server"></i>
+                        <span>Headless Support</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-watch"></i>
+                        <span>Watch Directory</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Download TransmissionConnect
+                    </a>
+                    <a href="manuals.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-book"></i>
+                        Setup Guide
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">Low</div>
+                        <div class="stat-label">Resource Usage</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">RPC</div>
+                        <div class="stat-label">API Integration</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Cross</div>
+                        <div class="stat-label">Platform</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <img src="assets/hero-illustration.svg" alt="TransmissionConnect Hero Illustration" class="hero-image">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-bolt"></i>
+                        <span>Fast & Efficient</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-server"></i>
+                        <span>Server Ready</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-folder"></i>
+                        <span>Watch Directory</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure RPC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose TransmissionConnect?</h2>
+                <p>Efficient torrenting with minimal resource usage</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h3>Lightweight Design</h3>
+                    <p>Minimal resource usage with efficient memory management. Perfect for low-power devices, NAS systems, and resource-constrained environments.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Headless Server Support</h3>
+                    <p>Full support for headless Transmission installations. Manage your torrent downloads remotely without a graphical interface.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-watch"></i>
+                    </div>
+                    <h3>Watch Directory</h3>
+                    <p>Automatic torrent detection from watch directories. Drop .torrent files into configured folders for instant downloading.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure RPC Communication</h3>
+                    <p>Encrypted RPC communication with authentication. Secure remote management of your Transmission daemon.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Scriptable Automation</h3>
+                    <p>Easy integration with scripts and automation tools. Perfect for users who want to automate their torrent workflows.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Works with Transmission on Linux, macOS, FreeBSD, and other Unix-like systems. Universal compatibility across platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="connectors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seamless Integration</h2>
+                <p>TransmissionConnect integrates perfectly with your media workflow</p>
+            </div>
+
+            <div class="connectors-grid">
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon torrent">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>ShareConnector</h3>
+                    </div>
+                    <p>Universal sharing from any app</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Magnet Links</span>
+                        <span class="connector-tag">.torrent Files</span>
+                        <span class="connector-tag">Auto Routing</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon media">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>Media Servers</h3>
+                    </div>
+                    <p>Direct integration with Plex, Jellyfin</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Auto Import</span>
+                        <span class="connector-tag">Library Sync</span>
+                        <span class="connector-tag">Metadata</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Storage</h3>
+                    </div>
+                    <p>Upload completed downloads</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Nextcloud</span>
+                        <span class="connector-tag">Seafile</span>
+                        <span class="connector-tag">Auto Upload</span>
+                    </div>
+                </div>
+
+                <div class="connector-category featured">
+                    <div class="category-visual">
+                        <div class="mascot-placeholder">
+                            <i class="fas fa-bolt"></i>
+                            <p>TransmissionConnect</p>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Efficient Torrenting</h3>
+                        <p>Experience lightweight, efficient torrenting with Transmission's proven reliability and ShareConnect's modern interface.</p>
+                        <a href="products.html" class="btn btn-outline">Explore Ecosystem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Efficient Torrenting?</h2>
+                <p>Get TransmissionConnect for lightweight, powerful torrent management.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Download TransmissionConnect
+                    </a>
+                    <a href="manuals.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-book"></i>
+                        Setup Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                          <div class="logo-icon">
+                              <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                          </div>
+                        <span>ShareConnect</span>
+                    </div>
+                    <p>Revolutionizing media sharing with intelligent connectors for all your favorite services.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#integration">Integration</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="manuals.html">User Manuals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect. Made with <i class="fas fa-heart"></i> for media enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Modal/Dialog System -->
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="modal-close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                Modal content goes here.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html></content>
+</xai:function_call">Now let me create jdownloaderconnect.html and then create the remaining pages more efficiently. Let me create jdownloaderconnect.html. 
+
+<xai:function_call name="write">
+<parameter name="filePath">Website/jdownloaderconnect.html

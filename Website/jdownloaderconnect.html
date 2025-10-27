@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDownloaderConnect - Premium Download Manager</title>
+    <meta name="description" content="JDownloaderConnect provides premium integration with JDownloader's MyJDownloader service. Supports premium accounts, CAPTCHA solving, and batch downloads for 1800+ sites.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                     <div class="logo-icon">
+                          <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                      </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#integration" class="nav-link">Integration</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="nav-menu mobile">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#integration" class="nav-link">Integration</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">Premium Download Manager</span>
+                </div>
+                <h1 class="hero-title">
+                    JDownloaderConnect
+                    <span class="gradient-text">Professional Downloads</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Premium download manager integration with JDownloader's MyJDownloader service. Supports premium accounts, automatic CAPTCHA solving, link checking, and batch downloads for 1800+ supported sites.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-star"></i>
+                        <span>Premium Support</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-robot"></i>
+                        <span>CAPTCHA Solving</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-link"></i>
+                        <span>Link Checking</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Download JDownloaderConnect
+                    </a>
+                    <a href="manuals.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-book"></i>
+                        Setup Guide
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1800+</div>
+                        <div class="stat-label">Sites Supported</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Premium</div>
+                        <div class="stat-label">Account Support</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Auto</div>
+                        <div class="stat-label">CAPTCHA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <img src="assets/hero-illustration.svg" alt="JDownloaderConnect Hero Illustration" class="hero-image">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-download"></i>
+                        <span>Premium Downloads</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-robot"></i>
+                        <span>CAPTCHA Auto-Solve</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-list"></i>
+                        <span>Batch Downloads</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Link Validation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose JDownloaderConnect?</h2>
+                <p>Professional download management with premium features</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Premium Account Support</h3>
+                    <p>Full support for premium accounts on supported sites. Bypass download limits, enjoy faster speeds, and access exclusive content.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automatic CAPTCHA Solving</h3>
+                    <p>Built-in CAPTCHA solving capabilities. No more waiting for manual CAPTCHA input - downloads start automatically.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Link Checking & Validation</h3>
+                    <p>Automatic link validation and checking. Verify download availability before starting and handle dead links gracefully.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <h3>Batch Download Management</h3>
+                    <p>Efficient batch processing of multiple downloads. Queue management, priority settings, and parallel downloading.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>1800+ Sites Supported</h3>
+                    <p>Comprehensive support for streaming sites, file hosts, and premium services. From YouTube to premium file hosts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>MyJDownloader Integration</h3>
+                    <p>Seamless integration with JDownloader's MyJDownloader cloud service. Remote management and synchronization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="connectors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Seamless Integration</h2>
+                <p>JDownloaderConnect integrates perfectly with your media workflow</p>
+            </div>
+
+            <div class="connectors-grid">
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon download">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>ShareConnector</h3>
+                    </div>
+                    <p>Universal sharing from any app</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">YouTube Links</span>
+                        <span class="connector-tag">Streaming URLs</span>
+                        <span class="connector-tag">Auto Routing</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon media">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>Media Servers</h3>
+                    </div>
+                    <p>Direct integration with Plex, Jellyfin</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Auto Import</span>
+                        <span class="connector-tag">Library Sync</span>
+                        <span class="connector-tag">Metadata</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Storage</h3>
+                    </div>
+                    <p>Upload completed downloads</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Nextcloud</span>
+                        <span class="connector-tag">Seafile</span>
+                        <span class="connector-tag">Auto Upload</span>
+                    </div>
+                </div>
+
+                <div class="connector-category featured">
+                    <div class="category-visual">
+                        <div class="mascot-placeholder">
+                            <i class="fas fa-download"></i>
+                            <p>JDownloaderConnect</p>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Professional Downloads</h3>
+                        <p>Experience premium download management with JDownloader's industry-leading features and ShareConnect's seamless integration.</p>
+                        <a href="products.html" class="btn btn-outline">Explore Ecosystem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready for Premium Downloads?</h2>
+                <p>Get JDownloaderConnect for professional download management with premium features.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Download JDownloaderConnect
+                    </a>
+                    <a href="manuals.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-book"></i>
+                        Setup Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                          <div class="logo-icon">
+                              <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                          </div>
+                        <span>ShareConnect</span>
+                    </div>
+                    <p>Revolutionizing media sharing with intelligent connectors for all your favorite services.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#integration">Integration</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="manuals.html">User Manuals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect. Made with <i class="fas fa-heart"></i> for media enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Modal/Dialog System -->
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="modal-close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                Modal content goes here.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html></content>
+</xai:function_call">Now I need to create the remaining 17 application pages. Since creating each one individually would be very time-consuming, let me create a script to generate them more efficiently. But first, let me update the products.html page to link to the individual pages I've created so far, and then create the remaining pages.
+
+Let me first update the products.html to add links to the individual product pages. I need to modify the product cards to include links. 
+
+<xai:function_call name="edit">
+<parameter name="filePath">Website/products.html
