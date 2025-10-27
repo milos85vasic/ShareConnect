@@ -19,14 +19,19 @@
                 <img src="/assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-icon">
                 <span class="logo-text">ShareConnect</span>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#features" class="nav-link">Features</a></li>
-                <li><a href="#apps" class="nav-link">Applications</a></li>
-                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
-                <li><a href="#docs" class="nav-link">Documentation</a></li>
-                <li><a href="#download" class="nav-link btn-primary">Download</a></li>
-            </ul>
+             <ul class="nav-menu" id="nav-menu">
+                 <li><a href="#home" class="nav-link">Home</a></li>
+                 <li><a href="#features" class="nav-link">Features</a></li>
+                 <li><a href="#apps" class="nav-link">Apps</a></li>
+                 <li><a href="#docs" class="nav-link">Docs</a></li>
+                 <li><a href="https://github.com/shareconnect" class="nav-link github">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.840 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.430.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                     </svg>
+                     GitHub
+                 </a></li>
+                 <li><a href="#download" class="nav-link btn-primary">Download</a></li>
+             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -54,12 +59,12 @@
                         <div class="stat-label">Applications</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">1,058</div>
-                        <div class="stat-label">Tests</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free & Open Source</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">81%</div>
-                        <div class="stat-label">Coverage</div>
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Self-Hosted Control</div>
                     </div>
                 </div>
                 <div class="hero-actions">
@@ -130,9 +135,9 @@
     <section class="apps-showcase" id="apps">
         <div class="container">
             <h2 class="section-title">
-                <span class="gradient-text">Complete Ecosystem</span>
+                <span class="gradient-text">20 Powerful Applications</span>
             </h2>
-            <p class="section-subtitle">20 specialized applications covering all major self-hosted services</p>
+            <p class="section-subtitle">Everything you need for self-hosted media, cloud, downloads, and more</p>
 
             <!-- Tabs -->
             <div class="app-tabs">
@@ -145,16 +150,38 @@
 
             <!-- Apps Grid -->
             <div class="apps-grid">
-                <!-- Phase 1 Apps -->
-                <div class="app-card" data-category="media" data-status="released">
-                    <div class="app-badge">Released</div>
-                    <div class="app-icon">🎬</div>
-                    <h3>PlexConnect</h3>
-                    <p class="app-description">Plex Media Server integration for personal media library management</p>
-                    <div class="app-stats">
-                        <span>✅ 54 tests</span>
-                        <span>📊 85% coverage</span>
-                    </div>
+                 <!-- Phase 1 Apps -->
+                 <div class="app-card" data-category="media" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">🎬</div>
+                     <h3>PlexConnect</h3>
+                     <p class="app-description">Stream your movies, TV shows, and music anywhere with Plex. Organize your media library and enjoy hardware-accelerated playback on all your devices.</p>
+                     <a href="/docs/plexconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="cloud" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">📁</div>
+                     <h3>NextcloudConnect</h3>
+                     <p class="app-description">Store, sync, and share files with Nextcloud. Your private cloud storage solution with calendar, contacts, and collaborative editing.</p>
+                     <a href="/docs/nextcloudconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="downloads" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">⚡</div>
+                     <h3>MotrixConnect</h3>
+                     <p class="app-description">Download files faster with Motrix. Multi-protocol support for HTTP, FTP, BitTorrent, and magnet links with resume capability.</p>
+                     <a href="/docs/motrixconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">💻</div>
+                     <h3>GiteaConnect</h3>
+                     <p class="app-description">Host your own Git repositories with Gitea. Manage code, issues, and pull requests in a self-hosted environment.</p>
+                     <a href="/docs/giteaconnect.html" class="app-link">Learn More →</a>
+                 </div>
                     <a href="/docs/plexconnect.html" class="app-link">Learn More →</a>
                 </div>
 
@@ -182,170 +209,153 @@
                     <a href="/docs/motrixconnect.html" class="app-link">Learn More →</a>
                 </div>
 
-                <div class="app-card" data-category="devops" data-status="released">
-                    <div class="app-badge">Released</div>
-                    <div class="app-icon">💻</div>
-                    <h3>GiteaConnect</h3>
-                    <p class="app-description">Gitea self-hosted Git service integration</p>
-                    <div class="app-stats">
-                        <span>✅ 49 tests</span>
-                        <span>📊 78% coverage</span>
-                    </div>
-                    <a href="/docs/giteaconnect.html" class="app-link">Learn More →</a>
-                </div>
+                 <div class="app-card" data-category="devops" data-status="released">
+                     <div class="app-badge">Released</div>
+                     <div class="app-icon">💻</div>
+                     <h3>GiteaConnect</h3>
+                     <p class="app-description">Host your own Git repositories with Gitea. Manage code, issues, and pull requests in a self-hosted environment.</p>
+                     <a href="/docs/giteaconnect.html" class="app-link">Learn More →</a>
+                 </div>
 
-                <!-- Phase 2 Apps (Planned) -->
+                 <!-- Torrent Clients -->
+                 <div class="app-card" data-category="downloads" data-status="released">
+                     <div class="app-badge">Released</div>
+                     <div class="app-icon">🧲</div>
+                     <h3>ShareConnect</h3>
+                     <p class="app-description">The main ShareConnect app for unified media sharing. Connect to torrent clients, media servers, and cloud storage in one place.</p>
+                     <a href="/docs/shareconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="downloads" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">⚡</div>
+                     <h3>qBitConnect</h3>
+                     <p class="app-description">Powerful torrent downloading with qBittorrent. Add magnet links, manage queues, set bandwidth limits, and get real-time progress updates.</p>
+                     <a href="/docs/qbitconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="downloads" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">📥</div>
+                     <h3>TransmissionConnect</h3>
+                     <p class="app-description">Simple and lightweight torrent client integration. Add torrents, control download speeds, and organize files with ease.</p>
+                     <a href="/docs/transmissionconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="downloads" data-status="released">
+                     <div class="app-badge">Available Now</div>
+                     <div class="app-icon">🌐</div>
+                     <h3>uTorrentConnect</h3>
+                     <p class="app-description">Connect to uTorrent for efficient torrent management. Start downloads, monitor progress, and configure preferences remotely.</p>
+                     <a href="/docs/utorrentconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <!-- Phase 3 Apps (Planned) -->
+                 <div class="app-card" data-category="cloud" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">📁</div>
+                     <h3>SeafileConnect</h3>
+                     <p class="app-description">Sync and share files with Seafile. A self-hosted alternative to Dropbox with version control and collaboration features.</p>
+                     <a href="/docs/seafileconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="cloud" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">🔄</div>
+                     <h3>SyncthingConnect</h3>
+                     <p class="app-description">Synchronize files across devices with Syncthing. Peer-to-peer file syncing without cloud storage dependencies.</p>
+                     <a href="/docs/syncthingconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">💬</div>
+                     <h3>MatrixConnect</h3>
+                     <p class="app-description">Communicate securely with Matrix. Decentralized messaging with end-to-end encryption for private conversations.</p>
+                     <a href="/docs/matrixconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">📄</div>
+                     <h3>PaperlessNGConnect</h3>
+                     <p class="app-description">Go paperless with Paperless NG. Scan, organize, and search your documents digitally with OCR and tagging.</p>
+                     <a href="/docs/paperlessngconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="cloud" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">💾</div>
+                     <h3>DuplicatiConnect</h3>
+                     <p class="app-description">Backup your data with Duplicati. Encrypted backups to cloud storage or local drives with flexible scheduling.</p>
+                     <a href="/docs/duplicaticonnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">🔒</div>
+                     <h3>WireGuardConnect</h3>
+                     <p class="app-description">Secure your network with WireGuard VPN. Fast, modern VPN for remote access and secure connections.</p>
+                     <a href="/docs/wireguardconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">🎮</div>
+                     <h3>MinecraftConnect</h3>
+                     <p class="app-description">Manage your Minecraft server. Monitor players, configure worlds, and administer your gaming community.</p>
+                     <a href="/docs/minecraftconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <div class="app-card" data-category="devops" data-status="planned">
+                     <div class="app-badge planned">Coming Soon</div>
+                     <div class="app-icon">📝</div>
+                     <h3>OnlyOfficeConnect</h3>
+                     <p class="app-description">Edit documents online with OnlyOffice. Self-hosted office suite for collaborative document, spreadsheet, and presentation editing.</p>
+                     <a href="/docs/onlyofficeconnect.html" class="app-link">Learn More →</a>
+                 </div>
+
+                 <!-- Phase 2 Apps (Planned) -->
                 <div class="app-card" data-category="media" data-status="planned">
-                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-badge planned">Coming Soon</div>
                     <div class="app-icon">🎞️</div>
                     <h3>JellyfinConnect</h3>
-                    <p class="app-description">Jellyfin media server integration (Plex alternative)</p>
-                    <div class="app-stats">
-                        <span>⏳ 43 tests planned</span>
-                        <span>📅 Q1 2026</span>
-                    </div>
-                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                    <p class="app-description">Stream your personal media library with Jellyfin, a free alternative to Plex for organizing and accessing your movies, TV shows, and music from anywhere.</p>
+                    <a href="/docs/jellyfinconnect.html" class="app-link">Learn More →</a>
                 </div>
 
                 <div class="app-card" data-category="devops" data-status="planned">
-                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-badge planned">Coming Soon</div>
                     <div class="app-icon">🐳</div>
                     <h3>PortainerConnect</h3>
-                    <p class="app-description">Docker container management via Portainer</p>
-                    <div class="app-stats">
-                        <span>⏳ 63 tests planned</span>
-                        <span>📅 Q1 2026</span>
-                    </div>
-                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                    <p class="app-description">Manage your Docker containers easily with Portainer. Deploy, monitor, and control your self-hosted applications through a user-friendly web interface.</p>
+                    <a href="/docs/portainerconnect.html" class="app-link">Learn More →</a>
                 </div>
 
                 <div class="app-card" data-category="devops" data-status="planned">
-                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-badge planned">Coming Soon</div>
                     <div class="app-icon">📊</div>
                     <h3>NetdataConnect</h3>
-                    <p class="app-description">System monitoring and metrics visualization</p>
-                    <div class="app-stats">
-                        <span>⏳ 45 tests planned</span>
-                        <span>📅 Q2 2026</span>
-                    </div>
-                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                    <p class="app-description">Monitor your server's performance in real-time with Netdata. Track CPU, memory, disk, and network usage with beautiful, interactive charts.</p>
+                    <a href="/docs/netdataconnect.html" class="app-link">Learn More →</a>
                 </div>
 
                 <div class="app-card" data-category="devops" data-status="planned">
-                    <div class="app-badge planned">Phase 2</div>
+                    <div class="app-badge planned">Coming Soon</div>
                     <div class="app-icon">🏠</div>
                     <h3>HomeAssistantConnect</h3>
-                    <p class="app-description">Home automation and IoT integration</p>
-                    <div class="app-stats">
-                        <span>⏳ 69 tests planned</span>
-                        <span>📅 Q2 2026</span>
-                    </div>
-                    <a href="/docs/phase2.html" class="app-link">Roadmap →</a>
+                    <p class="app-description">Control your smart home devices with Home Assistant. Automate lights, thermostats, security cameras, and more through a unified interface.</p>
+                    <a href="/docs/homeassistantconnect.html" class="app-link">Learn More →</a>
                 </div>
             </div>
 
             <div class="view-all-apps">
-                <a href="/apps.html" class="btn btn-primary">View All 20 Applications →</a>
+                <a href="/apps.html" class="btn btn-primary">Explore All Applications →</a>
             </div>
         </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section class="roadmap" id="roadmap">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="gradient-text">Development Roadmap</span>
-            </h2>
-            <p class="section-subtitle">Our journey to 100% completion</p>
 
-            <div class="timeline">
-                <div class="timeline-item completed">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 0 & 0.5</h3>
-                        <p class="timeline-status">✅ Completed</p>
-                        <p>Foundation with 4 torrent clients + API extraction</p>
-                        <ul>
-                            <li>ShareConnect, qBitConnect, TransmissionConnect, uTorrentConnect</li>
-                            <li>118 API tests</li>
-                            <li>Asinka sync framework established</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item completed">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 1</h3>
-                        <p class="timeline-status">✅ 98% Complete - Production Ready</p>
-                        <p>Media, cloud, downloads, Git integration</p>
-                        <ul>
-                            <li>PlexConnect, NextcloudConnect, MotrixConnect, GiteaConnect</li>
-                            <li>215 tests (81% coverage)</li>
-                            <li>Comprehensive documentation</li>
-                            <li>Security audit passed</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item upcoming">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 2</h3>
-                        <p class="timeline-status">⏳ Planned - Q1-Q2 2026</p>
-                        <p>Media alternatives, DevOps, monitoring, IoT</p>
-                        <ul>
-                            <li>JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect</li>
-                            <li>220 tests planned</li>
-                            <li>WebSocket & SSE real-time features</li>
-                            <li>6-month timeline</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item upcoming">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 3</h3>
-                        <p class="timeline-status">⏳ Planned - Q3-Q4 2026</p>
-                        <p>Specialized niche services (8 connectors)</p>
-                        <ul>
-                            <li>Batch 1: Seafile, Syncthing, Matrix, PaperlessNG</li>
-                            <li>Batch 2: Duplicati, WireGuard, Minecraft, OnlyOffice</li>
-                            <li>387 tests planned</li>
-                            <li>Advanced features (E2EE, P2P, PDF rendering)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item upcoming">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Phase 4</h3>
-                        <p class="timeline-status">⏳ Planned - Q1 2027</p>
-                        <p>Polish & completion</p>
-                        <ul>
-                            <li>CI/CD pipeline for all 20 apps</li>
-                            <li>Performance optimization</li>
-                            <li>Widget support</li>
-                            <li>Community building</li>
-                            <li>🎉 100% COMPLETE</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="progress-overview">
-                <h3>Current Progress</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 49%">
-                        <span>49% Complete</span>
-                    </div>
-                </div>
-                <p class="progress-detail">8 of 20 applications delivered | 333 of 1,058 tests passing</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Documentation Section -->
     <section class="documentation" id="docs">

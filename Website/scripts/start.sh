@@ -81,14 +81,12 @@ if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
         echo -e "${YELLOW}Removing stopped container to recreate with new port...${NC}"
         docker rm "$CONTAINER_NAME"
     fi
-else
-    # Check if image exists
-    if ! docker images --format '{{.Repository}}' | grep -q "^${IMAGE_NAME}$"; then
-        echo -e "${YELLOW}Image not found. Building...${NC}"
-        "$SCRIPT_DIR/build.sh"
-    fi
+ else
+     # Always build latest image to ensure up-to-date codebase
+     echo -e "${YELLOW}Building latest image...${NC}"
+     "$SCRIPT_DIR/build.sh"
 
-    echo -e "${YELLOW}Starting new container...${NC}"
+     echo -e "${YELLOW}Starting new container...${NC}"
     docker run -d \
         --name "$CONTAINER_NAME" \
         --restart unless-stopped \

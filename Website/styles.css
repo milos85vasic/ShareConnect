@@ -25,10 +25,10 @@
     --gradient-secondary: linear-gradient(135deg, #FF9800 0%, #C62828 100%);
     --gradient-accent: linear-gradient(135deg, #3EC9D6 0%, #FF9800 50%, #C62828 100%);
 
-    --blue-primary: #3A7BD5;
-    --blue-secondary: #3EC9D6;
-    --blue-light: #e3f8fa;
-    --blue-dark: #1e5f99;
+     --blue-primary: #268AF8;
+     --blue-secondary: #3EC9D6;
+     --blue-light: #e3f8fa;
+     --blue-dark: #1e5f99;
 
     --success: #10b981;
     --warning: #f59e0b;
