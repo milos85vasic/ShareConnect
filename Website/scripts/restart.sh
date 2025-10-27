@@ -29,8 +29,15 @@ fi
 
 # Check if container exists
 if docker ps -a --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
-    echo -e "${YELLOW}Restarting container...${NC}"
-    docker restart "$CONTAINER_NAME"
+    echo -e "${YELLOW}Stopping and removing existing container...${NC}"
+    docker stop "$CONTAINER_NAME" 2>/dev/null || true
+    docker rm "$CONTAINER_NAME" 2>/dev/null || true
+    
+    echo -e "${YELLOW}Building latest image...${NC}"
+    "$SCRIPT_DIR/build.sh"
+    
+    echo -e "${YELLOW}Starting fresh container with latest version...${NC}"
+    "$SCRIPT_DIR/start.sh"
 
     # Wait for container to be healthy
     sleep 3

@@ -40,10 +40,14 @@ echo -e "${YELLOW}Building Docker image...${NC}"
 echo -e "Image name: ${GREEN}$IMAGE_NAME:$IMAGE_TAG${NC}"
 echo
 
-# Build the Docker image
+# Clean up any old images to prevent cache issues
+echo -e "${YELLOW}Cleaning up old images...${NC}"
+docker rmi "$IMAGE_NAME:$IMAGE_TAG" 2>/dev/null || true
+
+# Build the Docker image with no cache to ensure latest version
 cd "$PROJECT_ROOT"
 
-if docker build -f "$DOCKERFILE" -t "$IMAGE_NAME:$IMAGE_TAG" .; then
+if docker build --no-cache -f "$DOCKERFILE" -t "$IMAGE_NAME:$IMAGE_TAG" .; then
     echo
     echo -e "${GREEN}✓ Build successful!${NC}"
     echo
