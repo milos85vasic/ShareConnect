@@ -8,7 +8,7 @@ if ! pgrep -x "nginx" > /dev/null; then
 fi
 
 # Check if the website is accessible
-if ! curl -f http://localhost/health > /dev/null 2>&1; then
+if ! curl -f http://localhost/ > /dev/null 2>&1; then
     echo "Website health check failed"
     exit 1
 fi
