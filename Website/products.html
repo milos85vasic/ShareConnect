@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareConnect Products - Explore All Connectors</title>
+    <meta name="description" content="Discover all ShareConnect connectors for torrent clients, media servers, cloud storage, and download managers. Detailed product information and features.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#torrent" class="nav-link">Torrent</a>
+                    <a href="#media" class="nav-link">Media</a>
+                    <a href="#download" class="nav-link">Download</a>
+                    <a href="#cloud" class="nav-link">Cloud</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="nav-menu mobile">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#torrent" class="nav-link">Torrent</a>
+                    <a href="#media" class="nav-link">Media</a>
+                    <a href="#download" class="nav-link">Download</a>
+                    <a href="#cloud" class="nav-link">Cloud</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Explore Our
+                    <span class="gradient-text">Connector Ecosystem</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Discover all 20+ ShareConnect connectors designed to seamlessly integrate with your favorite media services. Each connector is crafted for optimal performance and user experience.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Connectors</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1800+</div>
+                        <div class="stat-label">Sites Supported</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Test Coverage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Torrent Connectors -->
+    <section id="torrent" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Torrent Connectors</h2>
+                <p>Professional torrent client integrations for seamless downloading</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon torrent">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <h3>qBittorrent Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Full-featured integration with qBittorrent, the popular open-source torrent client. Supports advanced features like RSS feeds, search plugins, and automated downloading.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">RSS Support</span>
+                        <span class="feature-tag">Search Plugins</span>
+                        <span class="feature-tag">Web UI</span>
+                        <span class="feature-tag">Categories</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon torrent">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Transmission Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Lightweight and efficient integration with Transmission, the simple and powerful BitTorrent client. Perfect for headless servers and resource-constrained environments.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Lightweight</span>
+                        <span class="feature-tag">Headless</span>
+                        <span class="feature-tag">Watch Directory</span>
+                        <span class="feature-tag">RPC API</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon torrent">
+                            <i class="fas fa-cloud-download-alt"></i>
+                        </div>
+                        <h3>uTorrent Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Enterprise-grade integration with uTorrent, featuring advanced queue management, bandwidth control, and remote access capabilities.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Queue Management</span>
+                        <span class="feature-tag">Bandwidth Control</span>
+                        <span class="feature-tag">Remote Access</span>
+                        <span class="feature-tag">Labels</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Servers -->
+    <section id="media" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Media Server Connectors</h2>
+                <p>Stream your media collection from anywhere with professional server integrations</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon media">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>Plex Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Complete integration with Plex Media Server, the gold standard for media streaming. Supports libraries, playlists, and remote access with transcoding.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Transcoding</span>
+                        <span class="feature-tag">Libraries</span>
+                        <span class="feature-tag">Playlists</span>
+                        <span class="feature-tag">Remote Access</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon media">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>Jellyfin Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Open-source media server integration with Jellyfin. Features hardware acceleration, plugins, and complete media management without subscription fees.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Open Source</span>
+                        <span class="feature-tag">Hardware Acceleration</span>
+                        <span class="feature-tag">Plugins</span>
+                        <span class="feature-tag">Free</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon media">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3>Emby Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Professional media server integration with Emby, featuring live TV, DVR functionality, and comprehensive media organization tools.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Live TV</span>
+                        <span class="feature-tag">DVR</span>
+                        <span class="feature-tag">Collections</span>
+                        <span class="feature-tag">Mobile Sync</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Managers -->
+    <section id="download" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Download Manager Connectors</h2>
+                <p>Professional download management with support for 1800+ sites</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon download">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>JDownloader Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Premium download manager integration with JDownloader's MyJDownloader service. Supports premium accounts, link checking, and batch downloads.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Premium Support</span>
+                        <span class="feature-tag">Link Checking</span>
+                        <span class="feature-tag">Batch Downloads</span>
+                        <span class="feature-tag">CAPTCHA Solving</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon download">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h3>YT-DLP Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Powerful integration with yt-dlp, supporting 1800+ video platforms including YouTube, Vimeo, TikTok, and thousands of others.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">1800+ Sites</span>
+                        <span class="feature-tag">Format Selection</span>
+                        <span class="feature-tag">Subtitles</span>
+                        <span class="feature-tag">Metadata</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon download">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>MeTube Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        YouTube-focused download manager with MeTube's web interface. Perfect for creating personal video libraries from YouTube content.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">YouTube Focused</span>
+                        <span class="feature-tag">Web Interface</span>
+                        <span class="feature-tag">Quality Selection</span>
+                        <span class="feature-tag">Audio Extraction</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Storage -->
+    <section id="cloud" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cloud Storage Connectors</h2>
+                <p>Secure and private cloud storage integrations</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Nextcloud Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Self-hosted cloud storage integration with Nextcloud. Features end-to-end encryption, file versioning, and collaborative editing.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Self-Hosted</span>
+                        <span class="feature-tag">E2E Encryption</span>
+                        <span class="feature-tag">Collaboration</span>
+                        <span class="feature-tag">Versioning</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon cloud">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Seafile Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Encrypted file synchronization with Seafile. Features AES-256 encryption, library management, and cross-platform synchronization.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">AES-256</span>
+                        <span class="feature-tag">Libraries</span>
+                        <span class="feature-tag">Sync</span>
+                        <span class="feature-tag">Cross-Platform</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon cloud">
+                            <i class="fas fa-folder"></i>
+                        </div>
+                        <h3>FileBrowser Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Web-based file manager integration with FileBrowser. Features drag-and-drop uploads, text editing, and command execution.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Web Interface</span>
+                        <span class="feature-tag">Drag & Drop</span>
+                        <span class="feature-tag">Text Editor</span>
+                        <span class="feature-tag">Commands</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Services -->
+    <section id="specialized" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialized Service Connectors</h2>
+                <p>Advanced integrations for specific use cases and workflows</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3>Syncthing Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        P2P file synchronization with Syncthing. Features real-time sync, versioning, and decentralized architecture.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">P2P</span>
+                        <span class="feature-tag">Real-time</span>
+                        <span class="feature-tag">Decentralized</span>
+                        <span class="feature-tag">Versioning</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Matrix Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        End-to-end encrypted messaging with Matrix protocol. Features decentralized communication and bridge support.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">E2E Encrypted</span>
+                        <span class="feature-tag">Decentralized</span>
+                        <span class="feature-tag">Bridges</span>
+                        <span class="feature-tag">Olm/Megolm</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h3>Paperless NG Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Document management system with OCR capabilities. Features automatic tagging, full-text search, and PDF processing.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">OCR</span>
+                        <span class="feature-tag">Auto Tagging</span>
+                        <span class="feature-tag">Full-text Search</span>
+                        <span class="feature-tag">PDF Processing</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Duplicati Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Backup management with incremental backups. Features encryption, compression, and multiple storage backends.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Incremental</span>
+                        <span class="feature-tag">Encrypted</span>
+                        <span class="feature-tag">Compressed</span>
+                        <span class="feature-tag">Multi-backend</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>WireGuard Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        VPN configuration manager with QR code support. Features easy setup, connection monitoring, and multi-device management.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">QR Codes</span>
+                        <span class="feature-tag">Easy Setup</span>
+                        <span class="feature-tag">Monitoring</span>
+                        <span class="feature-tag">Multi-device</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Minecraft Server Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Minecraft server management via RCON protocol. Features command execution, player management, and server monitoring.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">RCON</span>
+                        <span class="feature-tag">Commands</span>
+                        <span class="feature-tag">Player Mgmt</span>
+                        <span class="feature-tag">Monitoring</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="product-icon specialized">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <h3>OnlyOffice Connect</h3>
+                    </div>
+                    <p class="product-description">
+                        Collaborative document editing with real-time synchronization. Features office suite integration and version control.
+                    </p>
+                    <div class="product-features">
+                        <span class="feature-tag">Real-time</span>
+                        <span class="feature-tag">Collaboration</span>
+                        <span class="feature-tag">Office Suite</span>
+                        <span class="feature-tag">Version Control</span>
+                    </div>
+                    <div class="product-status">
+                        <span class="status-badge status-success">Production Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Connect Everything?</h2>
+                <p>Get started with ShareConnect and experience seamless media sharing across all your services.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Download from GitHub
+                    </a>
+                    <a href="manuals.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-book"></i>
+                        Read the Manuals
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <span>ShareConnect</span>
+                    </div>
+                    <p>Revolutionizing media sharing with intelligent connectors.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#torrent">Torrent Connectors</a></li>
+                        <li><a href="#media">Media Servers</a></li>
+                        <li><a href="#download">Download Managers</a></li>
+                        <li><a href="#cloud">Cloud Storage</a></li>
+                        <li><a href="#specialized">Specialized Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="manuals.html">User Manuals</a></li>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect. Built for the future of media sharing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

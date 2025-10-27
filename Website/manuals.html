@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareConnect User Manuals - Complete Guides</title>
+    <meta name="description" content="Comprehensive user manuals and guides for ShareConnect and all its connectors. Learn how to set up and use each service integration.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="#getting-started" class="nav-link">Getting Started</a>
+                    <a href="#connectors" class="nav-link">Connector Guides</a>
+                    <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="nav-menu mobile">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="#getting-started" class="nav-link">Getting Started</a>
+                    <a href="#connectors" class="nav-link">Connector Guides</a>
+                    <a href="#troubleshooting" class="nav-link">Troubleshooting</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    User Manuals &
+                    <span class="gradient-text">Complete Guides</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Everything you need to know about ShareConnect and its connectors. From installation to advanced configuration, we've got you covered with detailed, step-by-step guides.
+                </p>
+                <div class="hero-actions">
+                    <a href="#getting-started" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Get Started
+                    </a>
+                    <a href="#connectors" class="btn btn-secondary">
+                        <i class="fas fa-plug"></i>
+                        Connector Guides
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section id="getting-started" class="manual-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Getting Started with ShareConnect</h2>
+                <p>Your complete guide to installing and configuring ShareConnect</p>
+            </div>
+
+            <div class="manual-content">
+                <div class="manual-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3>Download & Install</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Download ShareConnect from our GitHub releases page. Choose the appropriate APK for your Android version.</p>
+                        <div class="code-block">
+                            <pre><code># Download the latest release
+wget https://github.com/yourusername/ShareConnect/releases/latest/download/ShareConnector-debug.apk
+
+# Install on your Android device
+adb install ShareConnector-debug.apk</code></pre>
+                        </div>
+                        <div class="note">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Note:</strong> Enable "Install from unknown sources" in your Android settings if installing manually.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="manual-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3>First Launch & Permissions</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>When you first launch ShareConnect, you'll need to grant necessary permissions:</p>
+                        <ul>
+                            <li><strong>Internet Access:</strong> Required for connecting to your services</li>
+                            <li><strong>Storage Access:</strong> For caching and temporary files</li>
+                            <li><strong>Notification Access:</strong> For download progress updates</li>
+                        </ul>
+                        <p>The app will guide you through the permission setup process.</p>
+                    </div>
+                </div>
+
+                <div class="manual-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3>Configure Your First Connector</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>ShareConnect works by connecting to your existing services. Let's set up your first connector:</p>
+                        <ol>
+                            <li>Open ShareConnect and tap "Add Connector"</li>
+                            <li>Choose your service type (Torrent, Media Server, etc.)</li>
+                            <li>Enter your service details (IP address, port, credentials)</li>
+                            <li>Test the connection</li>
+                            <li>Save and you're ready to share!</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="manual-step">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <h3>Share Your First Media Link</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Now that you have a connector configured, let's share some media:</p>
+                        <ol>
+                            <li>Find a media link in your browser or app</li>
+                            <li>Tap the share button</li>
+                            <li>Select "ShareConnect" from the share menu</li>
+                            <li>Choose your configured connector</li>
+                            <li>Watch as ShareConnect handles the rest!</li>
+                        </ol>
+                        <div class="tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Pro Tip:</strong> ShareConnect automatically detects the content type and suggests the best connector.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connector Guides -->
+    <section id="connectors" class="manual-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connector Setup Guides</h2>
+                <p>Detailed instructions for configuring each connector type</p>
+            </div>
+
+            <div class="connector-guides">
+             <div class="guide-category">
+                     <h3>Torrent Clients</h3>
+                     <div class="guide-list">
+                         <div class="guide-item">
+                             <div class="guide-icon torrent">
+                                 <i class="fas fa-magnet"></i>
+                             </div>
+                             <div class="guide-content">
+                                 <h4>qBittorrent Setup</h4>
+                                 <p>Professional torrent client with RSS, search plugins, and advanced features</p>
+                                 <a href="#qbittorrent-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                             </div>
+                         </div>
+
+                         <div class="guide-item">
+                             <div class="guide-icon torrent">
+                                 <i class="fas fa-bolt"></i>
+                             </div>
+                             <div class="guide-content">
+                                 <h4>Transmission Setup</h4>
+                                 <p>Lightweight, headless torrent client perfect for servers</p>
+                                 <a href="#transmission-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                             </div>
+                         </div>
+
+                         <div class="guide-item">
+                             <div class="guide-icon torrent">
+                                 <i class="fas fa-cloud-download-alt"></i>
+                             </div>
+                             <div class="guide-content">
+                                 <h4>uTorrent Setup</h4>
+                                 <p>Enterprise torrent solution with remote access and queue management</p>
+                                 <a href="#utorrent-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                <div class="guide-category">
+                    <h3>Media Servers</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-icon media">
+                                <i class="fas fa-tv"></i>
+                            </div>
+                            <div class="guide-content">
+                                <h4>Plex Media Server</h4>
+                                <p>Stream your media library with Plex integration</p>
+                                <a href="#plex-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="guide-item">
+                            <div class="guide-icon media">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div class="guide-content">
+                                <h4>Jellyfin Server</h4>
+                                <p>Open-source media streaming with Jellyfin</p>
+                                <a href="#jellyfin-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-category">
+                    <h3>Download Managers</h3>
+                    <div class="guide-list">
+                        <div class="guide-item">
+                            <div class="guide-icon download">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="guide-content">
+                                <h4>JDownloader Setup</h4>
+                                <p>Premium download management with JDownloader</p>
+                                <a href="#jdownloader-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="guide-item">
+                            <div class="guide-icon download">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="guide-content">
+                                <h4>YT-DLP Integration</h4>
+                                <p>Download from 1800+ video platforms</p>
+                                <a href="#ytdlp-guide" class="guide-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Guides -->
+    <section class="detailed-guides">
+        <div class="container">
+            <!-- qBittorrent Guide -->
+            <div class="guide-detail" id="qbittorrent-guide">
+                <div class="guide-header">
+                    <div class="guide-icon-large torrent">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <div class="guide-info">
+                        <h3>qBittorrent Connector Setup</h3>
+                        <p class="guide-description">Professional torrent client integration with advanced features like RSS feeds, search plugins, and automated downloading.</p>
+                        <div class="guide-meta">
+                            <span class="guide-difficulty">Difficulty: Easy</span>
+                            <span class="guide-time">Setup Time: 5 minutes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-section">
+                        <h4><i class="fas fa-list-check"></i> Prerequisites</h4>
+                        <ul>
+                            <li><strong>qBittorrent Installation:</strong> qBittorrent must be installed and running on your network</li>
+                            <li><strong>Web UI Enabled:</strong> Web interface must be enabled in qBittorrent preferences</li>
+                            <li><strong>Network Access:</strong> Your Android device must be able to reach the qBittorrent host</li>
+                            <li><strong>Credentials:</strong> Web UI username and password (if authentication is enabled)</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-cogs"></i> qBittorrent Configuration</h4>
+                        <ol>
+                            <li>Open qBittorrent on your computer</li>
+                            <li>Go to <strong>Tools → Preferences → Web UI</strong></li>
+                            <li>Check <strong>"Enable the Web User Interface (Remote control)"</strong></li>
+                            <li>Set a port (default 8080) and optional username/password</li>
+                            <li>Click <strong>Apply</strong> and restart qBittorrent if prompted</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-mobile-screen"></i> ShareConnect Setup</h4>
+                        <ol>
+                            <li>Open ShareConnect on your Android device</li>
+                            <li>Tap <strong>"Add Connector"</strong></li>
+                            <li>Select <strong>"qBittorrent"</strong> from the list</li>
+                            <li>Enter connection details:
+                                <ul>
+                                    <li><strong>Host:</strong> IP address or hostname of your qBittorrent machine</li>
+                                    <li><strong>Port:</strong> Web UI port (usually 8080)</li>
+                                    <li><strong>Username:</strong> Web UI username (leave blank if not set)</li>
+                                    <li><strong>Password:</strong> Web UI password (leave blank if not set)</li>
+                                </ul>
+                            </li>
+                            <li>Tap <strong>"Test Connection"</strong></li>
+                            <li>If successful, tap <strong>"Save"</strong></li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-play-circle"></i> Testing the Connection</h4>
+                        <p>To test your qBittorrent connector:</p>
+                        <ol>
+                            <li>Find a torrent file or magnet link</li>
+                            <li>Use Android's share menu and select ShareConnect</li>
+                            <li>Choose your qBittorrent connector</li>
+                            <li>The torrent should appear in qBittorrent and start downloading</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-tools"></i> Troubleshooting</h4>
+                        <div class="troubleshooting-grid">
+                            <div class="trouble-item">
+                                <h5>Connection Failed</h5>
+                                <ul>
+                                    <li>Verify qBittorrent is running</li>
+                                    <li>Check IP address and port</li>
+                                    <li>Ensure Web UI is enabled</li>
+                                    <li>Try disabling Windows Firewall temporarily</li>
+                                </ul>
+                            </div>
+                            <div class="trouble-item">
+                                <h5>Authentication Error</h5>
+                                <ul>
+                                    <li>Verify username and password</li>
+                                    <li>Check if authentication is required in qBittorrent settings</li>
+                                    <li>Try creating a new user account in qBittorrent</li>
+                                </ul>
+                            </div>
+                            <div class="trouble-item">
+                                <h5>Torrents Not Starting</h5>
+                                <ul>
+                                    <li>Check available disk space</li>
+                                    <li>Verify download directory permissions</li>
+                                    <li>Check qBittorrent logs for errors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-star"></i> Advanced Features</h4>
+                        <ul>
+                            <li><strong>RSS Feeds:</strong> Automatic downloading from RSS feeds</li>
+                            <li><strong>Search Plugins:</strong> Search for torrents directly from qBittorrent</li>
+                            <li><strong>Categories:</strong> Organize downloads by category</li>
+                            <li><strong>Bandwidth Limits:</strong> Control download/upload speeds</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transmission Guide -->
+            <div class="guide-detail" id="transmission-guide">
+                <div class="guide-header">
+                    <div class="guide-icon-large torrent">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="guide-info">
+                        <h3>Transmission Connector Setup</h3>
+                        <p class="guide-description">Lightweight and efficient torrent client perfect for headless servers and resource-constrained environments.</p>
+                        <div class="guide-meta">
+                            <span class="guide-difficulty">Difficulty: Medium</span>
+                            <span class="guide-time">Setup Time: 10 minutes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-section">
+                        <h4><i class="fas fa-list-check"></i> Prerequisites</h4>
+                        <ul>
+                            <li><strong>Transmission Installation:</strong> Transmission daemon (transmission-daemon) running</li>
+                            <li><strong>RPC Access:</strong> RPC interface enabled and accessible</li>
+                            <li><strong>Configuration:</strong> Access to Transmission settings.json file</li>
+                            <li><strong>Network:</strong> Android device can reach Transmission RPC port (default 9091)</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-cogs"></i> Transmission Configuration</h4>
+                        <p>For Linux/macOS:</p>
+                        <div class="code-block">
+                            <pre><code># Stop transmission-daemon
+sudo systemctl stop transmission-daemon
+
+# Edit settings.json
+sudo nano /var/lib/transmission-daemon/info/settings.json
+
+# Find and set:
+"rpc-enabled": true,
+"rpc-port": 9091,
+"rpc-whitelist-enabled": false,
+"rpc-authentication-required": true,
+"rpc-username": "your-username",
+"rpc-password": "your-password"
+
+# Start transmission-daemon
+sudo systemctl start transmission-daemon</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-mobile-screen"></i> ShareConnect Setup</h4>
+                        <ol>
+                            <li>Open ShareConnect</li>
+                            <li>Tap <strong>"Add Connector"</strong></li>
+                            <li>Select <strong>"Transmission"</strong></li>
+                            <li>Enter connection details:
+                                <ul>
+                                    <li><strong>Host:</strong> Server IP address</li>
+                                    <li><strong>Port:</strong> RPC port (default 9091)</li>
+                                    <li><strong>Username:</strong> RPC username</li>
+                                    <li><strong>Password:</strong> RPC password</li>
+                                </ul>
+                            </li>
+                            <li>Test connection and save</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-star"></i> Transmission Advantages</h4>
+                        <ul>
+                            <li><strong>Lightweight:</strong> Minimal resource usage</li>
+                            <li><strong>Headless:</strong> Perfect for servers</li>
+                            <li><strong>Watch Directory:</strong> Automatic torrent loading</li>
+                            <li><strong>Scriptable:</strong> Easy automation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plex Guide -->
+            <div class="guide-detail" id="plex-guide">
+                <div class="guide-header">
+                    <div class="guide-icon-large media">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="guide-info">
+                        <h3>Plex Media Server Setup</h3>
+                        <p class="guide-description">Complete integration with Plex Media Server for streaming your media collection anywhere.</p>
+                        <div class="guide-meta">
+                            <span class="guide-difficulty">Difficulty: Easy</span>
+                            <span class="guide-time">Setup Time: 5 minutes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-section">
+                        <h4><i class="fas fa-list-check"></i> Prerequisites</h4>
+                        <ul>
+                            <li><strong>Plex Server:</strong> Plex Media Server running and accessible</li>
+                            <li><strong>Plex Account:</strong> Valid Plex account with server access</li>
+                            <li><strong>Network Access:</strong> Android device can reach Plex server</li>
+                            <li><strong>Libraries:</strong> Media libraries configured in Plex</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-mobile-screen"></i> ShareConnect Setup</h4>
+                        <ol>
+                            <li>Open ShareConnect</li>
+                            <li>Tap <strong>"Add Connector"</strong></li>
+                            <li>Select <strong>"Plex Media Server"</strong></li>
+                            <li>Enter server details:
+                                <ul>
+                                    <li><strong>Server Address:</strong> IP address and port (e.g., 192.168.1.100:32400)</li>
+                                    <li><strong>Username:</strong> Your Plex account email</li>
+                                    <li><strong>Password:</strong> Your Plex account password</li>
+                                </ul>
+                            </li>
+                            <li>Select target library for uploads</li>
+                            <li>Test connection and save</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-play-circle"></i> Using Plex Connector</h4>
+                        <p>The Plex connector allows you to:</p>
+                        <ul>
+                            <li><strong>Direct Upload:</strong> Send media files directly to Plex libraries</li>
+                            <li><strong>Auto-Organization:</strong> Files are automatically categorized and metadata fetched</li>
+                            <li><strong>Cross-Device Sync:</strong> Access your media on any Plex-enabled device</li>
+                            <li><strong>Transcoding:</strong> Automatic format conversion for compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JDownloader Guide -->
+            <div class="guide-detail" id="jdownloader-guide">
+                <div class="guide-header">
+                    <div class="guide-icon-large download">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <div class="guide-info">
+                        <h3>JDownloader Setup</h3>
+                        <p class="guide-description">Premium download manager integration supporting 1800+ sites with MyJDownloader service.</p>
+                        <div class="guide-meta">
+                            <span class="guide-difficulty">Difficulty: Easy</span>
+                            <span class="guide-time">Setup Time: 5 minutes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-steps">
+                    <div class="guide-section">
+                        <h4><i class="fas fa-list-check"></i> Prerequisites</h4>
+                        <ul>
+                            <li><strong>JDownloader:</strong> Installed and running on your computer</li>
+                            <li><strong>MyJDownloader:</strong> Account created at my.jdownloader.org</li>
+                            <li><strong>Premium Accounts:</strong> Optional premium account credentials</li>
+                            <li><strong>Network:</strong> Android device can reach MyJDownloader service</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-mobile-screen"></i> ShareConnect Setup</h4>
+                        <ol>
+                            <li>Open ShareConnect</li>
+                            <li>Tap <strong>"Add Connector"</strong></li>
+                            <li>Select <strong>"JDownloader"</strong></li>
+                            <li>Enter MyJDownloader credentials:
+                                <ul>
+                                    <li><strong>Email:</strong> Your MyJDownloader account email</li>
+                                    <li><strong>Password:</strong> Your MyJDownloader password</li>
+                                </ul>
+                            </li>
+                            <li>Test connection and save</li>
+                        </ol>
+                    </div>
+
+                    <div class="guide-section">
+                        <h4><i class="fas fa-star"></i> JDownloader Features</h4>
+                        <ul>
+                            <li><strong>1800+ Sites:</strong> Support for virtually every download site</li>
+                            <li><strong>Premium Support:</strong> Automatic premium account usage</li>
+                            <li><strong>CAPTCHA Solving:</strong> Automatic captcha resolution</li>
+                            <li><strong>Batch Downloads:</strong> Handle multiple links simultaneously</li>
+                            <li><strong>Link Checking:</strong> Verify download availability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="manual-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Troubleshooting Guide</h2>
+                <p>Common issues and their solutions</p>
+            </div>
+
+            <div class="troubleshooting-grid">
+                <div class="trouble-card">
+                    <h4>Connection Failed</h4>
+                    <p><strong>Symptoms:</strong> Unable to connect to your service</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Verify IP address and port are correct</li>
+                        <li>Check network connectivity</li>
+                        <li>Ensure service is running and accessible</li>
+                        <li>Disable firewall temporarily for testing</li>
+                    </ul>
+                </div>
+
+                <div class="trouble-card">
+                    <h4>Authentication Error</h4>
+                    <p><strong>Symptoms:</strong> Login credentials rejected</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Double-check username and password</li>
+                        <li>Ensure account has necessary permissions</li>
+                        <li>Try resetting password if applicable</li>
+                        <li>Check if two-factor authentication is enabled</li>
+                    </ul>
+                </div>
+
+                <div class="trouble-card">
+                    <h4>Share Not Working</h4>
+                    <p><strong>Symptoms:</strong> Share button doesn't show ShareConnect</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Ensure ShareConnect is installed and not disabled</li>
+                        <li>Clear app cache and restart</li>
+                        <li>Check Android share settings</li>
+                        <li>Reinstall ShareConnect if necessary</li>
+                    </ul>
+                </div>
+
+                <div class="trouble-card">
+                    <h4>Performance Issues</h4>
+                    <p><strong>Symptoms:</strong> Slow response or high battery usage</p>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Check network connection speed</li>
+                        <li>Close unused connectors</li>
+                        <li>Clear app cache</li>
+                        <li>Update to latest version</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Is ShareConnect free?</h4>
+                    <p>Yes! ShareConnect is completely free and open source. All connectors are included at no cost.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does ShareConnect store my data?</h4>
+                    <p>No. ShareConnect acts as a bridge between your apps and services. Your media and personal data never passes through our servers.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Which Android versions are supported?</h4>
+                    <p>ShareConnect supports Android API level 21 and above (Android 5.0+), with optimized performance on Android 8.0+.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I use multiple connectors simultaneously?</h4>
+                    <p>Absolutely! You can configure multiple connectors of the same type and ShareConnect will let you choose which one to use for each share.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is my data secure?</h4>
+                    <p>ShareConnect uses industry-standard encryption for all communications. We recommend using HTTPS wherever possible for maximum security.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What if my service isn't supported?</h4>
+                    <p>ShareConnect is constantly growing! Check our GitHub issues for requested connectors or submit a feature request.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Still Need Help?</h2>
+                <p>Can't find what you're looking for? Our community is here to help.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/yourusername/ShareConnect/issues" class="btn btn-primary btn-large">
+                        <i class="fas fa-question-circle"></i>
+                        Ask on GitHub
+                    </a>
+                    <a href="products.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <span>ShareConnect</span>
+                    </div>
+                    <p>Comprehensive guides for all your media sharing needs.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Manuals</h4>
+                    <ul>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#connectors">Connector Guides</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect. Empowering your media workflow.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
