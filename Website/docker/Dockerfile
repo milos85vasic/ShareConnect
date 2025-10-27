@@ -1,19 +1,7 @@
 # ShareConnect Website Dockerfile
 # Multi-stage build for optimized production image
 
-# Stage 1: Build stage (if needed for processing assets)
-FROM node:18-alpine AS builder
-
-WORKDIR /app
-
-# Copy package files if you need to process assets
-# COPY package*.json ./
-# RUN npm ci --only=production
-
-# Copy website files
-COPY public/ ./public/
-
-# Stage 2: Production stage with Nginx
+# Production stage with Nginx
 FROM nginx:alpine
 
 # Install additional tools
@@ -29,8 +17,8 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
 
-# Copy website files from builder stage
-COPY --from=builder /app/public /usr/share/nginx/html
+# Copy website files from root directory
+COPY . /usr/share/nginx/html/
 
 # Add health check script
 COPY docker/healthcheck.sh /healthcheck.sh
