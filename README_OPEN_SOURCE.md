@@ -1,6 +1,6 @@
 # ShareConnect - Open Source Android Ecosystem
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/milos85vasic/ShareConnect/shareconnect-full-ci.yml)](https://github.com/milos85vasic/ShareConnect/actions)
 [![Code Coverage](https://img.shields.io/badge/coverage-83%2B%25-green)](https://github.com/milos85vasic/ShareConnect)
 [![Contributors](https://img.shields.io/github/contributors/milos85vasic/ShareConnect)](https://github.com/milos85vasic/ShareConnect/graphs/contributors)
@@ -193,7 +193,7 @@ Report security issues to: security@shareconnect.dev
 
 ## 📄 **License**
 
-ShareConnect is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for details.
+ShareConnect is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## 🙏 **Acknowledgments**
 
