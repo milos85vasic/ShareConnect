@@ -49,6 +49,7 @@ include ':Toolkit:Access'
 include ':Toolkit:SecurityAccess'
 include ':Toolkit:CircleImageView'
 include ':Toolkit:WebSocket'
+include ':Toolkit:Search'
 include ':Toolkit:ConnectionIndicator'
 include ':Toolkit:FastscrollerAlphabet'
 include ':Toolkit:Interprocess'
@@ -91,9 +92,9 @@ project(':MotrixConnector').projectDir = new File(settingsDir, 'Connectors/Motri
 include ':GiteaConnector'
 project(':GiteaConnector').projectDir = new File(settingsDir, 'Connectors/GiteaConnect/GiteaConnector')
 
-//  Temporarily disabled - compilation errors (missing WebSocket/Glance dependencies)
-//include ':JellyfinConnector'
-//project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
+// Phase 2: JellyfinConnect - Media Server Integration
+include ':JellyfinConnector'
+project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
 
 //include ':PortainerConnector'
 //project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')

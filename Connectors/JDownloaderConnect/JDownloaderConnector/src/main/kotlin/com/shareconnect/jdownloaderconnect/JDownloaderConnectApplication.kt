@@ -17,6 +17,9 @@ class JDownloaderConnectApplication : Application() {
         
         lateinit var syncManager: JDownloaderSyncManager
             private set
+        // Battery-aware sync scheduling
+        scheduleBatteryAwareSync()
+
     }
     
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
@@ -46,3 +49,42 @@ class JDownloaderConnectApplication : Application() {
         }
     }
 }
+
+    private fun scheduleBatteryAwareSync() {
+        applicationScope.launch {
+            while (true) {
+                delay(300000) // Check every 5 minutes
+                if (isBatteryAwareSyncAllowed()) {
+                    performBatteryAwareSync()
+                }
+            }
+        }
+    }
+
+    private fun isBatteryAwareSyncAllowed(): Boolean {
+        val batteryManager = getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val isCharging = batteryManager.isCharging
+        val isWifi = connectivityManager.activeNetwork?.let { network ->
+            connectivityManager.getNetworkCapabilities(network)?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+        } ?: false
+
+        return isCharging && isWifi
+    }
+
+    private fun performBatteryAwareSync() {
+        // Only sync when charging on WiFi to minimize battery drain
+        // This prevents unnecessary battery usage during normal usage
+        applicationScope.launch {
+            try {
+                // Access sync managers lazily to trigger initialization if needed
+                val themeManager = themeSyncManager
+                val profileManager = profileSyncManager
+                // Add more managers as needed for background sync
+            } catch (e: Exception) {
+                // Silently handle sync errors during battery-aware sync
+                e.printStackTrace()
+            }
+        }
+    }

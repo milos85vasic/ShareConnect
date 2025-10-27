@@ -283,4 +283,8 @@ dependencies {
 
     // Biometric authentication
     implementation 'androidx.biometric:biometric:1.1.0'
+
+    // Firebase Crashlytics and Analytics
+    implementation 'com.google.firebase:firebase-crashlytics:19.1.0'
+    implementation 'com.google.firebase:firebase-analytics:22.1.0'
 }

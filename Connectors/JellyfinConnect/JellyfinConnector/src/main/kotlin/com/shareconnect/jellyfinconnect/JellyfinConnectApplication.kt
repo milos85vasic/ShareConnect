@@ -19,29 +19,38 @@ import kotlinx.coroutines.launch
 
 class JellyfinConnectApplication : Application() {
 
-    lateinit var themeSyncManager: ThemeSyncManager
-        private set
+    // Lazy initialization for better startup performance
+    val themeSyncManager: ThemeSyncManager by lazy {
+        initializeThemeSync()
+    }
 
-    lateinit var profileSyncManager: ProfileSyncManager
-        private set
+    val profileSyncManager: ProfileSyncManager by lazy {
+        initializeProfileSync()
+    }
 
-    lateinit var historySyncManager: HistorySyncManager
-        private set
+    val historySyncManager: HistorySyncManager by lazy {
+        initializeHistorySync()
+    }
 
-    lateinit var rssSyncManager: RSSSyncManager
-        private set
+    val rssSyncManager: RSSSyncManager by lazy {
+        initializeRSSSync()
+    }
 
-    lateinit var bookmarkSyncManager: BookmarkSyncManager
-        private set
+    val bookmarkSyncManager: BookmarkSyncManager by lazy {
+        initializeBookmarkSync()
+    }
 
-    lateinit var preferencesSyncManager: PreferencesSyncManager
-        private set
+    val preferencesSyncManager: PreferencesSyncManager by lazy {
+        initializePreferencesSync()
+    }
 
-    lateinit var languageSyncManager: LanguageSyncManager
-        private set
+    val languageSyncManager: LanguageSyncManager by lazy {
+        initializeLanguageSync()
+    }
 
-    lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
-        private set
+    val torrentSharingSyncManager: TorrentSharingSyncManager by lazy {
+        initializeTorrentSharingSync()
+    }
 
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -56,17 +65,7 @@ class JellyfinConnectApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Initialize all sync managers
-        initializeLanguageSync()
-        initializeTorrentSharingSync()
-        initializeThemeSync()
-        initializeProfileSync()
-        initializeHistorySync()
-        initializeRSSSync()
-        initializeBookmarkSync()
-        initializePreferencesSync()
-
-        // Observe language changes
+        // Observe language changes (lazy initialization will happen when accessed)
         observeLanguageChanges()
     }
 
@@ -79,9 +78,9 @@ class JellyfinConnectApplication : Application() {
         }
     }
 
-    private fun initializeThemeSync() {
+    private fun initializeThemeSync(): ThemeSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        themeSyncManager = ThemeSyncManager.getInstance(
+        val manager = ThemeSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -91,13 +90,15 @@ class JellyfinConnectApplication : Application() {
         // Start theme sync in background
         applicationScope.launch {
             delay(100) // Small delay to avoid port conflicts
-            themeSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeProfileSync() {
+    private fun initializeProfileSync(): ProfileSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        profileSyncManager = ProfileSyncManager.getInstance(
+        val manager = ProfileSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -108,13 +109,15 @@ class JellyfinConnectApplication : Application() {
         // Start profile sync in background
         applicationScope.launch {
             delay(200) // Small delay to avoid port conflicts
-            profileSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeHistorySync() {
+    private fun initializeHistorySync(): HistorySyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        historySyncManager = HistorySyncManager.getInstance(
+        val manager = HistorySyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -124,13 +127,15 @@ class JellyfinConnectApplication : Application() {
         // Start history sync in background
         applicationScope.launch {
             delay(300) // Small delay to avoid port conflicts
-            historySyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeRSSSync() {
+    private fun initializeRSSSync(): RSSSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        rssSyncManager = RSSSyncManager.getInstance(
+        val manager = RSSSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -141,13 +146,15 @@ class JellyfinConnectApplication : Application() {
         // Start RSS sync in background
         applicationScope.launch {
             delay(400) // Small delay to avoid port conflicts
-            rssSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeBookmarkSync() {
+    private fun initializeBookmarkSync(): BookmarkSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        bookmarkSyncManager = BookmarkSyncManager.getInstance(
+        val manager = BookmarkSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -157,13 +164,15 @@ class JellyfinConnectApplication : Application() {
         // Start bookmark sync in background
         applicationScope.launch {
             delay(500) // Small delay to avoid port conflicts
-            bookmarkSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializePreferencesSync() {
+    private fun initializePreferencesSync(): PreferencesSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        preferencesSyncManager = PreferencesSyncManager.getInstance(
+        val manager = PreferencesSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -173,13 +182,15 @@ class JellyfinConnectApplication : Application() {
         // Start preferences sync in background
         applicationScope.launch {
             delay(600) // Small delay to avoid port conflicts
-            preferencesSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeLanguageSync() {
+    private fun initializeLanguageSync(): LanguageSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        languageSyncManager = LanguageSyncManager.getInstance(
+        val manager = LanguageSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -189,13 +200,15 @@ class JellyfinConnectApplication : Application() {
         // Start language sync in background
         applicationScope.launch {
             delay(700) // Small delay to avoid port conflicts
-            languageSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 
-    private fun initializeTorrentSharingSync() {
+    private fun initializeTorrentSharingSync(): TorrentSharingSyncManager {
         val packageInfo = packageManager.getPackageInfo(packageName, 0)
-        torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(
+        val manager = TorrentSharingSyncManager.getInstance(
             context = this,
             appId = packageName,
             appName = "JellyfinConnect",
@@ -205,7 +218,9 @@ class JellyfinConnectApplication : Application() {
         // Start torrent sharing sync in background
         applicationScope.launch {
             delay(800) // Small delay to avoid port conflicts
-            torrentSharingSyncManager.start()
+            manager.start()
         }
+
+        return manager
     }
 }
