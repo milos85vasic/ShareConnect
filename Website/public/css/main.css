@@ -22,9 +22,9 @@
     --text-muted: #94a3b8;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-    --gradient-secondary: linear-gradient(135deg, #14b8a6 0%, #6366f1 100%);
-    --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    --gradient-primary: linear-gradient(135deg, #268AF8 0%, #3EC9D6 100%);
+    --gradient-secondary: linear-gradient(135deg, #268AF8 0%, #1e5f99 100%);
+    --gradient-accent: linear-gradient(135deg, #268AF8 0%, #3EC9D6 50%, #1e5f99 100%);
 
     /* Spacing */
     --spacing-xs: 0.5rem;
