@@ -31,7 +31,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import com.shareconnect.designsystem.theme.ShareConnectTheme
+import com.shareconnect.qrscanner.QRScannerManager
 import com.shareconnect.seafileconnect.SeafileConnectApplication
 import com.shareconnect.securityaccess.SecurityAccessManager
 import com.shareconnect.themesync.ThemeSyncManager
@@ -147,10 +149,68 @@ fun LibrariesTab() {
 
 @Composable
 fun FilesTab() {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Text(
-            "Files - Browse files and directories",
-            modifier = Modifier.padding(MaterialTheme.typography.bodyLarge.fontSize.value.toInt().dp)
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var showAddOptionsDialog by remember { mutableStateOf(false) }
+
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = { showAddOptionsDialog = true },
+                containerColor = MaterialTheme.colorScheme.primary
+            ) {
+                Text("+", style = MaterialTheme.typography.headlineMedium)
+            }
+        }
+    ) { padding ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+        ) {
+            Text(
+                "Files - Browse files and directories\nTap + to add files via QR code or manual entry",
+                modifier = Modifier.padding(16.dp)
+            )
+        }
+    }
+
+    if (showAddOptionsDialog) {
+        AlertDialog(
+            onDismissRequest = { showAddOptionsDialog = false },
+            title = { Text("Add Files") },
+            text = {
+                Column {
+                    TextButton(
+                        onClick = {
+                            showAddOptionsDialog = false
+                            // TODO: Implement manual file addition
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Add Files Manually")
+                    }
+                    TextButton(
+                        onClick = {
+                            showAddOptionsDialog = false
+                            scope.launch {
+                                val qrResult = QRScannerManager(context).scanQRCode()
+                                if (qrResult != null) {
+                                    // TODO: Process scanned URL for file upload
+                                }
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text("Scan QR Code")
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showAddOptionsDialog = false }) {
+                    Text("Cancel")
+                }
+            }
         )
     }
 }
@@ -167,10 +227,54 @@ fun SearchTab() {
 
 @Composable
 fun SettingsTab() {
-    Box(modifier = Modifier.fillMaxSize()) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var showQRDialog by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
         Text(
             "Settings - Configure SeafileConnect",
-            modifier = Modifier.padding(MaterialTheme.typography.bodyLarge.fontSize.value.toInt().dp)
+            style = MaterialTheme.typography.headlineSmall,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        Button(
+            onClick = { showQRDialog = true },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Scan QR Code for Configuration")
+        }
+    }
+
+    if (showQRDialog) {
+        AlertDialog(
+            onDismissRequest = { showQRDialog = false },
+            title = { Text("Scan Configuration QR") },
+            text = { Text("Scan a QR code containing Seafile server configuration or settings.") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showQRDialog = false
+                        scope.launch {
+                            val qrResult = QRScannerManager(context).scanQRCode()
+                            if (qrResult != null) {
+                                // TODO: Process scanned configuration
+                            }
+                        }
+                    }
+                ) {
+                    Text("Scan")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showQRDialog = false }) {
+                    Text("Cancel")
+                }
+            }
         )
     }
 }

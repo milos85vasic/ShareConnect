@@ -57,6 +57,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import com.shareconnect.qrscanner.QRScannerManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -240,6 +241,7 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
     private boolean showFab;
     private FreeSpaceFooterDrawerItem freeSpaceFooterDrawerItem;
     private FinishedTorrentsNotificationManager finishedTorrentsNotificationManager;
+    private ActivityResultLauncher<Intent> qrScannerLauncher;
 
     private final ActivityResultLauncher<String> requestPermissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
@@ -327,6 +329,13 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
 
         finishedTorrentsNotificationManager = new FinishedTorrentsNotificationManager(this);
+
+        // Initialize QR scanner launcher
+        qrScannerLauncher = QRScannerManager.createLauncher(this, qrResult -> {
+            if (qrResult != null) {
+                processScannedUrl(qrResult);
+            }
+        });
 
         setupActionBar();
         setupBottomToolbar();
@@ -563,7 +572,55 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
     }
 
     private void setupFloatingActionButton() {
-        binding.addTorrentButton.setOnClickListener(v -> showAddTorrentDialog());
+        binding.addTorrentButton.setOnClickListener(v -> showAddContentDialog());
+    }
+
+    private void showAddContentDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Add Content")
+                .setItems(new CharSequence[]{
+                        "Add from File",
+                        "Add from URL",
+                        "Scan QR Code"
+                }, (dialog, which) -> {
+                    switch (which) {
+                        case 0:
+                            onOpenTorrentByFile();
+                            break;
+                        case 1:
+                            onOpenTorrentByAddress();
+                            break;
+                        case 2:
+                            launchQRScanner();
+                            break;
+                    }
+                })
+                .show();
+    }
+
+    private void launchQRScanner() {
+        QRScannerManager.launchScanner(this, qrScannerLauncher);
+    }
+
+    private void processScannedUrl(String url) {
+        if (isValidUrl(url)) {
+            // Process the scanned URL - for torrents, we can try to add it directly
+            if (url.startsWith("magnet:")) {
+                openTorrentByMagnet(url);
+            } else if (url.startsWith("http://") || url.startsWith("https://")) {
+                openTorrentByRemoteFile(Uri.parse(url));
+            } else {
+                Toast.makeText(this, "Unsupported URL format: " + url, Toast.LENGTH_SHORT).show();
+            }
+            Toast.makeText(this, "QR code scanned successfully", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Invalid URL in QR code: " + url, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isValidUrl(String url) {
+        if (url == null) return false;
+        return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("magnet:");
     }
 
     private void showAddTorrentDialog() {

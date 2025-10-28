@@ -47,6 +47,7 @@ include ':Toolkit:JCommons'
 include ':Toolkit:Analytics'
 include ':Toolkit:Access'
 include ':Toolkit:SecurityAccess'
+include ':Toolkit:QRScanner'
 include ':Toolkit:CircleImageView'
 include ':Toolkit:WebSocket'
 include ':Toolkit:Search'
@@ -105,8 +106,8 @@ project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/Jel
 //include ':HomeAssistantConnector'
 //project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
 
-//include ':SeafileConnector'
-//project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
+include ':SeafileConnector'
+project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
 
 //include ':SyncthingConnector'
 //project(':SyncthingConnector').projectDir = new File(settingsDir, 'Connectors/SyncthingConnect/SyncthingConnector')

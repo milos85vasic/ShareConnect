@@ -157,6 +157,38 @@ Security settings are stored encrypted and include:
 - Failed attempt limits and lockout periods
 - Biometric availability and requirements
 
+## QR Code Scanning Integration
+
+ShareConnect includes comprehensive QR code scanning capabilities across all connector applications using ML Kit integration:
+
+### Supported Applications
+- **ShareConnector**: QR scanning in main sharing interface
+- **qBitConnect**: QR scanning for torrent URLs
+- **TransmissionConnect**: QR scanning for torrent URLs
+- **uTorrentConnect**: QR scanning for torrent URLs
+- **JDownloaderConnect**: QR scanning in Downloads and Link Grabber screens
+- **MotrixConnect**: QR scanning in Add Download screen
+- **SeafileConnect**: QR scanning in Files tab (upload) and Settings tab (configuration)
+
+### Features
+- **ML Kit Integration**: Uses Google ML Kit for reliable QR code detection
+- **Camera Permissions**: Automatic permission handling
+- **URL Processing**: Direct processing of scanned URLs for downloads/uploads
+- **Error Handling**: Graceful handling of invalid QR codes or camera issues
+- **UI Integration**: Consistent dialog-based scanning interface across apps
+
+### Implementation
+- **Shared Module**: `Toolkit/QRScanner` provides common scanning functionality
+- **QRScannerManager**: Main class for QR code scanning operations
+- **Compose Integration**: Seamless integration with Jetpack Compose UIs
+- **Coroutine Support**: Asynchronous scanning with proper lifecycle handling
+
+### Testing Coverage
+- **Unit Tests**: QRScannerManager functionality and URL processing
+- **Integration Tests**: End-to-end QR scanning workflows
+- **Automation Tests**: UI interaction testing for scan dialogs
+- **Permission Tests**: Camera permission handling verification
+
 ## Code Style Guidelines
 - **Naming**: PascalCase for classes/types, camelCase for variables/functions, UPPER_CASE for constants.
 - **Imports**: Group by standard library, third-party, then local; use wildcards sparingly.

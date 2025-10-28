@@ -103,6 +103,7 @@ dependencies {
         implementation project(':TorrentSharingSync')
         implementation project(':Localizations')
         implementation project(':Toolkit:SecurityAccess')
+        implementation project(':Toolkit:QRScanner')
     } else {
         // Standalone dependencies
         implementation 'androidx.compose.material3:material3'

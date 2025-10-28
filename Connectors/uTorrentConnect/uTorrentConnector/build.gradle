@@ -93,6 +93,7 @@ dependencies {
     implementation project(':TorrentSharingSync')
     implementation project(':Localizations')
     implementation project(':Toolkit:SecurityAccess')
+    implementation project(':Toolkit:QRScanner')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // Force specific version to avoid Kotlin version conflicts

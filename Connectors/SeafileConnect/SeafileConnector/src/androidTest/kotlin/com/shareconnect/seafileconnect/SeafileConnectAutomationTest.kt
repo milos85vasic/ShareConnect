@@ -27,7 +27,9 @@ import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.designsystem.theme.ShareConnectTheme
+import com.shareconnect.seafileconnect.ui.FilesTab
 import com.shareconnect.seafileconnect.ui.SeafileConnectScreen
+import com.shareconnect.seafileconnect.ui.SettingsTab
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -151,5 +153,40 @@ class SeafileConnectAutomationTest {
         composeTestRule.onAllNodesWithText("Files")[0].assertExists()
         composeTestRule.onAllNodesWithText("Search")[0].assertExists()
         composeTestRule.onAllNodesWithText("Settings")[0].assertExists()
+    }
+
+    @Test
+    fun testFilesTabQRScanningDialog() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                FilesTab()
+            }
+        }
+
+        // Click the floating action button to show add options
+        composeTestRule.onNodeWithText("+").performClick()
+
+        // Verify dialog appears
+        composeTestRule.onNodeWithText("Add Files").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Scan QR Code").assertIsDisplayed()
+    }
+
+    @Test
+    fun testSettingsTabQRScanning() {
+        composeTestRule.setContent {
+            ShareConnectTheme {
+                SettingsTab()
+            }
+        }
+
+        // Check QR scan button exists
+        composeTestRule.onNodeWithText("Scan QR Code for Configuration").assertIsDisplayed()
+
+        // Click the button
+        composeTestRule.onNodeWithText("Scan QR Code for Configuration").performClick()
+
+        // Verify QR dialog appears
+        composeTestRule.onNodeWithText("Scan Configuration QR").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Scan a QR code containing Seafile server configuration or settings.").assertIsDisplayed()
     }
 }

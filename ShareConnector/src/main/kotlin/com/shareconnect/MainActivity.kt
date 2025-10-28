@@ -53,6 +53,9 @@ import androidx.core.content.edit
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import com.shareconnect.qrscanner.QRScannerManager
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
     private var buttonSettings: MaterialButton? = null
@@ -73,6 +76,7 @@ class MainActivity : AppCompatActivity() {
     private var systemAppAdapter: SystemAppAdapter? = null
     private var isContentViewSet = false
     private lateinit var securityAccessManager: SecurityAccessManager
+    private lateinit var qrScannerLauncher: ActivityResultLauncher<Intent>
 
     companion object {
         private const val SETUP_WIZARD_REQUEST_CODE = 1001
@@ -89,6 +93,13 @@ class MainActivity : AppCompatActivity() {
 
             // Initialize SecurityAccessManager first
             securityAccessManager = SecurityAccessManager.getInstance(this)
+
+            // Initialize QR scanner launcher
+            qrScannerLauncher = QRScannerManager.createLauncher(this) { qrResult ->
+                if (qrResult != null) {
+                    processScannedUrl(qrResult)
+                }
+            }
 
             // Check if security access is required BEFORE applying theme
             if (isSecurityAccessRequired()) {
@@ -227,7 +238,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fabAdd.setOnClickListener {
-            handleAddFromClipboard()
+            showAddOptionsDialog()
         }
 
         // Set up profiles recycler view
@@ -520,6 +531,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Show dialog with options to add from clipboard or scan QR code
+     */
+    private fun showAddOptionsDialog() {
+        val options = arrayOf("Add from Clipboard", "Scan QR Code")
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Add Content")
+            .setItems(options) { _, which ->
+                when (which) {
+                    0 -> handleAddFromClipboard()
+                    1 -> launchQRScanner()
+                }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    /**
+     * Launch QR code scanner
+     */
+    private fun launchQRScanner() {
+        QRScannerManager.launchScanner(this, qrScannerLauncher)
+    }
+
+    /**
      * Handle adding a URL from clipboard
      */
     private fun handleAddFromClipboard() {
@@ -588,6 +623,22 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             Toast.makeText(this, getString(R.string.invalid_url_with_text, url), Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Process URL scanned from QR code
+     */
+    private fun processScannedUrl(url: String) {
+        if (isValidUrl(url)) {
+            val intent = Intent(this, ShareActivity::class.java)
+            intent.action = Intent.ACTION_SEND
+            intent.type = "text/plain"
+            intent.putExtra(Intent.EXTRA_TEXT, url)
+            startActivity(intent)
+            Toast.makeText(this, "QR code scanned successfully", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Invalid URL in QR code: $url", Toast.LENGTH_SHORT).show()
         }
     }
 

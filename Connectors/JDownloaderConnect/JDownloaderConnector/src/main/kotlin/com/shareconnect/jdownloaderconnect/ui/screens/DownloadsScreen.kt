@@ -32,12 +32,15 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.shareconnect.jdownloaderconnect.domain.model.DownloadStatus
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.AccountViewModel
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.DownloadsViewModel
 import com.shareconnect.jdownloaderconnect.ui.components.*
+import com.shareconnect.qrscanner.QRScannerManager
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,6 +60,9 @@ fun DownloadsScreen(
 
     var selectedFilter by remember { mutableStateOf<DownloadStatus?>(null) }
     var showAddLinksDialog by remember { mutableStateOf(false) }
+    var showAddOptionsDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
 
     val filteredPackages = downloadsViewModel.getFilteredPackages(selectedFilter)
     val downloadStats = downloadsViewModel.getDownloadStats()
@@ -94,65 +100,11 @@ fun DownloadsScreen(
         },
         floatingActionButton = {
             if (activeAccount != null && connectionState != null) {
-                FloatingActionButton(onClick = { showAddLinksDialog = true }) {
-                    Icon(Icons.Default.AddLink, contentDescription = "Add Links")
+                FloatingActionButton(onClick = { showAddOptionsDialog = true }) {
+                    Icon(Icons.Default.Add, contentDescription = "Add Content")
                 }
             }
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
-        ) {
-            // Download Stats
-            DownloadStatsCard(stats = downloadStats)
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Filter Chips
-            FilterChipsRow(
-                selectedFilter = selectedFilter,
-                onFilterSelected = { selectedFilter = it },
-                filters = listOf(
-                    null to "All",
-                    DownloadStatus.DOWNLOADING to "Downloading",
-                    DownloadStatus.QUEUED to "Queued",
-                    DownloadStatus.PAUSED to "Paused",
-                    DownloadStatus.FINISHED to "Finished"
-                )
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Downloads List
-            if (filteredPackages.isEmpty()) {
-                EmptyState(
-                    icon = Icons.Default.Download,
-                    title = "No Downloads",
-                    description = "Add links to start downloading"
-                )
-            } else {
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(filteredPackages) { downloadPackage ->
-                        DownloadPackageCard(
-                            downloadPackage = downloadPackage,
-                            isSelected = downloadPackage.uuid == selectedPackage?.uuid,
-                            onSelect = { downloadsViewModel.selectPackage(downloadPackage) },
-                            onStart = { 
-                                connectionState?.let { connection ->
-                                    activeAccount?.let { account ->
-                                        downloadsViewModel.startDownloads(
-                                            connection.sessionToken,
-                                            account.deviceId,
-                                            packageIds = listOf(downloadPackage.uuid)
-                                        )
-                                    }
-                                }
-                            },
+        },
                             onStop = { 
                                 connectionState?.let { connection ->
                                     activeAccount?.let { account ->
@@ -182,22 +134,59 @@ fun DownloadsScreen(
         }
 
         // Add Links Dialog
+        if (showAddOptionsDialog) {
+            AlertDialog(
+                onDismissRequest = { showAddOptionsDialog = false },
+                title = { Text("Add Content") },
+                text = {
+                    Column {
+                        TextButton(
+                            onClick = {
+                                showAddOptionsDialog = false
+                                showAddLinksDialog = true
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Add Links Manually")
+                        }
+                        TextButton(
+                            onClick = {
+                                showAddOptionsDialog = false
+                                coroutineScope.launch {
+                                    val qrResult = QRScannerManager(context).scanQRCode()
+                                    if (qrResult != null) {
+                                        processScannedUrl(qrResult, downloadsViewModel, connectionState, activeAccount)
+                                    }
+                                }
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text("Scan QR Code")
+                        }
+                    }
+                },
+                confirmButton = {
+                    TextButton(onClick = { showAddOptionsDialog = false }) {
+                        Text("Cancel")
+                    }
+                },
+                properties = androidx.compose.ui.window.DialogProperties()
+            )
+        }
+
         if (showAddLinksDialog) {
             AddLinksDialog(
                 onDismiss = { showAddLinksDialog = false },
-                onAddLinks = { links, packageName, destinationFolder, extractAfterDownload, autoStart ->
+                onLinksAdded = { links ->
                     connectionState?.let { connection ->
                         activeAccount?.let { account ->
-                            downloadsViewModel.addLinks(
-                                connection.sessionToken,
-                                account.deviceId,
-                                links,
-                                packageName,
-                                destinationFolder,
-                                extractAfterDownload,
-                                autoStart
-                            )
+                            downloadsViewModel.addLinks(links, connection.sessionToken, account.deviceId)
                         }
+                    }
+                    showAddLinksDialog = false
+                }
+            )
+        }
                     }
                     showAddLinksDialog = false
                 }
@@ -308,4 +297,25 @@ private fun FilterChipsRow(
             )
         }
     }
+}
+
+private fun processScannedUrl(
+    url: String,
+    downloadsViewModel: DownloadsViewModel,
+    connectionState: com.shareconnect.jdownloaderconnect.domain.model.ConnectionState?,
+    activeAccount: com.shareconnect.jdownloaderconnect.data.model.JDownloaderAccount?
+) {
+    if (isValidUrl(url)) {
+        // Add the scanned URL directly to downloads
+        connectionState?.let { connection ->
+            activeAccount?.let { account ->
+                downloadsViewModel.addLinks(listOf(url), connection.sessionToken, account.deviceId)
+            }
+        }
+    }
+}
+
+private fun isValidUrl(url: String?): Boolean {
+    if (url == null) return false
+    return url.startsWith("http://") || url.startsWith("https://")
 }
