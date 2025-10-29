@@ -79,7 +79,7 @@ class JellyfinWidget : GlanceAppWidget() {
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Box(
+                androidx.glance.layout.Box(
                     modifier = GlanceModifier
                         .size(8.dp)
                         .background(
@@ -89,7 +89,7 @@ class JellyfinWidget : GlanceAppWidget() {
                                 ColorProvider(android.graphics.Color.parseColor("#F44336"))
                             }
                         )
-                )
+                ) {}
                 Spacer(modifier = GlanceModifier.width(8.dp))
                 Text(
                     text = if (data.isConnected) "Connected" else "Disconnected",

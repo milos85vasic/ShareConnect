@@ -172,7 +172,8 @@ class SeafileApiClient(
         parentDir: String,
         file: File,
         replace: Boolean = true
-    ): Result<String> = try {
+    ): Result<String> {
+        return try {
         ensureAuthenticated()
 
         // Get upload link
@@ -203,6 +204,7 @@ class SeafileApiClient(
     } catch (e: Exception) {
         Log.e(TAG, "Upload error", e)
         Result.failure(e)
+    }
     }
 
     /**

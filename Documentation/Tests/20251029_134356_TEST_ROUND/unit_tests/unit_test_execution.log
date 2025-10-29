@@ -1,0 +1,42 @@
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Dependencies:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Dependencies:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :Dependencies:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ShareConnector:preBuild UP-TO-DATE

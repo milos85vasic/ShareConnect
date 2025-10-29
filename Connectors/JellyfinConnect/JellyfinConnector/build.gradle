@@ -71,6 +71,7 @@ dependencies {
 
     // Project modules
     implementation project(':DesignSystem')
+    implementation project(':Onboarding')
     implementation project(':Toolkit:SecurityAccess')
     implementation project(':Toolkit:WebSocket')
     implementation project(':ThemeSync')
@@ -102,6 +103,9 @@ dependencies {
     // SQLCipher for encrypted Room database
     implementation "net.zetetic:sqlcipher-android:4.6.1"
     implementation "androidx.sqlite:sqlite-ktx:2.4.0"
+
+    // WorkManager for background tasks
+    implementation "androidx.work:work-runtime-ktx:2.10.4"
 
     debugImplementation "androidx.compose.ui:ui-tooling"
     debugImplementation "androidx.compose.ui:ui-test-manifest"

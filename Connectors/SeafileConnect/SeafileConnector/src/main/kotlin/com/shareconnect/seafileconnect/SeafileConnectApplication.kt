@@ -30,7 +30,7 @@ import com.shareconnect.historysync.HistorySyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
-import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.seafileconnect.BuildConfig
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
@@ -57,7 +57,7 @@ class SeafileConnectApplication : Application() {
     private lateinit var themeSyncManager: ThemeSyncManager
     private lateinit var profileSyncManager: ProfileSyncManager
     private lateinit var historySyncManager: HistorySyncManager
-    private lateinit var rssSyncManager: RssSyncManager
+    private lateinit var rssSyncManager: RSSSyncManager
     private lateinit var bookmarkSyncManager: BookmarkSyncManager
     private lateinit var preferencesSyncManager: PreferencesSyncManager
     private lateinit var languageSyncManager: LanguageSyncManager
@@ -90,7 +90,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                themeSyncManager.startSync()
+                themeSyncManager.start()
                 Log.d(TAG, "ThemeSyncManager started")
             }
 
@@ -102,7 +102,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                profileSyncManager.startSync()
+                profileSyncManager.start()
                 Log.d(TAG, "ProfileSyncManager started")
             }
 
@@ -114,20 +114,20 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                historySyncManager.startSync()
+                historySyncManager.start()
                 Log.d(TAG, "HistorySyncManager started")
             }
 
             // Initialize RSS Sync (port 8920)
-            rssSyncManager = RssSyncManager.getInstance(
+            rssSyncManager = RSSSyncManager.getInstance(
                 context = applicationContext,
                 appId = appId,
                 appName = appName,
                 appVersion = appVersion
             )
             applicationScope.launch {
-                rssSyncManager.startSync()
-                Log.d(TAG, "RssSyncManager started")
+                rssSyncManager.start()
+                Log.d(TAG, "RSSSyncManager started")
             }
 
             // Initialize Bookmark Sync (port 8930)
@@ -138,7 +138,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                bookmarkSyncManager.startSync()
+                bookmarkSyncManager.start()
                 Log.d(TAG, "BookmarkSyncManager started")
             }
 
@@ -150,7 +150,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                preferencesSyncManager.startSync()
+                preferencesSyncManager.start()
                 Log.d(TAG, "PreferencesSyncManager started")
             }
 
@@ -162,7 +162,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                languageSyncManager.startSync()
+                languageSyncManager.start()
                 Log.d(TAG, "LanguageSyncManager started")
             }
 
@@ -174,7 +174,7 @@ class SeafileConnectApplication : Application() {
                 appVersion = appVersion
             )
             applicationScope.launch {
-                torrentSharingSyncManager.startSync()
+                torrentSharingSyncManager.start()
                 Log.d(TAG, "TorrentSharingSyncManager started")
             }
 
@@ -200,9 +200,9 @@ class SeafileConnectApplication : Application() {
     fun getHistorySyncManager(): HistorySyncManager = historySyncManager
 
     /**
-     * Get RssSyncManager instance
+     * Get RSSSyncManager instance
      */
-    fun getRssSyncManager(): RssSyncManager = rssSyncManager
+    fun getRssSyncManager(): RSSSyncManager = rssSyncManager
 
     /**
      * Get BookmarkSyncManager instance

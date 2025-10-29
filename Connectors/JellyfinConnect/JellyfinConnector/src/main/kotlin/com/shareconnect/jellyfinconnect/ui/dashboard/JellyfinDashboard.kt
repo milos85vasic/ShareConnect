@@ -46,7 +46,8 @@ fun JellyfinDashboard(
     client: JellyfinWebSocketClient,
     modifier: Modifier = Modifier
 ) {
-    val connected by client.connected.collectAsState()
+    val connectionState by client.getConnectionState().collectAsState()
+    val connected = connectionState == com.shareconnect.websocket.ConnectionState.Connected
     val sessions by client.sessions.collectAsState()
     val nowPlaying by client.nowPlaying.collectAsState()
 
@@ -176,14 +177,7 @@ private fun NowPlayingCard(
                 )
             }
 
-            // Year
-            nowPlaying.productionYear?.let { year ->
-                InfoRow(
-                    icon = Icons.Default.CalendarToday,
-                    label = "Year",
-                    value = year.toString()
-                )
-            }
+            // Year - not available in current data model
 
             // Runtime
             nowPlaying.runTimeTicks?.let { ticks ->

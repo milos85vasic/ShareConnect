@@ -29,6 +29,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -279,7 +280,8 @@ class PlexApiClient(
                     Result.failure(lastException ?: Exception("Unknown error"))
                 }
 
-                activeRequests[requestId] = deferred
+                @Suppress("UNCHECKED_CAST")
+                activeRequests[requestId] = deferred as Deferred<Result<Any>>
                 try {
                     deferred.await()
                 } catch (e: Exception) {
