@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.gms.google-services' version '4.4.3'
-    id 'com.google.firebase.crashlytics' version '3.0.6'
+    // id 'com.google.gms.google-services' version '4.4.3'
+    // id 'com.google.firebase.crashlytics' version '3.0.6'
 }
 
 ext.kotlin_version = '2.0.0'
@@ -60,7 +60,7 @@ android {
 
         resources {
 
-            excludes += ['META-INF/notice.txt', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/INDEX.LIST']
+            excludes += ['META-INF/notice.txt', 'META-INF/license.txt', 'META-INF/LICENSE.txt', 'META-INF/NOTICE.txt', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/NOTICE', 'META-INF/INDEX.LIST', 'META-INF/versions/**', 'META-INF/*.MF']
         }
     }
 

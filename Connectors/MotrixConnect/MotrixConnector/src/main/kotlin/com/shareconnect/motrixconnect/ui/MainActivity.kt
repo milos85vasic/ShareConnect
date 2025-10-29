@@ -248,9 +248,13 @@ fun AddDownloadScreen(navController: NavController) {
                                     if (success) {
                                         navController.popBackStack()
                                     }
-        }
-    }
-}
+                                }
+                            }
+                        }
+                    }
+                ) {
+                    Text("Add Download")
+                }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

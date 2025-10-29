@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.SecurityAccessManagerTest" tests="11" skipped="11" failures="0" errors="0" timestamp="2025-10-28T12:21:57.864Z" hostname="thinker" time="0.001">
+  <properties/>
+  <testcase name="testDisableSecurity" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSingletonInstance" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testIsAccessRequiredWhenEnabled" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testLockoutAfterFailedAttempts" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testSessionTimeout" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testIsAccessRequiredWhenDisabled" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testAuthenticationWithInvalidPin" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testEnableSecurity" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testAuthenticationWithValidPin" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testInitialState" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="testLogout" classname="com.shareconnect.SecurityAccessManagerTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

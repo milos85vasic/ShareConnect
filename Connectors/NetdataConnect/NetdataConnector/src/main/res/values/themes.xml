@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Netdata green theme -->
     <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">

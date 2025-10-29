@@ -52,10 +52,8 @@ android {
 }
 
 dependencies {
-    // Core Android
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
+    // Centralized dependencies
+    implementation(project(":Dependencies"))
 
     // Compose BOM
     implementation(platform("androidx.compose:compose-bom:2024.02.00"))
@@ -65,13 +63,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
 
-    // Activity & Fragment
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-
-    // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    // Material Design
+    implementation("com.google.android.material:material:1.11.0")
 
     // ConstraintLayout
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -101,23 +94,13 @@ dependencies {
     // DataStore for caching
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
-    // Kotlinx Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-
     // WorkManager for automation
     implementation("androidx.work:work-runtime-ktx:2.10.4")
 
     // ThemeSync (for custom theme support)
     implementation(project(":ThemeSync"))
 
-    // Testing
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("org.mockito:mockito-core:5.8.0")
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
-
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Compose testing
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 

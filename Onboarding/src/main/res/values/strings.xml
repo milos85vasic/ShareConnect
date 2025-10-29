@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="onboarding_welcome_title">Welcome to ShareConnect</string>
     <string name="onboarding_welcome_message">Let\'s get you set up with your perfect torrenting experience. We\'ll help you choose your theme, language, and create your first profile.</string>

@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Large phone-optimized dimensions (400-599dp) -->
     <dimen name="activity_horizontal_margin">20dp</dimen>

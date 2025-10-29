@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="tr_abc_text_size_body_1_material">14sp</dimen>
     <dimen name="tr_abc_text_size_body_2_material">14sp</dimen>

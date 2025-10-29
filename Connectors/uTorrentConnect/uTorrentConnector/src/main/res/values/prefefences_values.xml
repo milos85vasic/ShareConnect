@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="update_interval_key" translatable="false">update_interval</string>
     <string name="update_interval_default_value" translatable="false">2</string>

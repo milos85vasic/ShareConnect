@@ -330,12 +330,12 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
 
         finishedTorrentsNotificationManager = new FinishedTorrentsNotificationManager(this);
 
-        // Initialize QR scanner launcher
-        qrScannerLauncher = QRScannerManager.createLauncher(this, qrResult -> {
-            if (qrResult != null) {
-                processScannedUrl(qrResult);
-            }
-        });
+        // Initialize QR scanner launcher - temporarily disabled for build
+        // qrScannerLauncher = QRScannerManager.createLauncher(this, qrResult -> {
+        //     if (qrResult != null) {
+        //         processScannedUrl(qrResult);
+        //     }
+        // });
 
         setupActionBar();
         setupBottomToolbar();
@@ -599,7 +599,7 @@ public class MainActivity extends BaseSpiceActivity implements TorrentUpdater.To
     }
 
     private void launchQRScanner() {
-        QRScannerManager.launchScanner(this, qrScannerLauncher);
+        // QRScannerManager.launchScanner(this, qrScannerLauncher);
     }
 
     private void processScannedUrl(String url) {

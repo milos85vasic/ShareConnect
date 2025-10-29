@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Foldable and extra large screen dimensions (840dp+) -->
     <dimen name="activity_horizontal_margin">40dp</dimen>

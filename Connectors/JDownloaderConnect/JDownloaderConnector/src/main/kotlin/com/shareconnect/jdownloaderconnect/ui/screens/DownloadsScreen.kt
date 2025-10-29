@@ -39,7 +39,7 @@ import com.shareconnect.jdownloaderconnect.domain.model.DownloadStatus
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.AccountViewModel
 import com.shareconnect.jdownloaderconnect.presentation.viewmodel.DownloadsViewModel
 import com.shareconnect.jdownloaderconnect.ui.components.*
-import com.shareconnect.qrscanner.QRScannerManager
+// import com.shareconnect.qrscanner.QRScannerManager
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -104,31 +104,72 @@ fun DownloadsScreen(
                     Icon(Icons.Default.Add, contentDescription = "Add Content")
                 }
             }
-        },
-                            onStop = { 
-                                connectionState?.let { connection ->
-                                    activeAccount?.let { account ->
-                                        downloadsViewModel.stopDownloads(
-                                            connection.sessionToken,
-                                            account.deviceId,
-                                            packageIds = listOf(downloadPackage.uuid)
-                                        )
-                                    }
-                                }
-                            },
-                            onRemove = { 
-                                connectionState?.let { connection ->
-                                    activeAccount?.let { account ->
-                                        downloadsViewModel.removeDownloads(
-                                            connection.sessionToken,
-                                            account.deviceId,
-                                            packageIds = listOf(downloadPackage.uuid)
-                                        )
-                                    }
+        }
+    ) { paddingValues ->
+        // Main content
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+        ) {
+            // Download Stats
+            DownloadStatsCard(stats = downloadStats)
+
+            // Filter Chips
+            FilterChipsRow(
+                selectedFilter = selectedFilter,
+                onFilterSelected = { selectedFilter = it },
+                filters = listOf(
+                    null to "All",
+                    DownloadStatus.DOWNLOADING to "Downloading",
+                    DownloadStatus.QUEUED to "Queued",
+                    DownloadStatus.FINISHED to "Finished"
+                )
+            )
+
+            // Downloads List
+            LazyColumn(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                items(filteredPackages) { downloadPackage ->
+                    DownloadPackageCard(
+                        downloadPackage = downloadPackage,
+                        isSelected = false,
+                        onSelect = { },
+                        onStart = {
+                            connectionState?.let { connection ->
+                                activeAccount?.let { account ->
+                                    downloadsViewModel.startDownloads(
+                                        connection.sessionToken,
+                                        account.deviceId,
+                                        packageIds = listOf(downloadPackage.uuid)
+                                    )
                                 }
                             }
-                        )
-                    }
+                        },
+                        onStop = {
+                            connectionState?.let { connection ->
+                                activeAccount?.let { account ->
+                                    downloadsViewModel.stopDownloads(
+                                        connection.sessionToken,
+                                        account.deviceId,
+                                        packageIds = listOf(downloadPackage.uuid)
+                                    )
+                                }
+                            }
+                        },
+                        onRemove = {
+                            connectionState?.let { connection ->
+                                activeAccount?.let { account ->
+                                    downloadsViewModel.removeDownloads(
+                                        connection.sessionToken,
+                                        account.deviceId,
+                                        packageIds = listOf(downloadPackage.uuid)
+                                    )
+                                }
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -149,20 +190,7 @@ fun DownloadsScreen(
                         ) {
                             Text("Add Links Manually")
                         }
-                        TextButton(
-                            onClick = {
-                                showAddOptionsDialog = false
-                                coroutineScope.launch {
-                                    val qrResult = QRScannerManager(context).scanQRCode()
-                                    if (qrResult != null) {
-                                        processScannedUrl(qrResult, downloadsViewModel, connectionState, activeAccount)
-                                    }
-                                }
-                            },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text("Scan QR Code")
-                        }
+
                     }
                 },
                 confirmButton = {
@@ -177,16 +205,19 @@ fun DownloadsScreen(
         if (showAddLinksDialog) {
             AddLinksDialog(
                 onDismiss = { showAddLinksDialog = false },
-                onLinksAdded = { links ->
+                onAddLinks = { links, packageName, destinationFolder, extractAfterDownload, autoStart ->
                     connectionState?.let { connection ->
                         activeAccount?.let { account ->
-                            downloadsViewModel.addLinks(links, connection.sessionToken, account.deviceId)
+                            downloadsViewModel.addLinks(
+                                sessionToken = connection.sessionToken,
+                                deviceId = account.deviceId,
+                                links = links,
+                                packageName = packageName,
+                                destinationFolder = destinationFolder,
+                                extractAfterDownload = extractAfterDownload,
+                                autoStart = autoStart
+                            )
                         }
-                    }
-                    showAddLinksDialog = false
-                }
-            )
-        }
                     }
                     showAddLinksDialog = false
                 }
@@ -299,21 +330,7 @@ private fun FilterChipsRow(
     }
 }
 
-private fun processScannedUrl(
-    url: String,
-    downloadsViewModel: DownloadsViewModel,
-    connectionState: com.shareconnect.jdownloaderconnect.domain.model.ConnectionState?,
-    activeAccount: com.shareconnect.jdownloaderconnect.data.model.JDownloaderAccount?
-) {
-    if (isValidUrl(url)) {
-        // Add the scanned URL directly to downloads
-        connectionState?.let { connection ->
-            activeAccount?.let { account ->
-                downloadsViewModel.addLinks(listOf(url), connection.sessionToken, account.deviceId)
-            }
-        }
-    }
-}
+
 
 private fun isValidUrl(url: String?): Boolean {
     if (url == null) return false

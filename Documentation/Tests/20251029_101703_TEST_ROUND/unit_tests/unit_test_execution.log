@@ -1,0 +1,1035 @@
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Dependencies:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :Dependencies:preBuild UP-TO-DATE
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Dependencies:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :Tests:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig FROM-CACHE
+> Task :ProfileSync:generateDebugBuildConfig FROM-CACHE
+> Task :Onboarding:generateDebugBuildConfig FROM-CACHE
+> Task :LanguageSync:generateDebugBuildConfig FROM-CACHE
+> Task :Toolkit:Analytics:writeDebugAarMetadata
+> Task :Tests:writeDebugAarMetadata
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preDebugBuild UP-TO-DATE
+> Task :Toolkit:QRScanner:preBuild UP-TO-DATE
+> Task :Toolkit:QRScanner:preDebugBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:writeDebugAarMetadata
+> Task :Toolkit:Main:writeDebugAarMetadata
+> Task :Toolkit:QRScanner:writeDebugAarMetadata
+> Task :Onboarding:generateDebugResValues FROM-CACHE
+> Task :ProfileSync:generateDebugResValues FROM-CACHE
+> Task :RSSSync:generateDebugBuildConfig FROM-CACHE
+> Task :Tests:generateDebugResValues FROM-CACHE
+> Task :HistorySync:generateDebugBuildConfig FROM-CACHE
+> Task :LanguageSync:generateDebugResValues FROM-CACHE
+> Task :ThemeSync:generateDebugResValues FROM-CACHE
+> Task :BookmarkSync:generateDebugBuildConfig FROM-CACHE
+> Task :ShareConnector:generateDebugResValues FROM-CACHE
+> Task :Asinka:asinka:generateDebugBuildConfig FROM-CACHE
+> Task :TorrentSharingSync:generateDebugResValues FROM-CACHE
+> Task :Onboarding:generateDebugResources FROM-CACHE
+> Task :Localizations:generateDebugResValues FROM-CACHE
+> Task :RSSSync:generateDebugResValues FROM-CACHE
+> Task :HistorySync:generateDebugResValues FROM-CACHE
+> Task :Tests:generateDebugResources FROM-CACHE
+> Task :ProfileSync:generateDebugResources FROM-CACHE
+> Task :Dependencies:generateDebugBuildConfig FROM-CACHE
+> Task :PreferencesSync:generateDebugBuildConfig FROM-CACHE
+> Task :DesignSystem:generateDebugBuildConfig FROM-CACHE
+> Task :ThemeSync:generateDebugResources FROM-CACHE
+> Task :BookmarkSync:generateDebugResValues FROM-CACHE
+> Task :Dependencies:generateDebugResValues FROM-CACHE
+> Task :LanguageSync:generateDebugResources FROM-CACHE
+> Task :Asinka:asinka:extractDebugProto
+> Task :Localizations:generateDebugResources FROM-CACHE
+> Task :TorrentSharingSync:generateDebugResources FROM-CACHE
+> Task :RSSSync:generateDebugResources FROM-CACHE
+> Task :PreferencesSync:generateDebugResValues FROM-CACHE
+> Task :DesignSystem:generateDebugResValues FROM-CACHE
+> Task :BookmarkSync:generateDebugResources FROM-CACHE
+> Task :HistorySync:generateDebugResources FROM-CACHE
+> Task :Asinka:asinka:extractProto
+> Task :Dependencies:generateDebugResources FROM-CACHE
+> Task :Toolkit:JCommons:compileJava FROM-CACHE
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes UP-TO-DATE
+> Task :ProfileSync:packageDebugResources FROM-CACHE
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug
+> Task :Onboarding:packageDebugResources FROM-CACHE
+> Task :DesignSystem:generateDebugResources FROM-CACHE
+> Task :PreferencesSync:generateDebugResources FROM-CACHE
+> Task :Dependencies:javaPreCompileDebug FROM-CACHE
+> Task :Asinka:asinka:generateDebugResValues FROM-CACHE
+> Task :Toolkit:JCommons:jar
+> Task :ProfileSync:parseDebugLocalResources FROM-CACHE
+> Task :Onboarding:parseDebugLocalResources FROM-CACHE
+> Task :Asinka:asinka:generateDebugResources FROM-CACHE
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug FROM-CACHE
+> Task :HistorySync:javaPreCompileDebug FROM-CACHE
+> Task :BookmarkSync:javaPreCompileDebug FROM-CACHE
+> Task :PreferencesSync:javaPreCompileDebug FROM-CACHE
+> Task :ThemeSync:packageDebugResources FROM-CACHE
+> Task :RSSSync:packageDebugResources FROM-CACHE
+> Task :TorrentSharingSync:packageDebugResources FROM-CACHE
+> Task :BookmarkSync:writeDebugAarMetadata
+> Task :ProfileSync:generateDebugRFile FROM-CACHE
+> Task :LanguageSync:packageDebugResources FROM-CACHE
+> Task :Asinka:asinka:javaPreCompileDebug FROM-CACHE
+> Task :Dependencies:packageDebugResources FROM-CACHE
+> Task :HistorySync:writeDebugAarMetadata
+> Task :ThemeSync:parseDebugLocalResources FROM-CACHE
+> Task :Toolkit:Analytics:generateDebugResValues FROM-CACHE
+> Task :Toolkit:Main:generateDebugResValues FROM-CACHE
+> Task :RSSSync:parseDebugLocalResources FROM-CACHE
+> Task :LanguageSync:parseDebugLocalResources FROM-CACHE
+> Task :Onboarding:generateDebugRFile FROM-CACHE
+> Task :ShareConnector:processDebugGoogleServices FROM-CACHE
+> Task :Toolkit:Analytics:generateDebugResources FROM-CACHE
+> Task :Toolkit:Main:generateDebugResources FROM-CACHE
+> Task :Dependencies:parseDebugLocalResources FROM-CACHE
+> Task :Onboarding:javaPreCompileDebug FROM-CACHE
+> Task :ProfileSync:javaPreCompileDebug FROM-CACHE
+> Task :DesignSystem:packageDebugResources FROM-CACHE
+> Task :RSSSync:generateDebugRFile FROM-CACHE
+> Task :Toolkit:QRScanner:generateDebugResValues FROM-CACHE
+> Task :BookmarkSync:packageDebugResources FROM-CACHE
+> Task :LanguageSync:generateDebugRFile FROM-CACHE
+> Task :Tests:packageDebugResources FROM-CACHE
+> Task :Toolkit:SecurityAccess:generateDebugResValues FROM-CACHE
+> Task :ThemeSync:generateDebugRFile FROM-CACHE
+> Task :Asinka:asinka:packageDebugResources FROM-CACHE
+> Task :HistorySync:packageDebugResources FROM-CACHE
+> Task :PreferencesSync:packageDebugResources FROM-CACHE
+> Task :Onboarding:writeDebugAarMetadata
+> Task :ProfileSync:writeDebugAarMetadata
+> Task :Toolkit:QRScanner:generateDebugResources FROM-CACHE
+> Task :DesignSystem:parseDebugLocalResources FROM-CACHE
+> Task :Dependencies:generateDebugRFile FROM-CACHE
+> Task :PreferencesSync:parseDebugLocalResources FROM-CACHE
+> Task :BookmarkSync:parseDebugLocalResources FROM-CACHE
+> Task :ThemeSync:javaPreCompileDebug FROM-CACHE
+> Task :Toolkit:SecurityAccess:generateDebugResources FROM-CACHE
+> Task :RSSSync:javaPreCompileDebug FROM-CACHE
+> Task :LanguageSync:javaPreCompileDebug FROM-CACHE
+> Task :HistorySync:parseDebugLocalResources FROM-CACHE
+> Task :Onboarding:compileDebugLibraryResources FROM-CACHE
+> Task :Dependencies:compileDebugKotlin NO-SOURCE
+> Task :ProfileSync:compileDebugLibraryResources FROM-CACHE
+> Task :Asinka:asinka:parseDebugLocalResources FROM-CACHE
+> Task :LanguageSync:compileDebugLibraryResources FROM-CACHE
+> Task :ShareConnector:generateDebugResources FROM-CACHE
+> Task :RSSSync:writeDebugAarMetadata
+> Task :ThemeSync:writeDebugAarMetadata
+> Task :Onboarding:extractDeepLinksDebug FROM-CACHE
+> Task :HistorySync:generateDebugRFile FROM-CACHE
+> Task :RSSSync:compileDebugLibraryResources FROM-CACHE
+> Task :LanguageSync:writeDebugAarMetadata
+> Task :BookmarkSync:generateDebugRFile FROM-CACHE
+> Task :ProfileSync:extractDeepLinksDebug FROM-CACHE
+> Task :RSSSync:extractDeepLinksDebug FROM-CACHE
+> Task :LanguageSync:extractDeepLinksDebug FROM-CACHE
+> Task :Asinka:asinka:generateDebugRFile FROM-CACHE
+> Task :PreferencesSync:generateDebugRFile FROM-CACHE
+> Task :ProfileSync:processDebugManifest FROM-CACHE
+> Task :PreferencesSync:writeDebugAarMetadata
+> Task :Asinka:asinka:writeDebugAarMetadata
+> Task :DesignSystem:generateDebugRFile FROM-CACHE
+> Task :Toolkit:Analytics:packageDebugResources FROM-CACHE
+> Task :BookmarkSync:compileDebugLibraryResources FROM-CACHE
+> Task :Onboarding:processDebugManifest FROM-CACHE
+> Task :Toolkit:SecurityAccess:packageDebugResources FROM-CACHE
+> Task :HistorySync:compileDebugLibraryResources FROM-CACHE
+> Task :Tests:extractDeepLinksDebug FROM-CACHE
+> Task :PreferencesSync:extractDeepLinksDebug FROM-CACHE
+> Task :TorrentSharingSync:extractDeepLinksDebug FROM-CACHE
+> Task :Asinka:asinka:extractDeepLinksDebug FROM-CACHE
+> Task :PreferencesSync:compileDebugLibraryResources FROM-CACHE
+> Task :ThemeSync:extractDeepLinksDebug FROM-CACHE
+> Task :Toolkit:Analytics:extractDeepLinksDebug FROM-CACHE
+> Task :Toolkit:QRScanner:packageDebugResources FROM-CACHE
+> Task :BookmarkSync:extractDeepLinksDebug FROM-CACHE
+> Task :DesignSystem:javaPreCompileDebug FROM-CACHE
+> Task :DesignSystem:compileDebugLibraryResources FROM-CACHE
+> Task :RSSSync:processDebugManifest FROM-CACHE
+> Task :HistorySync:extractDeepLinksDebug FROM-CACHE
+> Task :LanguageSync:processDebugManifest FROM-CACHE
+> Task :Toolkit:Main:packageDebugResources FROM-CACHE
+> Task :Toolkit:Analytics:processDebugManifest FROM-CACHE
+> Task :DesignSystem:writeDebugAarMetadata
+> Task :Toolkit:QRScanner:extractDeepLinksDebug FROM-CACHE
+> Task :Toolkit:SecurityAccess:extractDeepLinksDebug FROM-CACHE
+> Task :TorrentSharingSync:processDebugManifest FROM-CACHE
+> Task :Toolkit:Main:extractDeepLinksDebug FROM-CACHE
+> Task :TorrentSharingSync:compileDebugLibraryResources FROM-CACHE
+> Task :Asinka:asinka:processDebugManifest FROM-CACHE
+> Task :DesignSystem:extractDeepLinksDebug FROM-CACHE
+> Task :Toolkit:QRScanner:processDebugManifest FROM-CACHE
+> Task :Toolkit:Analytics:compileDebugLibraryResources FROM-CACHE
+> Task :PreferencesSync:processDebugManifest FROM-CACHE
+> Task :Tests:processDebugManifest FROM-CACHE
+> Task :LanguageSync:mergeDebugShaders
+> Task :Asinka:asinka:compileDebugLibraryResources FROM-CACHE
+> Task :TorrentSharingSync:parseDebugLocalResources FROM-CACHE
+> Task :LanguageSync:compileDebugShaders NO-SOURCE
+> Task :LanguageSync:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:processDebugManifest FROM-CACHE
+> Task :Toolkit:QRScanner:compileDebugLibraryResources FROM-CACHE
+> Task :BookmarkSync:processDebugManifest FROM-CACHE
+> Task :Tests:compileDebugLibraryResources FROM-CACHE
+> Task :Toolkit:Analytics:parseDebugLocalResources FROM-CACHE
+> Task :Localizations:packageDebugResources FROM-CACHE
+> Task :LanguageSync:mergeDebugAssets
+> Task :Toolkit:SecurityAccess:processDebugManifest FROM-CACHE
+> Task :ThemeSync:processDebugManifest FROM-CACHE
+> Task :Toolkit:QRScanner:parseDebugLocalResources FROM-CACHE
+> Task :BookmarkSync:mergeDebugShaders
+> Task :Tests:parseDebugLocalResources FROM-CACHE
+> Task :ThemeSync:compileDebugLibraryResources FROM-CACHE
+> Task :BookmarkSync:compileDebugShaders NO-SOURCE
+> Task :BookmarkSync:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:mergeDebugShaders
+> Task :HistorySync:mergeDebugShaders
+> Task :PreferencesSync:mergeDebugShaders
+> Task :Toolkit:Main:processDebugManifest FROM-CACHE
+> Task :TorrentSharingSync:generateDebugRFile FROM-CACHE
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:compileDebugShaders NO-SOURCE
+> Task :Onboarding:compileDebugShaders NO-SOURCE
+> Task :Onboarding:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugLibraryResources FROM-CACHE
+> Task :DesignSystem:processDebugManifest FROM-CACHE
+> Task :BookmarkSync:mergeDebugAssets
+> Task :ProfileSync:mergeDebugShaders
+> Task :RSSSync:mergeDebugShaders
+> Task :Localizations:parseDebugLocalResources FROM-CACHE
+> Task :TorrentSharingSync:generateDebugBuildConfig FROM-CACHE
+> Task :ProfileSync:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateDebugRFile FROM-CACHE
+> Task :RSSSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:mergeDebugAssets
+> Task :RSSSync:generateDebugAssets UP-TO-DATE
+> Task :ProfileSync:generateDebugAssets UP-TO-DATE
+> Task :Tests:generateDebugRFile FROM-CACHE
+> Task :Toolkit:SecurityAccess:parseDebugLocalResources FROM-CACHE
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:QRScanner:generateDebugRFile FROM-CACHE
+> Task :Toolkit:Main:compileDebugLibraryResources FROM-CACHE
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:QRScanner:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:mergeDebugAssets
+> Task :BookmarkSync:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:mergeDebugShaders
+> Task :HistorySync:mergeDebugAssets
+> Task :Toolkit:Main:parseDebugLocalResources FROM-CACHE
+> Task :HistorySync:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Analytics:javaPreCompileDebug FROM-CACHE
+> Task :DesignSystem:compileDebugShaders NO-SOURCE
+> Task :Localizations:generateDebugRFile FROM-CACHE
+> Task :ProfileSync:mergeDebugAssets
+> Task :Tests:javaPreCompileDebug FROM-CACHE
+> Task :DesignSystem:generateDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:javaPreCompileDebug FROM-CACHE
+> Task :LanguageSync:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugShaders
+> Task :ThemeSync:mergeDebugShaders
+> Task :RSSSync:mergeDebugAssets
+> Task :Asinka:asinka:compileDebugShaders NO-SOURCE
+> Task :Asinka:asinka:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:compileDebugShaders NO-SOURCE
+> Task :Localizations:javaPreCompileDebug FROM-CACHE
+> Task :ThemeSync:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugRFile FROM-CACHE
+> Task :Toolkit:SecurityAccess:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Analytics:mergeDebugShaders
+> Task :HistorySync:generateReleaseBuildConfig FROM-CACHE
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateDebugAssets UP-TO-DATE
+> Task :DesignSystem:mergeDebugAssets
+> Task :DesignSystem:preReleaseBuild UP-TO-DATE
+> Task :LanguageSync:generateReleaseBuildConfig FROM-CACHE
+> Task :Onboarding:generateReleaseBuildConfig FROM-CACHE
+> Task :BookmarkSync:generateReleaseBuildConfig FROM-CACHE
+> Task :Toolkit:Main:generateDebugRFile FROM-CACHE
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:preReleaseBuild UP-TO-DATE
+> Task :HistorySync:generateReleaseResValues FROM-CACHE
+> Task :BookmarkSync:generateReleaseResValues FROM-CACHE
+> Task :Tests:mergeDebugShaders
+> Task :Tests:compileDebugShaders NO-SOURCE
+> Task :Tests:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:generateReleaseResValues FROM-CACHE
+> Task :DesignSystem:generateReleaseBuildConfig FROM-CACHE
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :LanguageSync:generateReleaseResValues FROM-CACHE
+> Task :ThemeSync:mergeDebugAssets
+> Task :ThemeSync:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugBuildConfig FROM-CACHE
+> Task :Toolkit:Analytics:mergeDebugAssets
+> Task :Toolkit:Main:generateReleaseResValues FROM-CACHE
+> Task :DesignSystem:generateReleaseResValues FROM-CACHE
+> Task :BookmarkSync:generateReleaseResources FROM-CACHE
+> Task :LanguageSync:generateReleaseResources FROM-CACHE
+> Task :HistorySync:generateReleaseResources FROM-CACHE
+> Task :Localizations:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:preReleaseBuild UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugAssets
+> Task :Asinka:asinka:preReleaseBuild UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugShaders
+> Task :ThemeSync:generateReleaseBuildConfig FROM-CACHE
+> Task :TorrentSharingSync:compileDebugShaders NO-SOURCE
+> Task :Onboarding:generateReleaseResources FROM-CACHE
+> Task :TorrentSharingSync:generateDebugAssets UP-TO-DATE
+> Task :DesignSystem:generateReleaseResources FROM-CACHE
+> Task :Toolkit:Main:generateReleaseResources FROM-CACHE
+> Task :Tests:mergeDebugAssets
+> Task :ProfileSync:generateReleaseBuildConfig FROM-CACHE
+> Task :Localizations:bundleLibCompileToJarDebug
+> Task :PreferencesSync:preReleaseBuild UP-TO-DATE
+> Task :ThemeSync:generateReleaseResValues FROM-CACHE
+> Task :Localizations:compileDebugLibraryResources FROM-CACHE
+> Task :Asinka:asinka:generateReleaseBuildConfig FROM-CACHE
+> Task :BookmarkSync:packageReleaseResources FROM-CACHE
+> Task :ProfileSync:generateReleaseResValues FROM-CACHE
+> Task :PreferencesSync:generateReleaseBuildConfig FROM-CACHE
+> Task :HistorySync:packageReleaseResources FROM-CACHE
+> Task :ThemeSync:generateReleaseResources FROM-CACHE
+> Task :LanguageSync:packageReleaseResources FROM-CACHE
+> Task :TorrentSharingSync:mergeDebugAssets
+> Task :Asinka:asinka:extractReleaseProto
+> Task :HistorySync:parseReleaseLocalResources FROM-CACHE
+> Task :Asinka:asinka:generateReleaseResValues FROM-CACHE
+> Task :BookmarkSync:parseReleaseLocalResources FROM-CACHE
+> Task :PreferencesSync:generateReleaseResValues FROM-CACHE
+> Task :ProfileSync:generateReleaseResources FROM-CACHE
+> Task :Localizations:extractDeepLinksDebug FROM-CACHE
+> Task :Localizations:writeDebugAarMetadata
+> Task :Asinka:asinka:generateReleaseResources FROM-CACHE
+> Task :RSSSync:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:javaPreCompileDebug FROM-CACHE
+> Task :PreferencesSync:generateReleaseResources FROM-CACHE
+> Task :LanguageSync:parseReleaseLocalResources FROM-CACHE
+> Task :HistorySync:generateReleaseRFile FROM-CACHE
+> Task :Localizations:processDebugManifest FROM-CACHE
+> Task :BookmarkSync:generateReleaseRFile FROM-CACHE
+> Task :RSSSync:generateReleaseBuildConfig FROM-CACHE
+> Task :RSSSync:generateReleaseResValues FROM-CACHE
+> Task :ThemeSync:packageReleaseResources FROM-CACHE
+> Task :LanguageSync:generateReleaseRFile FROM-CACHE
+> Task :Toolkit:Main:packageReleaseResources FROM-CACHE
+> Task :BookmarkSync:javaPreCompileRelease FROM-CACHE
+> Task :HistorySync:javaPreCompileRelease FROM-CACHE
+> Task :DesignSystem:packageReleaseResources FROM-CACHE
+> Task :ThemeSync:parseReleaseLocalResources FROM-CACHE
+> Task :Asinka:asinka:packageReleaseResources FROM-CACHE
+> Task :ProfileSync:packageReleaseResources FROM-CACHE
+> Task :Onboarding:packageReleaseResources FROM-CACHE
+> Task :DesignSystem:parseReleaseLocalResources FROM-CACHE
+> Task :HistorySync:compileReleaseLibraryResources FROM-CACHE
+> Task :RSSSync:generateReleaseResources FROM-CACHE
+> Task :Toolkit:Main:parseReleaseLocalResources FROM-CACHE
+> Task :Asinka:asinka:parseReleaseLocalResources FROM-CACHE
+> Task :PreferencesSync:packageReleaseResources FROM-CACHE
+> Task :LanguageSync:javaPreCompileRelease FROM-CACHE
+> Task :BookmarkSync:compileReleaseLibraryResources FROM-CACHE
+> Task :Onboarding:parseReleaseLocalResources FROM-CACHE
+> Task :ProfileSync:parseReleaseLocalResources FROM-CACHE
+> Task :PreferencesSync:parseReleaseLocalResources FROM-CACHE
+> Task :Asinka:asinka:generateReleaseRFile FROM-CACHE
+> Task :LanguageSync:compileReleaseLibraryResources FROM-CACHE
+> Task :ThemeSync:generateReleaseRFile FROM-CACHE
+> Task :Onboarding:generateReleaseRFile FROM-CACHE
+> Task :DesignSystem:generateReleaseRFile FROM-CACHE
+> Task :Toolkit:Main:generateReleaseRFile FROM-CACHE
+> Task :Asinka:asinka:javaPreCompileRelease FROM-CACHE
+> Task :ProfileSync:generateReleaseRFile FROM-CACHE
+> Task :Tests:preReleaseBuild UP-TO-DATE
+> Task :RSSSync:packageReleaseResources FROM-CACHE
+> Task :BookmarkSync:writeReleaseAarMetadata
+> Task :DesignSystem:javaPreCompileRelease FROM-CACHE
+> Task :TorrentSharingSync:preReleaseBuild UP-TO-DATE
+> Task :Localizations:mergeDebugShaders
+> Task :Toolkit:SecurityAccess:mergeDebugShaders
+> Task :Localizations:compileDebugShaders NO-SOURCE
+> Task :Localizations:generateDebugAssets UP-TO-DATE
+> Task :ThemeSync:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:SecurityAccess:compileDebugShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:writeReleaseAarMetadata
+> Task :DesignSystem:compileReleaseLibraryResources FROM-CACHE
+> Task :RSSSync:parseReleaseLocalResources FROM-CACHE
+> Task :Toolkit:Main:javaPreCompileDebug FROM-CACHE
+> Task :Onboarding:javaPreCompileRelease FROM-CACHE
+> Task :PreferencesSync:generateReleaseRFile FROM-CACHE
+> Task :ProfileSync:javaPreCompileRelease FROM-CACHE
+> Task :Tests:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:preReleaseBuild UP-TO-DATE
+> Task :TorrentSharingSync:writeReleaseAarMetadata
+> Task :LanguageSync:writeReleaseAarMetadata
+> Task :Onboarding:compileReleaseLibraryResources FROM-CACHE
+> Task :ProfileSync:compileReleaseLibraryResources FROM-CACHE
+> Task :TorrentSharingSync:generateReleaseResValues FROM-CACHE
+> Task :Tests:generateReleaseResValues FROM-CACHE
+> Task :RSSSync:generateReleaseRFile FROM-CACHE
+> Task :PreferencesSync:javaPreCompileRelease FROM-CACHE
+> Task :ThemeSync:writeReleaseAarMetadata
+> Task :Toolkit:Analytics:writeReleaseAarMetadata
+> Task :Asinka:asinka:writeReleaseAarMetadata
+> Task :Localizations:mergeDebugAssets
+> Task :Toolkit:Analytics:generateReleaseResValues FROM-CACHE
+> Task :PreferencesSync:compileReleaseLibraryResources FROM-CACHE
+> Task :Localizations:preReleaseBuild UP-TO-DATE
+> Task :ProfileSync:writeReleaseAarMetadata
+> Task :Toolkit:SecurityAccess:mergeDebugAssets
+> Task :TorrentSharingSync:generateReleaseResources FROM-CACHE
+> Task :Onboarding:writeReleaseAarMetadata
+> Task :DesignSystem:writeReleaseAarMetadata
+> Task :Toolkit:SecurityAccess:preReleaseBuild UP-TO-DATE
+> Task :DesignSystem:extractDeepLinksRelease FROM-CACHE
+> Task :Tests:generateReleaseResources FROM-CACHE
+> Task :BookmarkSync:extractDeepLinksRelease FROM-CACHE
+> Task :RSSSync:javaPreCompileRelease FROM-CACHE
+> Task :HistorySync:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:Analytics:generateReleaseResources FROM-CACHE
+> Task :Localizations:generateReleaseResValues FROM-CACHE
+> Task :Onboarding:extractDeepLinksRelease FROM-CACHE
+> Task :Dependencies:compileDebugJavaWithJavac FROM-CACHE
+> Task :LanguageSync:extractDeepLinksRelease FROM-CACHE
+> Task :RSSSync:compileReleaseLibraryResources FROM-CACHE
+> Task :Toolkit:SecurityAccess:writeReleaseAarMetadata
+> Task :Localizations:generateReleaseResources FROM-CACHE
+> Task :TorrentSharingSync:packageReleaseResources FROM-CACHE
+> Task :Toolkit:Main:mergeDebugShaders
+> Task :Toolkit:SecurityAccess:generateReleaseResValues FROM-CACHE
+> Task :Toolkit:Main:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Main:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:writeReleaseAarMetadata
+> Task :Onboarding:processReleaseManifest FROM-CACHE
+> Task :HistorySync:processReleaseManifest FROM-CACHE
+> Task :RSSSync:writeReleaseAarMetadata
+> Task :ShareConnector:packageDebugResources FROM-CACHE
+> Task :BookmarkSync:processReleaseManifest FROM-CACHE
+> Task :ProfileSync:extractDeepLinksRelease FROM-CACHE
+> Task :PreferencesSync:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:SecurityAccess:generateReleaseResources FROM-CACHE
+> Task :LanguageSync:processReleaseManifest FROM-CACHE
+> Task :DesignSystem:processReleaseManifest FROM-CACHE
+> Task :ThemeSync:extractDeepLinksRelease FROM-CACHE
+> Task :RSSSync:extractDeepLinksRelease FROM-CACHE
+> Task :Tests:packageReleaseResources FROM-CACHE
+> Task :Dependencies:processDebugJavaRes NO-SOURCE
+> Task :Dependencies:bundleLibCompileToJarDebug
+> Task :TorrentSharingSync:extractDeepLinksRelease FROM-CACHE
+> Task :Dependencies:bundleLibRuntimeToJarDebug
+> Task :Asinka:asinka:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:Main:mergeDebugAssets
+> Task :Tests:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:SecurityAccess:packageReleaseResources FROM-CACHE
+> Task :Toolkit:Analytics:packageReleaseResources FROM-CACHE
+> Task :ThemeSync:processReleaseManifest FROM-CACHE
+> Task :ProfileSync:processReleaseManifest FROM-CACHE
+> Task :Dependencies:compileDebugLibraryResources FROM-CACHE
+> Task :Toolkit:Analytics:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:Main:writeReleaseAarMetadata
+> Task :ThemeSync:compileReleaseLibraryResources FROM-CACHE
+> Task :RSSSync:processReleaseManifest FROM-CACHE
+> Task :Toolkit:SecurityAccess:extractDeepLinksRelease FROM-CACHE
+> Task :BookmarkSync:mergeReleaseShaders
+> Task :BookmarkSync:compileReleaseShaders NO-SOURCE
+> Task :BookmarkSync:generateReleaseAssets UP-TO-DATE
+> Task :HistorySync:mergeReleaseShaders
+> Task :DesignSystem:mergeReleaseShaders
+> Task :HistorySync:compileReleaseShaders NO-SOURCE
+> Task :HistorySync:generateReleaseAssets UP-TO-DATE
+> Task :DesignSystem:compileReleaseShaders NO-SOURCE
+> Task :DesignSystem:generateReleaseAssets UP-TO-DATE
+> Task :PreferencesSync:processReleaseManifest FROM-CACHE
+> Task :TorrentSharingSync:processReleaseManifest FROM-CACHE
+> Task :Asinka:asinka:processReleaseManifest FROM-CACHE
+> Task :Toolkit:Main:extractDeepLinksRelease FROM-CACHE
+> Task :TorrentSharingSync:compileReleaseLibraryResources FROM-CACHE
+> Task :LanguageSync:mergeReleaseShaders
+> Task :Tests:processReleaseManifest FROM-CACHE
+> Task :Asinka:asinka:compileReleaseLibraryResources FROM-CACHE
+> Task :LanguageSync:compileReleaseShaders NO-SOURCE
+> Task :BookmarkSync:mergeReleaseAssets
+> Task :LanguageSync:generateReleaseAssets UP-TO-DATE
+> Task :Onboarding:mergeReleaseShaders
+> Task :Onboarding:compileReleaseShaders NO-SOURCE
+> Task :Onboarding:generateReleaseAssets UP-TO-DATE
+> Task :Tests:compileReleaseLibraryResources FROM-CACHE
+> Task :DesignSystem:mergeReleaseAssets
+> Task :HistorySync:mergeReleaseAssets
+> Task :Dependencies:createFullJarDebug
+> Task :PreferencesSync:mergeReleaseShaders
+> Task :TorrentSharingSync:parseReleaseLocalResources FROM-CACHE
+> Task :PreferencesSync:compileReleaseShaders NO-SOURCE
+> Task :Tests:parseReleaseLocalResources FROM-CACHE
+> Task :PreferencesSync:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:processReleaseManifest FROM-CACHE
+> Task :LanguageSync:mergeReleaseAssets
+> Task :ThemeSync:mergeReleaseShaders
+> Task :Dependencies:writeDebugAarMetadata
+> Task :Toolkit:Analytics:processReleaseManifest FROM-CACHE
+> Task :ThemeSync:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:compileReleaseLibraryResources FROM-CACHE
+> Task :ThemeSync:generateReleaseAssets UP-TO-DATE
+> Task :ProfileSync:mergeReleaseShaders
+> Task :RSSSync:mergeReleaseShaders
+> Task :Onboarding:mergeReleaseAssets
+> Task :ProfileSync:compileReleaseShaders NO-SOURCE
+> Task :RSSSync:compileReleaseShaders NO-SOURCE
+> Task :PreferencesSync:mergeReleaseAssets
+> Task :RSSSync:generateReleaseAssets UP-TO-DATE
+> Task :ProfileSync:generateReleaseAssets UP-TO-DATE
+> Task :Dependencies:extractDeepLinksDebug FROM-CACHE
+> Task :Toolkit:Analytics:compileReleaseLibraryResources FROM-CACHE
+> Task :TorrentSharingSync:generateReleaseRFile FROM-CACHE
+> Task :Toolkit:SecurityAccess:parseReleaseLocalResources FROM-CACHE
+> Task :Toolkit:Main:processReleaseManifest FROM-CACHE
+> Task :Toolkit:Analytics:parseReleaseLocalResources FROM-CACHE
+> Task :Tests:generateReleaseRFile FROM-CACHE
+> Task :ProfileSync:mergeReleaseAssets
+> Task :TorrentSharingSync:generateReleaseBuildConfig FROM-CACHE
+> Task :ThemeSync:mergeReleaseAssets
+> Task :RSSSync:mergeReleaseAssets
+> Task :Tests:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:SecurityAccess:generateReleaseRFile FROM-CACHE
+> Task :Dependencies:processDebugManifest FROM-CACHE
+> Task :Dependencies:preReleaseBuild UP-TO-DATE
+> Task :Toolkit:Main:compileReleaseLibraryResources FROM-CACHE
+> Task :Dependencies:generateReleaseBuildConfig FROM-CACHE
+> Task :TorrentSharingSync:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:Main:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:Analytics:generateReleaseRFile FROM-CACHE
+> Task :Dependencies:generateReleaseResValues FROM-CACHE
+> Task :Toolkit:SecurityAccess:generateReleaseBuildConfig FROM-CACHE
+> Task :Tests:mergeReleaseShaders
+> Task :Tests:compileReleaseShaders NO-SOURCE
+> Task :Tests:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:Analytics:javaPreCompileRelease FROM-CACHE
+> Task :Dependencies:generateReleaseResources FROM-CACHE
+> Task :TorrentSharingSync:mergeReleaseShaders
+> Task :TorrentSharingSync:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Main:mergeReleaseShaders
+> Task :TorrentSharingSync:generateReleaseAssets UP-TO-DATE
+> Task :Localizations:packageReleaseResources FROM-CACHE
+> Task :Toolkit:SecurityAccess:javaPreCompileRelease FROM-CACHE
+> Task :Tests:mergeReleaseAssets
+> Task :Toolkit:Main:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Main:generateReleaseAssets UP-TO-DATE
+> Task :Localizations:parseReleaseLocalResources FROM-CACHE
+> Task :TorrentSharingSync:mergeReleaseAssets
+> Task :Toolkit:Analytics:mergeReleaseShaders
+> Task :Toolkit:SecurityAccess:mergeReleaseShaders
+> Task :Toolkit:Analytics:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:generateReleaseAssets UP-TO-DATE
+> Task :Localizations:generateReleaseRFile FROM-CACHE
+> Task :Localizations:javaPreCompileRelease FROM-CACHE
+> Task :Dependencies:packageReleaseResources FROM-CACHE
+> Task :Localizations:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:SecurityAccess:mergeReleaseAssets
+> Task :Toolkit:Main:mergeReleaseAssets
+> Task :Toolkit:QRScanner:compileDebugKotlin FROM-CACHE
+> Task :Toolkit:Analytics:mergeReleaseAssets
+> Task :Dependencies:parseReleaseLocalResources FROM-CACHE
+> Task :Toolkit:QRScanner:javaPreCompileDebug FROM-CACHE
+> Task :Localizations:processReleaseJavaRes NO-SOURCE
+> Task :Toolkit:QRScanner:compileDebugJavaWithJavac NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToJarRelease
+> Task :Dependencies:generateReleaseRFile FROM-CACHE
+> Task :Localizations:compileReleaseLibraryResources FROM-CACHE
+> Task :Localizations:bundleLibCompileToJarRelease
+> Task :Dependencies:compileReleaseKotlin NO-SOURCE
+> Task :Localizations:writeReleaseAarMetadata
+> Task :Localizations:extractDeepLinksRelease FROM-CACHE
+> Task :Dependencies:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:QRScanner:mergeDebugShaders
+> Task :Toolkit:QRScanner:bundleLibCompileToJarDebug
+> Task :Toolkit:QRScanner:compileDebugShaders NO-SOURCE
+> Task :Toolkit:QRScanner:generateDebugAssets UP-TO-DATE
+> Task :Localizations:processReleaseManifest FROM-CACHE
+> Task :Toolkit:QRScanner:mergeDebugAssets
+> Task :Localizations:mergeReleaseShaders
+> Task :Localizations:compileReleaseShaders NO-SOURCE
+> Task :Localizations:generateReleaseAssets UP-TO-DATE
+> Task :Toolkit:QRScanner:bundleLibRuntimeToJarDebug
+> Task :Toolkit:QRScanner:processDebugJavaRes
+> Task :Toolkit:QRScanner:preReleaseBuild UP-TO-DATE
+> Task :Localizations:mergeReleaseAssets
+> Task :Toolkit:QRScanner:writeReleaseAarMetadata
+> Task :Toolkit:QRScanner:generateReleaseResValues FROM-CACHE
+> Task :Toolkit:QRScanner:generateReleaseResources FROM-CACHE
+> Task :Toolkit:QRScanner:packageReleaseResources FROM-CACHE
+> Task :Toolkit:QRScanner:extractDeepLinksRelease FROM-CACHE
+> Task :Toolkit:QRScanner:processReleaseManifest FROM-CACHE
+> Task :Toolkit:QRScanner:compileReleaseLibraryResources FROM-CACHE
+> Task :Toolkit:QRScanner:parseReleaseLocalResources FROM-CACHE
+> Task :Toolkit:QRScanner:generateReleaseRFile FROM-CACHE
+> Task :Dependencies:compileReleaseJavaWithJavac FROM-CACHE
+> Task :Dependencies:bundleLibCompileToJarRelease
+> Task :Dependencies:mergeDebugShaders
+> Task :Dependencies:compileDebugShaders NO-SOURCE
+> Task :Dependencies:generateDebugAssets UP-TO-DATE
+> Task :Dependencies:mergeDebugAssets
+> Task :Dependencies:processReleaseJavaRes NO-SOURCE
+> Task :Dependencies:bundleLibRuntimeToJarRelease
+> Task :Dependencies:compileReleaseLibraryResources FROM-CACHE
+> Task :Dependencies:createFullJarRelease
+> Task :Dependencies:writeReleaseAarMetadata
+> Task :Dependencies:extractDeepLinksRelease FROM-CACHE
+> Task :Dependencies:processReleaseManifest FROM-CACHE
+> Task :ShareConnector:mapDebugSourceSetPaths
+> Task :Dependencies:mergeReleaseShaders
+> Task :Dependencies:compileReleaseShaders NO-SOURCE
+> Task :Dependencies:generateReleaseAssets UP-TO-DATE
+> Task :Dependencies:mergeReleaseAssets
+> Task :Toolkit:QRScanner:compileReleaseKotlin FROM-CACHE
+> Task :Toolkit:QRScanner:javaPreCompileRelease FROM-CACHE
+> Task :Toolkit:QRScanner:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:QRScanner:mergeReleaseShaders
+> Task :Toolkit:QRScanner:bundleLibCompileToJarRelease
+> Task :Toolkit:QRScanner:compileReleaseShaders NO-SOURCE
+> Task :Toolkit:QRScanner:generateReleaseAssets UP-TO-DATE
+> Task :ShareConnector:checkDebugAarMetadata
+> Task :Toolkit:QRScanner:mergeReleaseAssets
+> Task :Toolkit:QRScanner:bundleLibRuntimeToJarRelease
+> Task :Toolkit:QRScanner:processReleaseJavaRes
+> Task :Toolkit:Main:kspReleaseKotlin FROM-CACHE
+> Task :Toolkit:Main:kspDebugKotlin FROM-CACHE
+> Task :ShareConnector:mergeDebugResources FROM-CACHE
+> Task :ShareConnector:parseDebugLocalResources FROM-CACHE
+> Task :ShareConnector:createDebugCompatibleScreenManifests
+> Task :ShareConnector:extractDeepLinksDebug FROM-CACHE
+> Task :ShareConnector:processDebugMainManifest FROM-CACHE
+> Task :ShareConnector:processDebugManifest FROM-CACHE
+> Task :ShareConnector:processDebugManifestForPackage FROM-CACHE
+> Task :Toolkit:Main:compileDebugKotlin FROM-CACHE
+> Task :Toolkit:Main:compileDebugJavaWithJavac FROM-CACHE
+> Task :ShareConnector:processDebugResources FROM-CACHE
+> Task :ShareConnector:javaPreCompileDebug FROM-CACHE
+> Task :ShareConnector:preDebugUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebugUnitTest FROM-CACHE
+> Task :ShareConnector:mergeDebugShaders
+> Task :ShareConnector:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:processDebugJavaRes
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug
+> Task :ShareConnector:mergeDebugAssets
+> Task :Toolkit:Main:bundleLibCompileToJarDebug
+> Task :ShareConnector:packageDebugUnitTestForUnitTest
+> Task :ShareConnector:generateDebugUnitTestConfig
+> Task :ShareConnector:buildKotlinToolingMetadata
+> Task :ShareConnector:preReleaseBuild UP-TO-DATE
+> Task :ShareConnector:generateReleaseResValues FROM-CACHE
+> Task :ShareConnector:checkReleaseAarMetadata
+> Task :ShareConnector:injectCrashlyticsMappingFileIdRelease
+> Task :Toolkit:Main:compileReleaseKotlin FROM-CACHE
+> Task :ShareConnector:extractReleaseVersionControlInfo
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoRelease FROM-CACHE
+> Task :ShareConnector:processReleaseGoogleServices FROM-CACHE
+> Task :ShareConnector:mapReleaseSourceSetPaths
+> Task :ShareConnector:generateReleaseResources FROM-CACHE
+> Task :Toolkit:Main:compileReleaseJavaWithJavac FROM-CACHE
+> Task :Asinka:asinka:extractIncludeDebugProto
+> Task :Asinka:asinka:generateDebugProto FROM-CACHE
+> Task :Toolkit:Main:processReleaseJavaRes
+> Task :Toolkit:Main:bundleLibCompileToJarRelease
+> Task :Toolkit:Main:bundleLibRuntimeToJarRelease
+> Task :Asinka:asinka:kspDebugKotlin FROM-CACHE
+> Task :Toolkit:Analytics:compileDebugKotlin FROM-CACHE
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :Tests:compileDebugKotlin FROM-CACHE
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:processDebugJavaRes
+> Task :Tests:processDebugJavaRes
+> Task :Tests:bundleLibCompileToJarDebug
+> Task :Tests:bundleLibRuntimeToJarDebug
+> Task :Toolkit:SecurityAccess:kspDebugKotlin FROM-CACHE
+> Task :Asinka:asinka:compileDebugKotlin FROM-CACHE
+> Task :Asinka:asinka:compileDebugJavaWithJavac FROM-CACHE
+> Task :Asinka:asinka:processDebugJavaRes
+> Task :Toolkit:SecurityAccess:compileDebugKotlin FROM-CACHE
+> Task :Toolkit:Analytics:compileReleaseKotlin FROM-CACHE
+> Task :Toolkit:Analytics:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug
+> Task :Asinka:asinka:bundleLibCompileToJarDebug
+> Task :Toolkit:Analytics:bundleLibCompileToJarRelease
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarRelease
+> Task :Toolkit:Analytics:processReleaseJavaRes
+> Task :Tests:compileReleaseKotlin FROM-CACHE
+> Task :Tests:compileReleaseJavaWithJavac NO-SOURCE
+> Task :Toolkit:SecurityAccess:compileDebugJavaWithJavac FROM-CACHE
+> Task :Tests:bundleLibCompileToJarRelease
+> Task :Tests:bundleLibRuntimeToJarRelease
+> Task :Tests:processReleaseJavaRes
+> Task :Toolkit:SecurityAccess:processDebugJavaRes
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarDebug
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToJarDebug
+> Task :Toolkit:SecurityAccess:kspReleaseKotlin FROM-CACHE
+> Task :Toolkit:SecurityAccess:compileReleaseKotlin FROM-CACHE
+> Task :Toolkit:SecurityAccess:compileReleaseJavaWithJavac FROM-CACHE
+> Task :Toolkit:SecurityAccess:processReleaseJavaRes
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarRelease
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToJarRelease
+> Task :Asinka:asinka:extractIncludeReleaseProto
+> Task :Asinka:asinka:generateReleaseProto FROM-CACHE
+> Task :Asinka:asinka:kspReleaseKotlin FROM-CACHE
+> Task :TorrentSharingSync:kspDebugKotlin FROM-CACHE
+> Task :LanguageSync:kspDebugKotlin FROM-CACHE
+> Task :PreferencesSync:kspDebugKotlin FROM-CACHE
+> Task :RSSSync:kspDebugKotlin FROM-CACHE
+> Task :BookmarkSync:kspDebugKotlin FROM-CACHE
+> Task :HistorySync:kspDebugKotlin FROM-CACHE
+> Task :ThemeSync:kspDebugKotlin FROM-CACHE
+> Task :ProfileSync:kspDebugKotlin FROM-CACHE
+> Task :TorrentSharingSync:compileDebugKotlin FROM-CACHE
+> Task :Asinka:asinka:compileReleaseKotlin FROM-CACHE
+> Task :HistorySync:compileDebugKotlin FROM-CACHE
+> Task :ThemeSync:compileDebugKotlin FROM-CACHE
+> Task :RSSSync:compileDebugKotlin FROM-CACHE
+> Task :LanguageSync:compileDebugKotlin FROM-CACHE
+> Task :PreferencesSync:compileDebugKotlin FROM-CACHE
+> Task :BookmarkSync:compileDebugKotlin FROM-CACHE
+> Task :ProfileSync:compileDebugKotlin FROM-CACHE
+> Task :LanguageSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :TorrentSharingSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :PreferencesSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :RSSSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :BookmarkSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :ThemeSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :ProfileSync:compileDebugJavaWithJavac FROM-CACHE
+> Task :HistorySync:compileDebugJavaWithJavac FROM-CACHE
+> Task :LanguageSync:bundleLibRuntimeToJarDebug
+> Task :RSSSync:bundleLibRuntimeToJarDebug
+> Task :LanguageSync:processDebugJavaRes
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug
+> Task :RSSSync:processDebugJavaRes
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:processDebugJavaRes
+> Task :PreferencesSync:processDebugJavaRes
+> Task :ThemeSync:bundleLibCompileToJarDebug
+> Task :HistorySync:processDebugJavaRes
+> Task :ProfileSync:bundleLibCompileToJarDebug
+> Task :HistorySync:bundleLibRuntimeToJarDebug
+> Task :ThemeSync:bundleLibRuntimeToJarDebug
+> Task :ProfileSync:processDebugJavaRes
+> Task :ThemeSync:processDebugJavaRes
+> Task :TorrentSharingSync:processDebugJavaRes
+> Task :LanguageSync:bundleLibCompileToJarDebug
+> Task :ProfileSync:bundleLibRuntimeToJarDebug
+> Task :BookmarkSync:bundleLibCompileToJarDebug
+> Task :RSSSync:bundleLibCompileToJarDebug
+> Task :PreferencesSync:bundleLibCompileToJarDebug
+> Task :Asinka:asinka:compileReleaseJavaWithJavac FROM-CACHE
+> Task :HistorySync:bundleLibCompileToJarDebug
+> Task :Asinka:asinka:mergeReleaseShaders
+> Task :Asinka:asinka:compileReleaseShaders NO-SOURCE
+> Task :Asinka:asinka:generateReleaseAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeReleaseAssets
+> Task :Asinka:asinka:processReleaseJavaRes
+> Task :Asinka:asinka:bundleLibCompileToJarRelease
+> Task :Asinka:asinka:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:kspReleaseKotlin FROM-CACHE
+> Task :ProfileSync:kspReleaseKotlin FROM-CACHE
+> Task :RSSSync:kspReleaseKotlin FROM-CACHE
+> Task :TorrentSharingSync:kspReleaseKotlin FROM-CACHE
+> Task :PreferencesSync:kspReleaseKotlin FROM-CACHE
+> Task :ThemeSync:kspReleaseKotlin FROM-CACHE
+> Task :BookmarkSync:kspReleaseKotlin FROM-CACHE
+> Task :HistorySync:kspReleaseKotlin FROM-CACHE
+> Task :LanguageSync:compileReleaseKotlin FROM-CACHE
+> Task :TorrentSharingSync:compileReleaseKotlin FROM-CACHE
+> Task :PreferencesSync:compileReleaseKotlin FROM-CACHE
+> Task :ProfileSync:compileReleaseKotlin FROM-CACHE
+> Task :HistorySync:compileReleaseKotlin FROM-CACHE
+> Task :BookmarkSync:compileReleaseKotlin FROM-CACHE
+> Task :ThemeSync:compileReleaseKotlin FROM-CACHE
+> Task :RSSSync:compileReleaseKotlin FROM-CACHE
+> Task :LanguageSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :TorrentSharingSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :PreferencesSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :LanguageSync:bundleLibRuntimeToJarRelease
+> Task :LanguageSync:processReleaseJavaRes
+> Task :ProfileSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :TorrentSharingSync:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :TorrentSharingSync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:bundleLibRuntimeToJarRelease
+> Task :TorrentSharingSync:processReleaseJavaRes
+> Task :PreferencesSync:processReleaseJavaRes
+> Task :ThemeSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :HistorySync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :RSSSync:compileReleaseJavaWithJavac FROM-CACHE
+> Task :LanguageSync:bundleLibCompileToJarRelease
+> Task :BookmarkSync:bundleLibRuntimeToJarRelease
+> Task :ProfileSync:bundleLibCompileToJarRelease
+> Task :PreferencesSync:bundleLibCompileToJarRelease
+> Task :BookmarkSync:processReleaseJavaRes
+> Task :ProfileSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:bundleLibCompileToJarRelease
+> Task :RSSSync:processReleaseJavaRes
+> Task :HistorySync:processReleaseJavaRes
+> Task :ProfileSync:processReleaseJavaRes
+> Task :RSSSync:bundleLibRuntimeToJarRelease
+> Task :ThemeSync:processReleaseJavaRes
+> Task :ThemeSync:bundleLibRuntimeToJarRelease
+> Task :HistorySync:bundleLibRuntimeToJarRelease
+> Task :BookmarkSync:bundleLibCompileToJarRelease
+> Task :RSSSync:bundleLibCompileToJarRelease
+> Task :HistorySync:bundleLibCompileToJarRelease
+> Task :ShareConnector:packageReleaseResources
+> Task :ShareConnector:createReleaseCompatibleScreenManifests
+> Task :ShareConnector:extractDeepLinksRelease FROM-CACHE
+> Task :ShareConnector:processReleaseMainManifest FROM-CACHE
+> Task :ShareConnector:processReleaseManifest FROM-CACHE
+> Task :ShareConnector:processReleaseManifestForPackage FROM-CACHE
+> Task :ShareConnector:javaPreCompileRelease FROM-CACHE
+> Task :ShareConnector:preReleaseUnitTestBuild UP-TO-DATE
+> Task :ShareConnector:javaPreCompileReleaseUnitTest FROM-CACHE
+> Task :ShareConnector:mergeReleaseShaders
+> Task :ShareConnector:compileReleaseShaders NO-SOURCE
+> Task :ShareConnector:generateReleaseAssets UP-TO-DATE
+> Task :ShareConnector:mergeReleaseAssets
+> Task :ShareConnector:parseReleaseLocalResources
+
+> Task :DesignSystem:compileDebugKotlin FROM-CACHE
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.annotation:annotation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :DesignSystem:compileDebugJavaWithJavac FROM-CACHE
+> Task :DesignSystem:processDebugJavaRes
+> Task :DesignSystem:bundleLibRuntimeToJarDebug
+> Task :DesignSystem:bundleLibCompileToJarDebug
+
+> Task :DesignSystem:compileReleaseKotlin FROM-CACHE
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.annotation:annotation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.core:core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.core:core-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :DesignSystem:compileReleaseJavaWithJavac FROM-CACHE
+> Task :DesignSystem:processReleaseJavaRes
+> Task :DesignSystem:bundleLibRuntimeToJarRelease
+> Task :DesignSystem:bundleLibCompileToJarRelease
+
+> Task :Onboarding:compileDebugKotlin FROM-CACHE
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.startup:startup-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.savedstate:savedstate which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.animation:animation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :Onboarding:compileDebugJavaWithJavac FROM-CACHE
+> Task :Onboarding:processDebugJavaRes
+> Task :Onboarding:bundleLibRuntimeToJarDebug
+> Task :Onboarding:bundleLibCompileToJarDebug
+
+> Task :Onboarding:compileReleaseKotlin FROM-CACHE
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.annotation:annotation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.startup:startup-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :ShareConnector:kspDebugKotlin FROM-CACHE
+> Task :Onboarding:compileReleaseJavaWithJavac FROM-CACHE
+> Task :Onboarding:processReleaseJavaRes
+> Task :Onboarding:bundleLibRuntimeToJarRelease
+> Task :Onboarding:bundleLibCompileToJarRelease
+> Task :ShareConnector:compileDebugKotlin FROM-CACHE
+> Task :ShareConnector:compileDebugJavaWithJavac FROM-CACHE
+> Task :ShareConnector:processDebugJavaRes
+> Task :ShareConnector:bundleDebugClassesToRuntimeJar
+> Task :ShareConnector:bundleDebugClassesToCompileJar
+> Task :ShareConnector:kspDebugUnitTestKotlin FROM-CACHE
+> Task :ShareConnector:mergeReleaseResources
+> Task :ShareConnector:compileDebugUnitTestKotlin FROM-CACHE
+> Task :ShareConnector:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processDebugUnitTestJavaRes
+> Task :ShareConnector:testDebugUnitTest FROM-CACHE
+> Task :ShareConnector:processReleaseResources
+> Task :ShareConnector:kspReleaseKotlin FROM-CACHE
+> Task :ShareConnector:compileReleaseKotlin FROM-CACHE
+> Task :ShareConnector:compileReleaseJavaWithJavac FROM-CACHE
+> Task :ShareConnector:packageReleaseUnitTestForUnitTest
+> Task :ShareConnector:generateReleaseUnitTestConfig
+> Task :ShareConnector:processReleaseJavaRes
+> Task :ShareConnector:bundleReleaseClassesToCompileJar
+> Task :ShareConnector:bundleReleaseClassesToRuntimeJar
+> Task :ShareConnector:kspReleaseUnitTestKotlin FROM-CACHE
+> Task :ShareConnector:compileReleaseUnitTestKotlin FROM-CACHE
+> Task :ShareConnector:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+> Task :ShareConnector:processReleaseUnitTestJavaRes
+> Task :ShareConnector:testReleaseUnitTest
+> Task :ShareConnector:test
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 55s
+721 actionable tasks: 251 executed, 470 from cache

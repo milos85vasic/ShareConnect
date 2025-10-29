@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="pref_update_interval_entries">
         <item>1 sec</item>

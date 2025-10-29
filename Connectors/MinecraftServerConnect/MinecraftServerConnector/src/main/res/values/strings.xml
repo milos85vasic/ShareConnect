@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MinecraftServerConnect</string>
     <string name="welcome">Welcome to MinecraftServerConnect</string>

@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Small phone optimizations -->
     <dimen name="activity_horizontal_margin">12dp</dimen>

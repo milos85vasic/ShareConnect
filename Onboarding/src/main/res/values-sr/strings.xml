@@ -21,7 +21,6 @@
 -->
 
 
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="onboarding_welcome_title">Добродошли у ShareConnect</string>
     <string name="onboarding_welcome_message">Хајде да вас поставимо са савршеним искуством торентовања. Помоћи ћемо вам да изаберете тему, језик и креирате ваш први профил.</string>

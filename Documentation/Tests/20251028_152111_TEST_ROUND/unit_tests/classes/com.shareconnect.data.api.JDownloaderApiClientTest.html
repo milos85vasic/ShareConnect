@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.shareconnect.data.api.JDownloaderApiClientTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.shareconnect.data.api.JDownloaderApiClientTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shareconnect.data.api.html">com.shareconnect.data.api</a> &gt; JDownloaderApiClientTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">19</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">31.744s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test API client initialization</td>
+<td class="success">0.042s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test HTTP error response</td>
+<td class="success">0.046s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test JSON parsing error handling</td>
+<td class="success">0.046s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add links to JDownloader</td>
+<td class="success">0.101s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add links without prior connection fails gracefully</td>
+<td class="success">30.036s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test connection with invalid credentials</td>
+<td class="success">0.039s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test device ID in requests</td>
+<td class="success">0.086s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test empty device list</td>
+<td class="success">0.272s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test empty package list</td>
+<td class="success">0.077s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test get download packages</td>
+<td class="success">0.076s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test list devices</td>
+<td class="success">0.101s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test multiple link additions</td>
+<td class="success">0.164s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test network error handling</td>
+<td class="success">0.038s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test pause downloads</td>
+<td class="success">0.105s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test session token expiration and reconnect</td>
+<td class="success">0.082s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test session token reuse</td>
+<td class="success">0.202s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test start downloads</td>
+<td class="success">0.087s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test stop downloads</td>
+<td class="success">0.089s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test successful connection and session token retrieval</td>
+<td class="success">0.055s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:46445/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:46445/my/connect (48ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; GET http://localhost:46445/my/listdevices
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END GET
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:46445/my/listdevices (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;list&quot;: [], &quot;rid&quot;: 2}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (22-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:50589/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:50589/my/connect (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:50589/my/device/device-12345/downloadcontroller/start
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:50589/my/device/device-12345/downloadcontroller/start (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:50589/my/device/device-12345/downloadcontroller/stop
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:50589/my/device/device-12345/downloadcontroller/stop (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 3}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:50589/my/device/device-12345/downloadcontroller/pause
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:50589/my/device/device-12345/downloadcontroller/pause (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 4}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:57939/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 500 Server Error http://localhost:57939/my/connect (2ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 21
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Internal Server Error
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (21-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:55215/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:55215/my/connect (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; GET http://localhost:55215/my/listdevices
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END GET
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:55215/my/listdevices (0ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 249
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {
+    &quot;list&quot;: [
+        {
+            &quot;id&quot;: &quot;device-1&quot;,
+            &quot;name&quot;: &quot;Home PC&quot;,
+            &quot;type&quot;: &quot;jd&quot;
+        },
+        {
+            &quot;id&quot;: &quot;device-2&quot;,
+            &quot;name&quot;: &quot;Laptop&quot;,
+            &quot;type&quot;: &quot;jd&quot;
+        }
+    ],
+    &quot;rid&quot;: 2
+}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (249-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:55507/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:55507/my/connect (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 37
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;token-1&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (37-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:55507/my/device/device-12345/downloadcontroller/start
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer token-1
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:55507/my/device/device-12345/downloadcontroller/start (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:47859/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 401 Client Error http://localhost:47859/my/connect (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 32
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;error&quot;: &quot;Invalid credentials&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (32-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:54475/my/connect
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:54475/my/connect (2ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:54475/my/device/device-12345/linkgrabberv2/addLinks
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 72
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;links&quot;:&quot;https:\/\/test.com\/file1.zip\nhttps:\/\/test.com\/file2.zip&quot;}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (72-byte body)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:54475/my/device/device-12345/linkgrabberv2/addLinks (1ms)
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:02 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:60131/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:60131/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:60131/my/device/device-12345/downloadcontroller/start
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:60131/my/device/device-12345/downloadcontroller/start (0ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:46947/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:46947/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:46947/my/device/device-12345/downloadcontroller/start
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:46947/my/device/device-12345/downloadcontroller/start (0ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:45827/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:45827/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:45827/my/device/device-12345/downloadcontroller/pause
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:45827/my/device/device-12345/downloadcontroller/pause (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:49699/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:49699/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Invalid JSON {{{
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:34743/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- HTTP FAILED: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:34743
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:37915/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:37915/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 41
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;links&quot;:&quot;https:\/\/test.com\/file1.zip&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (41-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks (0ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 72
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;links&quot;:&quot;https:\/\/test.com\/file2.zip\nhttps:\/\/test.com\/file3.zip&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (72-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 41
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;links&quot;:&quot;https:\/\/test.com\/file4.zip&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (41-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:37915/my/device/device-12345/linkgrabberv2/addLinks (0ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:53589/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:53589/my/connect (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:53589/my/device/device-12345/downloadcontroller/stop
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:53589/my/device/device-12345/downloadcontroller/stop (1ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 10
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;rid&quot;: 2}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (10-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:40147/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:40147/my/connect (2ms)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 99
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {
+    &quot;sessiontoken&quot;: &quot;session-token-abc123&quot;,
+    &quot;regaintoken&quot;: &quot;regain-token-xyz&quot;,
+    &quot;rid&quot;: 1
+}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (99-byte body)
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:44431/my/connect
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:03 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- HTTP FAILED: java.net.SocketTimeoutException: timeout
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:42877/my/connect
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:42877/my/connect (1ms)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:42877/my/device/device-12345/downloadsV2/queryPackages
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:42877/my/device/device-12345/downloadsV2/queryPackages (0ms)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;data&quot;: [], &quot;rid&quot;: 2}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (22-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:47177/my/connect
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 53
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;email&quot;:&quot;test@example.com&quot;,&quot;password&quot;:&quot;password123&quot;}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (53-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:47177/my/connect (1ms)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;sessiontoken&quot;: &quot;session-token-abc123&quot;, &quot;rid&quot;: 1}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (50-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:47177/my/device/device-12345/downloadsV2/queryPackages
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 2
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Bearer session-token-abc123
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (2-byte body)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:47177/my/device/device-12345/downloadsV2/queryPackages (0ms)
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 477
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: {
+    &quot;data&quot;: [
+        {
+            &quot;uuid&quot;: &quot;package-1&quot;,
+            &quot;name&quot;: &quot;Archive.zip&quot;,
+            &quot;bytesTotal&quot;: 104857600,
+            &quot;bytesLoaded&quot;: 52428800,
+            &quot;finished&quot;: false,
+            &quot;enabled&quot;: true
+        },
+        {
+            &quot;uuid&quot;: &quot;package-2&quot;,
+            &quot;name&quot;: &quot;Document.pdf&quot;,
+            &quot;bytesTotal&quot;: 1048576,
+            &quot;bytesLoaded&quot;: 1048576,
+            &quot;finished&quot;: true,
+            &quot;enabled&quot;: true
+        }
+    ],
+    &quot;rid&quot;: 2
+}
+Oct 28, 2025 3:22:33 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (477-byte body)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Oct 28, 2025, 3:22:44 PM</p>
+</div>
+</div>
+</body>
+</html>
