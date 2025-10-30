@@ -143,8 +143,10 @@ fi
 
 # Check if Docker is running
 if ! docker info >/dev/null 2>&1; then
-    log_error "Docker is not running. Please start Docker and try again."
-    exit 1
+    log_warning "Docker is not running. SonarQube analysis will be skipped."
+    log_info "To enable SonarQube analysis, start Docker and run: $0 --start"
+    log_success "SonarQube analysis skipped - Docker not available"
+    exit 0
 fi
 
 case $ACTION in
@@ -187,12 +189,13 @@ case $ACTION in
         log_info "Report Directory: $REPORT_DIR"
         log_info "Timestamp: $TIMESTAMP"
 
-        # Check if containers are running
-        if ! docker ps --filter "name=$POSTGRES_CONTAINER" | grep -q "$POSTGRES_CONTAINER" || ! docker ps --filter "name=$SONARQUBE_CONTAINER" | grep -q "$SONARQUBE_CONTAINER"; then
-            log_error "SonarQube containers are not running. Start them first with: $0 --start"
-            log_info "Then check status with: $0 --status"
-            exit 1
-        fi
+    # Check if containers are running
+    if ! docker ps --filter "name=$POSTGRES_CONTAINER" | grep -q "$POSTGRES_CONTAINER" || ! docker ps --filter "name=$SONARQUBE_CONTAINER" | grep -q "$SONARQUBE_CONTAINER"; then
+        log_warning "SonarQube containers are not running. SonarQube analysis will be skipped."
+        log_info "To enable SonarQube analysis, start containers with: $0 --start"
+        log_success "SonarQube analysis skipped - containers not running"
+        exit 0
+    fi
 
         # Wait for SonarQube API (with timeout)
         if ! wait_for_sonarqube; then

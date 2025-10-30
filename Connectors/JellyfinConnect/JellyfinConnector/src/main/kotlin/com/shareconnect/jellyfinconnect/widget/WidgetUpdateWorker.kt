@@ -24,6 +24,7 @@
 package com.shareconnect.jellyfinconnect.widget
 
 import android.content.Context
+import androidx.glance.appwidget.updateAll
 import androidx.work.*
 import java.util.concurrent.TimeUnit
 

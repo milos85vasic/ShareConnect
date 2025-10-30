@@ -1,0 +1,59 @@
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+55 tests completed, 27 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':qBitConnector:testReleaseUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/build/reports/tests/testReleaseUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 30s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'

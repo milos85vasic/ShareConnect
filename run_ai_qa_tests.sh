@@ -89,9 +89,10 @@ echo -e "${YELLOW}[1/7] Checking prerequisites...${NC}"
 
 # Check for ANTHROPIC_API_KEY
 if [ -z "$ANTHROPIC_API_KEY" ]; then
-    echo -e "${RED}ERROR: ANTHROPIC_API_KEY environment variable is not set${NC}"
-    echo "Please set your Claude API key: export ANTHROPIC_API_KEY=your_key_here"
-    exit 1
+    echo -e "${YELLOW}WARNING: ANTHROPIC_API_KEY environment variable is not set${NC}"
+    echo -e "${YELLOW}AI QA tests will be skipped. To enable, set: export ANTHROPIC_API_KEY=your_key_here${NC}"
+    echo -e "${YELLOW}✓ AI QA tests skipped - dependency not available${NC}"
+    exit 0
 fi
 echo -e "${GREEN}✓ API key configured${NC}"
 

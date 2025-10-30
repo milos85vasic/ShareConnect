@@ -1,0 +1,33 @@
+# proto-message: google.testing.platform.proto.api.core.TestSuiteResult
+# 2025-10-30T12:39:56.928851410Z:
+test_suite_meta_data {
+  device {
+    id: "emulator-5554"
+    friendly_name: "primary"
+  }
+}
+test_status: FAILED
+output_artifact {
+  label {
+    label: "test-results.log"
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  source_path {
+    path: "/home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/androidTest-results/connected/debug/ShareConnect_Test_Emulator(AVD) - 14/testlog/test-results.log"
+  }
+  type: TEST_DATA
+  mime_type: "text/plain"
+}
+issue {
+  namespace {
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  severity: SEVERE
+  code: 1
+  name: "INSTRUMENTATION_FAILED"
+  message: "Test run failed to complete. Instrumentation run failed due to Process crashed."
+}
+issue {
+  severity: SEVERE
+  message: "Logcat of last crash: \nProcess: com.shareconnect.debug, PID: 32216\njava.lang.RuntimeException: Unable to get provider androidx.startup.InitializationProvider: androidx.startup.StartupException: java.lang.NoSuchMethodException: com.shareconnect.preferencessync.PreferencesSyncManager.<init> []\n\tat android.app.ActivityThread.installProvider(ActivityThread.java:7770)\n\tat android.app.ActivityThread.installContentProviders(ActivityThread.java:7276)\n\tat android.app.ActivityThread.handleBindApplication(ActivityThread.java:6983)\n\tat android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)\n\tat android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)\n\tat android.os.Handler.dispatchMessage(Handler.java:106)\n\tat android.os.Looper.loopOnce(Looper.java:205)\n\tat android.os.Looper.loop(Looper.java:294)\n\tat android.app.ActivityThread.main(ActivityThread.java:8177)\n\tat java.lang.reflect.Method.invoke(Native Method)\n\tat com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)\n\tat com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)\nCaused by: androidx.startup.StartupException: java.lang.NoSuchMethodException: com.shareconnect.preferencessync.PreferencesSyncManager.<init> []\n\tat androidx.startup.AppInitializer.doInitialize(AppInitializer.java:187)\n\tat androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:239)\n\tat androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:207)\n\tat androidx.startup.InitializationProvider.onCreate(InitializationProvider.java:49)\n\tat android.content.ContentProvider.attachInfo(ContentProvider.java:2619)\n\tat android.content.ContentProvider.attachInfo(ContentProvider.java:2589)\n\tat android.app.ActivityThread.installProvider(ActivityThread.java:7765)\n\t... 11 more\nCaused by: java.lang.NoSuchMethodException: com.shareconnect.preferencessync.PreferencesSyncManager.<init> []\n\tat java.lang.Class.getConstructor0(Class.java:3325)\n\tat java.lang.Class.getDeclaredConstructor(Class.java:3063)\n\tat androidx.startup.AppInitializer.doInitialize(AppInitializer.java:165)\n\t... 17 more\n"
+}

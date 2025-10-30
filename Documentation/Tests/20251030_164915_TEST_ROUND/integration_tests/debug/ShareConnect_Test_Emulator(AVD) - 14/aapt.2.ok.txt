@@ -1,0 +1,27 @@
+EXECUTING: /home/milosvasic/Android/Sdk/build-tools/35.0.0/aapt dump badging /home/milosvasic/Projects/ShareConnect/ShareConnector/build/outputs/apk/androidTest/debug/ShareConnector-debug-androidTest.apk
+CURRENT_WORKING_DIRECTORY: /home/milosvasic/Projects/ShareConnect
+START_TIME: 2025-10-30 16:52:27.735
+START_TIME-NANOS: 2025-10-30 16:52:27.735283531
+ENVIRONMENT:
+
+*****************************************
+STDOUT/STDERR BELOW
+===================
+package: name='com.shareconnect.debug.test' versionCode='' versionName='' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'28'
+targetSdkVersion:'36'
+application: label='' icon=''
+application-debuggable
+uses-library:'android.test.runner'
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales:
+densities:
+===================
+END_TIME: 2025-10-30 16:52:27.739
+END_TIME-NANOS: 2025-10-30 16:52:27.739073642
+DURATION: 3ms
+EXIT CODE: 0

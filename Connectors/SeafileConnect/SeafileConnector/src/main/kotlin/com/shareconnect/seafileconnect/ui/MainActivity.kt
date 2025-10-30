@@ -24,32 +24,22 @@
 package com.shareconnect.seafileconnect.ui
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.app.AlertDialog
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.lifecycleScope
-
-import com.shareconnect.designsystem.compose.theme.DesignSystemTheme
 import com.shareconnect.qrscanner.QRScannerManager
-import com.shareconnect.seafileconnect.SeafileConnectApplication
-import digital.vasic.security.access.access.SecurityAccessManager
-import digital.vasic.security.access.data.AccessMethod
-import com.shareconnect.themesync.ThemeSyncManager
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 /**
  * MainActivity for SeafileConnect
- * 
+ *
  * Provides access to Seafile server functionality with:
  * - Library browsing
  * - File management
@@ -59,195 +49,81 @@ import kotlinx.coroutines.runBlocking
  */
 class MainActivity : ComponentActivity() {
 
-    private lateinit var securityAccessManager: SecurityAccessManager
-    private lateinit var themeSyncManager: ThemeSyncManager
+    // private lateinit var securityAccessManager: SecurityAccessManager
+    // private lateinit var themeSyncManager: ThemeSyncManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val application = application as SeafileConnectApplication
-        themeSyncManager = application.getThemeSyncManager()
-        securityAccessManager = SecurityAccessManager.getInstance(this)
-
-        // Check if security access is required BEFORE showing main UI
-        if (isSecurityAccessRequired()) {
-            Log.d("MainActivity", "Security access required, launching authentication")
-            launchSecurityAccess()
-            return
-        }
+        // val application = application as SeafileConnectApplication
+        // themeSyncManager = application.getThemeSyncManager()
+        // securityAccessManager = SecurityAccessManager.getInstance(this)
 
         showMainUI()
     }
 
     override fun onResume() {
         super.onResume()
-
-        // Check security access when app comes back to foreground
-        if (isSecurityAccessRequired()) {
-            Log.d("MainActivity", "Security access required on resume")
-            launchSecurityAccess()
-            return
-        }
     }
 
     private fun showMainUI() {
         setContent {
-            val themeData by themeSyncManager.observeDefaultTheme().collectAsState(initial = null)
+            MaterialTheme {
+                val navItems = listOf("Libraries", "Files", "Search", "Settings")
+                var selectedTab by remember { mutableStateOf(0) }
 
-            if (themeData != null) {
-                DesignSystemTheme(themeData = themeData!!) {
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
+                Scaffold(
+                    bottomBar = {
+                        NavigationBar {
+                            navItems.forEachIndexed { index, item ->
+                                NavigationBarItem(
+                                    icon = { Text(item.first().toString()) },
+                                    label = { Text(item) },
+                                    selected = selectedTab == index,
+                                    onClick = { selectedTab = index }
+                                )
+                            }
+                        }
+                    }
+                ) { padding ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(padding)
                     ) {
-                        SeafileConnectScreen()
+                        when (selectedTab) {
+                            0 -> LibrariesTab()
+                            1 -> FilesTab()
+                            2 -> SearchTab()
+                            3 -> SettingsTab()
+                        }
                     }
                 }
-            } else {
-                // Fallback to default theme while loading
-                DesignSystemTheme {
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
-                        SeafileConnectScreen()
-        }
-    }
-
-    /**
-     * Check if security access is required
-     */
-    private fun isSecurityAccessRequired(): Boolean {
-        return try {
-            runBlocking {
-                securityAccessManager.isAccessRequired()
-            }
-        } catch (e: Exception) {
-            Log.e("MainActivity", "Error checking security access requirement", e)
-            false // Default to no security if there's an error
-        }
-    }
-
-    /**
-     * Launch security access authentication
-     */
-    private fun launchSecurityAccess() {
-        try {
-            showSecurityAccessDialog()
-        } catch (e: Exception) {
-            Log.e("MainActivity", "Error launching security access", e)
-            // If security access fails, continue with normal flow
-            showMainUI()
-        }
-    }
-
-    /**
-     * Show security access authentication dialog
-     */
-    private fun showSecurityAccessDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Security Access Required")
-        builder.setMessage("Please enter your PIN to access the application")
-
-        val input = EditText(this)
-        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD
-        builder.setView(input)
-
-        builder.setPositiveButton("Unlock") { dialog, _ ->
-            val pin = input.text.toString()
-            authenticateWithPin(pin)
-            dialog.dismiss()
-        }
-
-        builder.setNegativeButton("Cancel") { dialog, _ ->
-            dialog.cancel()
-            finish() // Close app if user cancels
-        }
-
-        builder.setCancelable(false)
-        builder.show()
-    }
-
-    /**
-     * Authenticate with PIN using SecurityAccessManager
-     */
-    private fun authenticateWithPin(pin: String) {
-        lifecycleScope.launch {
-            try {
-                val result = securityAccessManager.authenticate(AccessMethod.PIN, pin)
-                when (result) {
-                    is SecurityAccessManager.AuthenticationResult.Success -> {
-                        // Authentication successful, continue with normal flow
-                        showMainUI()
-                    }
-                    else -> {
-                        // Authentication failed, show error and retry
-                        Toast.makeText(this@MainActivity, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show()
-                        showSecurityAccessDialog()
-                    }
-                }
-            } catch (e: Exception) {
-                Log.e("MainActivity", "Error during PIN authentication", e)
-                Toast.makeText(this@MainActivity, "Authentication error. Please try again.", Toast.LENGTH_SHORT).show()
-                showSecurityAccessDialog()
             }
         }
     }
-}
+
+
+
+
+
+
+
+
+
+
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SeafileConnectScreen() {
-    val context = LocalContext.current
-    val scope = rememberCoroutineScope()
-    var selectedTab by remember { mutableIntStateOf(0) }
-    val tabs = listOf("Libraries", "Files", "Search", "Settings")
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("SeafileConnect") },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                )
-            )
-        },
-        bottomBar = {
-            NavigationBar {
-                tabs.forEachIndexed { index, title ->
-                    NavigationBarItem(
-                        icon = { Text(title.first().toString()) },
-                        label = { Text(title) },
-                        selected = selectedTab == index,
-                        onClick = { selectedTab = index }
-                    )
-                }
-            }
-        }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-        ) {
-            when (selectedTab) {
-                0 -> LibrariesTab()
-                1 -> FilesTab()
-                2 -> SearchTab()
-                3 -> SettingsTab()
-            }
-        }
-    }
-}
 
 @Composable
 fun LibrariesTab() {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
         Text(
             "Libraries - Browse and manage Seafile libraries",
-            modifier = Modifier.padding(MaterialTheme.typography.bodyLarge.fontSize.value.toInt().dp)
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }
@@ -271,11 +147,13 @@ fun FilesTab() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(padding),
+            contentAlignment = Alignment.Center
         ) {
             Text(
                 "Files - Browse files and directories\nTap + to add files via QR code or manual entry",
-                modifier = Modifier.padding(16.dp)
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
         }
     }
@@ -322,10 +200,13 @@ fun FilesTab() {
 
 @Composable
 fun SearchTab() {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
         Text(
             "Search - Search across all libraries",
-            modifier = Modifier.padding(MaterialTheme.typography.bodyLarge.fontSize.value.toInt().dp)
+            style = MaterialTheme.typography.bodyLarge
         )
     }
 }
@@ -339,7 +220,9 @@ fun SettingsTab() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.Start
     ) {
         Text(
             "Settings - Configure SeafileConnect",

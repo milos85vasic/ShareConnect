@@ -1,0 +1,56 @@
+INSTRUMENTATION_STATUS: stack=androidx.startup.StartupException: java.lang.NoSuchMethodException: com.shareconnect.rsssync.RSSSyncManager.<init> []
+at androidx.startup.AppInitializer.doInitialize(AppInitializer.java:187)
+at androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:239)
+at androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:207)
+at androidx.startup.InitializationProvider.onCreate(InitializationProvider.java:49)
+at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
+at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
+at android.app.ActivityThread.installProvider(ActivityThread.java:7765)
+at android.app.ActivityThread.installContentProviders(ActivityThread.java:7276)
+at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6983)
+at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
+at android.os.Handler.dispatchMessage(Handler.java:106)
+at android.os.Looper.loopOnce(Looper.java:205)
+at android.os.Looper.loop(Looper.java:294)
+at android.app.ActivityThread.main(ActivityThread.java:8177)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+Caused by: java.lang.NoSuchMethodException: com.shareconnect.rsssync.RSSSyncManager.<init> []
+at java.lang.Class.getConstructor0(Class.java:3325)
+at java.lang.Class.getDeclaredConstructor(Class.java:3063)
+at androidx.startup.AppInitializer.doInitialize(AppInitializer.java:165)
+... 17 more
+
+INSTRUMENTATION_STATUS: stream=
+Process crashed before executing the test(s):
+androidx.startup.StartupException: java.lang.NoSuchMethodException: com.shareconnect.rsssync.RSSSyncManager.<init> []
+at androidx.startup.AppInitializer.doInitialize(AppInitializer.java:187)
+at androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:239)
+at androidx.startup.AppInitializer.discoverAndInitialize(AppInitializer.java:207)
+at androidx.startup.InitializationProvider.onCreate(InitializationProvider.java:49)
+at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
+at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
+at android.app.ActivityThread.installProvider(ActivityThread.java:7765)
+at android.app.ActivityThread.installContentProviders(ActivityThread.java:7276)
+at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6983)
+at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
+at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
+at android.os.Handler.dispatchMessage(Handler.java:106)
+at android.os.Looper.loopOnce(Looper.java:205)
+at android.os.Looper.loop(Looper.java:294)
+at android.app.ActivityThread.main(ActivityThread.java:8177)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+Caused by: java.lang.NoSuchMethodException: com.shareconnect.rsssync.RSSSyncManager.<init> []
+at java.lang.Class.getConstructor0(Class.java:3325)
+at java.lang.Class.getDeclaredConstructor(Class.java:3063)
+at androidx.startup.AppInitializer.doInitialize(AppInitializer.java:165)
+... 17 more
+
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: shortMsg=Process crashed.
+INSTRUMENTATION_CODE: 0
+

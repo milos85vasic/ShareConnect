@@ -128,8 +128,14 @@ echo ""
 AI_QA_START_TIME=$(date +%s)
 echo -e "${BLUE}Executing AI-powered QA tests...${NC}"
 if ./run_ai_qa_tests.sh; then
-    AI_QA_TEST_STATUS="PASSED"
-    echo -e "${GREEN}✓ AI QA tests completed successfully${NC}"
+    # Check if tests were actually run or skipped
+    if [ -z "$ANTHROPIC_API_KEY" ]; then
+        AI_QA_TEST_STATUS="SKIPPED"
+        echo -e "${YELLOW}✓ AI QA tests skipped (no API key)${NC}"
+    else
+        AI_QA_TEST_STATUS="PASSED"
+        echo -e "${GREEN}✓ AI QA tests completed successfully${NC}"
+    fi
 else
     AI_QA_TEST_STATUS="FAILED"
     echo -e "${RED}✗ AI QA tests failed${NC}"
@@ -192,8 +198,14 @@ echo ""
 CRASH_START_TIME=$(date +%s)
 echo -e "${BLUE}Executing full application crash tests...${NC}"
 if ./run_full_app_crash_test.sh; then
-    CRASH_TEST_STATUS="PASSED"
-    echo -e "${GREEN}✓ Crash tests completed successfully${NC}"
+    # Check if tests were actually run or skipped
+    if ! command -v adb >/dev/null 2>&1; then
+        CRASH_TEST_STATUS="SKIPPED"
+        echo -e "${YELLOW}✓ Crash tests skipped (no Android environment)${NC}"
+    else
+        CRASH_TEST_STATUS="PASSED"
+        echo -e "${GREEN}✓ Crash tests completed successfully${NC}"
+    fi
 else
     CRASH_TEST_STATUS="FAILED"
     echo -e "${RED}✗ Crash tests failed${NC}"
@@ -211,8 +223,14 @@ echo ""
 SONARQUBE_START_TIME=$(date +%s)
 echo -e "${BLUE}Starting SonarQube Docker containers and executing code quality analysis...${NC}"
 if ./run_sonarqube_tests.sh; then
-    SONARQUBE_STATUS="PASSED"
-    echo -e "${GREEN}✓ SonarQube analysis completed successfully${NC}"
+    # Check if tests were actually run or skipped
+    if ! docker info >/dev/null 2>&1; then
+        SONARQUBE_STATUS="SKIPPED"
+        echo -e "${YELLOW}✓ SonarQube analysis skipped (no Docker)${NC}"
+    else
+        SONARQUBE_STATUS="PASSED"
+        echo -e "${GREEN}✓ SonarQube analysis completed successfully${NC}"
+    fi
 else
     SONARQUBE_STATUS="FAILED"
     echo -e "${RED}✗ SonarQube analysis failed${NC}"

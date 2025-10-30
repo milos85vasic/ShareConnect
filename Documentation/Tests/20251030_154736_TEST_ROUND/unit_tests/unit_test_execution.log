@@ -1,0 +1,55 @@
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/BasicTests.kt:34:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/data/SettingsManagerTest.kt:41:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/data/api/QBittorrentApiClientTest.kt:52:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/data/models/TorrentTest.kt:38:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/data/repositories/ServerRepositoryTest.kt:45:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/ui/viewmodels/AddServerViewModelTest.kt:54:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/ui/viewmodels/SettingsViewModelTest.kt:50:2 Unresolved reference 'Ignore'.
+e: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/src/test/kotlin/com/shareconnect/qbitconnect/ui/viewmodels/TorrentListViewModelTest.kt:63:2 Unresolved reference 'Ignore'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':qBitConnector:compileDebugUnitTestKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 4s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
