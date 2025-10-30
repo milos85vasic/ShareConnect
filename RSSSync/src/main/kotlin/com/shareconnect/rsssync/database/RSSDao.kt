@@ -38,6 +38,9 @@ interface RSSDao {
     @Query("SELECT * FROM synced_rss_feeds WHERE id = :feedId")
     suspend fun getFeedById(feedId: String): RSSFeedData?
 
+    @Query("SELECT * FROM synced_rss_feeds WHERE url = :url")
+    suspend fun getFeedByUrl(url: String): RSSFeedData?
+
     @Query("SELECT * FROM synced_rss_feeds WHERE isEnabled = 1 ORDER BY name ASC")
     fun getEnabledFeeds(): Flow<List<RSSFeedData>>
 

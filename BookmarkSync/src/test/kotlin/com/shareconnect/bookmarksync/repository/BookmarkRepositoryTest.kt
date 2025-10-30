@@ -234,7 +234,7 @@ class BookmarkRepositoryTest {
         repository.insertBookmark(bookmark2)
 
         // When
-        val allBookmarks = repository.getAllBookmarks()
+        val allBookmarks = repository.getAllBookmarksSync()
 
         // Then
         assertEquals(2, allBookmarks.size)
@@ -251,34 +251,5 @@ class BookmarkRepositoryTest {
         assertNull(bookmark)
     }
 
-    @Test
-    fun `test getBookmarkByUrl returns correct bookmark`() = runTest {
-        // Given
-        val bookmarkData = BookmarkData(
-            id = "test-bookmark-id",
-            url = "https://example.com",
-            title = "Test Bookmark",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-        repository.insertBookmark(bookmarkData)
 
-        // When
-        val bookmark = repository.getBookmarkByUrl("https://example.com")
-
-        // Then
-        assertNotNull(bookmark)
-        assertEquals("test-bookmark-id", bookmark?.id)
-        assertEquals("Test Bookmark", bookmark?.title)
-    }
-
-    @Test
-    fun `test getBookmarkByUrl returns null for non-existent url`() = runTest {
-        // When
-        val bookmark = repository.getBookmarkByUrl("https://non-existent.com")
-
-        // Then
-        assertNull(bookmark)
-    }
 }

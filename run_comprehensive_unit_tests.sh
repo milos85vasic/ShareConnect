@@ -64,8 +64,14 @@ for module in "${MODULES[@]}"; do
     # Check if module exists and has tests
     if ./gradlew projects | grep -q ":$module"; then
         if timeout 300 ./gradlew ":$module:test" --quiet 2>&1 | tee -a "${REPORT_DIR}/unit_test_execution.log"; then
-            echo -e "${GREEN}✓ $module unit tests passed${NC}"
-            MODULE_RESULTS[$module]="PASSED"
+            if [ ${PIPESTATUS[0]} -eq 0 ]; then
+                echo -e "${GREEN}✓ $module unit tests passed${NC}"
+                MODULE_RESULTS[$module]="PASSED"
+            else
+                echo -e "${RED}✗ $module unit tests failed${NC}"
+                MODULE_RESULTS[$module]="FAILED"
+                OVERALL_STATUS="FAILED"
+            fi
         else
             echo -e "${RED}✗ $module unit tests failed${NC}"
             MODULE_RESULTS[$module]="FAILED"

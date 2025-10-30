@@ -49,4 +49,10 @@ dependencies {
 
     // Asinka for syncing
     implementation(project(":Asinka:asinka"))
+
+    // Test dependencies
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:2.0.0")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.0.0")
+    testImplementation("org.robolectric:robolectric:4.13")
 }

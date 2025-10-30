@@ -42,14 +42,14 @@ class BookmarkDataTest {
         val isFavorite = false
         val notes = "Test notes"
         val serviceProvider = "TestProvider"
-        val torrentHash = null
-        val magnetUri = null
+        val torrentHash = "hash123"
+        val magnetUri = "magnet:?xt=urn:btih:hash123"
         val createdAt = System.currentTimeMillis()
-        val lastAccessedAt = null
-        val accessCount = 0
+        val lastAccessedAt = createdAt + 1000
+        val accessCount = 5
         val sourceApp = "TestApp"
-        val version = 1
-        val lastModified = System.currentTimeMillis()
+        val version = 2
+        val lastModified = createdAt + 2000
 
         // When
         val bookmarkData = BookmarkData(
@@ -111,9 +111,12 @@ class BookmarkDataTest {
             id = id,
             url = url,
             title = title,
+            description = null,
+            thumbnailUrl = null,
             type = type,
             sourceApp = sourceApp,
-            createdAt = createdAt
+            createdAt = createdAt,
+            lastModified = createdAt
         )
 
         // Then
@@ -146,6 +149,8 @@ class BookmarkDataTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
+            description = null,
+            thumbnailUrl = null,
             type = "website",
             sourceApp = "TestApp",
             createdAt = timestamp
@@ -154,6 +159,8 @@ class BookmarkDataTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
+            description = null,
+            thumbnailUrl = null,
             type = "website",
             sourceApp = "TestApp",
             createdAt = timestamp
@@ -162,6 +169,8 @@ class BookmarkDataTest {
             id = "different-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
+            description = null,
+            thumbnailUrl = null,
             type = "website",
             sourceApp = "TestApp",
             createdAt = timestamp
@@ -181,6 +190,8 @@ class BookmarkDataTest {
             id = "test-bookmark-id",
             url = "https://example.com",
             title = "Test Bookmark",
+            description = null,
+            thumbnailUrl = null,
             type = "website",
             sourceApp = "TestApp",
             createdAt = System.currentTimeMillis()

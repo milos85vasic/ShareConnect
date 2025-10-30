@@ -41,6 +41,10 @@ class HistoryRepository(private val historyDao: HistoryDao) {
         return historyDao.getHistoryById(historyId)
     }
 
+    suspend fun getHistoryByUrl(url: String): HistoryData? {
+        return historyDao.getHistoryByUrl(url)
+    }
+
     suspend fun getHistoryByServiceType(serviceType: String): List<HistoryData> {
         return historyDao.getHistoryByServiceType(serviceType)
     }

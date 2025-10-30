@@ -33,112 +33,53 @@ class RSSFeedDataTest {
         // Given
         val id = "test-feed-id"
         val url = "https://example.com/feed.xml"
-        val title = "Test Feed"
-        val description = "Test RSS Feed Description"
-        val language = "en"
-        val copyright = "Copyright 2024"
-        val managingEditor = "editor@example.com"
-        val webMaster = "webmaster@example.com"
-        val pubDate = System.currentTimeMillis()
-        val lastBuildDate = System.currentTimeMillis()
+        val name = "Test Feed"
+        val sourceApp = "TestApp"
+        val autoDownload = true
+        val filters = ".*torrent.*"
+        val excludeFilters = ".*cam.*"
+        val updateInterval = 60
+        val lastUpdate = System.currentTimeMillis()
+        val isEnabled = false
         val category = "Technology"
-        val generator = "RSS Generator"
-        val docs = "https://www.rssboard.org/rss-specification"
-        val cloudDomain = "rpc.example.com"
-        val cloudPort = 80
-        val cloudPath = "/RPC2"
-        val cloudProcedure = "example.getStateName"
-        val cloudProtocol = "xml-rpc"
-        val ttl = 60
-        val imageUrl = "https://example.com/image.jpg"
-        val imageTitle = "Feed Image"
-        val imageLink = "https://example.com"
-        val imageWidth = 144
-        val imageHeight = 400
-        val imageDescription = "Feed image description"
-        val textInputTitle = "Text Input"
-        val textInputDescription = "Enter your query"
-        val textInputName = "query"
-        val textInputLink = "https://example.com/search"
-        val skipHours = "0,6,12,18"
-        val skipDays = "Saturday,Sunday"
-        val timestamp = System.currentTimeMillis()
-        val version = 1
-        val lastModified = System.currentTimeMillis()
+        val torrentClientType = "qbittorrent"
+        val downloadPath = "/downloads"
+        val version = 2
 
         // When
         val feedData = RSSFeedData(
             id = id,
             url = url,
-            title = title,
-            description = description,
-            language = language,
-            copyright = copyright,
-            managingEditor = managingEditor,
-            webMaster = webMaster,
-            pubDate = pubDate,
-            lastBuildDate = lastBuildDate,
+            name = name,
+            autoDownload = autoDownload,
+            filters = filters,
+            excludeFilters = excludeFilters,
+            updateInterval = updateInterval,
+            lastUpdate = lastUpdate,
+            isEnabled = isEnabled,
             category = category,
-            generator = generator,
-            docs = docs,
-            cloudDomain = cloudDomain,
-            cloudPort = cloudPort,
-            cloudPath = cloudPath,
-            cloudProcedure = cloudProcedure,
-            cloudProtocol = cloudProtocol,
-            ttl = ttl,
-            imageUrl = imageUrl,
-            imageTitle = imageTitle,
-            imageLink = imageLink,
-            imageWidth = imageWidth,
-            imageHeight = imageHeight,
-            imageDescription = imageDescription,
-            textInputTitle = textInputTitle,
-            textInputDescription = textInputDescription,
-            textInputName = textInputName,
-            textInputLink = textInputLink,
-            skipHours = skipHours,
-            skipDays = skipDays,
-            timestamp = timestamp,
-            version = version,
-            lastModified = lastModified
+            torrentClientType = torrentClientType,
+            downloadPath = downloadPath,
+            sourceApp = sourceApp,
+            version = version
         )
 
         // Then
         assertEquals(id, feedData.id)
         assertEquals(url, feedData.url)
-        assertEquals(title, feedData.title)
-        assertEquals(description, feedData.description)
-        assertEquals(language, feedData.language)
-        assertEquals(copyright, feedData.copyright)
-        assertEquals(managingEditor, feedData.managingEditor)
-        assertEquals(webMaster, feedData.webMaster)
-        assertEquals(pubDate, feedData.pubDate)
-        assertEquals(lastBuildDate, feedData.lastBuildDate)
+        assertEquals(name, feedData.name)
+        assertEquals(sourceApp, feedData.sourceApp)
+        assertEquals(autoDownload, feedData.autoDownload)
+        assertEquals(filters, feedData.filters)
+        assertEquals(excludeFilters, feedData.excludeFilters)
+        assertEquals(updateInterval, feedData.updateInterval)
+        assertEquals(lastUpdate, feedData.lastUpdate)
+        assertEquals(isEnabled, feedData.isEnabled)
         assertEquals(category, feedData.category)
-        assertEquals(generator, feedData.generator)
-        assertEquals(docs, feedData.docs)
-        assertEquals(cloudDomain, feedData.cloudDomain)
-        assertEquals(cloudPort, feedData.cloudPort)
-        assertEquals(cloudPath, feedData.cloudPath)
-        assertEquals(cloudProcedure, feedData.cloudProcedure)
-        assertEquals(cloudProtocol, feedData.cloudProtocol)
-        assertEquals(ttl, feedData.ttl)
-        assertEquals(imageUrl, feedData.imageUrl)
-        assertEquals(imageTitle, feedData.imageTitle)
-        assertEquals(imageLink, feedData.imageLink)
-        assertEquals(imageWidth, feedData.imageWidth)
-        assertEquals(imageHeight, feedData.imageHeight)
-        assertEquals(imageDescription, feedData.imageDescription)
-        assertEquals(textInputTitle, feedData.textInputTitle)
-        assertEquals(textInputDescription, feedData.textInputDescription)
-        assertEquals(textInputName, feedData.textInputName)
-        assertEquals(textInputLink, feedData.textInputLink)
-        assertEquals(skipHours, feedData.skipHours)
-        assertEquals(skipDays, feedData.skipDays)
-        assertEquals(timestamp, feedData.timestamp)
+        assertEquals(torrentClientType, feedData.torrentClientType)
+        assertEquals(downloadPath, feedData.downloadPath)
         assertEquals(version, feedData.version)
-        assertEquals(lastModified, feedData.lastModified)
+        assertTrue(feedData.lastModified > 0)
     }
 
     @Test
@@ -146,52 +87,33 @@ class RSSFeedDataTest {
         // Given
         val id = "test-feed-id"
         val url = "https://example.com/feed.xml"
-        val title = "Test Feed"
-        val timestamp = System.currentTimeMillis()
+        val name = "Test Feed"
+        val sourceApp = "TestApp"
 
         // When
         val feedData = RSSFeedData(
             id = id,
             url = url,
-            title = title,
-            timestamp = timestamp
+            name = name,
+            sourceApp = sourceApp
         )
 
         // Then
         assertEquals(id, feedData.id)
         assertEquals(url, feedData.url)
-        assertEquals(title, feedData.title)
-        assertEquals(timestamp, feedData.timestamp)
-        assertNull(feedData.description)
-        assertNull(feedData.language)
-        assertNull(feedData.copyright)
-        assertNull(feedData.managingEditor)
-        assertNull(feedData.webMaster)
-        assertEquals(0L, feedData.pubDate)
-        assertEquals(0L, feedData.lastBuildDate)
+        assertEquals(name, feedData.name)
+        assertEquals(sourceApp, feedData.sourceApp)
+        assertEquals(false, feedData.autoDownload)
+        assertNull(feedData.filters)
+        assertNull(feedData.excludeFilters)
+        assertEquals(30, feedData.updateInterval)
+        assertEquals(0L, feedData.lastUpdate)
+        assertTrue(feedData.isEnabled)
         assertNull(feedData.category)
-        assertNull(feedData.generator)
-        assertNull(feedData.docs)
-        assertNull(feedData.cloudDomain)
-        assertEquals(0, feedData.cloudPort)
-        assertNull(feedData.cloudPath)
-        assertNull(feedData.cloudProcedure)
-        assertNull(feedData.cloudProtocol)
-        assertEquals(0, feedData.ttl)
-        assertNull(feedData.imageUrl)
-        assertNull(feedData.imageTitle)
-        assertNull(feedData.imageLink)
-        assertEquals(0, feedData.imageWidth)
-        assertEquals(0, feedData.imageHeight)
-        assertNull(feedData.imageDescription)
-        assertNull(feedData.textInputTitle)
-        assertNull(feedData.textInputDescription)
-        assertNull(feedData.textInputName)
-        assertNull(feedData.textInputLink)
-        assertNull(feedData.skipHours)
-        assertNull(feedData.skipDays)
-        assertEquals(0, feedData.version)
-        assertEquals(0L, feedData.lastModified)
+        assertNull(feedData.torrentClientType)
+        assertNull(feedData.downloadPath)
+        assertEquals(1, feedData.version)
+        assertTrue(feedData.lastModified > 0)
     }
 
     @Test
@@ -200,20 +122,20 @@ class RSSFeedDataTest {
         val feed1 = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp"
         )
         val feed2 = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp"
         )
         val feed3 = RSSFeedData(
             id = "different-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp"
         )
 
         // Then
@@ -229,8 +151,8 @@ class RSSFeedDataTest {
         val feedData = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp"
         )
 
         // When

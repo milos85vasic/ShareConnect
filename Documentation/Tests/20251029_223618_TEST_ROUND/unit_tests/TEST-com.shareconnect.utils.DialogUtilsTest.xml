@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.utils.DialogUtilsTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-10-29T19:24:05.748Z" hostname="thinker" time="2.151">
+  <properties/>
+  <testcase name="testShowErrorDialogWithResourceIds" classname="com.shareconnect.utils.DialogUtilsTest" time="1.019"/>
+  <testcase name="testShowErrorDialogWithString" classname="com.shareconnect.utils.DialogUtilsTest" time="0.116"/>
+  <testcase name="testShowOkCancelDialog" classname="com.shareconnect.utils.DialogUtilsTest" time="0.06"/>
+  <testcase name="testDialogUtilsClassExists" classname="com.shareconnect.utils.DialogUtilsTest" time="0.047"/>
+  <testcase name="testShowConfirmDialog" classname="com.shareconnect.utils.DialogUtilsTest" time="0.04"/>
+  <testcase name="testShowErrorDialogWithResourceIds" classname="com.shareconnect.utils.DialogUtilsTest" time="0.025"/>
+  <testcase name="testShowErrorDialogWithString" classname="com.shareconnect.utils.DialogUtilsTest" time="0.024"/>
+  <testcase name="testShowOkCancelDialog" classname="com.shareconnect.utils.DialogUtilsTest" time="0.027"/>
+  <testcase name="testDialogUtilsClassExists" classname="com.shareconnect.utils.DialogUtilsTest" time="0.023"/>
+  <testcase name="testShowConfirmDialog" classname="com.shareconnect.utils.DialogUtilsTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

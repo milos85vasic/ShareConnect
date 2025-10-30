@@ -68,7 +68,7 @@ class ComprehensiveE2EAutomationTest {
     }
 
     @Test
-    fun `test complete user journey from app launch to sharing YouTube video`() {
+    fun testCompleteUserJourneyFromAppLaunchToSharingYouTubeVideo() {
         // Step 1: Launch ShareConnector app
         launchShareConnector()
 
@@ -98,7 +98,7 @@ class ComprehensiveE2EAutomationTest {
     }
 
     @Test
-    fun `test complete user journey with multiple URL types`() {
+    fun testCompleteUserJourneyWithMultipleURLTypes() {
         // Step 1: Launch app and complete setup
         launchShareConnector()
         handleOnboarding()
@@ -125,7 +125,7 @@ class ComprehensiveE2EAutomationTest {
     }
 
     @Test
-    fun `test cross-app sync functionality`() {
+    fun testCrossAppSyncFunctionality() {
         // Step 1: Set up multiple sync scenarios
         launchShareConnector()
         handleOnboarding()
@@ -323,6 +323,29 @@ class ComprehensiveE2EAutomationTest {
 
         device.waitForIdle()
         takeScreenshot("pdf_shared")
+    }
+
+    private fun shareDirectDownload() {
+        // Create share intent with direct download URL
+        val downloadUrl = "https://example.com/file.zip"
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, downloadUrl)
+        }
+
+        // Start share activity
+        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        context.startActivity(Intent.createChooser(intent, "Share Direct Download"))
+
+        // Wait for share dialog
+        device.wait(Until.hasObject(By.text("ShareConnect")), timeout)
+
+        // Select ShareConnect
+        val shareConnectOption = device.findObject(By.text("ShareConnect"))
+        shareConnectOption?.click()
+
+        device.waitForIdle()
+        takeScreenshot("direct_download_shared")
     }
 
     private fun verifySharingSuccess() {

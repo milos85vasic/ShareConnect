@@ -47,7 +47,7 @@ import java.net.ServerSocket
 /**
  * Singleton manager for language preference synchronization across apps
  */
-class LanguageSyncManager private constructor(
+class LanguageSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val asinkaClient: AsinkaClient,

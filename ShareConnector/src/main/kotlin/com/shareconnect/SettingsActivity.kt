@@ -35,10 +35,12 @@ import androidx.preference.SwitchPreferenceCompat
 import androidx.preference.Preference as AndroidPreference
 import com.redelf.commons.logging.Console
 import com.shareconnect.languagesync.utils.LocaleHelper
-import com.shareconnect.utils.SecureStorage
 import com.shareconnect.utils.TorrentAppHelper
+import digital.vasic.security.access.access.SecurityAccessManager
+import digital.vasic.security.access.data.AccessMethod
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class SettingsActivity : AppCompatActivity() {
@@ -143,6 +145,15 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     class SettingsFragment : PreferenceFragmentCompat() {
+        private lateinit var securityAccessManager: SecurityAccessManager
+        private lateinit var securityAccessRepository: digital.vasic.security.access.data.SecurityAccessRepository
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            securityAccessManager = SecurityAccessManager.getInstance(requireContext())
+            securityAccessRepository = digital.vasic.security.access.data.SecurityAccessRepository.getInstance(requireContext())
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
@@ -213,52 +224,89 @@ class SettingsActivity : AppCompatActivity() {
                  }
              }
 
-             // Secure access preferences
-             val secureAccessPreference = findPreference<SwitchPreferenceCompat>("secure_access_enabled")
-             if (secureAccessPreference != null) {
-                 secureAccessPreference.isChecked = SecureAccessActivity.isSecureAccessEnabled(requireContext())
+              // Secure access preferences
+              val secureAccessPreference = findPreference<SwitchPreferenceCompat>("secure_access_enabled")
+               if (secureAccessPreference != null) {
+                   CoroutineScope(Dispatchers.Main).launch {
+                       val settings = securityAccessRepository.getSecuritySettings().first()
+                       secureAccessPreference.isChecked = settings?.isEnabled ?: false
+                   }
 
-                 secureAccessPreference.setOnPreferenceChangeListener { _, newValue ->
-                     val enabled = newValue as Boolean
-                     SecureAccessActivity.setSecureAccessEnabled(requireContext(), enabled)
-
-                     if (enabled) {
-                         // Show setup dialog
-                         (activity as? SettingsActivity)?.showSecureAccessSetupDialog()
-                     } else {
-                         // Clear secure data
-                         SecureStorage.clearSecureData(requireContext())
-                         SecureAccessActivity.setAuthMethod(requireContext(), "")
-                     }
-                     true
-                  }
-              }
-
-              val authMethodPreference = findPreference<ListPreference>("auth_method")
-              if (authMethodPreference != null) {
-                  val currentMethod = SecureAccessActivity.getAuthMethod(requireContext())
-                  authMethodPreference.value = currentMethod
-
-                  authMethodPreference.setOnPreferenceChangeListener { _, newValue ->
-                      val method = newValue as String
-                      SecureAccessActivity.setAuthMethod(requireContext(), method)
-
-                      // Show setup dialog for the selected method
-                      (activity as? SettingsActivity)?.showSecureAccessSetupDialog(method)
-                      true
-                  }
-              }
-
-              val biometricPreference = findPreference<SwitchPreferenceCompat>("biometric_enabled")
-              if (biometricPreference != null) {
-                  biometricPreference.isChecked = SecureStorage.isBiometricEnabled(requireContext())
-
-                  biometricPreference.setOnPreferenceChangeListener { _, newValue ->
+                  secureAccessPreference.setOnPreferenceChangeListener { _, newValue ->
                       val enabled = newValue as Boolean
-                      SecureStorage.setBiometricEnabled(requireContext(), enabled)
+                      CoroutineScope(Dispatchers.Main).launch {
+                          if (enabled) {
+                              // Show setup dialog
+                              (activity as? SettingsActivity)?.showSecureAccessSetupDialog()
+                          } else {
+                              // Disable security
+                              securityAccessManager.disableSecurity()
+                          }
+                      }
                       true
                   }
-              }
+               }
+
+               val authMethodPreference = findPreference<ListPreference>("auth_method")
+                if (authMethodPreference != null) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        val settings = securityAccessRepository.getSecuritySettings().first()
+                        val currentMethod = when (settings?.accessMethod) {
+                            AccessMethod.PIN -> "pin"
+                            AccessMethod.PASSWORD -> "password"
+                            AccessMethod.FINGERPRINT -> "biometric"
+                            else -> ""
+                        }
+                        authMethodPreference.value = currentMethod
+                    }
+
+                    authMethodPreference.setOnPreferenceChangeListener { _, newValue ->
+                        val method = newValue as String
+                        val accessMethod = when (method) {
+                            "pin" -> AccessMethod.PIN
+                            "password" -> AccessMethod.PASSWORD
+                            "biometric" -> AccessMethod.FINGERPRINT
+                            else -> AccessMethod.NONE
+                        }
+
+                       CoroutineScope(Dispatchers.Main).launch {
+                           if (accessMethod != AccessMethod.NONE) {
+                               securityAccessManager.enableSecurity(accessMethod)
+                               // Show setup dialog for the selected method
+                               (activity as? SettingsActivity)?.showSecureAccessSetupDialog(method)
+                           }
+                       }
+                       true
+                   }
+               }
+
+               val biometricPreference = findPreference<SwitchPreferenceCompat>("biometric_enabled")
+               if (biometricPreference != null) {
+                    CoroutineScope(Dispatchers.Main).launch {
+                        val settings = securityAccessRepository.getSecuritySettings().first()
+                        biometricPreference.isChecked = settings?.accessMethod == AccessMethod.FINGERPRINT
+                    }
+
+                    biometricPreference.setOnPreferenceChangeListener { _, newValue ->
+                        val enabled = newValue as Boolean
+                        CoroutineScope(Dispatchers.Main).launch {
+                            if (enabled) {
+                                securityAccessManager.enableSecurity(AccessMethod.FINGERPRINT)
+                            } else {
+                                // Disable biometric by switching to PIN or disabling security
+                                val settings = securityAccessRepository.getSecuritySettings().first()
+                                if (settings?.isEnabled == true) {
+                                    // Keep security enabled but switch to PIN
+                                    securityAccessManager.enableSecurity(AccessMethod.PIN)
+                                } else {
+                                    // Disable security entirely
+                                    securityAccessManager.disableSecurity()
+                                }
+                            }
+                        }
+                        true
+                    }
+               }
 
               val changePinPreference = findPreference<AndroidPreference>("change_pin")
               if (changePinPreference != null) {
@@ -304,42 +352,48 @@ class SettingsActivity : AppCompatActivity() {
             .setTitle(getString(R.string.setup_secure_access))
             .setView(dialogView)
             .setPositiveButton(getString(R.string.save)) { _, _ ->
-                when (method) {
-                    "pin" -> {
-                        val pin = editTextPin.text.toString()
-                        val confirmPin = editTextConfirmPin.text.toString()
+                CoroutineScope(Dispatchers.Main).launch {
+                    val securityAccessManager = SecurityAccessManager.getInstance(this@SettingsActivity)
 
-                        if (pin.length < 4) {
-                            android.widget.Toast.makeText(this, R.string.pin_too_short, android.widget.Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
+                    when (method) {
+                        "pin" -> {
+                            val pin = editTextPin.text.toString()
+                            val confirmPin = editTextConfirmPin.text.toString()
+
+                            if (pin.length < 4) {
+                                android.widget.Toast.makeText(this@SettingsActivity, R.string.pin_too_short, android.widget.Toast.LENGTH_SHORT).show()
+                                return@launch
+                            }
+
+                            if (pin != confirmPin) {
+                                android.widget.Toast.makeText(this@SettingsActivity, R.string.pins_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
+                                return@launch
+                            }
+
+                            val repository = digital.vasic.security.access.data.SecurityAccessRepository.getInstance(this@SettingsActivity)
+                            repository.updatePin(pin)
+                            securityAccessManager.enableSecurity(AccessMethod.PIN)
+                            android.widget.Toast.makeText(this@SettingsActivity, R.string.pin_saved, android.widget.Toast.LENGTH_SHORT).show()
                         }
+                        "password" -> {
+                            val password = editTextPassword.text.toString()
+                            val confirmPassword = editTextConfirmPassword.text.toString()
 
-                        if (pin != confirmPin) {
-                            android.widget.Toast.makeText(this, R.string.pins_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
+                            if (password.isEmpty()) {
+                                android.widget.Toast.makeText(this@SettingsActivity, R.string.password_required, android.widget.Toast.LENGTH_SHORT).show()
+                                return@launch
+                            }
+
+                            if (password != confirmPassword) {
+                                android.widget.Toast.makeText(this@SettingsActivity, R.string.passwords_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
+                                return@launch
+                            }
+
+                            val repository = digital.vasic.security.access.data.SecurityAccessRepository.getInstance(this@SettingsActivity)
+                            repository.updatePassword(password)
+                            securityAccessManager.enableSecurity(AccessMethod.PASSWORD)
+                            android.widget.Toast.makeText(this@SettingsActivity, R.string.password_saved, android.widget.Toast.LENGTH_SHORT).show()
                         }
-
-                        SecureStorage.storePinHash(this, SecureStorage.hashString(pin + "pin_salt"))
-                        SecureAccessActivity.setAuthMethod(this, "pin")
-                        android.widget.Toast.makeText(this, R.string.pin_saved, android.widget.Toast.LENGTH_SHORT).show()
-                    }
-                    "password" -> {
-                        val password = editTextPassword.text.toString()
-                        val confirmPassword = editTextConfirmPassword.text.toString()
-
-                        if (password.isEmpty()) {
-                            android.widget.Toast.makeText(this, R.string.password_required, android.widget.Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
-                        }
-
-                        if (password != confirmPassword) {
-                            android.widget.Toast.makeText(this, R.string.passwords_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
-                            return@setPositiveButton
-                        }
-
-                        SecureStorage.storePasswordHash(this, SecureStorage.hashString(password + "password_salt"))
-                        SecureAccessActivity.setAuthMethod(this, "password")
-                        android.widget.Toast.makeText(this, R.string.password_saved, android.widget.Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -361,27 +415,32 @@ class SettingsActivity : AppCompatActivity() {
                 val newPin = editTextNewPin.text.toString()
                 val confirmNewPin = editTextConfirmNewPin.text.toString()
 
-                // Verify current PIN
-                val storedPinHash = SecureStorage.getStoredPinHash(this)
-                val currentPinHash = SecureStorage.hashString(currentPin + "pin_salt")
+                CoroutineScope(Dispatchers.Main).launch {
+                    val securityAccessManager = SecurityAccessManager.getInstance(this@SettingsActivity)
 
-                if (storedPinHash != currentPinHash) {
-                    android.widget.Toast.makeText(this, R.string.current_pin_incorrect, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
+                    // Verify current PIN
+                    val isCurrentPinValid = securityAccessManager.authenticate(AccessMethod.PIN, currentPin) is SecurityAccessManager.AuthenticationResult.Success
+
+                    if (!isCurrentPinValid) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.current_pin_incorrect, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    if (newPin.length < 4) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.pin_too_short, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    if (newPin != confirmNewPin) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.pins_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    // Update PIN using SecurityAccessManager repository
+                    val repository = digital.vasic.security.access.data.SecurityAccessRepository.getInstance(this@SettingsActivity)
+                    repository.updatePin(newPin)
+                    android.widget.Toast.makeText(this@SettingsActivity, R.string.pin_changed, android.widget.Toast.LENGTH_SHORT).show()
                 }
-
-                if (newPin.length < 4) {
-                    android.widget.Toast.makeText(this, R.string.pin_too_short, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                if (newPin != confirmNewPin) {
-                    android.widget.Toast.makeText(this, R.string.pins_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                SecureStorage.storePinHash(this, SecureStorage.hashString(newPin + "pin_salt"))
-                android.widget.Toast.makeText(this, R.string.pin_changed, android.widget.Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
@@ -401,27 +460,32 @@ class SettingsActivity : AppCompatActivity() {
                 val newPassword = editTextNewPassword.text.toString()
                 val confirmNewPassword = editTextConfirmNewPassword.text.toString()
 
-                // Verify current password
-                val storedPasswordHash = SecureStorage.getStoredPasswordHash(this)
-                val currentPasswordHash = SecureStorage.hashString(currentPassword + "password_salt")
+                CoroutineScope(Dispatchers.Main).launch {
+                    val securityAccessManager = SecurityAccessManager.getInstance(this@SettingsActivity)
 
-                if (storedPasswordHash != currentPasswordHash) {
-                    android.widget.Toast.makeText(this, R.string.current_password_incorrect, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
+                    // Verify current password
+                    val isCurrentPasswordValid = securityAccessManager.authenticate(AccessMethod.PASSWORD, currentPassword) is SecurityAccessManager.AuthenticationResult.Success
+
+                    if (!isCurrentPasswordValid) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.current_password_incorrect, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    if (newPassword.isEmpty()) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.password_required, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    if (newPassword != confirmNewPassword) {
+                        android.widget.Toast.makeText(this@SettingsActivity, R.string.passwords_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+
+                    // Update password using SecurityAccessManager repository
+                    val repository = digital.vasic.security.access.data.SecurityAccessRepository.getInstance(this@SettingsActivity)
+                    repository.updatePassword(newPassword)
+                    android.widget.Toast.makeText(this@SettingsActivity, R.string.password_changed, android.widget.Toast.LENGTH_SHORT).show()
                 }
-
-                if (newPassword.isEmpty()) {
-                    android.widget.Toast.makeText(this, R.string.password_required, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                if (newPassword != confirmNewPassword) {
-                    android.widget.Toast.makeText(this, R.string.passwords_do_not_match, android.widget.Toast.LENGTH_SHORT).show()
-                    return@setPositiveButton
-                }
-
-                SecureStorage.storePasswordHash(this, SecureStorage.hashString(newPassword + "password_salt"))
-                android.widget.Toast.makeText(this, R.string.password_changed, android.widget.Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()

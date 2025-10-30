@@ -32,6 +32,7 @@ class RSSRepository(private val rssDao: RSSDao) {
     fun getAllFeeds(): Flow<List<RSSFeedData>> = rssDao.getAllFeeds()
     suspend fun getAllFeedsSync(): List<RSSFeedData> = rssDao.getAllFeedsSync()
     suspend fun getFeedById(feedId: String): RSSFeedData? = rssDao.getFeedById(feedId)
+    suspend fun getFeedByUrl(url: String): RSSFeedData? = rssDao.getFeedByUrl(url)
     fun getEnabledFeeds(): Flow<List<RSSFeedData>> = rssDao.getEnabledFeeds()
     fun getFeedsByClientType(clientType: String): Flow<List<RSSFeedData>> = rssDao.getFeedsByClientType(clientType)
     suspend fun getFeedsByCategory(category: String): List<RSSFeedData> = rssDao.getFeedsByCategory(category)

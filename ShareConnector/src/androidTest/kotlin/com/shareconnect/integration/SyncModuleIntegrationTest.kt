@@ -54,7 +54,7 @@ class SyncModuleIntegrationTest {
     }
 
     @Test
-    fun `test multiple sync managers can coexist without port conflicts`() = runTest {
+    fun testMultipleSyncManagersCanCoexistWithoutPortConflicts() = runTest {
         // Given
         val appId = "integration-test-app"
 
@@ -81,7 +81,7 @@ class SyncModuleIntegrationTest {
     }
 
     @Test
-    fun `test sync managers use different ports to avoid conflicts`() = runTest {
+    fun testSyncManagersUseDifferentPortsToAvoidConflicts() = runTest {
         // Given
         val appId1 = "integration-test-app-1"
         val appId2 = "integration-test-app-2"
@@ -103,7 +103,7 @@ class SyncModuleIntegrationTest {
     }
 
     @Test
-    fun `test sync managers can be started and stopped independently`() = runTest {
+    fun testSyncManagersCanBeStartedAndStoppedIndependently() = runTest {
         // Given
         val appId = "integration-test-app"
         val historySyncManager = HistorySyncManager.getInstance(
@@ -129,7 +129,7 @@ class SyncModuleIntegrationTest {
     }
 
     @Test
-    fun `test sync managers handle concurrent access correctly`() = runTest {
+    fun testSyncManagersHandleConcurrentAccessCorrectly() = runTest {
         // Given
         val appId = "integration-test-app"
 

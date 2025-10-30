@@ -67,7 +67,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles database corruption gracefully`() {
+    fun testThemeCreatorHandlesDatabaseCorruptionGracefully() {
         // This test simulates database corruption scenarios
         // In a real test environment, we would corrupt the database file
 
@@ -84,7 +84,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles memory pressure gracefully`() {
+    fun testThemeCreatorHandlesMemoryPressureGracefully() {
         // Simulate memory pressure by creating large amounts of data
         runBlocking {
             try {
@@ -108,7 +108,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles invalid color input without crashing`() {
+    fun testThemeCreatorHandlesInvalidColorInputWithoutCrashing() = runBlocking {
         // Test various invalid color inputs that could cause crashes
         val invalidColors = listOf(
             "",           // Empty string
@@ -145,7 +145,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles rapid user interactions without crashing`() {
+    fun testThemeCreatorHandlesRapidUserInteractionsWithoutCrashing() {
         // Test rapid clicking, typing, and other interactions that could cause crashes
         runBlocking {
             try {
@@ -170,7 +170,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles orientation changes without crashing`() {
+    fun testThemeCreatorHandlesOrientationChangesWithoutCrashing() {
         // Test that orientation changes don't cause crashes
         runBlocking {
             try {
@@ -198,7 +198,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles backgrounding and foregrounding without crashing`() {
+    fun testThemeCreatorHandlesBackgroundingAndForegroundingWithoutCrashing() {
         // Test that moving app to background and foreground doesn't cause crashes
         runBlocking {
             try {
@@ -229,7 +229,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles network connectivity changes without crashing`() {
+    fun testThemeCreatorHandlesNetworkConnectivityChangesWithoutCrashing() {
         // Test that network connectivity changes don't cause crashes
         runBlocking {
             try {
@@ -255,7 +255,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles low battery conditions without crashing`() {
+    fun testThemeCreatorHandlesLowBatteryConditionsWithoutCrashing() {
         // Test that low battery conditions don't cause crashes
         runBlocking {
             try {
@@ -273,7 +273,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles storage space issues without crashing`() {
+    fun testThemeCreatorHandlesStorageSpaceIssuesWithoutCrashing() {
         // Test that storage space issues don't cause crashes
         runBlocking {
             try {
@@ -303,7 +303,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles concurrent theme operations without crashing`() {
+    fun testThemeCreatorHandlesConcurrentThemeOperationsWithoutCrashing() {
         // Test that concurrent operations (like multiple saves) don't cause crashes
         runBlocking {
             try {
@@ -330,7 +330,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles theme sync manager failures without crashing`() {
+    fun testThemeCreatorHandlesThemeSyncManagerFailuresWithoutCrashing() {
         // Test that failures in the theme sync manager don't crash the activity
         runBlocking {
             try {
@@ -348,7 +348,7 @@ class ThemeCreatorCrashTest {
     }
 
     @Test
-    fun `test theme creator handles malformed theme data without crashing`() {
+    fun testThemeCreatorHandlesMalformedThemeDataWithoutCrashing() {
         // Test that malformed or corrupted theme data doesn't cause crashes
         runBlocking {
             try {

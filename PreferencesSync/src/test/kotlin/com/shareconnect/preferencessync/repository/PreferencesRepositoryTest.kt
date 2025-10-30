@@ -61,19 +61,20 @@ class PreferencesRepositoryTest {
         // Given
         val preferencesData = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
 
         // When
-        repository.insertPreferences(preferencesData)
+        repository.insertPreference(preferencesData)
 
         // Then
-        val savedPreferences = repository.getPreferencesById("test-preferences-id")
+        val savedPreferences = repository.getPreferenceById("test-preferences-id")
         assertNotNull(savedPreferences)
         assertEquals("test-preferences-id", savedPreferences?.id)
         assertEquals("theme", savedPreferences?.key)
@@ -86,30 +87,32 @@ class PreferencesRepositoryTest {
         // Given
         val originalPreferences = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "light",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
-        repository.insertPreferences(originalPreferences)
+        repository.insertPreference(originalPreferences)
 
         val updatedPreferences = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
 
         // When
-        repository.updatePreferences(updatedPreferences)
+        repository.updatePreference(updatedPreferences)
 
         // Then
-        val savedPreferences = repository.getPreferencesById("test-preferences-id")
+        val savedPreferences = repository.getPreferenceById("test-preferences-id")
         assertNotNull(savedPreferences)
         assertEquals("dark", savedPreferences?.value)
         assertEquals(2, savedPreferences?.version)
@@ -120,23 +123,24 @@ class PreferencesRepositoryTest {
         // Given
         val preferencesData = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
-        repository.insertPreferences(preferencesData)
+        repository.insertPreference(preferencesData)
 
         // Verify it exists
-        assertNotNull(repository.getPreferencesById("test-preferences-id"))
+        assertNotNull(repository.getPreferenceById("test-preferences-id"))
 
         // When
-        repository.deletePreferences("test-preferences-id")
+        repository.deletePreference("test-preferences-id")
 
         // Then
-        val deletedPreferences = repository.getPreferencesById("test-preferences-id")
+        val deletedPreferences = repository.getPreferenceById("test-preferences-id")
         assertNull(deletedPreferences)
     }
 
@@ -145,28 +149,30 @@ class PreferencesRepositoryTest {
         // Given
         val preferences1 = PreferencesData(
             id = "test-preferences-id-1",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
         val preferences2 = PreferencesData(
             id = "test-preferences-id-2",
+            category = "ui",
             key = "language",
             value = "en",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
 
-        repository.insertPreferences(preferences1)
-        repository.insertPreferences(preferences2)
+        repository.insertPreference(preferences1)
+        repository.insertPreference(preferences2)
 
         // When
-        val allPreferences = repository.getAllPreferences()
+        val allPreferences = repository.getAllPreferencesSync()
 
         // Then
         assertEquals(2, allPreferences.size)
@@ -175,9 +181,9 @@ class PreferencesRepositoryTest {
     }
 
     @Test
-    fun `test getPreferencesById returns null for non-existent id`() = runTest {
+    fun `test getPreferenceById returns null for non-existent id`() = runTest {
         // When
-        val preferences = repository.getPreferencesById("non-existent-id")
+        val preferences = repository.getPreferenceById("non-existent-id")
 
         // Then
         assertNull(preferences)
@@ -188,17 +194,18 @@ class PreferencesRepositoryTest {
         // Given
         val preferencesData = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis(),
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
-        repository.insertPreferences(preferencesData)
+        repository.insertPreference(preferencesData)
 
         // When
-        val preferences = repository.getPreferencesByKey("theme")
+        val preferences = repository.getPreferenceByKey("ui", "theme")
 
         // Then
         assertNotNull(preferences)
@@ -208,9 +215,9 @@ class PreferencesRepositoryTest {
     }
 
     @Test
-    fun `test getPreferencesByKey returns null for non-existent key`() = runTest {
+    fun `test getPreferenceByKey returns null for non-existent key`() = runTest {
         // When
-        val preferences = repository.getPreferencesByKey("non-existent-key")
+        val preferences = repository.getPreferenceByKey("ui", "non-existent-key")
 
         // Then
         assertNull(preferences)

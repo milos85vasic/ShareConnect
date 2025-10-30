@@ -124,7 +124,19 @@ class HistoryDataTest {
             id = id,
             url = url,
             title = title,
-            timestamp = timestamp
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
+            timestamp = timestamp,
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
+            version = 0,
+            lastModified = 0L
         )
 
         // Then
@@ -135,17 +147,17 @@ class HistoryDataTest {
         assertNull(historyData.description)
         assertNull(historyData.thumbnailUrl)
         assertNull(historyData.serviceProvider)
-        assertNull(historyData.type)
+        assertEquals("video", historyData.type)
         assertNull(historyData.profileId)
         assertNull(historyData.profileName)
         assertFalse(historyData.isSentSuccessfully)
-        assertNull(historyData.serviceType)
+        assertEquals("test", historyData.serviceType)
         assertNull(historyData.torrentClientType)
-        assertNull(historyData.sourceApp)
+        assertEquals("TestApp", historyData.sourceApp)
         assertEquals(0, historyData.version)
         assertEquals(0L, historyData.lastModified)
-        assertEquals(0L, historyData.fileSize)
-        assertEquals(0, historyData.duration)
+        assertNull(historyData.fileSize)
+        assertNull(historyData.duration)
         assertNull(historyData.quality)
         assertNull(historyData.downloadPath)
         assertNull(historyData.torrentHash)
@@ -161,19 +173,49 @@ class HistoryDataTest {
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
-            timestamp = System.currentTimeMillis()
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
+            timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp"
         )
         val history2 = HistoryData(
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
-            timestamp = System.currentTimeMillis()
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
+            timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp"
         )
         val history3 = HistoryData(
             id = "different-id",
             url = "https://example.com",
             title = "Test Title",
-            timestamp = System.currentTimeMillis()
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
+            timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp"
         )
 
         // Then
@@ -190,7 +232,17 @@ class HistoryDataTest {
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
-            timestamp = System.currentTimeMillis()
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
+            timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp"
         )
 
         // When

@@ -60,7 +60,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme creator activity launches successfully`() {
+    fun testThemeCreatorActivityLaunchesSuccessfully() {
         // Verify the activity is displayed
         onView(withId(R.id.toolbar))
             .check(matches(isDisplayed()))
@@ -70,7 +70,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme name input field is present and functional`() {
+    fun testThemeNameInputFieldIsPresentAndFunctional() {
         // Verify theme name input field exists
         onView(withId(R.id.editTextThemeName))
             .check(matches(isDisplayed()))
@@ -85,7 +85,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme mode toggle buttons are present and functional`() {
+    fun testThemeModeToggleButtonsArePresentAndFunctional() {
         // Verify toggle group exists
         onView(withId(R.id.toggleGroupThemeMode))
             .check(matches(isDisplayed()))
@@ -110,7 +110,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test color input fields are present and functional`() {
+    fun testColorInputFieldsArePresentAndFunctional() {
         // Verify primary color input exists
         onView(withId(R.id.editTextPrimary))
             .check(matches(isDisplayed()))
@@ -147,7 +147,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test save button is present and functional`() {
+    fun testSaveButtonIsPresentAndFunctional() {
         // Verify save button exists
         onView(withId(R.id.buttonSave))
             .check(matches(isDisplayed()))
@@ -178,7 +178,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test preview card is present and updates with input changes`() {
+    fun testPreviewCardIsPresentAndUpdatesWithInputChanges() {
         // Verify preview card exists
         onView(withId(R.id.cardPreview))
             .check(matches(isDisplayed()))
@@ -198,7 +198,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test delete button is hidden for new themes and shown for existing themes`() {
+    fun testDeleteButtonIsHiddenForNewThemesAndShownForExistingThemes() {
         // For new theme, delete button should be hidden
         onView(withId(R.id.buttonDelete))
             .check(matches(withEffectiveVisibility(Visibility.GONE)))
@@ -208,7 +208,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test all color input fields have default values for light mode`() {
+    fun testAllColorInputFieldsHaveDefaultValuesForLightMode() {
         // Verify that color fields have default values (they should be populated with light theme defaults)
         onView(withId(R.id.editTextPrimary))
             .check(matches(withText("FF6B35")))
@@ -236,7 +236,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test switching to dark mode updates preview accordingly`() {
+    fun testSwitchingToDarkModeUpdatesPreviewAccordingly() {
         // Switch to dark mode
         onView(withId(R.id.buttonDarkMode))
             .perform(click())
@@ -250,7 +250,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test invalid color input shows error or handles gracefully`() {
+    fun testInvalidColorInputShowsErrorOrHandlesGracefully() {
         // Enter invalid color
         onView(withId(R.id.editTextPrimary))
             .perform(clearText(), typeText("INVALID"), closeSoftKeyboard())
@@ -260,7 +260,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test complete theme creation workflow`() = runTest {
+    fun testCompleteThemeCreationWorkflow() = runTest {
         // Step 1: Enter theme name
         onView(withId(R.id.editTextThemeName))
             .perform(typeText("Complete Workflow Theme"), closeSoftKeyboard())
@@ -294,7 +294,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme editing workflow with existing theme`() {
+    fun testThemeEditingWorkflowWithExistingTheme() {
         // This test would require launching the activity with an existing theme ID
         // For now, we'll test the UI elements that would be used for editing
 
@@ -313,7 +313,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test back button navigation works correctly`() {
+    fun testBackButtonNavigationWorksCorrectly() {
         // Click back button in toolbar
         onView(withContentDescription("Navigate up"))
             .perform(click())
@@ -323,7 +323,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme creator handles empty theme name validation`() {
+    fun testThemeCreatorHandlesEmptyThemeNameValidation() {
         // Try to save without entering a theme name
         onView(withId(R.id.buttonSave))
             .perform(click())
@@ -333,7 +333,7 @@ class ThemeCreatorAutomationTest {
     }
 
     @Test
-    fun `test theme creator handles color format validation`() {
+    fun testThemeCreatorHandlesColorFormatValidation() {
         // Enter theme name
         onView(withId(R.id.editTextThemeName))
             .perform(typeText("Validation Test Theme"), closeSoftKeyboard())

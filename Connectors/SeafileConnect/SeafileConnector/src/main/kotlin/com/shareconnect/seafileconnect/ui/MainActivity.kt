@@ -42,7 +42,7 @@ import com.shareconnect.designsystem.compose.theme.DesignSystemTheme
 import com.shareconnect.qrscanner.QRScannerManager
 import com.shareconnect.seafileconnect.SeafileConnectApplication
 import digital.vasic.security.access.access.SecurityAccessManager
-import digital.vasic.security.access.access.AccessMethod
+import digital.vasic.security.access.data.AccessMethod
 import com.shareconnect.themesync.ThemeSyncManager
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -111,7 +111,6 @@ class MainActivity : ComponentActivity() {
                         color = MaterialTheme.colorScheme.background
                     ) {
                         SeafileConnectScreen()
-            }
         }
     }
 
@@ -195,7 +194,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -39,6 +39,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.lang.reflect.Method
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -114,7 +115,10 @@ class SecurityAccessIntegrationTest {
 
         // Simulate going to background and coming back (onResume)
         scenario.onActivity { activity ->
-            activity.onResume()
+            // Use reflection to call protected onResume method
+            val onResumeMethod: Method = activity.javaClass.getDeclaredMethod("onResume")
+            onResumeMethod.isAccessible = true
+            onResumeMethod.invoke(activity)
         }
 
         // Wait for security check

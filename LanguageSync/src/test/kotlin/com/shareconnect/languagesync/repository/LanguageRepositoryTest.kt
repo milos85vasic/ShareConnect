@@ -26,12 +26,18 @@ package com.shareconnect.languagesync.repository
 import com.shareconnect.languagesync.database.LanguageDao
 import com.shareconnect.languagesync.models.LanguageData
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import org.mockito.kotlin.*
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import io.mockk.*
+import io.mockk.Runs
 
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [33], application = com.shareconnect.languagesync.TestApplication::class)
 class LanguageRepositoryTest {
 
     private lateinit var mockDao: LanguageDao
@@ -39,54 +45,55 @@ class LanguageRepositoryTest {
 
     @Before
     fun setup() {
-        mockDao = mock()
+        mockDao = mockk()
         repository = LanguageRepository(mockDao)
     }
 
     @Test
-    fun testGetLanguagePreference(): Unit = runBlocking {
+    fun testGetLanguagePreference() = runTest {
         val expectedLanguage = LanguageData.createDefault()
-        whenever(mockDao.getLanguagePreference()).thenReturn(expectedLanguage)
+        coEvery { mockDao.getLanguagePreference() } returns expectedLanguage
 
         val result = repository.getLanguagePreference()
 
         assertEquals(expectedLanguage, result)
-        verify(mockDao).getLanguagePreference()
+        coVerify { mockDao.getLanguagePreference() }
     }
 
     @Test
-    fun testGetLanguagePreferenceReturnsNull(): Unit = runBlocking {
-        whenever(mockDao.getLanguagePreference()).thenReturn(null)
+    fun testGetLanguagePreferenceReturnsNull() = runTest {
+        coEvery { mockDao.getLanguagePreference() } returns null
 
         val result = repository.getLanguagePreference()
 
         assertNull(result)
-        verify(mockDao).getLanguagePreference()
+        coVerify { mockDao.getLanguagePreference() }
     }
 
     @Test
     fun testGetLanguagePreferenceFlow() {
         val expectedLanguage = LanguageData.createDefault()
         val flow = flowOf(expectedLanguage)
-        whenever(mockDao.getLanguagePreferenceFlow()).thenReturn(flow)
+        every { mockDao.getLanguagePreferenceFlow() } returns flow
 
         val result = repository.getLanguagePreferenceFlow()
 
         assertEquals(flow, result)
-        verify(mockDao).getLanguagePreferenceFlow()
+        verify { mockDao.getLanguagePreferenceFlow() }
     }
 
     @Test
-    fun testSetLanguagePreference(): Unit = runBlocking {
+    fun testSetLanguagePreference() = runTest {
         val language = LanguageData.createDefault()
+        coEvery { mockDao.insertLanguagePreference(any()) } just Runs
 
         repository.setLanguagePreference(language)
 
-        verify(mockDao).insertLanguagePreference(language)
+        coVerify { mockDao.insertLanguagePreference(language) }
     }
 
     @Test
-    fun testGetOrCreateDefaultWhenExists(): Unit = runBlocking {
+    fun testGetOrCreateDefaultWhenExists() = runTest {
         val existingLanguage = LanguageData(
             id = "language_preference",
             languageCode = LanguageData.CODE_ENGLISH,
@@ -95,31 +102,33 @@ class LanguageRepositoryTest {
             version = 2,
             lastModified = 123456789L
         )
-        whenever(mockDao.getLanguagePreference()).thenReturn(existingLanguage)
+        coEvery { mockDao.getLanguagePreference() } returns existingLanguage
 
         val result = repository.getOrCreateDefault()
 
         assertEquals(existingLanguage, result)
-        verify(mockDao).getLanguagePreference()
-        verify(mockDao, never()).insertLanguagePreference(any())
+        coVerify { mockDao.getLanguagePreference() }
+        coVerify(exactly = 0) { mockDao.insertLanguagePreference(any()) }
     }
 
     @Test
-    fun testGetOrCreateDefaultWhenNotExists(): Unit = runBlocking {
-        whenever(mockDao.getLanguagePreference()).thenReturn(null)
+    fun testGetOrCreateDefaultWhenNotExists() = runTest {
+        coEvery { mockDao.getLanguagePreference() } returns null
+        coEvery { mockDao.insertLanguagePreference(any()) } just Runs
 
         val result = repository.getOrCreateDefault()
 
         assertEquals("language_preference", result.id)
         assertEquals(LanguageData.CODE_SYSTEM_DEFAULT, result.languageCode)
         assertTrue(result.isSystemDefault)
-        verify(mockDao).getLanguagePreference()
-        verify(mockDao).insertLanguagePreference(any())
+        coVerify { mockDao.getLanguagePreference() }
+        coVerify { mockDao.insertLanguagePreference(any()) }
     }
 
     @Test
-    fun testMultipleCallsToGetOrCreateDefaultConsistent(): Unit = runBlocking {
-        whenever(mockDao.getLanguagePreference()).thenReturn(null)
+    fun testMultipleCallsToGetOrCreateDefaultConsistent() = runTest {
+        coEvery { mockDao.getLanguagePreference() } returns null
+        coEvery { mockDao.insertLanguagePreference(any()) } just Runs
 
         val result1 = repository.getOrCreateDefault()
         val result2 = repository.getOrCreateDefault()
@@ -127,7 +136,7 @@ class LanguageRepositoryTest {
         // Should create default twice (since mock returns null each time)
         assertEquals(result1.id, result2.id)
         assertEquals(result1.languageCode, result2.languageCode)
-        verify(mockDao, times(2)).getLanguagePreference()
-        verify(mockDao, times(2)).insertLanguagePreference(any())
+        coVerify(exactly = 2) { mockDao.getLanguagePreference() }
+        coVerify(exactly = 2) { mockDao.insertLanguagePreference(any()) }
     }
 }

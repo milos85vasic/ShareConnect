@@ -24,27 +24,20 @@
 package com.shareconnect.jellyfinconnect.widget
 
 import android.content.Context
-import androidx.glance.appwidget.updateAll
 import androidx.work.*
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import androidx.work.WorkRequest
 import java.util.concurrent.TimeUnit
 
 class WidgetUpdateWorker(
     private val context: Context,
     params: WorkerParameters
-) : androidx.work.CoroutineWorker(context, params) {
+) : CoroutineWorker(context, params) {
 
-    override suspend fun doWork(): androidx.work.ListenableWorker.Result {
+    override suspend fun doWork(): Result {
         return try {
-            updateAll(context)
-            androidx.work.ListenableWorker.Result.success()
+            JellyfinWidget().updateAll(context)
+            Result.success()
         } catch (e: Exception) {
-            if (runAttemptCount < 3) androidx.work.ListenableWorker.Result.retry() else androidx.work.ListenableWorker.Result.failure()
+            if (runAttemptCount < 3) Result.retry() else Result.failure()
         }
     }
 

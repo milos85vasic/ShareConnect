@@ -46,7 +46,7 @@ import java.net.ServerSocket
 import kotlinx.coroutines.launch
 import androidx.startup.Initializer
 
-class HistorySyncManager private constructor(
+class HistorySyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,
@@ -235,7 +235,7 @@ class HistorySyncManager private constructor(
         }
     }
 
-    private suspend fun handleReceivedHistory(syncableHistory: SyncableHistory) {
+    internal suspend fun handleReceivedHistory(syncableHistory: SyncableHistory) {
         try {
             val history = syncableHistory.getHistoryData()
             Log.d(TAG, "Received history from ${history.sourceApp}: ${history.title ?: history.url}")
@@ -260,7 +260,7 @@ class HistorySyncManager private constructor(
         }
     }
 
-    private suspend fun handleDeletedHistory(historyId: String) {
+    internal suspend fun handleDeletedHistory(historyId: String) {
         try {
             Log.d(TAG, "Received delete notification for history: $historyId")
             repository.deleteHistory(historyId)

@@ -49,4 +49,7 @@ dependencies {
 
     // Asinka for syncing
     implementation(project(":Asinka:asinka"))
+
+    // Test dependencies
+    testImplementation(project(":Asinka:asinka"))
 }

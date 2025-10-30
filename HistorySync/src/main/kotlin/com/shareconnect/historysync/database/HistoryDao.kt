@@ -42,6 +42,9 @@ interface HistoryDao {
     @Query("SELECT * FROM synced_history WHERE id = :historyId")
     suspend fun getHistoryById(historyId: String): HistoryData?
 
+    @Query("SELECT * FROM synced_history WHERE url = :url")
+    suspend fun getHistoryByUrl(url: String): HistoryData?
+
     @Query("SELECT * FROM synced_history WHERE serviceType = :serviceType ORDER BY timestamp DESC")
     suspend fun getHistoryByServiceType(serviceType: String): List<HistoryData>
 

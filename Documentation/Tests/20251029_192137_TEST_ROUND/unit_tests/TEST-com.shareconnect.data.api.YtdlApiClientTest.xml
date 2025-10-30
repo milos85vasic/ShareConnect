@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.data.api.YtdlApiClientTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2025-10-29T16:22:51.789Z" hostname="thinker" time="0.914">
+  <properties/>
+  <testcase name="test download with subtitle options" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.026"/>
+  <testcase name="test various output templates" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.15"/>
+  <testcase name="test HTTP error response" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.031"/>
+  <testcase name="test authentication failure" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.026"/>
+  <testcase name="test add download without authentication" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.023"/>
+  <testcase name="test basic authentication header" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.025"/>
+  <testcase name="test download with thumbnail embedding" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.024"/>
+  <testcase name="test add download with format specification" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.022"/>
+  <testcase name="test server error response" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.027"/>
+  <testcase name="test add download with default options" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.023"/>
+  <testcase name="test concurrent downloads" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.196"/>
+  <testcase name="test add download with post-processor" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.02"/>
+  <testcase name="test various format strings" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.19"/>
+  <testcase name="test network error handling" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.018"/>
+  <testcase name="test playlist download" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.029"/>
+  <testcase name="test JSON content type header" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.023"/>
+  <testcase name="test add audio only download" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.021"/>
+  <testcase name="test API client initialization" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.018"/>
+  <testcase name="test add download with output template" classname="com.shareconnect.data.api.YtdlApiClientTest" time="0.019"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:33289/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 87
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","write_subtitles":true,"subtitle_languages":"en,es"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (87-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:33289/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:39257/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 73
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","output_template":"%(title)s.%(ext)s"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (73-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:39257/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:39257/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 87
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","output_template":"%(uploader)s\/%(title)s.%(ext)s"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (87-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:39257/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:39257/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 91
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","output_template":"%(upload_date)s - %(title)s.%(ext)s"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (91-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:39257/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:39257/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 116
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","output_template":"%(playlist_title)s\/%(playlist_index)02d - %(title)s.%(ext)s"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (116-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:39257/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:51279/download
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 21
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"invalid-url"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (21-byte body)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- 400 Client Error http://localhost:51279/download (0ms)
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 24
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: {"error": "Invalid URL"}
+Oct 29, 2025 7:22:51 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (24-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59607/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 401 Client Error http://localhost:59607/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 12
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Unauthorized
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (12-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:34553/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:34553/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:33371/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:33371/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:52899/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 58
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","embed_thumbnail":true}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (58-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:52899/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:58385/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 100
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/watch?v=test","format":"bestvideo[height<=1080]+bestaudio\/best"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (100-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:58385/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123", "status": "queued"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:58419/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 500 Server Error http://localhost:58419/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 21
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Internal Server Error
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (21-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:55335/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/watch?v=test"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (49-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:55335/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123", "status": "queued"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:48717/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 36
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video0"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (36-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:48717/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 20
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-0"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (20-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:48717/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 36
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video1"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (36-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:48717/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 20
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-1"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (20-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:48717/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 36
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video2"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (36-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:48717/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 20
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-2"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (20-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:48717/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 36
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video3"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (36-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:48717/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 20
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-3"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (20-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:48717/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 36
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video4"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (36-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:48717/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 20
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-4"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (20-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:57895/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 148
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/watch?v=test","post_processor":"FFmpegExtractAudio","post_processor_args":"--audio-format mp3 --audio-quality 0"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (148-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:57895/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123", "status": "queued"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59741/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 51
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","format":"best"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (51-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:59741/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59741/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 52
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","format":"worst"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (52-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:59741/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59741/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 66
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","format":"bestvideo+bestaudio"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (66-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:59741/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59741/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 86
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","format":"bestvideo[height<=1080]+bestaudio\/best"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (86-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:59741/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:59741/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 62
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video","format":"bestaudio\/best"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (62-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:59741/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 22
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (22-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:42021/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- HTTP FAILED: java.net.ConnectException: Failed to connect to localhost/127.0.0.1:42021
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:34055/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 115
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/playlist?list=PLtest","output_template":"%(playlist_title)s\/%(title)s.%(ext)s"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (115-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:34055/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "playlist-123", "type": "playlist"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:45193/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 35
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/test.com\/video"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (35-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:45193/download (1ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 13
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "123"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (13-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:40985/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 67
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/watch?v=test","audio_only":true}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (67-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:40985/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123", "status": "queued"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> POST http://localhost:36899/download
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 87
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic eXRkbDpwYXNzd29yZA==
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"url":"https:\/\/www.youtube.com\/watch?v=test","output_template":"%(title)s.%(ext)s"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: --> END POST (87-byte body)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- 200 OK http://localhost:36899/download (0ms)
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 42
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: {"id": "download-123", "status": "queued"}
+Oct 29, 2025 7:22:52 PM okhttp3.internal.platform.Platform log
+INFO: <-- END HTTP (42-byte body)
+]]></system-err>
+</testsuite>

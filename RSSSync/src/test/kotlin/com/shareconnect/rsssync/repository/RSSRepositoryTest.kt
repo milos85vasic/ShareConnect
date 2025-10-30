@@ -62,11 +62,8 @@ class RSSRepositoryTest {
         val feedData = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            description = "Test RSS Feed",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp"
         )
 
         // When
@@ -76,7 +73,7 @@ class RSSRepositoryTest {
         val savedFeed = repository.getFeedById("test-feed-id")
         assertNotNull(savedFeed)
         assertEquals("test-feed-id", savedFeed?.id)
-        assertEquals("Test Feed", savedFeed?.title)
+        assertEquals("Test Feed", savedFeed?.name)
         assertEquals("https://example.com/feed.xml", savedFeed?.url)
     }
 
@@ -86,18 +83,17 @@ class RSSRepositoryTest {
         val originalFeed = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Original Title",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Original Title",
+            sourceApp = "TestApp",
+            version = 1
         )
         repository.insertFeed(originalFeed)
 
         val updatedFeed = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Updated Title",
-            timestamp = System.currentTimeMillis(),
+            name = "Updated Title",
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -108,20 +104,19 @@ class RSSRepositoryTest {
         // Then
         val savedFeed = repository.getFeedById("test-feed-id")
         assertNotNull(savedFeed)
-        assertEquals("Updated Title", savedFeed?.title)
+        assertEquals("Updated Title", savedFeed?.name)
         assertEquals(2, savedFeed?.version)
     }
 
     @Test
-    fun `test deleteFeed removes RSS feed`() = runTest {
+    fun `test deleteFeed removes RSS feed from database`() = runTest {
         // Given
         val feedData = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp",
+            version = 1
         )
         repository.insertFeed(feedData)
 
@@ -142,25 +137,23 @@ class RSSRepositoryTest {
         val feed1 = RSSFeedData(
             id = "test-feed-id-1",
             url = "https://example1.com/feed.xml",
-            title = "Feed 1",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Feed 1",
+            sourceApp = "TestApp",
+            version = 1
         )
         val feed2 = RSSFeedData(
             id = "test-feed-id-2",
             url = "https://example2.com/feed.xml",
-            title = "Feed 2",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Feed 2",
+            sourceApp = "TestApp",
+            version = 1
         )
 
         repository.insertFeed(feed1)
         repository.insertFeed(feed2)
 
         // When
-        val allFeeds = repository.getAllFeeds()
+        val allFeeds = repository.getAllFeedsSync()
 
         // Then
         assertEquals(2, allFeeds.size)
@@ -183,10 +176,9 @@ class RSSRepositoryTest {
         val feedData = RSSFeedData(
             id = "test-feed-id",
             url = "https://example.com/feed.xml",
-            title = "Test Feed",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
+            name = "Test Feed",
+            sourceApp = "TestApp",
+            version = 1
         )
         repository.insertFeed(feedData)
 
@@ -196,7 +188,7 @@ class RSSRepositoryTest {
         // Then
         assertNotNull(feed)
         assertEquals("test-feed-id", feed?.id)
-        assertEquals("Test Feed", feed?.title)
+        assertEquals("Test Feed", feed?.name)
     }
 
     @Test

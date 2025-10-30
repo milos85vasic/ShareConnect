@@ -28,6 +28,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.torrentsharingsync.database.TorrentSharingDatabase
 import com.shareconnect.torrentsharingsync.models.TorrentSharingData
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.*
@@ -57,164 +58,116 @@ class TorrentSharingRepositoryTest {
     }
 
     @Test
-    fun `test insertTorrentSharing saves torrent sharing data correctly`() = runTest {
+    fun `test setTorrentSharingPrefs saves preferences correctly`() = runTest {
         // Given
-        val torrentSharingData = TorrentSharingData(
-            id = "test-torrent-sharing-id",
-            torrentName = "Test Torrent",
-            torrentHash = "abc123",
-            magnetUri = "magnet:?xt=urn:btih:abc123",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
+        val prefs = TorrentSharingData.createDefault().copy(directSharingEnabled = false)
 
         // When
-        repository.insertTorrentSharing(torrentSharingData)
+        repository.setTorrentSharingPrefs(prefs)
 
         // Then
-        val savedData = repository.getTorrentSharingById("test-torrent-sharing-id")
-        assertNotNull(savedData)
-        assertEquals("test-torrent-sharing-id", savedData?.id)
-        assertEquals("Test Torrent", savedData?.torrentName)
-        assertEquals("abc123", savedData?.torrentHash)
-        assertEquals("magnet:?xt=urn:btih:abc123", savedData?.magnetUri)
+        val savedPrefs = repository.getTorrentSharingPrefs()
+        assertNotNull(savedPrefs)
+        assertEquals(TorrentSharingData.PREFS_ID, savedPrefs?.id)
+        assertFalse(savedPrefs?.directSharingEnabled ?: true)
+        assertEquals(prefs.dontAskQBitConnect, savedPrefs?.dontAskQBitConnect ?: false)
+        assertEquals(prefs.dontAskTransmissionConnect, savedPrefs?.dontAskTransmissionConnect ?: false)
     }
 
     @Test
-    fun `test updateTorrentSharing modifies existing torrent sharing data`() = runTest {
+    fun `test updateTorrentSharingPrefs modifies existing preferences`() = runTest {
         // Given
-        val originalData = TorrentSharingData(
-            id = "test-torrent-sharing-id",
-            torrentName = "Original Torrent",
-            torrentHash = "abc123",
-            magnetUri = "magnet:?xt=urn:btih:abc123",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-        repository.insertTorrentSharing(originalData)
+        val originalPrefs = TorrentSharingData.createDefault()
+        repository.setTorrentSharingPrefs(originalPrefs)
 
-        val updatedData = TorrentSharingData(
-            id = "test-torrent-sharing-id",
-            torrentName = "Updated Torrent",
-            torrentHash = "def456",
-            magnetUri = "magnet:?xt=urn:btih:def456",
-            timestamp = System.currentTimeMillis(),
-            version = 2,
-            lastModified = System.currentTimeMillis()
+        val updatedPrefs = originalPrefs.copy(
+            directSharingEnabled = false,
+            dontAskQBitConnect = true,
+            version = 2
         )
 
         // When
-        repository.updateTorrentSharing(updatedData)
+        repository.updateTorrentSharingPrefs(updatedPrefs)
 
         // Then
-        val savedData = repository.getTorrentSharingById("test-torrent-sharing-id")
-        assertNotNull(savedData)
-        assertEquals("Updated Torrent", savedData?.torrentName)
-        assertEquals("def456", savedData?.torrentHash)
-        assertEquals("magnet:?xt=urn:btih:def456", savedData?.magnetUri)
-        assertEquals(2, savedData?.version)
+        val savedPrefs = repository.getTorrentSharingPrefs()
+        assertNotNull(savedPrefs)
+        assertFalse(savedPrefs?.directSharingEnabled ?: true)
+        assertTrue(savedPrefs?.dontAskQBitConnect ?: false)
+        assertEquals(originalPrefs.dontAskTransmissionConnect, savedPrefs?.dontAskTransmissionConnect ?: false)
+        assertEquals(2, savedPrefs?.version ?: 0)
     }
 
     @Test
-    fun `test deleteTorrentSharing removes torrent sharing data`() = runTest {
+    fun `test deleteTorrentSharingPrefs removes preferences`() = runTest {
         // Given
-        val torrentSharingData = TorrentSharingData(
-            id = "test-torrent-sharing-id",
-            torrentName = "Test Torrent",
-            torrentHash = "abc123",
-            magnetUri = "magnet:?xt=urn:btih:abc123",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-        repository.insertTorrentSharing(torrentSharingData)
+        val prefs = TorrentSharingData.createDefault()
+        repository.setTorrentSharingPrefs(prefs)
 
         // Verify it exists
-        assertNotNull(repository.getTorrentSharingById("test-torrent-sharing-id"))
+        assertNotNull(repository.getTorrentSharingPrefs())
 
         // When
-        repository.deleteTorrentSharing("test-torrent-sharing-id")
+        repository.deleteTorrentSharingPrefs()
 
         // Then
-        val deletedData = repository.getTorrentSharingById("test-torrent-sharing-id")
-        assertNull(deletedData)
+        val deletedPrefs = repository.getTorrentSharingPrefs()
+        assertNull(deletedPrefs)
     }
 
     @Test
-    fun `test getAllTorrentSharing returns all saved torrent sharing data`() = runTest {
+    fun `test getTorrentSharingPrefsFlow emits preferences changes`() = runTest {
         // Given
-        val data1 = TorrentSharingData(
-            id = "test-torrent-sharing-id-1",
-            torrentName = "Torrent 1",
-            torrentHash = "abc123",
-            magnetUri = "magnet:?xt=urn:btih:abc123",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-        val data2 = TorrentSharingData(
-            id = "test-torrent-sharing-id-2",
-            torrentName = "Torrent 2",
-            torrentHash = "def456",
-            magnetUri = "magnet:?xt=urn:btih:def456",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-
-        repository.insertTorrentSharing(data1)
-        repository.insertTorrentSharing(data2)
+        val prefs1 = TorrentSharingData.createDefault().copy(directSharingEnabled = true)
+        val prefs2 = prefs1.copy(directSharingEnabled = false)
 
         // When
-        val allData = repository.getAllTorrentSharing()
+        repository.setTorrentSharingPrefs(prefs1)
+        val flowValue1 = repository.getTorrentSharingPrefsFlow().first()
+
+        repository.setTorrentSharingPrefs(prefs2)
+        val flowValue2 = repository.getTorrentSharingPrefsFlow().first()
 
         // Then
-        assertEquals(2, allData.size)
-        assertTrue(allData.any { it.id == "test-torrent-sharing-id-1" })
-        assertTrue(allData.any { it.id == "test-torrent-sharing-id-2" })
+        assertNotNull(flowValue1)
+        assertTrue(flowValue1?.directSharingEnabled ?: false)
+
+        assertNotNull(flowValue2)
+        assertFalse(flowValue2?.directSharingEnabled ?: true)
     }
 
     @Test
-    fun `test getTorrentSharingById returns null for non-existent id`() = runTest {
+    fun `test getTorrentSharingPrefs returns null when no preferences exist`() = runTest {
         // When
-        val data = repository.getTorrentSharingById("non-existent-id")
+        val prefs = repository.getTorrentSharingPrefs()
 
         // Then
-        assertNull(data)
+        assertNull(prefs)
     }
 
     @Test
-    fun `test getTorrentSharingByHash returns correct torrent sharing data`() = runTest {
+    fun `test getOrCreateDefault returns existing preferences when available`() = runTest {
         // Given
-        val torrentSharingData = TorrentSharingData(
-            id = "test-torrent-sharing-id",
-            torrentName = "Test Torrent",
-            torrentHash = "abc123",
-            magnetUri = "magnet:?xt=urn:btih:abc123",
-            timestamp = System.currentTimeMillis(),
-            version = 1,
-            lastModified = System.currentTimeMillis()
-        )
-        repository.insertTorrentSharing(torrentSharingData)
+        val existingPrefs = TorrentSharingData.createDefault().copy(directSharingEnabled = false)
+        repository.setTorrentSharingPrefs(existingPrefs)
 
         // When
-        val data = repository.getTorrentSharingByHash("abc123")
+        val result = repository.getOrCreateDefault()
 
         // Then
-        assertNotNull(data)
-        assertEquals("test-torrent-sharing-id", data?.id)
-        assertEquals("Test Torrent", data?.torrentName)
-        assertEquals("abc123", data?.torrentHash)
+        assertEquals(existingPrefs, result)
     }
 
     @Test
-    fun `test getTorrentSharingByHash returns null for non-existent hash`() = runTest {
+    fun `test getOrCreateDefault creates default when none exists`() = runTest {
         // When
-        val data = repository.getTorrentSharingByHash("non-existent-hash")
+        val result = repository.getOrCreateDefault()
 
         // Then
-        assertNull(data)
+        assertEquals(TorrentSharingData.PREFS_ID, result.id)
+        assertTrue(result.directSharingEnabled)
+        assertFalse(result.dontAskQBitConnect)
+        assertFalse(result.dontAskTransmissionConnect)
+        assertEquals(1, result.version)
     }
 }

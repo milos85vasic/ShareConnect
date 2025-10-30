@@ -113,7 +113,7 @@ class SecurityAccessAutomationTest {
 
         // Enter PIN (assuming default PIN setup)
         val pinInput = device.findObject(UiSelector().className("android.widget.EditText"))
-        pinInput.text = "1234"
+        pinInput.setText("1234")
 
         // Click authenticate
         val authButton = device.findObject(UiSelector().textContains("Unlock"))
@@ -143,7 +143,7 @@ class SecurityAccessAutomationTest {
 
         // Enter invalid PIN
         val pinInput = device.findObject(UiSelector().className("android.widget.EditText"))
-        pinInput.text = "9999"
+        pinInput.setText("9999")
 
         // Click authenticate
         val authButton = device.findObject(UiSelector().textContains("Unlock"))
@@ -238,7 +238,7 @@ class SecurityAccessAutomationTest {
 
         // Enter PIN
         val pinInput = device.findObject(UiSelector().className("android.widget.EditText"))
-        pinInput.text = "1234"
+        pinInput.setText("1234")
 
         // Authenticate
         val authButton = device.findObject(UiSelector().textContains("Unlock"))

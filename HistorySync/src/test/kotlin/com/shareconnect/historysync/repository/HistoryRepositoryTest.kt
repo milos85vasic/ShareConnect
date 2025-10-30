@@ -29,6 +29,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.historysync.database.HistoryDatabase
 import com.shareconnect.historysync.models.HistoryData
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.flow.first
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -64,7 +65,16 @@ class HistoryRepositoryTest {
             url = "https://example.com",
             title = "Test Title",
             description = "Test Description",
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -87,7 +97,17 @@ class HistoryRepositoryTest {
             id = "test-id",
             url = "https://example.com",
             title = "Original Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -97,7 +117,17 @@ class HistoryRepositoryTest {
             id = "test-id",
             url = "https://example.com",
             title = "Updated Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 2,
             lastModified = System.currentTimeMillis()
         )
@@ -119,7 +149,17 @@ class HistoryRepositoryTest {
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -143,7 +183,17 @@ class HistoryRepositoryTest {
             id = "test-id-1",
             url = "https://example1.com",
             title = "Title 1",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -151,7 +201,17 @@ class HistoryRepositoryTest {
             id = "test-id-2",
             url = "https://example2.com",
             title = "Title 2",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )
@@ -160,7 +220,7 @@ class HistoryRepositoryTest {
         repository.insertHistory(history2)
 
         // When
-        val allHistory = repository.getAllHistory()
+        val allHistory = repository.getAllHistory().first()
 
         // Then
         assertEquals(2, allHistory.size)
@@ -184,7 +244,17 @@ class HistoryRepositoryTest {
             id = "test-id",
             url = "https://example.com",
             title = "Test Title",
+            description = null,
+            thumbnailUrl = null,
+            serviceProvider = null,
+            type = "video",
             timestamp = System.currentTimeMillis(),
+            profileId = null,
+            profileName = null,
+            isSentSuccessfully = false,
+            serviceType = "test",
+            torrentClientType = null,
+            sourceApp = "TestApp",
             version = 1,
             lastModified = System.currentTimeMillis()
         )

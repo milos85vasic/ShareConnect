@@ -1,0 +1,60 @@
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+53 tests completed, 25 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':qBitConnector:testReleaseUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/build/reports/tests/testReleaseUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 9s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+23 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':LanguageSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 5s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'

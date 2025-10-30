@@ -45,7 +45,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.net.ServerSocket
 
-class ProfileSyncManager private constructor(
+class ProfileSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,

@@ -1,0 +1,156 @@
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+
+53 tests completed, 25 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':qBitConnector:testReleaseUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/Connectors/qBitConnect/qBitConnector/build/reports/tests/testReleaseUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 20s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+39 tests completed, 9 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':ThemeSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 5s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+18 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':HistorySync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/HistorySync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+18 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':RSSSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/RSSSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 5s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+16 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':BookmarkSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/BookmarkSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+18 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':PreferencesSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/PreferencesSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+23 tests completed, 7 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':LanguageSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/LanguageSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 3s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+23 tests completed, 9 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':TorrentSharingSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/TorrentSharingSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 4s
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'

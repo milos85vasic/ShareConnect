@@ -26,7 +26,8 @@ package com.shareconnect.utorrentconnect
 import androidx.test.core.app.ActivityScenario
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import digital.vasic.security.access.SecurityAccessManager
+import com.shareconnect.utorrentconnect.MainActivity
+import digital.vasic.security.access.access.SecurityAccessManager
 import digital.vasic.security.access.data.AccessMethod
 import kotlinx.coroutines.runBlocking
 import org.junit.After

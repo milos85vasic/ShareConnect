@@ -36,7 +36,7 @@ import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
 import androidx.startup.Initializer
 
-class RSSSyncManager private constructor(
+class RSSSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,
@@ -135,7 +135,7 @@ class RSSSyncManager private constructor(
         }
     }
 
-    private suspend fun handleReceivedFeed(syncableFeed: SyncableRSSFeed) {
+    internal suspend fun handleReceivedFeed(syncableFeed: SyncableRSSFeed) {
         try {
             val feed = syncableFeed.getFeedData()
             val existing = repository.getFeedById(feed.id)
@@ -152,7 +152,7 @@ class RSSSyncManager private constructor(
         }
     }
 
-    private suspend fun handleDeletedFeed(feedId: String) {
+    internal suspend fun handleDeletedFeed(feedId: String) {
         try {
             repository.deleteFeed(feedId)
         } catch (e: Exception) {
@@ -175,7 +175,7 @@ class RSSSyncManager private constructor(
         /**
          * Check if a port is available
          */
-        private fun isPortAvailable(port: Int): Boolean {
+        internal fun isPortAvailable(port: Int): Boolean {
             return try {
                 ServerSocket(port).use { true }
             } catch (e: Exception) {
@@ -186,7 +186,7 @@ class RSSSyncManager private constructor(
         /**
          * Find an available port starting from the preferred port
          */
-        private fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
+        internal fun findAvailablePort(preferredPort: Int, maxAttempts: Int = 10): Int {
             var port = preferredPort
             for (i in 0 until maxAttempts) {
                 if (isPortAvailable(port)) {

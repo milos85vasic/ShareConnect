@@ -36,7 +36,7 @@ import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
 import androidx.startup.Initializer
 
-class BookmarkSyncManager private constructor(
+class BookmarkSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,

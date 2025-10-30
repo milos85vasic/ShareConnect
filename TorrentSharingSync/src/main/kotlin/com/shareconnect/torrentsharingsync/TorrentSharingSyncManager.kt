@@ -48,7 +48,7 @@ import androidx.startup.Initializer
 /**
  * Singleton manager for torrent sharing preferences synchronization across apps
  */
-class TorrentSharingSyncManager private constructor(
+class TorrentSharingSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,

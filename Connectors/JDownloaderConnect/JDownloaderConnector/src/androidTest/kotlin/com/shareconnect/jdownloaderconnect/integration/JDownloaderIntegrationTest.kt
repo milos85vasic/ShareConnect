@@ -28,8 +28,9 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.jdownloaderconnect.data.database.JDownloaderDatabase
 import com.shareconnect.jdownloaderconnect.data.model.*
-import com.shareconnect.jdownloaderconnect.repository.JDownloaderRepository
-import com.shareconnect.jdownloaderconnect.repository.ServerRepository
+import com.shareconnect.jdownloaderconnect.data.repository.JDownloaderRepository
+import com.shareconnect.jdownloaderconnect.data.repository.ServerRepository
+import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -93,7 +94,7 @@ class JDownloaderIntegrationTest {
     @Test
     fun `save and retrieve download package with links`() = runTest {
         // Given
-        val package = DownloadPackage(
+        val downloadPackage = DownloadPackage(
             uuid = "package-123",
             name = "Test Package",
             bytesTotal = 1000L,
@@ -141,7 +142,7 @@ class JDownloaderIntegrationTest {
         )
 
         // When
-        repository.addDownloadPackage(package, links)
+        repository.addDownloadPackage(downloadPackage, links)
         val retrievedLinks = repository.getLinksByPackage("package-123")
 
         // Then
@@ -184,7 +185,7 @@ class JDownloaderIntegrationTest {
     @Test
     fun `delete download package should remove package and links`() = runTest {
         // Given
-        val package = DownloadPackage(
+        val downloadPackage = DownloadPackage(
             uuid = "package-to-delete",
             name = "Package to Delete",
             bytesTotal = 1000L,
@@ -216,7 +217,7 @@ class JDownloaderIntegrationTest {
             )
         )
 
-        repository.addDownloadPackage(package, links)
+        repository.addDownloadPackage(downloadPackage, links)
 
         // When
         repository.deleteDownloadPackage("package-to-delete")

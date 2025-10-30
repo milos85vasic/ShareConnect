@@ -41,7 +41,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.net.ServerSocket
 
-class PlexSyncManager private constructor(
+class PlexSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,

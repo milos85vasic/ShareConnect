@@ -32,54 +32,36 @@ class PreferencesDataTest {
     fun `test PreferencesData creation with all fields`() {
         // Given
         val id = "test-preferences-id"
+        val category = "ui"
         val key = "theme"
         val value = "dark"
         val type = "string"
         val description = "User interface theme preference"
-        val category = "ui"
-        val isSensitive = false
-        val defaultValue = "light"
-        val allowedValues = "light,dark,system"
-        val validationPattern = "^(light|dark|system)$"
-        val minValue = null
-        val maxValue = null
-        val timestamp = System.currentTimeMillis()
+        val sourceApp = "TestApp"
         val version = 1
         val lastModified = System.currentTimeMillis()
 
         // When
         val preferencesData = PreferencesData(
             id = id,
+            category = category,
             key = key,
             value = value,
             type = type,
             description = description,
-            category = category,
-            isSensitive = isSensitive,
-            defaultValue = defaultValue,
-            allowedValues = allowedValues,
-            validationPattern = validationPattern,
-            minValue = minValue,
-            maxValue = maxValue,
-            timestamp = timestamp,
+            sourceApp = sourceApp,
             version = version,
             lastModified = lastModified
         )
 
         // Then
         assertEquals(id, preferencesData.id)
+        assertEquals(category, preferencesData.category)
         assertEquals(key, preferencesData.key)
         assertEquals(value, preferencesData.value)
         assertEquals(type, preferencesData.type)
         assertEquals(description, preferencesData.description)
-        assertEquals(category, preferencesData.category)
-        assertEquals(isSensitive, preferencesData.isSensitive)
-        assertEquals(defaultValue, preferencesData.defaultValue)
-        assertEquals(allowedValues, preferencesData.allowedValues)
-        assertEquals(validationPattern, preferencesData.validationPattern)
-        assertEquals(minValue, preferencesData.minValue)
-        assertEquals(maxValue, preferencesData.maxValue)
-        assertEquals(timestamp, preferencesData.timestamp)
+        assertEquals(sourceApp, preferencesData.sourceApp)
         assertEquals(version, preferencesData.version)
         assertEquals(lastModified, preferencesData.lastModified)
     }
@@ -88,61 +70,64 @@ class PreferencesDataTest {
     fun `test PreferencesData creation with minimal fields`() {
         // Given
         val id = "test-preferences-id"
+        val category = "ui"
         val key = "theme"
         val value = "dark"
         val type = "string"
-        val timestamp = System.currentTimeMillis()
+        val sourceApp = "TestApp"
 
         // When
         val preferencesData = PreferencesData(
             id = id,
+            category = category,
             key = key,
             value = value,
             type = type,
-            timestamp = timestamp
+            sourceApp = sourceApp
         )
 
         // Then
         assertEquals(id, preferencesData.id)
+        assertEquals(category, preferencesData.category)
         assertEquals(key, preferencesData.key)
         assertEquals(value, preferencesData.value)
         assertEquals(type, preferencesData.type)
-        assertEquals(timestamp, preferencesData.timestamp)
+        assertEquals(sourceApp, preferencesData.sourceApp)
         assertNull(preferencesData.description)
-        assertNull(preferencesData.category)
-        assertFalse(preferencesData.isSensitive)
-        assertNull(preferencesData.defaultValue)
-        assertNull(preferencesData.allowedValues)
-        assertNull(preferencesData.validationPattern)
-        assertNull(preferencesData.minValue)
-        assertNull(preferencesData.maxValue)
-        assertEquals(0, preferencesData.version)
-        assertEquals(0L, preferencesData.lastModified)
+        assertEquals(1, preferencesData.version)
+        assertTrue(Math.abs(System.currentTimeMillis() - preferencesData.lastModified) < 1000) // Allow 1 second tolerance
     }
 
     @Test
     fun `test PreferencesData equals and hashCode work correctly`() {
         // Given
+        val timestamp = System.currentTimeMillis()
         val preferences1 = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis()
+            sourceApp = "TestApp",
+            lastModified = timestamp
         )
         val preferences2 = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis()
+            sourceApp = "TestApp",
+            lastModified = timestamp
         )
         val preferences3 = PreferencesData(
             id = "different-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis()
+            sourceApp = "TestApp",
+            lastModified = timestamp
         )
 
         // Then
@@ -157,10 +142,11 @@ class PreferencesDataTest {
         // Given
         val preferencesData = PreferencesData(
             id = "test-preferences-id",
+            category = "ui",
             key = "theme",
             value = "dark",
             type = "string",
-            timestamp = System.currentTimeMillis()
+            sourceApp = "TestApp"
         )
 
         // When
@@ -168,6 +154,7 @@ class PreferencesDataTest {
 
         // Then
         assertTrue(toString.contains("test-preferences-id"))
+        assertTrue(toString.contains("ui"))
         assertTrue(toString.contains("theme"))
         assertTrue(toString.contains("dark"))
         assertTrue(toString.contains("string"))

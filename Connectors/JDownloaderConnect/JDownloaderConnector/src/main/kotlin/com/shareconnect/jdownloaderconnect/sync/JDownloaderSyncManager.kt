@@ -38,7 +38,7 @@ import java.net.ServerSocket
  * JDownloaderSyncManager handles synchronization of JDownloader data across ShareConnect ecosystem
  * Uses Asinka for real-time IPC communication between apps
  */
-class JDownloaderSyncManager private constructor(
+class JDownloaderSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,

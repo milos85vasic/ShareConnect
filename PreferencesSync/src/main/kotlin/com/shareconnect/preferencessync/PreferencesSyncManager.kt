@@ -36,7 +36,7 @@ import kotlinx.coroutines.flow.*
 import java.net.ServerSocket
 import androidx.startup.Initializer
 
-class PreferencesSyncManager private constructor(
+class PreferencesSyncManager internal constructor(
     private val context: Context,
     private val appIdentifier: String,
     private val appName: String,
