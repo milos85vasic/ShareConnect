@@ -312,8 +312,13 @@ class NextcloudApiStubService : NextcloudApiService {
             return Response.error(412, "Destination already exists".toResponseBody())
         }
 
-        // Move file
-        fileSystem.remove(normalizedSource)
+        // Move file - remove source first, then add destination
+        val removed = fileSystem.remove(normalizedSource)
+        if (removed == null) {
+            // This shouldn't happen as we just checked it exists
+            return Response.error(500, "Failed to remove source file".toResponseBody())
+        }
+
         val movedFile = sourceFile.copy(
             path = destPath,
             name = destPath.substringAfterLast("/")
