@@ -32,6 +32,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import org.matrix.olm.OlmAccount
 import org.matrix.olm.OlmException
+import org.matrix.olm.OlmInboundGroupSession
 import org.matrix.olm.OlmOutboundGroupSession
 import org.matrix.olm.OlmSession
 import java.security.SecureRandom
@@ -59,6 +60,7 @@ class MatrixEncryptionManager(
 ) {
     private var olmAccount: OlmAccount? = null
     private val outboundGroupSessions = mutableMapOf<String, OlmOutboundGroupSession>()
+    private val inboundGroupSessions = mutableMapOf<String, OlmInboundGroupSession>()
     private val olmSessions = mutableMapOf<String, MutableList<OlmSession>>()
     private val mutex = Mutex()
     private val secureRandom = SecureRandom()
@@ -235,6 +237,68 @@ class MatrixEncryptionManager(
     }
 
     /**
+     * Handle inbound group session (room key received from another device)
+     *
+     * This method creates and stores an inbound Megolm session from a received room key.
+     * The session is then used to decrypt messages in the room.
+     *
+     * @param sessionKey The session key (exported from outbound session)
+     * @param senderKey The curve25519 key of the sender
+     * @param roomId The room identifier
+     * @return Session ID or error
+     */
+    suspend fun handleInboundGroupSession(
+        sessionKey: String,
+        senderKey: String,
+        roomId: String
+    ): MatrixResult<String> = withContext(Dispatchers.IO) {
+        mutex.withLock {
+            try {
+                // Create inbound group session from the session key
+                val inboundSession = OlmInboundGroupSession(sessionKey)
+                val sessionId = inboundSession.sessionIdentifier()
+
+                // Store the session for future decryption
+                inboundGroupSessions[sessionId] = inboundSession
+
+                MatrixResult.Success(sessionId)
+            } catch (e: OlmException) {
+                MatrixResult.Error(
+                    "OLM_ERROR",
+                    "Failed to create inbound group session: ${e.message}"
+                )
+            } catch (e: Exception) {
+                MatrixResult.NetworkError(e)
+            }
+        }
+    }
+
+    /**
+     * Export room key for sharing with other devices
+     *
+     * @param roomId Room identifier
+     * @return Session key or error
+     */
+    suspend fun exportRoomKey(roomId: String): MatrixResult<String> = withContext(Dispatchers.IO) {
+        mutex.withLock {
+            try {
+                val session = outboundGroupSessions[roomId]
+                    ?: return@withContext MatrixResult.Error(
+                        "NO_SESSION",
+                        "No outbound session found for room: $roomId"
+                    )
+
+                val sessionKey = session.sessionKey()
+                MatrixResult.Success(sessionKey)
+            } catch (e: OlmException) {
+                MatrixResult.Error("OLM_ERROR", "Failed to export room key: ${e.message}")
+            } catch (e: Exception) {
+                MatrixResult.NetworkError(e)
+            }
+        }
+    }
+
+    /**
      * Encrypt message for room using Megolm
      *
      * @param roomId Room identifier
@@ -309,12 +373,19 @@ class MatrixEncryptionManager(
                         )
                     }
 
-                    // TODO: Implement inbound group session management
-                    // For now, return error indicating decryption not fully implemented
-                    MatrixResult.Error(
-                        "NOT_IMPLEMENTED",
-                        "Message decryption requires inbound group session"
-                    )
+                    // Get or create inbound group session
+                    val inboundSession = inboundGroupSessions[sessionId]
+                        ?: return@withContext MatrixResult.Error(
+                            "UNKNOWN_SESSION",
+                            "No inbound group session found for session ID: $sessionId. " +
+                                    "Session key must be shared via handleInboundGroupSession() first."
+                        )
+
+                    // Decrypt the message
+                    val decryptResult = inboundSession.decryptMessage(ciphertext)
+                    val plaintext = decryptResult.mDecryptedMessage
+
+                    MatrixResult.Success(plaintext)
                 } catch (e: OlmException) {
                     MatrixResult.Error("DECRYPTION_ERROR", "Failed to decrypt message: ${e.message}")
                 } catch (e: Exception) {
