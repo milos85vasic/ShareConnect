@@ -6,18 +6,18 @@ plugins {
 }
 
 android {
-    namespace 'com.shareconnect.matrixconnect'
+    namespace 'com.shareconnect.syncthingconnect'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.shareconnect.matrixconnect"
+        applicationId "com.shareconnect.syncthingconnect"
         minSdk 28
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "APP_ID", "\"com.shareconnect.matrixconnect\""
-        buildConfigField "String", "APP_NAME", "\"MatrixConnect\""
+        buildConfigField "String", "APP_ID", "\"com.shareconnect.syncthingconnect\""
+        buildConfigField "String", "APP_NAME", "\"SyncthingConnect\""
         buildConfigField "String", "APP_VERSION", "\"${versionName}\""
     }
 
@@ -73,7 +73,6 @@ dependencies {
     implementation "androidx.activity:activity-compose:1.9.3"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7"
-    implementation "androidx.startup:startup-runtime:1.2.0"
 
     implementation platform("androidx.compose:compose-bom:2024.12.01")
     implementation "androidx.compose.ui:ui"
@@ -100,8 +99,8 @@ dependencies {
 
     implementation "com.google.code.gson:gson:2.11.0"
 
-    // Matrix Olm library for E2EE
-    implementation "org.matrix.android:olm-sdk:3.2.16"
+    // For SSE support
+    implementation "com.squareup.okhttp3:okhttp-sse:4.12.0"
 
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0"
