@@ -138,3 +138,28 @@ data class SyncthingEvent(
     @SerializedName("time") val time: String,
     @SerializedName("data") val data: Map<String, Any>?
 )
+
+// Type aliases for API compatibility
+typealias SyncthingConfig = SystemConfig
+typealias SyncthingStatus = SystemStatus
+typealias SyncthingVersion = SystemVersion
+typealias SyncthingConnections = SystemConnections
+typealias SyncthingDBStatus = DatabaseStatus
+typealias SyncthingCompletion = FolderCompletion
+typealias SyncthingBrowseEntry = DirectoryEntry
+
+// API Response wrapper
+data class SyncthingApiResponse(
+    @SerializedName("error") val error: String? = null,
+    @SerializedName("message") val message: String? = null
+)
+
+// Stats models
+data class SyncthingFolderStats(
+    @SerializedName("lastFile") val lastFile: Map<String, Any>? = null,
+    @SerializedName("lastScan") val lastScan: String? = null
+)
+
+data class SyncthingDeviceStats(
+    @SerializedName("lastSeen") val lastSeen: String? = null
+)

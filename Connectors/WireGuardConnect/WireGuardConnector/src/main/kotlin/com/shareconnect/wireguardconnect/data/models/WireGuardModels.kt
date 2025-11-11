@@ -33,7 +33,7 @@ import java.util.UUID
 data class WireGuardConfig(
     val id: String = UUID.randomUUID().toString(),
     val name: String,
-    val interface: WireGuardInterface,
+    val wgInterface: WireGuardInterface,
     val peers: List<WireGuardPeer>,
     val createdAt: Long = System.currentTimeMillis(),
     val lastModified: Long = System.currentTimeMillis(),
@@ -47,33 +47,33 @@ data class WireGuardConfig(
 
         // Interface section
         builder.appendLine("[Interface]")
-        builder.appendLine("PrivateKey = ${interface.privateKey}")
-        if (interface.address.isNotEmpty()) {
-            builder.appendLine("Address = ${interface.address.joinToString(", ")}")
+        builder.appendLine("PrivateKey = ${wgInterface.privateKey}")
+        if (wgInterface.address.isNotEmpty()) {
+            builder.appendLine("Address = ${wgInterface.address.joinToString(", ")}")
         }
-        if (interface.dns.isNotEmpty()) {
-            builder.appendLine("DNS = ${interface.dns.joinToString(", ")}")
+        if (wgInterface.dns.isNotEmpty()) {
+            builder.appendLine("DNS = ${wgInterface.dns.joinToString(", ")}")
         }
-        if (interface.mtu != null) {
-            builder.appendLine("MTU = ${interface.mtu}")
+        if (wgInterface.mtu != null) {
+            builder.appendLine("MTU = ${wgInterface.mtu}")
         }
-        if (interface.listenPort != null) {
-            builder.appendLine("ListenPort = ${interface.listenPort}")
+        if (wgInterface.listenPort != null) {
+            builder.appendLine("ListenPort = ${wgInterface.listenPort}")
         }
-        if (interface.table != null) {
-            builder.appendLine("Table = ${interface.table}")
+        if (wgInterface.table != null) {
+            builder.appendLine("Table = ${wgInterface.table}")
         }
-        if (interface.preUp != null) {
-            builder.appendLine("PreUp = ${interface.preUp}")
+        if (wgInterface.preUp != null) {
+            builder.appendLine("PreUp = ${wgInterface.preUp}")
         }
-        if (interface.postUp != null) {
-            builder.appendLine("PostUp = ${interface.postUp}")
+        if (wgInterface.postUp != null) {
+            builder.appendLine("PostUp = ${wgInterface.postUp}")
         }
-        if (interface.preDown != null) {
-            builder.appendLine("PreDown = ${interface.preDown}")
+        if (wgInterface.preDown != null) {
+            builder.appendLine("PreDown = ${wgInterface.preDown}")
         }
-        if (interface.postDown != null) {
-            builder.appendLine("PostDown = ${interface.postDown}")
+        if (wgInterface.postDown != null) {
+            builder.appendLine("PostDown = ${wgInterface.postDown}")
         }
 
         // Peer sections

@@ -35,50 +35,6 @@ import retrofit2.http.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-interface SyncthingApiService {
-    @GET("rest/system/config")
-    suspend fun getConfig(): Response<SystemConfig>
-    
-    @POST("rest/system/config")
-    suspend fun setConfig(@Body config: SystemConfig): Response<Unit>
-    
-    @GET("rest/system/status")
-    suspend fun getStatus(): Response<SystemStatus>
-    
-    @GET("rest/system/version")
-    suspend fun getVersion(): Response<SystemVersion>
-    
-    @GET("rest/system/connections")
-    suspend fun getConnections(): Response<SystemConnections>
-    
-    @GET("rest/db/status")
-    suspend fun getDatabaseStatus(@Query("folder") folder: String): Response<DatabaseStatus>
-    
-    @GET("rest/db/browse")
-    suspend fun browseDirectory(
-        @Query("folder") folder: String,
-        @Query("prefix") prefix: String = ""
-    ): Response<List<DirectoryEntry>>
-    
-    @GET("rest/db/completion")
-    suspend fun getCompletion(
-        @Query("device") device: String,
-        @Query("folder") folder: String
-    ): Response<FolderCompletion>
-    
-    @POST("rest/db/scan")
-    suspend fun scan(
-        @Query("folder") folder: String,
-        @Query("sub") sub: String? = null
-    ): Response<Unit>
-    
-    @POST("rest/system/restart")
-    suspend fun restart(): Response<Unit>
-    
-    @POST("rest/system/shutdown")
-    suspend fun shutdown(): Response<Unit>
-}
-
 class SyncthingApiClient(
     private val baseUrl: String,
     private val apiKey: String

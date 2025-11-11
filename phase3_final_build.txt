@@ -1,0 +1,1179 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :Dependencies:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :PortainerConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Dependencies:preBuild UP-TO-DATE
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :Dependencies:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig UP-TO-DATE
+> Task :BookmarkSync:generateDebugBuildConfig UP-TO-DATE
+> Task :LanguageSync:generateDebugBuildConfig UP-TO-DATE
+> Task :HistorySync:generateDebugBuildConfig UP-TO-DATE
+> Task :Localizations:generateDebugResValues UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:generateDebugBuildConfig UP-TO-DATE
+> Task :ThemeSync:generateDebugResValues UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues UP-TO-DATE
+> Task :Dependencies:generateDebugBuildConfig UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues UP-TO-DATE
+> Task :Localizations:generateDebugResources UP-TO-DATE
+> Task :ProfileSync:generateDebugResValues UP-TO-DATE
+> Task :Dependencies:generateDebugResValues UP-TO-DATE
+> Task :BookmarkSync:generateDebugResources UP-TO-DATE
+> Task :Asinka:asinka:extractDebugProto UP-TO-DATE
+> Task :HistorySync:generateDebugResValues UP-TO-DATE
+> Task :PortainerConnector:preBuild UP-TO-DATE
+> Task :Asinka:asinka:extractProto UP-TO-DATE
+> Task :Dependencies:generateDebugResources UP-TO-DATE
+> Task :LanguageSync:generateDebugResources UP-TO-DATE
+> Task :PortainerConnector:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugResources UP-TO-DATE
+> Task :DesignSystem:generateDebugResValues UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:generateDebugResources UP-TO-DATE
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Onboarding:generateDebugBuildConfig UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :Localizations:packageDebugResources UP-TO-DATE
+> Task :BookmarkSync:packageDebugResources UP-TO-DATE
+> Task :DesignSystem:packageDebugResources UP-TO-DATE
+> Task :Onboarding:generateDebugResValues UP-TO-DATE
+> Task :LanguageSync:packageDebugResources UP-TO-DATE
+> Task :Onboarding:generateDebugResources UP-TO-DATE
+> Task :Dependencies:packageDebugResources UP-TO-DATE
+> Task :PreferencesSync:writeDebugAarMetadata UP-TO-DATE
+> Task :HistorySync:generateDebugResources UP-TO-DATE
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata UP-TO-DATE
+> Task :ProfileSync:packageDebugResources UP-TO-DATE
+> Task :HistorySync:packageDebugResources UP-TO-DATE
+> Task :ThemeSync:generateDebugResources UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResValues UP-TO-DATE
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResources UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Onboarding:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Main:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preDebugBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:writeDebugAarMetadata UP-TO-DATE
+> Task :Asinka:asinka:packageDebugResources UP-TO-DATE
+> Task :Toolkit:WebSocket:preBuild UP-TO-DATE
+> Task :Toolkit:WebSocket:preDebugBuild UP-TO-DATE
+> Task :Toolkit:WebSocket:writeDebugAarMetadata UP-TO-DATE
+> Task :ThemeSync:packageDebugResources UP-TO-DATE
+> Task :PortainerConnector:generateDebugResValues UP-TO-DATE
+> Task :PreferencesSync:generateDebugResValues UP-TO-DATE
+> Task :PreferencesSync:generateDebugResources UP-TO-DATE
+> Task :DesignSystem:parseDebugLocalResources UP-TO-DATE
+> Task :DesignSystem:generateDebugRFile UP-TO-DATE
+> Task :BookmarkSync:parseDebugLocalResources UP-TO-DATE
+> Task :DesignSystem:javaPreCompileDebug UP-TO-DATE
+> Task :BookmarkSync:generateDebugRFile UP-TO-DATE
+> Task :DesignSystem:compileDebugLibraryResources UP-TO-DATE
+> Task :DesignSystem:writeDebugAarMetadata UP-TO-DATE
+> Task :RSSSync:generateDebugResValues UP-TO-DATE
+> Task :LanguageSync:parseDebugLocalResources UP-TO-DATE
+> Task :Onboarding:parseDebugLocalResources UP-TO-DATE
+> Task :PreferencesSync:packageDebugResources UP-TO-DATE
+> Task :RSSSync:generateDebugResources UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResValues UP-TO-DATE
+> Task :Onboarding:generateDebugRFile UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources UP-TO-DATE
+> Task :LanguageSync:generateDebugRFile UP-TO-DATE
+> Task :Onboarding:javaPreCompileDebug UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResources UP-TO-DATE
+> Task :Localizations:generateDebugRFile UP-TO-DATE
+> Task :RSSSync:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResValues UP-TO-DATE
+> Task :Onboarding:compileDebugLibraryResources UP-TO-DATE
+> Task :Onboarding:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResources UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugResources UP-TO-DATE
+> Task :Localizations:javaPreCompileDebug UP-TO-DATE
+> Task :TorrentSharingSync:packageDebugResources UP-TO-DATE
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:SecurityAccess:packageDebugResources UP-TO-DATE
+> Task :ProfileSync:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:Main:packageDebugResources UP-TO-DATE
+> Task :Localizations:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ThemeSync:parseDebugLocalResources UP-TO-DATE
+> Task :Asinka:asinka:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:WebSocket:generateDebugResValues UP-TO-DATE
+> Task :Localizations:compileDebugLibraryResources UP-TO-DATE
+> Task :HistorySync:parseDebugLocalResources UP-TO-DATE
+> Task :Asinka:asinka:generateDebugRFile UP-TO-DATE
+> Task :HistorySync:generateDebugRFile UP-TO-DATE
+> Task :ProfileSync:generateDebugRFile UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile UP-TO-DATE
+> Task :Dependencies:parseDebugLocalResources UP-TO-DATE
+> Task :PortainerConnector:generateDebugResources UP-TO-DATE
+> Task :Dependencies:generateDebugRFile UP-TO-DATE
+> Task :DesignSystem:extractDeepLinksDebug UP-TO-DATE
+> Task :DesignSystem:processDebugManifest UP-TO-DATE
+> Task :Onboarding:extractDeepLinksDebug UP-TO-DATE
+> Task :Dependencies:compileDebugKotlin NO-SOURCE
+> Task :Toolkit:WebSocket:generateDebugResources UP-TO-DATE
+> Task :Onboarding:processDebugManifest UP-TO-DATE
+> Task :Toolkit:WebSocket:packageDebugResources UP-TO-DATE
+> Task :PreferencesSync:extractDeepLinksDebug UP-TO-DATE
+> Task :Dependencies:javaPreCompileDebug UP-TO-DATE
+> Task :Localizations:writeDebugAarMetadata UP-TO-DATE
+> Task :Localizations:extractDeepLinksDebug UP-TO-DATE
+> Task :PreferencesSync:processDebugManifest UP-TO-DATE
+> Task :Localizations:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Main:extractDeepLinksDebug UP-TO-DATE
+> Task :TorrentSharingSync:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:Main:processDebugManifest UP-TO-DATE
+> Task :Toolkit:SecurityAccess:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:processDebugManifest UP-TO-DATE
+> Task :TorrentSharingSync:processDebugManifest UP-TO-DATE
+> Task :RSSSync:extractDeepLinksDebug UP-TO-DATE
+> Task :PreferencesSync:compileDebugLibraryResources UP-TO-DATE
+> Task :RSSSync:processDebugManifest UP-TO-DATE
+> Task :RSSSync:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:WebSocket:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:WebSocket:processDebugManifest UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugLibraryResources UP-TO-DATE
+> Task :PreferencesSync:parseDebugLocalResources UP-TO-DATE
+> Task :RSSSync:parseDebugLocalResources UP-TO-DATE
+> Task :TorrentSharingSync:parseDebugLocalResources UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugRFile UP-TO-DATE
+> Task :PreferencesSync:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:Main:compileDebugLibraryResources UP-TO-DATE
+> Task :RSSSync:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:Main:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:WebSocket:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:Main:generateDebugRFile UP-TO-DATE
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:WebSocket:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:WebSocket:generateDebugRFile UP-TO-DATE
+> Task :PreferencesSync:generateDebugBuildConfig UP-TO-DATE
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Toolkit:SecurityAccess:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugRFile UP-TO-DATE
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TorrentSharingSync:generateDebugBuildConfig UP-TO-DATE
+> Task :PortainerConnector:packageDebugResources UP-TO-DATE
+> Task :BookmarkSync:javaPreCompileDebug UP-TO-DATE
+> Task :Asinka:asinka:javaPreCompileDebug UP-TO-DATE
+> Task :HistorySync:javaPreCompileDebug UP-TO-DATE
+> Task :LanguageSync:javaPreCompileDebug UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata UP-TO-DATE
+> Task :BookmarkSync:compileDebugLibraryResources UP-TO-DATE
+> Task :TorrentSharingSync:javaPreCompileDebug UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileDebug UP-TO-DATE
+> Task :HistorySync:compileDebugLibraryResources UP-TO-DATE
+> Task :RSSSync:javaPreCompileDebug UP-TO-DATE
+> Task :LanguageSync:compileDebugLibraryResources UP-TO-DATE
+> Task :BookmarkSync:writeDebugAarMetadata UP-TO-DATE
+> Task :ProfileSync:javaPreCompileDebug UP-TO-DATE
+> Task :HistorySync:writeDebugAarMetadata UP-TO-DATE
+> Task :Asinka:asinka:extractDeepLinksDebug UP-TO-DATE
+> Task :LanguageSync:writeDebugAarMetadata UP-TO-DATE
+> Task :ThemeSync:javaPreCompileDebug UP-TO-DATE
+> Task :BookmarkSync:extractDeepLinksDebug UP-TO-DATE
+> Task :ProfileSync:writeDebugAarMetadata UP-TO-DATE
+> Task :LanguageSync:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:extractDeepLinksDebug UP-TO-DATE
+> Task :Asinka:asinka:processDebugManifest UP-TO-DATE
+> Task :ProfileSync:extractDeepLinksDebug UP-TO-DATE
+> Task :LanguageSync:processDebugManifest UP-TO-DATE
+> Task :ThemeSync:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugBuildConfig UP-TO-DATE
+> Task :Toolkit:WebSocket:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:compileDebugLibraryResources UP-TO-DATE
+> Task :BookmarkSync:processDebugManifest UP-TO-DATE
+> Task :ProfileSync:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Main:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:JCommons:compileJava UP-TO-DATE
+> Task :HistorySync:processDebugManifest UP-TO-DATE
+> Task :MinecraftServerConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:processDebugManifest UP-TO-DATE
+> Task :MinecraftServerConnector:preBuild UP-TO-DATE
+> Task :MinecraftServerConnector:preDebugBuild UP-TO-DATE
+> Task :NetdataConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :NetdataConnector:preBuild UP-TO-DATE
+> Task :NetdataConnector:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:compileDebugLibraryResources UP-TO-DATE
+> Task :HomeAssistantConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HomeAssistantConnector:preBuild UP-TO-DATE
+> Task :HomeAssistantConnector:preDebugBuild UP-TO-DATE
+> Task :HomeAssistantConnector:generateDebugResValues UP-TO-DATE
+> Task :ThemeSync:compileDebugLibraryResources UP-TO-DATE
+> Task :MinecraftServerConnector:generateDebugBuildConfig UP-TO-DATE
+> Task :NetdataConnector:generateDebugResValues UP-TO-DATE
+> Task :OnlyOfficeConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :MinecraftServerConnector:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :OnlyOfficeConnector:preBuild UP-TO-DATE
+> Task :Toolkit:JCommons:classes UP-TO-DATE
+> Task :OnlyOfficeConnector:preDebugBuild UP-TO-DATE
+> Task :PaperlessNGConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PaperlessNGConnector:preBuild UP-TO-DATE
+> Task :PaperlessNGConnector:preDebugBuild UP-TO-DATE
+> Task :SyncthingConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :SyncthingConnector:preBuild UP-TO-DATE
+> Task :SyncthingConnector:preDebugBuild UP-TO-DATE
+> Task :Toolkit:JCommons:jar UP-TO-DATE
+> Task :WireGuardConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :WireGuardConnector:preBuild UP-TO-DATE
+> Task :WireGuardConnector:preDebugBuild UP-TO-DATE
+> Task :OnlyOfficeConnector:generateDebugBuildConfig FROM-CACHE
+> Task :SyncthingConnector:generateDebugBuildConfig FROM-CACHE
+> Task :PaperlessNGConnector:generateDebugBuildConfig FROM-CACHE
+> Task :WireGuardConnector:generateDebugBuildConfig FROM-CACHE
+> Task :SyncthingConnector:generateDebugResValues FROM-CACHE
+> Task :PaperlessNGConnector:generateDebugResValues FROM-CACHE
+> Task :OnlyOfficeConnector:generateDebugResValues FROM-CACHE
+> Task :WireGuardConnector:generateDebugResValues FROM-CACHE
+> Task :Toolkit:SecurityAccess:javaPreCompileDebug UP-TO-DATE
+> Task :MatrixConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :MatrixConnector:preBuild UP-TO-DATE
+> Task :MatrixConnector:preDebugBuild UP-TO-DATE
+> Task :MatrixConnector:generateDebugBuildConfig UP-TO-DATE
+> Task :MatrixConnector:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:WebSocket:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:WebSocket:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:WebSocket:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:WebSocket:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Dependencies:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Dependencies:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Dependencies:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Dependencies:processDebugJavaRes NO-SOURCE
+> Task :Dependencies:createFullJarDebug UP-TO-DATE
+> Task :PortainerConnector:mapDebugSourceSetPaths UP-TO-DATE
+> Task :Dependencies:compileDebugLibraryResources UP-TO-DATE
+> Task :Dependencies:writeDebugAarMetadata UP-TO-DATE
+> Task :NetdataConnector:mapDebugSourceSetPaths UP-TO-DATE
+> Task :HomeAssistantConnector:mapDebugSourceSetPaths UP-TO-DATE
+> Task :Dependencies:extractDeepLinksDebug UP-TO-DATE
+> Task :Asinka:asinka:extractIncludeDebugProto UP-TO-DATE
+> Task :Dependencies:processDebugManifest UP-TO-DATE
+> Task :Asinka:asinka:generateDebugProto UP-TO-DATE
+> Task :HomeAssistantConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :HomeAssistantConnector:generateDebugResources UP-TO-DATE
+> Task :NetdataConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :NetdataConnector:generateDebugResources UP-TO-DATE
+> Task :PortainerConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :NetdataConnector:mergeDebugResources UP-TO-DATE
+> Task :HomeAssistantConnector:mergeDebugResources UP-TO-DATE
+> Task :NetdataConnector:packageDebugResources UP-TO-DATE
+> Task :HomeAssistantConnector:packageDebugResources UP-TO-DATE
+> Task :PortainerConnector:mergeDebugResources UP-TO-DATE
+> Task :NetdataConnector:parseDebugLocalResources UP-TO-DATE
+> Task :PortainerConnector:parseDebugLocalResources UP-TO-DATE
+> Task :HomeAssistantConnector:parseDebugLocalResources UP-TO-DATE
+> Task :PortainerConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :NetdataConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :HomeAssistantConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :NetdataConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :HomeAssistantConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :PortainerConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :HomeAssistantConnector:processDebugMainManifest UP-TO-DATE
+> Task :NetdataConnector:processDebugMainManifest UP-TO-DATE
+> Task :HomeAssistantConnector:processDebugManifest UP-TO-DATE
+> Task :NetdataConnector:processDebugManifest UP-TO-DATE
+> Task :HomeAssistantConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :NetdataConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :PortainerConnector:processDebugMainManifest UP-TO-DATE
+> Task :PortainerConnector:processDebugManifest UP-TO-DATE
+> Task :PortainerConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :Asinka:asinka:kspDebugKotlin UP-TO-DATE
+> Task :Asinka:asinka:compileDebugKotlin UP-TO-DATE
+> Task :Asinka:asinka:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Asinka:asinka:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :HomeAssistantConnector:processDebugResources UP-TO-DATE
+> Task :NetdataConnector:processDebugResources UP-TO-DATE
+> Task :PortainerConnector:processDebugResources UP-TO-DATE
+> Task :LanguageSync:kspDebugKotlin UP-TO-DATE
+> Task :ThemeSync:kspDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:kspDebugKotlin UP-TO-DATE
+> Task :LanguageSync:compileDebugKotlin UP-TO-DATE
+> Task :ThemeSync:compileDebugKotlin UP-TO-DATE
+> Task :HistorySync:kspDebugKotlin UP-TO-DATE
+> Task :LanguageSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :LanguageSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ThemeSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ThemeSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :BookmarkSync:compileDebugKotlin UP-TO-DATE
+> Task :HistorySync:compileDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :BookmarkSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :HistorySync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :HistorySync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ProfileSync:kspDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:kspDebugKotlin UP-TO-DATE
+> Task :ProfileSync:compileDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:compileDebugKotlin UP-TO-DATE
+> Task :ProfileSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ProfileSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :PreferencesSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :RSSSync:kspDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :RSSSync:compileDebugKotlin UP-TO-DATE
+> Task :RSSSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :RSSSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TorrentSharingSync:kspDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Main:kspDebugKotlin UP-TO-DATE
+> Task :Toolkit:Main:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:Main:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Toolkit:Main:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:kspDebugKotlin UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarDebug UP-TO-DATE
+
+> Task :MinecraftServerConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-ui-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.runtime:runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :DesignSystem:compileDebugKotlin UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.annotation:annotation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :DesignSystem:compileDebugJavaWithJavac UP-TO-DATE
+> Task :DesignSystem:bundleLibCompileToJarDebug UP-TO-DATE
+
+> Task :SyncthingConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-ui-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.runtime:runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation-layout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :MatrixConnector:mapDebugSourceSetPaths UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-ui-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.runtime:runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation-layout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :MatrixConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :MatrixConnector:generateDebugResources UP-TO-DATE
+> Task :MatrixConnector:mergeDebugResources UP-TO-DATE
+
+> Task :PaperlessNGConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-ui-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-testing which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation-layout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :MatrixConnector:packageDebugResources UP-TO-DATE
+> Task :MatrixConnector:parseDebugLocalResources UP-TO-DATE
+> Task :MatrixConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :MatrixConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :MatrixConnector:processDebugMainManifest UP-TO-DATE
+> Task :MatrixConnector:processDebugManifest UP-TO-DATE
+> Task :MatrixConnector:processDebugManifestForPackage UP-TO-DATE
+
+> Task :OnlyOfficeConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-testing which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :MatrixConnector:processDebugResources UP-TO-DATE
+
+> Task :WireGuardConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module com.google.android.material:material which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlinx:kotlinx-coroutines-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module net.zetetic:sqlcipher-android which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.security:security-crypto which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.room:room-testing which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.okio:okio which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.airbnb.android:lottie which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.navigation:navigation-fragment-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :OnlyOfficeConnector:generateDebugResources FROM-CACHE
+
+> Task :SyncthingConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :WireGuardConnector:generateDebugResources FROM-CACHE
+> Task :SyncthingConnector:generateDebugResources FROM-CACHE
+
+> Task :MinecraftServerConnector:mapDebugSourceSetPaths UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.foundation:foundation-layout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.sqlite:sqlite which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.guava:guava which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module io.grpc:grpc-stub which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.mockito:mockito-core which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-reflect which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :MinecraftServerConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :MinecraftServerConnector:generateDebugResources UP-TO-DATE
+> Task :MinecraftServerConnector:mergeDebugResources UP-TO-DATE
+> Task :MinecraftServerConnector:packageDebugResources UP-TO-DATE
+> Task :MinecraftServerConnector:parseDebugLocalResources UP-TO-DATE
+> Task :MinecraftServerConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :MinecraftServerConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :MinecraftServerConnector:processDebugMainManifest UP-TO-DATE
+> Task :MinecraftServerConnector:processDebugManifest UP-TO-DATE
+> Task :MinecraftServerConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :WireGuardConnector:checkDebugAarMetadata
+> Task :SyncthingConnector:checkDebugAarMetadata
+> Task :OnlyOfficeConnector:checkDebugAarMetadata
+> Task :MinecraftServerConnector:processDebugResources UP-TO-DATE
+> Task :MinecraftServerConnector:kspDebugKotlin UP-TO-DATE
+> Task :MinecraftServerConnector:compileDebugKotlin UP-TO-DATE
+> Task :OnlyOfficeConnector:mergeDebugResources FROM-CACHE
+> Task :WireGuardConnector:mergeDebugResources FROM-CACHE
+> Task :OnlyOfficeConnector:packageDebugResources FROM-CACHE
+> Task :OnlyOfficeConnector:parseDebugLocalResources FROM-CACHE
+> Task :OnlyOfficeConnector:createDebugCompatibleScreenManifests
+> Task :OnlyOfficeConnector:extractDeepLinksDebug FROM-CACHE
+> Task :WireGuardConnector:packageDebugResources FROM-CACHE
+> Task :OnlyOfficeConnector:processDebugMainManifest FROM-CACHE
+> Task :WireGuardConnector:parseDebugLocalResources FROM-CACHE
+> Task :OnlyOfficeConnector:processDebugManifest FROM-CACHE
+> Task :WireGuardConnector:createDebugCompatibleScreenManifests
+> Task :WireGuardConnector:extractDeepLinksDebug FROM-CACHE
+> Task :OnlyOfficeConnector:processDebugManifestForPackage FROM-CACHE
+> Task :SyncthingConnector:mergeDebugResources FROM-CACHE
+> Task :WireGuardConnector:processDebugMainManifest FROM-CACHE
+> Task :WireGuardConnector:processDebugManifest FROM-CACHE
+
+> Task :PaperlessNGConnector:mapDebugSourceSetPaths
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-compose which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:retrofit which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.squareup.retrofit2:converter-gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-analytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.firebase:firebase-crashlytics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.appcompat:appcompat which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.constraintlayout:constraintlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.coordinatorlayout:coordinatorlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity-ktx which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.fasterxml.jackson.core:jackson-databind which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.code.gson:gson which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :WireGuardConnector:processDebugManifestForPackage FROM-CACHE
+> Task :SyncthingConnector:packageDebugResources FROM-CACHE
+> Task :SyncthingConnector:parseDebugLocalResources FROM-CACHE
+> Task :SyncthingConnector:createDebugCompatibleScreenManifests
+> Task :SyncthingConnector:extractDeepLinksDebug FROM-CACHE
+> Task :PaperlessNGConnector:generateDebugResources FROM-CACHE
+> Task :SyncthingConnector:processDebugMainManifest FROM-CACHE
+> Task :SyncthingConnector:processDebugManifest FROM-CACHE
+> Task :SyncthingConnector:processDebugManifestForPackage FROM-CACHE
+> Task :PaperlessNGConnector:checkDebugAarMetadata
+> Task :OnlyOfficeConnector:processDebugResources FROM-CACHE
+> Task :OnlyOfficeConnector:kspDebugKotlin FROM-CACHE
+> Task :WireGuardConnector:processDebugResources FROM-CACHE
+> Task :OnlyOfficeConnector:compileDebugKotlin FROM-CACHE
+> Task :SyncthingConnector:processDebugResources FROM-CACHE
+> Task :SyncthingConnector:kspDebugKotlin FROM-CACHE
+> Task :PaperlessNGConnector:mergeDebugResources FROM-CACHE
+> Task :PaperlessNGConnector:packageDebugResources FROM-CACHE
+> Task :PaperlessNGConnector:parseDebugLocalResources FROM-CACHE
+> Task :PaperlessNGConnector:createDebugCompatibleScreenManifests
+> Task :PaperlessNGConnector:extractDeepLinksDebug FROM-CACHE
+> Task :PaperlessNGConnector:processDebugMainManifest FROM-CACHE
+> Task :PaperlessNGConnector:processDebugManifest FROM-CACHE
+> Task :PaperlessNGConnector:processDebugManifestForPackage FROM-CACHE
+> Task :PaperlessNGConnector:processDebugResources FROM-CACHE
+
+> Task :Onboarding:compileDebugKotlin UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.startup:startup-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.savedstate:savedstate which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.animation:animation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :Onboarding:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Onboarding:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :NetdataConnector:kspDebugKotlin UP-TO-DATE
+> Task :PortainerConnector:kspDebugKotlin UP-TO-DATE
+> Task :HomeAssistantConnector:kspDebugKotlin UP-TO-DATE
+> Task :PortainerConnector:compileDebugKotlin UP-TO-DATE
+> Task :HomeAssistantConnector:compileDebugKotlin UP-TO-DATE
+> Task :NetdataConnector:compileDebugKotlin UP-TO-DATE
+
+> Task :SyncthingConnector:compileDebugKotlin FAILED
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:72:29 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:76:20 Unresolved reference 'setConfig'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:80:29 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:84:30 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:88:34 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:92:20 Unresolved reference 'getDatabaseStatus'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:96:20 Unresolved reference 'browseDirectory'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:100:42 No value passed for parameter 'device'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:104:9 Argument type mismatch: actual type is 'retrofit2.Response<com.shareconnect.syncthingconnect.data.models.SyncthingApiResponse>', but 'retrofit2.Response<T>' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:104:33 Argument type mismatch: actual type is 'kotlin.String?', but 'kotlin.String' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:108:9 Argument type mismatch: actual type is 'retrofit2.Response<com.shareconnect.syncthingconnect.data.models.SyncthingApiResponse>', but 'retrofit2.Response<T>' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:108:27 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:112:9 Argument type mismatch: actual type is 'retrofit2.Response<com.shareconnect.syncthingconnect.data.models.SyncthingApiResponse>', but 'retrofit2.Response<T>' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingApiClient.kt:112:28 No value passed for parameter 'apiKey'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/SyncthingConnect/SyncthingConnector/src/main/kotlin/com/shareconnect/syncthingconnect/data/api/SyncthingEventClient.kt:69:31 Not enough information to infer type argument for 'T'.
+
+> Task :MatrixConnector:kspDebugKotlin
+> Task :PaperlessNGConnector:kspDebugKotlin
+
+> Task :WireGuardConnector:kspDebugKotlin FAILED
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/data/models/WireGuardModels.kt:173:17 Expecting an expression
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/data/models/WireGuardModels.kt:173:17 Expecting ')'
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/data/models/WireGuardModels.kt:173:111 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/data/models/WireGuardModels.kt:175:13 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:218:12 Expecting property name or receiver type
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:218:23 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:218:25 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:219:60 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:220:30 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:221:22 Unexpected tokens (use ';' to separate expressions on the same line)
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:223:9 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:234:13 Expecting an expression
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:234:13 Expecting ')'
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:234:34 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:236:9 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:244:33 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:244:44 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:244:56 Expecting an expression
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:245:33 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:245:41 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:245:53 Expecting an expression
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:248:25 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:248:33 Expecting an element
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:253:25 Name expected
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/WireGuardConnect/WireGuardConnector/src/main/kotlin/com/shareconnect/wireguardconnect/manager/WireGuardConfigManager.kt:253:29 Expecting an element
+
+> Task :PaperlessNGConnector:compileDebugKotlin FAILED
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/data/api/PaperlessApiClient.kt:466:19 Argument type mismatch: actual type is 'com.shareconnect.paperlessngconnect.data.models.PaperlessTag', but 'kotlin.String?' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/data/api/PaperlessApiClient.kt:490:19 Argument type mismatch: actual type is 'com.shareconnect.paperlessngconnect.data.models.PaperlessTag', but 'kotlin.String?' was expected.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:28:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:29:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:30:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:31:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:32:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:33:12 Unresolved reference 'github'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:43:26 Unresolved reference 'PDFView'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:81:40 Unresolved reference 'fromFile'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:93:31 Unresolved reference 'DefaultScrollHandle'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:95:25 Unresolved reference 'OnLoadCompleteListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:95:50 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:100:31 Unresolved reference 'OnPageChangeListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:100:54 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:100:60 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:105:26 Unresolved reference 'OnErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:105:44 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:109:30 Unresolved reference 'OnPageErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:109:52 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:109:58 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:129:40 Unresolved reference 'fromStream'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:141:31 Unresolved reference 'DefaultScrollHandle'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:143:25 Unresolved reference 'OnLoadCompleteListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:143:50 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:148:31 Unresolved reference 'OnPageChangeListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:148:54 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:148:60 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:153:26 Unresolved reference 'OnErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:153:44 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:157:30 Unresolved reference 'OnPageErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:157:52 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:157:58 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:177:40 Unresolved reference 'fromBytes'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:189:31 Unresolved reference 'DefaultScrollHandle'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:191:25 Unresolved reference 'OnLoadCompleteListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:191:50 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:196:31 Unresolved reference 'OnPageChangeListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:196:54 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:196:60 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:201:26 Unresolved reference 'OnErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:201:44 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:205:30 Unresolved reference 'OnPageErrorListener'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:205:52 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:205:58 Cannot infer type for this parameter. Please specify it explicitly.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:223:21 Unresolved reference 'jumpTo'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:278:35 Unresolved reference 'zoom'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:279:17 Unresolved reference 'zoomTo'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:287:35 Unresolved reference 'zoom'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:289:21 Unresolved reference 'zoomTo'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:298:17 Unresolved reference 'resetZoom'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:307:17 Unresolved reference 'zoomTo'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:315:36 Unresolved reference 'zoom'.
+e: file:///Volumes/T7/Projects/ShareConnect/Connectors/PaperlessNGConnect/PaperlessNGConnector/src/main/kotlin/com/shareconnect/paperlessngconnect/pdf/PdfViewerManager.kt:406:17 Unresolved reference 'recycle'.
+
+> Task :MatrixConnector:compileDebugKotlin
+w: file:///Volumes/T7/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/src/main/kotlin/com/shareconnect/matrixconnect/ui/MatrixConnectApp.kt:58:49 '@property:Deprecated(...) val Icons.Filled.Chat: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Chat.
+w: file:///Volumes/T7/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/src/main/kotlin/com/shareconnect/matrixconnect/ui/MatrixConnectApp.kt:125:31 '@property:Deprecated(...) val Icons.Filled.Chat: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.Chat.
+w: file:///Volumes/T7/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/src/main/kotlin/com/shareconnect/matrixconnect/ui/MatrixConnectApp.kt:210:44 '@property:Deprecated(...) val Icons.Filled.ArrowBack: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.ArrowBack.
+w: file:///Volumes/T7/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/src/main/kotlin/com/shareconnect/matrixconnect/ui/theme/Theme.kt:53:20 'var statusBarColor: Int' is deprecated. Deprecated in Java.
+
+[Incubating] Problems report is available at: file:///Volumes/T7/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 3 failures.
+
+1: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':SyncthingConnector:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':WireGuardConnector:kspDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+3: Task failed with an exception.
+-----------
+* What went wrong:
+Execution failed for task ':PaperlessNGConnector:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 9s
+376 actionable tasks: 18 executed, 47 from cache, 311 up-to-date
