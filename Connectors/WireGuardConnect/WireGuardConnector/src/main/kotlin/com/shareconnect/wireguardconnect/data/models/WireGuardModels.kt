@@ -170,7 +170,7 @@ data class WireGuardConfig(
 
             return WireGuardConfig(
                 name = name,
-                interface = interfaceSection ?: throw IllegalArgumentException("No [Interface] section found"),
+                wgInterface = interfaceSection ?: throw IllegalArgumentException("No [Interface] section found"),
                 peers = peers
             )
         }

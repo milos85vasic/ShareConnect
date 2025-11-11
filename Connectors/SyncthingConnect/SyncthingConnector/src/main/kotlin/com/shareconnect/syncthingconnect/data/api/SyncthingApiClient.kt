@@ -69,47 +69,47 @@ class SyncthingApiClient(
     private val apiService = retrofit.create(SyncthingApiService::class.java)
 
     suspend fun getConfig(): Result<SystemConfig> = executeRequest {
-        apiService.getConfig()
+        apiService.getConfig(apiKey)
     }
 
     suspend fun setConfig(config: SystemConfig): Result<Unit> = executeRequest {
-        apiService.setConfig(config)
+        apiService.updateConfig(apiKey, config)
     }
 
     suspend fun getStatus(): Result<SystemStatus> = executeRequest {
-        apiService.getStatus()
+        apiService.getStatus(apiKey)
     }
 
     suspend fun getVersion(): Result<SystemVersion> = executeRequest {
-        apiService.getVersion()
+        apiService.getVersion(apiKey)
     }
 
     suspend fun getConnections(): Result<SystemConnections> = executeRequest {
-        apiService.getConnections()
+        apiService.getConnections(apiKey)
     }
 
     suspend fun getDatabaseStatus(folder: String): Result<DatabaseStatus> = executeRequest {
-        apiService.getDatabaseStatus(folder)
+        apiService.getDatabaseStatus(apiKey, folder)
     }
 
     suspend fun browseDirectory(folder: String, prefix: String = ""): Result<List<DirectoryEntry>> = executeRequest {
-        apiService.browseDirectory(folder, prefix)
+        apiService.browseDirectory(apiKey, folder, prefix)
     }
 
     suspend fun getCompletion(device: String, folder: String): Result<FolderCompletion> = executeRequest {
-        apiService.getCompletion(device, folder)
+        apiService.getCompletion(apiKey, device, folder)
     }
 
     suspend fun scan(folder: String, sub: String? = null): Result<Unit> = executeRequest {
-        apiService.scan(folder, sub)
+        apiService.scan(apiKey, folder, sub)
     }
 
     suspend fun restart(): Result<Unit> = executeRequest {
-        apiService.restart()
+        apiService.restart(apiKey)
     }
 
     suspend fun shutdown(): Result<Unit> = executeRequest {
-        apiService.shutdown()
+        apiService.shutdown(apiKey)
     }
 
     suspend fun testConnection(): Result<Boolean> = try {
