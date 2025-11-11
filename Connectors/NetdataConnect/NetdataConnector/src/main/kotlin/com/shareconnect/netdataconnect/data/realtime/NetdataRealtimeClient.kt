@@ -80,6 +80,9 @@ class NetdataRealtimeClient(
     private val _serverInfo = MutableStateFlow<ServerInfoUpdateMessage?>(null)
     val serverInfo: StateFlow<ServerInfoUpdateMessage?> = _serverInfo.asStateFlow()
 
+    private val _latestMetrics = MutableStateFlow<MetricsUpdateMessage?>(null)
+    val latestMetrics: StateFlow<MetricsUpdateMessage?> = _latestMetrics.asStateFlow()
+
     // Callbacks
     private val metricsUpdateCallbacks = mutableListOf<(MetricsUpdateMessage) -> Unit>()
     private val alarmUpdateCallbacks = mutableListOf<(AlarmUpdateMessage) -> Unit>()
@@ -368,6 +371,7 @@ class NetdataRealtimeClient(
     }
 
     private fun notifyMetricsUpdate(message: MetricsUpdateMessage) {
+        _latestMetrics.value = message
         metricsUpdateCallbacks.forEach { callback ->
             scope.launch {
                 callback(message)

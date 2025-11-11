@@ -82,7 +82,8 @@ class NetdataWidget : GlanceAppWidget() {
                 Box(
                     modifier = GlanceModifier
                         .size(8.dp)
-                        .background(getHealthColor(data.healthStatus))
+                        .background(getHealthColor(data.healthStatus)),
+                    content = {}
                 )
                 Spacer(modifier = GlanceModifier.width(8.dp))
                 Text(
@@ -157,16 +158,18 @@ class NetdataWidget : GlanceAppWidget() {
                 modifier = GlanceModifier
                     .defaultWeight()
                     .height(8.dp)
-                    .background(GlanceTheme.colors.surfaceVariant)
-            ) {
-                // Progress bar fill
-                Box(
-                    modifier = GlanceModifier
-                        .fillMaxHeight()
-                        .width((value * 1.5).dp) // Approximate percentage
-                        .background(color)
-                )
-            }
+                    .background(GlanceTheme.colors.surfaceVariant),
+                content = {
+                    // Progress bar fill
+                    Box(
+                        modifier = GlanceModifier
+                            .fillMaxHeight()
+                            .width((value * 1.5).dp) // Approximate percentage
+                            .background(color),
+                        content = {}
+                    )
+                }
+            )
 
             Spacer(modifier = GlanceModifier.width(8.dp))
 

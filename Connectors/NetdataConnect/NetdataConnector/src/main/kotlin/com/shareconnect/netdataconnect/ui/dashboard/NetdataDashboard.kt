@@ -123,8 +123,8 @@ private fun HealthStatusCard(
     modifier: Modifier = Modifier
 ) {
     val status = when {
-        health.criticalAlarms > 0 -> DashboardStatus.ERROR
-        health.warningAlarms > 0 -> DashboardStatus.WARNING
+        health.critical > 0 -> DashboardStatus.ERROR
+        health.warning > 0 -> DashboardStatus.WARNING
         else -> DashboardStatus.SUCCESS
     }
 
@@ -162,25 +162,25 @@ private fun HealthStatusCard(
             Divider()
 
             // Alarm Counts
-            if (health.criticalAlarms > 0) {
+            if (health.critical > 0) {
                 MetricItem(
                     label = "Critical Alarms",
-                    value = health.criticalAlarms.toString(),
+                    value = health.critical.toString(),
                     icon = Icons.Default.Error,
                     valueColor = MaterialTheme.colorScheme.error
                 )
             }
 
-            if (health.warningAlarms > 0) {
+            if (health.warning > 0) {
                 MetricItem(
                     label = "Warning Alarms",
-                    value = health.warningAlarms.toString(),
+                    value = health.warning.toString(),
                     icon = Icons.Default.Warning,
                     valueColor = Color(0xFFFFC107)
                 )
             }
 
-            if (health.criticalAlarms == 0 && health.warningAlarms == 0) {
+            if (health.critical == 0 && health.warning == 0) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = androidx.compose.ui.Alignment.CenterVertically
@@ -204,11 +204,11 @@ private fun HealthStatusCard(
 
 @Composable
 private fun AlarmsCard(
-    alarms: List<AlarmStatus>,
+    alarms: List<AlarmUpdateMessage.AlarmStatus>,
     modifier: Modifier = Modifier
 ) {
-    val criticalAlarms = alarms.filter { it.status == "CRITICAL" }
-    val warningAlarms = alarms.filter { it.status == "WARNING" }
+    val critical = alarms.filter { it.status == "CRITICAL" }
+    val warning = alarms.filter { it.status == "WARNING" }
 
     DashboardCard(
         title = "Active Alarms",
@@ -218,7 +218,7 @@ private fun AlarmsCard(
             Text(
                 text = "${alarms.size}",
                 style = MaterialTheme.typography.labelLarge,
-                color = if (criticalAlarms.isNotEmpty()) {
+                color = if (critical.isNotEmpty()) {
                     MaterialTheme.colorScheme.error
                 } else {
                     Color(0xFFFFC107)
@@ -230,12 +230,12 @@ private fun AlarmsCard(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             // Critical Alarms
-            criticalAlarms.forEach { alarm ->
+            critical.forEach { alarm ->
                 AlarmItem(alarm = alarm, isCritical = true)
             }
 
             // Warning Alarms
-            warningAlarms.forEach { alarm ->
+            warning.forEach { alarm ->
                 AlarmItem(alarm = alarm, isCritical = false)
             }
         }
@@ -244,7 +244,7 @@ private fun AlarmsCard(
 
 @Composable
 private fun AlarmItem(
-    alarm: AlarmStatus,
+    alarm: AlarmUpdateMessage.AlarmStatus,
     isCritical: Boolean,
     modifier: Modifier = Modifier
 ) {
@@ -326,7 +326,7 @@ private fun KeyMetricsCard(
                         val totalCpu = userCpu + systemCpu
                         LabeledProgressIndicator(
                             label = "CPU Usage",
-                            progress = (totalCpu / 100f).coerceIn(0f, 1f)
+                            progress = (totalCpu.toFloat() / 100f).coerceIn(0f, 1f)
                         )
                     }
                 }
