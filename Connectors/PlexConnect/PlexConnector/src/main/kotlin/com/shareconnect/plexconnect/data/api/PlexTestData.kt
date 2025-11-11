@@ -363,7 +363,12 @@ object PlexTestData {
     fun getTVShowLibraryItems(): List<PlexMediaItem> = testTVShows
 
     fun getEpisodesForShow(showRatingKey: String): List<PlexMediaItem> {
-        return testEpisodes.filter { it.ratingKey.startsWith(showRatingKey) }
+        // Map shows to their episodes by comparing the first character of rating keys
+        // Show: 2001 -> Episodes: 21xx
+        return when (showRatingKey) {
+            "2001" -> testEpisodes.filter { it.ratingKey.startsWith("21") }
+            else -> emptyList()
+        }
     }
 
     fun searchMedia(query: String): List<PlexMediaItem> {
