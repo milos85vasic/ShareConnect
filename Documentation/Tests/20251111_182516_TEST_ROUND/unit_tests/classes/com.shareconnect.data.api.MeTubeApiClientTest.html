@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.shareconnect.data.api.MeTubeApiClientTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.shareconnect.data.api.MeTubeApiClientTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.shareconnect.data.api.html">com.shareconnect.data.api</a> &gt; MeTubeApiClientTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">17</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.207s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard error</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test API client initialization</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test HTTP error response</td>
+<td class="success">0.024s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test JSON content type header</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test URL encoding in request</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add download with audio only format</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add download with default quality</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add download with format specification</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add download with specific quality</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test add download without authentication</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test authentication failure</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test basic authentication header</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test empty username password handling</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test multiple sequential downloads</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test network error handling</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test server error response</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test various format options</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test various quality options</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64235/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 46
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://invalid-url&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (46-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 400 Client Error http://localhost:64235/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 11
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Bad Request
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (11-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64238/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 401 Client Error http://localhost:64238/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 12
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Unauthorized
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (12-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64240/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64240/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64242/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64242/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64245/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 83
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://www.youtube.com/watch?v\u003dtest&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;mp4&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (83-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64245/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64248/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 500 Server Error http://localhost:64248/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 21
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Internal Server Error
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (21-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64250/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 84
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://www.youtube.com/watch?v\u003dtest&quot;,&quot;quality&quot;:&quot;audio&quot;,&quot;format&quot;:&quot;mp3&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (84-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64250/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64252/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 88
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video?id\u003d123\u0026title\u003dtest video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (88-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64252/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 64
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;mp4&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (64-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 65
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;webm&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (65-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 64
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;mkv&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (64-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 64
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;mp3&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (64-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 64
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;m4a&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (64-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64254/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 65
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;,&quot;format&quot;:&quot;opus&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (65-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64254/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64256/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- HTTP FAILED: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:64256
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64259/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 69
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://www.youtube.com/watch?v\u003dtest&quot;,&quot;quality&quot;:&quot;1080p&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (69-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64259/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;worst&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;1080p&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;720p&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;480p&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;360p&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64261/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;audio&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64261/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64263/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 49
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (49-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64263/add (1ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64266/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video1&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64266/add (2ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64266/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video2&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64266/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64266/add
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 50
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://test.com/video3&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (50-byte body)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64266/add (0ms)
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:53:59 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:64269/add
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json; charset=utf-8
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 68
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: Basic dXNlcjpwYXNz
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;url&quot;:&quot;https://www.youtube.com/watch?v\u003dtest&quot;,&quot;quality&quot;:&quot;best&quot;}
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (68-byte body)
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:64269/add (1ms)
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 16
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: 
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;status&quot;: &quot;ok&quot;}
+Nov 11, 2025 12:54:00 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (16-byte body)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14</a> at Nov 11, 2025, 12:54:03 PM</p>
+</div>
+</div>
+</body>
+</html>
