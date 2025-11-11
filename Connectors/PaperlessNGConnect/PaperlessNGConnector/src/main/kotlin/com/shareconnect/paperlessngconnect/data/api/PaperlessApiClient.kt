@@ -463,7 +463,7 @@ class PaperlessApiClient(
                 Result.failure(Exception("Create tag failed: ${response.code()} ${response.message()}"))
             }
         } catch (e: Exception) {
-            Log.e(tag, "Error creating tag", e)
+            Log.e(this@PaperlessApiClient.tag, "Error creating tag", e)
             Result.failure(e)
         }
     }
@@ -487,7 +487,7 @@ class PaperlessApiClient(
                 Result.failure(Exception("Update tag failed: ${response.code()} ${response.message()}"))
             }
         } catch (e: Exception) {
-            Log.e(tag, "Error updating tag", e)
+            Log.e(this@PaperlessApiClient.tag, "Error updating tag", e)
             Result.failure(e)
         }
     }

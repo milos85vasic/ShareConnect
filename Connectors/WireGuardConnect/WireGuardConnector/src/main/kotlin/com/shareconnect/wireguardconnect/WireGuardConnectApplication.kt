@@ -27,7 +27,7 @@ import android.app.Application
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
 import com.shareconnect.historysync.HistorySyncManager
-import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
@@ -43,12 +43,12 @@ class WireGuardConnectApplication : Application() {
         themeSyncManager = ThemeSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         ProfileSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         HistorySyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        RssSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
+        RSSSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         BookmarkSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         PreferencesSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         LanguageSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
         TorrentSharingSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        CoroutineScope(SupervisorJob()).launch { themeSyncManager.startSync() }
+        CoroutineScope(SupervisorJob()).launch { themeSyncManager.start() }
     }
 
     fun getThemeSyncManager() = themeSyncManager

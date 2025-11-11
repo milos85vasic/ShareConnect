@@ -72,7 +72,7 @@ class SyncthingApiClient(
         apiService.getConfig(apiKey)
     }
 
-    suspend fun setConfig(config: SystemConfig): Result<Unit> = executeRequest {
+    suspend fun setConfig(config: SystemConfig): Result<Unit> = executeUnitRequest {
         apiService.updateConfig(apiKey, config)
     }
 
@@ -89,26 +89,26 @@ class SyncthingApiClient(
     }
 
     suspend fun getDatabaseStatus(folder: String): Result<DatabaseStatus> = executeRequest {
-        apiService.getDatabaseStatus(apiKey, folder)
+        apiService.getDBStatus(apiKey, folder)
     }
 
     suspend fun browseDirectory(folder: String, prefix: String = ""): Result<List<DirectoryEntry>> = executeRequest {
-        apiService.browseDirectory(apiKey, folder, prefix)
+        apiService.browse(apiKey, folder, prefix)
     }
 
     suspend fun getCompletion(device: String, folder: String): Result<FolderCompletion> = executeRequest {
-        apiService.getCompletion(apiKey, device, folder)
+        apiService.getCompletion(apiKey, folder, device)
     }
 
-    suspend fun scan(folder: String, sub: String? = null): Result<Unit> = executeRequest {
+    suspend fun scan(folder: String, sub: String? = null): Result<Unit> = executeUnitRequest {
         apiService.scan(apiKey, folder, sub)
     }
 
-    suspend fun restart(): Result<Unit> = executeRequest {
+    suspend fun restart(): Result<Unit> = executeUnitRequest {
         apiService.restart(apiKey)
     }
 
-    suspend fun shutdown(): Result<Unit> = executeRequest {
+    suspend fun shutdown(): Result<Unit> = executeUnitRequest {
         apiService.shutdown(apiKey)
     }
 
@@ -123,6 +123,18 @@ class SyncthingApiClient(
         val response = block()
         if (response.isSuccessful && response.body() != null) {
             Result.success(response.body()!!)
+        } else {
+            Result.failure(IOException("HTTP ${response.code()}: ${response.message()}"))
+        }
+    } catch (e: Exception) {
+        Log.e(TAG, "Request error", e)
+        Result.failure(e)
+    }
+
+    private suspend fun executeUnitRequest(block: suspend () -> Response<*>): Result<Unit> = try {
+        val response = block()
+        if (response.isSuccessful) {
+            Result.success(Unit)
         } else {
             Result.failure(IOException("HTTP ${response.code()}: ${response.message()}"))
         }
