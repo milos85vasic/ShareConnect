@@ -27,7 +27,7 @@ import android.app.Application
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
 import com.shareconnect.historysync.HistorySyncManager
-import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
@@ -35,21 +35,32 @@ import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import kotlinx.coroutines.*
 
 class MinecraftServerConnectApplication : Application() {
-    private lateinit var themeSyncManager: ThemeSyncManager
+    private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun onCreate() {
         super.onCreate()
         val id = BuildConfig.APP_ID
-        themeSyncManager = ThemeSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        ProfileSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        HistorySyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        RssSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        BookmarkSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        PreferencesSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        LanguageSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        TorrentSharingSyncManager.getInstance(this, id, BuildConfig.APP_NAME, BuildConfig.APP_VERSION)
-        CoroutineScope(SupervisorJob()).launch { themeSyncManager.startSync() }
-    }
+        val name = BuildConfig.APP_NAME
+        val version = BuildConfig.APP_VERSION
 
-    fun getThemeSyncManager() = themeSyncManager
+        // Initialize all sync managers
+        val themeSyncManager = ThemeSyncManager.getInstance(this, id, name, version)
+        val profileSyncManager = ProfileSyncManager.getInstance(this, id, name, version)
+        val historySyncManager = HistorySyncManager.getInstance(this, id, name, version)
+        val rssSyncManager = RSSSyncManager.getInstance(this, id, name, version)
+        val bookmarkSyncManager = BookmarkSyncManager.getInstance(this, id, name, version)
+        val preferencesSyncManager = PreferencesSyncManager.getInstance(this, id, name, version)
+        val languageSyncManager = LanguageSyncManager.getInstance(this, id, name, version)
+        val torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(this, id, name, version)
+
+        // Start sync managers with delays to avoid port conflicts
+        applicationScope.launch { delay(100); themeSyncManager.start() }
+        applicationScope.launch { delay(200); profileSyncManager.start() }
+        applicationScope.launch { delay(300); historySyncManager.start() }
+        applicationScope.launch { delay(400); rssSyncManager.start() }
+        applicationScope.launch { delay(500); bookmarkSyncManager.start() }
+        applicationScope.launch { delay(600); preferencesSyncManager.start() }
+        applicationScope.launch { delay(700); languageSyncManager.start() }
+        applicationScope.launch { delay(800); torrentSharingSyncManager.start() }
+    }
 }
