@@ -116,14 +116,35 @@ class NextcloudApiStubService : NextcloudApiService {
         }
 
         val normalizedPath = if (path.isEmpty() || path == "/") "" else "/$path".removeSuffix("/")
-        val files = NextcloudTestData.getFilesByPath(normalizedPath)
 
-        if (files.isEmpty() && normalizedPath.isNotEmpty()) {
-            // Path doesn't exist
-            return Response.error(404, "Path not found".toResponseBody())
+        // Get files from in-memory fileSystem (respects state changes)
+        val children = fileSystem.values.filter { file ->
+            if (normalizedPath.isEmpty()) {
+                // Root level - get files that are directly in root (no parent directory)
+                file.path.count { it == '/' } == 1
+            } else {
+                // Get files in this specific directory
+                val parent = file.path.substringBeforeLast("/", "")
+                parent == normalizedPath
+            }
         }
 
-        val xmlResponse = NextcloudTestData.createWebDavXmlResponse(files)
+        // WebDAV PROPFIND includes the directory itself in the response
+        val files = if (normalizedPath.isNotEmpty()) {
+            val directory = fileSystem[normalizedPath]
+            if (directory != null) {
+                listOf(directory) + children
+            } else if (children.isEmpty()) {
+                // Path doesn't exist
+                return Response.error(404, "Path not found".toResponseBody())
+            } else {
+                children
+            }
+        } else {
+            children
+        }
+
+        val xmlResponse = NextcloudTestData.createWebDavXmlResponse(files.toList())
         return Response.success(xmlResponse)
     }
 
