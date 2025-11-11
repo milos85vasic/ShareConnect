@@ -36,7 +36,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 class PlexApiClient(
-    plexApiService: PlexApiService? = null
+    plexApiService: PlexApiService? = null,
+    private val isStubMode: Boolean = false
 ) {
 
     private val tag = "PlexApiClient"
@@ -60,7 +61,14 @@ class PlexApiClient(
             .build()
     }
 
-    private val service: PlexApiService = plexApiService ?: retrofit.create(PlexApiService::class.java)
+    private val service: PlexApiService = when {
+        plexApiService != null -> plexApiService
+        isStubMode -> {
+            Log.d(tag, "PlexApiClient initialized in STUB MODE - using test data")
+            PlexApiStubService()
+        }
+        else -> retrofit.create(PlexApiService::class.java)
+    }
 
     // Authentication methods
     suspend fun requestPin(clientIdentifier: String): Result<PlexPinResponse> = withContext(Dispatchers.IO) {
