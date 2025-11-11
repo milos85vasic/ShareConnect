@@ -101,7 +101,9 @@ dependencies {
     implementation "com.google.code.gson:gson:2.11.0"
 
     // Matrix Olm library for E2EE
-    implementation "org.matrix.android:olm-sdk:3.2.16"
+    // TODO: Add Olm SDK - artifact not available in public Maven repos
+    // Need to either add as local JAR or find correct Maven coordinates
+    // implementation "org.matrix.android:olm-sdk:3.2.16"
 
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0"

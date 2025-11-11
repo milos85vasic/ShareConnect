@@ -27,7 +27,7 @@ import android.app.Application
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
 import com.shareconnect.historysync.HistorySyncManager
-import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.bookmarksync.BookmarkSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
@@ -35,26 +35,32 @@ import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import kotlinx.coroutines.*
 
 class PaperlessNGConnectApplication : Application() {
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    private lateinit var themeSyncManager: ThemeSyncManager
+    private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     override fun onCreate() {
         super.onCreate()
         val id = BuildConfig.APP_ID
         val name = BuildConfig.APP_NAME
         val version = BuildConfig.APP_VERSION
-        
-        themeSyncManager = ThemeSyncManager.getInstance(this, id, name, version)
-        ProfileSyncManager.getInstance(this, id, name, version)
-        HistorySyncManager.getInstance(this, id, name, version)
-        RssSyncManager.getInstance(this, id, name, version)
-        BookmarkSyncManager.getInstance(this, id, name, version)
-        PreferencesSyncManager.getInstance(this, id, name, version)
-        LanguageSyncManager.getInstance(this, id, name, version)
-        TorrentSharingSyncManager.getInstance(this, id, name, version)
-        
-        scope.launch { themeSyncManager.startSync() }
-    }
 
-    fun getThemeSyncManager() = themeSyncManager
+        // Initialize all sync managers
+        val themeSyncManager = ThemeSyncManager.getInstance(this, id, name, version)
+        val profileSyncManager = ProfileSyncManager.getInstance(this, id, name, version)
+        val historySyncManager = HistorySyncManager.getInstance(this, id, name, version)
+        val rssSyncManager = RSSSyncManager.getInstance(this, id, name, version)
+        val bookmarkSyncManager = BookmarkSyncManager.getInstance(this, id, name, version)
+        val preferencesSyncManager = PreferencesSyncManager.getInstance(this, id, name, version)
+        val languageSyncManager = LanguageSyncManager.getInstance(this, id, name, version)
+        val torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(this, id, name, version)
+
+        // Start sync managers with delays to avoid port conflicts
+        applicationScope.launch { delay(100); themeSyncManager.start() }
+        applicationScope.launch { delay(200); profileSyncManager.start() }
+        applicationScope.launch { delay(300); historySyncManager.start() }
+        applicationScope.launch { delay(400); rssSyncManager.start() }
+        applicationScope.launch { delay(500); bookmarkSyncManager.start() }
+        applicationScope.launch { delay(600); preferencesSyncManager.start() }
+        applicationScope.launch { delay(700); languageSyncManager.start() }
+        applicationScope.launch { delay(800); torrentSharingSyncManager.start() }
+    }
 }
