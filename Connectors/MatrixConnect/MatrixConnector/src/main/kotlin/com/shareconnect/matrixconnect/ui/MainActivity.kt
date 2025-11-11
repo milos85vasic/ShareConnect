@@ -30,30 +30,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.shareconnect.designsystem.theme.ShareConnectTheme
-import com.shareconnect.matrixconnect.MatrixConnectApplication
-import com.shareconnect.securityaccess.SecurityAccessManager
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val app = application as MatrixConnectApplication
-        val securityAccessManager = SecurityAccessManager(this)
-        
-        if (securityAccessManager.isSecurityEnabled()) {
-            securityAccessManager.authenticate(
-                onSuccess = { showUI(app) },
-                onFailure = { finish() }
-            )
-        } else {
-            showUI(app)
-        }
-    }
-
-    private fun showUI(app: MatrixConnectApplication) {
         setContent {
-            val theme by app.getThemeSyncManager().currentThemeState.collectAsState()
-            ShareConnectTheme(darkTheme = theme?.isDark ?: false, customTheme = theme?.theme) {
+            MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     MatrixScreen()
                 }
