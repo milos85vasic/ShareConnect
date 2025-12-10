@@ -107,21 +107,30 @@ class PlexRepositoryImpl(
         throw e
     }
 
-    override fun getLibraryItems(
+    override     fun getLibraryItems(
         serverUrl: String,
         sectionKey: String,
         token: String,
         limit: Int,
-        offset: Int
+        offset: Int,
+        filter: PlexMediaFilter? = null
     ): Flow<List<PlexMediaItem>> = flow {
         // First, try to get from API
         val apiResult = apiClient.getLibraryItems(serverUrl, sectionKey, token, limit, offset)
         
         apiResult.onSuccess { items ->
-            emit(items)
+            // Apply filters to the items
+            val filteredItems = items.filter { item ->
+                applyFilter(item, filter)
+            }
+
+            // Sort items if a sort option is specified
+            val sortedItems = sortItems(filteredItems, filter)
+
+            emit(sortedItems)
             
             // Cache the media items
-            val mediaItemEntities = items.map { item ->
+            val mediaItemEntities = sortedItems.map { item ->
                 PlexMediaItemEntity(
                     id = item.ratingKey ?: item.guid ?: "unknown",
                     libraryId = sectionKey,
@@ -130,27 +139,36 @@ class PlexRepositoryImpl(
                     year = item.year,
                     summary = item.summary,
                     thumbnailUrl = null, // TODO: Add thumbnail URL extraction
-                    lastSyncTime = Instant.now()
+                    lastSyncTime = Instant.now(),
+                    // Additional filtering metadata
+                    isWatched = determineWatchStatus(item) == PlexMediaFilter.WatchStatus.WATCHED
                 )
             }
             mediaItemDao.insertMediaItems(mediaItemEntities)
         }.onFailure { exception ->
-            // If API fails, try to get from local database
+            // If API fails, try to get from local database with filtering
             mediaItemDao.getMediaItemsForLibrary(sectionKey)
                 .collect { cachedItems ->
-                    if (cachedItems.isNotEmpty()) {
-                        val mediaItems = cachedItems.map { item ->
-                            PlexMediaItem(
-                                ratingKey = item.id,
-                                key = item.id,
-                                guid = item.id,
-                                title = item.title,
-                                type = item.type,
-                                year = item.year,
-                                summary = item.summary
-                            )
-                        }
-                        emit(mediaItems)
+                    val convertedItems = cachedItems.map { item ->
+                        PlexMediaItem(
+                            ratingKey = item.id,
+                            key = item.id,
+                            guid = item.id,
+                            title = item.title,
+                            type = item.type,
+                            year = item.year,
+                            summary = item.summary
+                        )
+                    }
+
+                    val filteredItems = convertedItems.filter { item ->
+                        applyFilter(item, filter)
+                    }
+
+                    val sortedItems = sortItems(filteredItems, filter)
+
+                    if (sortedItems.isNotEmpty()) {
+                        emit(sortedItems)
                     } else {
                         // If both API and cache fail, throw the original exception
                         throw exception
@@ -160,6 +178,69 @@ class PlexRepositoryImpl(
     }.catch { e ->
         Log.e(tag, "Error in getLibraryItems", e)
         throw e
+    }
+
+    /**
+     * Apply media item filtering based on PlexMediaFilter
+     */
+    private fun applyFilter(item: PlexMediaItem, filter: PlexMediaFilter?): Boolean {
+        if (filter == null) return true
+
+        // Type filtering
+        filter.type?.let { 
+            if (item.type?.uppercase() != it.name.uppercase()) return false 
+        }
+
+        // Year filtering
+        filter.year?.let { 
+            val itemYear = item.year
+            if (itemYear == null || itemYear !in it) return false 
+        }
+
+        // Genre filtering (placeholder - would require additional API/database metadata)
+        filter.genre?.let { 
+            // TODO: Implement genre filtering when genre data is available
+        }
+
+        // Implement additional filter logic for rating, duration, etc.
+        // Note: These would require extended metadata from Plex API or local database
+
+        return true
+    }
+
+    /**
+     * Sort items based on filter configuration
+     */
+    private fun sortItems(
+        items: List<PlexMediaItem>, 
+        filter: PlexMediaFilter?
+    ): List<PlexMediaItem> {
+        if (filter == null) return items
+
+        return when (filter.sortBy) {
+            PlexMediaFilter.SortOption.TITLE -> 
+                items.sortedBy { it.title }
+            PlexMediaFilter.SortOption.YEAR -> 
+                items.sortedBy { it.year }
+            PlexMediaFilter.SortOption.DATE_ADDED -> 
+                items.sortedBy { it.ratingKey } // Placeholder - would need actual timestamp
+            else -> items
+        }.let { 
+            if (filter.sortOrder == PlexMediaFilter.SortOrder.DESCENDING) 
+                it.reversed() 
+            else 
+                it 
+        }
+    }
+
+    /**
+     * Determine watch status for a media item
+     * Note: This is a placeholder and would require more sophisticated tracking
+     */
+    private fun determineWatchStatus(item: PlexMediaItem): PlexMediaFilter.WatchStatus {
+        // Placeholder implementation
+        // In a real-world scenario, this would use more complex tracking
+        return PlexMediaFilter.WatchStatus.UNWATCHED
     }
 
     override fun searchMedia(

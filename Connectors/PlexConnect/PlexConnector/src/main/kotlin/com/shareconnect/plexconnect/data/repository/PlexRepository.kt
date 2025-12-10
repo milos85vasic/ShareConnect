@@ -39,7 +39,8 @@ interface PlexRepository {
         sectionKey: String,
         token: String,
         limit: Int = 50,
-        offset: Int = 0
+        offset: Int = 0,
+        filter: PlexMediaFilter? = null
     ): Flow<List<PlexMediaItem>>
 
     /**

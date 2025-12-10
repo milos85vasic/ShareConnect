@@ -91,12 +91,13 @@ class PlexViewModel(
         sectionKey: String,
         token: String,
         limit: Int = 50,
-        offset: Int = 0
+        offset: Int = 0,
+        filter: PlexMediaFilter? = null
     ) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
-                plexRepository.getLibraryItems(serverUrl, sectionKey, token, limit, offset)
+                plexRepository.getLibraryItems(serverUrl, sectionKey, token, limit, offset, filter)
                     .collect { items ->
                         _mediaItems.value = items
                         _isLoading.value = false
@@ -106,6 +107,37 @@ class PlexViewModel(
                 _isLoading.value = false
             }
         }
+    }
+
+    /**
+     * Create preset filters for common media browsing scenarios
+     */
+    fun createPresetFilter(preset: MediaFilterPreset): PlexMediaFilter {
+        return when (preset) {
+            MediaFilterPreset.RECENTLY_ADDED -> PlexMediaFilter(
+                sortBy = PlexMediaFilter.SortOption.DATE_ADDED,
+                sortOrder = PlexMediaFilter.SortOrder.DESCENDING,
+                limit = 50
+            )
+            MediaFilterPreset.UNWATCHED -> PlexMediaFilter(
+                watchStatus = PlexMediaFilter.WatchStatus.UNWATCHED
+            )
+            MediaFilterPreset.THIS_YEAR -> PlexMediaFilter(
+                year = IntRange(
+                    LocalDate.now().year,
+                    LocalDate.now().year
+                )
+            )
+        }
+    }
+
+    /**
+     * Enum for preset filter configurations
+     */
+    enum class MediaFilterPreset {
+        RECENTLY_ADDED,
+        UNWATCHED,
+        THIS_YEAR
     }
 
     /**

@@ -75,11 +75,37 @@ fun searchMedia(serverUrl: String, query: String, token: String) {
 - ViewModel state verification
 - Comprehensive error scenario testing
 
-## Planned Improvements
-- Advanced media filtering
-- Enhanced offline support
-- More granular error handling
-- Performance optimizations
+## Latest Enhancements
+
+### Advanced Media Filtering
+- Comprehensive `PlexMediaFilter` with support for:
+  - Media type filtering
+  - Year range selection
+  - Sorting options
+  - Watch status filtering
+- Preset filter configurations
+- Flexible, extensible filtering mechanism
+
+### Enhanced Offline Support
+- Offline-first data retrieval strategy
+- Intelligent caching with configurable expiration
+- Background synchronization workers
+- Network connectivity detection
+- Seamless fallback to cached data
+
+### Comprehensive Error Handling
+- Detailed error classification
+- Network error detection
+- Authentication error management
+- Server compatibility validation
+- Exponential backoff retry mechanism
+- Detailed logging and diagnostics
+
+### Performance Optimizations
+- Efficient database caching
+- Reduced network call frequency
+- Intelligent data synchronization
+- Minimized app resource consumption
 
 ## Getting Started
 1. Ensure Koin is configured in your app
