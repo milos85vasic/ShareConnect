@@ -1,0 +1,121 @@
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Option AllowRedefinitionToAddDeleteMethods was deprecated in version 13.0 and will likely be removed in a future release.
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+
+39 tests completed, 1 failed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':ThemeSync:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/milosvasic/Projects/ShareConnect/ThemeSync/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 6s
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+Creating the JCommons JAR archive
+The 'toolkit_project_name' is: 'ShareConnect'
