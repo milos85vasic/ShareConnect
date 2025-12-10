@@ -283,7 +283,53 @@ ShareConnect now includes comprehensive JDownloader integration for all supporte
 - **Automation Tests**: End-to-end sharing scenarios with MyJDownloader app
 - **100% Success Rate**: All tests pass with complete validation of JDownloader features
 
-### Test Types and Coverage
+### Enhanced Test Execution Commands
+
+### Sync Module Test Commands
+
+```bash
+# Run unit tests for a specific sync module
+./gradlew :ThemeSync:testDebugUnitTest
+./gradlew :ProfileSync:testDebugUnitTest
+./gradlew :HistorySync:testDebugUnitTest
+./gradlew :RSSSync:testDebugUnitTest
+./gradlew :BookmarkSync:testDebugUnitTest
+
+# Run integration tests for sync modules
+./gradlew :ThemeSync:connectedAndroidTest
+./gradlew :ProfileSync:connectedAndroidTest
+./gradlew :HistorySync:connectedAndroidTest
+./gradlew :RSSSync:connectedAndroidTest
+./gradlew :BookmarkSync:connectedAndroidTest
+
+# Run all sync module tests with detailed logging
+./gradlew test -i --tests "*Sync*"
+
+# Performance testing for sync modules
+./gradlew :ThemeSync:performanceTest
+./gradlew :ProfileSync:performanceTest
+
+# Code coverage for sync modules
+./gradlew :ThemeSync:jacocoTestReport
+./gradlew :ProfileSync:jacocoTestReport
+```
+
+### Advanced Test Execution
+
+```bash
+# Run tests with specific tags
+./gradlew test --tests "*IntegrationTest"
+./gradlew test --tests "*UnitTest"
+
+# Run tests matching specific patterns
+./gradlew test --tests "*.SyncManagerTest"
+./gradlew test --tests "*Repository*Test"
+
+# Generate comprehensive test reports
+./generate_test_report.sh
+```
+
+## Test Types and Coverage
 
 #### Unit Tests (`ShareConnector/src/test/`)
 - **UrlCompatibilityUtilsTest**: Comprehensive URL type detection
