@@ -33,11 +33,13 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.Assert.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 /**
  * Unit tests for MatrixEncryptionManager
  * Tests E2EE functionality with Olm/Megolm
  */
+@OptIn(ExperimentalCoroutinesApi::class)
 class MatrixEncryptionManagerTest {
 
     private lateinit var context: Context
@@ -109,5 +111,42 @@ class MatrixEncryptionManagerTest {
     fun `test cleanup does not throw exceptions`() {
         // Should not throw even before initialization
         encryptionManager.cleanup()
+    }
+
+    // New Error Scenario Tests
+    @Test
+    fun `test createOutboundGroupSession with null account`() = runTest {
+        // Simulate scenario where account is not initialized
+        encryptionManager = MatrixEncryptionManager(
+            context,
+            apiClient,
+            "@user:matrix.org",
+            "DEVICE_123"
+        )
+
+        val result = encryptionManager.createOutboundGroupSession("!room1:matrix.org")
+        assertTrue(result is MatrixResult.Error)
+    }
+
+    @Test
+    fun `test encryptMessage with invalid room ID`() = runTest {
+        val result = encryptionManager.encryptMessage("", "Test message")
+        assertTrue(result is MatrixResult.Error)
+    }
+
+    @Test
+    fun `test queryDeviceKeys with empty user list`() = runTest {
+        val result = encryptionManager.queryDeviceKeys(emptyList())
+        assertTrue(result is MatrixResult.Error)
+    }
+
+    @Test
+    fun `test initialize with network error`() = runTest {
+        coEvery { 
+            apiClient.uploadKeys(any()) 
+        } returns MatrixResult.NetworkError(Exception("Network error"))
+
+        val result = encryptionManager.initialize()
+        assertTrue(result is MatrixResult.Error)
     }
 }
