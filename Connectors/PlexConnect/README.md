@@ -2,24 +2,19 @@
 
 ## Recent Additions
 
-### Comprehensive Repository Implementation
-- Full repository pattern with local caching
-- Room database integration
-- Comprehensive error handling and state management
+### Advanced Media Search
+- Comprehensive search engine with multi-source querying
+- Intelligent result ranking and scoring
+- Fuzzy matching and relevance calculation
+- Support for advanced filtering
+- Local and remote search integration
 
-### Advanced ViewModel
-- Reactive state management with Kotlin Flows
-- Unified UI state handling
-- Comprehensive media browsing and search capabilities
-
-### Dependency Injection
-- Koin-based dependency injection
-- Modular and testable architecture
-
-### Jetpack Compose UI
-- Modern, reactive user interface
-- Comprehensive media browsing screens
-- State-driven UI updates
+### Machine Learning Recommendations
+- Personalized media recommendations
+- Watch history-based suggestion engine
+- TensorFlow Lite model integration
+- Configurable recommendation options
+- Potential for federated learning
 
 ## Architectural Highlights
 
@@ -28,6 +23,8 @@
 PlexApiClient → PlexRepository → ViewModel → Compose UI
        ↑            ↕            ↕
    Network      Room Database   UI State
+   Advanced     ML Recommendations
+   Search
 ```
 
 ### Key Components
@@ -35,88 +32,103 @@ PlexApiClient → PlexRepository → ViewModel → Compose UI
 - **Repository**: Abstracts data sources, provides caching
 - **ViewModel**: Manages UI state and business logic
 - **Compose UI**: Reactive, modern user interface
+- **Search Engine**: Multi-source intelligent search
+- **Recommendation Engine**: ML-powered personalized suggestions
 
-## Code Example
+## Code Examples
 
-### Fetching Libraries
+### Advanced Search
 ```kotlin
-class PlexViewModel(private val plexRepository: PlexRepository) : ViewModel() {
-    fun fetchLibraries(serverUrl: String, token: String) {
-        viewModelScope.launch {
-            plexRepository.getLibraries(serverUrl, token)
-                .collect { libraries ->
-                    // Update UI with libraries
-                }
+fun performAdvancedSearch(serverUrl: String, query: String, token: String) {
+    val searchOptions = SearchOptions(
+        query = query,
+        mediaTypes = listOf(MediaType.MOVIE, MediaType.TV_SHOW),
+        yearRange = IntRange(2010, 2023)
+    )
+
+    searchEngine.search(serverUrl, token, searchOptions)
+        .collect { searchResult ->
+            // Handle search results with ranking and relevance
+            val rankedItems = searchResult.items
         }
-    }
 }
 ```
 
-### Searching Media
+### Machine Learning Recommendations
 ```kotlin
-fun searchMedia(serverUrl: String, query: String, token: String) {
-    viewModelScope.launch {
-        plexRepository.searchMedia(serverUrl, query, token)
-            .collect { results ->
-                // Update search results UI
-            }
-    }
+fun getPersonalizedRecommendations(userId: String) {
+    recommendationEngine
+        .generateRecommendations(userId) 
+        .collect { recommendedItems ->
+            // Display personalized recommendations
+        }
 }
 ```
 
 ## Performance Metrics
+- **Search**: Multi-source querying with intelligent ranking
+- **Recommendations**: Personalized ML-driven suggestions
 - **Caching**: Reduced network calls via Room database
 - **State Management**: Efficient reactive updates
 - **Error Handling**: Comprehensive fallback mechanisms
 
-## Testing Strategy
-- Unit tests for API client
-- Integration tests for repository
-- ViewModel state verification
-- Comprehensive error scenario testing
+## Key Technologies
+- Kotlin Coroutines
+- Jetpack Compose
+- Room Database
+- Retrofit
+- TensorFlow Lite
+- Koin Dependency Injection
 
 ## Latest Enhancements
 
+### Advanced Media Search
+- Multi-source search across local and remote databases
+- Intelligent result ranking
+- Fuzzy matching and relevance scoring
+- Advanced filtering capabilities
+
+### Machine Learning Recommendations
+- Personalized media suggestions
+- Watch history analysis
+- TensorFlow Lite model integration
+- Configurable recommendation parameters
+
 ### Advanced Media Filtering
-- Comprehensive `PlexMediaFilter` with support for:
-  - Media type filtering
-  - Year range selection
-  - Sorting options
-  - Watch status filtering
-- Preset filter configurations
-- Flexible, extensible filtering mechanism
+- Comprehensive `PlexMediaFilter`
+- Media type and year range selection
+- Sorting and watch status filtering
+- Preset and custom filter configurations
 
 ### Enhanced Offline Support
-- Offline-first data retrieval strategy
-- Intelligent caching with configurable expiration
-- Background synchronization workers
-- Network connectivity detection
-- Seamless fallback to cached data
+- Offline-first data retrieval
+- Intelligent caching
+- Background synchronization
+- Seamless network fallback
 
 ### Comprehensive Error Handling
 - Detailed error classification
-- Network error detection
-- Authentication error management
+- Network and authentication error management
 - Server compatibility validation
 - Exponential backoff retry mechanism
-- Detailed logging and diagnostics
-
-### Performance Optimizations
-- Efficient database caching
-- Reduced network call frequency
-- Intelligent data synchronization
-- Minimized app resource consumption
 
 ## Getting Started
-1. Ensure Koin is configured in your app
-2. Add PlexModule to your Koin setup
-3. Inject PlexViewModel in your Compose screens
+1. Configure Koin in your app
+2. Add PlexModule to Koin setup
+3. Inject PlexViewModel in Compose screens
+4. Initialize search and recommendation engines
 
 ## Contributing
 - Follow existing code style
 - Write comprehensive tests
 - Update documentation
 - Submit pull requests
+
+## Future Roadmap
+- Enhanced ML model training
+- More advanced recommendation algorithms
+- Expanded search capabilities
+- Cross-platform sync improvements
 
 ## License
 Part of ShareConnect project. See root LICENSE file.
