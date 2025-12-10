@@ -30,6 +30,10 @@ import com.shareconnect.matrixconnect.models.*
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.async
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import io.mockk.coEvery
+import java.io.IOException
 import org.junit.Before
 import org.junit.Test
 import org.junit.Assert.*
