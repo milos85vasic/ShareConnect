@@ -1,0 +1,631 @@
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Tests:preBuild UP-TO-DATE
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :Dependencies:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :Dependencies:preBuild UP-TO-DATE
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :Dependencies:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResValues UP-TO-DATE
+> Task :DesignSystem:generateDebugBuildConfig UP-TO-DATE
+> Task :Asinka:asinka:generateDebugBuildConfig UP-TO-DATE
+> Task :BookmarkSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Dependencies:generateDebugBuildConfig UP-TO-DATE
+> Task :Toolkit:JCommons:compileJava UP-TO-DATE
+> Task :PreferencesSync:generateDebugBuildConfig UP-TO-DATE
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :RSSSync:generateDebugBuildConfig UP-TO-DATE
+> Task :LanguageSync:generateDebugBuildConfig UP-TO-DATE
+> Task :ThemeSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Onboarding:generateDebugBuildConfig UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Tests:writeDebugAarMetadata UP-TO-DATE
+> Task :TorrentSharingSync:writeDebugAarMetadata UP-TO-DATE
+> Task :HistorySync:generateDebugBuildConfig UP-TO-DATE
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Main:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResources UP-TO-DATE
+> Task :DesignSystem:generateDebugResValues UP-TO-DATE
+> Task :BookmarkSync:generateDebugResValues UP-TO-DATE
+> Task :Asinka:asinka:extractDebugProto UP-TO-DATE
+> Task :Dependencies:generateDebugResValues UP-TO-DATE
+> Task :PreferencesSync:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:JCommons:processResources NO-SOURCE
+> Task :Toolkit:JCommons:classes UP-TO-DATE
+> Task :ShareConnector:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :RSSSync:generateDebugResValues UP-TO-DATE
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:QRScanner:preBuild UP-TO-DATE
+> Task :Toolkit:QRScanner:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:generateDebugResValues UP-TO-DATE
+> Task :ThemeSync:generateDebugResValues UP-TO-DATE
+> Task :Onboarding:generateDebugResValues UP-TO-DATE
+> Task :HistorySync:generateDebugResValues UP-TO-DATE
+> Task :ProfileSync:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:Analytics:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preBuild UP-TO-DATE
+> Task :Toolkit:SecurityAccess:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Main:writeDebugAarMetadata UP-TO-DATE
+> Task :DesignSystem:generateDebugResources UP-TO-DATE
+> Task :BookmarkSync:generateDebugResources UP-TO-DATE
+> Task :Localizations:packageDebugResources UP-TO-DATE
+> Task :Asinka:asinka:extractProto UP-TO-DATE
+> Task :Dependencies:generateDebugResources UP-TO-DATE
+> Task :PreferencesSync:generateDebugResources UP-TO-DATE
+> Task :RSSSync:generateDebugResources UP-TO-DATE
+> Task :Toolkit:JCommons:jar UP-TO-DATE
+> Task :Toolkit:QRScanner:writeDebugAarMetadata UP-TO-DATE
+> Task :LanguageSync:generateDebugResources UP-TO-DATE
+> Task :ThemeSync:generateDebugResources UP-TO-DATE
+> Task :Onboarding:generateDebugResources UP-TO-DATE
+> Task :HistorySync:generateDebugResources UP-TO-DATE
+> Task :ProfileSync:generateDebugResources UP-TO-DATE
+> Task :ShareConnector:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:SecurityAccess:writeDebugAarMetadata UP-TO-DATE
+> Task :DesignSystem:packageDebugResources UP-TO-DATE
+> Task :BookmarkSync:packageDebugResources UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResValues UP-TO-DATE
+> Task :Dependencies:packageDebugResources UP-TO-DATE
+> Task :PreferencesSync:packageDebugResources UP-TO-DATE
+> Task :Localizations:parseDebugLocalResources UP-TO-DATE
+> Task :Tests:generateDebugResValues UP-TO-DATE
+> Task :RSSSync:packageDebugResources UP-TO-DATE
+> Task :HistorySync:packageDebugResources UP-TO-DATE
+> Task :LanguageSync:packageDebugResources UP-TO-DATE
+> Task :ThemeSync:packageDebugResources UP-TO-DATE
+> Task :Onboarding:javaPreCompileDebug UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResValues UP-TO-DATE
+> Task :ShareConnector:injectCrashlyticsMappingFileIdDebug UP-TO-DATE
+> Task :Asinka:asinka:generateDebugResources UP-TO-DATE
+> Task :Tests:generateDebugResources UP-TO-DATE
+> Task :Dependencies:parseDebugLocalResources UP-TO-DATE
+> Task :BookmarkSync:parseDebugLocalResources UP-TO-DATE
+> Task :Localizations:generateDebugRFile UP-TO-DATE
+> Task :DesignSystem:parseDebugLocalResources UP-TO-DATE
+> Task :PreferencesSync:parseDebugLocalResources UP-TO-DATE
+> Task :LanguageSync:parseDebugLocalResources UP-TO-DATE
+> Task :RSSSync:parseDebugLocalResources UP-TO-DATE
+> Task :HistorySync:parseDebugLocalResources UP-TO-DATE
+> Task :ThemeSync:parseDebugLocalResources UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugResources UP-TO-DATE
+> Task :ShareConnector:injectCrashlyticsVersionControlInfoDebug UP-TO-DATE
+> Task :Onboarding:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugResValues UP-TO-DATE
+> Task :Tests:packageDebugResources UP-TO-DATE
+> Task :Asinka:asinka:packageDebugResources UP-TO-DATE
+> Task :Dependencies:generateDebugRFile UP-TO-DATE
+> Task :BookmarkSync:generateDebugRFile UP-TO-DATE
+> Task :Localizations:javaPreCompileDebug UP-TO-DATE
+> Task :ProfileSync:javaPreCompileDebug UP-TO-DATE
+> Task :DesignSystem:generateDebugRFile UP-TO-DATE
+> Task :PreferencesSync:generateDebugRFile UP-TO-DATE
+> Task :LanguageSync:generateDebugRFile UP-TO-DATE
+> Task :RSSSync:generateDebugRFile UP-TO-DATE
+> Task :HistorySync:generateDebugRFile UP-TO-DATE
+> Task :ShareConnector:processDebugGoogleServices UP-TO-DATE
+> Task :ThemeSync:generateDebugRFile UP-TO-DATE
+> Task :TorrentSharingSync:packageDebugResources UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResValues UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugResources UP-TO-DATE
+> Task :Onboarding:parseDebugLocalResources UP-TO-DATE
+> Task :Localizations:compileDebugJavaWithJavac NO-SOURCE
+> Task :DesignSystem:javaPreCompileDebug UP-TO-DATE
+> Task :Dependencies:compileDebugKotlin NO-SOURCE
+> Task :Asinka:asinka:parseDebugLocalResources UP-TO-DATE
+> Task :ProfileSync:packageDebugResources UP-TO-DATE
+> Task :BookmarkSync:javaPreCompileDebug UP-TO-DATE
+> Task :LanguageSync:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:QRScanner:generateDebugResValues UP-TO-DATE
+> Task :HistorySync:javaPreCompileDebug UP-TO-DATE
+> Task :PreferencesSync:javaPreCompileDebug UP-TO-DATE
+> Task :RSSSync:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugResValues UP-TO-DATE
+> Task :ThemeSync:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:Main:generateDebugResources UP-TO-DATE
+> Task :Toolkit:Analytics:packageDebugResources UP-TO-DATE
+> Task :Localizations:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Onboarding:generateDebugRFile UP-TO-DATE
+> Task :DesignSystem:compileDebugLibraryResources UP-TO-DATE
+> Task :Dependencies:javaPreCompileDebug UP-TO-DATE
+> Task :BookmarkSync:compileDebugLibraryResources UP-TO-DATE
+> Task :Asinka:asinka:generateDebugRFile UP-TO-DATE
+> Task :LanguageSync:compileDebugLibraryResources UP-TO-DATE
+> Task :ProfileSync:parseDebugLocalResources UP-TO-DATE
+> Task :HistorySync:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:QRScanner:generateDebugResources UP-TO-DATE
+> Task :PreferencesSync:compileDebugLibraryResources UP-TO-DATE
+> Task :RSSSync:compileDebugLibraryResources UP-TO-DATE
+> Task :ThemeSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugResources UP-TO-DATE
+> Task :Toolkit:Main:packageDebugResources UP-TO-DATE
+> Task :ShareConnector:generateDebugResources UP-TO-DATE
+> Task :Onboarding:compileDebugLibraryResources UP-TO-DATE
+> Task :Localizations:compileDebugLibraryResources UP-TO-DATE
+> Task :DesignSystem:writeDebugAarMetadata UP-TO-DATE
+> Task :BookmarkSync:writeDebugAarMetadata UP-TO-DATE
+> Task :LanguageSync:writeDebugAarMetadata UP-TO-DATE
+> Task :HistorySync:writeDebugAarMetadata UP-TO-DATE
+> Task :PreferencesSync:writeDebugAarMetadata UP-TO-DATE
+> Task :ProfileSync:generateDebugRFile UP-TO-DATE
+> Task :RSSSync:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:QRScanner:packageDebugResources UP-TO-DATE
+> Task :Tests:extractDeepLinksDebug UP-TO-DATE
+> Task :Onboarding:writeDebugAarMetadata UP-TO-DATE
+> Task :ThemeSync:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:packageDebugResources UP-TO-DATE
+> Task :DesignSystem:extractDeepLinksDebug UP-TO-DATE
+> Task :Localizations:writeDebugAarMetadata UP-TO-DATE
+> Task :Asinka:asinka:javaPreCompileDebug UP-TO-DATE
+> Task :BookmarkSync:extractDeepLinksDebug UP-TO-DATE
+> Task :LanguageSync:extractDeepLinksDebug UP-TO-DATE
+> Task :HistorySync:extractDeepLinksDebug UP-TO-DATE
+> Task :ShareConnector:packageDebugResources UP-TO-DATE
+> Task :PreferencesSync:extractDeepLinksDebug UP-TO-DATE
+> Task :TorrentSharingSync:extractDeepLinksDebug UP-TO-DATE
+> Task :RSSSync:extractDeepLinksDebug UP-TO-DATE
+> Task :ProfileSync:compileDebugLibraryResources UP-TO-DATE
+> Task :Onboarding:extractDeepLinksDebug UP-TO-DATE
+> Task :Tests:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Analytics:extractDeepLinksDebug UP-TO-DATE
+> Task :ThemeSync:processDebugManifest UP-TO-DATE
+> Task :Asinka:asinka:writeDebugAarMetadata UP-TO-DATE
+> Task :DesignSystem:processDebugManifest UP-TO-DATE
+> Task :Localizations:extractDeepLinksDebug UP-TO-DATE
+> Task :BookmarkSync:processDebugManifest UP-TO-DATE
+> Task :HistorySync:processDebugManifest UP-TO-DATE
+> Task :LanguageSync:processDebugManifest UP-TO-DATE
+> Task :PreferencesSync:processDebugManifest UP-TO-DATE
+> Task :ProfileSync:writeDebugAarMetadata UP-TO-DATE
+> Task :TorrentSharingSync:processDebugManifest UP-TO-DATE
+> Task :RSSSync:processDebugManifest UP-TO-DATE
+> Task :Onboarding:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Main:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:Analytics:processDebugManifest UP-TO-DATE
+> Task :Toolkit:QRScanner:extractDeepLinksDebug UP-TO-DATE
+> Task :Asinka:asinka:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:extractDeepLinksDebug UP-TO-DATE
+> Task :Tests:compileDebugLibraryResources UP-TO-DATE
+> Task :ThemeSync:compileDebugLibraryResources UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugLibraryResources UP-TO-DATE
+> Task :ProfileSync:extractDeepLinksDebug UP-TO-DATE
+> Task :BookmarkSync:mergeDebugShaders UP-TO-DATE
+> Task :DesignSystem:mergeDebugShaders UP-TO-DATE
+> Task :Localizations:processDebugManifest UP-TO-DATE
+> Task :HistorySync:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:Analytics:compileDebugLibraryResources UP-TO-DATE
+> Task :LanguageSync:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:QRScanner:processDebugManifest UP-TO-DATE
+> Task :Asinka:asinka:processDebugManifest UP-TO-DATE
+> Task :Toolkit:Main:processDebugManifest UP-TO-DATE
+> Task :Toolkit:SecurityAccess:processDebugManifest UP-TO-DATE
+> Task :Onboarding:mergeDebugShaders UP-TO-DATE
+> Task :BookmarkSync:compileDebugShaders NO-SOURCE
+> Task :DesignSystem:compileDebugShaders NO-SOURCE
+> Task :LanguageSync:compileDebugShaders NO-SOURCE
+> Task :HistorySync:compileDebugShaders NO-SOURCE
+> Task :Toolkit:QRScanner:compileDebugLibraryResources UP-TO-DATE
+> Task :DesignSystem:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:generateDebugAssets UP-TO-DATE
+> Task :Localizations:mergeDebugShaders UP-TO-DATE
+> Task :ProfileSync:processDebugManifest UP-TO-DATE
+> Task :Tests:parseDebugLocalResources UP-TO-DATE
+> Task :Asinka:asinka:compileDebugLibraryResources UP-TO-DATE
+> Task :LanguageSync:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:compileDebugLibraryResources UP-TO-DATE
+> Task :TorrentSharingSync:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:Analytics:parseDebugLocalResources UP-TO-DATE
+> Task :Onboarding:compileDebugShaders NO-SOURCE
+> Task :Toolkit:SecurityAccess:compileDebugLibraryResources UP-TO-DATE
+> Task :Onboarding:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:mergeDebugAssets UP-TO-DATE
+> Task :HistorySync:mergeDebugAssets UP-TO-DATE
+> Task :DesignSystem:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:QRScanner:parseDebugLocalResources UP-TO-DATE
+> Task :LanguageSync:mergeDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugShaders UP-TO-DATE
+> Task :Tests:generateDebugRFile UP-TO-DATE
+> Task :Localizations:compileDebugShaders NO-SOURCE
+> Task :ProfileSync:mergeDebugShaders UP-TO-DATE
+> Task :Tests:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:generateDebugAssets UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugRFile UP-TO-DATE
+> Task :TorrentSharingSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:Main:parseDebugLocalResources UP-TO-DATE
+> Task :Toolkit:Analytics:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:Analytics:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:mergeDebugAssets UP-TO-DATE
+> Task :RSSSync:mergeDebugShaders UP-TO-DATE
+> Task :ThemeSync:mergeDebugShaders UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:QRScanner:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:QRScanner:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Toolkit:SecurityAccess:parseDebugLocalResources UP-TO-DATE
+> Task :ProfileSync:compileDebugShaders NO-SOURCE
+> Task :PreferencesSync:compileDebugShaders NO-SOURCE
+> Task :ProfileSync:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:generateDebugAssets UP-TO-DATE
+> Task :Tests:javaPreCompileDebug UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugBuildConfig UP-TO-DATE
+> Task :Localizations:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:generateDebugRFile UP-TO-DATE
+> Task :ThemeSync:compileDebugShaders NO-SOURCE
+> Task :Asinka:asinka:compileDebugShaders NO-SOURCE
+> Task :RSSSync:compileDebugShaders NO-SOURCE
+> Task :RSSSync:generateDebugAssets UP-TO-DATE
+> Task :ThemeSync:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Asinka:asinka:generateDebugAssets UP-TO-DATE
+> Task :BookmarkSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:Analytics:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugRFile UP-TO-DATE
+> Task :Toolkit:SecurityAccess:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ProfileSync:mergeDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugAssets UP-TO-DATE
+> Task :Tests:mergeDebugShaders UP-TO-DATE
+> Task :TorrentSharingSync:javaPreCompileDebug UP-TO-DATE
+> Task :Localizations:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :RSSSync:mergeDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugAssets UP-TO-DATE
+> Task :ThemeSync:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugShaders UP-TO-DATE
+> Task :BookmarkSync:mergeDebugNativeLibs NO-SOURCE
+> Task :DesignSystem:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:Main:javaPreCompileDebug UP-TO-DATE
+> Task :Tests:compileDebugShaders NO-SOURCE
+> Task :TorrentSharingSync:mergeDebugShaders UP-TO-DATE
+> Task :Tests:generateDebugAssets UP-TO-DATE
+> Task :HistorySync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :LanguageSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Localizations:processDebugJavaRes NO-SOURCE
+> Task :Toolkit:Analytics:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Analytics:generateDebugAssets UP-TO-DATE
+> Task :Onboarding:mergeDebugJniLibFolders UP-TO-DATE
+> Task :PreferencesSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :DesignSystem:mergeDebugNativeLibs NO-SOURCE
+> Task :TorrentSharingSync:compileDebugShaders NO-SOURCE
+> Task :BookmarkSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TorrentSharingSync:generateDebugAssets UP-TO-DATE
+> Task :PreferencesSync:mergeDebugNativeLibs NO-SOURCE
+> Task :HistorySync:mergeDebugNativeLibs NO-SOURCE
+> Task :Onboarding:mergeDebugNativeLibs NO-SOURCE
+> Task :LanguageSync:mergeDebugNativeLibs NO-SOURCE
+> Task :Localizations:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:generateDebugBuildConfig UP-TO-DATE
+> Task :Tests:mergeDebugAssets UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugAssets UP-TO-DATE
+> Task :ProfileSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :DesignSystem:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :RSSSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugAssets UP-TO-DATE
+> Task :PreferencesSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :HistorySync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :LanguageSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:Main:compileDebugShaders NO-SOURCE
+> Task :Toolkit:Main:generateDebugAssets UP-TO-DATE
+> Task :Localizations:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Onboarding:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Tests:mergeDebugJniLibFolders UP-TO-DATE
+> Task :RSSSync:mergeDebugNativeLibs NO-SOURCE
+> Task :ProfileSync:mergeDebugNativeLibs NO-SOURCE
+> Task :ThemeSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Asinka:asinka:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Localizations:mergeDebugNativeLibs NO-SOURCE
+> Task :Tests:mergeDebugNativeLibs NO-SOURCE
+> Task :Toolkit:Analytics:mergeDebugJniLibFolders UP-TO-DATE
+> Task :ThemeSync:mergeDebugNativeLibs NO-SOURCE
+> Task :ProfileSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugAssets UP-TO-DATE
+> Task :RSSSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TorrentSharingSync:mergeDebugNativeLibs NO-SOURCE
+> Task :Asinka:asinka:mergeDebugNativeLibs NO-SOURCE
+> Task :Localizations:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:Analytics:mergeDebugNativeLibs NO-SOURCE
+> Task :ThemeSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :TorrentSharingSync:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Asinka:asinka:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:Analytics:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Tests:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:Main:mergeDebugNativeLibs NO-SOURCE
+> Task :Toolkit:Main:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Dependencies:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Toolkit:SecurityAccess:javaPreCompileDebug UP-TO-DATE
+> Task :Dependencies:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:mergeDebugShaders UP-TO-DATE
+> Task :Dependencies:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugShaders NO-SOURCE
+> Task :Dependencies:processDebugJavaRes NO-SOURCE
+> Task :Toolkit:SecurityAccess:generateDebugAssets UP-TO-DATE
+> Task :Dependencies:createFullJarDebug UP-TO-DATE
+> Task :Dependencies:compileDebugLibraryResources UP-TO-DATE
+> Task :Toolkit:SecurityAccess:mergeDebugAssets UP-TO-DATE
+> Task :Dependencies:writeDebugAarMetadata UP-TO-DATE
+> Task :Toolkit:SecurityAccess:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:SecurityAccess:mergeDebugNativeLibs NO-SOURCE
+> Task :Dependencies:extractDeepLinksDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Dependencies:processDebugManifest UP-TO-DATE
+> Task :Dependencies:mergeDebugShaders UP-TO-DATE
+> Task :Dependencies:compileDebugShaders NO-SOURCE
+> Task :Dependencies:generateDebugAssets UP-TO-DATE
+> Task :Dependencies:mergeDebugAssets UP-TO-DATE
+> Task :Dependencies:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :Dependencies:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Dependencies:mergeDebugNativeLibs NO-SOURCE
+> Task :Dependencies:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :Toolkit:QRScanner:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:QRScanner:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:QRScanner:compileDebugJavaWithJavac NO-SOURCE
+> Task :Asinka:asinka:extractIncludeDebugProto UP-TO-DATE
+> Task :Toolkit:QRScanner:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:QRScanner:mergeDebugShaders UP-TO-DATE
+> Task :Toolkit:QRScanner:compileDebugShaders NO-SOURCE
+> Task :Toolkit:QRScanner:generateDebugAssets UP-TO-DATE
+> Task :Toolkit:QRScanner:mergeDebugAssets UP-TO-DATE
+> Task :Asinka:asinka:generateDebugProto UP-TO-DATE
+> Task :Toolkit:QRScanner:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:QRScanner:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:QRScanner:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :Toolkit:QRScanner:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:QRScanner:mergeDebugNativeLibs NO-SOURCE
+> Task :Toolkit:QRScanner:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :ShareConnector:mapDebugSourceSetPaths UP-TO-DATE
+> Task :Asinka:asinka:kspDebugKotlin UP-TO-DATE
+> Task :ShareConnector:checkDebugAarMetadata UP-TO-DATE
+> Task :Asinka:asinka:compileDebugKotlin UP-TO-DATE
+> Task :ShareConnector:mergeDebugResources UP-TO-DATE
+> Task :ShareConnector:parseDebugLocalResources UP-TO-DATE
+> Task :ShareConnector:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :ShareConnector:extractDeepLinksDebug UP-TO-DATE
+> Task :Asinka:asinka:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Asinka:asinka:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Main:kspDebugKotlin UP-TO-DATE
+> Task :Asinka:asinka:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Asinka:asinka:processDebugJavaRes UP-TO-DATE
+> Task :Asinka:asinka:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ShareConnector:processDebugMainManifest UP-TO-DATE
+> Task :ShareConnector:processDebugManifest UP-TO-DATE
+> Task :ShareConnector:processDebugManifestForPackage UP-TO-DATE
+> Task :HistorySync:kspDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:kspDebugKotlin UP-TO-DATE
+> Task :ProfileSync:kspDebugKotlin UP-TO-DATE
+> Task :ThemeSync:kspDebugKotlin UP-TO-DATE
+> Task :RSSSync:kspDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:kspDebugKotlin UP-TO-DATE
+> Task :LanguageSync:kspDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:kspDebugKotlin UP-TO-DATE
+> Task :HistorySync:compileDebugKotlin UP-TO-DATE
+> Task :PreferencesSync:compileDebugKotlin UP-TO-DATE
+> Task :ProfileSync:compileDebugKotlin UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugKotlin UP-TO-DATE
+> Task :ThemeSync:compileDebugKotlin UP-TO-DATE
+> Task :RSSSync:compileDebugKotlin UP-TO-DATE
+> Task :HistorySync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :LanguageSync:compileDebugKotlin UP-TO-DATE
+> Task :BookmarkSync:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:Main:compileDebugKotlin UP-TO-DATE
+> Task :ThemeSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ProfileSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :PreferencesSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :TorrentSharingSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :HistorySync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :RSSSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :LanguageSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ThemeSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :BookmarkSync:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ProfileSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :PreferencesSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :TorrentSharingSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :HistorySync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :RSSSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ThemeSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :BookmarkSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :LanguageSync:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Main:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ProfileSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :PreferencesSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :TorrentSharingSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :HistorySync:processDebugJavaRes UP-TO-DATE
+> Task :RSSSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :BookmarkSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ThemeSync:processDebugJavaRes UP-TO-DATE
+> Task :LanguageSync:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:Main:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :ProfileSync:processDebugJavaRes UP-TO-DATE
+> Task :PreferencesSync:processDebugJavaRes UP-TO-DATE
+> Task :TorrentSharingSync:processDebugJavaRes UP-TO-DATE
+> Task :HistorySync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :RSSSync:processDebugJavaRes UP-TO-DATE
+> Task :BookmarkSync:processDebugJavaRes UP-TO-DATE
+> Task :LanguageSync:processDebugJavaRes UP-TO-DATE
+> Task :ShareConnector:processDebugResources UP-TO-DATE
+> Task :Toolkit:Main:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :ThemeSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ProfileSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :PreferencesSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :TorrentSharingSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :RSSSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :BookmarkSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :LanguageSync:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ShareConnector:javaPreCompileDebug UP-TO-DATE
+> Task :Toolkit:Main:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:Main:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ShareConnector:mergeDebugShaders UP-TO-DATE
+> Task :ShareConnector:compileDebugShaders NO-SOURCE
+> Task :ShareConnector:generateDebugAssets UP-TO-DATE
+> Task :ShareConnector:mergeDebugAssets UP-TO-DATE
+> Task :ShareConnector:compressDebugAssets UP-TO-DATE
+> Task :ShareConnector:desugarDebugFileDependencies UP-TO-DATE
+> Task :Tests:compileDebugKotlin UP-TO-DATE
+> Task :Toolkit:Analytics:compileDebugKotlin UP-TO-DATE
+> Task :Tests:compileDebugJavaWithJavac NO-SOURCE
+> Task :Toolkit:Analytics:compileDebugJavaWithJavac NO-SOURCE
+> Task :ShareConnector:checkDebugDuplicateClasses UP-TO-DATE
+> Task :Tests:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Analytics:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:Analytics:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Tests:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Tests:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:Analytics:processDebugJavaRes UP-TO-DATE
+> Task :Tests:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :Toolkit:Analytics:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ShareConnector:mergeExtDexDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:kspDebugKotlin UP-TO-DATE
+> Task :ShareConnector:mergeDebugJniLibFolders UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugKotlin UP-TO-DATE
+> Task :ShareConnector:mergeDebugNativeLibs UP-TO-DATE
+> Task :ShareConnector:stripDebugDebugSymbols UP-TO-DATE
+> Task :ShareConnector:validateSigningDebug UP-TO-DATE
+> Task :ShareConnector:writeDebugAppMetadata UP-TO-DATE
+> Task :ShareConnector:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :Toolkit:SecurityAccess:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Toolkit:SecurityAccess:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Toolkit:SecurityAccess:processDebugJavaRes UP-TO-DATE
+> Task :Toolkit:SecurityAccess:bundleLibRuntimeToDirDebug UP-TO-DATE
+
+> Task :DesignSystem:compileDebugKotlin UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module org.jetbrains.kotlin:kotlin-stdlib which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.annotation:annotation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.lifecycle:lifecycle-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :DesignSystem:compileDebugJavaWithJavac UP-TO-DATE
+> Task :DesignSystem:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :DesignSystem:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :DesignSystem:processDebugJavaRes UP-TO-DATE
+> Task :DesignSystem:bundleLibRuntimeToDirDebug UP-TO-DATE
+
+> Task :Onboarding:compileDebugKotlin UP-TO-DATE
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module com.google.errorprone:error_prone_annotations which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-test-manifest which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-tooling-preview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material:material-icons-extended which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.material3:material3 which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.activity:activity which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.ui:ui-graphics which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.fragment:fragment which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.recyclerview:recyclerview which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.drawerlayout:drawerlayout which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.startup:startup-runtime which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.savedstate:savedstate which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose.animation:animation which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+The dependency resolution engine wasn't able to find a version of module androidx.compose:compose-bom which satisfied all requirements because the graph wasn't stable enough. The highest version was selected in order to stabilize selection.
+Features available in a stable graph like version alignment are not guaranteed in this case.
+
+> Task :Onboarding:compileDebugJavaWithJavac UP-TO-DATE
+> Task :Onboarding:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :Onboarding:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :Onboarding:processDebugJavaRes UP-TO-DATE
+> Task :Onboarding:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :ShareConnector:kspDebugKotlin UP-TO-DATE
+> Task :ShareConnector:compileDebugKotlin UP-TO-DATE
+> Task :ShareConnector:compileDebugJavaWithJavac UP-TO-DATE
+> Task :ShareConnector:dexBuilderDebug UP-TO-DATE
+> Task :ShareConnector:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :ShareConnector:processDebugJavaRes UP-TO-DATE
+> Task :ShareConnector:mergeDebugJavaResource UP-TO-DATE
+> Task :ShareConnector:mergeLibDexDebug UP-TO-DATE
+> Task :ShareConnector:mergeProjectDexDebug UP-TO-DATE
+> Task :ShareConnector:packageDebug UP-TO-DATE
+> Task :ShareConnector:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :ShareConnector:assembleDebug UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4s
+423 actionable tasks: 423 up-to-date

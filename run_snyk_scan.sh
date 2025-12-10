@@ -147,6 +147,16 @@ if ! docker info >/dev/null 2>&1; then
     exit 1
 fi
 
+# Ensure Docker socket is available and mounted correctly
+if [ ! -S /var/run/docker.sock ]; then
+    log_error "Docker socket not available. Make sure Docker is running and socket is mounted."
+    exit 1
+fi
+
+# Validate Docker connection method
+DOCKER_HOST=${DOCKER_HOST:-unix:///var/run/docker.sock}
+export DOCKER_HOST
+
 # Check for Snyk token (optional for freemium mode)
 if [ -z "$SNYK_TOKEN" ]; then
     log_warning "SNYK_TOKEN not set - running in freemium mode"

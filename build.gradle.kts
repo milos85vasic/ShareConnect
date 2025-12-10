@@ -1,14 +1,13 @@
-  plugins {
-      id("org.jetbrains.kotlin.android") version "2.0.0" apply false
-      id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0" apply false
-      id("com.google.devtools.ksp") version "2.0.0-1.0.21" apply false
-  }
+plugins {
+    id("org.jetbrains.kotlin.android") version "2.0.0" apply false
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0" apply false
+    id("com.google.devtools.ksp") version "2.0.0-1.0.21" apply false
+}
 
 buildscript {
-
-      extra.apply {
-          set("kotlin_version", "2.0.0")
-          set("common_obfuscator_version", "1.0.0")
+    extra.apply {
+        set("kotlin_version", "2.0.0")
+        set("common_obfuscator_version", "1.0.0")
 
         set("shareconnect_version", "1.0.0")
         set("shareconnect_version_code", 4)
@@ -70,3 +69,11 @@ allprojects {
     }
 }
 
+// Custom configuration for integration tests
+apply(from = "build_config.gradle.kts")
+
+// Add check task if it doesn't exist
+tasks.register("check") {
+    group = "verification"
+    description = "Runs all checks"
+}

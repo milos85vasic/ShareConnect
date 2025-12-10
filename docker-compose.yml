@@ -39,6 +39,18 @@ services:
         echo '' &&
         echo '📊 Generating reports...' &&
         snyk-to-html -i /tmp/snyk-deps-results.json -o /tmp/snyk-report.html 2>/dev/null || echo 'HTML report generation failed' &&
+        # Create comprehensive summary report
+        echo '📝 Generating scan summary...' &&
+        {
+            echo "# Snyk Security Scan Summary"
+            echo "Generated: $(date)"
+            echo ""
+            echo "## Dependency Scan"
+            jq -r '.vulnerabilities[] | "- \(.severity | ascii_upcase) severity: \(.title) in \(.moduleName)"' /tmp/snyk-deps-results.json || echo "No vulnerabilities found"
+            echo ""
+            echo "## Container Scan"
+            jq -r '.vulnerabilities[] | "- \(.severity | ascii_upcase) severity: \(.title) in \(.image)"' /tmp/snyk-container-results.json 2>/dev/null || echo "No vulnerabilities found"
+        } > /tmp/snyk-summary.md &&
         echo '✅ Snyk scanning completed'
       "
 

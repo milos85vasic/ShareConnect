@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shareconnect.historysync"
+    namespace = "com.shareconnect.bookmarksync"
     compileSdk = 36
 
     defaultConfig {
@@ -38,6 +38,12 @@ android {
     buildFeatures {
         buildConfig = true
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -49,14 +55,27 @@ dependencies {
 
     // Asinka for syncing
     implementation(project(":Asinka:asinka"))
+    testImplementation(project(":Asinka:asinka"))
 
     // Test dependencies
     testImplementation("junit:junit:4.13.2")
-    testImplementation("io.mockk:mockk:1.13.13")
-    testImplementation("org.mockito:mockito-core:5.8.0")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
-    testImplementation("androidx.test:core:1.5.0")
-    testImplementation("androidx.test.ext:junit:1.1.5")
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+    
+    // Integration test dependencies
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+}
+
+// Integration tests configuration
+tasks.register&lt;Test&gt;("integrationTest") {
+    group = "verification"
+    description = "Runs integration tests"
+    useJUnitPlatform {
+        includeTags("integration")
+    }
+}
+
+// Ensure integrationTest task is added to the check lifecycle
+tasks.named("check") {
+    dependsOn("integrationTest")
 }

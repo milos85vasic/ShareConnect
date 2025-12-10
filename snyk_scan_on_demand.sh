@@ -267,3 +267,19 @@ run_quick_scan "$SEVERITY" "$FAIL_ON_ISSUES"
 
 log_success "On-demand Snyk scan completed"
 log_info "Reports saved to: $REPORT_DIR"
+
+# Add a summary to the root SNYK_README.md
+cat > "SNYK_README.md" << EOF
+# Snyk Security Scanning Results
+
+## Latest Scan Summary
+- **Date:** $(date)
+- **Severity Threshold:** $SEVERITY
+- **Report Location:** $REPORT_DIR
+
+### Quick Overview
+$(grep -A 5 "Results:" "$REPORT_DIR/snyk_quick_summary.txt" || echo "No detailed results available")
+
+### Full Report
+For complete details, review the scan results in the report directory.
+EOF

@@ -1,0 +1,41 @@
+
+[Incubating] Problems report is available at: file:///home/milosvasic/Projects/ShareConnect/build/reports/problems/problems-report.html
+
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* Where:
+Build file '/home/milosvasic/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/build.gradle' line: 26
+
+* What went wrong:
+A problem occurred evaluating project ':MatrixConnector'.
+> Cannot cast object 'map(org.gradle.api.file.Directory property(org.gradle.api.file.Directory, fixed(class org.gradle.api.internal.file.DefaultFilePropertyFactory$FixedDirectory, /home/milosvasic/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/build)) org.gradle.api.internal.file.DefaultFilePropertyFactory$PathToDirectoryTransformer@1e5f1c3a)' with class 'org.gradle.api.internal.provider.MappingProvider' to class 'java.io.File'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+A problem occurred configuring project ':MatrixConnector'.
+> Android Gradle Plugin: project ':MatrixConnector' does not specify `compileSdk` in build.gradle (/home/milosvasic/Projects/ShareConnect/Connectors/MatrixConnect/MatrixConnector/build.gradle).
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+==============================================================================
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 998ms

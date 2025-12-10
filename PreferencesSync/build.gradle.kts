@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shareconnect.preferencessync"
+    namespace = "com.shareconnect.bookmarksync"
     compileSdk = 36
 
     defaultConfig {
@@ -38,6 +38,12 @@ android {
     buildFeatures {
         buildConfig = true
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -50,4 +56,26 @@ dependencies {
     // Asinka for syncing
     implementation(project(":Asinka:asinka"))
     testImplementation(project(":Asinka:asinka"))
+
+    // Test dependencies
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+    
+    // Integration test dependencies
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.3")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+}
+
+// Integration tests configuration
+tasks.register&lt;Test&gt;("integrationTest") {
+    group = "verification"
+    description = "Runs integration tests"
+    useJUnitPlatform {
+        includeTags("integration")
+    }
+}
+
+// Ensure integrationTest task is added to the check lifecycle
+tasks.named("check") {
+    dependsOn("integrationTest")
 }
