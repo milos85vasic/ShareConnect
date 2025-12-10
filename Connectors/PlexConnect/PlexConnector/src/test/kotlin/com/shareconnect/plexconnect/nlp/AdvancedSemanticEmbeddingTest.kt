@@ -217,6 +217,114 @@ class AdvancedSemanticEmbeddingTest {
     }
 
     @Test
+    fun `domain-specific embedding adaptation works correctly`() = runBlocking {
+        val testTexts = listOf(
+            "A thrilling science fiction adventure" to "MOVIE",
+            "Breaking news about technological innovation" to "NEWS",
+            "A documentary exploring human potential" to "DOCUMENTARY"
+        )
+
+        testTexts.forEach { (text, domain) ->
+            // Generate base embedding
+            val baseEmbedding = embeddingGenerator.generateEmbedding(text)
+
+            // Adapt embedding to specific domain
+            val adaptedEmbedding = embeddingGenerator.adaptEmbeddingToDomain(
+                baseEmbedding.embedding, 
+                domain, 
+                baseEmbedding.language
+            )
+
+            // Validate adaptation
+            assertNotEquals(
+                baseEmbedding.embedding.contentToString(), 
+                adaptedEmbedding.contentToString(), 
+                "Domain adaptation should modify embedding"
+            )
+
+            assertTrue(
+                adaptedEmbedding.size == 768, 
+                "Adapted embedding should maintain dimensionality"
+            )
+        }
+    }
+
+    @Test
+    fun `semantic consistency verification works correctly`() = runBlocking {
+        val testCases = listOf(
+            "A thrilling science fiction movie" to 
+            "An exciting adventure in space",
+            "Breaking news about technological innovation" to 
+            "Latest developments in technology",
+            "A documentary exploring human potential" to 
+            "Investigating human capabilities"
+        )
+
+        testCases.forEach { (text1, text2) ->
+            // Generate embeddings
+            val embedding1 = embeddingGenerator.generateEmbedding(text1)
+            val embedding2 = embeddingGenerator.generateEmbedding(text2)
+
+            // Verify semantic consistency
+            val isConsistent = embeddingGenerator.verifySemanticConsistency(
+                embedding1.embedding, 
+                embedding2.embedding
+            )
+
+            assertTrue(
+                isConsistent, 
+                "Semantically similar texts should have high consistency"
+            )
+        }
+    }
+
+    @Test
+    fun `advanced multilingual similarity refinement`() {
+        val testCases = listOf(
+            Triple("en", "fr", "Hello world" to "Bonjour le monde"),
+            Triple("en", "es", "Technology is amazing" to "La tecnología es increíble"),
+            Triple("en", "zh", "Innovation drives progress" to "创新推动进步")
+        )
+
+        testCases.forEach { (lang1, lang2, textPair) ->
+            // Generate embeddings
+            val embedding1 = embeddingGenerator.generateEmbedding(textPair.first)
+            val embedding2 = embeddingGenerator.generateEmbedding(textPair.second)
+
+            // Calculate language similarity
+            val similarity = embeddingGenerator.multilingualTransformer
+                .calculateLanguageSimilarity(
+                    embedding1.embedding, 
+                    embedding2.embedding, 
+                    lang1, 
+                    lang2
+                )
+
+            // Validate similarity
+            assertTrue(
+                similarity in -1.0..1.0, 
+                "Language similarity should be between -1 and 1"
+            )
+
+            // Expect higher similarity for linguistically close languages
+            when {
+                lang1 == "en" && lang2 == "fr" -> {
+                    assertTrue(
+                        similarity > 0.6, 
+                        "English and French should have relatively high similarity"
+                    )
+                }
+                lang1 == "en" && lang2 == "zh" -> {
+                    assertTrue(
+                        similarity < 0.4, 
+                        "English and Chinese should have low similarity"
+                    )
+                }
+            }
+        }
+    }
+
+    @Test
     fun `cross-lingual embedding transformation works`() = runBlocking {
         val testTexts = listOf(
             "Hello world" to "en",
