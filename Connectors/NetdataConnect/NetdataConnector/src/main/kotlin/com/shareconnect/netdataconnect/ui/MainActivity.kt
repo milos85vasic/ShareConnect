@@ -33,24 +33,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import digital.vasic.security.access.ui.SecurityAccess
-import digital.vasic.security.access.ui.SecurityAccessViewModel
-import digital.vasic.security.access.database.PinLength
-import com.shareconnect.netdataconnect.NetdataConnectApplication
 
 /**
  * Main activity for NetdataConnect
- * System monitoring and metrics collection UI with SecurityAccess integration
+ * System monitoring and metrics collection UI
  */
 class MainActivity : ComponentActivity() {
 
-    private lateinit var securityViewModel: SecurityAccessViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Initialize SecurityAccess ViewModel
-        securityViewModel = SecurityAccessViewModel(application)
 
         setContent {
             NetdataConnectTheme {
@@ -58,15 +49,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SecurityAccess(
-                        viewModel = securityViewModel,
-                        pinLength = PinLength.FOUR,
-                        onAuthenticationSuccess = {
-                            // Authentication successful - show main content
-                        }
-                    ) {
-                        NetdataConnectContent()
-                    }
+                    NetdataConnectContent()
                 }
             }
         }

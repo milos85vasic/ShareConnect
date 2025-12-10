@@ -44,7 +44,8 @@ class NextcloudApiClient(
     private val serverUrl: String,
     private val username: String,
     private val password: String,
-    nextcloudApiService: NextcloudApiService? = null
+    nextcloudApiService: NextcloudApiService? = null,
+    private val isStubMode: Boolean = false
 ) {
     private val tag = "NextcloudApiClient"
 
@@ -75,7 +76,14 @@ class NextcloudApiClient(
             .build()
     }
 
-    private val apiService: NextcloudApiService = nextcloudApiService ?: retrofit.create(NextcloudApiService::class.java)
+    private val apiService: NextcloudApiService = when {
+        nextcloudApiService != null -> nextcloudApiService
+        isStubMode -> {
+            Log.d(tag, "NextcloudApiClient initialized in STUB MODE - using test data")
+            NextcloudApiStubService()
+        }
+        else -> retrofit.create(NextcloudApiService::class.java)
+    }
 
     /**
      * Test connection and get server status

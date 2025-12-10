@@ -66,7 +66,7 @@ class SyncthingEventClient(
         since: Long = 0,
         events: List<String> = emptyList(),
         timeout: Int = 60
-    ): Flow<SyncthingEvent> = flow {
+    ): Flow<SyncthingEvent> = flow<SyncthingEvent> {
         val urlBuilder = StringBuilder("$serverUrl/rest/events")
         urlBuilder.append("?since=$since")
         urlBuilder.append("&timeout=$timeout")

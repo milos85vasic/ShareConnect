@@ -30,12 +30,13 @@ import com.shareconnect.historysync.HistorySyncManager
 import com.shareconnect.languagesync.LanguageSyncManager
 import com.shareconnect.preferencessync.PreferencesSyncManager
 import com.shareconnect.profilesync.ProfileSyncManager
-import com.shareconnect.rsssync.RssSyncManager
+import com.shareconnect.rsssync.RSSSyncManager
 import com.shareconnect.themesync.ThemeSyncManager
 import com.shareconnect.torrentsharingsync.TorrentSharingSyncManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SyncthingConnectApplication : Application() {
@@ -44,15 +45,6 @@ class SyncthingConnectApplication : Application() {
     }
 
     private val applicationScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-
-    private lateinit var themeSyncManager: ThemeSyncManager
-    private lateinit var profileSyncManager: ProfileSyncManager
-    private lateinit var historySyncManager: HistorySyncManager
-    private lateinit var rssSyncManager: RssSyncManager
-    private lateinit var bookmarkSyncManager: BookmarkSyncManager
-    private lateinit var preferencesSyncManager: PreferencesSyncManager
-    private lateinit var languageSyncManager: LanguageSyncManager
-    private lateinit var torrentSharingSyncManager: TorrentSharingSyncManager
 
     override fun onCreate() {
         super.onCreate()
@@ -66,37 +58,29 @@ class SyncthingConnectApplication : Application() {
         val appVersion = BuildConfig.APP_VERSION
 
         try {
-            themeSyncManager = ThemeSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { themeSyncManager.startSync() }
+            // Initialize all sync managers
+            val themeSyncManager = ThemeSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val profileSyncManager = ProfileSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val historySyncManager = HistorySyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val rssSyncManager = RSSSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val bookmarkSyncManager = BookmarkSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val preferencesSyncManager = PreferencesSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val languageSyncManager = LanguageSyncManager.getInstance(applicationContext, appId, appName, appVersion)
+            val torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(applicationContext, appId, appName, appVersion)
 
-            profileSyncManager = ProfileSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { profileSyncManager.startSync() }
-
-            historySyncManager = HistorySyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { historySyncManager.startSync() }
-
-            rssSyncManager = RssSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { rssSyncManager.startSync() }
-
-            bookmarkSyncManager = BookmarkSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { bookmarkSyncManager.startSync() }
-
-            preferencesSyncManager = PreferencesSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { preferencesSyncManager.startSync() }
-
-            languageSyncManager = LanguageSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { languageSyncManager.startSync() }
-
-            torrentSharingSyncManager = TorrentSharingSyncManager.getInstance(applicationContext, appId, appName, appVersion)
-            applicationScope.launch { torrentSharingSyncManager.startSync() }
+            // Start sync managers with delays to avoid port conflicts
+            applicationScope.launch { delay(100); themeSyncManager.start() }
+            applicationScope.launch { delay(200); profileSyncManager.start() }
+            applicationScope.launch { delay(300); historySyncManager.start() }
+            applicationScope.launch { delay(400); rssSyncManager.start() }
+            applicationScope.launch { delay(500); bookmarkSyncManager.start() }
+            applicationScope.launch { delay(600); preferencesSyncManager.start() }
+            applicationScope.launch { delay(700); languageSyncManager.start() }
+            applicationScope.launch { delay(800); torrentSharingSyncManager.start() }
 
             Log.d(TAG, "All sync managers initialized")
         } catch (e: Exception) {
             Log.e(TAG, "Failed to initialize sync managers", e)
         }
     }
-
-    fun getThemeSyncManager(): ThemeSyncManager = themeSyncManager
-    fun getProfileSyncManager(): ProfileSyncManager = profileSyncManager
-    fun getHistorySyncManager(): HistorySyncManager = historySyncManager
 }

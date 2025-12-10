@@ -45,6 +45,18 @@ APK location: `ShareConnector/build/outputs/apk/debug/ShareConnector-debug.apk`
 # Full crash test suite (tests all 4 apps)
 ./run_full_app_crash_test.sh
 
+# AI QA tests
+./run_ai_qa_tests.sh
+
+# Security scanning (Snyk - works in freemium mode, no token required)
+./snyk_scan_on_demand.sh --severity medium
+
+# Full security scan with detailed reporting
+./run_snyk_scan.sh
+
+# Combined QA + Security testing
+./run_ai_qa_with_snyk.sh
+
 # Single test
 ./gradlew test --tests "com.shareconnect.ProfileManagerTest"
 
@@ -54,27 +66,39 @@ APK location: `ShareConnector/build/outputs/apk/debug/ShareConnector-debug.apk`
 
 Test reports are saved to: `Documentation/Tests/{timestamp}_TEST_ROUND/`
 
+**Security Scanning**: ShareConnect supports Snyk security scanning in freemium mode (no token required). See AGENTS.md for complete security scanning documentation.
+
 ## Architecture
 
 ### Multi-Application Structure
 
-ShareConnect consists of **5+ Android applications** (actively expanding to 12+) that share components and sync data via Asinka:
+ShareConnect is a **complete ecosystem of 20 Android applications** that share components and sync data via Asinka:
 
-**Production Apps:**
+**Phase 1 - Core Applications (4):**
 1. **ShareConnector** (`ShareConnector/`) - Main app for sharing media links
-2. **TransmissionConnector** (`Connectors/TransmissionConnect/`) - Torrent client integration
-3. **uTorrentConnector** (`Connectors/uTorrentConnect/`) - uTorrent client integration
-4. **qBitConnector** (`Connectors/qBitConnect/`) - qBittorrent client integration
+2. **qBitConnector** (`Connectors/qBitConnect/`) - qBittorrent client integration
+3. **TransmissionConnector** (`Connectors/TransmissionConnect/`) - Torrent client integration
+4. **uTorrentConnector** (`Connectors/uTorrentConnect/`) - uTorrent client integration
+
+**Phase 2 - Cloud Services (8):**
 5. **JDownloaderConnector** (`Connectors/JDownloaderConnect/`) - JDownloader integration
+6. **MeTubeConnector** - MeTube integration
+7. **YTDLPConnector** - YT-DLP integration
+8. **NextcloudConnector** (`Connectors/NextcloudConnect/`) - Nextcloud cloud storage
+9. **FileBrowserConnector** - Web-based file management
+10. **PlexConnector** (`Connectors/PlexConnect/`) - Plex Media Server integration
+11. **JellyfinConnector** (`Connectors/JellyfinConnect/`) - Jellyfin media server
+12. **EmbyConnector** - Emby server integration
 
-**In Development:**
-6. **PlexConnector** (`Connectors/PlexConnect/`) - Plex Media Server integration (6% complete)
-
-**Planned Expansion (see WORK_IN_PROGRESS.md):**
-- NextcloudConnect - Cloud storage integration
-- MotrixConnect - Download manager integration
-- GiteaConnect - Git repository integration
-- JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect, and more
+**Phase 3 - Specialized Services (8):**
+13. **SeafileConnector** (`Connectors/SeafileConnect/`) - Encrypted cloud storage
+14. **SyncthingConnector** - P2P file synchronization
+15. **MatrixConnector** - End-to-end encrypted messaging
+16. **PaperlessNGConnector** - Document management system
+17. **DuplicatiConnector** (`Connectors/DuplicatiConnect/`) - Backup management
+18. **WireGuardConnector** - VPN configuration manager
+19. **MinecraftServerConnector** - Minecraft server management
+20. **OnlyOfficeConnector** - Collaborative document editing
 
 All apps sync profiles, themes, history, RSS feeds, bookmarks, preferences, and torrent sharing data in real-time using Asinka.
 
@@ -172,6 +196,11 @@ Each sync module:
 #### Infrastructure Modules
 - **Asinka** (`Asinka/asinka/`) - gRPC-based IPC library for real-time object sync between apps
 - **Toolkit** (`Toolkit/`) - Shared utilities, analytics, media handling, interprocess communication
+  - **SecurityAccess** - PIN/biometric authentication with session management
+  - **QRScanner** - ML Kit-based QR code scanning for all connectors
+  - **WebSocket** - WebSocket client for real-time communication
+  - **Media** - Media handling utilities
+  - **Interprocess** - IPC communication helpers
 - **Tests** - Shared test utilities and suites
 
 #### Service Connectors
@@ -320,6 +349,15 @@ Supports multiple authentication methods:
 
 Credentials stored encrypted in Room database.
 
+### QR Code Scanning
+
+All connector apps include ML Kit-based QR code scanning:
+- Scan URLs directly from QR codes for downloads/uploads
+- Automatic camera permission handling
+- Service configuration via QR codes
+- Seamless integration with Jetpack Compose UIs
+- Error handling for invalid codes or camera issues
+
 ### Service Type Detection
 
 Uses `UrlCompatibilityUtils` to detect:
@@ -400,14 +438,17 @@ FIREBASE_DISTRIBUTION_PROD_APP_CREDENTIALS_FILE=...
 
 ## Current Development Status
 
-**Active Expansion Project**: Expanding from 5 to 12+ connector applications.
+**Project Status**: 20 production-ready applications complete (100%)
 
-**See WORK_IN_PROGRESS.md** for detailed roadmap including:
-- Phase 1: PlexConnect, NextcloudConnect, MotrixConnect, GiteaConnect (3-6 months)
-- Phase 2: JellyfinConnect, PortainerConnect, NetdataConnect, HomeAssistantConnect (6-12 months)
-- Phase 3: Specialized connectors and community-driven development (12+ months)
+**Completed Phases:**
+- ✅ Phase 0: Initial 4 core apps (ShareConnect, qBit, Transmission, uTorrent)
+- ✅ Phase 1: Core expansion (Plex, Nextcloud, Motrix, Gitea)
+- ✅ Phase 2: Cloud services (JDownloader, MeTube, YTDLP, FileBrowser, Jellyfin, Emby)
+- ✅ Phase 3: Specialized services (Seafile, Syncthing, Matrix, PaperlessNG, Duplicati, WireGuard, MinecraftServer, OnlyOffice)
 
-**Current Focus**: PlexConnect UI implementation, security integration, and comprehensive testing.
+**Current Focus**: Maintenance, bug fixes, and feature enhancements across all 20 applications.
+
+**See WORK_IN_PROGRESS.md** for complete development history and roadmap details.
 
 ## Additional Resources
 

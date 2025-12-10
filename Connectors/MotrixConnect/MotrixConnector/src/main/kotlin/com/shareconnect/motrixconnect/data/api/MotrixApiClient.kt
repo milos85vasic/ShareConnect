@@ -44,7 +44,9 @@ import java.util.concurrent.TimeUnit
  */
 class MotrixApiClient(
     private val serverUrl: String,
-    private val secret: String? = null // RPC secret token if configured
+    private val secret: String? = null, // RPC secret token if configured
+    motrixApiService: MotrixApiService? = null,
+    private val isStubMode: Boolean = false
 ) {
     private val tag = "MotrixApiClient"
     private val gson = Gson()
@@ -60,8 +62,17 @@ class MotrixApiClient(
         })
         .build()
 
+    private val service: MotrixApiService = when {
+        motrixApiService != null -> motrixApiService
+        isStubMode -> {
+            Log.d(tag, "MotrixApiClient initialized in STUB MODE - using test data")
+            MotrixApiStubService(requireAuth = secret != null)
+        }
+        else -> MotrixApiLiveService(okHttpClient, rpcUrl, secret, gson)
+    }
+
     /**
-     * Execute JSON-RPC method
+     * Execute JSON-RPC method (used by live service)
      */
     private suspend fun <T> executeRpc(method: String, params: List<Any> = emptyList(), typeToken: TypeToken<MotrixRpcResponse<T>>): Result<T> = withContext(Dispatchers.IO) {
         try {
@@ -111,175 +122,290 @@ class MotrixApiClient(
     }
 
     /**
+     * Helper to convert RpcResponse to Result
+     */
+    private fun <T> handleRpcResponse(response: MotrixRpcResponse<T>): Result<T> {
+        return if (response.error != null) {
+            Result.failure(Exception("RPC Error ${response.error.code}: ${response.error.message}"))
+        } else {
+            response.result?.let { Result.success(it) }
+                ?: Result.failure(Exception("Empty result"))
+        }
+    }
+
+    /**
      * Get Motrix/Aria2 version
      */
-    suspend fun getVersion(): Result<MotrixVersion> {
-        return executeRpc("aria2.getVersion", emptyList(), object : TypeToken<MotrixRpcResponse<MotrixVersion>>() {})
+    suspend fun getVersion(): Result<MotrixVersion> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.getVersion())
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting version", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get global statistics
      */
-    suspend fun getGlobalStat(): Result<MotrixGlobalStat> {
-        return executeRpc("aria2.getGlobalStat", emptyList(), object : TypeToken<MotrixRpcResponse<MotrixGlobalStat>>() {})
+    suspend fun getGlobalStat(): Result<MotrixGlobalStat> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.getGlobalStat())
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting global stat", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Add a new download by URI
      */
-    suspend fun addUri(uri: String, options: MotrixDownloadOptions? = null): Result<String> {
-        val params = if (options != null) {
-            listOf(listOf(uri), options)
-        } else {
-            listOf(listOf(uri))
+    suspend fun addUri(uri: String, options: MotrixDownloadOptions? = null): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.addUri(listOf(uri), options))
+        } catch (e: Exception) {
+            Log.e(tag, "Error adding URI", e)
+            Result.failure(e)
         }
-
-        return executeRpc("aria2.addUri", params, object : TypeToken<MotrixRpcResponse<String>>() {})
     }
 
     /**
      * Add multiple URIs for the same download
      */
-    suspend fun addUris(uris: List<String>, options: MotrixDownloadOptions? = null): Result<String> {
-        val params = if (options != null) {
-            listOf(uris, options)
-        } else {
-            listOf(uris)
+    suspend fun addUris(uris: List<String>, options: MotrixDownloadOptions? = null): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.addUri(uris, options))
+        } catch (e: Exception) {
+            Log.e(tag, "Error adding URIs", e)
+            Result.failure(e)
         }
-
-        return executeRpc("aria2.addUri", params, object : TypeToken<MotrixRpcResponse<String>>() {})
     }
 
     /**
      * Get download status by GID
      */
-    suspend fun tellStatus(gid: String): Result<MotrixDownload> {
-        return executeRpc("aria2.tellStatus", listOf(gid), object : TypeToken<MotrixRpcResponse<MotrixDownload>>() {})
+    suspend fun tellStatus(gid: String): Result<MotrixDownload> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.tellStatus(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting status", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get list of active downloads
      */
-    suspend fun tellActive(): Result<List<MotrixDownload>> {
-        return executeRpc("aria2.tellActive", emptyList(), object : TypeToken<MotrixRpcResponse<List<MotrixDownload>>>() {})
+    suspend fun tellActive(): Result<List<MotrixDownload>> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.tellActive())
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting active downloads", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get list of waiting downloads
      */
-    suspend fun tellWaiting(offset: Int = 0, limit: Int = 100): Result<List<MotrixDownload>> {
-        return executeRpc("aria2.tellWaiting", listOf(offset, limit), object : TypeToken<MotrixRpcResponse<List<MotrixDownload>>>() {})
+    suspend fun tellWaiting(offset: Int = 0, limit: Int = 100): Result<List<MotrixDownload>> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.tellWaiting(offset, limit))
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting waiting downloads", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get list of stopped downloads
      */
-    suspend fun tellStopped(offset: Int = 0, limit: Int = 100): Result<List<MotrixDownload>> {
-        return executeRpc("aria2.tellStopped", listOf(offset, limit), object : TypeToken<MotrixRpcResponse<List<MotrixDownload>>>() {})
+    suspend fun tellStopped(offset: Int = 0, limit: Int = 100): Result<List<MotrixDownload>> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.tellStopped(offset, limit))
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting stopped downloads", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Pause a download
      */
-    suspend fun pause(gid: String): Result<String> {
-        return executeRpc("aria2.pause", listOf(gid), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun pause(gid: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.pause(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error pausing download", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Pause all active downloads
      */
-    suspend fun pauseAll(): Result<String> {
-        return executeRpc("aria2.pauseAll", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun pauseAll(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.pauseAll())
+        } catch (e: Exception) {
+            Log.e(tag, "Error pausing all downloads", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Resume a paused download
      */
-    suspend fun unpause(gid: String): Result<String> {
-        return executeRpc("aria2.unpause", listOf(gid), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun unpause(gid: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.unpause(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error resuming download", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Resume all paused downloads
      */
-    suspend fun unpauseAll(): Result<String> {
-        return executeRpc("aria2.unpauseAll", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun unpauseAll(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.unpauseAll())
+        } catch (e: Exception) {
+            Log.e(tag, "Error resuming all downloads", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Remove a download
      */
-    suspend fun remove(gid: String): Result<String> {
-        return executeRpc("aria2.remove", listOf(gid), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun remove(gid: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.remove(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error removing download", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Force remove a download
      */
-    suspend fun forceRemove(gid: String): Result<String> {
-        return executeRpc("aria2.forceRemove", listOf(gid), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun forceRemove(gid: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.forceRemove(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error force removing download", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Remove a completed/error/removed download from the list
      */
-    suspend fun removeDownloadResult(gid: String): Result<String> {
-        return executeRpc("aria2.removeDownloadResult", listOf(gid), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun removeDownloadResult(gid: String): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.removeDownloadResult(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error removing download result", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get global options
      */
-    suspend fun getGlobalOption(): Result<Map<String, String>> {
-        return executeRpc("aria2.getGlobalOption", emptyList(), object : TypeToken<MotrixRpcResponse<Map<String, String>>>() {})
+    suspend fun getGlobalOption(): Result<Map<String, String>> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.getGlobalOption())
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting global options", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Change global options
      */
-    suspend fun changeGlobalOption(options: Map<String, String>): Result<String> {
-        return executeRpc("aria2.changeGlobalOption", listOf(options), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun changeGlobalOption(options: Map<String, String>): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.changeGlobalOption(options))
+        } catch (e: Exception) {
+            Log.e(tag, "Error changing global options", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Get download options by GID
      */
-    suspend fun getOption(gid: String): Result<Map<String, String>> {
-        return executeRpc("aria2.getOption", listOf(gid), object : TypeToken<MotrixRpcResponse<Map<String, String>>>() {})
+    suspend fun getOption(gid: String): Result<Map<String, String>> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.getOption(gid))
+        } catch (e: Exception) {
+            Log.e(tag, "Error getting download options", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Change download options
      */
-    suspend fun changeOption(gid: String, options: Map<String, String>): Result<String> {
-        return executeRpc("aria2.changeOption", listOf(gid, options), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun changeOption(gid: String, options: Map<String, String>): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.changeOption(gid, options))
+        } catch (e: Exception) {
+            Log.e(tag, "Error changing download options", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Purge completed/error/removed downloads
      */
-    suspend fun purgeDownloadResult(): Result<String> {
-        return executeRpc("aria2.purgeDownloadResult", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun purgeDownloadResult(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.purgeDownloadResult())
+        } catch (e: Exception) {
+            Log.e(tag, "Error purging download results", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Shutdown Motrix/Aria2
      */
-    suspend fun shutdown(): Result<String> {
-        return executeRpc("aria2.shutdown", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun shutdown(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.shutdown())
+        } catch (e: Exception) {
+            Log.e(tag, "Error shutting down", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Force shutdown Motrix/Aria2
      */
-    suspend fun forceShutdown(): Result<String> {
-        return executeRpc("aria2.forceShutdown", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun forceShutdown(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.forceShutdown())
+        } catch (e: Exception) {
+            Log.e(tag, "Error force shutting down", e)
+            Result.failure(e)
+        }
     }
 
     /**
      * Save session (current downloads state)
      */
-    suspend fun saveSession(): Result<String> {
-        return executeRpc("aria2.saveSession", emptyList(), object : TypeToken<MotrixRpcResponse<String>>() {})
+    suspend fun saveSession(): Result<String> = withContext(Dispatchers.IO) {
+        try {
+            handleRpcResponse(service.saveSession())
+        } catch (e: Exception) {
+            Log.e(tag, "Error saving session", e)
+            Result.failure(e)
+        }
     }
 }

@@ -35,50 +35,6 @@ import retrofit2.http.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
-interface SyncthingApiService {
-    @GET("rest/system/config")
-    suspend fun getConfig(): Response<SystemConfig>
-    
-    @POST("rest/system/config")
-    suspend fun setConfig(@Body config: SystemConfig): Response<Unit>
-    
-    @GET("rest/system/status")
-    suspend fun getStatus(): Response<SystemStatus>
-    
-    @GET("rest/system/version")
-    suspend fun getVersion(): Response<SystemVersion>
-    
-    @GET("rest/system/connections")
-    suspend fun getConnections(): Response<SystemConnections>
-    
-    @GET("rest/db/status")
-    suspend fun getDatabaseStatus(@Query("folder") folder: String): Response<DatabaseStatus>
-    
-    @GET("rest/db/browse")
-    suspend fun browseDirectory(
-        @Query("folder") folder: String,
-        @Query("prefix") prefix: String = ""
-    ): Response<List<DirectoryEntry>>
-    
-    @GET("rest/db/completion")
-    suspend fun getCompletion(
-        @Query("device") device: String,
-        @Query("folder") folder: String
-    ): Response<FolderCompletion>
-    
-    @POST("rest/db/scan")
-    suspend fun scan(
-        @Query("folder") folder: String,
-        @Query("sub") sub: String? = null
-    ): Response<Unit>
-    
-    @POST("rest/system/restart")
-    suspend fun restart(): Response<Unit>
-    
-    @POST("rest/system/shutdown")
-    suspend fun shutdown(): Response<Unit>
-}
-
 class SyncthingApiClient(
     private val baseUrl: String,
     private val apiKey: String
@@ -113,47 +69,47 @@ class SyncthingApiClient(
     private val apiService = retrofit.create(SyncthingApiService::class.java)
 
     suspend fun getConfig(): Result<SystemConfig> = executeRequest {
-        apiService.getConfig()
+        apiService.getConfig(apiKey)
     }
 
-    suspend fun setConfig(config: SystemConfig): Result<Unit> = executeRequest {
-        apiService.setConfig(config)
+    suspend fun setConfig(config: SystemConfig): Result<Unit> = executeUnitRequest {
+        apiService.updateConfig(apiKey, config)
     }
 
     suspend fun getStatus(): Result<SystemStatus> = executeRequest {
-        apiService.getStatus()
+        apiService.getStatus(apiKey)
     }
 
     suspend fun getVersion(): Result<SystemVersion> = executeRequest {
-        apiService.getVersion()
+        apiService.getVersion(apiKey)
     }
 
     suspend fun getConnections(): Result<SystemConnections> = executeRequest {
-        apiService.getConnections()
+        apiService.getConnections(apiKey)
     }
 
     suspend fun getDatabaseStatus(folder: String): Result<DatabaseStatus> = executeRequest {
-        apiService.getDatabaseStatus(folder)
+        apiService.getDBStatus(apiKey, folder)
     }
 
     suspend fun browseDirectory(folder: String, prefix: String = ""): Result<List<DirectoryEntry>> = executeRequest {
-        apiService.browseDirectory(folder, prefix)
+        apiService.browse(apiKey, folder, prefix)
     }
 
     suspend fun getCompletion(device: String, folder: String): Result<FolderCompletion> = executeRequest {
-        apiService.getCompletion(device, folder)
+        apiService.getCompletion(apiKey, folder, device)
     }
 
-    suspend fun scan(folder: String, sub: String? = null): Result<Unit> = executeRequest {
-        apiService.scan(folder, sub)
+    suspend fun scan(folder: String, sub: String? = null): Result<Unit> = executeUnitRequest {
+        apiService.scan(apiKey, folder, sub)
     }
 
-    suspend fun restart(): Result<Unit> = executeRequest {
-        apiService.restart()
+    suspend fun restart(): Result<Unit> = executeUnitRequest {
+        apiService.restart(apiKey)
     }
 
-    suspend fun shutdown(): Result<Unit> = executeRequest {
-        apiService.shutdown()
+    suspend fun shutdown(): Result<Unit> = executeUnitRequest {
+        apiService.shutdown(apiKey)
     }
 
     suspend fun testConnection(): Result<Boolean> = try {
@@ -167,6 +123,18 @@ class SyncthingApiClient(
         val response = block()
         if (response.isSuccessful && response.body() != null) {
             Result.success(response.body()!!)
+        } else {
+            Result.failure(IOException("HTTP ${response.code()}: ${response.message()}"))
+        }
+    } catch (e: Exception) {
+        Log.e(TAG, "Request error", e)
+        Result.failure(e)
+    }
+
+    private suspend fun executeUnitRequest(block: suspend () -> Response<*>): Result<Unit> = try {
+        val response = block()
+        if (response.isSuccessful) {
+            Result.success(Unit)
         } else {
             Result.failure(IOException("HTTP ${response.code()}: ${response.message()}"))
         }

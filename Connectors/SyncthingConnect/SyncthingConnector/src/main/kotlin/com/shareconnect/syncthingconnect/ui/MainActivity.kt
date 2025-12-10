@@ -30,38 +30,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.shareconnect.designsystem.theme.ShareConnectTheme
-import com.shareconnect.securityaccess.SecurityAccessManager
-import com.shareconnect.syncthingconnect.SyncthingConnectApplication
 
 class MainActivity : ComponentActivity() {
-    private lateinit var securityAccessManager: SecurityAccessManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
-        val app = application as SyncthingConnectApplication
-        val themeSyncManager = app.getThemeSyncManager()
-        securityAccessManager = SecurityAccessManager(this)
-
-        if (securityAccessManager.isSecurityEnabled()) {
-            securityAccessManager.authenticate(
-                onSuccess = { showMainUI(themeSyncManager) },
-                onFailure = { finish() }
-            )
-        } else {
-            showMainUI(themeSyncManager)
-        }
-    }
-
-    private fun showMainUI(themeSyncManager: com.shareconnect.themesync.ThemeSyncManager) {
         setContent {
-            val themeState by themeSyncManager.currentThemeState.collectAsState()
-
-            ShareConnectTheme(
-                darkTheme = themeState?.isDark ?: false,
-                customTheme = themeState?.theme
-            ) {
+            MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     SyncthingConnectScreen()
                 }

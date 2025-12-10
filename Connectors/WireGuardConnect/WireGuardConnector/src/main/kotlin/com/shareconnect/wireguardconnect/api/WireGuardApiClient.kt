@@ -224,7 +224,7 @@ class WireGuardApiClient(
     @Serializable
     data class ServerStatus(
         val running: Boolean,
-        val interface: String,
+        val interfaceName: String,
         val listenPort: Int,
         val publicKey: String,
         val peerCount: Int

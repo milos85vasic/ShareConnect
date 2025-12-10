@@ -104,7 +104,8 @@ class HomeAssistantWidget : GlanceAppWidget() {
                             } else {
                                 ColorProvider(android.graphics.Color.parseColor("#F44336"))
                             }
-                        )
+                        ),
+                    content = {}
                 )
                 Spacer(modifier = GlanceModifier.width(8.dp))
                 Text(
@@ -176,7 +177,8 @@ class HomeAssistantWidget : GlanceAppWidget() {
             Box(
                 modifier = GlanceModifier
                     .size(12.dp)
-                    .background(color)
+                    .background(color),
+                content = {}
             )
             Spacer(modifier = GlanceModifier.width(8.dp))
             Text(

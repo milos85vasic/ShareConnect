@@ -215,7 +215,7 @@ class WireGuardConfigManager(private val context: Context) {
     ): WireGuardConfig {
         val keyPair = if (privateKey == null) generateKeyPair() else null
 
-        val interface = WireGuardInterface(
+        val wgInterface = WireGuardInterface(
             privateKey = privateKey ?: keyPair!!.privateKey,
             address = address,
             dns = dns,
@@ -231,7 +231,7 @@ class WireGuardConfigManager(private val context: Context) {
 
         return WireGuardConfig(
             name = name,
-            interface = interface,
+            wgInterface = wgInterface,
             peers = listOf(peer)
         )
     }
@@ -241,16 +241,16 @@ class WireGuardConfigManager(private val context: Context) {
      */
     private fun validateConfig(config: WireGuardConfig) {
         require(config.name.isNotBlank()) { "Configuration name cannot be blank" }
-        require(config.interface.privateKey.isNotBlank()) { "Private key is required" }
-        require(config.interface.address.isNotEmpty()) { "At least one address is required" }
+        require(config.wgInterface.privateKey.isNotBlank()) { "Private key is required" }
+        require(config.wgInterface.address.isNotEmpty()) { "At least one address is required" }
 
         // Validate addresses
-        config.interface.address.forEach { addr ->
+        config.wgInterface.address.forEach { addr ->
             require(isValidIpAddress(addr)) { "Invalid address: $addr" }
         }
 
         // Validate DNS
-        config.interface.dns.forEach { dns ->
+        config.wgInterface.dns.forEach { dns ->
             val ip = dns.split("/").first()
             require(isValidIp(ip)) { "Invalid DNS: $dns" }
         }

@@ -54,7 +54,8 @@ android {
 
     packaging {
         resources {
-            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/INDEX.LIST']
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/license.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/notice.txt', 'META-INF/INDEX.LIST']
+            pickFirsts += ['META-INF/versions/9/OSGI-INF/MANIFEST.MF']
         }
     }
 
@@ -194,6 +195,7 @@ dependencies {
     implementation "dev.zt64.compose.pipette:compose-pipette:$composePipetteVersion"
 
     implementation "androidx.appcompat:appcompat:$androidxAppcompatVersion"
+    implementation "androidx.startup:startup-runtime:1.2.0"
 
     implementation "com.google.android.material:material:$materialVersion"
 

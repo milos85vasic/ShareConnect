@@ -35,11 +35,17 @@ import java.util.concurrent.TimeUnit
 
 /**
  * Gitea API client for repository management
+ *
+ * @param serverUrl The base URL of the Gitea server
+ * @param token Authentication token
+ * @param giteaApiService Optional service injection (for testing)
+ * @param isStubMode Enable stub mode for testing without a live server
  */
 class GiteaApiClient(
     private val serverUrl: String,
     private val token: String,
-    giteaApiService: GiteaApiService? = null
+    giteaApiService: GiteaApiService? = null,
+    isStubMode: Boolean = false
 ) {
     private val tag = "GiteaApiClient"
 
@@ -65,7 +71,14 @@ class GiteaApiClient(
             .build()
     }
 
-    private val apiService: GiteaApiService = giteaApiService ?: retrofit.create(GiteaApiService::class.java)
+    private val apiService: GiteaApiService = when {
+        giteaApiService != null -> giteaApiService
+        isStubMode -> {
+            Log.d(tag, "GiteaApiClient initialized in STUB MODE - Using test data")
+            GiteaApiStubService()
+        }
+        else -> retrofit.create(GiteaApiService::class.java)
+    }
 
     /**
      * Get current authenticated user

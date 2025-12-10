@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.shareconnect.HistoryAdapterTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2025-11-11T09:53:21.452Z" hostname="Mistborn.local" time="3.722">
+  <properties/>
+  <testcase name="getFormattedDuration returns correct formats" classname="com.shareconnect.HistoryAdapterTest" time="2.766"/>
+  <testcase name="button clicks trigger correct listener methods" classname="com.shareconnect.HistoryAdapterTest" time="0.038"/>
+  <testcase name="adapter can be instantiated with listener" classname="com.shareconnect.HistoryAdapterTest" time="0.029"/>
+  <testcase name="getFormattedFileSize returns correct formats" classname="com.shareconnect.HistoryAdapterTest" time="0.036"/>
+  <testcase name="history item contains comprehensive metadata for torrent content" classname="com.shareconnect.HistoryAdapterTest" time="0.063"/>
+  <testcase name="onBindViewHolder shows media details for video items" classname="com.shareconnect.HistoryAdapterTest" time="0.097"/>
+  <testcase name="torrent history item has comprehensive metadata for re-sharing" classname="com.shareconnect.HistoryAdapterTest" time="0.073"/>
+  <testcase name="history item handles null metadata gracefully" classname="com.shareconnect.HistoryAdapterTest" time="0.208"/>
+  <testcase name="getDisplayTitle returns title or URL fallback" classname="com.shareconnect.HistoryAdapterTest" time="0.029"/>
+  <testcase name="getTagsList parses comma separated tags correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.057"/>
+  <testcase name="updateHistoryItems updates adapter with new items" classname="com.shareconnect.HistoryAdapterTest" time="0.028"/>
+  <testcase name="history item contains comprehensive metadata for video content" classname="com.shareconnect.HistoryAdapterTest" time="0.057"/>
+  <testcase name="isTorrentHistory returns true for torrent types" classname="com.shareconnect.HistoryAdapterTest" time="0.032"/>
+  <testcase name="onBindViewHolder shows torrent details for torrent items" classname="com.shareconnect.HistoryAdapterTest" time="0.025"/>
+  <testcase name="onBindViewHolder handles null title with URL fallback" classname="com.shareconnect.HistoryAdapterTest" time="0.035"/>
+  <testcase name="adapter handles torrent history items correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.117"/>
+  <testcase name="onBindViewHolder binds video history item correctly" classname="com.shareconnect.HistoryAdapterTest" time="0.03"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Robolectric] WARN: Android SDK 36 requires Java 21 (have Java 17). Tests won't be run on SDK 36 unless explicitly requested.
+]]></system-err>
+</testsuite>

@@ -30,16 +30,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.shareconnect.designsystem.theme.ShareConnectTheme
-import com.shareconnect.paperlessngconnect.PaperlessNGConnectApplication
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val app = application as PaperlessNGConnectApplication
         setContent {
-            val theme by app.getThemeSyncManager().currentThemeState.collectAsState()
-            ShareConnectTheme(darkTheme = theme?.isDark ?: false) {
+            MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     PaperlessScreen()
                 }

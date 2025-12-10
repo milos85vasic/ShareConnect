@@ -88,7 +88,8 @@ class PortainerWidget : GlanceAppWidget() {
                             } else {
                                 ColorProvider(android.graphics.Color.parseColor("#F44336"))
                             }
-                        )
+                        ),
+                    content = {}
                 )
                 Spacer(modifier = GlanceModifier.width(8.dp))
                 Text(
@@ -131,7 +132,8 @@ class PortainerWidget : GlanceAppWidget() {
                     Box(
                         modifier = GlanceModifier
                             .size(10.dp)
-                            .background(ColorProvider(android.graphics.Color.parseColor("#9C27B0")))
+                            .background(ColorProvider(android.graphics.Color.parseColor("#9C27B0"))),
+                        content = {}
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
@@ -211,7 +213,8 @@ class PortainerWidget : GlanceAppWidget() {
             Box(
                 modifier = GlanceModifier
                     .size(6.dp)
-                    .background(getEventColor(event.type))
+                    .background(getEventColor(event.type)),
+                content = {}
             )
             Spacer(modifier = GlanceModifier.width(6.dp))
             Text(

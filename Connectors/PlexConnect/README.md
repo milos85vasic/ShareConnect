@@ -392,6 +392,135 @@ suspend fun getLibraryContents(
 ): Result<List<PlexMediaItem>>
 ```
 
+### Stub Mode for Testing and Development
+
+PlexConnect includes a **stub mode** that allows UI development and testing without requiring a live Plex server. This is particularly useful for:
+- Running tests in CI/CD environments
+- Developing UI without server dependencies
+- Testing error scenarios and edge cases
+- Demonstrating features in offline environments
+
+#### Enabling Stub Mode
+
+Create a `PlexApiClient` instance with stub mode enabled:
+
+```kotlin
+// Enable stub mode for testing
+val apiClient = PlexApiClient(isStubMode = true)
+```
+
+#### Stub Mode Features
+
+**Realistic Test Data**: The stub service provides comprehensive sample data including:
+- 3 library sections (Movies, TV Shows, Music)
+- Multiple movie titles with metadata (The Matrix, Inception)
+- TV show data with episodes (Breaking Bad)
+- Full authentication flow simulation
+
+**Complete API Coverage**: All API endpoints are stubbed:
+- PIN authentication (request and check)
+- Server information retrieval
+- Library and media item browsing
+- Search functionality
+- Playback status updates
+
+**Stateful Behavior**: The stub service maintains state for:
+- PIN authentication sessions
+- Media playback progress
+- User watch history
+
+#### Using Stub Mode in Tests
+
+```kotlin
+class MyViewModelTest {
+    @Test
+    fun `test library loading with stub data`() = runTest {
+        // Create client in stub mode
+        val apiClient = PlexApiClient(isStubMode = true)
+
+        // All API calls return realistic stub data
+        val libraries = apiClient.getLibraries(
+            serverUrl = PlexTestData.TEST_SERVER_URL,
+            token = PlexTestData.TEST_AUTH_TOKEN
+        )
+
+        // Verify stub data
+        assertTrue(libraries.isSuccess)
+        assertEquals(3, libraries.getOrThrow().size)
+    }
+}
+```
+
+#### Stub Data Constants
+
+Access predefined test data through `PlexTestData`:
+
+```kotlin
+// Test server configuration
+PlexTestData.TEST_SERVER_URL           // "http://192.168.1.100:32400"
+PlexTestData.TEST_SERVER_NAME          // "My Plex Server"
+PlexTestData.TEST_AUTH_TOKEN           // "test-auth-token-xyz789"
+
+// Test media items
+PlexTestData.testMovie1                // The Matrix
+PlexTestData.testMovie2                // Inception
+PlexTestData.testTVShow1               // Breaking Bad
+
+// Test libraries
+PlexTestData.testLibraries             // All 3 libraries
+PlexTestData.testMovieLibrary          // Movies library
+PlexTestData.testTVShowLibrary         // TV Shows library
+```
+
+#### Simulating PIN Authorization
+
+The stub service allows you to simulate the PIN authorization flow:
+
+```kotlin
+// Get reference to stub service (for advanced testing)
+val stubService = PlexApiStubService()
+
+// Request a PIN
+val pinResponse = stubService.requestPin(testRequest)
+val pinId = pinResponse.body()!!.id
+
+// Enable authorization (simulates user entering PIN on plex.tv)
+stubService.enablePinAuthorization()
+
+// Check PIN - will now return authorized response
+val authorizedPin = stubService.checkPin(pinId)
+assertTrue(authorizedPin.body()!!.authToken != null)
+```
+
+#### Network Delay Simulation
+
+Stub mode includes realistic network delays (500ms) to simulate actual API behavior:
+
+```kotlin
+// Stub responses include 500ms delay by default
+val start = System.currentTimeMillis()
+apiClient.getLibraries(serverUrl, token)
+val elapsed = System.currentTimeMillis() - start
+// elapsed will be approximately 500ms
+```
+
+#### Stub Mode Architecture
+
+```
+PlexApiClient
+    ├── isStubMode = false → PlexApiService (Retrofit, live server)
+    └── isStubMode = true  → PlexApiStubService (in-memory test data)
+                                 └── PlexTestData (sample data provider)
+```
+
+#### Best Practices
+
+1. **Use in Tests**: Always use stub mode for unit and integration tests
+2. **UI Development**: Enable stub mode during UI development to avoid server dependencies
+3. **Demo Mode**: Use stub mode for app demonstrations and screenshots
+4. **Error Testing**: Extend PlexApiStubService to test error scenarios
+5. **Data Consistency**: Use PlexTestData constants for consistent test assertions
+
 ### PlexServerRepository
 
 #### Server Management

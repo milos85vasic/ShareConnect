@@ -46,9 +46,9 @@ fun HomeAssistantDashboard(
     client: HomeAssistantWebSocketClient,
     modifier: Modifier = Modifier
 ) {
-    val connected by client.connected.collectAsState()
+    val authenticationState by client.authenticationState.collectAsState()
     val entities by client.entities.collectAsState()
-    val availableServices by client.availableServices.collectAsState()
+    val connected = authenticationState is HomeAssistantWebSocketClient.AuthenticationState.Authenticated
 
     LazyColumn(
         modifier = modifier
@@ -83,7 +83,7 @@ fun HomeAssistantDashboard(
         }
 
         // Entities by Domain
-        val entitiesByDomain = entities.groupBy { it.entityId.substringBefore('.') }
+        val entitiesByDomain = entities.values.groupBy { it.entityId.substringBefore('.') }
 
         entitiesByDomain.forEach { (domain, domainEntities) ->
             item {
@@ -91,22 +91,6 @@ fun HomeAssistantDashboard(
                     domain = domain,
                     entities = domainEntities
                 )
-            }
-        }
-
-        // Services Available
-        if (availableServices.isNotEmpty()) {
-            item {
-                DashboardCard(
-                    title = "Available Services",
-                    icon = Icons.Default.Settings
-                ) {
-                    Text(
-                        text = "${availableServices.size} services available",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
             }
         }
 
@@ -126,7 +110,7 @@ fun HomeAssistantDashboard(
 @Composable
 private fun DomainCard(
     domain: String,
-    entities: List<StateChangedMessage.EntityState>,
+    entities: List<EventMessage.EntityState>,
     modifier: Modifier = Modifier
 ) {
     val icon = getDomainIcon(domain)
@@ -156,7 +140,7 @@ private fun DomainCard(
 
 @Composable
 private fun EntityItem(
-    entity: StateChangedMessage.EntityState,
+    entity: EventMessage.EntityState,
     modifier: Modifier = Modifier
 ) {
     val status = getEntityStatus(entity)
@@ -168,7 +152,7 @@ private fun EntityItem(
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = entity.attributes["friendly_name"] ?: entity.entityId,
+                text = entity.attributes?.get("friendly_name") as? String ?: entity.entityId,
                 style = MaterialTheme.typography.bodyMedium
             )
             Text(
@@ -187,21 +171,22 @@ private fun EntityItem(
     }
 }
 
-private fun buildQuickStats(entities: List<StateChangedMessage.EntityState>): List<QuickStat> {
+private fun buildQuickStats(entities: Map<String, EventMessage.EntityState>): List<QuickStat> {
     val stats = mutableListOf<QuickStat>()
+    val entityList = entities.values.toList()
 
     // Total entities
     stats.add(
         QuickStat(
             label = "Total Entities",
-            value = entities.size.toString(),
+            value = entityList.size.toString(),
             icon = Icons.Default.Home,
             iconColor = Color(0xFF2196F3)
         )
     )
 
     // Lights
-    val lights = entities.filter { it.entityId.startsWith("light.") }
+    val lights = entityList.filter { it.entityId.startsWith("light.") }
     val lightsOn = lights.count { it.state == "on" }
     stats.add(
         QuickStat(
@@ -213,7 +198,7 @@ private fun buildQuickStats(entities: List<StateChangedMessage.EntityState>): Li
     )
 
     // Switches
-    val switches = entities.filter { it.entityId.startsWith("switch.") }
+    val switches = entityList.filter { it.entityId.startsWith("switch.") }
     val switchesOn = switches.count { it.state == "on" }
     stats.add(
         QuickStat(
@@ -225,7 +210,7 @@ private fun buildQuickStats(entities: List<StateChangedMessage.EntityState>): Li
     )
 
     // Sensors
-    val sensors = entities.filter { it.entityId.startsWith("sensor.") }
+    val sensors = entityList.filter { it.entityId.startsWith("sensor.") }
     stats.add(
         QuickStat(
             label = "Sensors",
@@ -270,7 +255,7 @@ private fun getDomainDisplayName(domain: String) = when (domain) {
     else -> domain.replaceFirstChar { it.uppercase() }
 }
 
-private fun getEntityStatus(entity: StateChangedMessage.EntityState): DashboardStatus {
+private fun getEntityStatus(entity: EventMessage.EntityState): DashboardStatus {
     return when (entity.state.lowercase()) {
         "on", "home", "open", "unlocked", "playing", "active" -> DashboardStatus.SUCCESS
         "off", "away", "closed", "locked", "paused", "idle" -> DashboardStatus.NEUTRAL
@@ -285,7 +270,7 @@ private fun getEntityStatus(entity: StateChangedMessage.EntityState): DashboardS
     }
 }
 
-private fun getEntityStateColor(entity: StateChangedMessage.EntityState): Color {
+private fun getEntityStateColor(entity: EventMessage.EntityState): Color {
     return when (entity.state.lowercase()) {
         "on", "home", "open", "unlocked", "playing" -> Color(0xFF4CAF50)
         "off", "away", "closed", "locked", "paused" -> Color(0xFF9E9E9E)
