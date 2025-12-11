@@ -81,8 +81,8 @@ class PlexAdvancedSearchEngine(
                     type = apiItem.type?.let { com.shareconnect.plexconnect.data.model.MediaType.fromString(it.value) } 
                         ?: com.shareconnect.plexconnect.data.model.MediaType.UNKNOWN,
                     title = apiItem.title ?: "",
-                    year = apiItem.year,
-                    serverId = ""
+                    year = apiItem.year?.toInt(),
+                    serverId = 0L
                 )
             }
             ?: emptyList()

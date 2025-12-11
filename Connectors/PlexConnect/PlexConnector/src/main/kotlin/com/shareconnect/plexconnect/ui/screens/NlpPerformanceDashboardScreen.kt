@@ -36,13 +36,13 @@ import kotlin.math.min
 // Extension function to convert UI metrics to monitor metrics
 private fun com.shareconnect.plexconnect.ui.viewmodels.NlpPerformanceMetrics.toMonitorMetrics(): NlpPerformanceMonitor.NlpPerformanceMetrics {
     return NlpPerformanceMonitor.NlpPerformanceMetrics(
-        totalRequests = this.totalRequests,
-        successfulRequests = this.totalRequests - this.errorCount, // Approximate
-        failedRequests = this.errorCount,
-        averageInferenceTime = this.averageInferenceTime,
-        cacheHitRate = this.cacheHitRate,
-        modelLoadTime = this.modelLoadTime,
-        embeddingGenerationTime = this.embeddingGenerationTime
+        totalEmbeddings = this.totalRequests.toLong(),
+        totalSimilarities = 0L, // Not tracked in UI metrics
+        totalRecommendations = 0L, // Not tracked in UI metrics
+        totalErrors = 0L, // Use 0 since errorCount doesn't exist in UI metrics
+        averageEmbeddingTimeMs = this.averageInferenceTime.toLong(),
+        averageSimilarityTimeMs = 0L, // Not tracked
+        averageRecommendationTimeMs = 0L // Not tracked
     )
 }
 
@@ -236,7 +236,7 @@ private fun OverviewSection(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "${metrics.totalRequests}",
+                        text = "${metrics.totalEmbeddings}",
                         style = MaterialTheme.typography.titleMedium
                     )
                 }
@@ -248,9 +248,9 @@ private fun OverviewSection(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "${String.format("%.1f", metrics.cacheHitRate * 100)}%",
+                        text = "${String.format("%.1f", (metrics.cacheStats.values.firstOrNull()?.hitRate ?: 0f) * 100)}%",
                         style = MaterialTheme.typography.titleMedium,
-                        color = if (metrics.cacheHitRate > 0.7f) {
+                        color = if ((metrics.cacheStats.values.firstOrNull()?.hitRate ?: 0f) > 0.7f) {
                             MaterialTheme.colorScheme.primary
                         } else {
                             MaterialTheme.colorScheme.error
@@ -285,20 +285,23 @@ private fun PerformanceMetricsSection(
             // Inference Time
             PerformanceMetricRow(
                 label = "Average Inference Time",
-                value = "${metrics.averageInferenceTime}ms"
+                value = "${metrics.averageEmbeddingTimeMs}ms"
             )
             
             // Memory Usage
             PerformanceMetricRow(
                 label = "Memory Usage",
-                value = "${(metrics.memoryUsage / 1024 / 1024)}MB"
+                value = "${metrics.memoryStats.values.firstOrNull()?.usedMemoryMB ?: 0L}MB"
             )
             
             // Error Rate
+            val errorRate = if (metrics.totalEmbeddings > 0) {
+                metrics.totalErrors.toFloat() / metrics.totalEmbeddings
+            } else 0f
             PerformanceMetricRow(
                 label = "Error Rate",
-                value = "${String.format("%.2f", metrics.errorRate * 100)}%",
-                color = if (metrics.errorRate < 0.01f) {
+                value = "${String.format("%.2f", errorRate * 100)}%",
+                color = if (errorRate < 0.01f) {
                     MaterialTheme.colorScheme.primary
                 } else {
                     MaterialTheme.colorScheme.error
@@ -368,7 +371,8 @@ private fun CacheStatisticsSection(
 private fun PerformanceChart(
     data: List<Float>,
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.primary
+    color: Color = MaterialTheme.colorScheme.primary,
+    gridColor: Color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
 ) {
     Canvas(
         modifier = modifier
@@ -380,10 +384,9 @@ private fun PerformanceChart(
         val canvasHeight = size.height
         val maxValue = data.maxOrNull() ?: 0f
         val minValue = data.minOrNull() ?: 0f
-        val range = maxOf(maxValue - minValue, 0.1f)
+        val range = if (maxValue - minValue > 0.1f) maxValue - minValue else 0.1f
         
         // Draw grid lines
-        val gridColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f)
         for (i in 0..4) {
             val y = canvasHeight * i / 4
             drawLine(

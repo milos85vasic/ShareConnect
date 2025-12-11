@@ -30,6 +30,7 @@ import com.shareconnect.plexconnect.data.database.dao.SemanticEmbeddingDao
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.monitoring.NlpPerformanceMonitor
 import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding
+import com.shareconnect.plexconnect.nlp.MetadataAnalysisResult
 import com.shareconnect.plexconnect.nlp.MediaMetadataAnalyzer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -45,8 +46,8 @@ class PlexAiRecommendationService(
     private val embeddingDao: SemanticEmbeddingDao? = null
 ) {
     // Lazy initialization of NLP components
-    private val semanticEmbedding by lazy { AdvancedSemanticEmbedding.StubAnalyzer() }
-    private val metadataAnalyzer by lazy { MediaMetadataAnalyzer.StubAnalyzer() }
+    private val semanticEmbedding by lazy { AdvancedSemanticEmbedding(context) }
+    private val metadataAnalyzer by lazy { MediaMetadataAnalyzer(context) }
     private val performanceMonitor by lazy { NlpPerformanceMonitor(context) }
     
     // Advanced caching system
@@ -86,7 +87,7 @@ class PlexAiRecommendationService(
                         "media_type" to (mediaItem.type?.value ?: "UNKNOWN"),
                         "genre" to (metadataAnalysis.genres.firstOrNull() ?: "Unknown")
                     )
-                ).embedding
+                ).vector
             } ?: run {
                 // Fallback if cache manager is not available
                 semanticEmbedding.generateEmbedding(
@@ -95,7 +96,7 @@ class PlexAiRecommendationService(
                         "media_type" to (mediaItem.type?.value ?: "UNKNOWN"),
                         "genre" to (metadataAnalysis.genres.firstOrNull() ?: "Unknown")
                     )
-                ).embedding
+                ).vector
             }
             
             EnhancedMediaItem(
@@ -148,14 +149,14 @@ class PlexAiRecommendationService(
             val targetEmbeddingResult = semanticEmbedding.generateEmbedding(
                 "${targetItem.title} ${targetItem.summary}"
             )
-            val targetEmbedding = targetEmbeddingResult.embedding
+            val targetEmbedding = targetEmbeddingResult.vector
 
             // Compare with candidate items
             candidateItems.map { candidate ->
                 val candidateEmbeddingResult = semanticEmbedding.generateEmbedding(
                     "${candidate.title} ${candidate.summary}"
                 )
-                val candidateEmbedding = candidateEmbeddingResult.embedding
+                val candidateEmbedding = candidateEmbeddingResult.vector
 
                 val similarity = semanticEmbedding.calculateSemanticSimilarity(
                     targetEmbedding, 
@@ -191,14 +192,15 @@ class PlexAiRecommendationService(
                 // Generate cross-lingual embedding
                 val crossLingualResult = semanticEmbedding.generateCrossLingualEmbedding(
                     text = "$title $summary",
+                    sourceLanguage = "en",
                     targetLanguage = targetLanguage
                 )
 
                 EnhancedMediaItem(
                     originalItem = item,
                     metadataAnalysis = null,
-                    semanticEmbedding = crossLingualResult.embedding,
-                    semanticLanguage = crossLingualResult.language,
+                    semanticEmbedding = crossLingualResult.vector,
+                    semanticLanguage = targetLanguage,
                     embeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMED
                 )
             } catch (e: Exception) {
@@ -212,7 +214,7 @@ class PlexAiRecommendationService(
      */
     data class EnhancedMediaItem(
         val originalItem: PlexMediaItem,
-        val metadataAnalysis: MediaMetadataAnalyzer.MetadataAnalysisResult?,
+        val metadataAnalysis: MetadataAnalysisResult?,
         val semanticEmbedding: FloatArray,
         val semanticLanguage: String,
         val embeddingSource: AdvancedSemanticEmbedding.EmbeddingSource,

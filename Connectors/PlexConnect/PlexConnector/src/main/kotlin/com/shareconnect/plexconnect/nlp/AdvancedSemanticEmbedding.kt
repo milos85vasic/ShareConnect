@@ -23,13 +23,18 @@
 package com.shareconnect.plexconnect.nlp
 
 import android.content.Context
+import com.shareconnect.plexconnect.data.database.entity.SemanticEmbeddingEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 /**
- * Stub implementation of AdvancedSemanticEmbedding for compilation
+ * Stub implementation of AdvancedSemanticEmbedding for minimal functionality
  * This provides minimal structure for the database entities while
  * the full ML/NLP implementation is being developed
  */
-object AdvancedSemanticEmbedding {
+class AdvancedSemanticEmbedding(private val context: Context) {
     
     enum class EmbeddingSource {
         TITLE,
@@ -106,4 +111,80 @@ object AdvancedSemanticEmbedding {
     class StubClass(val context: Context) {
         val analyzer = StubAnalyzer()
     }
+    
+    /**
+     * Generate embedding for the given text
+     */
+    suspend fun generateEmbedding(
+        text: String,
+        additionalContext: Map<String, Any> = emptyMap()
+    ): EmbeddingData = withContext(Dispatchers.Default) {
+        return@withContext EmbeddingData(
+            vector = FloatArray(768) { 0f },
+            source = EmbeddingSource.GENERATED,
+            confidence = 0.5f,
+            metadata = additionalContext
+        )
+    }
+    
+    /**
+     * Generate cross-lingual embedding
+     */
+    suspend fun generateCrossLingualEmbedding(
+        text: String,
+        sourceLanguage: String,
+        targetLanguage: String
+    ): EmbeddingData = withContext(Dispatchers.Default) {
+        return@withContext EmbeddingData(
+            vector = FloatArray(768) { 0f },
+            source = EmbeddingSource.TRANSFORMED,
+            confidence = 0.3f,
+            metadata = mapOf(
+                "source_lang" to sourceLanguage,
+                "target_lang" to targetLanguage
+            )
+        )
+    }
+    
+    /**
+     * Calculate semantic similarity between two embeddings
+     */
+    suspend fun calculateSemanticSimilarity(
+        embedding1: FloatArray,
+        embedding2: FloatArray
+    ): Double = withContext(Dispatchers.Default) {
+        return@withContext 0.5
+    }
+    
+    /**
+     * Convert embedding to database entity
+     */
+    fun toEmbeddingEntity(
+        mediaKey: String,
+        embeddingData: EmbeddingData,
+        mediaType: String
+    ): SemanticEmbeddingEntity {
+        return SemanticEmbeddingEntity(
+            id = 0,
+            mediaRatingKey = mediaKey,
+            embedding = embeddingData.vector.toByteArray(),
+            language = "en",
+            embeddingSource = embeddingData.source,
+            modelVersion = "1.0",
+            createdAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis(),
+            contentHash = "",
+            qualityScore = embeddingData.confidence
+        )
+    }
+}
+
+/**
+ * Extension function to convert FloatArray to ByteArray for Room storage
+ */
+fun FloatArray.toByteArray(): ByteArray {
+    val byteBuffer = ByteBuffer.allocate(this.size * 4)
+    byteBuffer.order(ByteOrder.LITTLE_ENDIAN)
+    byteBuffer.asFloatBuffer().put(this)
+    return byteBuffer.array()
 }

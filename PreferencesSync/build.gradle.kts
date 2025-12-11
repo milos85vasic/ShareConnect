@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shareconnect.bookmarksync"
+    namespace = "com.shareconnect.preferencessync"
     compileSdk = 36
 
     defaultConfig {

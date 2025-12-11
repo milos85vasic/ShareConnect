@@ -48,7 +48,11 @@ class RecommendationSyncManager(
             updateLocalRecommendations(userId, mergedRecommendations)
 
             // Train personalized ML model
-            val modelTrainingResult = modelTrainer.trainFederatedModel(userId)
+            val modelReport = modelTrainer.trainFederatedModel(
+                localData = localWatchHistory,
+                remoteModels = emptyList()
+            )
+            val modelTrainingResult = Result.success(modelReport)
 
             // Generate sync report
             val syncReport = generateSyncReport(

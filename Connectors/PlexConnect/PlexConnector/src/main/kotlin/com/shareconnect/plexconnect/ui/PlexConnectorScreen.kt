@@ -42,10 +42,12 @@ fun PlexConnectorScreen(
         listOf(
             PlexMediaItem(
                 ratingKey = "1",
-                title = "Sample Movie",
+                key = "/library/movies/1",
                 type = MediaType.MOVIE,
+                title = "Sample Movie",
                 summary = "A sample movie for testing",
-                year = 2023
+                year = 2023,
+                serverId = 0L
             )
         )
     }
