@@ -29,6 +29,8 @@ import androidx.room.TypeConverters
 import com.shareconnect.plexconnect.data.database.dao.PlexLibraryDao
 import com.shareconnect.plexconnect.data.database.dao.PlexMediaItemDao
 import com.shareconnect.plexconnect.data.database.dao.PlexServerDao
+import com.shareconnect.plexconnect.data.database.dao.SemanticEmbeddingDao
+import com.shareconnect.plexconnect.data.database.entity.SemanticEmbeddingEntity
 import com.shareconnect.plexconnect.data.model.PlexLibrary
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.data.model.PlexServer
@@ -37,9 +39,10 @@ import com.shareconnect.plexconnect.data.model.PlexServer
     entities = [
         PlexServer::class,
         PlexLibrary::class,
-        PlexMediaItem::class
+        PlexMediaItem::class,
+        SemanticEmbeddingEntity::class
     ],
-    version = 1,
+    version = 2, // Incremented version for new entity
     exportSchema = true
 )
 @TypeConverters(PlexTypeConverters::class)
@@ -48,6 +51,7 @@ abstract class PlexDatabase : RoomDatabase() {
     abstract fun plexServerDao(): PlexServerDao
     abstract fun plexLibraryDao(): PlexLibraryDao
     abstract fun plexMediaItemDao(): PlexMediaItemDao
+    abstract fun semanticEmbeddingDao(): SemanticEmbeddingDao
 
     companion object {
         const val DATABASE_NAME = "plex_database"

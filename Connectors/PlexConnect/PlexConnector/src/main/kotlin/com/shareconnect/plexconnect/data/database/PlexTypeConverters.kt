@@ -28,6 +28,8 @@ import com.shareconnect.plexconnect.data.model.LibraryType
 import com.shareconnect.plexconnect.data.model.MediaType
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 class PlexTypeConverters {
 
@@ -53,4 +55,22 @@ class PlexTypeConverters {
 
     @TypeConverter
     fun toStringList(value: String): List<String> = json.decodeFromString(value)
+
+    // FloatArray converters for embeddings
+    @TypeConverter
+    fun fromFloatArray(array: FloatArray): ByteArray {
+        val byteBuffer = ByteBuffer.allocate(array.size * 4)
+        byteBuffer.order(ByteOrder.LITTLE_ENDIAN)
+        byteBuffer.asFloatBuffer().put(array)
+        return byteBuffer.array()
+    }
+
+    @TypeConverter
+    fun toFloatArray(bytes: ByteArray): FloatArray {
+        val byteBuffer = ByteBuffer.wrap(bytes)
+        byteBuffer.order(ByteOrder.LITTLE_ENDIAN)
+        val floatArray = FloatArray(bytes.size / 4)
+        byteBuffer.asFloatBuffer().get(floatArray)
+        return floatArray
+    }
 }

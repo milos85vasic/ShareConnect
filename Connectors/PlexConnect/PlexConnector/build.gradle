@@ -163,7 +163,12 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     ksp "androidx.room:room-compiler:$roomVersion"
-
+    
+    // TensorFlow Lite for NLP models
+    implementation 'org.tensorflow:tensorflow-lite:2.14.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.4.4'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.4.4'
+    
     // Retrofit for Plex API
     implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
 

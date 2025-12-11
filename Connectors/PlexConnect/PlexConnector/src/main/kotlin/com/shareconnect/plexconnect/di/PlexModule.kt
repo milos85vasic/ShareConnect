@@ -4,7 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import com.shareconnect.plexconnect.data.api.PlexApiClient
 import com.shareconnect.plexconnect.data.api.PlexApiService
-import com.shareconnect.plexconnect.data.local.PlexDatabase
+import com.shareconnect.plexconnect.data.database.PlexDatabase
+import com.shareconnect.plexconnect.data.database.Migration1To2
 import com.shareconnect.plexconnect.data.repository.PlexRepository
 import com.shareconnect.plexconnect.data.repository.PlexRepositoryImpl
 import com.shareconnect.plexconnect.ui.PlexViewModel
@@ -59,6 +60,7 @@ val plexModule = module {
             PlexDatabase::class.java,
             PlexDatabase.DATABASE_NAME
         )
+        .addMigrations(Migration1To2)
         .fallbackToDestructiveMigration() // Be careful with this in production
         .build()
     }
@@ -67,6 +69,7 @@ val plexModule = module {
     single { get<PlexDatabase>().plexServerDao() }
     single { get<PlexDatabase>().plexLibraryDao() }
     single { get<PlexDatabase>().plexMediaItemDao() }
+    single { get<PlexDatabase>().semanticEmbeddingDao() }
 
     // Repository
     single<PlexRepository> {

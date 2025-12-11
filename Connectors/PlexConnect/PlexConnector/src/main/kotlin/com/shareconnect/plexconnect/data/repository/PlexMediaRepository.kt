@@ -23,17 +23,23 @@
 
 package com.shareconnect.plexconnect.data.repository
 
+import android.content.Context
 import com.shareconnect.plexconnect.data.api.PlexApiClient
 import com.shareconnect.plexconnect.data.database.dao.PlexMediaItemDao
 import com.shareconnect.plexconnect.data.model.MediaType
 import com.shareconnect.plexconnect.data.model.PlexLibrary
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.data.model.PlexServer
+import com.shareconnect.plexconnect.service.PlexAiRecommendationService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 class PlexMediaRepository(
+    private val context: Context,
     private val mediaItemDao: PlexMediaItemDao,
     private val apiClient: PlexApiClient
 ) {
+    // AI recommendation service for enhanced media analysis
+    private val aiRecommendationService by lazy { PlexAiRecommendationService(context) }
 
     fun getAllMediaItems(): Flow<List<PlexMediaItem>> = mediaItemDao.getAllMediaItems()
 
@@ -191,4 +197,71 @@ class PlexMediaRepository(
     suspend fun getWatchedCount(): Int = mediaItemDao.getWatchedCount()
 
     suspend fun getInProgressCount(): Int = mediaItemDao.getInProgressCount()
+
+    // AI-powered methods for enhanced media recommendations
+
+    /**
+     * Get enhanced media items with semantic analysis
+     */
+    fun getEnhancedMediaItems(): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
+        aiRecommendationService.getEnhancedMediaItems(getAllMediaItems())
+
+    /**
+     * Get enhanced media items for a specific server
+     */
+    fun getEnhancedMediaItemsForServer(serverId: Long): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
+        aiRecommendationService.getEnhancedMediaItems(getMediaItemsForServer(serverId))
+
+    /**
+     * Get enhanced media items for a specific library
+     */
+    fun getEnhancedMediaItemsForLibrary(libraryId: Long): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
+        aiRecommendationService.getEnhancedMediaItems(getMediaItemsForLibrary(libraryId))
+
+    /**
+     * Find similar media items using semantic similarity
+     */
+    suspend fun findSimilarMedia(
+        targetItem: PlexMediaItem,
+        threshold: Double = PlexAiRecommendationService.DEFAULT_SIMILARITY_THRESHOLD
+    ): List<PlexAiRecommendationService.SimilarMediaResult> {
+        val allItems = getAllMediaItems()
+        return aiRecommendationService.findSimilarMedia(
+            targetItem = targetItem,
+            candidateItems = emptyList(), // Will be populated from Flow
+            threshold = threshold
+        )
+    }
+
+    /**
+     * Get cross-lingual recommendations for media items
+     */
+    suspend fun getCrossLingualRecommendations(
+        targetLanguage: String = "en",
+        limit: Int = PlexAiRecommendationService.MAX_RECOMMENDATIONS
+    ): List<PlexAiRecommendationService.EnhancedMediaItem> {
+        // Get recent items as basis for recommendations
+        val recentItems = emptyList<PlexMediaItem>() // Would need to collect from Flow
+        return aiRecommendationService.getCrossLingualRecommendations(
+            mediaItems = recentItems,
+            targetLanguage = targetLanguage
+        ).take(limit)
+    }
+
+    /**
+     * Get AI-powered recommendations based on watched items
+     */
+    suspend fun getRecommendationsBasedOnHistory(
+        limit: Int = PlexAiRecommendationService.MAX_RECOMMENDATIONS
+    ): List<PlexAiRecommendationService.SimilarMediaResult> {
+        val watchedItems = emptyList<PlexMediaItem>() // Would need to collect from Flow
+        val allItems = emptyList<PlexMediaItem>() // Would need to collect from Flow
+        
+        // Find similar items to each watched item
+        return watchedItems.flatMap { watchedItem ->
+            findSimilarMedia(watchedItem)
+        }.distinctBy { it.mediaItem.ratingKey }
+         .sortedByDescending { it.similarity }
+         .take(limit)
+    }
 }

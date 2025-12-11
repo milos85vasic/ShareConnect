@@ -3,14 +3,24 @@ package com.shareconnect.plexconnect.nlp
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding.Modality
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.MockitoAnnotations
+import java.io.File
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
+import kotlin.test.assertFalse
+
+/**
+ * Extension function for FloatArray to calculate average value
+ */
+private fun FloatArray.average(): Float {
+    return if (isEmpty()) 0f else sum() / size.toFloat()
+}
 
 @RunWith(AndroidJUnit4::class)
 class AdvancedSemanticEmbeddingTest {
@@ -322,6 +332,324 @@ class AdvancedSemanticEmbeddingTest {
                 }
             }
         }
+    }
+
+    @Test
+    fun `cross-modal embedding generation works correctly`() = runBlocking {
+        // Prepare test files for different modalities
+        val textInput = "A fascinating journey of discovery"
+        val imageFile = File.createTempFile("test_image", ".jpg")
+        val audioFile = File.createTempFile("test_audio", ".mp3")
+        val videoFile = File.createTempFile("test_video", ".mp4")
+
+        try {
+            // Generate test files (in a real scenario, these would be actual media files)
+            generateTestImage(imageFile)
+            generateTestAudio(audioFile)
+            generateTestVideo(videoFile)
+
+            // Test embeddings for each modality
+            val modalityTests = listOf(
+                Pair(textInput, Modality.TEXT),
+                Pair(imageFile, Modality.IMAGE),
+                Pair(audioFile, Modality.AUDIO),
+                Pair(videoFile, Modality.VIDEO)
+            )
+
+            modalityTests.forEach { (input, modality) ->
+                val embeddingResult = when (modality) {
+                    Modality.TEXT -> embeddingGenerator.generateCrossModalEmbedding(input, modality)
+                    Modality.IMAGE -> embeddingGenerator.generateCrossModalEmbedding(input as File, modality)
+                    Modality.AUDIO -> embeddingGenerator.generateCrossModalEmbedding(input as File, modality)
+                    Modality.VIDEO -> embeddingGenerator.generateCrossModalEmbedding(input as File, modality)
+                }
+
+                // Validate embedding
+                assertTrue(
+                    embeddingResult.embedding.isNotEmpty(), 
+                    "Embedding generation failed for $modality"
+                )
+                assertEquals(
+                    768, 
+                    embeddingResult.embedding.size, 
+                    "Embedding should have 768 dimensions"
+                )
+                assertEquals(
+                    AdvancedSemanticEmbedding.EmbeddingSource.CROSS_MODAL, 
+                    embeddingResult.source, 
+                    "Embedding source should be CROSS_MODAL"
+                )
+            }
+        } finally {
+            // Clean up temporary files
+            imageFile.delete()
+            audioFile.delete()
+            videoFile.delete()
+        }
+    }
+
+    @Test
+    fun `cross-modal semantic similarity calculation works`() = runBlocking {
+        // Prepare test files
+        val textInput1 = "A fascinating journey of scientific discovery"
+        val textInput2 = "Exploring the frontiers of human knowledge"
+        val imageFile1 = File.createTempFile("test_image1", ".jpg")
+        val imageFile2 = File.createTempFile("test_image2", ".jpg")
+
+        try {
+            // Generate test files
+            generateTestImage(imageFile1)
+            generateTestImage(imageFile2)
+
+            // Generate cross-modal embeddings
+            val textEmbedding1 = embeddingGenerator.generateCrossModalEmbedding(
+                textInput1, 
+                Modality.TEXT
+            )
+            val textEmbedding2 = embeddingGenerator.generateCrossModalEmbedding(
+                textInput2, 
+                Modality.TEXT
+            )
+            val imageEmbedding1 = embeddingGenerator.generateCrossModalEmbedding(
+                imageFile1, 
+                Modality.IMAGE
+            )
+            val imageEmbedding2 = embeddingGenerator.generateCrossModalEmbedding(
+                imageFile2, 
+                Modality.IMAGE
+            )
+
+            // Calculate cross-modal similarities
+            val textSimilarity = embeddingGenerator.calculateCrossModalSimilarity(
+                textEmbedding1.embedding, 
+                textEmbedding2.embedding, 
+                Modality.TEXT, 
+                Modality.TEXT
+            )
+            val imageSimilarity = embeddingGenerator.calculateCrossModalSimilarity(
+                imageEmbedding1.embedding, 
+                imageEmbedding2.embedding, 
+                Modality.IMAGE, 
+                Modality.IMAGE
+            )
+            val crossModalSimilarity = embeddingGenerator.calculateCrossModalSimilarity(
+                textEmbedding1.embedding, 
+                imageEmbedding1.embedding, 
+                Modality.TEXT, 
+                Modality.IMAGE
+            )
+
+            // Validate similarities
+            assertTrue(
+                textSimilarity in -1.0..1.0, 
+                "Text similarity should be between -1 and 1"
+            )
+            assertTrue(
+                imageSimilarity in -1.0..1.0, 
+                "Image similarity should be between -1 and 1"
+            )
+            assertTrue(
+                crossModalSimilarity in -1.0..1.0, 
+                "Cross-modal similarity should be between -1 and 1"
+            )
+        } finally {
+            // Clean up temporary files
+            imageFile1.delete()
+            imageFile2.delete()
+        }
+    }
+
+    @Test
+    fun `error handling for invalid input generates fallback embedding`() = runBlocking {
+        // Test scenarios for error handling
+        val testCases = listOf(
+            "",                 // Empty string
+            "  \t\n",           // Whitespace-only input
+            "x" * (AdvancedSemanticEmbedding.MAX_SEQUENCE_LENGTH * 3)  // Extremely long input
+        )
+
+        testCases.forEach { invalidInput ->
+            val fallbackEmbedding = embeddingGenerator.generateEmbedding(invalidInput)
+
+            // Validate fallback embedding
+            assertEquals(
+                768, 
+                fallbackEmbedding.embedding.size, 
+                "Fallback embedding should maintain dimensionality"
+            )
+            assertEquals(
+                AdvancedSemanticEmbedding.EmbeddingSource.ERROR, 
+                fallbackEmbedding.source, 
+                "Invalid input should generate an error source embedding"
+            )
+            
+            // Check that fallback embedding is not all zeros
+            assertFalse(
+                fallbackEmbedding.embedding.all { it == 0f }, 
+                "Fallback embedding should not be all zeros"
+            )
+        }
+    }
+
+    @Test
+    fun `model error tracking prevents repeated failures`() = runBlocking {
+        // Simulate repeated generation failures
+        val failingGenerator = object : AdvancedSemanticEmbedding(context) {
+            override suspend fun generateEmbedding(
+                text: String, 
+                additionalContext: Map<String, Any>
+            ): SemanticEmbeddingResult {
+                throw RuntimeException("Simulated model failure")
+            }
+        }
+
+        // Attempt multiple embeddings to trigger circuit breaker
+        val embeddings = (1..10).map { 
+            failingGenerator.generateEmbedding("Test input $it") 
+        }
+
+        // Verify error handling
+        assertTrue(
+            embeddings.all { it.source == EmbeddingSource.ERROR }, 
+            "All embedding generations should result in error embeddings"
+        )
+
+        // Check that after MAX_ERROR_THRESHOLD, further attempts are blocked
+        val finalEmbedding = failingGenerator.generateEmbedding("Final test")
+        assertEquals(
+            EmbeddingSource.ERROR, 
+            finalEmbedding.source, 
+            "System should enter cooldown after repeated failures"
+        )
+    }
+
+    @Test
+    fun `model recovery after cooldown period`() = runBlocking {
+        // Simulate a generator that initially fails and then succeeds
+        var failureCount = 0
+        val recoveryGenerator = object : AdvancedSemanticEmbedding(context) {
+            override suspend fun generateEmbedding(
+                text: String, 
+                additionalContext: Map<String, Any>
+            ): SemanticEmbeddingResult {
+                failureCount++
+                
+                // First 5 attempts fail
+                if (failureCount <= 5) {
+                    throw RuntimeException("Simulated model failure")
+                }
+                
+                // Subsequent attempts succeed
+                return super.generateEmbedding(text, additionalContext)
+            }
+        }
+
+        // Attempt multiple embeddings
+        val embeddings = (1..10).map { 
+            recoveryGenerator.generateEmbedding("Test input $it") 
+        }
+
+        // Verify recovery
+        assertTrue(
+            embeddings.take(5).all { it.source == EmbeddingSource.ERROR },
+            "First 5 attempts should fail"
+        )
+        assertTrue(
+            embeddings.drop(5).all { it.source == EmbeddingSource.GENERATED },
+            "Subsequent attempts should succeed after cooldown"
+        )
+    }
+
+    @Test
+    fun `combine embeddings from multiple modalities`() = runBlocking {
+        // Prepare test files
+        val textInput = "An incredible scientific discovery"
+        val imageFile = File.createTempFile("test_image", ".jpg")
+        val audioFile = File.createTempFile("test_audio", ".mp3")
+        val videoFile = File.createTempFile("test_video", ".mp4")
+
+        try {
+            // Generate test files
+            generateTestImage(imageFile)
+            generateTestAudio(audioFile)
+            generateTestVideo(videoFile)
+
+            // Generate cross-modal embeddings
+            val textEmbedding = embeddingGenerator.generateCrossModalEmbedding(
+                textInput, 
+                Modality.TEXT
+            )
+            val imageEmbedding = embeddingGenerator.generateCrossModalEmbedding(
+                imageFile, 
+                Modality.IMAGE
+            )
+            val audioEmbedding = embeddingGenerator.generateCrossModalEmbedding(
+                audioFile, 
+                Modality.AUDIO
+            )
+            val videoEmbedding = embeddingGenerator.generateCrossModalEmbedding(
+                videoFile, 
+                Modality.VIDEO
+            )
+
+            // Combine embeddings
+            val combinedEmbedding = embeddingGenerator.combineModalEmbeddings(
+                listOf(
+                    Pair(textEmbedding.embedding, Modality.TEXT),
+                    Pair(imageEmbedding.embedding, Modality.IMAGE),
+                    Pair(audioEmbedding.embedding, Modality.AUDIO),
+                    Pair(videoEmbedding.embedding, Modality.VIDEO)
+                )
+            )
+
+            // Validate combined embedding
+            assertEquals(
+                768, 
+                combinedEmbedding.size, 
+                "Combined embedding should have 768 dimensions"
+            )
+            assertFalse(
+                combinedEmbedding.all { it == 0f }, 
+                "Combined embedding should not be all zeros"
+            )
+        } finally {
+            // Clean up temporary files
+            imageFile.delete()
+            audioFile.delete()
+            videoFile.delete()
+        }
+    }
+
+    // Helper functions to generate test media files
+    private fun generateTestImage(file: File) {
+        // Create a simple bitmap
+        val bitmap = Bitmap.createBitmap(224, 224, Bitmap.Config.ARGB_8888)
+        val canvas = android.graphics.Canvas(bitmap)
+        canvas.drawColor(android.graphics.Color.BLUE)
+        
+        // Save bitmap to file
+        file.outputStream().use { out ->
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 85, out)
+        }
+    }
+
+    private fun generateTestAudio(file: File) {
+        // Create a minimal WAV file header for testing
+        file.writeBytes(byteArrayOf(
+            'R'.toByte(), 'I'.toByte(), 'F'.toByte(), 'F'.toByte(),
+            // File size (placeholder)
+            0, 0, 0, 0,
+            'W'.toByte(), 'A'.toByte(), 'V'.toByte(), 'E'.toByte()
+        ))
+    }
+
+    private fun generateTestVideo(file: File) {
+        // Create a minimal MP4 file structure for testing
+        file.writeBytes(byteArrayOf(
+            0, 0, 0, 24,  // Box size
+            'f'.toByte(), 't'.toByte(), 'y'.toByte(), 'p'.toByte(),
+            'i'.toByte(), 's'.toByte(), 'o'.toByte(), '6'.toByte()
+        ))
     }
 
     @Test

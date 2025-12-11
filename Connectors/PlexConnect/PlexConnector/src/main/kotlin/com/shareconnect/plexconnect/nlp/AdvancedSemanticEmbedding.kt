@@ -3,6 +3,8 @@ package com.shareconnect.plexconnect.nlp
 import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
+import com.shareconnect.plexconnect.config.NlpConfig
+import com.shareconnect.plexconnect.monitoring.NlpPerformanceMonitor
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.tensorflow.lite.Interpreter
@@ -13,6 +15,16 @@ import kotlin.math.sqrt
 import java.util.Locale
 import java.util.regex.Pattern
 import kotlin.random.Random
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.media.MediaMetadataRetriever
+import java.io.File
+import java.io.IOException
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.atomic.AtomicInteger
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import org.tensorflow.lite.support.metadata.MetadataExtractor
 
 /**
  * Advanced Semantic Embedding System
@@ -22,6 +34,85 @@ class AdvancedSemanticEmbedding(
     private val context: Context,
     private val modelPath: String = "advanced_embedding_model.tflite"
 ) {
+    // NLP Model Manager for advanced model handling
+    private val nlpModelManager by lazy { NlpModelManager(context) }
+    
+    // Performance monitoring
+    private val performanceMonitor by lazy { NlpPerformanceMonitor(context) }
+
+    // Error tracking and circuit breaker
+    private val errorTracker = EmbeddingErrorTracker()
+
+    /**
+     * Advanced error tracking and circuit breaker
+     */
+    private class EmbeddingErrorTracker {
+        // Concurrent error count tracking
+        private val errorCount = AtomicInteger(0)
+        
+        // Maximum allowed errors before circuit breaking
+        private val MAX_ERRORS = 5
+        
+        // Error cooldown period (in milliseconds)
+        private val ERROR_COOLDOWN = 60000L
+        
+        // Last error timestamp
+        @Volatile
+        private var lastErrorTimestamp: Long = 0
+
+        /**
+         * Record an error and check if system should enter circuit break
+         */
+        fun recordError(): Boolean {
+            val currentTime = System.currentTimeMillis()
+            
+            // Check if we're in cooldown period
+            if (currentTime - lastErrorTimestamp < ERROR_COOLDOWN) {
+                return false
+            }
+
+            // Increment error count
+            val currentErrorCount = errorCount.incrementAndGet()
+
+            // Update last error timestamp
+            lastErrorTimestamp = currentTime
+
+            // Check if error threshold is reached
+            return currentErrorCount >= MAX_ERRORS
+        }
+
+        /**
+         * Reset error tracking
+         */
+        fun reset() {
+            errorCount.set(0)
+            lastErrorTimestamp = 0
+        }
+
+        /**
+         * Check if system is in a healthy state
+         */
+        fun isHealthy(): Boolean {
+            val currentTime = System.currentTimeMillis()
+            return currentTime - lastErrorTimestamp >= ERROR_COOLDOWN
+        }
+    }
+
+    /**
+     * Custom embedding generation exception
+     */
+    class EmbeddingGenerationException(
+        message: String, 
+        cause: Throwable? = null
+    ) : Exception(message, cause) {
+        companion object {
+            // Predefined error types for easier debugging
+            const val ERROR_MODEL_LOAD_FAILED = "MODEL_LOAD_FAILED"
+            const val ERROR_PREPROCESSING_FAILED = "PREPROCESSING_FAILED"
+            const val ERROR_INFERENCE_FAILED = "INFERENCE_FAILED"
+            const val ERROR_POSTPROCESSING_FAILED = "POSTPROCESSING_FAILED"
+        }
+    }
     // Lazy-initialized TensorFlow Lite interpreter
     private val interpreter by lazy { loadModel() }
 
@@ -31,6 +122,11 @@ class AdvancedSemanticEmbedding(
     // Multilingual embedding transformer
     val multilingualTransformer by lazy { 
         MultilingualEmbeddingTransformer(context) 
+    }
+
+    // Cross-modal embedding transformer
+    val crossModalTransformer by lazy { 
+        CrossModalEmbeddingTransformer(context) 
     }
 
     /**
@@ -73,6 +169,74 @@ class AdvancedSemanticEmbedding(
         return similarity >= threshold
     }
 
+    /**
+     * Generate cross-modal embedding
+     */
+    fun generateCrossModalEmbedding(
+        input: Any,
+        modality: Modality
+    ): SemanticEmbeddingResult {
+        return try {
+            val embedding = crossModalTransformer.generateCrossModalEmbedding(input, modality)
+            
+            SemanticEmbeddingResult(
+                embedding = embedding,
+                source = EmbeddingSource.CROSS_MODAL,
+                language = "multi"  // Cross-modal embeddings are language-agnostic
+            )
+        } catch (e: Exception) {
+            Log.e("AdvancedSemanticEmbedding", "Cross-modal embedding generation failed", e)
+            SemanticEmbeddingResult(
+                embedding = FloatArray(EMBEDDING_DIMENSION) { 0f },
+                source = EmbeddingSource.ERROR,
+                language = "multi"
+            )
+        }
+    }
+
+    /**
+     * Calculate cross-modal semantic similarity
+     */
+    fun calculateCrossModalSimilarity(
+        embedding1: FloatArray,
+        embedding2: FloatArray,
+        modality1: Modality,
+        modality2: Modality
+    ): Double {
+        return crossModalTransformer.calculateCrossModalSimilarity(
+            embedding1, 
+            embedding2, 
+            modality1, 
+            modality2
+        )
+    }
+
+    /**
+     * Combine embeddings from multiple modalities
+     */
+    fun combineModalEmbeddings(
+        embeddings: List<Pair<FloatArray, Modality>>
+    ): FloatArray {
+        if (embeddings.isEmpty()) {
+            return FloatArray(EMBEDDING_DIMENSION) { 0f }
+        }
+
+        // Weighted combination of embeddings
+        val modalityWeights = mapOf(
+            Modality.TEXT to 0.4f,
+            Modality.IMAGE to 0.3f,
+            Modality.AUDIO to 0.2f,
+            Modality.VIDEO to 0.1f
+        )
+
+        return embeddings.map { (embedding, modality) ->
+            val weight = modalityWeights[modality] ?: 1f / embeddings.size
+            embedding.map { it * weight }
+        }.reduce { acc, embedValues ->
+            acc.zip(embedValues).map { it.first + it.second }
+        }.toFloatArray()
+    }
+
     // Cache for embeddings to improve performance
     private val embeddingCache = LruCache<String, SemanticEmbeddingResult>(100)
 
@@ -85,18 +249,43 @@ class AdvancedSemanticEmbedding(
         text: String, 
         additionalContext: Map<String, Any> = emptyMap()
     ): SemanticEmbeddingResult = withContext(Dispatchers.Default) {
+        val startTime = System.currentTimeMillis()
+        val cacheKey = "embed:${text.hashCode()}"
+        
+        // Check cache first
+        embeddingCache[cacheKey]?.let { 
+            performanceMonitor.recordCacheHit("embedding", true)
+            return@withContext it
+        }
+        
+        performanceMonitor.recordCacheHit("embedding", false)
+        
+        // Check if system is in a healthy state
+        if (!errorTracker.isHealthy()) {
+            val duration = System.currentTimeMillis() - startTime
+            performanceMonitor.recordEmbeddingPerformance(
+                mediaKey = cacheKey,
+                durationMs = duration,
+                language = "unknown",
+                embeddingSource = "FALLBACK",
+                success = false
+            )
+            return@withContext createFallbackEmbedding(
+                text, 
+                "System in cooldown due to repeated errors"
+            )
+        }
+
         // Detect language
         val language = tokenizer.detectLanguage(text)
         
-        // Create a unique cache key that includes language
-        val cacheKey = "$language:$text"
-
-        // Check cache first
-        embeddingCache[cacheKey]?.let { 
-            return@withContext it
-        }
-
         try {
+            // Validate input
+            validateInput(text)
+
+            // Load appropriate model
+            val model = nlpModelManager.loadModel("text_embedding_model")
+
             // Preprocess input
             val (tokenIds, attentionMask) = preprocessText(text)
 
@@ -104,12 +293,15 @@ class AdvancedSemanticEmbedding(
             val inputTensors = prepareInputTensors(tokenIds, attentionMask)
 
             // Run inference
-            val outputEmbedding = runInference(inputTensors)
+            val outputEmbedding = runInference(inputTensors, model.interpreter)
 
             // Apply additional context enhancement
             val enhancedEmbedding = applyContextEnhancement(
                 outputEmbedding, 
-                additionalContext + ("language" to language)
+                additionalContext + (
+                    "language" to language,
+                    "model_version" to model.modelVersion
+                )
             )
 
             // Normalize embedding
@@ -125,15 +317,144 @@ class AdvancedSemanticEmbedding(
             // Cache result
             embeddingCache[cacheKey] = embeddingResult
 
+            // Reset error tracker on successful generation
+            errorTracker.reset()
+            
+            // Record performance
+            val duration = System.currentTimeMillis() - startTime
+            performanceMonitor.recordEmbeddingPerformance(
+                mediaKey = cacheKey,
+                durationMs = duration,
+                language = language,
+                embeddingSource = "GENERATED",
+                success = true
+            )
+
             embeddingResult
         } catch (e: Exception) {
+            // Record and handle error
+            val shouldCircuitBreak = errorTracker.recordError()
+            val duration = System.currentTimeMillis() - startTime
+            
+            performanceMonitor.recordEmbeddingPerformance(
+                mediaKey = cacheKey,
+                durationMs = duration,
+                language = language,
+                embeddingSource = "ERROR",
+                success = false
+            )
+
             Log.e("AdvancedSemanticEmbedding", "Embedding generation failed", e)
-            SemanticEmbeddingResult(
-                embedding = FloatArray(EMBEDDING_DIMENSION) { 0f }, 
-                source = EmbeddingSource.ERROR,
-                language = language
+            
+            // Create detailed error embedding
+            createErrorEmbedding(
+                text, 
+                language, 
+                e, 
+                shouldCircuitBreak
             )
         }
+    }
+
+    /**
+     * Validate input before embedding generation
+     */
+    private fun validateInput(text: String) {
+        // Input validation
+        require(text.isNotBlank()) { 
+            "Input text cannot be blank" 
+        }
+        
+        require(text.length <= MAX_SEQUENCE_LENGTH * 2) { 
+            "Input text exceeds maximum allowed length" 
+        }
+    }
+
+    /**
+     * Run model inference with error handling
+     */
+    private fun runInference(
+        inputTensors: Map<String, Any>, 
+        interpreter: Interpreter
+    ): FloatArray {
+        return try {
+            val outputTensor = Array(1) { FloatArray(EMBEDDING_DIMENSION) }
+            
+            // Run model
+            interpreter.runForMultipleInputsOutputs(
+                inputTensors.values.toTypedArray(), 
+                mapOf("output" to outputTensor)
+            )
+
+            outputTensor[0]
+        } catch (e: Exception) {
+            throw EmbeddingGenerationException(
+                EmbeddingGenerationException.ERROR_INFERENCE_FAILED, 
+                e
+            )
+        }
+    }
+
+    /**
+     * Create fallback embedding when system is in an error state
+     */
+    private fun createFallbackEmbedding(
+        text: String, 
+        reason: String
+    ): SemanticEmbeddingResult {
+        val language = tokenizer.detectLanguage(text)
+        
+        return SemanticEmbeddingResult(
+            embedding = FloatArray(EMBEDDING_DIMENSION) { 
+                // Add slight randomization to fallback embedding
+                Random.nextFloat() * 0.1f - 0.05f 
+            }, 
+            source = EmbeddingSource.ERROR,
+            language = language
+        ).also {
+            Log.w(
+                "AdvancedSemanticEmbedding", 
+                "Fallback embedding generated: $reason"
+            )
+        }
+    }
+
+    /**
+     * Create detailed error embedding
+     */
+    private fun createErrorEmbedding(
+        text: String, 
+        language: String, 
+        error: Throwable,
+        shouldCircuitBreak: Boolean
+    ): SemanticEmbeddingResult {
+        // Log detailed error information
+        Log.e(
+            "AdvancedSemanticEmbedding", 
+            "Embedding generation failed: ${error.message}", 
+            error
+        )
+
+        // Determine error source for more precise fallback
+        val errorSource = when (error) {
+            is EmbeddingGenerationException -> error.message
+            else -> "UNKNOWN_ERROR"
+        }
+
+        // Create error-specific embedding
+        return SemanticEmbeddingResult(
+            embedding = FloatArray(EMBEDDING_DIMENSION) { 
+                // Encode error information into embedding
+                when {
+                    errorSource == EmbeddingGenerationException.ERROR_MODEL_LOAD_FAILED -> -1f
+                    errorSource == EmbeddingGenerationException.ERROR_INFERENCE_FAILED -> 0.5f
+                    shouldCircuitBreak -> 0f
+                    else -> Random.nextFloat() * 0.1f - 0.05f
+                }
+            }, 
+            source = EmbeddingSource.ERROR,
+            language = language
+        )
     }
 
     /**
@@ -615,6 +936,310 @@ class AdvancedSemanticEmbedding(
     /**
      * Advanced Multilingual Embedding Transformer with ML-based Refinement
      */
+    /**
+     * Cross-Modal Embedding Transformer
+     * Enables semantic representation across different modalities
+     */
+    private class CrossModalEmbeddingTransformer(
+        private val context: Context
+    ) {
+        // Pre-trained models for different modalities
+        private val textEmbeddingModel by lazy { loadTextEmbeddingModel() }
+        private val imageEmbeddingModel by lazy { loadImageEmbeddingModel() }
+        private val audioEmbeddingModel by lazy { loadAudioEmbeddingModel() }
+        private val videoEmbeddingModel by lazy { loadVideoEmbeddingModel() }
+
+        /**
+         * Generate cross-modal embedding
+         * @param input Multimodal input (text, image, audio, video file path)
+         * @param modality Type of input modality
+         */
+        fun generateCrossModalEmbedding(
+            input: Any,
+            modality: Modality
+        ): FloatArray {
+            return when (modality) {
+                Modality.TEXT -> generateTextEmbedding(input as String)
+                Modality.IMAGE -> generateImageEmbedding(input as File)
+                Modality.AUDIO -> generateAudioEmbedding(input as File)
+                Modality.VIDEO -> generateVideoEmbedding(input as File)
+            }
+        }
+
+        /**
+         * Calculate cross-modal semantic similarity
+         */
+        fun calculateCrossModalSimilarity(
+            embedding1: FloatArray,
+            embedding2: FloatArray,
+            modality1: Modality,
+            modality2: Modality
+        ): Double {
+            // Normalize embeddings
+            val normalizedEmbedding1 = normalizeEmbedding(embedding1)
+            val normalizedEmbedding2 = normalizeEmbedding(embedding2)
+
+            // Calculate cosine similarity
+            return calculateCosineSimilarity(normalizedEmbedding1, normalizedEmbedding2)
+        }
+
+        /**
+         * Generate text embedding using pre-trained model
+         */
+        private fun generateTextEmbedding(text: String): FloatArray {
+            val (tokenIds, attentionMask) = preprocessText(text)
+            val outputTensor = Array(1) { FloatArray(EMBEDDING_DIMENSION) }
+            
+            textEmbeddingModel.runForMultipleInputsOutputs(
+                arrayOf(tokenIds, attentionMask),
+                mapOf("output" to outputTensor)
+            )
+
+            return outputTensor[0]
+        }
+
+        /**
+         * Generate image embedding using pre-trained model
+         */
+        private fun generateImageEmbedding(imageFile: File): FloatArray {
+            // Load and preprocess image
+            val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+            val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 224, 224, true)
+            
+            // Convert bitmap to input tensor
+            val inputTensor = preprocessImage(resizedBitmap)
+            val outputTensor = Array(1) { FloatArray(EMBEDDING_DIMENSION) }
+            
+            imageEmbeddingModel.runForMultipleInputsOutputs(
+                arrayOf(inputTensor),
+                mapOf("output" to outputTensor)
+            )
+
+            return outputTensor[0]
+        }
+
+        /**
+         * Generate audio embedding using pre-trained model
+         */
+        private fun generateAudioEmbedding(audioFile: File): FloatArray {
+            // Extract audio features
+            val audioFeatures = extractAudioFeatures(audioFile)
+            val outputTensor = Array(1) { FloatArray(EMBEDDING_DIMENSION) }
+            
+            audioEmbeddingModel.runForMultipleInputsOutputs(
+                arrayOf(audioFeatures),
+                mapOf("output" to outputTensor)
+            )
+
+            return outputTensor[0]
+        }
+
+        /**
+         * Generate video embedding using pre-trained model
+         */
+        private fun generateVideoEmbedding(videoFile: File): FloatArray {
+            // Extract video keyframes
+            val keyframes = extractVideoKeyframes(videoFile)
+            
+            // Generate embeddings for keyframes and aggregate
+            val keyframeEmbeddings = keyframes.map { generateImageEmbedding(it) }
+            
+            // Aggregate keyframe embeddings
+            return aggregateEmbeddings(keyframeEmbeddings)
+        }
+
+        /**
+         * Preprocess text for embedding generation
+         */
+        private fun preprocessText(text: String): Pair<Array<IntArray>, Array<IntArray>> {
+            // Tokenization logic (similar to existing implementation)
+            val tokens = tokenizer.tokenize(text)
+            val tokenIds = tokens.map { tokenizer.convertTokenToId(it) }.toIntArray()
+            val paddedTokenIds = padSequence(tokenIds, MAX_SEQUENCE_LENGTH)
+            val attentionMask = createAttentionMask(paddedTokenIds)
+            
+            return arrayOf(paddedTokenIds) to arrayOf(attentionMask)
+        }
+
+        /**
+         * Preprocess image for embedding
+         */
+        private fun preprocessImage(bitmap: Bitmap): Array<FloatArray> {
+            // Normalize pixel values and convert to tensor
+            val floatValues = FloatArray(224 * 224 * 3)
+            val intValues = IntArray(224 * 224)
+            
+            bitmap.getPixels(intValues, 0, 224, 0, 0, 224, 224)
+            
+            for (i in intValues.indices) {
+                val value = intValues[i]
+                floatValues[i * 3] = ((value shr 16 and 0xFF) - 127.5f) / 127.5f
+                floatValues[i * 3 + 1] = ((value shr 8 and 0xFF) - 127.5f) / 127.5f
+                floatValues[i * 3 + 2] = ((value and 0xFF) - 127.5f) / 127.5f
+            }
+            
+            return arrayOf(floatValues)
+        }
+
+        /**
+         * Extract audio features
+         */
+        private fun extractAudioFeatures(audioFile: File): Array<FloatArray> {
+            // Use MediaMetadataRetriever for basic audio feature extraction
+            val retriever = MediaMetadataRetriever()
+            retriever.setDataSource(audioFile.absolutePath)
+            
+            // Extract basic audio metadata as features
+            val durationMs = retriever.extractMetadata(
+                MediaMetadataRetriever.METADATA_KEY_DURATION
+            )?.toLongOrNull() ?: 0L
+            
+            val bitrate = retriever.extractMetadata(
+                MediaMetadataRetriever.METADATA_KEY_BITRATE
+            )?.toLongOrNull() ?: 0L
+            
+            retriever.release()
+            
+            // Create simple feature vector
+            return arrayOf(floatArrayOf(
+                durationMs.toFloat() / 1000f,  // Duration in seconds
+                bitrate.toFloat() / 1000f,     // Bitrate in kbps
+                0f, 0f, 0f, 0f                // Placeholders for more complex features
+            ))
+        }
+
+        /**
+         * Extract video keyframes
+         */
+        private fun extractVideoKeyframes(videoFile: File): List<File> {
+            val retriever = MediaMetadataRetriever()
+            retriever.setDataSource(videoFile.absolutePath)
+            
+            // Extract keyframes at different timestamps
+            val keyframeTimestamps = listOf(0L, 1000L, 5000L, 10000L)
+            val keyframeFiles = mutableListOf<File>()
+            
+            keyframeTimestamps.forEach { timestamp ->
+                val bitmap = retriever.getFrameAtTime(
+                    timestamp * 1000,  // Microseconds
+                    MediaMetadataRetriever.OPTION_CLOSEST
+                )
+                
+                if (bitmap != null) {
+                    // Save bitmap to temporary file
+                    val keyframeFile = File.createTempFile("keyframe", ".jpg")
+                    keyframeFile.deleteOnExit()
+                    
+                    keyframeFile.outputStream().use { out ->
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 85, out)
+                    }
+                    
+                    keyframeFiles.add(keyframeFile)
+                }
+            }
+            
+            retriever.release()
+            
+            return keyframeFiles
+        }
+
+        /**
+         * Aggregate embeddings with weighted averaging
+         */
+        private fun aggregateEmbeddings(embeddings: List<FloatArray>): FloatArray {
+            if (embeddings.isEmpty()) {
+                return FloatArray(EMBEDDING_DIMENSION) { 0f }
+            }
+            
+            // Weighted averaging with recency bias
+            return embeddings.mapIndexed { index, embedding ->
+                val weight = 1.0f / (index + 1)  // Recency bias
+                embedding.map { it * weight }
+            }.reduce { acc, embedValues ->
+                acc.zip(embedValues).map { it.first + it.second }
+            }
+        }
+
+        /**
+         * Normalize embedding vector
+         */
+        private fun normalizeEmbedding(embedding: FloatArray): FloatArray {
+            val magnitude = sqrt(embedding.map { it * it }.sum().toDouble()).toFloat()
+            return if (magnitude > 0) {
+                embedding.map { it / magnitude }.toFloatArray()
+            } else {
+                embedding
+            }
+        }
+
+        /**
+         * Calculate cosine similarity between embeddings
+         */
+        private fun calculateCosineSimilarity(
+            embedding1: FloatArray, 
+            embedding2: FloatArray
+        ): Double {
+            val dotProduct = embedding1
+                .zip(embedding2)
+                .map { it.first * it.second }
+                .sum()
+
+            val magnitude1 = sqrt(embedding1.map { it * it }.sum().toDouble())
+            val magnitude2 = sqrt(embedding2.map { it * it }.sum().toDouble())
+
+            return if (magnitude1 > 0 && magnitude2 > 0) {
+                dotProduct / (magnitude1 * magnitude2)
+            } else {
+                0.0
+            }
+        }
+
+        /**
+         * Load pre-trained embedding models
+         */
+        private fun loadTextEmbeddingModel(): Interpreter {
+            val modelBuffer = FileUtil.loadMappedFile(
+                context, 
+                "text_embedding_model.tflite"
+            )
+            return Interpreter(modelBuffer)
+        }
+
+        private fun loadImageEmbeddingModel(): Interpreter {
+            val modelBuffer = FileUtil.loadMappedFile(
+                context, 
+                "image_embedding_model.tflite"
+            )
+            return Interpreter(modelBuffer)
+        }
+
+        private fun loadAudioEmbeddingModel(): Interpreter {
+            val modelBuffer = FileUtil.loadMappedFile(
+                context, 
+                "audio_embedding_model.tflite"
+            )
+            return Interpreter(modelBuffer)
+        }
+
+        private fun loadVideoEmbeddingModel(): Interpreter {
+            val modelBuffer = FileUtil.loadMappedFile(
+                context, 
+                "video_embedding_model.tflite"
+            )
+            return Interpreter(modelBuffer)
+        }
+    }
+
+    /**
+     * Modality enum for cross-modal embedding
+     */
+    enum class Modality {
+        TEXT,
+        IMAGE,
+        AUDIO,
+        VIDEO
+    }
+
     private class MultilingualEmbeddingTransformer(
         private val context: Context
     ) {
@@ -869,10 +1494,11 @@ class AdvancedSemanticEmbedding(
      * Embedding source tracking
      */
      enum class EmbeddingSource {
-        GENERATED,   // Newly created embedding
-        CACHED,      // Retrieved from cache
-        TRANSFORMED, // Cross-lingual transformation
-        ERROR        // Failed embedding generation
+        GENERATED,       // Newly created embedding
+        CACHED,          // Retrieved from cache
+        TRANSFORMED,     // Cross-lingual transformation
+        CROSS_MODAL,     // Cross-modal embedding
+        ERROR            // Failed embedding generation
      }
 
     /**
@@ -918,6 +1544,28 @@ class AdvancedSemanticEmbedding(
         // Subword tokenization configuration
         const val SUBWORD_MIN_LENGTH = 4
         const val SUBWORD_MAX_LENGTH = 6
+
+        // Advanced error handling constants
+        const val MAX_ERROR_THRESHOLD = 5
+        const val ERROR_COOLDOWN_PERIOD = 60000L  // 1 minute
+        const val MAX_INPUT_TOKEN_LENGTH = 1024
+
+        // Model management configuration
+        val SUPPORTED_MODEL_TYPES = listOf(
+            "text_embedding",
+            "image_embedding",
+            "audio_embedding",
+            "video_embedding",
+            "multilingual"
+        )
+
+        // Error handling strategies
+        val ERROR_RECOVERY_STRATEGIES = mapOf(
+            "MODEL_LOAD_FAILED" to "FALLBACK_MODEL",
+            "PREPROCESSING_FAILED" to "SKIP_PREPROCESSING",
+            "INFERENCE_FAILED" to "MINIMAL_EMBEDDING",
+            "POSTPROCESSING_FAILED" to "RAW_OUTPUT"
+        )
 
         // Multilingual configuration
         val SUPPORTED_LANGUAGES = listOf(
