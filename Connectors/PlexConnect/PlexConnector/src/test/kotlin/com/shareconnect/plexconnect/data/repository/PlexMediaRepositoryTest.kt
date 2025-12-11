@@ -115,8 +115,6 @@ class PlexMediaRepositoryTest {
         assertEquals(2, result.size)
         assertTrue("Result should contain items", result.isNotEmpty())
         val firstItem = result.first() as com.shareconnect.plexconnect.data.model.PlexMediaItem
-        println("First item type: ${firstItem::class.simpleName}")
-        println("First item properties: ${firstItem}")
         assertEquals("Test Movie", firstItem.title)
     }
 
