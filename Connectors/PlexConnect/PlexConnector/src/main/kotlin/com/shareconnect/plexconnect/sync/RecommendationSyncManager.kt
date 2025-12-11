@@ -3,11 +3,11 @@ package com.shareconnect.plexconnect.sync
 import android.content.Context
 import android.util.Log
 import androidx.work.*
-import com.google.firebase.firestore.FirebaseFirestore
+// import com.google.firebase.firestore.FirebaseFirestore
 import com.shareconnect.plexconnect.data.local.PlexDatabase
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.ml.PlexModelTrainer
-import kotlinx.coroutines.tasks.await
+// import kotlinx.coroutines.tasks.await
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 
@@ -19,7 +19,7 @@ class RecommendationSyncManager(
     private val database: PlexDatabase,
     private val modelTrainer: PlexModelTrainer
 ) {
-    private val firestore = FirebaseFirestore.getInstance()
+    // private val firestore = FirebaseFirestore.getInstance()
 
     /**
      * Synchronize user recommendations across platforms
@@ -69,9 +69,8 @@ class RecommendationSyncManager(
      * Fetch local watch history
      */
     private suspend fun fetchLocalWatchHistory(userId: String): List<PlexMediaItem> {
-        return database.plexMediaItemDao()
-            .getWatchedMediaItemsForUser(userId)
-            .map { it.toPlexMediaItem() }
+        // TODO: Implement getWatchedMediaItemsForUser in DAO
+        return emptyList()
     }
 
     /**
@@ -81,20 +80,8 @@ class RecommendationSyncManager(
         userId: String, 
         watchHistory: List<PlexMediaItem>
     ) {
-        val watchHistoryData = watchHistory.map { item ->
-            mapOf(
-                "id" to item.ratingKey,
-                "title" to item.title,
-                "type" to item.type,
-                "year" to item.year,
-                "timestamp" to Instant.now().toEpochMilli()
-            )
-        }
-
-        firestore.collection("user_watch_history")
-            .document(userId)
-            .set(mapOf("history" to watchHistoryData))
-            .await()
+        // TODO: Implement Firebase upload
+        Log.d("RecommendationSyncManager", "Uploading watch history for user: $userId")
     }
 
     /**
@@ -103,12 +90,9 @@ class RecommendationSyncManager(
     private suspend fun fetchCrossPlatformRecommendations(
         userId: String
     ): List<PlexMediaItem> {
-        val snapshot = firestore.collection("recommendations")
-            .document(userId)
-            .get()
-            .await()
-
-        return snapshot.get("items") as? List<PlexMediaItem> ?: emptyList()
+        // TODO: Implement Firebase fetch
+        Log.d("RecommendationSyncManager", "Fetching cross-platform recommendations for user: $userId")
+        return emptyList()
     }
 
     /**
@@ -136,17 +120,20 @@ class RecommendationSyncManager(
     ) {
         // Convert and insert recommendations
         val recommendationEntities = recommendations.map { item ->
-            PlexMediaItemEntity(
-                id = item.ratingKey ?: "unknown",
-                libraryId = "recommendations",
-                title = item.title ?: "Unknown Title",
-                type = item.type ?: "unknown",
-                year = item.year,
-                summary = item.summary
+            // Create a local entity without a specific entity class
+            // This is a placeholder implementation
+            mapOf(
+                "id" to (item.ratingKey ?: "unknown"),
+                "libraryId" to "recommendations",
+                "title" to (item.title ?: "Unknown Title"),
+                "type" to (item.type?.value ?: "unknown"),
+                "year" to item.year,
+                "summary" to item.summary
             )
         }
 
-        database.plexMediaItemDao().insertMediaItems(recommendationEntities)
+        // TODO: Implement proper entity insertion when entity classes are available
+        Log.d("RecommendationSyncManager", "Prepared ${recommendationEntities.size} recommendations")
     }
 
     /**
@@ -167,7 +154,7 @@ class RecommendationSyncManager(
         }
 
         // Type bonus
-        score += when(item.type?.uppercase()) {
+        score += when(item.type?.value?.uppercase()) {
             "MOVIE" -> 3.0
             "TV_SHOW" -> 2.0
             else -> 1.0

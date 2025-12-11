@@ -25,6 +25,7 @@ package com.shareconnect.plexconnect.data.database.dao
 
 import androidx.room.*
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.data.model.MediaType
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -87,9 +88,9 @@ interface PlexMediaItemDao {
     @Query("SELECT COUNT(*) FROM plex_media_items WHERE librarySectionID = :libraryId")
     suspend fun getMediaItemCountForLibrary(libraryId: Long): Int
 
-    @Query("SELECT COUNT(*) FROM plex_media_items WHERE viewCount > 0")
+    @Query("SELECT COUNT(ratingKey) FROM plex_media_items WHERE viewCount > 0")
     suspend fun getWatchedCount(): Int
 
-    @Query("SELECT COUNT(*) FROM plex_media_items WHERE viewCount = 0 AND viewOffset > 0")
+    @Query("SELECT COUNT(ratingKey) FROM plex_media_items WHERE viewCount = 0 AND viewOffset > 0")
     suspend fun getInProgressCount(): Int
 }

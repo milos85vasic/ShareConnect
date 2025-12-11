@@ -28,12 +28,22 @@ data class PlexLibrary(
 /**
  * Represents different types of Plex media libraries
  */
-enum class LibraryType {
-    MOVIE,
-    TV_SHOW,
-    MUSIC,
-    PHOTO,
-    MIXED
+enum class LibraryType(val value: String) {
+    MOVIE("movie"),
+    TV_SHOW("show"),
+    MUSIC("artist"),
+    PHOTO("photo"),
+    MIXED("mixed");
+
+    companion object {
+        fun fromString(value: String): LibraryType {
+            return entries.find { it.value == value } ?: MOVIE
+        }
+        
+        fun fromValue(value: String): LibraryType {
+            return fromString(value)
+        }
+    }
 }
 
 /**
@@ -41,27 +51,44 @@ enum class LibraryType {
  */
 @Serializable
 data class PlexMediaItem(
-    val id: String,
-    val libraryId: String,
-    val title: String,
-    val type: MediaType,
-    val year: Int? = null,
+    val ratingKey: String? = null,
+    val key: String? = null,
+    val guid: String? = null,
+    val studio: String? = null,
+    val type: MediaType? = null,
+    val title: String? = null,
+    val titleSort: String? = null,
     val summary: String? = null,
-    val thumbnailUrl: String? = null
+    val year: Int? = null,
+    val duration: Long? = null,
+    val librarySectionTitle: String? = null,
+    val librarySectionID: Long? = null,
+    // Compatibility with existing API
+    val id: String? = null,
+    val libraryId: String? = null,
+    val thumbnailUrl: String? = null,
+    val index: Int? = null
 )
 
 /**
  * Represents different types of media in Plex
  */
-enum class MediaType {
-    MOVIE,
-    TV_SHOW,
-    EPISODE,
-    SEASON,
-    MUSIC_TRACK,
-    ALBUM,
-    ARTIST,
-    PHOTO
+enum class MediaType(val value: String) {
+    MOVIE("movie"),
+    EPISODE("episode"),
+    SEASON("season"),
+    SHOW("show"),
+    MUSIC_TRACK("track"),
+    ALBUM("album"),
+    ARTIST("artist"),
+    PHOTO("photo"),
+    MUSIC("music");  // For library type mapping
+
+    companion object {
+        fun fromString(value: String): MediaType {
+            return entries.find { it.value == value } ?: MOVIE
+        }
+    }
 }
 
 /**

@@ -21,32 +21,26 @@
  */
 
 
-package com.shareconnect.plexconnect.data.model
+package com.shareconnect.plexconnect.ui.viewmodels
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import kotlinx.serialization.Serializable
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
-@Serializable
-@Entity(tableName = "plex_libraries")
-data class PlexLibrary(
-    @PrimaryKey
-    val key: String,
-    val title: String,
-    val type: LibraryType,
-    val serverId: Long,
-    val agent: String? = null,
-    val scanner: String? = null,
-    val language: String? = null,
-    val uuid: String? = null,
-    val updatedAt: Long? = null,
-    val createdAt: Long? = null,
-    val scannedAt: Long? = null,
-    val content: Boolean = true,
-    val directory: Boolean = true,
-    val contentChangedAt: Long? = null,
-    val hidden: Int = 0,
-    val art: String = "",
-    val composite: String = "",
-    val thumb: String = ""
-)
+/**
+ * Factory for creating AiRecommendationSettingsViewModel instances
+ */
+class AiRecommendationSettingsViewModelFactory(
+    private val dataStore: DataStore<Preferences>
+) : ViewModelProvider.Factory {
+    
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(AiRecommendationSettingsViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return AiRecommendationSettingsViewModel(dataStore) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}

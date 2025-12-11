@@ -147,7 +147,7 @@ class MediaListViewModel(
 
                         // Limit memory usage by keeping only the most recent items
                         val limitedItems = if (combinedItems.size > maxItemsInMemory) {
-                            combinedItems.takeLast(maxItemsInMemory)
+                            combinedItems.drop(maxItemsInMemory - combinedItems.size)
                         } else {
                             combinedItems
                         }
@@ -155,7 +155,7 @@ class MediaListViewModel(
                         _mediaItems.value = limitedItems
 
                         currentOffset += newItems.size
-                        hasMoreItems = newItems.size >= pageSize && limitedItems.size < maxItemsInMemory
+                        hasMoreItems = newItems.size >= pageSize && limitedItems.size <= maxItemsInMemory
                     },
                     onFailure = { error ->
                         _error.value = "Failed to load media items: ${error.message}"

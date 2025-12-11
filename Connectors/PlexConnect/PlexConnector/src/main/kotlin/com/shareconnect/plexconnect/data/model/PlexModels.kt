@@ -3,22 +3,6 @@ package com.shareconnect.plexconnect.data.model
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PlexPinRequest(
-    val strong: Boolean = true,
-    val x_plex_product: String = "ShareConnect",
-    val x_plex_client_identifier: String
-)
-
-@Serializable
-data class PlexPinResponse(
-    val id: Long? = null,
-    val code: String? = null,
-    val token: String? = null,
-    val clientIdentifier: String? = null,
-    val expiresAt: Long? = null
-)
-
-@Serializable
 data class PlexServerInfo(
     val machineIdentifier: String? = null,
     val version: String? = null,
@@ -31,7 +15,7 @@ data class PlexServerInfo(
 data class PlexLibrarySection(
     val key: String,
     val title: String,
-    val type: String
+    val type: LibraryType
 )
 
 @Serializable
@@ -46,11 +30,11 @@ data class PlexMediaResponse(
     val size: Int? = null,
     val totalSize: Int? = null,
     val offset: Int? = null,
-    val items: List<PlexMediaItem>? = null
+    val items: List<PlexMediaItemDto>? = null
 )
 
 @Serializable
-data class PlexMediaItem(
+data class PlexMediaItemDto(
     val ratingKey: String? = null,
     val key: String? = null,
     val guid: String? = null,
@@ -61,7 +45,9 @@ data class PlexMediaItem(
     val summary: String? = null,
     val index: Int? = null,
     val year: Int? = null,
-    val duration: Long? = null
+    val duration: Long? = null,
+    val librarySectionTitle: String? = null,
+    val librarySectionID: Long? = null
 )
 
 @Serializable
@@ -69,5 +55,5 @@ data class PlexSearchResponse(
     val size: Int? = null,
     val totalSize: Int? = null,
     val offset: Int? = null,
-    val items: List<PlexMediaItem>? = null
+    val items: List<PlexMediaItemDto>? = null
 )

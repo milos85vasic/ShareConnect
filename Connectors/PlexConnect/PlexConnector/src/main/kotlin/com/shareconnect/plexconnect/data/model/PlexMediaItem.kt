@@ -82,22 +82,3 @@ data class PlexMediaItem(
             (viewOffset.toFloat() / duration.toFloat()) * 100f
         } else 0f
 }
-
-enum class MediaType(val value: String) {
-    MOVIE("movie"),
-    EPISODE("episode"),
-    SEASON("season"),
-    SHOW("show"),
-    TRACK("track"),
-    ALBUM("album"),
-    ARTIST("artist"),
-    PHOTO("photo"),
-    CLIP("clip"),
-    UNKNOWN("unknown");
-
-    companion object {
-        fun fromString(value: String): MediaType {
-            return entries.find { it.value == value } ?: UNKNOWN
-        }
-    }
-}

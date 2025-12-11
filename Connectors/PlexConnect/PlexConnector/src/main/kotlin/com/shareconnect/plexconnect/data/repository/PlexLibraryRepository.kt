@@ -43,15 +43,22 @@ class PlexLibraryRepository(
 
     suspend fun getLibraryByKey(libraryKey: String): PlexLibrary? = libraryDao.getLibraryByKey(libraryKey)
 
-    suspend fun refreshLibrariesForServer(server: PlexServer): Result<List<PlexLibrary>> {
+    suspend fun refreshLibrariesForServer(server: PlexServer): Result<List<com.shareconnect.plexconnect.data.model.PlexLibrary>> {
         return try {
             server.token?.let { token ->
                 val librariesResult = apiClient.getLibraries(server.baseUrl, token)
                 librariesResult.fold(
-                    onSuccess = { libraries ->
-                        val librariesWithServerId = libraries.map { it.copy(serverId = server.id) }
-                        libraryDao.insertLibraries(librariesWithServerId)
-                        Result.success(librariesWithServerId)
+                    onSuccess = { apiLibraries ->
+                        val modelLibraries = apiLibraries.map { apiLib ->
+                            com.shareconnect.plexconnect.data.model.PlexLibrary(
+                                key = apiLib.id ?: "",
+                                title = apiLib.title ?: "",
+                                type = com.shareconnect.plexconnect.data.model.LibraryType.fromValue(apiLib.type?.value ?: "movie"),
+                                serverId = server.id
+                            )
+                        }
+                        libraryDao.insertLibraries(modelLibraries)
+                        Result.success(modelLibraries)
                     },
                     onFailure = { error ->
                         Result.failure(error)
@@ -63,11 +70,11 @@ class PlexLibraryRepository(
         }
     }
 
-    suspend fun addLibrary(library: PlexLibrary): Long = libraryDao.insertLibrary(library)
+    suspend fun addLibrary(library: com.shareconnect.plexconnect.data.model.PlexLibrary): Long = libraryDao.insertLibrary(library)
 
-    suspend fun updateLibrary(library: PlexLibrary) = libraryDao.updateLibrary(library)
+    suspend fun updateLibrary(library: com.shareconnect.plexconnect.data.model.PlexLibrary) = libraryDao.updateLibrary(library)
 
-    suspend fun deleteLibrary(library: PlexLibrary) = libraryDao.deleteLibrary(library)
+    suspend fun deleteLibrary(library: com.shareconnect.plexconnect.data.model.PlexLibrary) = libraryDao.deleteLibrary(library)
 
     suspend fun deleteLibraryByKey(libraryKey: String) = libraryDao.deleteLibraryByKey(libraryKey)
 

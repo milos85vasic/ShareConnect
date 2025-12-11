@@ -4,10 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.shareconnect.plexconnect.data.model.PlexLibrarySection
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.data.model.PlexMediaFilter
 import com.shareconnect.plexconnect.data.model.PlexServerInfo
 import com.shareconnect.plexconnect.data.repository.PlexRepository
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 
 /**
  * ViewModel for managing Plex-related UI state and interactions
@@ -116,8 +118,7 @@ class PlexViewModel(
         return when (preset) {
             MediaFilterPreset.RECENTLY_ADDED -> PlexMediaFilter(
                 sortBy = PlexMediaFilter.SortOption.DATE_ADDED,
-                sortOrder = PlexMediaFilter.SortOrder.DESCENDING,
-                limit = 50
+                sortOrder = PlexMediaFilter.SortOrder.DESCENDING
             )
             MediaFilterPreset.UNWATCHED -> PlexMediaFilter(
                 watchStatus = PlexMediaFilter.WatchStatus.UNWATCHED

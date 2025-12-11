@@ -2,6 +2,7 @@ package com.shareconnect.plexconnect.nlp
 
 import android.content.Context
 import android.util.Log
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -15,7 +16,7 @@ import java.nio.MappedByteBuffer
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.atomic.AtomicInteger
-import android.util.Log
+
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit
@@ -219,18 +220,26 @@ class NlpModelManager(private val context: Context) {
             val metadataExtractor = MetadataExtractor(modelBuffer)
             
             ModelMetadata(
-                name = metadataExtractor.modelMetadata?.name ?: "Unknown Model",
-                description = metadataExtractor.modelMetadata?.description ?: "No description",
-                inputShape = metadataExtractor.inputTensorMetadata
-                    .map { it.shape.toList() }
-                    .firstOrNull() 
-                    ?: listOf(),
-                outputShape = metadataExtractor.outputTensorMetadata
-                    .map { it.shape.toList() }
-                    .firstOrNull() 
-                    ?: listOf(),
+                name = metadataExtractor.modelMetadata?.name() ?: "Unknown Model",
+                description = metadataExtractor.modelMetadata?.description() ?: "No description",
+                inputShape = try {
+                    metadataExtractor.inputTensorMetadata
+                        ?.map { it?.shape()?.toList() }
+                        ?.firstOrNull() 
+                        ?: listOf()
+                } catch (e: Exception) {
+                    listOf()
+                },
+                outputShape = try {
+                    metadataExtractor.outputTensorMetadata
+                        ?.map { it?.shape()?.toList() }
+                        ?.firstOrNull() 
+                        ?: listOf()
+                } catch (e: Exception) {
+                    listOf()
+                },
                 supportedLanguages = metadataExtractor.modelMetadata
-                    ?.description
+                    ?.description()
                     ?.split(",")
                     ?.map { it.trim() } 
                     ?: listOf("en"),
@@ -267,7 +276,7 @@ class NlpModelManager(private val context: Context) {
                 try {
                     val file = File(path)
                     if (file.exists()) {
-                        return FileUtil.loadMappedFile(file)
+                        return FileUtil.loadMappedFile(context, path)
                     }
                 } catch (altE: Exception) {
                     // Continue to next location

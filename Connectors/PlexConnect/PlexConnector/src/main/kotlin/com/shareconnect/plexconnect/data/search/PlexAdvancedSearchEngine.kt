@@ -2,11 +2,13 @@ package com.shareconnect.plexconnect.data.search
 
 import android.util.Log
 import com.shareconnect.plexconnect.data.api.PlexApiClient
-import com.shareconnect.plexconnect.data.local.PlexDatabase
+import com.shareconnect.plexconnect.data.database.PlexDatabase
 import com.shareconnect.plexconnect.data.model.MediaType
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.data.api.PlexMediaItem as ApiPlexMediaItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.first
 import java.time.Instant
 
 /**
@@ -52,10 +54,10 @@ class PlexAdvancedSearchEngine(
     ): List<PlexMediaItem> {
         return database.plexMediaItemDao()
             .searchMediaItems("%$query%")
+            .first()
             .filter { item -> 
                 matchesSearchOptions(item, options)
             }
-            .map { it.toPlexMediaItem() }
     }
 
     /**
@@ -70,7 +72,19 @@ class PlexAdvancedSearchEngine(
         val apiResult = apiClient.search(serverUrl, query, token, options.limit)
         
         return apiResult.getOrNull()
-            ?.filter { item -> matchesSearchOptions(item, options) }
+            ?.filter { item -> matchesApiSearchOptions(item, options) }
+            ?.map { apiItem ->
+                // Convert API item to model item
+                PlexMediaItem(
+                    ratingKey = apiItem.ratingKey ?: "",
+                    key = apiItem.key ?: "",
+                    type = apiItem.type?.let { com.shareconnect.plexconnect.data.model.MediaType.fromString(it.value) } 
+                        ?: com.shareconnect.plexconnect.data.model.MediaType.UNKNOWN,
+                    title = apiItem.title ?: "",
+                    year = apiItem.year,
+                    serverId = ""
+                )
+            }
             ?: emptyList()
     }
 
@@ -110,7 +124,7 @@ class PlexAdvancedSearchEngine(
         // Type matching
         options.mediaTypes?.let { allowedTypes ->
             item.type?.let { itemType ->
-                if (allowedTypes.any { it.name.uppercase() == itemType.uppercase() }) {
+                if (allowedTypes.any { it.name.lowercase() == itemType.value.lowercase() }) {
                     score += 10.0
                 }
             }
@@ -162,7 +176,35 @@ class PlexAdvancedSearchEngine(
         // Type filtering
         options.mediaTypes?.let { allowedTypes ->
             item.type?.let { itemType ->
-                if (!allowedTypes.any { it.name.uppercase() == itemType.uppercase() }) {
+                if (!allowedTypes.any { it.name.lowercase() == itemType.value.lowercase() }) {
+                    return false
+                }
+            }
+        }
+
+        // Year range filtering
+        options.yearRange?.let { range ->
+            item.year?.let { year ->
+                if (year !in range) {
+                    return false
+                }
+            }
+        }
+
+        return true
+    }
+
+    /**
+     * Check if API item matches search options
+     */
+    private fun matchesApiSearchOptions(
+        item: ApiPlexMediaItem, 
+        options: SearchOptions
+    ): Boolean {
+        // Type filtering
+        options.mediaTypes?.let { allowedTypes ->
+            item.type?.let { itemType ->
+                if (!allowedTypes.any { it.name.lowercase() == itemType.value.lowercase() }) {
                     return false
                 }
             }
@@ -207,16 +249,5 @@ class PlexAdvancedSearchEngine(
         MERGED
     }
 
-    /**
-     * Extension function to convert local entity to API model
-     */
-    private fun PlexMediaItemEntity.toPlexMediaItem() = PlexMediaItem(
-        ratingKey = this.id,
-        key = this.id,
-        guid = this.id,
-        title = this.title,
-        type = this.type,
-        year = this.year,
-        summary = this.summary
-    )
+
 }

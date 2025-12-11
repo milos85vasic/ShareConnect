@@ -76,6 +76,7 @@ data class PlexMediaContainer<T>(
     val librarySectionTitle: String? = null,
     val librarySectionID: Int? = null,
     val librarySectionUUID: String? = null,
+    val media: List<T> = emptyList(),
     val Metadata: List<T> = emptyList(),
     val Directory: List<T> = emptyList()
 )

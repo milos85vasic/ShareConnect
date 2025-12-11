@@ -24,7 +24,11 @@
 package com.shareconnect.plexconnect.service
 
 import android.content.Context
+import com.shareconnect.plexconnect.cache.EmbeddingCacheManager
+import com.shareconnect.plexconnect.config.NlpConfig
+import com.shareconnect.plexconnect.data.database.dao.SemanticEmbeddingDao
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.monitoring.NlpPerformanceMonitor
 import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding
 import com.shareconnect.plexconnect.nlp.MediaMetadataAnalyzer
 import kotlinx.coroutines.Dispatchers
@@ -37,11 +41,20 @@ import kotlinx.coroutines.withContext
  * Integrates NLP capabilities with PlexConnect system
  */
 class PlexAiRecommendationService(
-    private val context: Context
+    private val context: Context,
+    private val embeddingDao: SemanticEmbeddingDao? = null
 ) {
     // Lazy initialization of NLP components
-    private val semanticEmbedding by lazy { AdvancedSemanticEmbedding(context) }
-    private val metadataAnalyzer by lazy { MediaMetadataAnalyzer(context) }
+    private val semanticEmbedding by lazy { AdvancedSemanticEmbedding.StubAnalyzer() }
+    private val metadataAnalyzer by lazy { MediaMetadataAnalyzer.StubAnalyzer() }
+    private val performanceMonitor by lazy { NlpPerformanceMonitor(context) }
+    
+    // Advanced caching system
+    private val cacheManager by lazy {
+        embeddingDao?.let { dao ->
+            EmbeddingCacheManager(context, dao, performanceMonitor)
+        }
+    }
 
     /**
      * Get enhanced media items with semantic analysis
@@ -59,36 +72,66 @@ class PlexAiRecommendationService(
      * Enhance a single media item with AI analysis
      */
     suspend fun enhanceMediaItem(mediaItem: PlexMediaItem): EnhancedMediaItem = withContext(Dispatchers.Default) {
+        val cacheKey = mediaItem.ratingKey ?: mediaItem.title ?: return@withContext createErrorEnhancedItem(mediaItem)
+        
         try {
             // Perform metadata analysis
             val metadataAnalysis = metadataAnalyzer.analyzeMetadata(mediaItem)
             
-            // Generate semantic embedding
-            val embeddingResult = semanticEmbedding.generateEmbedding(
-                text = "${mediaItem.title} ${mediaItem.summary}",
-                additionalContext = mapOf(
-                    "media_type" to (mediaItem.type ?: "UNKNOWN"),
-                    "genre" to metadataAnalysis.genres.firstOrNull()
-                )
-            )
-
+            // Get or compute embedding with caching
+            val embedding = cacheManager?.getEmbedding(cacheKey) {
+                semanticEmbedding.generateEmbedding(
+                    text = "${mediaItem.title} ${mediaItem.summary}",
+                    additionalContext = mapOf<String, Any>(
+                        "media_type" to (mediaItem.type?.value ?: "UNKNOWN"),
+                        "genre" to (metadataAnalysis.genres.firstOrNull() ?: "Unknown")
+                    )
+                ).embedding
+            } ?: run {
+                // Fallback if cache manager is not available
+                semanticEmbedding.generateEmbedding(
+                    text = "${mediaItem.title} ${mediaItem.summary}",
+                    additionalContext = mapOf<String, Any>(
+                        "media_type" to (mediaItem.type?.value ?: "UNKNOWN"),
+                        "genre" to (metadataAnalysis.genres.firstOrNull() ?: "Unknown")
+                    )
+                ).embedding
+            }
+            
             EnhancedMediaItem(
                 originalItem = mediaItem,
                 metadataAnalysis = metadataAnalysis,
-                semanticEmbedding = embeddingResult.embedding,
-                semanticLanguage = embeddingResult.language,
-                embeddingSource = embeddingResult.source
+                semanticEmbedding = embedding,
+                semanticLanguage = detectLanguage(mediaItem),
+                embeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.GENERATED
             )
         } catch (e: Exception) {
             // Return enhanced item with error state
-            EnhancedMediaItem(
-                originalItem = mediaItem,
-                metadataAnalysis = null,
-                semanticEmbedding = FloatArray(768) { 0f },
-                semanticLanguage = "en",
-                embeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.ERROR,
-                analysisError = e.message
-            )
+            createErrorEnhancedItem(mediaItem, e.message)
+        }
+    }
+    
+    private fun createErrorEnhancedItem(mediaItem: PlexMediaItem, errorMessage: String? = null): EnhancedMediaItem {
+        return EnhancedMediaItem(
+            originalItem = mediaItem,
+            metadataAnalysis = null,
+            semanticEmbedding = FloatArray(NlpConfig.EMBEDDING_DIMENSION) { 0f },
+            semanticLanguage = "en",
+            embeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.ERROR,
+            analysisError = errorMessage
+        )
+    }
+    
+    private fun detectLanguage(mediaItem: PlexMediaItem): String {
+        // Simple language detection based on metadata
+        // In production, use actual language detection
+        return when {
+            mediaItem.title?.contains(Regex("[\\u4e00-\\u9fff]")) == true -> "zh" // Chinese
+            mediaItem.title?.contains(Regex("[\\u3040-\\u309f\\u30a0-\\u30ff]")) == true -> "ja" // Japanese
+            mediaItem.title?.contains(Regex("[\\uac00-\\ud7af]")) == true -> "ko" // Korean
+            mediaItem.title?.contains(Regex("[\\u0600-\\u06ff]")) == true -> "ar" // Arabic
+            mediaItem.title?.contains(Regex("[\\u0900-\\u097f]")) == true -> "hi" // Hindi
+            else -> "en" // Default to English
         }
     }
 

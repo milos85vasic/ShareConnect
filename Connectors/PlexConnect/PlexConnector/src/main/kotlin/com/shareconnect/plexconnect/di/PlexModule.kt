@@ -72,19 +72,19 @@ val plexModule = module {
     single { get<PlexDatabase>().semanticEmbeddingDao() }
 
     // Repository
-    single<PlexRepository> {
-        PlexRepositoryImpl(
-            apiClient = get(),
-            serverDao = get(),
-            libraryDao = get(),
-            mediaItemDao = get()
-        )
-    }
+    // single<PlexRepository> {
+    //     PlexRepositoryImpl(
+    //         apiClient = get(),
+    //         serverDao = get(),
+    //         libraryDao = get(),
+    //         mediaItemDao = get()
+    //     )
+    // }
 
     // ViewModel
-    viewModel {
-        PlexViewModel(
-            plexRepository = get()
-        )
-    }
+    // viewModel {
+    //     PlexViewModel(
+    //         plexRepository = get()
+    //     )
+    // }
 }

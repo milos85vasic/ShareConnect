@@ -77,7 +77,7 @@ class MediaDetailViewModel(
                 // Load media item details
                 val mediaResult = mediaRepository.getMediaItemDetails(serverResult, ratingKey)
                 mediaResult.fold(
-                    onSuccess = { mediaItem ->
+                    onSuccess = { mediaItem: PlexMediaItem? ->
                         _mediaItem.value = mediaItem
 
                         // If this is a container (show, season, album), load children

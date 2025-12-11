@@ -22,6 +22,8 @@
 
 package com.shareconnect.plexconnect.data.api
 
+import com.shareconnect.plexconnect.data.model.MediaType
+import com.shareconnect.plexconnect.data.model.LibraryType
 import com.shareconnect.plexconnect.data.model.*
 
 /**
@@ -151,6 +153,28 @@ object PlexTestData {
     )
 
     val testLibraries = listOf(testMovieLibrary, testTVShowLibrary, testMusicLibrary)
+
+    // API versions of test libraries
+    val testApiLibraries = listOf(
+        PlexLibrary(
+            id = "1",
+            serverId = "1",
+            title = "Movies",
+            type = com.shareconnect.plexconnect.data.api.LibraryType.MOVIE
+        ),
+        PlexLibrary(
+            id = "2", 
+            serverId = "1",
+            title = "TV Shows",
+            type = com.shareconnect.plexconnect.data.api.LibraryType.TV_SHOW
+        ),
+        PlexLibrary(
+            id = "3",
+            serverId = "1", 
+            title = "Music",
+            type = com.shareconnect.plexconnect.data.api.LibraryType.MUSIC
+        )
+    )
 
     // Media Items Data - Movies
     val testMovie1 = PlexMediaItem(
@@ -304,82 +328,205 @@ object PlexTestData {
     val testAllMedia = testMovies + testTVShows + testEpisodes
 
     // Response Wrappers
-    fun createLibraryResponse(libraries: List<PlexLibrary> = testLibraries): PlexLibraryResponse {
-        return PlexLibraryResponse(
+    fun createLibraryResponse(libraries: List<com.shareconnect.plexconnect.data.api.PlexLibrary> = testApiLibraries): com.shareconnect.plexconnect.data.model.PlexLibraryResponse {
+        return com.shareconnect.plexconnect.data.model.PlexLibraryResponse(
             size = libraries.size,
-            allowSync = true,
-            identifier = "com.plexapp.plugins.library",
-            mediaContainer = PlexMediaContainer(
-                size = libraries.size,
-                totalSize = libraries.size,
-                offset = 0,
-                identifier = "com.plexapp.plugins.library",
-                Directory = libraries
-            )
+            sections = libraries.map { lib ->
+                com.shareconnect.plexconnect.data.model.PlexLibrarySection(
+                    key = lib.id,
+                    title = lib.title,
+                    type = when(lib.type) {
+                        com.shareconnect.plexconnect.data.api.LibraryType.MOVIE -> com.shareconnect.plexconnect.data.model.LibraryType.MOVIE
+                        com.shareconnect.plexconnect.data.api.LibraryType.TV_SHOW -> com.shareconnect.plexconnect.data.model.LibraryType.SHOW
+                        com.shareconnect.plexconnect.data.api.LibraryType.MUSIC -> com.shareconnect.plexconnect.data.model.LibraryType.MUSIC
+                        com.shareconnect.plexconnect.data.api.LibraryType.PHOTO -> com.shareconnect.plexconnect.data.model.LibraryType.PHOTO
+                        com.shareconnect.plexconnect.data.api.LibraryType.MIXED -> com.shareconnect.plexconnect.data.model.LibraryType.UNKNOWN
+                    }
+                )
+            }
         )
     }
 
     fun createMediaResponse(
-        items: List<PlexMediaItem>,
+        items: List<PlexMediaItemDto>,
         librarySectionTitle: String? = null,
-        librarySectionID: Int? = null
-    ): PlexMediaResponse {
-        return PlexMediaResponse(
-            size = items.size,
-            allowSync = true,
-            identifier = "com.plexapp.plugins.library",
-            librarySectionTitle = librarySectionTitle,
-            librarySectionID = librarySectionID,
-            mediaContainer = PlexMediaContainer(
-                size = items.size,
-                totalSize = items.size,
-                offset = 0,
-                identifier = "com.plexapp.plugins.library",
-                librarySectionTitle = librarySectionTitle,
-                librarySectionID = librarySectionID,
-                Metadata = items
-            )
+        librarySectionID: Long? = null
+    ): com.shareconnect.plexconnect.data.model.PlexMediaResponse {
+        return com.shareconnect.plexconnect.data.model.PlexMediaResponse(
+            items = items
         )
     }
 
-    fun createSearchResponse(items: List<PlexMediaItem>): PlexSearchResponse {
-        return PlexSearchResponse(
-            size = items.size,
-            allowSync = true,
-            identifier = "com.plexapp.plugins.library",
-            mediaContainer = PlexMediaContainer(
+    fun createSearchResponse(items: List<PlexMediaItemDto>): com.shareconnect.plexconnect.data.model.PlexSearchResponse {
+        return com.shareconnect.plexconnect.data.model.PlexSearchResponse(
+            items = items
+        )
+    }
+    
+    // API version creators
+    fun createApiLibraryResponse(): com.shareconnect.plexconnect.data.api.PlexLibraryResponse {
+        val modelResponse = createLibraryResponse()
+        return com.shareconnect.plexconnect.data.api.PlexLibraryResponse(
+            size = modelResponse.size,
+            allowSync = modelResponse.allowSync,
+            mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer<PlexLibrary>(
+                size = modelResponse.sections?.size ?: 0,
+                media = modelResponse.sections?.map { section ->
+                    com.shareconnect.plexconnect.data.api.PlexLibrary(
+                        id = section.key,
+                        serverId = section.key,
+                        title = section.title,
+                        type = when(section.type) {
+                            com.shareconnect.plexconnect.data.model.LibraryType.MOVIE -> com.shareconnect.plexconnect.data.api.LibraryType.MOVIE
+                            com.shareconnect.plexconnect.data.model.LibraryType.SHOW -> com.shareconnect.plexconnect.data.api.LibraryType.TV_SHOW
+                            com.shareconnect.plexconnect.data.model.LibraryType.MUSIC -> com.shareconnect.plexconnect.data.api.LibraryType.MUSIC
+                            com.shareconnect.plexconnect.data.model.LibraryType.PHOTO -> com.shareconnect.plexconnect.data.api.LibraryType.PHOTO
+                            com.shareconnect.plexconnect.data.model.LibraryType.UNKNOWN -> com.shareconnect.plexconnect.data.api.LibraryType.MIXED
+                        }
+                    )
+                } ?: emptyList()
+            )
+        )
+    }
+    
+    fun createApiMediaResponse(
+        items: List<PlexMediaItemDto>,
+        librarySectionTitle: String? = null,
+        librarySectionID: Long? = null
+    ): com.shareconnect.plexconnect.data.api.PlexMediaResponse {
+        return com.shareconnect.plexconnect.data.api.PlexMediaResponse(
+            mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer(
                 size = items.size,
-                totalSize = items.size,
-                offset = 0,
-                identifier = "com.plexapp.plugins.library",
-                Metadata = items
+                media = items.map { item ->
+                    com.shareconnect.plexconnect.data.api.PlexMediaItem(
+                        ratingKey = item.ratingKey,
+                        key = item.key,
+                        guid = item.guid,
+                        studio = item.studio,
+                        type = com.shareconnect.plexconnect.data.api.MediaType.fromString(item.type ?: "movie"),
+                        title = item.title ?: "",
+                        titleSort = item.titleSort,
+                        summary = item.summary,
+                        id = item.ratingKey,
+                        libraryId = item.librarySectionID?.toString(),
+                        year = item.year,
+                        duration = item.duration,
+                        librarySectionTitle = item.librarySectionTitle,
+                        librarySectionID = item.librarySectionID?.toLong()
+                    )
+                }
+            )
+        )
+    }
+    
+    fun createApiSearchResponse(
+        items: List<PlexMediaItemDto>
+    ): com.shareconnect.plexconnect.data.api.PlexSearchResponse {
+        return com.shareconnect.plexconnect.data.api.PlexSearchResponse(
+            mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer(
+                size = items.size,
+                media = items.map { item ->
+                    com.shareconnect.plexconnect.data.api.PlexMediaItem(
+                        ratingKey = item.ratingKey,
+                        key = item.key,
+                        guid = item.guid,
+                        studio = item.studio,
+                        type = com.shareconnect.plexconnect.data.api.MediaType.fromString(item.type ?: "movie"),
+                        title = item.title ?: "",
+                        titleSort = item.titleSort,
+                        summary = item.summary,
+                        id = item.ratingKey,
+                        libraryId = item.librarySectionID?.toString(),
+                        year = item.year,
+                        duration = item.duration,
+                        librarySectionTitle = item.librarySectionTitle,
+                        librarySectionID = item.librarySectionID?.toLong()
+                    )
+                }
             )
         )
     }
 
     // Helper methods for filtering test data
-    fun getMovieLibraryItems(): List<PlexMediaItem> = testMovies
+    fun getMovieLibraryItems(): List<PlexMediaItemDto> = testMovies.map { 
+        PlexMediaItemDto(
+            ratingKey = it.ratingKey,
+            key = it.key,
+            guid = it.guid,
+            studio = it.studio,
+            type = it.type.value,
+            title = it.title,
+            titleSort = it.titleSort,
+            summary = it.summary,
+            index = null,
+            year = it.year,
+            duration = it.duration,
+            librarySectionTitle = it.librarySectionTitle,
+            librarySectionID = it.librarySectionID
+        )
+    }
 
-    fun getTVShowLibraryItems(): List<PlexMediaItem> = testTVShows
 
-    fun getEpisodesForShow(showRatingKey: String): List<PlexMediaItem> {
+    fun getTVShowLibraryItems(): List<PlexMediaItemDto> = testTVShows.map {
+        PlexMediaItemDto(
+            ratingKey = it.ratingKey,
+            key = it.key,
+            guid = it.guid,
+            studio = it.studio,
+            type = it.type.value,
+            title = it.title,
+            titleSort = it.titleSort,
+            summary = it.summary,
+            index = null,
+            year = it.year,
+            duration = it.duration,
+            librarySectionTitle = it.librarySectionTitle,
+            librarySectionID = it.librarySectionID
+        )
+    }
+
+
+    fun getEpisodesForShow(showRatingKey: String): List<PlexMediaItemDto> {
         // Map shows to their episodes by comparing the first character of rating keys
         // Show: 2001 -> Episodes: 21xx
         return when (showRatingKey) {
-            "2001" -> testEpisodes.filter { it.ratingKey.startsWith("21") }
+            "2001" -> testEpisodes.map { toDto(it) }
             else -> emptyList()
         }
     }
 
-    fun searchMedia(query: String): List<PlexMediaItem> {
+    fun searchMedia(query: String): List<PlexMediaItemDto> {
         val lowerQuery = query.lowercase()
-        return testAllMedia.filter {
-            it.title.lowercase().contains(lowerQuery) ||
+        return testAllMedia.map { toDto(it) }.filter {
+            it.title?.lowercase()?.contains(lowerQuery) == true ||
             it.summary?.lowercase()?.contains(lowerQuery) == true
         }
     }
+    
+    fun searchMediaDto(query: String): List<PlexMediaItemDto> {
+        return searchMedia(query)
+    }
 
-    fun getMediaByRatingKey(ratingKey: String): PlexMediaItem? {
-        return testAllMedia.find { it.ratingKey == ratingKey }
+    fun getMediaByRatingKey(ratingKey: String): PlexMediaItemDto? {
+        return testAllMedia.find { it.ratingKey == ratingKey }?.let { toDto(it) }
+    }
+
+    // Helper method to convert model to DTO
+    private fun toDto(mediaItem: com.shareconnect.plexconnect.data.model.PlexMediaItem): PlexMediaItemDto {
+        return PlexMediaItemDto(
+            ratingKey = mediaItem.ratingKey,
+            key = mediaItem.key,
+            guid = mediaItem.guid,
+            studio = mediaItem.studio,
+            type = mediaItem.type.value,
+            title = mediaItem.title,
+            titleSort = mediaItem.titleSort,
+            summary = mediaItem.summary,
+            index = null, // index is not in model
+            year = mediaItem.year,
+            duration = mediaItem.duration,
+            librarySectionTitle = mediaItem.librarySectionTitle,
+            librarySectionID = mediaItem.librarySectionID
+        )
     }
 }

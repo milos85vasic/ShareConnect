@@ -5,12 +5,19 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.work.*
 import com.shareconnect.plexconnect.data.api.PlexApiClient
-import com.shareconnect.plexconnect.data.local.PlexDatabase
-import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.data.api.PlexMediaItem as ApiPlexMediaItem
+import com.shareconnect.plexconnect.data.database.PlexDatabase
+import com.shareconnect.plexconnect.data.model.MediaType
+import com.shareconnect.plexconnect.data.model.PlexMediaItem as ModelPlexMediaItem
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.runBlocking
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.TimeUnit
 
 /**
  * Comprehensive offline-first strategy for Plex media synchronization
@@ -44,19 +51,34 @@ class OfflineFirstStrategy(
         serverUrl: String,
         sectionKey: String,
         token: String,
+        serverId: Long,
         forceRefresh: Boolean = false,
         maxCacheAge: Duration = Duration.ofHours(24)
-    ): Flow<List<PlexMediaItem>> = flow {
-        val cachedItems = plexDatabase.plexMediaItemDao().getMediaItemsForLibrary(sectionKey)
-        val lastSyncTime = cachedItems.firstOrNull()?.lastSyncTime ?: Instant.MIN
+    ): Flow<List<ModelPlexMediaItem>> = flow {
+        val cachedItems = try {
+            runBlocking {
+                plexDatabase.plexMediaItemDao().getMediaItemsForLibrary(sectionKey.toLongOrNull() ?: 0L).firstOrNull() ?: emptyList()
+            }
+        } catch (e: Exception) {
+            emptyList<ModelPlexMediaItem>()
+        }
+        
+        val lastSyncTime = cachedItems.firstOrNull()?.let { item ->
+            // Get the updated time from the model item
+            if (item is ModelPlexMediaItem) {
+                item.updatedAt
+            } else {
+                0L
+            }
+        } ?: 0L
 
         // Determine if cache is valid
         val isCacheValid = !forceRefresh && 
-            Instant.now().isBefore(lastSyncTime.plus(maxCacheAge))
+            lastSyncTime > 0 && (System.currentTimeMillis() - lastSyncTime) < maxCacheAge.toMillis()
 
         // If cache is valid, emit cached items
-        if (isCacheValid) {
-            emit(cachedItems.map { it.toPlexMediaItem() })
+        if (isCacheValid && cachedItems.isNotEmpty()) {
+            emit(cachedItems)
             return@flow
         }
 
@@ -64,24 +86,44 @@ class OfflineFirstStrategy(
         if (isNetworkAvailable()) {
             try {
                 val apiResult = plexApiClient.getLibraryItems(serverUrl, sectionKey, token)
-                apiResult.onSuccess { items ->
-                    // Update local database
-                    val mediaItemEntities = items.map { it.toPlexMediaItemEntity(sectionKey) }
-                    plexDatabase.plexMediaItemDao().insertMediaItems(mediaItemEntities)
+                apiResult.onSuccess { apiItems ->
+                    val modelItems = apiItems.map { apiItem ->
+                        ModelPlexMediaItem(
+                            ratingKey = apiItem.ratingKey ?: "",
+                            key = apiItem.key ?: "",
+                            title = apiItem.title ?: "",
+                            type = MediaType.fromString(apiItem.type?.value ?: "movie"),
+                            summary = apiItem.summary,
+                            year = apiItem.year,
+                            duration = apiItem.duration,
+                            serverId = serverId
+                        )
+                    }
                     
-                    // Emit items
-                    emit(items)
-                }.onFailure { 
-                    // Fallback to cached items if network request fails
-                    emit(cachedItems.map { it.toPlexMediaItem() })
+                    // Cache new items
+                    runBlocking {
+                        plexDatabase.plexMediaItemDao().insertMediaItems(modelItems)
+                    }
+                    
+                    emit(modelItems)
+                }.onFailure { error ->
+                    if (cachedItems.isNotEmpty()) {
+                        emit(cachedItems)
+                    } else {
+                        throw error
+                    }
                 }
             } catch (e: Exception) {
-                // Network error, emit cached items
-                emit(cachedItems.map { it.toPlexMediaItem() })
+                // Network error, emit cached items if available
+                if (cachedItems.isNotEmpty()) {
+                    emit(cachedItems)
+                } else {
+                    emit(emptyList<ModelPlexMediaItem>())
+                }
             }
         } else {
-            // No network, emit cached items
-            emit(cachedItems.map { it.toPlexMediaItem() })
+            // No network, emit empty list
+            emit(emptyList<ModelPlexMediaItem>())
         }
     }
 
@@ -125,32 +167,4 @@ class OfflineFirstStrategy(
             }
         }
     }
-
-    /**
-     * Convert PlexMediaItem to PlexMediaItemEntity for local storage
-     */
-    private fun PlexMediaItem.toPlexMediaItemEntity(libraryId: String) = 
-        PlexMediaItemEntity(
-            id = this.ratingKey ?: this.guid ?: "unknown",
-            libraryId = libraryId,
-            title = this.title ?: "Unknown Title",
-            type = this.type ?: "unknown",
-            year = this.year,
-            summary = this.summary,
-            lastSyncTime = Instant.now()
-        )
-
-    /**
-     * Convert PlexMediaItemEntity to PlexMediaItem for API compatibility
-     */
-    private fun PlexMediaItemEntity.toPlexMediaItem() = 
-        PlexMediaItem(
-            ratingKey = this.id,
-            key = this.id,
-            guid = this.id,
-            title = this.title,
-            type = this.type,
-            year = this.year,
-            summary = this.summary
-        )
 }

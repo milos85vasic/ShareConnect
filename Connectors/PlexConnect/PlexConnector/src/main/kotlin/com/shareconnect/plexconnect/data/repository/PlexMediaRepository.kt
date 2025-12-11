@@ -32,7 +32,9 @@ import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.data.model.PlexServer
 import com.shareconnect.plexconnect.service.PlexAiRecommendationService
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.emitAll
 class PlexMediaRepository(
     private val context: Context,
     private val mediaItemDao: PlexMediaItemDao,
@@ -57,15 +59,31 @@ class PlexMediaRepository(
 
     suspend fun getMediaItemByKey(ratingKey: String): PlexMediaItem? = mediaItemDao.getMediaItemByKey(ratingKey)
 
-    suspend fun refreshLibraryItems(server: PlexServer, library: PlexLibrary, limit: Int = 100, offset: Int = 0): Result<List<PlexMediaItem>> {
+    suspend fun refreshLibraryItems(server: PlexServer, library: com.shareconnect.plexconnect.data.model.PlexLibrary, limit: Int = 100, offset: Int = 0): Result<List<com.shareconnect.plexconnect.data.model.PlexMediaItem>> {
         return try {
             server.token?.let { token ->
                 val itemsResult = apiClient.getLibraryItems(server.baseUrl, library.key, token, limit, offset)
                 itemsResult.fold(
-                    onSuccess = { items ->
-                        val itemsWithServerId = items.map { it.copy(serverId = server.id) }
-                        mediaItemDao.insertMediaItems(itemsWithServerId)
-                        Result.success(itemsWithServerId)
+                    onSuccess = { apiItems ->
+                        val modelItems = apiItems.map { apiItem ->
+                            com.shareconnect.plexconnect.data.model.PlexMediaItem(
+                                ratingKey = apiItem.ratingKey ?: "",
+                                key = apiItem.key ?: "",
+                                guid = apiItem.guid,
+                                librarySectionTitle = apiItem.librarySectionTitle,
+                                librarySectionID = apiItem.librarySectionID,
+                                type = com.shareconnect.plexconnect.data.model.MediaType.fromString(apiItem.type?.value ?: "movie"),
+                                title = apiItem.title ?: "",
+                                titleSort = apiItem.titleSort,
+                                summary = apiItem.summary,
+                                year = apiItem.year,
+                                duration = apiItem.duration,
+                                studio = apiItem.studio,
+                                serverId = server.id
+                            )
+                        }
+                        mediaItemDao.insertMediaItems(modelItems)
+                        Result.success(modelItems)
                     },
                     onFailure = { error ->
                         Result.failure(error)
@@ -77,20 +95,72 @@ class PlexMediaRepository(
         }
     }
 
-    suspend fun getMediaItemDetails(server: PlexServer, ratingKey: String): Result<PlexMediaItem?> {
+    suspend fun getMediaItemDetails(server: PlexServer, ratingKey: String): Result<com.shareconnect.plexconnect.data.model.PlexMediaItem?> {
         return try {
             server.token?.let { token ->
-                apiClient.getMediaItem(server.baseUrl, ratingKey, token)
+                val result = apiClient.getMediaItem(server.baseUrl, ratingKey, token)
+                result.fold(
+                    onSuccess = { apiItem ->
+                        if (apiItem != null) {
+                            val modelItem = com.shareconnect.plexconnect.data.model.PlexMediaItem(
+                                ratingKey = apiItem.ratingKey ?: "",
+                                key = apiItem.key ?: "",
+                                guid = apiItem.guid,
+                                librarySectionTitle = apiItem.librarySectionTitle,
+                                librarySectionID = apiItem.librarySectionID,
+                                type = com.shareconnect.plexconnect.data.model.MediaType.fromString(apiItem.type?.value ?: "movie"),
+                                title = apiItem.title ?: "",
+                                titleSort = apiItem.titleSort,
+                                summary = apiItem.summary,
+                                year = apiItem.year,
+                                duration = apiItem.duration,
+                                studio = apiItem.studio,
+                                serverId = server.id
+                            )
+                            Result.success(modelItem)
+                        } else {
+                            Result.success(null)
+                        }
+                    },
+                    onFailure = { error ->
+                        Result.failure(error)
+                    }
+                )
             } ?: Result.failure(Exception("Server not authenticated"))
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
 
-    suspend fun getMediaChildren(server: PlexServer, ratingKey: String): Result<List<PlexMediaItem>> {
+    suspend fun getMediaChildren(server: PlexServer, ratingKey: String): Result<List<com.shareconnect.plexconnect.data.model.PlexMediaItem>> {
         return try {
             server.token?.let { token ->
-                apiClient.getMediaChildren(server.baseUrl, ratingKey, token)
+                val result = apiClient.getMediaChildren(server.baseUrl, ratingKey, token)
+                result.fold(
+                    onSuccess = { apiItems ->
+                        val modelItems = apiItems.map { apiItem ->
+                            com.shareconnect.plexconnect.data.model.PlexMediaItem(
+                                ratingKey = apiItem.ratingKey ?: "",
+                                key = apiItem.key ?: "",
+                                guid = apiItem.guid,
+                                librarySectionTitle = apiItem.librarySectionTitle,
+                                librarySectionID = apiItem.librarySectionID,
+                                type = com.shareconnect.plexconnect.data.model.MediaType.fromString(apiItem.type?.value ?: "episode"),
+                                title = apiItem.title ?: "",
+                                titleSort = apiItem.titleSort,
+                                summary = apiItem.summary,
+                                year = apiItem.year,
+                                duration = apiItem.duration,
+                                studio = apiItem.studio,
+                                serverId = server.id
+                            )
+                        }
+                        Result.success(modelItems)
+                    },
+                    onFailure = { error ->
+                        Result.failure(error)
+                    }
+                )
             } ?: Result.failure(Exception("Server not authenticated"))
         } catch (e: Exception) {
             Result.failure(e)
@@ -100,7 +170,7 @@ class PlexMediaRepository(
     suspend fun markAsPlayed(server: PlexServer, mediaItem: PlexMediaItem): Result<Unit> {
         return try {
             server.token?.let { token ->
-                val result = apiClient.markAsPlayed(server.baseUrl, mediaItem.key, token)
+                val result = apiClient.markAsPlayed(server.baseUrl, mediaItem.key, server.token)
                 result.fold(
                     onSuccess = {
                         val updatedItem = mediaItem.copy(
@@ -123,7 +193,7 @@ class PlexMediaRepository(
     suspend fun markAsUnplayed(server: PlexServer, mediaItem: PlexMediaItem): Result<Unit> {
         return try {
             server.token?.let { token ->
-                val result = apiClient.markAsUnplayed(server.baseUrl, mediaItem.key, token)
+                val result = apiClient.markAsUnplayed(server.baseUrl, mediaItem.key, server.token)
                 result.fold(
                     onSuccess = {
                         val updatedItem = mediaItem.copy(
@@ -146,7 +216,7 @@ class PlexMediaRepository(
     suspend fun updateProgress(server: PlexServer, mediaItem: PlexMediaItem, progressMs: Long): Result<Unit> {
         return try {
             server.token?.let { token ->
-                val result = apiClient.updateProgress(server.baseUrl, mediaItem.key, progressMs, token)
+                val result = apiClient.updateProgress(server.baseUrl, mediaItem.key, progressMs, server.token)
                 result.fold(
                     onSuccess = {
                         val updatedItem = mediaItem.copy(
@@ -169,7 +239,31 @@ class PlexMediaRepository(
     suspend fun searchMedia(server: PlexServer, query: String, limit: Int = 50): Result<List<PlexMediaItem>> {
         return try {
             server.token?.let { token ->
-                apiClient.search(server.baseUrl, query, token, limit)
+                val result = apiClient.search(server.baseUrl, query, token, limit)
+                result.fold(
+                    onSuccess = { response ->
+                        val modelItems = response.map { apiItem ->
+                            PlexMediaItem(
+                                ratingKey = apiItem.ratingKey ?: "",
+                                key = apiItem.key ?: "",
+                                guid = apiItem.guid,
+                                librarySectionTitle = apiItem.librarySectionTitle,
+                                librarySectionID = apiItem.librarySectionID,
+                                type = MediaType.valueOf(apiItem.type?.name ?: "MOVIE"),
+                                title = apiItem.title ?: "",
+                                titleSort = apiItem.titleSort,
+                                summary = apiItem.summary,
+                                year = apiItem.year,
+                                duration = apiItem.duration,
+                                serverId = server.id
+                            )
+                        } ?: emptyList()
+                        Result.success(modelItems)
+                    },
+                    onFailure = { error ->
+                        Result.failure(error)
+                    }
+                )
             } ?: Result.failure(Exception("Server not authenticated"))
         } catch (e: Exception) {
             Result.failure(e)
@@ -204,19 +298,25 @@ class PlexMediaRepository(
      * Get enhanced media items with semantic analysis
      */
     fun getEnhancedMediaItems(): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
-        aiRecommendationService.getEnhancedMediaItems(getAllMediaItems())
+        flow {
+            emitAll(aiRecommendationService.getEnhancedMediaItems(getAllMediaItems()))
+        }
 
     /**
      * Get enhanced media items for a specific server
      */
     fun getEnhancedMediaItemsForServer(serverId: Long): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
-        aiRecommendationService.getEnhancedMediaItems(getMediaItemsForServer(serverId))
+        flow {
+            emitAll(aiRecommendationService.getEnhancedMediaItems(getMediaItemsForServer(serverId)))
+        }
 
     /**
      * Get enhanced media items for a specific library
      */
     fun getEnhancedMediaItemsForLibrary(libraryId: Long): Flow<List<PlexAiRecommendationService.EnhancedMediaItem>> =
-        aiRecommendationService.getEnhancedMediaItems(getMediaItemsForLibrary(libraryId))
+        flow {
+            emitAll(aiRecommendationService.getEnhancedMediaItems(getMediaItemsForLibrary(libraryId)))
+        }
 
     /**
      * Find similar media items using semantic similarity

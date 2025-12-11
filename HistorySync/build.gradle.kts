@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         minSdk = 23
-        targetSdk = 36
+        testOptions.targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -66,16 +66,4 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
 }
 
-// Integration tests configuration
-tasks.register&lt;Test&gt;("integrationTest") {
-    group = "verification"
-    description = "Runs integration tests"
-    useJUnitPlatform {
-        includeTags("integration")
-    }
-}
-
-// Ensure integrationTest task is added to the check lifecycle
-tasks.named("check") {
-    dependsOn("integrationTest")
-}
+// Integration tests are configured via integration_test_config.gradle.kts

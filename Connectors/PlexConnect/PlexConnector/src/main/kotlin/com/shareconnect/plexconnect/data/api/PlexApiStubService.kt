@@ -121,7 +121,7 @@ class PlexApiStubService : PlexApiService {
             return Response.error(401, "Unauthorized - invalid token".toResponseBody())
         }
 
-        val response = PlexTestData.createLibraryResponse()
+        val response = PlexTestData.createApiLibraryResponse()
         return Response.success(response)
     }
 
@@ -150,10 +150,10 @@ class PlexApiStubService : PlexApiService {
         // Apply pagination
         val paginatedItems = items.drop(offset).take(limit)
 
-        val response = PlexTestData.createMediaResponse(
+        val response = PlexTestData.createApiMediaResponse(
             items = paginatedItems,
-            librarySectionTitle = PlexTestData.testLibraries.find { it.key == sectionKey }?.title,
-            librarySectionID = sectionKey.toIntOrNull()
+            librarySectionTitle = PlexTestData.testApiLibraries.find { it.id == sectionKey }?.title,
+            librarySectionID = sectionKey.toLongOrNull()
         )
 
         return Response.success(response)
@@ -171,13 +171,13 @@ class PlexApiStubService : PlexApiService {
             return Response.error(401, "Unauthorized - invalid token".toResponseBody())
         }
 
-        val item = PlexTestData.getMediaByRatingKey(ratingKey)
+        val itemDto = PlexTestData.getMediaByRatingKey(ratingKey)
             ?: return Response.error(404, "Media item not found".toResponseBody())
 
-        val response = PlexTestData.createMediaResponse(
-            items = listOf(item),
-            librarySectionTitle = item.librarySectionTitle,
-            librarySectionID = item.librarySectionID?.toInt()
+        val response = PlexTestData.createApiMediaResponse(
+            items = listOf(itemDto),
+            librarySectionTitle = itemDto.librarySectionTitle,
+            librarySectionID = itemDto.librarySectionID
         )
 
         return Response.success(response)
@@ -197,12 +197,11 @@ class PlexApiStubService : PlexApiService {
 
         // Get children (e.g., episodes for a TV show)
         val children = PlexTestData.getEpisodesForShow(ratingKey)
-
         val parent = PlexTestData.getMediaByRatingKey(ratingKey)
-        val response = PlexTestData.createMediaResponse(
+        val response = PlexTestData.createApiMediaResponse(
             items = children,
             librarySectionTitle = parent?.librarySectionTitle,
-            librarySectionID = parent?.librarySectionID?.toInt()
+            librarySectionID = parent?.librarySectionID
         )
 
         return Response.success(response)
@@ -268,7 +267,7 @@ class PlexApiStubService : PlexApiService {
         query: String,
         limit: Int,
         token: String
-    ): Response<PlexSearchResponse> {
+    ): Response<com.shareconnect.plexconnect.data.api.PlexSearchResponse> {
         delay(NETWORK_DELAY_MS)
 
         // Validate token
@@ -277,8 +276,8 @@ class PlexApiStubService : PlexApiService {
         }
 
         // Search through test data
-        val results = PlexTestData.searchMedia(query).take(limit)
-        val response = PlexTestData.createSearchResponse(results)
+        val results = PlexTestData.searchMediaDto(query).take(limit)
+        val response = PlexTestData.createApiSearchResponse(results)
 
         return Response.success(response)
     }

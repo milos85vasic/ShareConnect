@@ -27,7 +27,9 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import androidx.room.ColumnInfo
 import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding
+import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding.EmbeddingSource
 
 /**
  * Entity for storing semantic embeddings of media items

@@ -8,7 +8,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.koin.androidx.compose.getViewModel
+// import org.koin.androidx.compose.koinViewModel
+import com.shareconnect.plexconnect.data.model.MediaType
+import com.shareconnect.plexconnect.data.model.PlexLibrarySection
+import com.shareconnect.plexconnect.data.model.PlexMediaItem
+// import com.shareconnect.plexconnect.ui.viewmodels.PlexViewModel
 
 /**
  * Main screen for Plex Connector
@@ -16,223 +20,161 @@ import org.koin.androidx.compose.getViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlexConnectorScreen(
-    viewModel: PlexViewModel = getViewModel()
+    // viewModel: PlexViewModel = koinViewModel()
 ) {
-    // Collect UI states
-    val serverInfo by viewModel.serverInfo.collectAsState()
-    val libraries by viewModel.libraries.collectAsState()
-    val mediaItems by viewModel.mediaItems.collectAsState()
-    val isLoading by viewModel.isLoading.collectAsState()
-    val error by viewModel.error.collectAsState()
-
-    // Input states
-    var serverUrl by remember { mutableStateOf("") }
-    var token by remember { mutableStateOf("") }
-    var searchQuery by remember { mutableStateOf("") }
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Plex Connector") }
+    // Temporary hardcoded data
+    val libraries = remember {
+        listOf(
+            PlexLibrarySection(
+                key = "1",
+                title = "Movies",
+                type = com.shareconnect.plexconnect.data.model.LibraryType.MOVIE
+            ),
+            PlexLibrarySection(
+                key = "2", 
+                title = "TV Shows",
+                type = com.shareconnect.plexconnect.data.model.LibraryType.SHOW
+            )
+        )
+    }
+    
+    val mediaItems = remember {
+        listOf(
+            PlexMediaItem(
+                ratingKey = "1",
+                title = "Sample Movie",
+                type = MediaType.MOVIE,
+                summary = "A sample movie for testing",
+                year = 2023
+            )
+        )
+    }
+    
+    val isLoading = remember { false }
+    val error = remember { null as String? }
+    
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        // Libraries section
+        item {
+            Text(
+                text = "Libraries",
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.padding(vertical = 8.dp)
             )
         }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .padding(padding)
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
-            // Server Connection Section
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                TextField(
-                    value = serverUrl,
-                    onValueChange = { serverUrl = it },
-                    label = { Text("Server URL") },
-                    modifier = Modifier.weight(1f)
-                )
-                TextField(
-                    value = token,
-                    onValueChange = { token = it },
-                    label = { Text("Token") },
-                    modifier = Modifier.weight(1f)
-                )
-                Button(
-                    onClick = { 
-                        viewModel.fetchServerInfo(serverUrl, token)
-                        viewModel.fetchLibraries(serverUrl, token)
-                    }
-                ) {
-                    Text("Connect")
-                }
-            }
-
-            // Server Info Display
-            serverInfo?.let { info ->
-                Text(
-                    "Server: ${info.myPlexUsername} (${info.machineIdentifier})",
-                    style = MaterialTheme.typography.bodyLarge
-                )
-            }
-
-            // Libraries Section
+        
+        items(libraries) { library ->
+            LibraryItem(library = library)
+        }
+        
+        // Media items section
+        item {
             Text(
-                "Libraries",
-                style = MaterialTheme.typography.titleMedium,
+                text = "Recent Media",
+                style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.padding(vertical = 8.dp)
             )
-            LazyColumn {
-                items(libraries) { library ->
-                    LibraryItem(
-                        library = library,
-                        onSelect = { 
-                            viewModel.fetchLibraryItems(
-                                serverUrl, 
-                                library.key, 
-                                token
-                            )
-                        }
-                    )
-                }
-            }
-
-            // Search Section
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                TextField(
-                    value = searchQuery,
-                    onValueChange = { searchQuery = it },
-                    label = { Text("Search Media") },
-                    modifier = Modifier.weight(1f)
-                )
-                Button(
-                    onClick = { 
-                        viewModel.searchMedia(
-                            serverUrl, 
-                            searchQuery, 
-                            token
-                        )
-                    }
-                ) {
-                    Text("Search")
-                }
-            }
-
-            // Media Items Section
-            Text(
-                "Media Items",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(vertical = 8.dp)
+        }
+        
+        items(mediaItems) { mediaItem ->
+            SimpleMediaItemCard(
+                mediaItem = mediaItem,
+                onClick = { /* Handle click */ }
             )
-            LazyColumn {
-                items(mediaItems) { item ->
-                    MediaItemCard(
-                        mediaItem = item,
-                        onMarkAsPlayed = { 
-                            viewModel.markAsPlayed(
-                                serverUrl, 
-                                item.ratingKey ?: return@MediaItemCard, 
-                                token
-                            )
-                        }
-                    )
+        }
+        
+        // Loading indicator
+        if (isLoading) {
+            item {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
                 }
             }
-
-            // Loading and Error Handling
-            if (isLoading) {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
-            }
-
-            error?.let { errorMsg ->
-                Text(
-                    text = errorMsg,
-                    color = MaterialTheme.colorScheme.error,
-                    modifier = Modifier.padding(vertical = 8.dp)
-                )
-                Button(
-                    onClick = { viewModel.clearError() },
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
+        }
+        
+        // Error message
+        error?.let { errorMsg ->
+            item {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)
                 ) {
-                    Text("Dismiss")
+                    Text(
+                        text = errorMsg,
+                        modifier = Modifier.padding(16.dp),
+                        color = MaterialTheme.colorScheme.onErrorContainer
+                    )
                 }
             }
         }
     }
 }
 
-/**
- * Composable for displaying a library item
- */
 @Composable
-fun LibraryItem(
-    library: PlexLibrarySection,
-    onSelect: () -> Unit
+private fun SimpleMediaItemCard(
+    mediaItem: PlexMediaItem,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 4.dp),
-        onClick = onSelect
+        onClick = onClick
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
         ) {
             Text(
-                text = library.title,
+                text = mediaItem.title ?: "Unknown Title",
                 style = MaterialTheme.typography.titleMedium
             )
-            Text(
-                text = "Type: ${library.type}",
-                style = MaterialTheme.typography.bodyMedium
-            )
+            mediaItem.year?.let { year ->
+                Text(
+                    text = "Year: $year",
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
+            mediaItem.type?.let { type ->
+                Text(
+                    text = "Type: ${type.value}",
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
         }
     }
 }
 
-/**
- * Composable for displaying a media item
- */
 @Composable
-fun MediaItemCard(
-    mediaItem: PlexMediaItem,
-    onMarkAsPlayed: () -> Unit
+private fun LibraryItem(
+    library: PlexLibrarySection
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp)
+            .padding(vertical = 4.dp),
+        onClick = { /* Handle library click */ }
     ) {
         Row(
             modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(modifier = Modifier.weight(1f)) {
+            Column {
                 Text(
-                    text = mediaItem.title ?: "Untitled",
+                    text = library.title,
                     style = MaterialTheme.typography.titleMedium
                 )
                 Text(
-                    text = "Type: ${mediaItem.type}",
-                    style = MaterialTheme.typography.bodyMedium
+                    text = "Type: ${library.type.value}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
-                mediaItem.year?.let { year ->
-                    Text(
-                        text = "Year: $year",
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                }
-            }
-            Button(onClick = onMarkAsPlayed) {
-                Text("Mark Played")
             }
         }
     }

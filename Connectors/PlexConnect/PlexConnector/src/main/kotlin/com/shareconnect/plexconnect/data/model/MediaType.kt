@@ -23,30 +23,24 @@
 
 package com.shareconnect.plexconnect.data.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import kotlinx.serialization.Serializable
+/**
+ * Media types supported by Plex
+ */
+enum class MediaType(val value: String) {
+    MOVIE("movie"),
+    EPISODE("episode"),
+    SEASON("season"),
+    SHOW("show"),
+    TRACK("track"),
+    ALBUM("album"),
+    ARTIST("artist"),
+    PHOTO("photo"),
+    CLIP("clip"),
+    UNKNOWN("unknown");
 
-@Serializable
-@Entity(tableName = "plex_libraries")
-data class PlexLibrary(
-    @PrimaryKey
-    val key: String,
-    val title: String,
-    val type: LibraryType,
-    val serverId: Long,
-    val agent: String? = null,
-    val scanner: String? = null,
-    val language: String? = null,
-    val uuid: String? = null,
-    val updatedAt: Long? = null,
-    val createdAt: Long? = null,
-    val scannedAt: Long? = null,
-    val content: Boolean = true,
-    val directory: Boolean = true,
-    val contentChangedAt: Long? = null,
-    val hidden: Int = 0,
-    val art: String = "",
-    val composite: String = "",
-    val thumb: String = ""
-)
+    companion object {
+        fun fromString(value: String): MediaType {
+            return entries.find { it.value == value } ?: UNKNOWN
+        }
+    }
+}

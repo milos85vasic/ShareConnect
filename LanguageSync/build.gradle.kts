@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         minSdk = 23
-        targetSdk = 36
+        testOptions.targetSdk = 36
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -67,7 +67,7 @@ dependencies {
 }
 
 // Integration tests configuration
-tasks.register&lt;Test&gt;("integrationTest") {
+tasks.register<Test>("integrationTest") {
     group = "verification"
     description = "Runs integration tests"
     useJUnitPlatform {

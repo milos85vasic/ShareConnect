@@ -26,6 +26,7 @@ package com.shareconnect.plexconnect.data.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
 import com.shareconnect.plexconnect.data.database.dao.PlexLibraryDao
 import com.shareconnect.plexconnect.data.database.dao.PlexMediaItemDao
 import com.shareconnect.plexconnect.data.database.dao.PlexServerDao
@@ -42,8 +43,11 @@ import com.shareconnect.plexconnect.data.model.PlexServer
         PlexMediaItem::class,
         SemanticEmbeddingEntity::class
     ],
-    version = 2, // Incremented version for new entity
-    exportSchema = true
+    version = 2, // NLP integration
+    exportSchema = false, // Disabled to avoid KSP warning
+    autoMigrations = [
+        // Migration will be handled manually for now
+    ]
 )
 @TypeConverters(PlexTypeConverters::class)
 abstract class PlexDatabase : RoomDatabase() {

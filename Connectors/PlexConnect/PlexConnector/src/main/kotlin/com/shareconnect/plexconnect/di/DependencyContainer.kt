@@ -67,6 +67,7 @@ object DependencyContainer {
 
     val plexMediaRepository: PlexMediaRepository by lazy {
         PlexMediaRepository(
+            applicationContext,
             plexDatabase.plexMediaItemDao(),
             plexApiClient
         )

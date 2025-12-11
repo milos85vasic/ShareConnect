@@ -8,8 +8,8 @@ import kotlinx.coroutines.withContext
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.common.ops.NormalizeOp
-import org.tensorflow.lite.support.text.NlClassifier
-import org.tensorflow.lite.support.text.nlclassifier.BertNLClassifier
+import org.tensorflow.lite.task.text.nlclassifier.BertNLClassifier
+import org.tensorflow.lite.task.text.nlclassifier.NlClassifier
 import java.io.IOException
 import java.nio.MappedByteBuffer
 
@@ -19,8 +19,8 @@ import java.nio.MappedByteBuffer
 class MediaMetadataAnalyzer(private val context: Context) {
 
     // Lazy-initialized NLP models
-    private val genreClassifier by lazy { loadGenreClassifier() }
-    private val sentimentAnalyzer by lazy { loadSentimentAnalyzer() }
+    private val genreClassifier: NlClassifier? by lazy { loadGenreClassifier() }
+    private val sentimentAnalyzer: NlClassifier? by lazy { loadSentimentAnalyzer() }
     private val embeddings by lazy { loadWordEmbeddings() }
 
     /**
@@ -71,10 +71,11 @@ class MediaMetadataAnalyzer(private val context: Context) {
      */
     private fun predictGenres(summary: String): List<String> {
         return try {
-            genreClassifier.classify(summary)
-                .filter { it.score > GENRE_CONFIDENCE_THRESHOLD }
-                .map { it.label }
-                .take(3) // Top 3 genres
+            val categories = genreClassifier?.classify(summary)
+            categories?.filter { it.score > GENRE_CONFIDENCE_THRESHOLD }
+                ?.map { it.label }
+                ?.take(3) // Top 3 genres
+                ?: emptyList()
         } catch (e: Exception) {
             Log.w("MediaMetadataAnalyzer", "Genre prediction failed", e)
             emptyList()
@@ -86,8 +87,8 @@ class MediaMetadataAnalyzer(private val context: Context) {
      */
     private fun analyzeSentiment(summary: String): Double {
         return try {
-            sentimentAnalyzer.classify(summary)
-                .firstOrNull()?.score 
+            val categories = sentimentAnalyzer?.classify(summary)
+            categories?.firstOrNull()?.score 
                 ?: 0.5 // Neutral sentiment
         } catch (e: Exception) {
             Log.w("MediaMetadataAnalyzer", "Sentiment analysis failed", e)
@@ -106,24 +107,24 @@ class MediaMetadataAnalyzer(private val context: Context) {
     /**
      * Load genre classification model
      */
-    private fun loadGenreClassifier(): NlClassifier {
+    private fun loadGenreClassifier(): NlClassifier? {
         return try {
             BertNLClassifier.createFromFile(context, "genre_classifier.tflite")
         } catch (e: IOException) {
-            Log.e("MediaMetadataAnalyzer", "Failed to load genre classifier", e)
-            throw e
+            Log.w("MediaMetadataAnalyzer", "Failed to load genre classifier, using null", e)
+            null
         }
     }
 
     /**
      * Load sentiment analysis model
      */
-    private fun loadSentimentAnalyzer(): NlClassifier {
+    private fun loadSentimentAnalyzer(): NlClassifier? {
         return try {
             BertNLClassifier.createFromFile(context, "sentiment_analyzer.tflite")
         } catch (e: IOException) {
-            Log.e("MediaMetadataAnalyzer", "Failed to load sentiment analyzer", e)
-            throw e
+            Log.w("MediaMetadataAnalyzer", "Failed to load sentiment analyzer, using null", e)
+            null
         }
     }
 

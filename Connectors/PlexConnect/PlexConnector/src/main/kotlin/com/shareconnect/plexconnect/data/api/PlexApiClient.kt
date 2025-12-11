@@ -187,7 +187,7 @@ class PlexApiClient(
 
     suspend fun markAsPlayed(serverUrl: String, key: String, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = service.markAsPlayed(serverUrl, key, token = token)
+            val response = service.markAsPlayed(serverUrl, key, identifier = "com.plexapp.plugins.library", token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
@@ -201,7 +201,7 @@ class PlexApiClient(
 
     suspend fun markAsUnplayed(serverUrl: String, key: String, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = service.markAsUnplayed(serverUrl, key, token = token)
+            val response = service.markAsUnplayed(serverUrl, key, identifier = "com.plexapp.plugins.library", token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {
@@ -215,7 +215,7 @@ class PlexApiClient(
 
     suspend fun updateProgress(serverUrl: String, key: String, time: Long, token: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
-            val response = service.updateProgress(serverUrl, key, time = time, token = token)
+            val response = service.updateProgress(serverUrl, key, identifier = "com.plexapp.plugins.library", time = time, state = "playing", token = token)
             if (response.isSuccessful) {
                 Result.success(Unit)
             } else {

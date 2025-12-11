@@ -43,6 +43,7 @@ import com.shareconnect.plexconnect.ui.components.MediaItemCard
 import com.shareconnect.plexconnect.ui.viewmodels.PlexAiRecommendationViewModel
 import com.shareconnect.plexconnect.ui.viewmodels.PlexAiRecommendationViewModelFactory
 import org.koin.androidx.compose.koinViewModel
+import kotlinx.coroutines.flow.first
 
 /**
  * Screen displaying AI-powered media recommendations
@@ -287,9 +288,9 @@ private fun EnhancedMediaItemCard(
                     )
                 }
                 
-                if (analysis.keywords.isNotEmpty()) {
+                if (analysis.genres.isNotEmpty()) {
                     Text(
-                        text = "Keywords: ${analysis.keywords.take(5).joinToString(", ")}",
+                        text = "Genres: ${analysis.genres.take(5).joinToString(separator = ", ")}",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

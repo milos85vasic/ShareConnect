@@ -1,6 +1,7 @@
 package com.shareconnect.plexconnect.data.repository
 
 import com.shareconnect.plexconnect.data.model.PlexLibrarySection
+import com.shareconnect.plexconnect.data.model.PlexMediaFilter
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.data.model.PlexServerInfo
 import kotlinx.coroutines.flow.Flow
