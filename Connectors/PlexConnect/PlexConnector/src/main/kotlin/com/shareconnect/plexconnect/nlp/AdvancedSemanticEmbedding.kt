@@ -46,6 +46,8 @@ class AdvancedSemanticEmbedding(private val context: Context) {
         COMBINED,
         TRANSFORMED,
         GENERATED,
+        UNIVERSAL_SENTENCE_ENCODER,
+        MULTILINGUAL_TRANSFORMER,
         ERROR
     }
     

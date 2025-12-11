@@ -22,8 +22,8 @@
 
 package com.shareconnect.plexconnect.data.api
 
-import com.shareconnect.plexconnect.data.model.LibraryType
-import com.shareconnect.plexconnect.data.model.MediaType
+import com.shareconnect.plexconnect.data.api.LibraryType
+import com.shareconnect.plexconnect.data.api.MediaType
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.*
@@ -144,7 +144,7 @@ class PlexApiStubServiceTest {
 
         assertEquals("Should return 3 libraries", 3, libraries.size)
         assertTrue("Should contain Movies library", libraries.any { it.title == "Movies" && it.type == LibraryType.MOVIE })
-        assertTrue("Should contain TV Shows library", libraries.any { it.title == "TV Shows" && it.type == LibraryType.SHOW })
+        assertTrue("Should contain TV Shows library", libraries.any { it.title == "TV Shows" && it.type == LibraryType.TV_SHOW })
         assertTrue("Should contain Music library", libraries.any { it.title == "Music" && it.type == LibraryType.MUSIC })
     }
 
@@ -358,7 +358,7 @@ class PlexApiStubServiceTest {
         val results = searchResponse.mediaContainer?.Metadata ?: emptyList()
 
         assertTrue("Should return at least 1 result", results.size >= 1)
-        assertTrue("Should contain The Matrix", results.any { it.title.contains("Matrix") })
+        assertTrue("Should contain The Matrix", results.any { it.title?.contains("Matrix") == true })
     }
 
     @Test

@@ -192,7 +192,7 @@ class PlexApiClientStubModeTest {
         val results = result.getOrThrow()
         assertNotNull("Results should not be null", results)
         assertTrue("Should return at least 1 result", results.size >= 1)
-        assertTrue("Should contain The Matrix", results.any { it.title.contains("Matrix") })
+        assertTrue("Should contain The Matrix", results.any { it.title?.contains("Matrix") == true })
     }
 
     @Test

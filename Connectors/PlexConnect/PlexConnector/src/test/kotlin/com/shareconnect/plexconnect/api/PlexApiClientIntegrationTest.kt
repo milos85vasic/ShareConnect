@@ -1,6 +1,5 @@
 package com.shareconnect.plexconnect.api
 
-import com.shareconnect.plexconnect.data.api.ConnectorApiConfig
 import com.shareconnect.plexconnect.data.api.PlexApiClient
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
@@ -8,12 +7,7 @@ import org.junit.Assert.*
 
 class PlexApiClientIntegrationTest {
 
-    private val apiClient = PlexApiClient(
-        ConnectorApiConfig(
-            baseUrl = "https://plex.tv/",
-            timeout = 30000
-        )
-    )
+    private val apiClient = PlexApiClient(isStubMode = true)
 
     @Test
     fun `request PIN generates valid PIN response`() = runBlocking {

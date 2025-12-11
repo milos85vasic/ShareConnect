@@ -37,9 +37,12 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.hamcrest.CoreMatchers.*
-import org.hamcrest.MatcherAssert.assertThat
-import java.util.*
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNull
+import kotlin.random.Random
 
 @RunWith(AndroidJUnit4::class)
 class SemanticEmbeddingDaoTest {
@@ -74,12 +77,12 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingForMedia("test_key_1")
 
         // Then
-        assertThat(insertedId, not(nullValue))
-        assertThat(retrieved, not(nullValue))
-        assertThat(retrieved!!.mediaRatingKey, `is`("test_key_1"))
-        assertThat(retrieved.embedding.contentLength, `is`(768))
-        assertThat(retrieved.language, `is`("en"))
-        assertThat(retrieved.embeddingSource, `is`(AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMER))
+        assertNotNull(insertedId)
+        assertNotNull(retrieved)
+        assertEquals("test_key_1", retrieved!!.mediaRatingKey)
+        assertEquals(768, retrieved.embedding.size)
+        assertEquals("en", retrieved.language)
+        assertEquals(AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER, retrieved.embeddingSource)
     }
 
     @Test
@@ -93,8 +96,8 @@ class SemanticEmbeddingDaoTest {
         val retrieved = flow.first()
 
         // Then
-        assertThat(retrieved, not(nullValue))
-        assertThat(retrieved!!.mediaRatingKey, `is`("test_key_2"))
+        assertNotNull(retrieved)
+        assertEquals("test_key_2", retrieved!!.mediaRatingKey)
     }
 
     @Test
@@ -111,8 +114,8 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingsForMedia(listOf("test_key_1", "test_key_3"))
 
         // Then
-        assertThat(retrieved.size, `is`(2))
-        assertThat(retrieved.map { it.mediaRatingKey }, hasItems("test_key_1", "test_key_3"))
+        assertEquals(2, retrieved.size)
+        assertTrue(retrieved.map { it.mediaRatingKey }.containsAll(listOf("test_key_1", "test_key_3")))
     }
 
     @Test
@@ -129,24 +132,24 @@ class SemanticEmbeddingDaoTest {
         val retrieved = flow.first()
 
         // Then
-        assertThat(retrieved.size, `is`(2))
-        assertThat(retrieved.map { it.mediaRatingKey }, hasItems("test_key_1", "test_key_2"))
+        assertEquals(2, retrieved.size)
+        assertTrue(retrieved.map { it.mediaRatingKey }.containsAll(listOf("test_key_1", "test_key_2")))
     }
 
     @Test
     fun getEmbeddingsBySource() = runTest {
         // Given
-        val transformerEmbedding = createTestEmbedding("test_key_1", AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMER)
+        val transformerEmbedding = createTestEmbedding("test_key_1", AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER)
         val errorEmbedding = createTestEmbedding("test_key_2", AdvancedSemanticEmbedding.EmbeddingSource.ERROR)
         dao.insertEmbeddings(listOf(transformerEmbedding, errorEmbedding))
 
         // When
-        val retrieved = dao.getEmbeddingsBySource(AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMER)
+        val retrieved = dao.getEmbeddingsBySource(AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER)
 
         // Then
-        assertThat(retrieved.size, `is`(1))
-        assertThat(retrieved[0].mediaRatingKey, `is`("test_key_1"))
-        assertThat(retrieved[0].embeddingSource, `is`(AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMER))
+        assertEquals(1, retrieved.size)
+        assertEquals("test_key_1", retrieved[0].mediaRatingKey)
+        assertEquals(AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER, retrieved[0].embeddingSource)
     }
 
     @Test
@@ -160,9 +163,9 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingsByLanguage("en")
 
         // Then
-        assertThat(retrieved.size, `is`(1))
-        assertThat(retrieved[0].mediaRatingKey, `is`("test_key_1"))
-        assertThat(retrieved[0].language, `is`("en"))
+        assertEquals(1, retrieved.size)
+        assertEquals("test_key_1", retrieved[0].mediaRatingKey)
+        assertEquals("en", retrieved[0].language)
     }
 
     @Test
@@ -176,9 +179,9 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getHighQualityEmbeddings(0.8f)
 
         // Then
-        assertThat(retrieved.size, `is`(1))
-        assertThat(retrieved[0].mediaRatingKey, `is`("test_key_1"))
-        assertThat(retrieved[0].qualityScore, `is`(0.9f))
+        assertEquals(1, retrieved.size)
+        assertEquals("test_key_1", retrieved[0].mediaRatingKey)
+        assertEquals(0.9f, retrieved[0].qualityScore)
     }
 
     @Test
@@ -193,9 +196,9 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingForMedia("test_key_1")
 
         // Then
-        assertThat(retrieved, not(nullValue))
-        assertThat(retrieved!!.qualityScore, `is`(0.9f))
-        assertThat(retrieved.updatedAt, not(`is`(originalEmbedding.updatedAt)))
+        assertNotNull(retrieved)
+        assertEquals(0.9f, retrieved!!.qualityScore)
+        assertTrue(retrieved.updatedAt != originalEmbedding.updatedAt)
     }
 
     @Test
@@ -210,9 +213,9 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingForMedia("test_key_1")
 
         // Then
-        assertThat(retrieved, not(nullValue))
-        assertThat(retrieved!!.needsRefresh, `is`(true))
-        assertThat(retrieved.updatedAt, `is`(timestamp))
+        assertNotNull(retrieved)
+        assertEquals(true, retrieved!!.needsRefresh)
+        assertEquals(timestamp, retrieved.updatedAt)
     }
 
     @Test
@@ -227,9 +230,9 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingForMedia("test_key_1")
 
         // Then
-        assertThat(retrieved, not(nullValue))
-        assertThat(retrieved!!.qualityScore, `is`(0.8f))
-        assertThat(retrieved.updatedAt, `is`(timestamp))
+        assertNotNull(retrieved)
+        assertEquals(0.8f, retrieved!!.qualityScore)
+        assertEquals(timestamp, retrieved.updatedAt)
     }
 
     @Test
@@ -243,7 +246,7 @@ class SemanticEmbeddingDaoTest {
         val retrieved = dao.getEmbeddingForMedia("test_key_1")
 
         // Then
-        assertThat(retrieved, nullValue())
+        assertNull(retrieved)
     }
 
     @Test
@@ -260,11 +263,11 @@ class SemanticEmbeddingDaoTest {
         val stats = dao.getEmbeddingStatistics()
 
         // Then
-        assertThat(stats.total, `is`(3))
-        assertThat(stats.avgQuality, `is`(0.7f))
-        assertThat(stats.minQuality, `is`(0.5f))
-        assertThat(stats.maxQuality, `is`(0.9f))
-        assertThat(stats.refreshNeeded, `is`(1))
+        assertEquals(3, stats.total)
+        assertEquals(0.7f, stats.avgQuality)
+        assertEquals(0.5f, stats.minQuality)
+        assertEquals(0.9f, stats.maxQuality)
+        assertEquals(1, stats.refreshNeeded)
     }
 
     @Test
@@ -280,7 +283,7 @@ class SemanticEmbeddingDaoTest {
         val count = dao.getEmbeddingCount()
 
         // Then
-        assertThat(count, `is`(2))
+        assertEquals(2, count)
     }
 
     @Test
@@ -297,17 +300,17 @@ class SemanticEmbeddingDaoTest {
         val count = dao.getRefreshNeededCount()
 
         // Then
-        assertThat(count, `is`(2))
+        assertEquals(2, count)
     }
 
     private fun createTestEmbedding(
         ratingKey: String,
-        source: AdvancedSemanticEmbedding.EmbeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMER,
+        source: AdvancedSemanticEmbedding.EmbeddingSource = AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER,
         language: String = "en",
         qualityScore: Float = 1.0f,
         needsRefresh: Boolean = false
     ): SemanticEmbeddingEntity {
-        val floatArray = FloatArray(768) { Random().nextFloat() }
+        val floatArray = FloatArray(768) { Random.Default.nextFloat() }
         return SemanticEmbeddingEntity.fromFloatArray(
             mediaRatingKey = ratingKey,
             embedding = floatArray,

@@ -25,7 +25,10 @@ package com.shareconnect.plexconnect.data.api
 
 import com.shareconnect.plexconnect.data.model.*
 import com.shareconnect.plexconnect.data.model.MediaType
-import com.shareconnect.plexconnect.data.model.LibraryType
+import com.shareconnect.plexconnect.data.api.PlexLibrary as ApiPlexLibrary
+import com.shareconnect.plexconnect.data.api.PlexMediaItem as ApiPlexMediaItem
+import com.shareconnect.plexconnect.data.api.LibraryType as ApiLibraryType
+import com.shareconnect.plexconnect.data.api.MediaType as ApiMediaType
 import io.mockk.*
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -185,11 +188,11 @@ class PlexApiClientMockKTest {
     @Test
     fun `test get libraries`() = runBlocking {
         val mockLibraries = listOf(
-            PlexLibrary(key = "1", type = LibraryType.MOVIE, title = "Movies", serverId = 1L),
-            PlexLibrary(key = "2", type = LibraryType.SHOW, title = "TV Shows", serverId = 1L)
+            ApiPlexLibrary(id = "1", serverId = "test-server", title = "Movies", type = ApiLibraryType.MOVIE),
+            ApiPlexLibrary(id = "2", serverId = "test-server", title = "TV Shows", type = ApiLibraryType.TV_SHOW)
         )
         val mockResponse = PlexLibraryResponse(
-            mediaContainer = PlexMediaContainer(
+            mediaContainer = PlexMediaContainer<ApiPlexLibrary>(
                 size = 2,
                 Directory = mockLibraries
             )
@@ -203,17 +206,33 @@ class PlexApiClientMockKTest {
         val libraries = result.getOrNull()!!
         assertEquals(2, libraries.size)
         assertEquals("Movies", libraries[0].title)
-        assertEquals(LibraryType.MOVIE, libraries[0].type)
+        assertEquals(ApiLibraryType.MOVIE, libraries[0].type)
     }
 
     @Test
     fun `test get library items`() = runBlocking {
         val mockItems = listOf(
-            PlexMediaItem(ratingKey = "100", key = "/library/metadata/100", type = MediaType.MOVIE, title = "Test Movie", year = 2024, serverId = 1L),
-            PlexMediaItem(ratingKey = "101", key = "/library/metadata/101", type = MediaType.MOVIE, title = "Another Movie", year = 2023, serverId = 1L)
+            ApiPlexMediaItem(
+                ratingKey = "100", 
+                key = "/library/metadata/100", 
+                type = ApiMediaType.MOVIE, 
+                title = "Test Movie", 
+                year = 2024,
+                id = "100",
+                libraryId = "1"
+            ),
+            ApiPlexMediaItem(
+                ratingKey = "101", 
+                key = "/library/metadata/101", 
+                type = ApiMediaType.MOVIE, 
+                title = "Another Movie", 
+                year = 2023,
+                id = "101",
+                libraryId = "1"
+            )
         )
         val mockResponse = PlexMediaResponse(
-            mediaContainer = PlexMediaContainer(
+            mediaContainer = PlexMediaContainer<ApiPlexMediaItem>(
                 size = 2,
                 Metadata = mockItems
             )
@@ -232,16 +251,17 @@ class PlexApiClientMockKTest {
 
     @Test
     fun `test get media item`() = runBlocking {
-        val mockItem = PlexMediaItem(
+        val mockItem = ApiPlexMediaItem(
             ratingKey = "100",
             key = "/library/metadata/100",
-            type = MediaType.MOVIE,
+            type = ApiMediaType.MOVIE,
             title = "Test Movie",
             year = 2024,
-            serverId = 1L
+            id = "100",
+            libraryId = "1"
         )
         val mockResponse = PlexMediaResponse(
-            mediaContainer = PlexMediaContainer(
+            mediaContainer = PlexMediaContainer<ApiPlexMediaItem>(
                 size = 1,
                 Metadata = listOf(mockItem)
             )
@@ -261,12 +281,12 @@ class PlexApiClientMockKTest {
     @Test
     fun `test get media children for TV show`() = runBlocking {
         val mockChildren = listOf(
-            PlexMediaItem(ratingKey = "201", key = "/library/metadata/201", type = MediaType.SEASON, title = "Season 1", serverId = 1L),
-            PlexMediaItem(ratingKey = "202", key = "/library/metadata/202", type = MediaType.SEASON, title = "Season 2", serverId = 1L),
-            PlexMediaItem(ratingKey = "203", key = "/library/metadata/203", type = MediaType.SEASON, title = "Season 3", serverId = 1L)
+            ApiPlexMediaItem(ratingKey = "201", key = "/library/metadata/201", type = ApiMediaType.SEASON, title = "Season 1", id = "201", libraryId = "1"),
+            ApiPlexMediaItem(ratingKey = "202", key = "/library/metadata/202", type = ApiMediaType.SEASON, title = "Season 2", id = "202", libraryId = "1"),
+            ApiPlexMediaItem(ratingKey = "203", key = "/library/metadata/203", type = ApiMediaType.SEASON, title = "Season 3", id = "203", libraryId = "1")
         )
         val mockResponse = PlexMediaResponse(
-            mediaContainer = PlexMediaContainer(
+            mediaContainer = PlexMediaContainer<ApiPlexMediaItem>(
                 size = 3,
                 Metadata = mockChildren
             )
@@ -280,7 +300,7 @@ class PlexApiClientMockKTest {
         val children = result.getOrNull()!!
         assertEquals(3, children.size)
         assertEquals("Season 1", children[0].title)
-        assertEquals(MediaType.SEASON, children[0].type)
+        assertEquals(ApiMediaType.SEASON, children[0].type)
     }
 
     @Test
@@ -316,11 +336,11 @@ class PlexApiClientMockKTest {
     @Test
     fun `test search`() = runBlocking {
         val mockResults = listOf(
-            PlexMediaItem(ratingKey = "100", key = "/library/metadata/100", type = MediaType.MOVIE, title = "Test Movie Result", year = 2024, serverId = 1L),
-            PlexMediaItem(ratingKey = "200", key = "/library/metadata/200", type = MediaType.SHOW, title = "Test Show Result", year = 2023, serverId = 1L)
+            ApiPlexMediaItem(ratingKey = "100", key = "/library/metadata/100", type = ApiMediaType.MOVIE, title = "Test Movie Result", year = 2024, id = "100", libraryId = "1"),
+            ApiPlexMediaItem(ratingKey = "200", key = "/library/metadata/200", type = ApiMediaType.SHOW, title = "Test Show Result", year = 2023, id = "200", libraryId = "1")
         )
         val mockResponse = PlexSearchResponse(
-            mediaContainer = PlexMediaContainer(
+            mediaContainer = PlexMediaContainer<ApiPlexMediaItem>(
                 size = 2,
                 Metadata = mockResults
             )

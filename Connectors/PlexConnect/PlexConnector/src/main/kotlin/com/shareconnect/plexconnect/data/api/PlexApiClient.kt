@@ -37,7 +37,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 class PlexApiClient(
     plexApiService: PlexApiService? = null,
-    private val isStubMode: Boolean = false
+    val isStubMode: Boolean = false
 ) {
 
     private val tag = "PlexApiClient"

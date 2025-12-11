@@ -7,14 +7,14 @@ import com.shareconnect.plexconnect.data.model.MediaType
 import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.MockitoAnnotations
-import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 
 @RunWith(AndroidJUnit4::class)
 class PlexAiRecommendationServiceTest {
@@ -30,7 +30,7 @@ class PlexAiRecommendationServiceTest {
     }
 
     @Test
-    fun `enhance media items with AI analysis`() = runBlocking {
+    fun `enhance media items with AI analysis`() = runTest {
         val testMediaItems = listOf(
             createTestMediaItem(
                 title = "Inception",
@@ -66,7 +66,7 @@ class PlexAiRecommendationServiceTest {
     }
 
     @Test
-    fun `find similar media using semantic similarity`() = runBlocking {
+    fun `find similar media using semantic similarity`() = runTest {
         val targetItem = createTestMediaItem(
             title = "Interstellar",
             summary = "A team of explorers travel through a wormhole in space.",
@@ -118,7 +118,7 @@ class PlexAiRecommendationServiceTest {
     }
 
     @Test
-    fun `cross-lingual recommendations work correctly`() = runBlocking {
+    fun `cross-lingual recommendations work correctly`() = runTest {
         val testMediaItems = listOf(
             createTestMediaItem(
                 title = "The Dark Knight",
@@ -152,7 +152,7 @@ class PlexAiRecommendationServiceTest {
     }
 
     @Test
-    fun `error handling for invalid media items`() = runBlocking {
+    fun `error handling for invalid media items`() = runTest {
         val invalidItems = listOf(
             createTestMediaItem(title = "", summary = ""),
             createTestMediaItem(title = null, summary = null)
@@ -178,7 +178,7 @@ class PlexAiRecommendationServiceTest {
     }
 
     @Test
-    fun `media type context enhances embeddings correctly`() = runBlocking {
+    fun `media type context enhances embeddings correctly`() = runTest {
         val movieItem = createTestMediaItem(
             title = "Test Movie",
             summary = "A test movie for analysis.",
@@ -199,8 +199,8 @@ class PlexAiRecommendationServiceTest {
         val showEmbeddingSum = enhancedShow.semanticEmbedding.sum()
 
         assertTrue(
-            movieEmbeddingSum != showEmbeddingSum, 
-            "Different media types should produce different embeddings"
+            "Different media types should produce different embeddings",
+            movieEmbeddingSum != showEmbeddingSum
         )
     }
 
@@ -214,10 +214,12 @@ class PlexAiRecommendationServiceTest {
     ): PlexMediaItem {
         return PlexMediaItem(
             ratingKey = "test_${title.hashCode()}",
-            title = title,
+            key = "/library/metadata/${title.hashCode()}",
+            title = title ?: "",
             summary = summary,
-            type = type?.value,
-            year = 2023
+            type = type ?: MediaType.MOVIE,
+            year = 2023,
+            serverId = 1L
         )
     }
 }
