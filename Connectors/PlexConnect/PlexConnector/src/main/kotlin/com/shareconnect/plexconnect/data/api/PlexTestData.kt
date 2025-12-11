@@ -425,7 +425,7 @@ object PlexTestData {
         return com.shareconnect.plexconnect.data.api.PlexSearchResponse(
             mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer(
                 size = items.size,
-                media = items.map { item ->
+                Metadata = items.map { item ->
                     com.shareconnect.plexconnect.data.api.PlexMediaItem(
                         ratingKey = item.ratingKey,
                         key = item.key,
