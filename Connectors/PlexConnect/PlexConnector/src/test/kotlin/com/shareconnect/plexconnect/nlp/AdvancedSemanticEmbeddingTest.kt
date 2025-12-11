@@ -32,6 +32,7 @@ import org.junit.runner.RunWith
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Assert.fail
 
 @RunWith(AndroidJUnit4::class)
 class AdvancedSemanticEmbeddingTest {
@@ -103,8 +104,14 @@ class AdvancedSemanticEmbeddingTest {
         // When
         val result = analyzer.analyze(text)
         
+        // Debug - let's see what we actually get
+        println("DEBUG: Result class: ${result?.let { it::class.java.simpleName } ?: "null"}")
+        println("DEBUG: Result value: $result")
+        
         // Then
-        assertEquals(null, result, "Stub analyzer should return null")
+        if (result != null) {
+            fail("Expected null but got: $result")
+        }
     }
 
     @Test

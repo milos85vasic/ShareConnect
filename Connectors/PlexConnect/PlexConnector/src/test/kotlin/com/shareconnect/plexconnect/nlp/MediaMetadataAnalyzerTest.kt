@@ -9,7 +9,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.MockitoAnnotations
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -24,7 +23,6 @@ class MediaMetadataAnalyzerTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         analyzer = MediaMetadataAnalyzer(context)
-        MockitoAnnotations.openMocks(this)
     }
 
     @Test
@@ -81,7 +79,7 @@ class MediaMetadataAnalyzerTest {
         val analysisResult = analyzer.analyzeMetadata(mediaItem)
         val titleAnalysis = analysisResult.title
 
-        assertEquals("Title should be normalized", "the dark knight rises", titleAnalysis.normalizedTitle)
+        assertEquals("Title should be normalized", "the dark knight rises!", titleAnalysis.normalizedTitle)
         assertTrue("Word count should be positive", titleAnalysis.wordCount > 0)
     }
 

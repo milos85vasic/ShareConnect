@@ -371,7 +371,7 @@ object PlexTestData {
             allowSync = modelResponse.allowSync,
             mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer<PlexLibrary>(
                 size = modelResponse.sections?.size ?: 0,
-                media = modelResponse.sections?.map { section ->
+                Directory = modelResponse.sections?.map { section ->
                     com.shareconnect.plexconnect.data.api.PlexLibrary(
                         id = section.key,
                         serverId = section.key,
@@ -397,7 +397,7 @@ object PlexTestData {
         return com.shareconnect.plexconnect.data.api.PlexMediaResponse(
             mediaContainer = com.shareconnect.plexconnect.data.api.PlexMediaContainer(
                 size = items.size,
-                media = items.map { item ->
+                Metadata = items.map { item ->
                     com.shareconnect.plexconnect.data.api.PlexMediaItem(
                         ratingKey = item.ratingKey,
                         key = item.key,

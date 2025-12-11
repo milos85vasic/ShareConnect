@@ -11,7 +11,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.MockitoAnnotations
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
@@ -26,7 +25,6 @@ class PlexAiRecommendationServiceTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         aiService = PlexAiRecommendationService(context)
-        MockitoAnnotations.openMocks(this)
     }
 
     @Test
@@ -213,8 +211,8 @@ class PlexAiRecommendationServiceTest {
         type: MediaType? = MediaType.MOVIE
     ): PlexMediaItem {
         return PlexMediaItem(
-            ratingKey = "test_${title.hashCode()}",
-            key = "/library/metadata/${title.hashCode()}",
+            ratingKey = if (title != null) "test_${title.hashCode()}" else "test_invalid",
+            key = if (title != null) "/library/metadata/${title.hashCode()}" else "/library/metadata/invalid",
             title = title ?: "",
             summary = summary,
             type = type ?: MediaType.MOVIE,

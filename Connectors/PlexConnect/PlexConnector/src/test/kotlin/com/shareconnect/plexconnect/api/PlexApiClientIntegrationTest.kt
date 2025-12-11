@@ -4,7 +4,10 @@ import com.shareconnect.plexconnect.data.api.PlexApiClient
 import kotlinx.coroutines.runBlocking
 import org.junit.Test
 import org.junit.Assert.*
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
+@RunWith(RobolectricTestRunner::class)
 class PlexApiClientIntegrationTest {
 
     private val apiClient = PlexApiClient(isStubMode = true)

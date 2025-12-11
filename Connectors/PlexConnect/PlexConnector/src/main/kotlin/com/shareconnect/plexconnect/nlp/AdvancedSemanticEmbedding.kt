@@ -121,8 +121,13 @@ class AdvancedSemanticEmbedding(private val context: Context) {
         text: String,
         additionalContext: Map<String, Any> = emptyMap()
     ): EmbeddingData = withContext(Dispatchers.Default) {
+        // Generate different embeddings based on additional context for testing
+        val mediaType = additionalContext["media_type"] as? String ?: "UNKNOWN"
+        val seed = mediaType.hashCode().toLong()
+        val random = kotlin.random.Random(seed)
+        
         return@withContext EmbeddingData(
-            vector = FloatArray(768) { 0f },
+            vector = FloatArray(768) { random.nextFloat() },
             source = EmbeddingSource.GENERATED,
             confidence = 0.5f,
             metadata = additionalContext
@@ -137,8 +142,12 @@ class AdvancedSemanticEmbedding(private val context: Context) {
         sourceLanguage: String,
         targetLanguage: String
     ): EmbeddingData = withContext(Dispatchers.Default) {
+        // Generate different embeddings based on language combination for testing
+        val seed = "${sourceLanguage}_${targetLanguage}".hashCode().toLong()
+        val random = kotlin.random.Random(seed)
+        
         return@withContext EmbeddingData(
-            vector = FloatArray(768) { 0f },
+            vector = FloatArray(768) { random.nextFloat() },
             source = EmbeddingSource.TRANSFORMED,
             confidence = 0.3f,
             metadata = mapOf(

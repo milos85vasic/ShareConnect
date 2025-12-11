@@ -6,6 +6,7 @@ import com.shareconnect.plexconnect.data.model.PlexMediaItem
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.catch
 import kotlin.random.Random
 
 /**
@@ -38,8 +39,12 @@ class AdvancedRecommendationAlgorithm(
             emit(recommendations)
         } catch (e: Exception) {
             Log.e("AdvancedRecommendationAlgorithm", "Failed to generate recommendations", e)
-            emit(emptyList())
+            // Don't emit from catch block, let the flow fail or handle upstream
+            throw e // Re-throw to let the caller handle
         }
+    }.catch { e ->
+        Log.e("AdvancedRecommendationAlgorithm", "Flow exception caught", e)
+        emit(emptyList()) // Safe emission from catch operator
     }
 }
 

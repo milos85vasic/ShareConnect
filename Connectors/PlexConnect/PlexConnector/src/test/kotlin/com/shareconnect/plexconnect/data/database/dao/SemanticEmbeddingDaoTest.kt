@@ -29,6 +29,8 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.shareconnect.plexconnect.data.database.PlexDatabase
 import com.shareconnect.plexconnect.data.database.entity.SemanticEmbeddingEntity
+import com.shareconnect.plexconnect.data.model.PlexMediaItem
+import com.shareconnect.plexconnect.data.model.MediaType
 import com.shareconnect.plexconnect.nlp.AdvancedSemanticEmbedding
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -69,7 +71,10 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun insertAndGetEmbedding() = runTest {
-        // Given
+        // Given - Create parent media item first to satisfy foreign key constraint
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val embedding = createTestEmbedding("test_key_1")
 
         // When
@@ -80,14 +85,17 @@ class SemanticEmbeddingDaoTest {
         assertNotNull(insertedId)
         assertNotNull(retrieved)
         assertEquals("test_key_1", retrieved!!.mediaRatingKey)
-        assertEquals(768, retrieved.embedding.size)
+        assertEquals(768, retrieved.getEmbeddingAsFloatArray().size)
         assertEquals("en", retrieved.language)
         assertEquals(AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER, retrieved.embeddingSource)
     }
 
     @Test
     fun getEmbeddingFlow() = runTest {
-        // Given
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_2")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val embedding = createTestEmbedding("test_key_2")
 
         // When
@@ -102,7 +110,14 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getEmbeddingsForMediaList() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2"),
+            createTestMediaItem("test_key_3")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val embeddings = listOf(
             createTestEmbedding("test_key_1"),
             createTestEmbedding("test_key_2"),
@@ -120,7 +135,13 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getAllEmbeddings() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val embeddings = listOf(
             createTestEmbedding("test_key_1"),
             createTestEmbedding("test_key_2")
@@ -138,7 +159,13 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getEmbeddingsBySource() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val transformerEmbedding = createTestEmbedding("test_key_1", AdvancedSemanticEmbedding.EmbeddingSource.UNIVERSAL_SENTENCE_ENCODER)
         val errorEmbedding = createTestEmbedding("test_key_2", AdvancedSemanticEmbedding.EmbeddingSource.ERROR)
         dao.insertEmbeddings(listOf(transformerEmbedding, errorEmbedding))
@@ -154,7 +181,13 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getEmbeddingsByLanguage() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val englishEmbedding = createTestEmbedding("test_key_1", language = "en")
         val spanishEmbedding = createTestEmbedding("test_key_2", language = "es")
         dao.insertEmbeddings(listOf(englishEmbedding, spanishEmbedding))
@@ -170,10 +203,12 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getHighQualityEmbeddings() = runTest {
-        // Given
-        val highQualityEmbedding = createTestEmbedding("test_key_1", qualityScore = 0.9f)
-        val lowQualityEmbedding = createTestEmbedding("test_key_2", qualityScore = 0.4f)
-        dao.insertEmbeddings(listOf(highQualityEmbedding, lowQualityEmbedding))
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
+        val embedding = createTestEmbedding("test_key_1", qualityScore = 0.9f)
+        dao.insertEmbedding(embedding)
 
         // When
         val retrieved = dao.getHighQualityEmbeddings(0.8f)
@@ -186,7 +221,10 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun updateEmbedding() = runTest {
-        // Given
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val originalEmbedding = createTestEmbedding("test_key_1", qualityScore = 0.5f)
         val insertedId = dao.insertEmbedding(originalEmbedding)
         val updatedEmbedding = originalEmbedding.copy(id = insertedId, qualityScore = 0.9f, updatedAt = System.currentTimeMillis())
@@ -203,7 +241,10 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun markForRefresh() = runTest {
-        // Given
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val embedding = createTestEmbedding("test_key_1", needsRefresh = false)
         dao.insertEmbedding(embedding)
         val timestamp = System.currentTimeMillis()
@@ -220,7 +261,10 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun updateQualityScore() = runTest {
-        // Given
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val embedding = createTestEmbedding("test_key_1", qualityScore = 0.5f)
         dao.insertEmbedding(embedding)
         val timestamp = System.currentTimeMillis()
@@ -237,7 +281,10 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun deleteEmbeddingForMedia() = runTest {
-        // Given
+        // Given - Create parent media item first
+        val mediaItem = createTestMediaItem("test_key_1")
+        database.plexMediaItemDao().insertMediaItem(mediaItem)
+        
         val embedding = createTestEmbedding("test_key_1")
         dao.insertEmbedding(embedding)
 
@@ -251,7 +298,14 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getEmbeddingStatistics() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2"),
+            createTestMediaItem("test_key_3")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val embeddings = listOf(
             createTestEmbedding("test_key_1", qualityScore = 0.9f),
             createTestEmbedding("test_key_2", qualityScore = 0.7f),
@@ -272,7 +326,13 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getEmbeddingCount() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val embeddings = listOf(
             createTestEmbedding("test_key_1"),
             createTestEmbedding("test_key_2")
@@ -288,7 +348,14 @@ class SemanticEmbeddingDaoTest {
 
     @Test
     fun getRefreshNeededCount() = runTest {
-        // Given
+        // Given - Create parent media items first
+        val mediaItems = listOf(
+            createTestMediaItem("test_key_1"),
+            createTestMediaItem("test_key_2"),
+            createTestMediaItem("test_key_3")
+        )
+        mediaItems.forEach { database.plexMediaItemDao().insertMediaItem(it) }
+        
         val embeddings = listOf(
             createTestEmbedding("test_key_1", needsRefresh = false),
             createTestEmbedding("test_key_2", needsRefresh = true),
@@ -320,6 +387,31 @@ class SemanticEmbeddingDaoTest {
             contentHash = "hash_$ratingKey",
             qualityScore = qualityScore,
             needsRefresh = needsRefresh
+        )
+    }
+    
+    private fun createTestMediaItem(
+        ratingKey: String,
+        title: String = "Test Media $ratingKey",
+        type: MediaType = MediaType.MOVIE
+    ): PlexMediaItem {
+        return PlexMediaItem(
+            ratingKey = ratingKey,
+            key = ratingKey,
+            type = type,
+            title = title,
+            librarySectionTitle = "Test Library",
+            librarySectionID = 1L,
+            librarySectionKey = "1",
+            summary = "Test summary for $title",
+            addedAt = System.currentTimeMillis(),
+            updatedAt = System.currentTimeMillis(),
+            year = 2024,
+            rating = 8.5f,
+            duration = 120000L, // 2 minutes in milliseconds
+            art = "https://example.com/art.jpg",
+            thumb = "https://example.com/thumb.jpg",
+            serverId = 1L
         )
     }
 }

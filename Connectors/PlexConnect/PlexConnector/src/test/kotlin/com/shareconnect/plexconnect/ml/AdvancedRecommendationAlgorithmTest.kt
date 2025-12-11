@@ -14,10 +14,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import org.mockito.kotlin.any
-import org.mockito.kotlin.whenever
+import io.mockk.every
+import io.mockk.mockk
 import org.junit.Assert.assertTrue
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -29,18 +27,15 @@ class AdvancedRecommendationAlgorithmTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @Mock
     private lateinit var mockDatabase: PlexDatabase
-
-    @Mock
     private lateinit var mockPlexMediaItemDao: PlexMediaItemDao
-
     private lateinit var recommendationAlgorithm: AdvancedRecommendationAlgorithm
 
     @Before
     fun setup() {
-        MockitoAnnotations.openMocks(this)
-        whenever(mockDatabase.plexMediaItemDao()).thenReturn(mockPlexMediaItemDao)
+        mockDatabase = mockk()
+        mockPlexMediaItemDao = mockk()
+        every { mockDatabase.plexMediaItemDao() } returns mockPlexMediaItemDao
         recommendationAlgorithm = AdvancedRecommendationAlgorithm(mockDatabase)
     }
 
@@ -58,10 +53,10 @@ class AdvancedRecommendationAlgorithmTest {
         )
 
         // Mock DAO responses
-        whenever(mockPlexMediaItemDao.getWatchedItems())
-            .thenReturn(flowOf(watchHistory))
-        whenever(mockPlexMediaItemDao.getAllMediaItems())
-            .thenReturn(flowOf(allItems))
+        every { mockPlexMediaItemDao.getWatchedItems() }
+            .returns(flowOf(watchHistory))
+        every { mockPlexMediaItemDao.getAllMediaItems() }
+            .returns(flowOf(allItems))
 
         // Generate recommendations
         val recommendations = recommendationAlgorithm
@@ -85,10 +80,10 @@ class AdvancedRecommendationAlgorithmTest {
             createMockMediaItem("Comedy Show", MediaType.SHOW, 2022, "Hilarious comedy")
         )
 
-        whenever(mockPlexMediaItemDao.getWatchedItems())
-            .thenReturn(flowOf(watchHistory))
-        whenever(mockPlexMediaItemDao.getAllMediaItems())
-            .thenReturn(flowOf(allItems))
+        every { mockPlexMediaItemDao.getWatchedItems() }
+            .returns(flowOf(watchHistory))
+        every { mockPlexMediaItemDao.getAllMediaItems() }
+            .returns(flowOf(allItems))
 
         val recommendations = recommendationAlgorithm
             .generateRecommendations(
@@ -141,10 +136,10 @@ class AdvancedRecommendationAlgorithmTest {
             createMockMediaItem("Comedy Show", MediaType.SHOW, 2022)
         )
 
-        whenever(mockPlexMediaItemDao.getWatchedItems())
-            .thenReturn(flowOf(watchHistory))
-        whenever(mockPlexMediaItemDao.getAllMediaItems())
-            .thenReturn(flowOf(allItems))
+        every { mockPlexMediaItemDao.getWatchedItems() }
+            .returns(flowOf(watchHistory))
+        every { mockPlexMediaItemDao.getAllMediaItems() }
+            .returns(flowOf(allItems))
 
         val config1 = RecommendationConfig(
             maxRecommendations = 2,

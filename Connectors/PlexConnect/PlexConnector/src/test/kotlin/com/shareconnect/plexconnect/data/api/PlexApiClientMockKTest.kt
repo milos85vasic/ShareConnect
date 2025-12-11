@@ -354,7 +354,7 @@ class PlexApiClientMockKTest {
         val results = result.getOrNull()!!
         assertEquals(2, results.size)
         assertEquals("Test Movie Result", results[0].title)
-        assertEquals(MediaType.MOVIE, results[0].type)
+        assertEquals(ApiMediaType.MOVIE, results[0].type)
     }
 
     @Test

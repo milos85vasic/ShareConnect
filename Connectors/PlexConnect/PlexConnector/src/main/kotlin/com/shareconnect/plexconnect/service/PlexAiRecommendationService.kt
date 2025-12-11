@@ -75,6 +75,11 @@ class PlexAiRecommendationService(
     suspend fun enhanceMediaItem(mediaItem: PlexMediaItem): EnhancedMediaItem = withContext(Dispatchers.Default) {
         val cacheKey = mediaItem.ratingKey ?: mediaItem.title ?: return@withContext createErrorEnhancedItem(mediaItem)
         
+        // Additional validation for empty title/summary
+        if (mediaItem.title.isNullOrEmpty() && mediaItem.summary.isNullOrEmpty()) {
+            return@withContext createErrorEnhancedItem(mediaItem, "Empty title and summary")
+        }
+        
         try {
             // Perform metadata analysis
             val metadataAnalysis = metadataAnalyzer.analyzeMetadata(mediaItem)
