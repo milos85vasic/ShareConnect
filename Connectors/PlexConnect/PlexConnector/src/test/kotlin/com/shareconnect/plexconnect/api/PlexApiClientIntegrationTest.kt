@@ -35,13 +35,16 @@ class PlexApiClientIntegrationTest {
 
     @Test
     fun `get server info with valid URL succeeds`() = runBlocking {
-        // Note: This requires a real Plex server URL and token for true integration testing
-        // For now, this is a placeholder to demonstrate structure
+        // Note: This test uses stub mode, so it should succeed
         val serverUrl = "http://localhost:32400"
         val serverInfoResult = apiClient.getServerInfo(serverUrl)
 
-        // Comment this out or modify for actual integration testing
-        assertTrue("Server info request should be handled", serverInfoResult.isFailure)
+        // In stub mode, this should succeed with test data
+        assertTrue("Server info request should succeed in stub mode", serverInfoResult.isSuccess)
+        
+        val serverInfo = serverInfoResult.getOrNull()
+        assertNotNull("Server info should not be null", serverInfo)
+        assertNotNull("Server name should be present", serverInfo?.name)
     }
 
     companion object {

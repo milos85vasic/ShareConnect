@@ -34,6 +34,7 @@ import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -109,12 +110,12 @@ class PlexMediaRepositoryTest {
         every { mediaItemDao.getAllMediaItems() } returns flowOfItems
         
         // When
-        val result = repository.getAllMediaItems().toList()
+        val result = repository.getAllMediaItems().first()
         
         // Then
         assertEquals(2, result.size)
         assertTrue("Result should contain items", result.isNotEmpty())
-        val firstItem = result.first() as com.shareconnect.plexconnect.data.model.PlexMediaItem
+        val firstItem = result.first()
         assertEquals("Test Movie", firstItem.title)
     }
 
@@ -125,12 +126,12 @@ class PlexMediaRepositoryTest {
         every { mediaItemDao.getMediaItemsByType(MediaType.MOVIE.value) } returns flowOf(movieItems)
         
         // When
-        val result = repository.getMediaItemsByType(MediaType.MOVIE).toList()
+        val result = repository.getMediaItemsByType(MediaType.MOVIE).first()
         
         // Then
         assertEquals(1, result.size)
         assertTrue("Result should contain items", result.isNotEmpty())
-        val firstItem = result.first() as com.shareconnect.plexconnect.data.model.PlexMediaItem
+        val firstItem = result.first()
         assertEquals("Test Movie", firstItem.title)
     }
 
