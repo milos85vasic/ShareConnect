@@ -48,19 +48,19 @@ class PlexAiRecommendationServiceTest {
 
         // Collect the flow results
         enhancedItems.collect { items ->
-            assertEquals(2, items.size, "Should enhance all media items")
+            assertEquals("Should enhance all media items", 2, items.size)
             
             items.forEach { enhancedItem ->
-                assertNotNull(enhancedItem.originalItem, "Original item should not be null")
+                assertNotNull("Original item should not be null", enhancedItem.originalItem)
                 assertTrue(
-                    enhancedItem.semanticEmbedding.isNotEmpty(), 
-                    "Semantic embedding should not be empty"
+                    "Semantic embedding should not be empty",
+                    enhancedItem.semanticEmbedding.isNotEmpty()
                 )
                 assertTrue(
-                    enhancedItem.semanticEmbedding.size == 768, 
-                    "Embedding should have 768 dimensions"
+                    "Embedding should have 768 dimensions",
+                    enhancedItem.semanticEmbedding.size == 768
                 )
-                assertEquals("en", enhancedItem.semanticLanguage, "Default language should be English")
+                assertEquals("Default language should be English", "en", enhancedItem.semanticLanguage)
             }
         }
     }
@@ -91,7 +91,7 @@ class PlexAiRecommendationServiceTest {
         val similarItems = aiService.findSimilarMedia(targetItem, candidateItems, threshold = 0.5)
 
         // Validate similarity results
-        assertTrue(similarItems.isNotEmpty(), "Should find similar media items")
+        assertTrue("Should find similar media items", similarItems.isNotEmpty())
         
         // Check that sci-fi movies have higher similarity
         val scifiItems = similarItems.filter { 
@@ -100,19 +100,19 @@ class PlexAiRecommendationServiceTest {
         }
         
         assertTrue(
-            scifiItems.isNotEmpty(), 
-            "Should identify science fiction movies as similar to Interstellar"
+            "Should identify science fiction movies as similar to Interstellar",
+            scifiItems.isNotEmpty()
         )
         
         // Verify threshold filtering
         similarItems.forEach { result ->
             assertTrue(
-                result.similarity >= 0.5, 
-                "All results should meet similarity threshold"
+                "All results should meet similarity threshold",
+                result.similarity >= 0.5
             )
             assertTrue(
-                result.isAboveThreshold, 
-                "Threshold flag should be set correctly"
+                "Threshold flag should be set correctly",
+                result.isAboveThreshold
             )
         }
     }
@@ -135,18 +135,18 @@ class PlexAiRecommendationServiceTest {
         val crossLingualItems = aiService.getCrossLingualRecommendations(testMediaItems, "en")
 
         // Validate cross-lingual results
-        assertEquals(2, crossLingualItems.size, "Should process all items")
+        assertEquals("Should process all items", 2, crossLingualItems.size)
         
         crossLingualItems.forEach { enhancedItem ->
-            assertEquals("en", enhancedItem.semanticLanguage, "Target language should be English")
+            assertEquals("Target language should be English", "en", enhancedItem.semanticLanguage)
             assertEquals(
-                AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMED, 
-                enhancedItem.embeddingSource, 
-                "Source should be TRANSFORMED for cross-lingual embeddings"
+                "Source should be TRANSFORMED for cross-lingual embeddings",
+                AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMED,
+                enhancedItem.embeddingSource
             )
             assertTrue(
-                enhancedItem.semanticEmbedding.isNotEmpty(), 
-                "Cross-lingual embedding should not be empty"
+                "Cross-lingual embedding should not be empty",
+                enhancedItem.semanticEmbedding.isNotEmpty()
             )
         }
     }
@@ -162,16 +162,16 @@ class PlexAiRecommendationServiceTest {
 
         enhancedItems.collect { items ->
             items.forEach { enhancedItem ->
-                assertNotNull(enhancedItem.originalItem, "Original item should be preserved")
+                assertNotNull("Original item should be preserved", enhancedItem.originalItem)
                 
                 // Check error handling
                 if (enhancedItem.originalItem.title.isNullOrEmpty()) {
                     assertEquals(
-                        AdvancedSemanticEmbedding.EmbeddingSource.ERROR, 
-                        enhancedItem.embeddingSource, 
-                        "Invalid items should have ERROR source"
+                        "Invalid items should have ERROR source",
+                        AdvancedSemanticEmbedding.EmbeddingSource.ERROR,
+                        enhancedItem.embeddingSource
                     )
-                    assertNotNull(enhancedItem.analysisError, "Should have analysis error message")
+                    assertNotNull("Should have analysis error message", enhancedItem.analysisError)
                 }
             }
         }

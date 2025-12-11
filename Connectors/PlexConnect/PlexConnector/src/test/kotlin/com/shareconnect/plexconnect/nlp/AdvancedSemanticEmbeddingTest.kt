@@ -70,9 +70,9 @@ class AdvancedSemanticEmbeddingTest {
         val similarity = embeddingGenerator.calculateSemanticSimilarity(embedding1, embedding2)
         
         // Then
-        assertTrue(similarity >= 0.0, "Similarity should be non-negative")
-        assertTrue(similarity <= 1.0, "Similarity should be at most 1.0")
-        assertEquals(0.5, similarity, "Stub should return predictable similarity")
+        assertTrue("Similarity should be non-negative", similarity >= 0.0)
+        assertTrue("Similarity should be at most 1.0", similarity <= 1.0)
+        assertEquals("Stub should return predictable similarity", 0.5, similarity, 0.001)
     }
 
     @Test
@@ -87,9 +87,9 @@ class AdvancedSemanticEmbeddingTest {
         
         // Then
         assertNotNull(result)
-        assertEquals(768, result.vector.size, "Embedding should have standard size")
+        assertEquals("Embedding should have standard size", 768, result.vector.size)
         assertEquals(AdvancedSemanticEmbedding.EmbeddingSource.TRANSFORMED, result.source)
-        assertEquals(0.3f, result.confidence)
+        assertEquals(0.3f, result.confidence, 0.001f)
         assertEquals(sourceLang, result.metadata["source_lang"])
         assertEquals(targetLang, result.metadata["target_lang"])
     }
