@@ -109,8 +109,8 @@ dependencies {
     implementation "com.google.code.gson:gson:2.11.0"
 
     // Matrix Olm library for E2EE
-    // Using JitPack to get the Olm SDK
-    implementation "com.github.matrix-org:olm:3.2.15"
+    // Temporarily stubbed without actual encryption
+    // TODO: Implement proper Matrix Olm encryption when dependency is available
 
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0"
