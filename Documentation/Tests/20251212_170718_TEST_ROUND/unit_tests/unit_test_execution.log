@@ -1,0 +1,71 @@
+
+> Configure project :Asinka
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'Asinka/build.gradle.kts'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'Asinka/build.gradle.kts'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'Asinka/build.gradle.kts'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'Asinka/build.gradle.kts'
+Build was configured to prefer settings repositories over project repositories but repository 'Google' was added by build file 'Asinka/build.gradle.kts'
+Build was configured to prefer settings repositories over project repositories but repository 'MavenRepo' was added by build file 'Asinka/build.gradle.kts'
+
+> Configure project :Toolkit:Analytics
+Facebook :: The 'ANALYTICS_FACEBOOK_APP_ID' env. variable is available :: Hash = -839676062
+Facebook :: The 'FACEBOOK_CLIENT_TOKEN' env. variable is available :: Hash = 1673479682
+Facebook :: The 'FB_LOGIN_PROTOCOL_SCHEME' env. variable is available :: Hash = 1266217766
+
+> Configure project :Toolkit:JCommons
+Creating the JCommons JAR archive
+
+> Configure project :Toolkit:Main
+The 'toolkit_project_name' is: 'ShareConnect'
+
+> Task :Asinka:asinka:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :DesignSystem:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :LanguageSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Tests:preBuild UP-TO-DATE
+> Task :ProfileSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Localizations:preBuild UP-TO-DATE
+> Task :RSSSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :TorrentSharingSync:preBuild UP-TO-DATE
+> Task :Localizations:preDebugBuild UP-TO-DATE
+> Task :BookmarkSync:preBuild UP-TO-DATE
+> Task :RSSSync:preBuild UP-TO-DATE
+> Task :PreferencesSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ThemeSync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Dependencies:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :ShareConnector:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :HistorySync:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :Onboarding:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :BookmarkSync:preDebugBuild UP-TO-DATE
+> Task :ThemeSync:preBuild UP-TO-DATE
+> Task :Dependencies:preBuild UP-TO-DATE
+> Task :ThemeSync:preDebugBuild UP-TO-DATE
+> Task :Asinka:asinka:preBuild UP-TO-DATE
+> Task :ProfileSync:preBuild UP-TO-DATE
+> Task :Asinka:asinka:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preBuild UP-TO-DATE
+> Task :ProfileSync:preDebugBuild UP-TO-DATE
+> Task :DesignSystem:preDebugBuild UP-TO-DATE
+> Task :HistorySync:preBuild UP-TO-DATE
+> Task :LanguageSync:preBuild UP-TO-DATE
+> Task :Dependencies:preDebugBuild UP-TO-DATE
+> Task :HistorySync:preDebugBuild UP-TO-DATE
+> Task :LanguageSync:preDebugBuild UP-TO-DATE
+> Task :PreferencesSync:preBuild UP-TO-DATE
+> Task :Onboarding:preBuild UP-TO-DATE
+> Task :RSSSync:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:preBuild UP-TO-DATE
+> Task :PreferencesSync:preDebugBuild UP-TO-DATE
+> Task :Tests:preDebugBuild UP-TO-DATE
+> Task :TorrentSharingSync:preDebugBuild UP-TO-DATE
+> Task :Onboarding:preDebugBuild UP-TO-DATE
+> Task :ShareConnector:preDebugBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preBuild UP-TO-DATE
+> Task :Toolkit:Analytics:preDebugBuild UP-TO-DATE
+> Task :Localizations:generateDebugResValues FROM-CACHE
+> Task :Dependencies:generateDebugBuildConfig FROM-CACHE
+> Task :Asinka:asinka:generateDebugBuildConfig FROM-CACHE
+> Task :HistorySync:generateDebugBuildConfig FROM-CACHE
+> Task :TorrentSharingSync:writeDebugAarMetadata
+> Task :Toolkit:Main:preBuild UP-TO-DATE
+> Task :ProfileSync:generateDebugBuildConfig
