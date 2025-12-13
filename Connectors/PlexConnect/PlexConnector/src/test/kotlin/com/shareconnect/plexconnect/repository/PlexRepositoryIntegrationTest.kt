@@ -31,9 +31,9 @@ class PlexRepositoryIntegrationTest {
         val apiClient = com.shareconnect.plexconnect.data.api.PlexApiClient(isStubMode = true)
         repository = PlexRepositoryImpl(
             apiClient = apiClient,
-            serverDao = database.serverDao(),
-            libraryDao = database.libraryDao(),
-            mediaItemDao = database.mediaItemDao()
+            serverDao = database.plexServerDao(),
+            libraryDao = database.plexLibraryDao(),
+            mediaItemDao = database.plexMediaItemDao()
         )
     }
 
