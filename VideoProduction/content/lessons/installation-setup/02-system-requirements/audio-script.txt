@@ -1,0 +1,51 @@
+**NARRATOR**:
+"Before we install ShareConnect, let's make sure your system is properly configured. In this lesson, we'll cover the essential requirements for Android version, hardware specifications, network setup, and security considerations. Taking a few minutes to verify these requirements will ensure a smooth installation process."
+**NARRATOR**:
+"ShareConnect supports Android 6.0 Marshmallow and higher, but we recommend Android 8.0 Oreo or later for optimal performance. Here's why the Android version matters:"
+**NARRATOR**:
+"Android 6.0 introduced the runtime permission model that ShareConnect uses for security. Android 8.0 added background execution limits that improve battery life, and Android 10+ provides enhanced privacy controls that work perfectly with our security framework."
+**NARRATOR**:
+"To check your Android version, go to Settings > About Phone > Android Version. If you're running Android 8.0 or later, you're all set. If you're on Android 6.0 or 7.0, ShareConnect will still work, but you might experience some limitations with advanced features."
+**NARRATOR**:
+"Let's talk about hardware requirements. ShareConnect is designed to be efficient, but since you'll be managing multiple services, adequate hardware ensures smooth performance."
+**NARRATOR**:
+"For RAM, we recommend at least 2GB for basic usage, but 4GB or more is ideal if you'll be actively using multiple connectors simultaneously. The more RAM you have, the more smoothly ShareConnect can handle background sync operations and large file transfers."
+**NARRATOR**:
+"Storage requirements vary based on your usage patterns. The ShareConnect apps themselves only need about 200MB total, but you'll want additional space for cached data, downloaded files, and offline content. We recommend at least 1GB of free storage for optimal operation."
+**NARRATOR**:
+"Processor speed affects how smoothly the user interface responds and how quickly sync operations complete. Any modern ARM processor from the last 5 years should handle ShareConnect well, but newer processors will provide snappier performance, especially when switching between multiple connector apps."
+**NARRATOR**:
+"Network configuration is crucial for ShareConnect since it manages connections to your self-hosted services. Let's cover the essential network requirements."
+**NARRATOR**:
+"Wi-Fi is strongly recommended for most ShareConnect operations, especially when dealing with large files or multiple simultaneous connections. While mobile data works, it can be expensive and slower for intensive operations like media streaming or large downloads."
+**NARRATOR**:
+"For network speed, we recommend at least 10 Mbps download and 5 Mbps upload for basic usage. However, if you'll be streaming media through PlexConnect or downloading large files, 25 Mbps or higher will provide a much better experience. The faster your connection, the more responsive your apps will feel."
+**NARRATOR**:
+"Your router should support standard protocols without restrictive firewalls. Most modern routers work fine, but if you're in a corporate environment or using advanced security settings, you might need to configure port forwarding or adjust firewall rules for specific connectors."
+**NARRATOR**:
+"Security is fundamental to ShareConnect's design. Let's review the security requirements and best practices for protecting your data and connections."
+**NARRATOR**:
+"Always use HTTPS connections when possible. ShareConnect enforces encrypted connections by default, but your self-hosted services must also support SSL/TLS. If a service only supports HTTP, consider setting up a reverse proxy with SSL termination for security."
+**NARRATOR**:
+
+---
+
+# AUDIO RECORDING SPECIFICATIONS
+
+Word Count: 515 words
+Estimated Recording Time: 3 minutes
+Target Speaking Rate: 150-160 words per minute
+
+Recording Notes:
+- Maintain consistent energy level
+- Pause appropriately at punctuation
+- Emphasize key technical terms
+- Speak clearly for international audience
+
+Audio Processing Chain:
+1. High-pass filter (80Hz)
+2. Noise gate (-40dB threshold)
+3. Compressor (3:1 ratio)
+4. EQ enhancement
+5. Limiter (-3dB threshold)
+

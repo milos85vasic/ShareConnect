@@ -1,0 +1,36 @@
+{
+    "noise_reduction": {
+        "rnnoise": {
+            "enabled": true,
+            "model": "standard",
+            "suppress_level": -30,
+            "voice_detection": true
+        },
+        "spectral_subtraction": {
+            "enabled": false,
+            "reduction_amount": 12,
+            "smoothing": 0.8,
+            "noise_floor": -70
+        },
+        "adaptive_filtering": {
+            "enabled": true,
+            "learning_rate": 0.1,
+            "adaptation_time": 2000
+        }
+    },
+    "voice_enhancement": {
+        "equal_loudness": true,
+        "de-esser": {
+            "enabled": true,
+            "frequency": 4500,
+            "threshold": -18,
+            "ratio": 3.0
+        },
+        "presence_boost": {
+            "enabled": true,
+            "frequency": 3000,
+            "gain": 2,
+            "bandwidth": 2.0
+        }
+    }
+}

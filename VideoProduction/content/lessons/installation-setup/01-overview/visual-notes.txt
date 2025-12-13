@@ -1,0 +1,49 @@
+Dynamic opening animation with ShareConnect logo, modern Android app interface showcasing multiple connectors
+Split screen showing before/after - complex manual processes vs. simple ShareConnect interface
+Animated diagram showing ShareConnect hub connecting to various services
+Interactive grid showcasing all 20 connector apps with smooth animations
+Category breakdown with animated icons
+Cloud services category with Nextcloud, Plex, Jellyfin animations
+Development and specialized services category
+Scenario-based storytelling with real user examples
+Screen recording showing Sarah's workflow
+David's development workflow demonstration
+Feature highlight montage with smooth transitions
+Asinka sync demonstration showing real-time data synchronization
+Security features demonstration
+User persona cards with specific benefits
+
+---
+
+# VISUAL PRODUCTION NOTES
+
+## Screen Recording Setup:
+- Resolution: 1920x1080
+- Frame Rate: 30fps
+- Cursor: Highlighted and smoothed
+- Transitions: Professional fade effects
+
+## Animation Requirements:
+- Smooth CSS animations
+- Consistent timing (0.3s-0.5s)
+- Professional easing functions
+- Brand-consistent colors
+
+## Screenshot Guidelines:
+- Clean, uncluttered interfaces
+- Highlighted important elements
+- Consistent window sizes
+- Professional cropping
+
+## Text Overlay Specifications:
+- Font: Sans-serif, readable size
+- Color: High contrast with background
+- Position: Safe title area
+- Duration: Allow reading time
+
+## Brand Consistency:
+- ShareConnect color scheme
+- Professional typography
+- Consistent iconography
+- Unified visual style
+

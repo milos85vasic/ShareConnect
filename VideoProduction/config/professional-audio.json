@@ -1,0 +1,83 @@
+{
+    "recording_settings": {
+        "sample_rate": 48000,
+        "bit_depth": 24,
+        "channels": 2,
+        "format": "wav",
+        "compression": "none"
+    },
+    "microphone_settings": {
+        "device_priority": [
+            "USB Audio Device",
+            "Rode NT-USB",
+            "Blue Yeti",
+            "Audio-Technica ATR2100",
+            "default"
+        ],
+        "gain_structure": {
+            "input_gain": 60,
+            "digital_gain": 0,
+            "headroom": -12
+        },
+        "processing_chain": [
+            {
+                "name": "High-pass Filter",
+                "type": "highpass",
+                "frequency": 80,
+                "enabled": true
+            },
+            {
+                "name": "Noise Gate",
+                "type": "gate",
+                "threshold": -40,
+                "ratio": 10,
+                "attack": 5,
+                "hold": 100,
+                "release": 150,
+                "enabled": true
+            },
+            {
+                "name": "Compressor",
+                "type": "compressor",
+                "threshold": -18,
+                "ratio": 3,
+                "attack": 10,
+                "release": 100,
+                "knee": 3,
+                "makeup_gain": 3,
+                "enabled": true
+            },
+            {
+                "name": "EQ",
+                "type": "eq",
+                "bands": [
+                    {"frequency": 100, "gain": -2, "q": 0.7, "type": "lowshelf"},
+                    {"frequency": 250, "gain": -1, "q": 0.7, "type": "peaking"},
+                    {"frequency": 2500, "gain": 1, "q": 0.7, "type": "peaking"},
+                    {"frequency": 5000, "gain": 0.5, "q": 0.7, "type": "peaking"},
+                    {"frequency": 10000, "gain": -1, "q": 0.7, "type": "highshelf"}
+                ],
+                "enabled": true
+            },
+            {
+                "name": "Limiter",
+                "type": "limiter",
+                "threshold": -3,
+                "release": 50,
+                "enabled": true
+            }
+        ]
+    },
+    "environment_settings": {
+        "room_treatment": {
+            "reflection_control": true,
+            "background_noise": "< -40dB",
+            "reverb_time": "< 0.3s"
+        },
+        "monitoring": {
+            "headphones_recommended": true,
+            "speaker_distance": "1-2 meters",
+            "calibration_required": true
+        }
+    }
+}

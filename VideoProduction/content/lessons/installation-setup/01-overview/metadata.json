@@ -1,0 +1,16 @@
+{
+    "course": "installation-setup",
+    "lesson": "01-overview",
+    "created_date": "2025-12-13T11:54:00+03:00",
+    "duration_estimate": "8 minutes",
+    "word_count": 1244,
+    "difficulty": "beginner",
+    "tags": ["shareconnect", "tutorial", "installation"],
+    "status": "script_ready",
+    "dependencies": [],
+    "assets_required": [
+        "app screenshots",
+        "logo animations",
+        "workflow diagrams"
+    ]
+}

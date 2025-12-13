@@ -1,0 +1,83 @@
+{
+    "name": "ShareConnect - app-demo",
+    "scenes": [
+        {
+            "name": "Intro",
+            "sources": [
+                {
+                    "name": "Intro Video",
+                    "type": "ffmpeg_source",
+                    "settings": {
+                        "local_file": "/home/milosvasic/Projects/ShareConnect/VideoProduction/assets/intro-music.mp4",
+                        "looping": false,
+                        "restart_on_activate": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Main Presentation",
+            "sources": [
+                {
+                    "name": "Screen Capture",
+                    "type": "monitor_capture",
+                    "settings": {
+                        "monitor": 0,
+                        "capture_cursor": true
+                    }
+                },
+                {
+                    "name": "Webcam",
+                    "type": "v4l2_source",
+                    "settings": {
+                        "device": "/dev/video0",
+                        "resolution": "1920x1080",
+                        "fps": 30
+                    }
+                },
+                {
+                    "name": "Lower Third",
+                    "type": "browser_source",
+                    "settings": {
+                        "url": "file:///home/milosvasic/Projects/ShareConnect/VideoProduction/assets/lower-third.html",
+                        "width": 1920,
+                        "height": 108,
+                        "fps": 30
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Outro",
+            "sources": [
+                {
+                    "name": "Outro Video",
+                    "type": "ffmpeg_source",
+                    "settings": {
+                        "local_file": "/home/milosvasic/Projects/ShareConnect/VideoProduction/assets/outro-music.mp4",
+                        "looping": false,
+                        "restart_on_activate": true
+                    }
+                }
+            ]
+        }
+    ],
+    "video_settings": {
+        "base_resolution": "1920x1080",
+        "output_resolution": "1920x1080",
+        "fps": 30,
+        "format": "mp4",
+        "encoder": "x264",
+        "bitrate": 8000,
+        "keyframe_interval": 2,
+        "preset": "veryfast",
+        "profile": "high",
+        "level": "4.2"
+    },
+    "audio_settings": {
+        "sample_rate": 48000,
+        "channels": 2,
+        "bitrate": 320,
+        "encoder": "aac"
+    }
+}

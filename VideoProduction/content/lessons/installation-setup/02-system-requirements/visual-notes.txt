@@ -1,0 +1,50 @@
+Clean, professional opening with system requirements checklist
+Android version compatibility matrix with visual indicators
+Feature comparison table showing Android 6.0 vs 8.0+ features
+Screen recording showing how to check Android version
+Hardware specification breakdown with visual icons
+RAM requirements visualization
+Storage space breakdown
+Processor performance impact demonstration
+Network topology diagram showing typical home setup
+Wi-Fi vs mobile data comparison
+Network speed requirements chart
+Router configuration examples
+Security layers visualization showing multiple protection levels
+HTTPS vs HTTP comparison
+Authentication methods showcase
+
+---
+
+# VISUAL PRODUCTION NOTES
+
+## Screen Recording Setup:
+- Resolution: 1920x1080
+- Frame Rate: 30fps
+- Cursor: Highlighted and smoothed
+- Transitions: Professional fade effects
+
+## Animation Requirements:
+- Smooth CSS animations
+- Consistent timing (0.3s-0.5s)
+- Professional easing functions
+- Brand-consistent colors
+
+## Screenshot Guidelines:
+- Clean, uncluttered interfaces
+- Highlighted important elements
+- Consistent window sizes
+- Professional cropping
+
+## Text Overlay Specifications:
+- Font: Sans-serif, readable size
+- Color: High contrast with background
+- Position: Safe title area
+- Duration: Allow reading time
+
+## Brand Consistency:
+- ShareConnect color scheme
+- Professional typography
+- Consistent iconography
+- Unified visual style
+

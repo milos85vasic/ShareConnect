@@ -1,0 +1,36 @@
+{
+    "sample_rate": 48000,
+    "channels": 2,
+    "audio_devices": {
+        "microphone": {
+            "device": "default",
+            "volume": 80,
+            "noise_suppression": true,
+            "gain": 10
+        },
+        "desktop": {
+            "device": "default",
+            "volume": 50,
+            "monitoring": true
+        }
+    },
+    "filters": {
+        "noise_suppression": {
+            "enabled": true,
+            "method": "rnnoise",
+            "suppress_level": -30
+        },
+        "compressor": {
+            "enabled": true,
+            "ratio": 3.0,
+            "threshold": -18.0,
+            "attack": 10.0,
+            "release": 100.0
+        },
+        "limiter": {
+            "enabled": true,
+            "threshold": -6.0,
+            "release": 50.0
+        }
+    }
+}
