@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareConnect - Seamless Media Sharing Across All Your Services</title>
+    <meta name="description" content="ShareConnect revolutionizes media sharing with intelligent connectors for torrent clients, media servers, cloud storage, and download managers. One tap sharing made simple.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                     <div class="logo-icon">
+                         <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                     </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#connectors" class="nav-link">Connectors</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="nav-menu mobile">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#connectors" class="nav-link">Connectors</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">One-Tap Media Sharing</span>
+                </div>
+                <h1 class="hero-title">
+                    Share Media Instantly
+                    <span class="gradient-text">Across All Your Services</span>
+                </h1>
+                 <p class="hero-subtitle">
+                     ShareConnect makes media sharing effortless. Share any link from any app directly to your favorite services - torrent clients, media servers, download managers, and cloud storage. One tap is all it takes to send content where you want it.
+                 </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>One-Tap Sharing</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure & Private</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-plug"></i>
+                        <span>20+ Connectors</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#connectors" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Discover Connectors
+                    </a>
+                    <a href="products.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-play-circle"></i>
+                        See How It Works
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Connectors</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">1800+</div>
+                        <div class="stat-label">Sites Supported</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free & Open Source</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-illustration">
+                    <img src="assets/hero-illustration.svg" alt="ShareConnect Hero Illustration" class="hero-image">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-magnet"></i>
+                        <span>Torrents</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-tv"></i>
+                        <span>Media Servers</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Storage</span>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-download"></i>
+                        <span>Download Managers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Users Love ShareConnect</h2>
+                <p>Simple, powerful media sharing that just works</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <h3>Professional Torrent Management</h3>
+                    <p>Send torrent links directly to qBittorrent, Transmission, or uTorrent. Start downloads instantly without switching apps or copying URLs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Instant Media Streaming</h3>
+                    <p>Add content to your Plex, Jellyfin, or Emby libraries with one tap. Build your media collection effortlessly from any streaming service.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Smart Download Management</h3>
+                    <p>Download from 1800+ sites with JDownloader and YT-DLP. Premium account support, batch downloads, and automatic file organization.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Secure Cloud Storage</h3>
+                    <p>Save files directly to Nextcloud, Seafile, or FileBrowser. Encrypted storage, automatic sync, and access from anywhere.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Specialized Tools</h3>
+                    <p>Connect to Syncthing for file sync, Matrix for messaging, Paperless for documents, and WireGuard for VPN management.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Content Detection</h3>
+                    <p>Automatically detects content type and suggests the best service. YouTube videos go to downloaders, torrents to clients, streaming links to media servers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connectors Overview -->
+    <section id="connectors" class="connectors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connect to Your Favorite Services</h2>
+                <p>ShareConnect works with the tools you already use</p>
+            </div>
+
+            <div class="connectors-grid">
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon torrent">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <h3>Torrent Clients</h3>
+                    </div>
+                    <p>Start downloads instantly with your favorite torrent client</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">qBittorrent</span>
+                        <span class="connector-tag">Transmission</span>
+                        <span class="connector-tag">uTorrent</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon media">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>Media Servers</h3>
+                    </div>
+                    <p>Add content to your streaming library with one tap</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Plex</span>
+                        <span class="connector-tag">Jellyfin</span>
+                        <span class="connector-tag">Emby</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon download">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Download Managers</h3>
+                    </div>
+                    <p>Download from 1800+ sites automatically</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">JDownloader</span>
+                        <span class="connector-tag">YT-DLP</span>
+                        <span class="connector-tag">MeTube</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon cloud">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Storage</h3>
+                    </div>
+                    <p>Save files directly to your cloud storage</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Nextcloud</span>
+                        <span class="connector-tag">Seafile</span>
+                        <span class="connector-tag">FileBrowser</span>
+                    </div>
+                </div>
+
+                <div class="connector-category">
+                    <div class="category-header">
+                        <div class="category-icon specialized">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Specialized Tools</h3>
+                    </div>
+                    <p>Connect to messaging, sync, and other tools</p>
+                    <div class="connector-list">
+                        <span class="connector-tag">Syncthing</span>
+                        <span class="connector-tag">Matrix</span>
+                        <span class="connector-tag">Paperless NG</span>
+                        <span class="connector-tag">And 7 more...</span>
+                    </div>
+                </div>
+
+                <div class="connector-category featured">
+                    <div class="category-visual">
+                        <!-- Mascot illustration would go here -->
+                        <div class="mascot-placeholder">
+                            <i class="fas fa-robot"></i>
+                            <p>ShareBot Mascot</p>
+                        </div>
+                    </div>
+                    <div class="category-content">
+                        <h3>Meet ShareBot</h3>
+                        <p>Your friendly connector companion. ShareBot intelligently routes your media to the perfect service every time.</p>
+                        <a href="products.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connectors-cta">
+                <a href="products.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-arrow-right"></i>
+                    Explore All Connectors
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How ShareConnect Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How ShareConnect Works</h2>
+                <p>Simple three-step process to share any media instantly</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose Your Service</h3>
+                        <p>Pick from 20+ services you already use - torrent clients, media servers, download managers, and cloud storage.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Connect Once</h3>
+                        <p>Enter your service details once. ShareConnect securely saves your settings for instant access anytime.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Share Instantly</h3>
+                        <p>Tap "Share" from any app and choose ShareConnect. Your content goes directly to the right service automatically.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workflow-showcase">
+                <div class="workflow-item">
+                    <div class="workflow-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="workflow-connector">
+                        <i class="fas fa-download"></i>
+                        <span>JDownloader</span>
+                    </div>
+                </div>
+
+                <div class="workflow-item">
+                    <div class="workflow-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="workflow-connector">
+                        <i class="fas fa-magnet"></i>
+                        <span>qBittorrent</span>
+                    </div>
+                </div>
+
+                <div class="workflow-item">
+                    <div class="workflow-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="workflow-connector">
+                        <i class="fas fa-tv"></i>
+                        <span>Plex</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials/Reviews Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Loved by Users Worldwide</h2>
+                <p>See what people are saying about ShareConnect</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "ShareConnect changed how I manage my media library. No more switching between apps - everything just works!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-title">Media Enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The connector system is brilliant. I can share to Plex, download with qBittorrent, or save to Nextcloud instantly."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Mike Rodriguez</div>
+                            <div class="author-title">Tech Professional</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Finally, a media sharing app that understands what I want to do with my content. Smart and simple!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Emma Thompson</div>
+                            <div class="author-title">Content Creator</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>See ShareConnect in Action</h2>
+                <p>Real screenshots showing how easy it is to share media across all your services</p>
+            </div>
+            
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-share-alt"></i>
+                        <p>Share Menu</p>
+                    </div>
+                    <div class="screenshot-info">
+                        <h3>Share from Any App</h3>
+                        <p>Tap "Share" from YouTube, browser, or any app and select ShareConnect</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-rocket"></i>
+                        <p>Service Selection</p>
+                    </div>
+                    <div class="screenshot-info">
+                        <h3>Choose Your Service</h3>
+                        <p>Select from 20+ services like qBittorrent, Plex, JDownloader</p>
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-check-double"></i>
+                        <p>Success Screen</p>
+                    </div>
+                    <div class="screenshot-info">
+                        <h3>Content Sent Successfully</h3>
+                        <p>Get instant confirmation when your content reaches the service</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screenshots-cta">
+                <a href="products.html" class="btn btn-outline">
+                    <i class="fas fa-images"></i>
+                    View All Features
+                </a>
+            </div>
+            
+            <!-- Video Demo Section -->
+            <div class="video-demo">
+                <div class="video-placeholder">
+                    <div class="video-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>See ShareConnect in Action</h3>
+                    <p>Watch how easy it is to share media across all your services</p>
+                    <div class="video-features">
+                        <div class="video-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>One-Tap Sharing</span>
+                        </div>
+                        <div class="video-feature">
+                            <i class="fas fa-magic"></i>
+                            <span>Smart Detection</span>
+                        </div>
+                        <div class="video-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Instant Results</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-large">
+                        <i class="fas fa-video"></i>
+                        Watch Demo Video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Simplify Your Media Sharing?</h2>
+                <p>Join thousands of users who save time with ShareConnect's one-tap sharing.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/yourusername/ShareConnect" class="btn btn-primary btn-large">
+                        <i class="fab fa-github"></i>
+                        Get Started on GitHub
+                    </a>
+                    <a href="manuals.html" class="btn btn-outline btn-large">
+                        <i class="fas fa-book"></i>
+                        Read the Manuals
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                         <div class="logo-icon">
+                             <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                         </div>
+                        <span>ShareConnect</span>
+                    </div>
+                    <p>Revolutionizing media sharing with intelligent connectors for all your favorite services.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#connectors">Connectors</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="manuals.html">User Manuals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Bug Reports</a></li>
+                        <li><a href="#">Feature Requests</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShareConnect. Made with <i class="fas fa-heart"></i> for media enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Modal/Dialog System -->
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="modal-close" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                Modal content goes here.
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -68,7 +68,6 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">                    <span class="badge-text">Professional Video Courses Available</span>                </div>
                 <h1 class="hero-title">
                     User Manuals &
                     <span class="gradient-text">Complete Guides</span>
@@ -155,7 +154,7 @@ adb install ShareConnector-debug.apk</code></pre>
 
                 <div class="manual-step">
                     <div class="step-header">
-                        <div class="step-number">20+</div>
+                        <div class="step-number">4</div>
                         <h3>Share Your First Media Link</h3>
                     </div>
                     <div class="step-content">

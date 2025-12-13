@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareConnect Video Courses - Professional Training</title>
+    <meta name="description" content="Master ShareConnect with comprehensive video courses. Professional training for 20+ connectors, installation guides, and advanced features.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-enhanced-additions.css">
+    
+    <style>
+        .courses-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .course-player {
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 32px 0;
+        }
+        
+        .course-progress {
+            background: #f3f4f6;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            transition: width 0.3s ease;
+        }
+        
+        .lesson-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding: 24px;
+            background: #f9fafb;
+            border-radius: 12px;
+        }
+        
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        .nav-button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .transcript-section {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+        
+        .transcript-text {
+            font-family: 'Inter', monospace;
+            line-height: 1.6;
+            color: #374151;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3b82f6;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .lesson-navigation {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .course-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                     <div class="logo-icon">
+                         <img src="assets/logo_transparent.png" alt="ShareConnect Logo" class="logo-image">
+                     </div>
+                    <span>ShareConnect</span>
+                </a>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="courses.html" class="nav-link active">Courses</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="manuals.html" class="nav-link">Manuals</a>
+                    <a href="https://github.com/yourusername/ShareConnect" class="nav-link github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="courses-hero">
+        <div class="container">
+            <h1>Master ShareConnect with Professional Video Courses</h1>
+            <p>Comprehensive training for 20+ professional connectors, installation guides, and advanced features</p>
+            
+            <div class="course-stats">
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <div class="stat-label">Complete Courses</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">18</span>
+                    <div class="stat-label">Total Minutes</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">20+</span>
+                    <div class="stat-label">Connectors Covered</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">Free Access</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Player -->
+    <section class="course-player-section">
+        <div class="container">
+            <div class="course-player">
+                <video
+                    id="course-video"
+                    class="video-js vjs-default-skin vjs-big-play-centered"
+                    controls
+                    preload="auto"
+                    width="100%"
+                    height="auto"
+                    poster="assets/courses/course-poster.jpg"
+                    data-setup='{}'>
+                    <source src="assets/courses/installation-setup-overview.mp4" type="video/mp4">
+                    <track kind="captions" src="assets/courses/installation-setup-captions.vtt" srclang="en" label="English" default>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="course-progress">
+                <div class="progress-bar" id="course-progress-bar" style="width: 0%"></div>
+            </div>
+            
+            <div class="course-info">
+                <h2 id="course-title">Installation & Setup Course</h2>
+                <p id="course-description">Complete guide to installing ShareConnect and setting up your first connectors. Perfect for beginners and professionals alike.</p>
+                
+                <div class="course-lessons" id="course-lessons">
+                    <h3>Course Content</h3>
+                    <div class="lesson-list">
+                        <div class="lesson-item active" data-lesson="1" data-time="0:00">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Lesson 1: ShareConnect Overview (10 min)</span>
+                            <span class="lesson-duration">10:00</span>
+                        </div>
+                        <div class="lesson-item" data-lesson="2" data-time="10:00">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Lesson 2: System Requirements (8 min)</span>
+                            <span class="lesson-duration">8:00</span>
+                        </div>
+                        <div class="lesson-item" data-lesson="3" data-time="18:00">
+                            <i class="fas fa-lock"></i>
+                            <span>Lesson 3: Advanced Configuration (Coming Soon)</span>
+                            <span class="lesson-duration">12:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lesson-navigation">
+                <button class="nav-button" id="prev-lesson" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Previous Lesson
+                </button>
+                
+                <div class="lesson-info">
+                    <span id="current-lesson">Lesson 1 of 3</span>
+                    <span id="lesson-progress">0% Complete</span>
+                </div>
+                
+                <button class="nav-button" id="next-lesson">
+                    Next Lesson
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transcript Section -->
+    <section class="transcript-section">
+        <div class="container">
+            <h3>Video Transcript</h3>
+            <div class="transcript-text" id="course-transcript">
+                <p><strong>Welcome to the ShareConnect Installation and Setup course.</strong></p>
+                <p>I'm excited to guide you through one of the most powerful media sharing ecosystems available today. ShareConnect consists of 20 specialized Android applications, each designed to connect with specific types of services.</p>
+                <p>In this comprehensive course, you'll learn how to install, configure, and master all 20+ connectors, from torrent clients like qBittorrent and Transmission to media servers like Plex and Jellyfin.</p>
+                <p>By the end of this course, you'll be able to share media seamlessly across your entire self-hosted ecosystem with just one tap.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Learning</h4>
+                    <ul>
+                        <li><a href="courses.html">Video Courses</a></li>
+                        <li><a href="manuals.html">User Manuals</a></li>
+                        <li><a href="docs/api.html">API Documentation</a></li>
+                        <li><a href="docs/troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html#shareconnector">ShareConnector</a></li>
+                        <li><a href="products.html#qbitconnect">qBitConnect</a></li>
+                        <li><a href="products.html#plexconnect">PlexConnect</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="https://github.com/yourusername/ShareConnect">GitHub</a></li>
+                        <li><a href="https://discord.gg/shareconnect">Discord</a></li>
+                        <li><a href="https://reddit.com/r/ShareConnect">Reddit</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-brand">
+                    <img src="assets/logo_transparent.png" alt="ShareConnect" class="footer-logo">
+                    <span>ShareConnect</span>
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2025 ShareConnect. All rights reserved.</p>
+                    <p>Professional media sharing platform with 20+ connectors</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+    <script src="js/course-player.js"></script>
+    <script src="js/main-enhanced.js"></script>
+    
+    <script>
+        // Initialize course player
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCoursePlayer();
+        });
+        
+        function initializeCoursePlayer() {
+            const player = videojs('course-video', {
+                controls: true,
+                autoplay: false,
+                preload: 'auto',
+                fluid: true,
+                playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 2],
+                plugins: {
+                    hotkeys: {
+                        enableVolumeScroll: false
+                    }
+                }
+            });
+            
+            // Track progress
+            player.on('timeupdate', function() {
+                const progress = (player.currentTime() / player.duration()) * 100;
+                document.getElementById('course-progress-bar').style.width = progress + '%';
+                
+                // Save progress to localStorage
+                localStorage.setItem('course-progress', progress);
+            });
+            
+            // Restore previous progress
+            const savedProgress = localStorage.getItem('course-progress');
+            if (savedProgress) {
+                const duration = player.duration();
+                if (duration > 0) {
+                    player.currentTime((savedProgress / 100) * duration);
+                }
+            }
+            
+            // Lesson navigation
+            const lessons = document.querySelectorAll('.lesson-item');
+            const prevButton = document.getElementById('prev-lesson');
+            const nextButton = document.getElementById('next-lesson');
+            let currentLesson = 1;
+            
+            function updateLesson(lessonNumber) {
+                lessons.forEach((lesson, index) => {
+                    lesson.classList.toggle('active', index + 1 === lessonNumber);
+                });
+                
+                currentLesson = lessonNumber;
+                
+                // Update button states
+                prevButton.disabled = currentLesson === 1;
+                nextButton.disabled = currentLesson === lessons.length;
+                
+                // Update lesson info
+                document.getElementById('current-lesson').textContent = `Lesson ${currentLesson} of ${lessons.length}`;
+                
+                // Update video source based on lesson
+                const lessonData = lessons[lessonNumber - 1].dataset;
+                if (lessonData.time) {
+                    player.currentTime(parseTime(lessonData.time));
+                }
+            }
+            
+            // Event listeners
+            prevButton.addEventListener('click', () => {
+                if (currentLesson > 1) {
+                    updateLesson(currentLesson - 1);
+                }
+            });
+            
+            nextButton.addEventListener('click', () => {
+                if (currentLesson < lessons.length) {
+                    updateLesson(currentLesson + 1);
+                }
+            });
+            
+            lessons.forEach((lesson, index) => {
+                lesson.addEventListener('click', () => {
+                    updateLesson(index + 1);
+                });
+            });
+            
+            // Initialize
+            updateLesson(1);
+        }
+        
+        function parseTime(timeString) {
+            const parts = timeString.split(':');
+            return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+        }
+    </script>
+</body>
+</html>
