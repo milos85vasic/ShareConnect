@@ -27,8 +27,14 @@ class PlexRepositoryIntegrationTest {
             context, com.shareconnect.plexconnect.data.database.PlexDatabase::class.java
         ).build()
 
-        // Create repository (currently stubbed)
-        repository = PlexRepositoryImpl()
+        // Create repository with stub API client
+        val apiClient = com.shareconnect.plexconnect.data.api.PlexApiClient(isStubMode = true)
+        repository = PlexRepositoryImpl(
+            apiClient = apiClient,
+            serverDao = database.serverDao(),
+            libraryDao = database.libraryDao(),
+            mediaItemDao = database.mediaItemDao()
+        )
     }
 
     @After

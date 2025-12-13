@@ -1,0 +1,150 @@
+pluginManagement {
+
+    plugins {
+        id 'com.android.application' version '8.9.1'
+        id 'org.jetbrains.kotlin.android' version '2.0.0'
+        id 'org.jetbrains.kotlin.jvm' version '2.0.0'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '2.0.0'
+        id 'org.jetbrains.kotlin.plugin.compose' version '2.0.0'
+        id 'com.google.devtools.ksp' version '2.0.0-1.0.21'
+        id 'com.google.gms.google-services' version '4.4.3'
+        id 'com.google.firebase.crashlytics' version '3.0.6'
+        id 'com.google.firebase.appdistribution' version '5.1.1'
+    }
+
+    repositories {
+
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
+    }
+}
+
+dependencyResolutionManagement {
+
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+
+    repositories {
+
+        mavenLocal()
+        mavenCentral()
+        google()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
+        flatDir {
+            dirs 'Toolkit/JCommons/jar'
+        }
+    }
+}
+
+rootProject.name = "ShareConnect"
+
+include ':Toolkit:Main'
+include ':Tests'
+include ':Toolkit:JCommons'
+include ':Toolkit:Analytics'
+include ':Toolkit:Access'
+include ':Toolkit:SecurityAccess'
+include ':Toolkit:QRScanner'
+include ':Toolkit:CircleImageView'
+include ':Toolkit:WebSocket'
+include ':Toolkit:Search'
+include ':Toolkit:ConnectionIndicator'
+include ':Toolkit:FastscrollerAlphabet'
+include ':Toolkit:Interprocess'
+include ':Toolkit:Media'
+include ':Toolkit:RootShell'
+include ':Toolkit:RootTools'
+include ':Toolkit:Applications:DataManagerDemo'
+include ':Toolkit:Applications:Echo'
+
+include ':shared'
+project(':shared').projectDir = new File(settingsDir, 'Connectors/qBitConnect/shared')
+
+include ':preferences'
+project(':preferences').projectDir = new File(settingsDir, 'Connectors/qBitConnect/preferences')
+
+include ':qBitConnector'
+project(':qBitConnector').projectDir = new File(settingsDir, 'Connectors/qBitConnect/qBitConnector')
+
+include ':mockserver'
+project(':mockserver').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/mockserver')
+
+include ':TransmissionConnector'
+project(':TransmissionConnector').projectDir = new File(settingsDir, 'Connectors/TransmissionConnect/TransmissionConnector')
+
+include ':uTorrentConnector'
+project(':uTorrentConnector').projectDir = new File(settingsDir, 'Connectors/uTorrentConnect/uTorrentConnector')
+
+include ':JDownloaderConnector'
+project(':JDownloaderConnector').projectDir = new File(settingsDir, 'Connectors/JDownloaderConnect/JDownloaderConnector')
+
+include ':PlexConnector'
+project(':PlexConnector').projectDir = new File(settingsDir, 'Connectors/PlexConnect/PlexConnector')
+
+include ':NextcloudConnector'
+project(':NextcloudConnector').projectDir = new File(settingsDir, 'Connectors/NextcloudConnect/NextcloudConnector')
+
+include ':MotrixConnector'
+project(':MotrixConnector').projectDir = new File(settingsDir, 'Connectors/MotrixConnect/MotrixConnector')
+
+include ':GiteaConnector'
+project(':GiteaConnector').projectDir = new File(settingsDir, 'Connectors/GiteaConnect/GiteaConnector')
+
+// Phase 2: JellyfinConnect - Media Server Integration
+include ':JellyfinConnector'
+project(':JellyfinConnector').projectDir = new File(settingsDir, 'Connectors/JellyfinConnect/JellyfinConnector')
+
+include ':PortainerConnector'
+project(':PortainerConnector').projectDir = new File(settingsDir, 'Connectors/PortainerConnect/PortainerConnector')
+
+include ':NetdataConnector'
+project(':NetdataConnector').projectDir = new File(settingsDir, 'Connectors/NetdataConnect/NetdataConnector')
+
+include ':HomeAssistantConnector'
+project(':HomeAssistantConnector').projectDir = new File(settingsDir, 'Connectors/HomeAssistantConnect/HomeAssistantConnector')
+
+include ':SeafileConnector'
+project(':SeafileConnector').projectDir = new File(settingsDir, 'Connectors/SeafileConnect/SeafileConnector')
+
+include ':SyncthingConnector'
+project(':SyncthingConnector').projectDir = new File(settingsDir, 'Connectors/SyncthingConnect/SyncthingConnector')
+
+//include ':MatrixConnector'
+//project(':MatrixConnector').projectDir = new File(settingsDir, 'Connectors/MatrixConnect/MatrixConnector')
+
+include ':PaperlessNGConnector'
+project(':PaperlessNGConnector').projectDir = new File(settingsDir, 'Connectors/PaperlessNGConnect/PaperlessNGConnector')
+
+include ':DuplicatiConnector'
+project(':DuplicatiConnector').projectDir = new File(settingsDir, 'Connectors/DuplicatiConnect/DuplicatiConnector')
+
+include ':WireGuardConnector'
+project(':WireGuardConnector').projectDir = new File(settingsDir, 'Connectors/WireGuardConnect/WireGuardConnector')
+
+include ':MinecraftServerConnector'
+project(':MinecraftServerConnector').projectDir = new File(settingsDir, 'Connectors/MinecraftServerConnect/MinecraftServerConnector')
+
+include ':OnlyOfficeConnector'
+project(':OnlyOfficeConnector').projectDir = new File(settingsDir, 'Connectors/OnlyOfficeConnect/OnlyOfficeConnector')
+
+include ':Asinka:asinka'
+include ':Asinka:demo-app'
+
+include ':ThemeSync'
+include ':ProfileSync'
+include ':HistorySync'
+include ':RSSSync'
+include ':BookmarkSync'
+include ':PreferencesSync'
+include ':LanguageSync'
+include ':TorrentSharingSync'
+include ':Localizations'
+
+include ':DesignSystem'
+include ':Onboarding'
+include ':ShareConnector'
+include ':qa-ai'
+include ':Dependencies'

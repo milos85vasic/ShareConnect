@@ -387,6 +387,24 @@ data class SendEncryptedMessageRequest(
 )
 
 /**
+ * Encrypted message data structure
+ */
+data class EncryptedMessage(
+    @SerializedName("type")
+    val type: String = "m.room.encrypted",
+    @SerializedName("room_id")
+    val roomId: String,
+    @SerializedName("session_id")
+    val sessionId: String,
+    @SerializedName("ciphertext")
+    val ciphertext: String,
+    @SerializedName("sender_key")
+    val senderKey: String,
+    @SerializedName("device_id")
+    val deviceId: String
+)
+
+/**
  * Room invite request
  */
 data class InviteUserRequest(
